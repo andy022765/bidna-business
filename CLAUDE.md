@@ -644,6 +644,7 @@ CDP (headless Chrome зажимает окно до 500px и врёт). Нашл
 **Хвосты:** почта на домене (Google Workspace);
 **Calendly переподключён (08.09):** аккаунт на `bizzinteldna@gmail.com`, живая ссылка —
 `calendly.com/bizzinteldna/1hr` («Стратегическая сессия», 1 ч, созвон в Zoom).
+**УСТАРЕЛО 01.10 (Андрей, скрин Calendly): живая встреча — `calendly.com/businessinteldna-support/30min`, «30 Minute Meeting», 30 мин, Zoom, Notetaker On; аккаунт support@. Адрес `/1hr` в коде заменён 01.10 (ветка claude/p1-…), в бой — окном 2.**
 Старый `calendly.com/andywar777` отдаёт **404 целиком** — и `/30min`, и `/1hr`; в проекте
 осталось 33 вхождения `/30min` (почти все в `archive/`, два в `intake/`) — они мёртвые.
 `www` без сертификата (клик в Netlify).

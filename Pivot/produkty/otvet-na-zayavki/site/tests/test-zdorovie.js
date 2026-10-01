@@ -21,7 +21,7 @@ test('с секретом — паспорт цел, хранилище по т�
   assert.deepEqual(d.kartochka.problemy, []);
   assert.equal(d.hranilishche, 'api');
   assert.equal(d.hranilishche_zapis, true);
-  assert.deepEqual(d.zapis, { ok: true, ssylka: 'https://calendly.com/bizzinteldna/1hr', kod: 200 });
+  assert.deepEqual(d.zapis, { ok: true, ssylka: 'https://calendly.com/businessinteldna-support/30min', kod: 200 });
   assert.equal(F.resend.vyzovy.length, 0);
   assert.equal(F.google.vyzovy.length, 0);
 });

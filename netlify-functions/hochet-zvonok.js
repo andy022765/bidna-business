@@ -12,7 +12,7 @@
 const { getStore } = require('@netlify/blobs');
 
 const JSON_H = { 'content-type': 'application/json', 'cache-control': 'no-store' };
-const KALENDAR = 'https://calendly.com/bizzinteldna/1hr';
+const KALENDAR = 'https://calendly.com/businessinteldna-support/30min';
 const V_SUTKI = 200;                       // потолок заявок в сутки, от перебора
 const POHOZH_NA_POCHTU = /^[a-z0-9+_.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/;
 

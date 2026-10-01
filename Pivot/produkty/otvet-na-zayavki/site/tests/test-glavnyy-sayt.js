@@ -46,7 +46,7 @@ test('сквозной путь: вставка → zayavka-background → пи�
   assert.ok(/^[\x00-\x7f]*$/.test(zapros.body), 'тело ASCII');
   assert.equal(JSON.parse(zapros.body).imya, 'Анна', 'и при этом кириллица доезжает');
   const [p] = F.resend.komu('anna@example.com');
-  assert.ok(p.text.includes('https://calendly.com/bizzinteldna/1hr'));
+  assert.ok(p.text.includes('https://calendly.com/businessinteldna-support/30min'));
   assert.ok(p.text.includes(require('../lib/kartochka').vzyat('bid').produkty.vera.ceny_ru[0]));
   assert.match(p.text, /^Здравствуйте, Анна!/);
   assert.equal(F.resend.komu('support@businessinteldna.com').length, 1, 'владельцу «ответ ушёл»');

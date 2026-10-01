@@ -717,7 +717,7 @@ def podpiska_u_ceny(s, ru):
 #
 # ГДЕ ИМЕННО. Не между кнопкой и её собственной подписью (`p.bsub`), а после всего блока:
 # подпись объясняет кнопку, разрывать их — портить обе. Визуально строка всё равно под кнопкой.
-ZVONOK_URL = "https://calendly.com/bizzinteldna/1hr"
+ZVONOK_URL = "https://calendly.com/businessinteldna-support/30min"
 ZVONOK_CSS = """
   .zvonok-zapis{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim);margin:10px 0 0}
   .zvonok-zapis .zz-vopros{margin:0 0 6px}

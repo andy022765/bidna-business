@@ -8,7 +8,7 @@ const K = require('../lib/kartochka');
 
 const LID = 'anna@example.com';
 const VLADELEC = 'support@businessinteldna.com';
-const CALENDLY = 'https://calendly.com/bizzinteldna/1hr';   // решение 29.09; в коде — только из паспорта
+const CALENDLY = 'https://calendly.com/businessinteldna-support/30min';   // решение 29.09; в коде — только из паспорта
 const vseSsylki = (s) => [...String(s).matchAll(/https?:\/\/[^\s"'<>]+/g)].map(m => m[0]);
 const osnova = (dop) => Object.assign({ id: 'sub-1', forma: 'hochet-zvonok', stranica: '/vera/ru/', pochta: LID, imya: 'Анна' }, dop || {});
 const lidu = () => F.resend.komu(LID);

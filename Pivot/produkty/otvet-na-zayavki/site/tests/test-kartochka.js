@@ -28,8 +28,8 @@ test('кривой паспорт ловится: форма на несущес
 
 test('ссылка на запись: одна строка паспорта, Calendly из решения 29.09; без неё, по http или с кавычкой — паспорт не цел', () => {
   const k = K.vzyat('bid');
-  assert.equal(k.ssylka_zapisi, 'https://calendly.com/bizzinteldna/1hr');
-  for (const plohaya of [undefined, '', 'http://calendly.com/bizzinteldna/1hr', 'calendly.com/bizzinteldna/1hr',
+  assert.equal(k.ssylka_zapisi, 'https://calendly.com/businessinteldna-support/30min');
+  for (const plohaya of [undefined, '', 'http://calendly.com/businessinteldna-support/30min', 'calendly.com/businessinteldna-support/30min',
                          'https://calendly.com/x" onclick="y', 'https://calendly.com/a b']) {
     const kk = JSON.parse(JSON.stringify(k));
     kk.ssylka_zapisi = plohaya;

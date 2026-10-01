@@ -14,7 +14,7 @@ INLINE = '--inline' in sys.argv
 TELEGRAM = 'https://t.me/business_int_dna'
 TG_TEXT  = ('Здравствуйте. Прочитал статью про пять AI-инструментов. '
             'Хочу разобрать своё дело и получить пошаговую стратегию внедрения.')
-CALENDLY = 'https://calendly.com/bizzinteldna/1hr'   # «Стратегическая сессия», 1 ч.
+CALENDLY = 'https://calendly.com/businessinteldna-support/30min'   # «Стратегическая сессия», 1 ч.
 # Старый аккаунт andywar777 отдаёт 404 целиком; актуальный привязан к bizzinteldna@gmail.com
 TELEFON_VERY = '+14247811913'          # наш номер, куплен 16.09; Веру слушают живьём
 
