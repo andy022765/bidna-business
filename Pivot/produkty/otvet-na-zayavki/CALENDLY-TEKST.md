@@ -33,7 +33,7 @@ English below.
 
 Если вы оставили почту на сайте и хотите понять, подходит ли вам Вера (голосовой администратор и продавец), видимость в нейросетях или глубокая диагностика, — это тот самый звонок. Обычно хватает 30 минут, час в календаре стоит с запасом.
 
-Если вы оплатили диагностику и получили документ — это стратегическая сессия по нему, 45–60 минут. Документ приходит до звонка: на сессии разбираем, а не презентуем.
+Если у вас на руках документ глубокой диагностики (она идёт в подарок к Вере и к кварталу видимости или оплачена отдельно) — это стратегическая сессия по нему, 45–60 минут. Документ приходит до звонка: на сессии разбираем, а не презентуем.
 
 Как проходит. Созвон в Zoom, ссылка — в письме с подтверждением. С вами говорим мы двое: Андрей (стратегия и позиционирование) и Маша (экономика бизнеса, экс-CFO). Готовить ничего не нужно. Доступ к счетам, CRM и базе клиентов не просим.
 
@@ -47,7 +47,7 @@ One calendar, two kinds of calls.
 
 If you left your email on our site and want to find out whether Vera (the voice receptionist and sales manager), visibility in AI answers or the deep diagnostic is right for you, this is that call. Thirty minutes is usually enough; the hour is there as a margin.
 
-If you have paid for the diagnostic and received your document, this is the strategy session on it, 45–60 minutes. The document arrives before the call: we discuss it rather than present it.
+If you already have your deep diagnostic document (it comes free with Vera and with a quarter of visibility, or is bought on its own), this is the strategy session on it, 45–60 minutes. The document arrives before the call: we discuss it rather than present it.
 
 How it works. Zoom; the link is in your confirmation email. You talk to the two of us: Andrii (strategy and positioning) and Masha (business economics, former CFO). Nothing to prepare. We do not ask for access to your accounts, CRM or customer base.
 
@@ -58,7 +58,7 @@ Can't make it? Reschedule with the link in your confirmation, no questions asked
 
 ## Вопрос на форме записи (необязательный)
 ```
-О чём поговорим? Одна-две фразы: чем занимаетесь и что хотите узнать. Если диагностика уже оплачена — напишите «диагностика». / What shall we talk about? A line or two: what you do and what you want to find out. If you have already paid for the diagnostic, write "diagnostic".
+О чём поговорим? Одна-две фразы: чем занимаетесь и что хотите узнать. Если документ диагностики у вас уже есть — напишите «диагностика». / What shall we talk about? A line or two: what you do and what you want to find out. If you already have your diagnostic document, write "diagnostic".
 ```
 
 ## Что проверено и что нет
