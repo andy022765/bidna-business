@@ -1,0 +1,223 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "sortirovka_nightdesk_demo",
+    "description": "Decides what a resident's problem is and what happens next: a danger (911 now, the on-call team is alerted at once), an emergency on the management's list (a safety instruction, then the on-call transfer), or a repair request. Pass the ONE category that fits and every answer you have; leave out what you did not ask. For a danger, say the 911 line FIRST, then call it with only the category. Read skazat word for word, ask sprosit word for word, and follow dalshe (SPROSIT, 911, PEREVOD, ZAYAVKA, SOOBSHCHENIE, INFO) — never say these words aloud. Calling it again in the same call updates the same report.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/nd-sortirovka",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "ZAPOLNIT_secret_id_nightdesk_demo_x_liniya_klyuch"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "NightDesk DEMO → nd-sortirovka",
+        "required": [
+          "kategoriya",
+          "yazyk",
+          "caller_id",
+          "conversation_id"
+        ],
+        "properties": {
+          "kategoriya": {
+            "type": "string",
+            "description": "The ONE category that fits. Dangers: gaz (gas smell), ogon_dym (fire or smoke), ugarnyy_gaz (carbon monoxide alarm or symptoms), lift_zastryali (someone stuck in an elevator), elektrichestvo_opasno (sparks, burning wiring, water on electrical), medicina (someone hurt or unconscious), prestuplenie (break-in or threat), obrushenie (ceiling or wall falling). Emergencies on the list: voda_protechka, kanalizaciya, net_vody, net_tepla, net_goryachey_vody, net_sveta, vhodnaya_dver (building entrance door), zamok_kvartiry (own apartment door won't lock), lift_ne_rabotaet. Not urgent: santehnika, bytovaya_tehnika, vrediteli, plesen, domofon, osveshchenie, detektor_batareyka (chirping detector), zamok_zahlopnulsya (lockout), okno, shum (noise), drugoe.",
+            "enum": [
+              "gaz",
+              "ogon_dym",
+              "ugarnyy_gaz",
+              "lift_zastryali",
+              "elektrichestvo_opasno",
+              "medicina",
+              "prestuplenie",
+              "obrushenie",
+              "voda_protechka",
+              "kanalizaciya",
+              "net_vody",
+              "net_tepla",
+              "net_goryachey_vody",
+              "net_sveta",
+              "vhodnaya_dver",
+              "zamok_kvartiry",
+              "lift_ne_rabotaet",
+              "santehnika",
+              "bytovaya_tehnika",
+              "vrediteli",
+              "plesen",
+              "domofon",
+              "osveshchenie",
+              "detektor_batareyka",
+              "zamok_zahlopnulsya",
+              "okno",
+              "shum",
+              "drugoe"
+            ]
+          },
+          "lyudi_v_opasnosti": {
+            "type": "string",
+            "description": "Answer to \"Is anyone hurt, or in danger right now?\"",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "zapah_gaza": {
+            "type": "string",
+            "description": "da only if the caller mentioned a gas smell.",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "dym_ili_ogon": {
+            "type": "string",
+            "description": "da only if the caller mentioned smoke or fire.",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "co_signal": {
+            "type": "string",
+            "description": "For a smoke or CO detector: trevoga (loud alarm that keeps going), batareyka (short chirp about once a minute), net, ne_znayu.",
+            "enum": [
+              "trevoga",
+              "batareyka",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "voda_u_elektriki": {
+            "type": "string",
+            "description": "Answer to \"Is the water near any outlets, switches, lights or the electrical panel?\"",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "voda_aktivno": {
+            "type": "string",
+            "description": "Answer to \"Is water still coming in right now?\"",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "potolok_provis": {
+            "type": "string",
+            "description": "da only if the caller said the ceiling is bulging or sagging.",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "ohvat": {
+            "type": "string",
+            "description": "Answer to \"Is it just your apartment, or your neighbors too?\": kvartira (just mine), neskolko (some neighbors too), ves_dom (the whole building), ulica (the whole street), ne_znayu.",
+            "enum": [
+              "kvartira",
+              "neskolko",
+              "ves_dom",
+              "ulica",
+              "ne_znayu"
+            ]
+          },
+          "temperatura_vnutri": {
+            "type": "string",
+            "description": "Inside temperature as a number exactly as the caller said it, e.g. \"61\"; ne_znayu if they have no thermometer."
+          },
+          "edinicy": {
+            "type": "string",
+            "description": "C only if the caller gave the temperature in Celsius; otherwise leave it out.",
+            "enum": [
+              "F",
+              "C"
+            ]
+          },
+          "otoplenie_sovsem_net": {
+            "type": "string",
+            "description": "Answer to \"Are the radiators completely cold?\" (only asked when there is no thermometer).",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "avtomat_proveren": {
+            "type": "string",
+            "description": "After checking the electrical panel: da = checked and the power is still out; net = could not check; ne_znayu.",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "v_lifte_lyudi": {
+            "type": "string",
+            "description": "Answer to \"Is anyone stuck inside the elevator?\"",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "dom": {
+            "type": "string",
+            "description": "The confirmed building: tidewater (Tidewater House, 41 Harbor Row), seawell (Seawell Court, 215 Seawell Place), kestrel (Kestrel Gardens, 780 Kestrel Avenue), ne_znayu if not confirmed yet.",
+            "enum": [
+              "tidewater",
+              "seawell",
+              "kestrel",
+              "ne_znayu"
+            ]
+          },
+          "kvartira": {
+            "type": "string",
+            "description": "The confirmed apartment, e.g. 4B; COMMON for a hallway, lobby, basement, entrance or elevator problem reported by a non-resident."
+          },
+          "opisanie": {
+            "type": "string",
+            "description": "One short sentence in the caller's words about the problem and where it is. No names, no phone numbers, no health details."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es"
+            ]
+          },
+          "caller_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__caller_id"
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          },
+          "agent_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__current_agent_id"
+          }
+        }
+      }
+    }
+  }
+}

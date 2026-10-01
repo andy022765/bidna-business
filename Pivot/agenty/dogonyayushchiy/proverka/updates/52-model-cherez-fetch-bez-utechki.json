@@ -1,0 +1,109 @@
+{
+  "opisanie": "Скептик №3 и №10 на настоящем пути запроса к Anthropic (model_cherez_fetch: заглушка отвечает из перехватчика fetch). Запрос: модель из DOGON_MODEL, max_tokens 1500, без мышления. В system и messages нет почты, телефона, фамилии и реплик звонка; ответ модели разобран из content и ушёл клиенту.",
+  "model_cherez_fetch": true,
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    },
+    "kod/K7M3X": {
+      "kod": "K7M3X",
+      "razgovor": "conv_test7m3x01",
+      "istochnik": "vera",
+      "email": "irina@salon-test.com",
+      "imya": "Ирина Соколова",
+      "segment": "biznes",
+      "shag": "razbor",
+      "t": "@now-2h",
+      "chaty": [],
+      "suhoy": false
+    },
+    "zvonok/conv_test7m3x01": {
+      "conv": "conv_test7m3x01",
+      "agent_id": "agent_test_prodavec",
+      "istochnik": "telefon",
+      "t": "@now-2h",
+      "dlit": 360,
+      "sobrano": {
+        "imya": "Ирина Соколова",
+        "telefon": "+15615550100",
+        "pochta": "irina@salon-test.com",
+        "zachem": "узнать про Дежурного для салона",
+        "biznes": "салон маникюра в Тампе",
+        "obeshchali": "письмо со списком работ",
+        "hvost": "когда можно запустить"
+      },
+      "itog": "Звонила про Дежурного, письмо razbor ушло",
+      "dialog": [
+        {
+          "kto": "klient",
+          "text": "Меня зовут Ирина Соколова, почта irina@salon-test.com, номер 561 555 0100"
+        },
+        {
+          "kto": "vera",
+          "text": "Проверю по буквам."
+        },
+        {
+          "kto": "klient",
+          "text": "Мы на Жасминовой улице, вечером администратор уходит"
+        }
+      ],
+      "nomer": "+15615550100",
+      "kod": "K7M3X"
+    }
+  },
+  "update": {
+    "update_id": 1052,
+    "business_message": {
+      "message_id": 299,
+      "from": {
+        "id": 5001,
+        "is_bot": false,
+        "first_name": "Ирина",
+        "username": "irina_nails",
+        "language_code": "ru"
+      },
+      "chat": {
+        "id": 5001,
+        "type": "private",
+        "first_name": "Ирина",
+        "username": "irina_nails"
+      },
+      "date": "@unix",
+      "business_connection_id": "bc-test-1",
+      "text": "Здравствуйте! Пишу после разговора с Верой. Код K7M3X"
+    }
+  },
+  "ozhidaem": {
+    "klientu": 1,
+    "model_vyzovov": 1,
+    "tekst_soderzhit": [
+      "виртуальный ассистент",
+      "Что осталось непонятным"
+    ],
+    "zapros_modeli": {
+      "model": "claude-sonnet-5",
+      "max_tokens": 1500,
+      "thinking": {
+        "type": "disabled"
+      }
+    },
+    "v_model_est": [
+      "салон маникюра"
+    ],
+    "v_model_net": [
+      "irina@salon-test.com",
+      "Соколова",
+      "5615550100",
+      "555 0100",
+      "Жасминовой"
+    ],
+    "meta_status": "aktivnyy"
+  }
+}

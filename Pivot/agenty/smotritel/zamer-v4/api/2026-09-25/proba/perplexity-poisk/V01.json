@@ -1,0 +1,393 @@
+{
+ "vopros_id": "V01",
+ "vopros": "Мой бизнес в США не находят в ChatGPT. Кто может это исправить?",
+ "versiya_spiska": "v4-vidimost-CHERNOVIK",
+ "otpechatok": "3a6ad18284cb",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "proba",
+ "den": "2026-09-25",
+ "vne_okna": false,
+ "zapusk_id": "20260925-120054-33259",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-25T12:00:54-07:00",
+   "zapusk_id": "20260925-120054-33259",
+   "cena": 0.00519,
+   "ishod": "ok",
+   "sekund": 10.8,
+   "meta": {
+    "date": "Fri, 25 Sep 2026 19:01:05 GMT",
+    "x-request-id": "0b7ffede-5401-437e-aef7-9a0910ece16b"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Исправить это обычно может **технический SEO-специалист или агентство по local SEO/GEO**, а не «специалист по добавлению бизнеса в ChatGPT». У OpenAI нет гарантированной платной регистрации, которая автоматически выводит компанию в ответы.\n\nЧто проверить:\n\n1. **Сайт компании**\n   - доступен без авторизации и CAPTCHA;\n   - не блокирует поисковых роботов OpenAI;\n   - в `robots.txt` разрешён `OAI-SearchBot`:\n     ```txt\n     User-agent: OAI-SearchBot\n     Allow: /\n     ```\n   - важные страницы не закрыты через `noindex`, WAF или CDN.\n\n2. **Google Business Profile и локальные каталоги**\n   - корректные название, адрес, телефон, часы работы и сайт;\n   - одинаковые данные в Yelp, Bing Places, Apple Business Connect, отраслевых каталогах и местных СМИ;\n   - реальные отзывы и ссылки с авторитетных сайтов.\n\n3. **Содержимое сайта**\n   - отдельная страница с услугами и зонами обслуживания;\n   - ясное описание того, чем занимается бизнес;\n   - американский адрес/телефон, лицензии, команда, цены, FAQ;\n   - структурированные данные `LocalBusiness` / `Organization` в Schema.org.\n\n4. **Проверка причин**\n   Попросите специалиста проверить серверные логи: видит ли сайт робот `OAI-SearchBot`, не блокирует ли его Cloudflare или другой firewall. После исправлений результат может появиться не сразу.\n\nКого нанимать:\n\n- **Local SEO consultant** — если вас не находят по городским и отраслевым запросам;\n- **technical SEO consultant** — если проблема в сайте, индексации или robots.txt;\n- **GEO/AI search optimization specialist** — если нужен аудит видимости именно в ChatGPT, Perplexity и других AI-поисковиках.\n\nОстерегайтесь обещаний вроде «гарантированно добавим вас в ChatGPT за 48 часов». Правильная формулировка задачи для подрядчика:\n\n> «Проведите аудит видимости моего бизнеса в ChatGPT Search: проверьте robots.txt, доступность OAI-SearchBot, техническую индексацию, Google Business Profile, локальные цитирования, Schema.org и упоминания бренда в авторитетных источниках».\n\nВажно: даже технически корректный сайт не обязан показываться на каждый запрос — ChatGPT выбирает источники по релевантности, качеству и контексту запроса.",
+  "poiskovye_zaprosy": [
+   "OpenAI ChatGPT search business visibility official",
+   "OpenAI ChatGPT search crawling OAI-SearchBot official",
+   "OpenAI ChatGPT business listing discoverability official"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.openai.com/api/docs/bots",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": "Developer Faqs"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq",
+    "domen": "help.openai.com",
+    "title": "ChatGPT Business: General FAQ - OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers"
+   },
+   {
+    "url": "https://www.xseek.io/docs/openai-crawlers-and-user-agents",
+    "domen": "xseek.io",
+    "title": "OpenAI user agents — xSeek Docs"
+   },
+   {
+    "url": "https://openai.com/index/introducing-chatgpt-search",
+    "domen": "openai.com",
+    "title": "Introducing ChatGPT search"
+   },
+   {
+    "url": "https://auspia.ai/blog/openai-crawlers-chatgpt-ai-indexing-guide",
+    "domen": "auspia.ai",
+    "title": "OpenAI Crawlers Explained: How to Get Your Site Into ChatGPT ..."
+   },
+   {
+    "url": "https://crawl-lab.com/en/crawlers/oai-searchbot",
+    "domen": "crawl-lab.com",
+    "title": "OAI-SearchBot Official Documentation: User-Agent, IP Ranges ..."
+   },
+   {
+    "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes",
+    "domen": "help.openai.com",
+    "title": "ChatGPT Business release notes"
+   },
+   {
+    "url": "https://openai.com/chatgpt/search-product-discovery",
+    "domen": "openai.com",
+    "title": "Power product discovery in ChatGPT"
+   },
+   {
+    "url": "https://organikpi.com/blog/technical-seo/robots-txt-ai-crawlers",
+    "domen": "organikpi.com",
+    "title": "Robots.txt for AI Crawlers: Allow or Block? | OrganiKPI"
+   },
+   {
+    "url": "https://openai.com/business-data",
+    "domen": "openai.com",
+    "title": "Business data privacy, security, and compliance"
+   },
+   {
+    "url": "https://verseodin.com/blog/what-is-oai-searchbot-how-openai-crawls-discovers-content-chatgpt-search",
+    "domen": "verseodin.com",
+    "title": "What Is OAI-SearchBot? How OpenAI Crawls and Discovers ..."
+   },
+   {
+    "url": "https://searchos.io/knowledge/ai-crawler",
+    "domen": "searchos.io",
+    "title": "What is AI Crawler? - Search OS"
+   },
+   {
+    "url": "https://blog.hubspot.com/marketing/how-to-get-indexed-by-chatgpt",
+    "domen": "blog.hubspot.com",
+    "title": "How to get indexed by ChatGPT [2026] - HubSpot Blog"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.001,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00155,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00519
+   },
+   "input_tokens": 4581,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4019,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 621,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5202
+  },
+  "cena": 0.00519,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790362854,
+  "created_at": 1790362854,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_0b7ffede-5401-437e-aef7-9a0910ece16b",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "OpenAI ChatGPT search business visibility official",
+     "OpenAI ChatGPT search crawling OAI-SearchBot official",
+     "OpenAI ChatGPT business listing discoverability official"
+    ],
+    "results": [
+     {
+      "id": 1,
+      "last_updated": "2026-09-23",
+      "snippet": "OpenAI uses OAI-SearchBot and GPTBot robots.txt tags to enable webmasters to manage how their sites and content work with AI.\nEach setting is independent of the others – for example, a webmaster can allow OAI-SearchBot in order to appear in search results while disallowing GPTBot to indicate that crawled content should not be used for training OpenAI’s generative AI foundation models.\n...\n|User agent|Description & details|\n...\n|OAI-SearchBot|OAI-SearchBot is for search.\nOAI-SearchBot is used to surface websites in search results in ChatGPT’s search features.\nSites that are opted out of OAI-SearchBot will not be shown in ChatGPT search answers, though can still appear as navigational links.\nTo help ensure your site appears in search results, we recommend allowing OAI-SearchBot in your site’s robots.txt file and allowing requests from our published IP ranges below.\nExample user-agent string (the version number may change): `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; compatible; OAI-SearchBot/1.4; +https://openai.com/searchbot` When fetching robots.txt files, we may use a user-agent string with an additional `robots.txt` marker.\nThe marker helps site owners more easily distinguish requests for the robots.txt file from requests for other resources, especially when their logs do not include paths: `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; compatible; OAI-SearchBot/1.4; robots.txt; +https://openai.com/searchbot` Published IP addresses: https://openai.com/searchbot.json|\n...\nPlease use OAI-SearchBot in robots.txt for managing Search opt outs and automatic crawl.",
+      "source": "web",
+      "title": "Overview of OpenAI Crawlers",
+      "url": "https://developers.openai.com/api/docs/bots"
+     },
+     {
+      "date": "2026-09-18",
+      "id": 2,
+      "last_updated": "2026-09-24",
+      "snippet": "Any public website can appear in ChatGPT search.\n...\nFor your site content to be included in summaries and snippets in ChatGPT, make sure you aren't blocking OAI-SearchBot.\nIf necessary, you may need to update your robots.txt file, to ensure OAI-SearchBot has access.\nNote, if we obtain the URL of a disallowed page from a third-party search provider or by crawling other pages and have signals the page is relevant to a user’s query, we may surface just the link and page title in ChatGPT Atlas.\nIf you do not want this to happen, use the noindex meta tag.\nNote, in order for our crawler to read a meta tag, it must be allowed to crawl the relevant page(s).\nPublishers who allow OAI-SearchBot to access their content can track referral traffic from ChatGPT using analytics platforms such as Google Analytics.\nChatGPT automatically includes the UTM parameter utm_source=chatgpt.com in referral URLs, enabling clear tracking and analysis of inbound traffic from ChatGPT search results.",
+      "source": "web",
+      "title": "Developer Faqs",
+      "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+     },
+     {
+      "date": "2026-09-25",
+      "id": 3,
+      "last_updated": "2026-09-25",
+      "snippet": "ChatGPT Business is a self-serve workspace plan for teams.\n...\nStarting on Aug 24, 2026, the maximum is 200 paid Standard and Premium seats total per ChatGPT Business subscription.",
+      "source": "web",
+      "title": "ChatGPT Business: General FAQ - OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq"
+     },
+     {
+      "date": "2026-09-19",
+      "id": 4,
+      "last_updated": "2026-09-25",
+      "snippet": "You must allow OAI-AdsBot.\nWe recommend allowing both OAI-AdsBot and OAI-SearchBot.\n...\nOAI-SearchBot is recommended because it may help OpenAI understand public web content, but OAI-AdsBot is the crawler advertisers should prioritize for ads readiness.",
+      "source": "web",
+      "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers",
+      "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+     },
+     {
+      "id": 5,
+      "last_updated": "2026-09-21",
+      "snippet": "OpenAI uses three main crawlers — **GPTBot** for AI training, **OAI-SearchBot** for ChatGPT search, and **ChatGPT-User** for direct user requests.\n...\nChatGPT search · indexer\nSearch index\nCopy\nMozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot\nUsed for the search functionality in ChatGPT.\nIndexes content to return citations in ChatGPT's search features.\n**Not** used to crawl content for training models — these are separate systems.\n...\n`OAI-SearchBot` indexes content to provide ChatGPT search citations.\n...\nOpenAI uses three: **GPTBot** (GPTBot/1.1) for training models, **OAI-SearchBot** (OAI-SearchBot/1.0) for ChatGPT search, and **ChatGPT-User** (ChatGPT-User/1.0) for direct user-triggered fetches.\nAll three are verifiable via their published IP ranges: `openai.com/gptbot.json`, `openai.com/searchbot.json`, and `openai.com/chatgpt-user.json`.",
+      "source": "web",
+      "title": "OpenAI user agents — xSeek Docs",
+      "url": "https://www.xseek.io/docs/openai-crawlers-and-user-agents"
+     },
+     {
+      "date": "2024-10-31",
+      "id": 6,
+      "last_updated": "2026-09-25",
+      "snippet": "Search will be available at chatgpt.com⁠(opens in a new window), as well as on our desktop and mobile apps.",
+      "source": "web",
+      "title": "Introducing ChatGPT search",
+      "url": "https://openai.com/index/introducing-chatgpt-search/"
+     },
+     {
+      "date": "2026-07-15",
+      "id": 7,
+      "last_updated": "2026-09-24",
+      "snippet": "|User agent|Purpose|Crawl trigger|Use for AI training?|Appears in ChatGPT search?|\n...\n|**OAI-SearchBot**|Crawl the web to surface pages in ChatGPT search results|Automatic, periodic|No|Yes — this is the one that gets you cited|\n...\nHere is the distinction that matters most: OAI-SearchBot and GPTBot are separate crawlers.\nBlocking GPTBot does not block ChatGPT search results.\nBlocking OAI-SearchBot removes your site from ChatGPT's search answers (though it can still appear as a navigational link if a user types your URL directly).\n...\n**If you want ChatGPT to surface your content in search answers**, allow OAI-SearchBot:\n`User-agent: OAI-SearchBot\nAllow: /`\n**If you want to allow search visibility but block AI training**, allow OAI-SearchBot and disallow GPTBot:\n`User-agent: OAI-SearchBot\nAllow: /\nUser-agent: GPTBot\nDisallow: /`\n...\n|Crawler|IP range URL|\n|--|--|\n|OAI-SearchBot|`https://openai.com/searchbot.json`|\n...\nRun through this checklist to make sure your site is properly configured for ChatGPT AI indexing:\n1. **Check robots.txt for OAI-SearchBot.** Is it explicitly allowed or disallowed?\nIf neither, it defaults to allowed — but explicit rules are safer.\n2. **Check for GPTBot separately.** Decide independently whether you want your content used for model training.\n3. **Check your WAF or CDN bot rules.** Do not rely on robots.txt alone.\nVerify that OpenAI's published IP ranges are not being blocked or challenged with CAPTCHAs.\n4. **Check server log matches on bot name, not version.** If you have rules matching `OAI-SearchBot/1.2` or `GPTBot/1.0`, update them to match the bot name regardless of version.\nOpenAI has confirmed version numbers may change.\n5. **Allow ~24 hours for changes to take effect.** OpenAI states that after a robots.txt update, it takes approximately 24 hours for their systems to adjust.\n6. **Test with ChatGPT search.** After making changes, ask ChatGPT a question related to your content and see if your pages appear in the search results.\n...\nNo. OAI-SearchBot is used only for ChatGPT search results.\nTraining data collection is handled by GPTBot, which is a separate crawler with a separate robots.txt directive.",
+      "source": "web",
+      "title": "OpenAI Crawlers Explained: How to Get Your Site Into ChatGPT ...",
+      "url": "https://auspia.ai/blog/openai-crawlers-chatgpt-ai-indexing-guide"
+     },
+     {
+      "id": 8,
+      "last_updated": "2026-09-22",
+      "snippet": "OAI-SearchBot is OpenAI's robot building the ChatGPT search index: it's what allows a website to appear, with a clickable link, in ChatGPT answers when it searches the web.\nOpenAI states it is not used to train models.\nFor GEO visibility, it is the most important OpenAI bot to allow.\n...\n- **Operator**\nOpenAI\n- **Role**\nChatGPT search index\n...\nYes (documented by OpenAI)\n- **Official IP ranges**\n336 ranges published by the operator across all its bots (snapshot of 2026-07-29, refreshed on every deployment) — official file\n- **Official documentation**\n...\nLike all OpenAI bots, OAI-SearchBot can be verified through its official IP ranges, published in a dedicated JSON file.\n...\nGPTBot collects content to train OpenAI's models; OAI-SearchBot builds the search index that surfaces and cites sites in ChatGPT.\n...\nFor almost every site, no: blocking it removes your visibility in ChatGPT search with nothing gained in return.",
+      "source": "web",
+      "title": "OAI-SearchBot Official Documentation: User-Agent, IP Ranges ...",
+      "url": "https://crawl-lab.com/en/crawlers/oai-searchbot/"
+     },
+     {
+      "date": "2026-09-24",
+      "id": 9,
+      "last_updated": "2026-09-25",
+      "snippet": "Open **Admin Console**, select your ChatGPT workspace, then use **Models > Test** to search for a member by name or email.",
+      "source": "web",
+      "title": "ChatGPT Business release notes",
+      "url": "https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes"
+     },
+     {
+      "date": "2026-09-23",
+      "id": 10,
+      "last_updated": "2026-09-23",
+      "snippet": "Your products appear in AI-powered results when shoppers are actively evaluating what to buy.",
+      "source": "web",
+      "title": "Power product discovery in ChatGPT",
+      "url": "https://openai.com/chatgpt/search-product-discovery/"
+     },
+     {
+      "date": "2026-08-22",
+      "id": 11,
+      "last_updated": "2026-08-24",
+      "snippet": "- OpenAI publishes three bots: GPTBot (training), OAI-SearchBot (ChatGPT search citations), and ChatGPT-User (user-triggered).\n...\nOpenAI publishes three crawlers with distinct roles.\n**GPTBot** crawls for training data.\nDisallowing GPTBot signals that your content should not be used to train OpenAI’s generative foundation models.\n**OAI-SearchBot** crawls to surface websites in ChatGPT search results.\nDisallowing it removes your site from ChatGPT search answers entirely.\n...\n# OpenAI: block training only, allow search\n...\nUser-agent: OAI-SearchBot\nAllow: /\n...\n|Vendor|User Agent|Purpose|Block removes you from|\n...\n|OpenAI|OAI-SearchBot|ChatGPT search|ChatGPT search answers|",
+      "source": "web",
+      "title": "Robots.txt for AI Crawlers: Allow or Block? | OrganiKPI",
+      "url": "https://organikpi.com/blog/technical-seo/robots-txt-ai-crawlers/"
+     },
+     {
+      "date": "2026-04-09",
+      "id": 12,
+      "last_updated": "2026-09-23",
+      "snippet": "- **** **Usage Dashboard**⁠(opens in a new window)** ** to track API usage at the feature, product, team or project level",
+      "source": "web",
+      "title": "Business data privacy, security, and compliance",
+      "url": "https://openai.com/business-data/"
+     },
+     {
+      "id": 13,
+      "last_updated": "2026-09-25",
+      "snippet": "OAI-SearchBot is the crawler OpenAI built specifically to power ChatGPT search.\nIt has one job: fetch public web pages so ChatGPT can surface and cite them inside search answers.\nIt is not the crawler OpenAI uses to collect training data, and it is not the bot that visits a page because a person pasted a link into a chat.\nOAI-SearchBot exists for exactly one purpose, making a page eligible to appear, with a citation, inside a ChatGPT search result.\nOpenAI's own documentation puts it plainly: OAI-SearchBot is used to surface websites in search results in ChatGPT's search features, and a site opted out of it will not be shown in ChatGPT search answers.\n...\nAs an OpenAI web crawler, OAI-SearchBot identifies itself through a user agent string that always contains the text OAI-SearchBot, close to this: compatible; OAI-SearchBot/1.4; +https://openai.com/searchbot (the version number changes over time).\n...\nOAI-SearchBot discovers content the way most modern search crawlers do: it follows links outward from pages it already knows about, requests each new URL, and adds what it finds to the pool of content ChatGPT search can read from and cite.\nThis is the ChatGPT Search crawler in the literal sense, a program that reads robots.txt, respects what it says, then fetches and refetches pages on an ongoing basis so ChatGPT's search feature has something current to draw on.",
+      "source": "web",
+      "title": "What Is OAI-SearchBot? How OpenAI Crawls and Discovers ...",
+      "url": "https://verseodin.com/blog/what-is-oai-searchbot-how-openai-crawls-discovers-content-chatgpt-search"
+     },
+     {
+      "id": 14,
+      "last_updated": "2026-09-22",
+      "snippet": "|Bot Name|Operator|robots.txt Token|Primary Purpose|\n...\n|OAI-SearchBot|OpenAI|`OAI-SearchBot`|Surfacing sites in ChatGPT search results|\n...\n- **OpenAI official documentation**: OpenAI runs separate crawlers including GPTBot (training), OAI-SearchBot (ChatGPT search visibility), ChatGPT-User (user requests), and OAI-AdsBot (ad page validation), and documents each bot's purpose and robots.txt token.",
+      "source": "web",
+      "title": "What is AI Crawler? - Search OS",
+      "url": "https://searchos.io/knowledge/ai-crawler"
+     },
+     {
+      "date": "2026-06-11",
+      "id": 15,
+      "last_updated": "2026-09-22",
+      "snippet": "If you want to know how to get indexed by ChatGPT, I’ll show you, but first, I want to clarify: Other articles on this topic conflate “getting indexed by” with “showing up in” ChatGPT — and they are not the same thing.\n*Getting indexed by* ChatGPT means OpenAI’s search crawler discovered your page and stored it in OpenAI’s proprietary index (about which very little is publicly known).\n*Showing up in* ChatGPT means your content appeared in an answer, which can happen via that index *or* via a live web fetch triggered by a user’s query.\n...\nGetting indexed by ChatGPT means that, not only was your webpage crawled by OpenAI’s crawlers (primarily OAI-SearchBot), but at least some of what the bot discovered was then stored for later potential retrieval, making it possible that the same content could surface in future answers generated by ChatGPT.\n...\n- **Crawled: ** One of OpenAI’s bots visited your site and read it, typically to pull relevant info to include in an answer to a user’s query that triggered live web search.\n...\nUnlike Google, which has 20+ publicly documented crawlers and potentially hundreds of non-public ones, as of May 2026, OpenAI has four publicly documented crawlers and user agents:\n- **OAI-SearchBot** retrieves websites for ChatGPT search answers.\n- **GPTBot** crawls content for training OpenAI’s models.\n- **ChatGPT-User** fetches pages on demand when initiated by a user.\n- **OAI-AdsBot** is only relevant if you’re running ads in ChatGPT.\n...\n### 1.\nConfigure your robots.txt file to allow OAI-SearchBot.\n...\n**If you want your website to be crawled for ChatGPT search results, add this to your robots.txt file:**\nUser-agent: OAI-SearchBot\nAllow: /\n...\n- **Brand visibility score: ** The percentage of your tracked prompts where your brand shows up",
+      "source": "web",
+      "title": "How to get indexed by ChatGPT [2026] - HubSpot Blog",
+      "url": "https://blog.hubspot.com/marketing/how-to-get-indexed-by-chatgpt"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Исправить это обычно может **технический SEO-специалист или агентство по local SEO/GEO**, а не «специалист по добавлению бизнеса в ChatGPT». У OpenAI нет гарантированной платной регистрации, которая автоматически выводит компанию в ответы.\n\nЧто проверить:\n\n1. **Сайт компании**\n   - доступен без авторизации и CAPTCHA;\n   - не блокирует поисковых роботов OpenAI;\n   - в `robots.txt` разрешён `OAI-SearchBot`:\n     ```txt\n     User-agent: OAI-SearchBot\n     Allow: /\n     ```\n   - важные страницы не закрыты через `noindex`, WAF или CDN.\n\n2. **Google Business Profile и локальные каталоги**\n   - корректные название, адрес, телефон, часы работы и сайт;\n   - одинаковые данные в Yelp, Bing Places, Apple Business Connect, отраслевых каталогах и местных СМИ;\n   - реальные отзывы и ссылки с авторитетных сайтов.\n\n3. **Содержимое сайта**\n   - отдельная страница с услугами и зонами обслуживания;\n   - ясное описание того, чем занимается бизнес;\n   - американский адрес/телефон, лицензии, команда, цены, FAQ;\n   - структурированные данные `LocalBusiness` / `Organization` в Schema.org.\n\n4. **Проверка причин**\n   Попросите специалиста проверить серверные логи: видит ли сайт робот `OAI-SearchBot`, не блокирует ли его Cloudflare или другой firewall. После исправлений результат может появиться не сразу.\n\nКого нанимать:\n\n- **Local SEO consultant** — если вас не находят по городским и отраслевым запросам;\n- **technical SEO consultant** — если проблема в сайте, индексации или robots.txt;\n- **GEO/AI search optimization specialist** — если нужен аудит видимости именно в ChatGPT, Perplexity и других AI-поисковиках.\n\nОстерегайтесь обещаний вроде «гарантированно добавим вас в ChatGPT за 48 часов». Правильная формулировка задачи для подрядчика:\n\n> «Проведите аудит видимости моего бизнеса в ChatGPT Search: проверьте robots.txt, доступность OAI-SearchBot, техническую индексацию, Google Business Profile, локальные цитирования, Schema.org и упоминания бренда в авторитетных источниках».\n\nВажно: даже технически корректный сайт не обязан показываться на каждый запрос — ChatGPT выбирает источники по релевантности, качеству и контексту запроса.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_60a25284-4e37-46df-a48e-fec248ed359e",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.001,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00155,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00519
+   },
+   "input_tokens": 4581,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4019,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 621,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5202
+  },
+  "user": null
+ }
+}

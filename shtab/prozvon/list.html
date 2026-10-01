@@ -1,0 +1,1878 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Прозвон · 19 целей</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{--bg:#0a0e18;--panel:#0e1524;--card:#121a2c;--ink:#eef1f7;--dim:#97a1b8;--faint:#6b768f;
+    --line:#1e2940;--rule:#2a364f;--gold:#e3c88a;--ok:#7fb069;--red:#c4675a}
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',-apple-system,sans-serif;
+    font-size:16px;line-height:1.5;margin:0;-webkit-font-smoothing:antialiased}
+  .w{max-width:900px;margin:0 auto;padding:26px 18px 90px}
+  h1{font-size:28px;margin:0 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--dim);margin:0 0 18px;font-size:15px}
+  .panel{position:sticky;top:0;z-index:20;background:rgba(10,14,24,.94);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:11px 0;margin-bottom:18px}
+  .panel .in{max-width:900px;margin:0 auto;padding:0 18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .schet{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--dim)}
+  .schet b{color:var(--gold)}
+  .svyaz{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);
+    border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .svyaz.est{color:var(--ok);border-color:#2a4030}
+  .svyaz.zvonim{color:var(--gold);border-color:#3b3524}
+  .potolok{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);
+    border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .potolok.skoro{color:var(--gold);border-color:#3b3524}
+  .potolok.vsyo{color:var(--red);border-color:#4a2a28}
+  .tajmer{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--gold);
+    align-self:center;letter-spacing:.06em}
+  .zv.idet{background:var(--red);color:#fff}
+  .zv.nelzya{background:var(--panel);color:var(--faint);border:1px solid var(--rule)}
+  .nabor{background:var(--panel);border:1px solid #3b3524;border-radius:10px;
+    padding:13px 15px;margin:0 0 12px}
+  .nabor[hidden]{display:none}
+  .nabor .pod{display:block;font-family:'JetBrains Mono',monospace;font-size:11.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .klav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:260px}
+  .klav button{background:var(--bg);border:1px solid var(--rule);border-radius:8px;
+    color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:20px;
+    padding:14px 0;cursor:pointer;min-height:52px}
+  .klav button:active{background:var(--gold);color:#0a0e18}
+  .nazhato{display:block;margin-top:10px;font-family:'JetBrains Mono',monospace;
+    font-size:15px;color:var(--dim);letter-spacing:.3em;min-height:20px}
+  .beda{background:var(--red2);border:1px solid #4a2a28;border-radius:11px;
+    padding:17px 19px;margin:0 0 20px}
+  .beda h3{margin:0 0 8px;font-size:18px;color:#e0897a}
+  .beda p{margin:0 0 7px;font-size:15px}
+  .beda p:last-child{margin:0}
+  .beda b{color:var(--ink)}
+  button,.knopka{background:var(--panel);color:var(--ink);border:1px solid var(--rule);
+    border-radius:7px;padding:9px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+  button:hover{border-color:var(--gold)}
+  button.glav{background:var(--gold);color:#0a0e18;border-color:var(--gold);font-weight:700}
+  select.f{min-width:150px}
+  .c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .c.gotov{opacity:.55;border-color:#2a4030}
+  .c.nelzya{border-color:#4a2a28}
+  .c header{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;margin-bottom:6px}
+  .nom{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--faint);min-width:24px}
+  .c h2{font-size:19px;margin:0;font-weight:600;flex:1 1 auto}
+  .mark{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--faint);white-space:nowrap}
+  .mark.bot{color:var(--gold);border-color:#3b3524}
+  .delo{color:var(--dim);font-size:14.5px;margin:0 0 12px}
+  /* Окно звонка. Видно сразу под названием: позвонить в неурочный час — сжечь цель. */
+  .okno{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;
+        color:var(--ink);background:rgba(120,160,255,.10);border:1px solid rgba(120,160,255,.28);
+        border-radius:6px;padding:4px 9px;margin:0 0 10px;display:inline-block}
+  .okno.zapas{background:rgba(160,160,160,.10);border-color:rgba(160,160,160,.28);color:var(--faint)}
+  .melko{font-size:12.5px;color:var(--faint);line-height:1.5}
+  .pripiska em{display:block;font-style:normal;color:var(--faint);font-size:12.5px;margin-top:5px}
+  .dey{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:11px}
+  .zv{background:var(--gold);color:#0a0e18;font-weight:700;text-decoration:none;
+    padding:10px 16px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:15px}
+  .ss{background:var(--panel);color:var(--dim);text-decoration:none;padding:10px 14px;
+    border-radius:7px;border:1px solid var(--rule);font-size:14px}
+  .ss:hover{border-color:var(--gold);color:var(--ink)}
+  .ss.pl{border-color:#3b3524;color:var(--gold)}
+  .chk{display:flex;gap:9px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);
+    border-radius:8px;padding:11px 13px;margin-bottom:13px;font-size:14.5px;color:var(--dim);cursor:pointer}
+  .chk input{width:20px;height:20px;min-width:20px;margin:1px 0 0}
+  .chk b{color:var(--ink)}
+  .polya{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .polya.glav{gap:12px}
+  .polya.glav select{font-size:17px;padding:12px 13px}
+  .polya.glav span{color:var(--gold)}
+  .potom{margin-top:12px}
+  .potom .zamet{font-size:13.5px;color:var(--faint);margin:9px 0 11px}
+  .polya label{display:grid;gap:4px}
+  .polya span{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--faint)}
+  .polya label:has(#posylka_1),.polya span:first-letter{}
+  .skript{background:var(--panel);border:1px solid var(--line);border-radius:9px;
+    padding:14px 16px;margin-bottom:13px}
+  .skript .nisha{margin:0 0 10px;font-size:13px;color:var(--faint)}
+  .skript .nisha b{color:var(--gold)}
+  .skript ol{margin:0;padding:0;list-style:none;counter-reset:sh}
+  .skript li{counter-increment:sh;margin-bottom:10px;font-size:16px;color:var(--ink);line-height:1.45}
+  .skript li:last-child{margin-bottom:0}
+  .sh{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+  .sh::before{content:counter(sh) " · "}
+  .sh-g{color:var(--gold)}
+  .skript li em{display:block;font-style:normal;font-size:13px;color:var(--faint);margin-top:3px}
+  .skript .vhod{margin:0 0 12px;font-size:16px;color:var(--ink);line-height:1.45}
+  .skript .vhod em{display:block;font-style:normal;font-size:13px;color:var(--faint);margin-top:3px}
+  /* Обе ветки видны ВСЕГДА. Поле «Кто ответил» только приглушает лишнюю:
+     если бы ненужная пряталась, Маша в первые секунды звонка осталась бы без текста. */
+  .vetka{border-top:1px solid var(--line);padding-top:10px;margin-top:12px;transition:opacity .15s}
+  .vetka .zag{margin:0 0 8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .vetka.tusklo{opacity:.3}
+  /* Не уехало на сервер: надпись у самого поля, а не общая плашка на странице */
+  label.neuehalo span::after{content:" · не уехало на сервер";color:#e5534b;font-weight:600}
+  label.neuehalo input,label.neuehalo select,label.neuehalo textarea{border-color:#e5534b!important}
+  .c.neuehalo-k>header::after{content:"часть данных не уехала на сервер — досылаем сами";
+    display:block;color:#e5534b;font-size:12px;margin-top:4px}
+  .vetka.tusklo .zag{color:var(--faint)}
+  .vetka .pravilo{margin:0 0 9px;font-size:13.5px;color:var(--faint);
+    border-left:2px solid var(--gold);padding-left:9px}
+  .pripiska{font-size:13px;color:var(--faint);margin:12px 0 0;line-height:1.55}
+  .pripiska b{color:var(--ink)}
+  .polya input,.polya select{width:100%;background:var(--bg);border:1px solid var(--rule);border-radius:6px;
+    color:var(--ink);font-family:inherit;font-size:15px;padding:9px 11px}
+  .polya input:focus,.polya select:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+  details{margin-top:12px}
+  summary{cursor:pointer;color:var(--faint);font-size:13.5px}
+  details p{color:var(--dim);font-size:13.5px;margin:9px 0 0;line-height:1.6}
+  .zakon{background:#241820;border:1px solid #4a2a28;border-radius:10px;padding:15px 17px;margin:0 0 20px}
+  .zakon p{margin:0 0 7px;font-size:14.5px}.zakon p:last-child{margin:0}
+  .zakon b{color:#e0897a}
+  .pochemu{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:15px 17px;margin:0 0 22px}
+  .pochemu p{margin:0 0 8px;font-size:14.5px;color:var(--dim)}
+  .pochemu p:last-child{margin:0}
+  .pochemu b{color:var(--ink)}
+  @media(max-width:640px){.polya{grid-template-columns:1fr}.w{padding:20px 14px 80px}}
+</style></head><body>
+
+<!-- sdk.twilio.com отдаёт 403 на прямой запрос (проверено 22.09), берём с jsdelivr, версия закреплена -->
+<script src="https://cdn.jsdelivr.net/npm/@twilio/voice-sdk@2.18.5/dist/twilio.min.js"></script>
+<div class="panel"><div class="in">
+  <span class="schet">Сделано <b id="sd">0</b> из 19 · интересно <b id="int">0</b></span>
+  <span class="svyaz" id="svyaz">линия не поднята</span>
+  <span class="potolok" id="potolok">сегодня 0 из 20</span>
+  <select class="f" id="filtr">
+    <option value="vse">Показывать все</option>
+    <option value="ne">Только неотработанные</option>
+    <option value="int">Только «интересно»</option>
+    <option value="bot">Только с ботом</option>
+  </select>
+  <button class="glav" id="skachat">Скачать ответы</button>
+  <button id="kopir">Скопировать</button>
+</div></div>
+
+<div class="w">
+  <div class="beda" id="beda" hidden></div>
+  <h1>Прозвон: 19 целей</h1>
+  <p class="sub">Ответы сохраняются сами, прямо когда печатаешь. Можно закрыть и вернуться.</p>
+
+  <div class="zakon">
+    <p><b>Перед каждым звонком — проверь плашку.</b> Кнопка «Плашка Google» открывает поиск по компании.
+    Ищем <b>Google Verified</b> — синюю галочку рядом с названием. Есть галочка — <b>не звоним</b>,
+    ставим прочерк и идём дальше: такой звонок стоит им денег.
+    <br><span class="melko">С 20 октября 2025 Google свёл все плашки в одну: <b>Google Verified</b>
+    заменила Google Guaranteed, Google Screened и License Verified by Google. Старые названия
+    ещё попадаются в статьях и в нашей разведке — это то же самое.</span></p>
+    <p><b>Запись объявляем первой фразой — и только после этого пишем.</b> Калифорния
+    и Флорида требуют согласия всех сторон: согласие здесь — это объявление в начале
+    и то, что человек продолжил разговор. Сказали «не записывайте» — выключаем запись
+    сразу, дальше пишем от руки. Без объявления не записываем вообще.</p>
+    <p><b>Невада — пропускаем целиком.</b> Там на такие звонки нужна лицензия частного детектива.</p>
+    <p><b>Запись используем только в письме этому же бизнесу.</b> Не показываем третьим лицам,
+    не кладём в общие материалы, не цитируем на сайте. Это условие, на котором запись законна.</p>
+    <p><b>Двадцать звонков в день, не больше.</b> С одного номера чаще — и оператор пометит
+    нас как спам, после чего не дозвонимся вообще ни до кого.</p>
+  </div>
+
+  <div class="pochemu">
+    <p><b>Почему звоним всем, а не только тем, у кого «чат на сайте».</b></p>
+    <p>Метка слева про <b>сайт</b>, а не про телефон. Веб-чат и голосовой робот на номере —
+    разные системы: чата может не быть, а трубку возьмёт робот, и наоборот.
+    <b>Что на линии — показывает только звонок.</b></p>
+    <p>И звонок полезен в обе стороны — но продаём мы разное.
+    <b>Не взяли трубку</b>, или <b>ответил человек и не позвал записаться</b> — это Вера,
+    первый этап тысяча долларов плюс сто девяносто девять в месяц.
+    <b>Ответил робот</b> — Веру НЕ предлагаем: автоответ у них уже есть. Там другой разговор:
+    если проверка покажет, что их нет в ответах нейросетей, — это Видимость.
+    Пустых звонков тут нет.</p>
+    <p class="melko">Сколько компаний вообще зовут записаться: по исследованию Invoca —
+    только 36%. Это чужой замер, не наш; своего у нас нет, и выдавать его за свой нельзя.</p>
+    <p>Заполняй поле <b>«Кто ответил»</b> честно — это и есть настоящая разведка,
+    а не то, что мы угадали по сайту.</p>
+  </div>
+
+
+<article class="c" id="k1">
+  <header>
+    <span class="nom">1</span>
+    <h2>Climate Wizards</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">1 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">HVAC, Brooklyn, NY</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13472745667" data-i="1">+13472745667</a>
+    <span class="tajmer" id="t1" hidden>00:00</span>
+    <a class="ss" href="https://climate-wizards.com" target="_blank" rel="noopener">climate-wizards.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Climate+Wizards+Brooklyn+NY" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n1" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz1"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="1">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_1"><span>Кто ответил</span><select id="kto_1" data-k="kto" data-i="1"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_1"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_1" data-k="imya_reshaet" data-i="1" type="text" autocomplete="off"></label><label for="pochta_1"><span>★ Почта — куда слать запись</span><input id="pochta_1" data-k="pochta" data-i="1" type="text" autocomplete="off"></label><label for="zametka_1"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_1" data-k="zametka" data-i="1" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_1"><span>Про цену · дословно</span><input id="cena_1" data-k="cena" data-i="1" type="text" autocomplete="off"></label><label for="posylka_1"><span>★ Ложная посылка · дословно</span><input id="posylka_1" data-k="posylka" data-i="1" type="text" autocomplete="off"></label><label for="usluga_1"><span>Чего нет · дословно</span><input id="usluga_1" data-k="usluga" data-i="1" type="text" autocomplete="off"></label><label for="zapis_1"><span>Предложили записаться</span><select id="zapis_1" data-k="zapis" data-i="1"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_1"><span>Итог</span><select id="itog_1" data-k="itog" data-i="1"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_1"><span>Что продаём</span><select id="chto_1" data-k="chto" data-i="1"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_1"><span>Секунд до ответа</span><input id="sek_1" data-k="sek" data-i="1" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Climate Wizards | сайт живой да (climate-wizards.com) | +13472745667 | HVAC, Brooklyn, NY | часы: пн-пт 7-17 (сайт) | русскоязычность: среднее - объявление на bazar.club с привязанным аккаунтом владельца «Sergii», текст с украинской «є» - набран человеком | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k2">
+  <header>
+    <span class="nom">2</span>
+    <h2>NYC AirCool Services</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">2 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">своего сайта нет</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13475593906" data-i="2">+13475593906</a>
+    <span class="tajmer" id="t2" hidden>00:00</span>
+    
+    <a class="ss pl" href="https://www.google.com/search?q=NYC+AirCool+Services" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n2" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz2"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="2">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_2"><span>Кто ответил</span><select id="kto_2" data-k="kto" data-i="2"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_2"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_2" data-k="imya_reshaet" data-i="2" type="text" autocomplete="off"></label><label for="pochta_2"><span>★ Почта — куда слать запись</span><input id="pochta_2" data-k="pochta" data-i="2" type="text" autocomplete="off"></label><label for="zametka_2"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_2" data-k="zametka" data-i="2" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_2"><span>Про цену · дословно</span><input id="cena_2" data-k="cena" data-i="2" type="text" autocomplete="off"></label><label for="posylka_2"><span>★ Ложная посылка · дословно</span><input id="posylka_2" data-k="posylka" data-i="2" type="text" autocomplete="off"></label><label for="usluga_2"><span>Чего нет · дословно</span><input id="usluga_2" data-k="usluga" data-i="2" type="text" autocomplete="off"></label><label for="zapis_2"><span>Предложили записаться</span><select id="zapis_2" data-k="zapis" data-i="2"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_2"><span>Итог</span><select id="itog_2" data-k="itog" data-i="2"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_2"><span>Что продаём</span><select id="chto_2" data-k="chto" data-i="2"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_2"><span>Секунд до ответа</span><input id="sek_2" data-k="sek" data-i="2" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>NYC AirCool Services | своего сайта нет | +13475593906 | HVAC, Staten Island, NY | часы: пн-пт 9-17 (americanhomequotes) | русскоязычность: среднее - CEO Vladimir Matoi; русское объявление, контакт «Igor Vladimir» | ВНИМАНИЕ: СВОЕГО САЙТА НЕТ: номер из объявления, подтверждён Procore (разведка, мной не перепроверен) | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k3">
+  <header>
+    <span class="nom">3</span>
+    <h2>VP Cool Corp</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">3 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">своего сайта нет</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+17186140015" data-i="3">+17186140015</a>
+    <span class="tajmer" id="t3" hidden>00:00</span>
+    
+    <a class="ss pl" href="https://www.google.com/search?q=VP+Cool+Corp" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n3" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz3"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="3">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_3"><span>Кто ответил</span><select id="kto_3" data-k="kto" data-i="3"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_3"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_3" data-k="imya_reshaet" data-i="3" type="text" autocomplete="off"></label><label for="pochta_3"><span>★ Почта — куда слать запись</span><input id="pochta_3" data-k="pochta" data-i="3" type="text" autocomplete="off"></label><label for="zametka_3"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_3" data-k="zametka" data-i="3" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_3"><span>Про цену · дословно</span><input id="cena_3" data-k="cena" data-i="3" type="text" autocomplete="off"></label><label for="posylka_3"><span>★ Ложная посылка · дословно</span><input id="posylka_3" data-k="posylka" data-i="3" type="text" autocomplete="off"></label><label for="usluga_3"><span>Чего нет · дословно</span><input id="usluga_3" data-k="usluga" data-i="3" type="text" autocomplete="off"></label><label for="zapis_3"><span>Предложили записаться</span><select id="zapis_3" data-k="zapis" data-i="3"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_3"><span>Итог</span><select id="itog_3" data-k="itog" data-i="3"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_3"><span>Что продаём</span><select id="chto_3" data-k="chto" data-i="3"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_3"><span>Секунд до ответа</span><input id="sek_3" data-k="sek" data-i="3" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>VP Cool Corp | своего сайта нет | +17186140015 | HVAC, Brooklyn, NY | часы: пн-пт 8:15-17:30 (источник неясен) | русскоязычность: среднее - владелец Vladimir Estezkin (BBB); русское объявление «обращайтесь к Владимиру» | ВНИМАНИЕ: СВОЕГО САЙТА НЕТ: номер из объявления, совпадает с BBB (разведка, мной не перепроверен) | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k4">
+  <header>
+    <span class="nom">4</span>
+    <h2>fusion.repair</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">4 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">HVAC, холод, техника, New York, NY</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13323344444" data-i="4">+13323344444</a>
+    <span class="tajmer" id="t4" hidden>00:00</span>
+    <a class="ss" href="https://fusion.repair" target="_blank" rel="noopener">fusion.repair</a>
+    <a class="ss pl" href="https://www.google.com/search?q=fusion.repair+New+York+NY" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n4" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz4"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="4">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_4"><span>Кто ответил</span><select id="kto_4" data-k="kto" data-i="4"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_4"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_4" data-k="imya_reshaet" data-i="4" type="text" autocomplete="off"></label><label for="pochta_4"><span>★ Почта — куда слать запись</span><input id="pochta_4" data-k="pochta" data-i="4" type="text" autocomplete="off"></label><label for="zametka_4"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_4" data-k="zametka" data-i="4" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_4"><span>Про цену · дословно</span><input id="cena_4" data-k="cena" data-i="4" type="text" autocomplete="off"></label><label for="posylka_4"><span>★ Ложная посылка · дословно</span><input id="posylka_4" data-k="posylka" data-i="4" type="text" autocomplete="off"></label><label for="usluga_4"><span>Чего нет · дословно</span><input id="usluga_4" data-k="usluga" data-i="4" type="text" autocomplete="off"></label><label for="zapis_4"><span>Предложили записаться</span><select id="zapis_4" data-k="zapis" data-i="4"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_4"><span>Итог</span><select id="itog_4" data-k="itog" data-i="4"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_4"><span>Что продаём</span><select id="chto_4" data-k="chto" data-i="4"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_4"><span>Секунд до ответа</span><input id="sek_4" data-k="sek" data-i="4" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>fusion.repair | сайт живой да (fusion.repair) | +13323344444 | HVAC, холод, техника, New York, NY | часы: 8-18 каждый день (сайт) | русскоязычность: сильное - владелец Олег даёт интервью по-русски (YouTube oMQbqv2vGgE) - ПРОВЕРЕНО МНОЙ | ВНИМАНИЕ: может быть крупнее 20 человек: «многомиллионный оборот», филиал в Бока-Ратоне | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k5">
+  <header>
+    <span class="nom">5</span>
+    <h2>Premier Appliance Repair</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">5 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">ремонт техники, Staten Island, NY</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+19292614444" data-i="5">+19292614444</a>
+    <span class="tajmer" id="t5" hidden>00:00</span>
+    <a class="ss" href="https://appliancerepairsi.com" target="_blank" rel="noopener">appliancerepairsi.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Premier+Appliance+Repair+Staten+Island+NY" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n5" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz5"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="5">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>не определена</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_5"><span>Кто ответил</span><select id="kto_5" data-k="kto" data-i="5"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_5"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_5" data-k="imya_reshaet" data-i="5" type="text" autocomplete="off"></label><label for="pochta_5"><span>★ Почта — куда слать запись</span><input id="pochta_5" data-k="pochta" data-i="5" type="text" autocomplete="off"></label><label for="zametka_5"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_5" data-k="zametka" data-i="5" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_5"><span>Про цену · дословно</span><input id="cena_5" data-k="cena" data-i="5" type="text" autocomplete="off"></label><label for="posylka_5"><span>★ Ложная посылка · дословно</span><input id="posylka_5" data-k="posylka" data-i="5" type="text" autocomplete="off"></label><label for="usluga_5"><span>Чего нет · дословно</span><input id="usluga_5" data-k="usluga" data-i="5" type="text" autocomplete="off"></label><label for="zapis_5"><span>Предложили записаться</span><select id="zapis_5" data-k="zapis" data-i="5"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_5"><span>Итог</span><select id="itog_5" data-k="itog" data-i="5"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_5"><span>Что продаём</span><select id="chto_5" data-k="chto" data-i="5"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_5"><span>Секунд до ответа</span><input id="sek_5" data-k="sek" data-i="5" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Premier Appliance Repair | сайт живой да (appliancerepairsi.com) | +19292614444 | ремонт техники, Staten Island, NY | часы: пн-пт 9-19, сб 9-17 (сайт) | русскоязычность: сильное - на сайте «English · Русский» - ПРОВЕРЕНО МНОЙ | ВНИМАНИЕ: похоже, один человек: «When you call, I answer» - ниже планки 3-20 | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k6">
+  <header>
+    <span class="nom">6</span>
+    <h2>Green Ductors</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">6 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">вентиляция, HVAC, New York, NY</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+18883341612" data-i="6">+18883341612</a>
+    <span class="tajmer" id="t6" hidden>00:00</span>
+    <a class="ss" href="https://greenductors.com" target="_blank" rel="noopener">greenductors.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Green+Ductors+New+York+NY" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n6" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz6"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="6">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_6"><span>Кто ответил</span><select id="kto_6" data-k="kto" data-i="6"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_6"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_6" data-k="imya_reshaet" data-i="6" type="text" autocomplete="off"></label><label for="pochta_6"><span>★ Почта — куда слать запись</span><input id="pochta_6" data-k="pochta" data-i="6" type="text" autocomplete="off"></label><label for="zametka_6"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_6" data-k="zametka" data-i="6" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_6"><span>Про цену · дословно</span><input id="cena_6" data-k="cena" data-i="6" type="text" autocomplete="off"></label><label for="posylka_6"><span>★ Ложная посылка · дословно</span><input id="posylka_6" data-k="posylka" data-i="6" type="text" autocomplete="off"></label><label for="usluga_6"><span>Чего нет · дословно</span><input id="usluga_6" data-k="usluga" data-i="6" type="text" autocomplete="off"></label><label for="zapis_6"><span>Предложили записаться</span><select id="zapis_6" data-k="zapis" data-i="6"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_6"><span>Итог</span><select id="itog_6" data-k="itog" data-i="6"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_6"><span>Что продаём</span><select id="chto_6" data-k="chto" data-i="6"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_6"><span>Секунд до ответа</span><input id="sek_6" data-k="sek" data-i="6" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Green Ductors | сайт живой да (greenductors.com) | +18883341612 | вентиляция, HVAC, New York, NY | часы: не найдены | русскоязычность: сильное - руководитель Дмитрий даёт интервью по-русски (YouTube MrhfBGUugAo) - ПРОВЕРЕНО МНОЙ | ВНИМАНИЕ: номер бесплатный 888 - вечером может уйти в колл-центр; это тоже находка | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k7">
+  <header>
+    <span class="nom">7</span>
+    <h2>Gataca HVAC Corp</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">7 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">своего сайта нет</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13475858868" data-i="7">+13475858868</a>
+    <span class="tajmer" id="t7" hidden>00:00</span>
+    
+    <a class="ss pl" href="https://www.google.com/search?q=Gataca+HVAC+Corp" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n7" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz7"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="7">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_7"><span>Кто ответил</span><select id="kto_7" data-k="kto" data-i="7"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_7"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_7" data-k="imya_reshaet" data-i="7" type="text" autocomplete="off"></label><label for="pochta_7"><span>★ Почта — куда слать запись</span><input id="pochta_7" data-k="pochta" data-i="7" type="text" autocomplete="off"></label><label for="zametka_7"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_7" data-k="zametka" data-i="7" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_7"><span>Про цену · дословно</span><input id="cena_7" data-k="cena" data-i="7" type="text" autocomplete="off"></label><label for="posylka_7"><span>★ Ложная посылка · дословно</span><input id="posylka_7" data-k="posylka" data-i="7" type="text" autocomplete="off"></label><label for="usluga_7"><span>Чего нет · дословно</span><input id="usluga_7" data-k="usluga" data-i="7" type="text" autocomplete="off"></label><label for="zapis_7"><span>Предложили записаться</span><select id="zapis_7" data-k="zapis" data-i="7"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_7"><span>Итог</span><select id="itog_7" data-k="itog" data-i="7"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_7"><span>Что продаём</span><select id="chto_7" data-k="chto" data-i="7"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_7"><span>Секунд до ответа</span><input id="sek_7" data-k="sek" data-i="7" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Gataca HVAC Corp | своего сайта нет | +13475858868 | HVAC, Staten Island, NY | часы: не найдены | русскоязычность: среднее - CEO Artem Aksenov; два русских объявления | ВНИМАНИЕ: СВОЕГО САЙТА НЕТ: номер совпадает с buzzfile и svoi.us (разведка, мной не перепроверен) | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k8">
+  <header>
+    <span class="nom">8</span>
+    <h2>HVAC AirPro</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">8 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">своего сайта нет</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+19297627656" data-i="8">+19297627656</a>
+    <span class="tajmer" id="t8" hidden>00:00</span>
+    
+    <a class="ss pl" href="https://www.google.com/search?q=HVAC+AirPro" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n8" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz8"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="8">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_8"><span>Кто ответил</span><select id="kto_8" data-k="kto" data-i="8"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_8"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_8" data-k="imya_reshaet" data-i="8" type="text" autocomplete="off"></label><label for="pochta_8"><span>★ Почта — куда слать запись</span><input id="pochta_8" data-k="pochta" data-i="8" type="text" autocomplete="off"></label><label for="zametka_8"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_8" data-k="zametka" data-i="8" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_8"><span>Про цену · дословно</span><input id="cena_8" data-k="cena" data-i="8" type="text" autocomplete="off"></label><label for="posylka_8"><span>★ Ложная посылка · дословно</span><input id="posylka_8" data-k="posylka" data-i="8" type="text" autocomplete="off"></label><label for="usluga_8"><span>Чего нет · дословно</span><input id="usluga_8" data-k="usluga" data-i="8" type="text" autocomplete="off"></label><label for="zapis_8"><span>Предложили записаться</span><select id="zapis_8" data-k="zapis" data-i="8"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_8"><span>Итог</span><select id="itog_8" data-k="itog" data-i="8"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_8"><span>Что продаём</span><select id="chto_8" data-k="chto" data-i="8"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_8"><span>Секунд до ответа</span><input id="sek_8" data-k="sek" data-i="8" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>HVAC AirPro | своего сайта нет | +19297627656 | HVAC, Brooklyn, NY | часы: не найдены | русскоязычность: среднее - владелец Roman Kravchenko, привязан к двум русским объявлениям | ВНИМАНИЕ: СВОЕГО САЙТА НЕТ: номер из объявления; фирма молодая (с 2025) | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k9">
+  <header>
+    <span class="nom">9</span>
+    <h2>Art HVAC NY</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">9 (после 21:00 ET) · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">HVAC, Brooklyn, NY</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13322322456" data-i="9">+13322322456</a>
+    <span class="tajmer" id="t9" hidden>00:00</span>
+    <a class="ss" href="https://ny-hvac.com" target="_blank" rel="noopener">ny-hvac.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Art+HVAC+NY+Brooklyn+NY" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n9" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz9"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="9">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_9"><span>Кто ответил</span><select id="kto_9" data-k="kto" data-i="9"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_9"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_9" data-k="imya_reshaet" data-i="9" type="text" autocomplete="off"></label><label for="pochta_9"><span>★ Почта — куда слать запись</span><input id="pochta_9" data-k="pochta" data-i="9" type="text" autocomplete="off"></label><label for="zametka_9"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_9" data-k="zametka" data-i="9" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_9"><span>Про цену · дословно</span><input id="cena_9" data-k="cena" data-i="9" type="text" autocomplete="off"></label><label for="posylka_9"><span>★ Ложная посылка · дословно</span><input id="posylka_9" data-k="posylka" data-i="9" type="text" autocomplete="off"></label><label for="usluga_9"><span>Чего нет · дословно</span><input id="usluga_9" data-k="usluga" data-i="9" type="text" autocomplete="off"></label><label for="zapis_9"><span>Предложили записаться</span><select id="zapis_9" data-k="zapis" data-i="9"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_9"><span>Итог</span><select id="itog_9" data-k="itog" data-i="9"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_9"><span>Что продаём</span><select id="chto_9" data-k="chto" data-i="9"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_9"><span>Секунд до ответа</span><input id="sek_9" data-k="sek" data-i="9" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Art HVAC NY | сайт живой да (ny-hvac.com) | +13322322456 | HVAC, Brooklyn, NY | часы: сайт: 8-20 ежедневно, «24/7 Emergency»; Yelp: пн-сб 7-21 | русскоязычность: сильное - описание на Yelp: «Russian &amp; English speaking technicians» - ПРОВЕРЕНО МНОЙ | ВНИМАНИЕ: обещают 24/7 - звонок после 21:00 ET проверит это | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k10">
+  <header>
+    <span class="nom">10</span>
+    <h2>Positive Appliance Repair</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">10 (после 21:00 ET) · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">ремонт техники, Staten Island, NY</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+18458794300" data-i="10">+18458794300</a>
+    <span class="tajmer" id="t10" hidden>00:00</span>
+    <a class="ss" href="https://positiverepair.com" target="_blank" rel="noopener">positiverepair.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Positive+Appliance+Repair+Staten+Island+NY" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n10" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz10"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="10">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>не определена</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_10"><span>Кто ответил</span><select id="kto_10" data-k="kto" data-i="10"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_10"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_10" data-k="imya_reshaet" data-i="10" type="text" autocomplete="off"></label><label for="pochta_10"><span>★ Почта — куда слать запись</span><input id="pochta_10" data-k="pochta" data-i="10" type="text" autocomplete="off"></label><label for="zametka_10"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_10" data-k="zametka" data-i="10" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_10"><span>Про цену · дословно</span><input id="cena_10" data-k="cena" data-i="10" type="text" autocomplete="off"></label><label for="posylka_10"><span>★ Ложная посылка · дословно</span><input id="posylka_10" data-k="posylka" data-i="10" type="text" autocomplete="off"></label><label for="usluga_10"><span>Чего нет · дословно</span><input id="usluga_10" data-k="usluga" data-i="10" type="text" autocomplete="off"></label><label for="zapis_10"><span>Предложили записаться</span><select id="zapis_10" data-k="zapis" data-i="10"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_10"><span>Итог</span><select id="itog_10" data-k="itog" data-i="10"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_10"><span>Что продаём</span><select id="chto_10" data-k="chto" data-i="10"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_10"><span>Секунд до ответа</span><input id="sek_10" data-k="sek" data-i="10" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Positive Appliance Repair | сайт живой да (positiverepair.com) | +18458794300 | ремонт техники, Staten Island, NY | часы: пн-вс 7-21 (сайт) | русскоязычность: среднее - объявление на bazar.club с привязанным аккаунтом фирмы | ВНИМАНИЕ: код 845 - возможна переадресация | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k11">
+  <header>
+    <span class="nom">11</span>
+    <h2>Kobzev Pro Contracting Group</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">1 · Лос-Анджелес, 19:00-21:00 по LA</p>
+  <p class="delo">генподряд, ремонт, Van Nuys, CA</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+17473503315" data-i="11">+17473503315</a>
+    <span class="tajmer" id="t11" hidden>00:00</span>
+    <a class="ss" href="https://kobzevpro.com" target="_blank" rel="noopener">kobzevpro.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Kobzev+Pro+Contracting+Group+Van+Nuys+CA" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n11" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz11"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="11">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>не определена</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_11"><span>Кто ответил</span><select id="kto_11" data-k="kto" data-i="11"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_11"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_11" data-k="imya_reshaet" data-i="11" type="text" autocomplete="off"></label><label for="pochta_11"><span>★ Почта — куда слать запись</span><input id="pochta_11" data-k="pochta" data-i="11" type="text" autocomplete="off"></label><label for="zametka_11"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_11" data-k="zametka" data-i="11" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_11"><span>Про цену · дословно</span><input id="cena_11" data-k="cena" data-i="11" type="text" autocomplete="off"></label><label for="posylka_11"><span>★ Ложная посылка · дословно</span><input id="posylka_11" data-k="posylka" data-i="11" type="text" autocomplete="off"></label><label for="usluga_11"><span>Чего нет · дословно</span><input id="usluga_11" data-k="usluga" data-i="11" type="text" autocomplete="off"></label><label for="zapis_11"><span>Предложили записаться</span><select id="zapis_11" data-k="zapis" data-i="11"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_11"><span>Итог</span><select id="itog_11" data-k="itog" data-i="11"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_11"><span>Что продаём</span><select id="chto_11" data-k="chto" data-i="11"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_11"><span>Секунд до ответа</span><input id="sek_11" data-k="sek" data-i="11" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Kobzev Pro Contracting Group | сайт живой да (kobzevpro.com) | +17473503315 | генподряд, ремонт, Van Nuys, CA | часы: пн-сб 8-18 (сайт) | русскоязычность: среднее - владелец Алексей Кобзев: русское объявление набрано человеком (опечатки), ссылка на его FB | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k12">
+  <header>
+    <span class="nom">12</span>
+    <h2>Vertex Appliance Repair</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">2 · Лос-Анджелес, 19:00-21:00 по LA</p>
+  <p class="delo">ремонт техники, West Hollywood, CA</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13237477098" data-i="12">+13237477098</a>
+    <span class="tajmer" id="t12" hidden>00:00</span>
+    <a class="ss" href="https://vertexllca.com" target="_blank" rel="noopener">vertexllca.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Vertex+Appliance+Repair+West+Hollywood+CA" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n12" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz12"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="12">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>не определена</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_12"><span>Кто ответил</span><select id="kto_12" data-k="kto" data-i="12"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_12"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_12" data-k="imya_reshaet" data-i="12" type="text" autocomplete="off"></label><label for="pochta_12"><span>★ Почта — куда слать запись</span><input id="pochta_12" data-k="pochta" data-i="12" type="text" autocomplete="off"></label><label for="zametka_12"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_12" data-k="zametka" data-i="12" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_12"><span>Про цену · дословно</span><input id="cena_12" data-k="cena" data-i="12" type="text" autocomplete="off"></label><label for="posylka_12"><span>★ Ложная посылка · дословно</span><input id="posylka_12" data-k="posylka" data-i="12" type="text" autocomplete="off"></label><label for="usluga_12"><span>Чего нет · дословно</span><input id="usluga_12" data-k="usluga" data-i="12" type="text" autocomplete="off"></label><label for="zapis_12"><span>Предложили записаться</span><select id="zapis_12" data-k="zapis" data-i="12"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_12"><span>Итог</span><select id="itog_12" data-k="itog" data-i="12"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_12"><span>Что продаём</span><select id="chto_12" data-k="chto" data-i="12"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_12"><span>Секунд до ответа</span><input id="sek_12" data-k="sek" data-i="12" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Vertex Appliance Repair | сайт живой да (vertexllca.com) | +13237477098 | ремонт техники, West Hollywood, CA | часы: 8-19 (сайт) | русскоязычность: сильное - владелец Олег Пильщиков, свой YouTube по-русски (HaxCUK5P8Sc) - ПРОВЕРЕНО МНОЙ | ВНИМАНИЕ: «owner-operated» - скорее 1-2 человека | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k13">
+  <header>
+    <span class="nom">13</span>
+    <h2>TGC Construction</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">3 · Лос-Анджелес, 19:00-21:00 по LA</p>
+  <p class="delo">генподряд, ремонт, Tarzana, CA</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+18189844301" data-i="13">+18189844301</a>
+    <span class="tajmer" id="t13" hidden>00:00</span>
+    <a class="ss" href="https://tgcconstruct.com" target="_blank" rel="noopener">tgcconstruct.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=TGC+Construction+Tarzana+CA" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n13" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz13"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="13">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>не определена</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_13"><span>Кто ответил</span><select id="kto_13" data-k="kto" data-i="13"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_13"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_13" data-k="imya_reshaet" data-i="13" type="text" autocomplete="off"></label><label for="pochta_13"><span>★ Почта — куда слать запись</span><input id="pochta_13" data-k="pochta" data-i="13" type="text" autocomplete="off"></label><label for="zametka_13"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_13" data-k="zametka" data-i="13" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_13"><span>Про цену · дословно</span><input id="cena_13" data-k="cena" data-i="13" type="text" autocomplete="off"></label><label for="posylka_13"><span>★ Ложная посылка · дословно</span><input id="posylka_13" data-k="posylka" data-i="13" type="text" autocomplete="off"></label><label for="usluga_13"><span>Чего нет · дословно</span><input id="usluga_13" data-k="usluga" data-i="13" type="text" autocomplete="off"></label><label for="zapis_13"><span>Предложили записаться</span><select id="zapis_13" data-k="zapis" data-i="13"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_13"><span>Итог</span><select id="itog_13" data-k="itog" data-i="13"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_13"><span>Что продаём</span><select id="chto_13" data-k="chto" data-i="13"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_13"><span>Секунд до ответа</span><input id="sek_13" data-k="sek" data-i="13" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>TGC Construction | сайт живой да (tgcconstruct.com) | +18189844301 | генподряд, ремонт, Tarzana, CA | часы: не найдены | русскоязычность: сильное/среднее - Houzz: «Speaks English, Russian» (фирма указывает сама) - ПРОВЕРЕНО МНОЙ | ВНИМАНИЕ: на сайте три разных номера; владелец не назван | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k14">
+  <header>
+    <span class="nom">14</span>
+    <h2>AirCrew HVAC</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">4 (после 20:00) · Лос-Анджелес, 19:00-21:00 по LA</p>
+  <p class="delo">HVAC, Santa Clarita, CA</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+16614306644" data-i="14">+16614306644</a>
+    <span class="tajmer" id="t14" hidden>00:00</span>
+    <a class="ss" href="https://aircrewhvac.com" target="_blank" rel="noopener">aircrewhvac.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=AirCrew+HVAC+Santa+Clarita+CA" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n14" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz14"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="14">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_14"><span>Кто ответил</span><select id="kto_14" data-k="kto" data-i="14"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_14"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_14" data-k="imya_reshaet" data-i="14" type="text" autocomplete="off"></label><label for="pochta_14"><span>★ Почта — куда слать запись</span><input id="pochta_14" data-k="pochta" data-i="14" type="text" autocomplete="off"></label><label for="zametka_14"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_14" data-k="zametka" data-i="14" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_14"><span>Про цену · дословно</span><input id="cena_14" data-k="cena" data-i="14" type="text" autocomplete="off"></label><label for="posylka_14"><span>★ Ложная посылка · дословно</span><input id="posylka_14" data-k="posylka" data-i="14" type="text" autocomplete="off"></label><label for="usluga_14"><span>Чего нет · дословно</span><input id="usluga_14" data-k="usluga" data-i="14" type="text" autocomplete="off"></label><label for="zapis_14"><span>Предложили записаться</span><select id="zapis_14" data-k="zapis" data-i="14"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_14"><span>Итог</span><select id="itog_14" data-k="itog" data-i="14"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_14"><span>Что продаём</span><select id="chto_14" data-k="chto" data-i="14"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_14"><span>Секунд до ответа</span><input id="sek_14" data-k="sek" data-i="14" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>AirCrew HVAC | сайт живой да (aircrewhvac.com) | +16614306644 | HVAC, Santa Clarita, CA | часы: в справочнике 8-20; на сайте «24 hours» | русскоязычность: среднее+ - русскоязычный справочник iSpravochnik №4985: «Игорь», тот же номер и сайт | ВНИМАНИЕ: доказан русскоязычный представитель, не обязательно владелец | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k15">
+  <header>
+    <span class="nom">15</span>
+    <h2>Pure Air LA</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">5 · Лос-Анджелес, 19:00-21:00 по LA</p>
+  <p class="delo">HVAC, Marina del Rey, CA</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+12134632620" data-i="15">+12134632620</a>
+    <span class="tajmer" id="t15" hidden>00:00</span>
+    <a class="ss" href="https://pureairla.com" target="_blank" rel="noopener">pureairla.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Pure+Air+LA+Marina+del+Rey+CA" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n15" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz15"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="15">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_15"><span>Кто ответил</span><select id="kto_15" data-k="kto" data-i="15"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_15"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_15" data-k="imya_reshaet" data-i="15" type="text" autocomplete="off"></label><label for="pochta_15"><span>★ Почта — куда слать запись</span><input id="pochta_15" data-k="pochta" data-i="15" type="text" autocomplete="off"></label><label for="zametka_15"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_15" data-k="zametka" data-i="15" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_15"><span>Про цену · дословно</span><input id="cena_15" data-k="cena" data-i="15" type="text" autocomplete="off"></label><label for="posylka_15"><span>★ Ложная посылка · дословно</span><input id="posylka_15" data-k="posylka" data-i="15" type="text" autocomplete="off"></label><label for="usluga_15"><span>Чего нет · дословно</span><input id="usluga_15" data-k="usluga" data-i="15" type="text" autocomplete="off"></label><label for="zapis_15"><span>Предложили записаться</span><select id="zapis_15" data-k="zapis" data-i="15"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_15"><span>Итог</span><select id="itog_15" data-k="itog" data-i="15"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_15"><span>Что продаём</span><select id="chto_15" data-k="chto" data-i="15"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_15"><span>Секунд до ответа</span><input id="sek_15" data-k="sek" data-i="15" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Pure Air LA | сайт живой да (pureairla.com) | +12134632620 | HVAC, Marina del Rey, CA | часы: «24/7 emergency» (сайт) | русскоязычность: сильное - владелец Дмитрий Данилин в русскоязычном подкасте Fuse Club, два выпуска; «I grew up in Russia» | ВНИМАНИЕ: звонить на номер из шапки, не на кнопку «Call Now» (213-320-3358, похоже на отслеживающий); выручка около $1 млн | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k16">
+  <header>
+    <span class="nom">16</span>
+    <h2>Freezer Brothers</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno">6 · Лос-Анджелес, 19:00-21:00 по LA</p>
+  <p class="delo">холодильники, техника, Glendale, CA</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+18185642717" data-i="16">+18185642717</a>
+    <span class="tajmer" id="t16" hidden>00:00</span>
+    <a class="ss" href="https://freezerbrothers.com" target="_blank" rel="noopener">freezerbrothers.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Freezer+Brothers+Glendale+CA" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n16" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz16"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="16">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>не определена</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_16"><span>Кто ответил</span><select id="kto_16" data-k="kto" data-i="16"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_16"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_16" data-k="imya_reshaet" data-i="16" type="text" autocomplete="off"></label><label for="pochta_16"><span>★ Почта — куда слать запись</span><input id="pochta_16" data-k="pochta" data-i="16" type="text" autocomplete="off"></label><label for="zametka_16"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_16" data-k="zametka" data-i="16" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_16"><span>Про цену · дословно</span><input id="cena_16" data-k="cena" data-i="16" type="text" autocomplete="off"></label><label for="posylka_16"><span>★ Ложная посылка · дословно</span><input id="posylka_16" data-k="posylka" data-i="16" type="text" autocomplete="off"></label><label for="usluga_16"><span>Чего нет · дословно</span><input id="usluga_16" data-k="usluga" data-i="16" type="text" autocomplete="off"></label><label for="zapis_16"><span>Предложили записаться</span><select id="zapis_16" data-k="zapis" data-i="16"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_16"><span>Итог</span><select id="itog_16" data-k="itog" data-i="16"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_16"><span>Что продаём</span><select id="chto_16" data-k="chto" data-i="16"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_16"><span>Секунд до ответа</span><input id="sek_16" data-k="sek" data-i="16" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Freezer Brothers | сайт живой да (freezerbrothers.com) | +18185642717 | холодильники, техника, Glendale, CA | часы: «24/7 Dispatch Ready» (сайт) | русскоязычность: сильное - Ерванд Агабабян сам написал по-русски на to4ka.us, телефон в профиле = на сайте, в тексте живые опечатки | ВНИМАНИЕ: армянская фамилия, русский доказан его собственным текстом; владелец или техник - не видно | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k17">
+  <header>
+    <span class="nom">17</span>
+    <h2>Arktic Air Conditioning</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno zapas">запас 1 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">HVAC, Brooklyn, NY</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+17185000245" data-i="17">+17185000245</a>
+    <span class="tajmer" id="t17" hidden>00:00</span>
+    <a class="ss" href="https://arkticair.com" target="_blank" rel="noopener">arkticair.com</a>
+    <a class="ss pl" href="https://www.google.com/search?q=Arktic+Air+Conditioning+Brooklyn+NY" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n17" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz17"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="17">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>HVAC</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_17"><span>Кто ответил</span><select id="kto_17" data-k="kto" data-i="17"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_17"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_17" data-k="imya_reshaet" data-i="17" type="text" autocomplete="off"></label><label for="pochta_17"><span>★ Почта — куда слать запись</span><input id="pochta_17" data-k="pochta" data-i="17" type="text" autocomplete="off"></label><label for="zametka_17"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_17" data-k="zametka" data-i="17" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_17"><span>Про цену · дословно</span><input id="cena_17" data-k="cena" data-i="17" type="text" autocomplete="off"></label><label for="posylka_17"><span>★ Ложная посылка · дословно</span><input id="posylka_17" data-k="posylka" data-i="17" type="text" autocomplete="off"></label><label for="usluga_17"><span>Чего нет · дословно</span><input id="usluga_17" data-k="usluga" data-i="17" type="text" autocomplete="off"></label><label for="zapis_17"><span>Предложили записаться</span><select id="zapis_17" data-k="zapis" data-i="17"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_17"><span>Итог</span><select id="itog_17" data-k="itog" data-i="17"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_17"><span>Что продаём</span><select id="chto_17" data-k="chto" data-i="17"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_17"><span>Секунд до ответа</span><input id="sek_17" data-k="sek" data-i="17" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>Arktic Air Conditioning | сайт живой да (arkticair.com) | +17185000245 | HVAC, Brooklyn, NY | часы: Yelp: пн-пт 9-18 | русскоязычность: не подтверждено - разведка видела на сайте «Russian speaking: (347) 702-0227» - Я НЕ НАШЁЛ: ни надписи, ни номера нет в HTML главной, контактов, about | ВНИМАНИЕ: отзывы с аватарками из фотостока | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k18">
+  <header>
+    <span class="nom">18</span>
+    <h2>All-Out-Renovation</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno zapas">запас 2 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">своего сайта нет</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13474556373" data-i="18">+13474556373</a>
+    <span class="tajmer" id="t18" hidden>00:00</span>
+    
+    <a class="ss pl" href="https://www.google.com/search?q=All-Out-Renovation" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n18" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz18"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="18">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>Кровля</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_18"><span>Кто ответил</span><select id="kto_18" data-k="kto" data-i="18"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_18"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_18" data-k="imya_reshaet" data-i="18" type="text" autocomplete="off"></label><label for="pochta_18"><span>★ Почта — куда слать запись</span><input id="pochta_18" data-k="pochta" data-i="18" type="text" autocomplete="off"></label><label for="zametka_18"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_18" data-k="zametka" data-i="18" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_18"><span>Про цену · дословно</span><input id="cena_18" data-k="cena" data-i="18" type="text" autocomplete="off"></label><label for="posylka_18"><span>★ Ложная посылка · дословно</span><input id="posylka_18" data-k="posylka" data-i="18" type="text" autocomplete="off"></label><label for="usluga_18"><span>Чего нет · дословно</span><input id="usluga_18" data-k="usluga" data-i="18" type="text" autocomplete="off"></label><label for="zapis_18"><span>Предложили записаться</span><select id="zapis_18" data-k="zapis" data-i="18"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_18"><span>Итог</span><select id="itog_18" data-k="itog" data-i="18"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_18"><span>Что продаём</span><select id="chto_18" data-k="chto" data-i="18"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_18"><span>Секунд до ответа</span><input id="sek_18" data-k="sek" data-i="18" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>All-Out-Renovation | своего сайта нет | +13474556373 | ремонт, кровля, Brooklyn, NY | часы: не найдены | русскоязычность: среднее - владелец Dmytro Savenko привязан к русскому объявлению | ВНИМАНИЕ: НЕТ лицензии DCA и юрлица в штате; адрес - квартира | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+
+<article class="c" id="k19">
+  <header>
+    <span class="nom">19</span>
+    <h2>KG Force Corporation</h2>
+    <span class="mark hz">сайт не посмотрели</span>
+  </header>
+  <p class="okno zapas">запас 3 · Нью-Йорк, 16:00-19:00 по LA</p>
+  <p class="delo">своего сайта нет</p>
+  <div class="dey">
+    <a class="zv" href="#" data-tel="+13474101569" data-i="19">+13474101569</a>
+    <span class="tajmer" id="t19" hidden>00:00</span>
+    
+    <a class="ss pl" href="https://www.google.com/search?q=KG+Force+Corporation" target="_blank" rel="noopener">Плашка Google</a>
+  </div>
+  <div class="nabor" id="n19" hidden>
+    <span class="pod">Голосовое меню — нажимай цифры здесь</span>
+    <div class="klav"><button type="button" data-cifra="1">1</button><button type="button" data-cifra="2">2</button><button type="button" data-cifra="3">3</button><button type="button" data-cifra="4">4</button><button type="button" data-cifra="5">5</button><button type="button" data-cifra="6">6</button><button type="button" data-cifra="7">7</button><button type="button" data-cifra="8">8</button><button type="button" data-cifra="9">9</button><button type="button" data-cifra="*">*</button><button type="button" data-cifra="0">0</button><button type="button" data-cifra="#">#</button></div>
+    <span class="nazhato" id="nz19"></span>
+  </div>
+  <label class="chk"><input type="checkbox" data-k="plashka_ok" data-i="19">
+    <span>Плашку проверила: <b>Google Verified НЕТ</b> — звонить можно</span></label>
+  <div class="skript">
+    <p class="nisha">Ниша: <b>не определена</b> — вопросы уже подставлены, читать дословно</p>
+    <p class="vhod">Hi — heads up, I record my calls so I don't have to write things down.
+      And I'm not booking anything, so I'll be fast.
+      <em>Говорим ВСЕГДА, кто бы ни ответил: запись правда идёт. Скажут «не записывайте» —
+      отбой, перезваниваем без записи или пишем от руки. Дальше слушаем, КТО ответил,
+      и отмечаем поле «Кто ответил» — нужная ветка подсветится сама.</em></p>
+
+    <div class="vetka v-bot">
+      <p class="zag">Ответил робот, меню или автоответчик</p>
+      <p class="pravilo">Покупателя НЕ играем — ни здесь, ни с человеком. Вопросов роботу
+        не задаём и на удочку его не ловим: нам нужен замер того, что слышит клиент,
+        а не разговор с машиной.</p>
+      <ol>
+        <li><span class="sh">Дослушать</span>Дослушай приветствие до конца, не перебивая.<em>Нам нужно ровно то, что слышит клиент вечером. Оборванное приветствие — не замер</em></li>
+        <li><span class="sh sh-g">Записать</span>Запиши в поле ниже, что именно он сказал.<em>Своими словами: представился ли, назвал ли часы, предложил ли записаться, дал ли выход на человека</em></li>
+        <li><span class="sh">Не оставлять</span>Сообщение НЕ оставляем и кладём трубку.<em>Обратный звонок нам не нужен, а оставленное сообщение обязывает их тратить время</em></li>
+      </ol>
+    </div>
+
+    <div class="vetka v-chel">
+      <p class="zag">Ответил живой человек</p>
+      <p class="pravilo">Подставного покупателя НЕ играем. У того, кому изображала клиента,
+        почту не попросишь. Здесь мы — это мы, с первой секунды.</p>
+      <ol>
+        <li><span class="sh">Пустой час</span>When someone calls after hours — say eight on a Saturday evening — what happens to that call?<em>Вот ради чего звонок. Человек в два часа дня трубку и должен был снять; продаёт не отсутствие робота, а пустые часы</em></li>
+        <li><span class="sh">Обе заняты</span>And when you're both with a client and the phone rings — does it go to voicemail?<em>Ответят «answering service» — это не отказ, а лучший лид: они уже платят за покрытие</em></li>
+        <li><span class="sh">Кто мы</span>The reason I ask — my husband and I do one thing. We call a business's line at the hours nobody's at the desk, and we write down what the caller actually hears.<em>Одной фразой и механикой. Ни сумм, ни «вы теряете клиентов»: это утверждение, под него нужно доказательство вперёд</em></li>
+        <li><span class="sh sh-g">АДРЕС</span>We'll do it for you, free, one call. You pick the hour you think is your weak spot. One page, what the caller heard, nothing to sign. Where should I send it — and who should it go to?<em>Почта — адрес доставки вещи, а не одолжение. Окно называют ОНИ: тогда это их догадка и ответ им интересен. «Who should it go to» выводит на владельца, а не на администратора. Час пишем в поле «Окно»</em></li>
+        <li><span class="sh">Отказ</span>No problem at all, thanks for the minute.<em>Не дожимаем. Один звонок и одна страница — ровно то, что обещали, не больше</em></li>
+      </ol>
+    </div>
+    <p class="pripiska">Не взяли трубку — ждём <b>до автоответчика или до тридцатой секунды</b>,
+    смотря что раньше. Один звонок в сутки на номер.
+    <em>Мы меряем, что слышит клиент вечером, а многие автоответчики включаются на двадцатой–двадцать
+    пятой секунде. Положить на восемнадцатой и записать «никто не ответил» было бы неправдой.</em>
+    Записали нас — сразу: «actually, don't book me, I'm just checking prices».<br>
+    <b>Пока играет голосовое меню — молчим и нажимаем цифру.</b> Меню не слушает, речь поверх него уходит в пустоту.</p>
+  </div>
+  <div class="polya glav"><label for="kto_19"><span>Кто ответил</span><select id="kto_19" data-k="kto" data-i="19"><option value="">—</option><option value="человек">человек</option><option value="бот">бот</option><option value="голосовое меню">голосовое меню</option><option value="автоответчик">автоответчик</option><option value="не взяли">не взяли</option></select></label><label for="imya_reshaet_19"><span>★ Имя: кто отвечает за телефон</span><input id="imya_reshaet_19" data-k="imya_reshaet" data-i="19" type="text" autocomplete="off"></label><label for="pochta_19"><span>★ Почта — куда слать запись</span><input id="pochta_19" data-k="pochta" data-i="19" type="text" autocomplete="off"></label><label for="zametka_19"><span>★ Окно, которое назвали (и заметка)</span><input id="zametka_19" data-k="zametka" data-i="19" type="text" autocomplete="off"></label></div>
+  <details class="potom"><summary>Дописать руками — обычно не нужно</summary>
+    <p class="zamet">Дословные цитаты берутся из записи разговора, печатать их не надо.
+    Эти поля — на случай, если хочешь отметить что-то сразу.</p>
+    <div class="polya"><label for="cena_19"><span>Про цену · дословно</span><input id="cena_19" data-k="cena" data-i="19" type="text" autocomplete="off"></label><label for="posylka_19"><span>★ Ложная посылка · дословно</span><input id="posylka_19" data-k="posylka" data-i="19" type="text" autocomplete="off"></label><label for="usluga_19"><span>Чего нет · дословно</span><input id="usluga_19" data-k="usluga" data-i="19" type="text" autocomplete="off"></label><label for="zapis_19"><span>Предложили записаться</span><select id="zapis_19" data-k="zapis" data-i="19"><option value="">—</option><option value="да">да</option><option value="нет">нет</option></select></label><label for="itog_19"><span>Итог</span><select id="itog_19" data-k="itog" data-i="19"><option value="">—</option><option value="интересно">интересно</option><option value="не интересно">не интересно</option><option value="перезвонить">перезвонить</option><option value="не дозвонилась">не дозвонилась</option></select></label><label for="chto_19"><span>Что продаём</span><select id="chto_19" data-k="chto" data-i="19"><option value="">—</option><option value="Вера — первый этап $1 000 + $199">Вера — первый этап $1 000 + $199</option><option value="Видимость — автоответ у них уже есть">Видимость — автоответ у них уже есть</option><option value="ничего">ничего</option><option value="решу потом">решу потом</option></select></label><label for="sek_19"><span>Секунд до ответа</span><input id="sek_19" data-k="sek" data-i="19" type="text" autocomplete="off"></label></div></details>
+  <details><summary>Что нашла разведка</summary><p>KG Force Corporation | своего сайта нет | +13474101569 | ремонт, Brooklyn, NY | часы: не найдены | русскоязычность: слабое - русское объявление + владелец по реестру штата | ВНИМАНИЕ: лицензии DCA нет | Google Screened/Guaranteed: проверить перед звонком | ГОДИТСЯ ДЛЯ ЗВОНКА: да</p></details>
+</article>
+</div>
+
+<script>
+(function(){
+  var KLYUCH='prozvon-2026-09-21', POLYA=["kto", "imya_reshaet", "pochta", "zametka", "cena", "posylka", "usluga", "zapis", "itog", "chto", "sek", "plashka_ok"], IMENA=["Climate Wizards", "NYC AirCool Services", "VP Cool Corp", "fusion.repair", "Premier Appliance Repair", "Green Ductors", "Gataca HVAC Corp", "HVAC AirPro", "Art HVAC NY", "Positive Appliance Repair", "Kobzev Pro Contracting Group", "Vertex Appliance Repair", "TGC Construction", "AirCrew HVAC", "Pure Air LA", "Freezer Brothers", "Arktic Air Conditioning", "All-Out-Renovation", "KG Force Corporation"];
+  var D={};
+  try{ D=JSON.parse(localStorage.getItem(KLYUCH)||'{}'); }catch(e){ D={}; }
+
+  function sohranit(){ try{ localStorage.setItem(KLYUCH,JSON.stringify(D)); }catch(e){} }
+  function vzyat(i){ return D[i]||(D[i]={}); }
+
+  document.querySelectorAll('[data-k]').forEach(function(el){
+    var i=el.getAttribute('data-i'), k=el.getAttribute('data-k'), z=vzyat(i);
+    if(el.type==='checkbox'){ el.checked=!!z[k]; } else if(z[k]!=null){ el.value=z[k]; }
+    el.addEventListener(el.tagName==='SELECT'||el.type==='checkbox'?'change':'input',function(){
+      z[k]= el.type==='checkbox'? el.checked : el.value;
+      sohranit(); obnovit(); if(k==='kto') vetki(i); nasever(i,k,z[k]);
+    });
+  });
+
+  // Ветка скрипта по тому, кто снял трубку. Робот и человек — два разных разговора:
+  // роботу мы играем покупателя и просим переслать запись, человеку представляемся
+  // сами и просим адрес под бесплатный замер в его пустой час.
+  function vetki(i){
+    var k=document.getElementById('k'+i); if(!k) return;
+    var kto=(D[i]||{}).kto||'';
+    var chel = kto==='человек';
+    var bot  = (kto==='бот'||kto==='голосовое меню'||kto==='автоответчик');
+    var vb=k.querySelector('.v-bot'), vc=k.querySelector('.v-chel');
+    if(vb) vb.classList.toggle('tusklo', chel);
+    if(vc) vc.classList.toggle('tusklo', bot);
+  }
+
+  function obnovit(){
+    var sd=0,int_=0;
+    for(var i=1;i<=IMENA.length;i++){
+      var z=D[i]||{}, k=document.getElementById('k'+i); if(!k)continue;
+      var gotov = !!(z.itog && z.itog!=='');
+      k.classList.toggle('gotov',gotov);
+      if(gotov)sd++;
+      if(z.itog==='интересно')int_++;
+    }
+    document.getElementById('sd').textContent=sd;
+    document.getElementById('int').textContent=int_;
+    for(var j=1;j<=IMENA.length;j++) vetki(j);
+    filtrovat();
+  }
+
+  function filtrovat(){
+    var v=document.getElementById('filtr').value;
+    for(var i=1;i<=IMENA.length;i++){
+      var z=D[i]||{}, k=document.getElementById('k'+i); if(!k)continue;
+      var pokaz=true;
+      if(v==='ne') pokaz=!(z.itog&&z.itog!=='');
+      else if(v==='int') pokaz=(z.itog==='интересно');
+      else if(v==='bot') pokaz=!!k.querySelector('.mark.bot');
+      k.style.display=pokaz?'':'none';
+    }
+  }
+  document.getElementById('filtr').addEventListener('change',filtrovat);
+
+
+
+  function tablica(){
+    var sh=['№','компания'].concat(POLYA), str=[sh.join('\t')];
+    for(var i=1;i<=IMENA.length;i++){
+      var z=D[i]||{}, r=[i,IMENA[i-1]];
+      POLYA.forEach(function(k){ var v=z[k]; r.push(v===true?'да':(v===false?'':(v==null?'':String(v)))); });
+      str.push(r.join('\t'));
+    }
+    return str.join('\n');
+  }
+
+  document.getElementById('skachat').addEventListener('click',function(){
+    var b=new Blob([ '﻿'+tablica() ],{type:'text/tab-separated-values;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(b); a.download='prozvon-otvety.tsv';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+  document.getElementById('kopir').addEventListener('click',function(){
+    var t=tablica();
+    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){
+      var k=document.getElementById('kopir'); var s=k.textContent;
+      k.textContent='Скопировано'; setTimeout(function(){k.textContent=s;},1500);
+    }); }
+  });
+
+  obnovit();
+
+  // ─── Ключ из адреса. Маша открывает страницу по ссылке с ?k=…
+  var KEY = (location.search.match(/[?&]k=([^&]+)/) || [])[1] || '';
+  // Сколько осталось — спрашиваем у сервера. Он считает по журналу Twilio.
+  var OSTALOS = null;                      // null значит «пока не знаем»
+  function pokazat_potolok(){
+    var el=document.getElementById('potolok'); if(!el) return;
+    if(OSTALOS===null){ el.textContent='считаю звонки…'; el.className='potolok'; return; }
+    if(OSTALOS==='neizvestno'){
+      el.textContent='счёт недоступен'; el.className='potolok skoro'; return;
+    }
+    el.textContent='осталось '+OSTALOS+' из 20';
+    el.className='potolok'+(OSTALOS<=0?' vsyo':(OSTALOS<=3?' skoro':''));
+  }
+  function sprosit_schet(){
+    if(!KEY) return;
+    fetch('/.netlify/functions/prozvon-schet?k='+encodeURIComponent(KEY))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        OSTALOS = d && d.neizvestno ? 'neizvestno'
+                : (d && typeof d.ostalos==='number' ? d.ostalos : 'neizvestno');
+        pokazat_potolok();
+      })
+      .catch(function(){ OSTALOS='neizvestno'; pokazat_potolok(); });
+  }
+
+  // ─── Ответы храним У НАС, не в браузере Маши: Андрей должен видеть ход прозвона.
+  // localStorage остаётся страховкой на случай, если сеть моргнёт посреди звонка.
+  // Раньше отправка была «выстрелил и забыл»: ответ не читался, ошибка глушилась.
+  // 24.09 так сервер день отбрасывал карточки 57–66, а страница показывала «сохранено».
+  // Теперь успех — только r.ok И j.ok. Неудача — один тихий повтор через 2.5 с (сетевая
+  // икота не должна мигать красным), потом пометка У ПОЛЯ: Маше важно, какая именно
+  // запись не уехала. Данные уже в localStorage — это «не уехало», а не «потеряно».
+  // Неуехавшее помним между загрузками и досылаем при следующем открытии.
+  // Ввод не блокируем никогда: она в середине звонка.
+  var POSL={};   // номер последней отправки по полю: красить или гасить решает только она
+  function hvost_get(){ try{ return JSON.parse(localStorage.getItem('prozvon-neuehalo')||'{}'); }catch(e){ return {}; } }
+  function hvost_set(h){ try{ localStorage.setItem('prozvon-neuehalo', JSON.stringify(h)); }catch(e){} }
+  function pometit(i, pole, ploho){
+    var el=document.querySelector('[data-i="'+i+'"][data-k="'+pole+'"]');
+    var lab=(el && el.closest) ? el.closest('label') : null;
+    if(lab) lab.classList.toggle('neuehalo', !!ploho);
+    else { var kk=document.getElementById('k'+i); if(kk) kk.classList.toggle('neuehalo-k', !!ploho); }
+    var h=hvost_get(), kl=i+':'+pole;
+    if(ploho) h[kl]=1; else delete h[kl];
+    hvost_set(h);
+  }
+  function nasever(i, pole, znachenie, popytka){
+    if(!KEY || !window.fetch) return;
+    popytka=popytka||1;
+    var kl=i+':'+pole, nomer=(POSL[kl]=(POSL[kl]||0)+1);
+    fetch('/.netlify/functions/prozvon',{method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({k:KEY,i:i,pole:pole,znachenie:znachenie})})
+    .then(function(r){ return r.ok ? r.json() : {ok:false}; })
+    .then(function(j){ return !!(j && j.ok); })
+    .catch(function(){ return false; })
+    .then(function(ok){
+      if(POSL[kl]!==nomer) return;             // уже ушла более свежая отправка — решает она
+      if(ok){ pometit(i, pole, false); return; }
+      if(popytka<2){
+        setTimeout(function(){
+          if(POSL[kl]!==nomer) return;
+          // повтор с ТЕКУЩИМ значением: пока ждали, она могла допечатать,
+          // и старое значение затёрло бы на сервере новое
+          nasever(i, pole, (D[i]||{})[pole], popytka+1);
+        }, 2500);
+        return;
+      }
+      pometit(i, pole, true);
+    });
+  }
+
+  // ─── Линия. Поднимается один раз на страницу.
+  var device=null, idet=null, tik=null, svyaz=document.getElementById('svyaz');
+  function sostoyanie(t,k){ svyaz.textContent=t; svyaz.className='svyaz'+(k?' '+k:''); }
+
+  function beda(zagolovok, chto){
+    var el=document.getElementById('beda');
+    el.innerHTML='<h3>'+zagolovok+'</h3>'+chto; el.hidden=false;
+    document.querySelectorAll('.zv[data-tel]').forEach(function(a){ a.classList.add('nelzya'); });
+  }
+
+  function podnyat(){
+    if(!KEY){
+      sostoyanie('нет ключа');
+      beda('Ссылка открыта без ключа — звонить нельзя',
+        '<p>В адресе страницы должен быть <b>?k=</b> и дальше ключ. Сейчас его нет, '
+       +'поэтому линия не поднимается и кнопки звонка не работают.</p>'
+       +'<p><b>Что делать:</b> открой страницу по полной ссылке, которую прислал ШТАБ. '
+       +'Ссылку целиком, не обрезая хвост после вопросительного знака.</p>');
+      return;
+    }
+    if(!window.Twilio || !window.Twilio.Device){
+      sostoyanie('нет связи с Twilio');
+      beda('Не загрузилась телефонная библиотека',
+        '<p>Скорее всего мешает блокировщик рекламы или расширение: страница берёт её '
+       +'с cdn.jsdelivr.net.</p><p><b>Что делать:</b> отключи блокировщик на этом адресе '
+       +'и обнови страницу. Если не помогло — открой в другом браузере.</p>');
+      return;
+    }
+    fetch('/.netlify/functions/zvonok-token?k='+encodeURIComponent(KEY))
+      .then(function(r){ if(!r.ok) throw {kod:r.status}; return r.json(); })
+      .then(function(d){
+        device = new Twilio.Device(d.token, {codecPreferences:['opus','pcmu']});
+        device.on('registered', function(){
+          sostoyanie('спрашиваю микрофон','zvonim');
+          navigator.mediaDevices.getUserMedia({audio:true})
+            .then(function(st){
+              st.getTracks().forEach(function(x){x.stop()});
+              sostoyanie('линия готова','est'); vklyuchit();
+            })
+            .catch(function(){
+              sostoyanie('микрофон закрыт');
+              beda('Нет доступа к микрофону',
+                '<p>Без него звонить из браузера нельзя.</p>'
+               +'<p><b>Что делать:</b> нажми на замочек слева от адреса, разреши микрофон '
+               +'и обнови страницу. И надень наушники — без них твой микрофон поймает '
+               +'динамик, и в записи будет эхо.</p>');
+            });
+        });
+        device.on('error', function(e){ sostoyanie('линия: '+(e&&e.message||'сбой')); });
+        device.register();
+      })
+      .catch(function(e){
+        // 404 — ключ не тот. Всё остальное — связь: интернет, блокировщик, сбой сайта.
+        // Валить одно на другое нельзя: человек будет искать не там.
+        if(e && e.kod===404){
+          sostoyanie('ключ не подошёл');
+          beda('Ключ в ссылке не подошёл',
+            '<p>Сервер отказал именно этому ключу. Скорее всего ссылка скопирована '
+           +'не целиком.</p><p><b>Что делать:</b> попроси у ШТАБА свежую ссылку и открой '
+           +'её полностью, вместе с хвостом после вопросительного знака.</p>');
+        } else {
+          sostoyanie('нет связи');
+          beda('Не получилось связаться с сервером',
+            '<p>Ключ тут, скорее всего, ни при чём — не прошёл сам запрос'
+           +(e&&e.kod?' (ответ '+e.kod+')':'')+'.</p>'
+           +'<p><b>Что делать:</b> проверь интернет и обнови страницу. Если не помогло — '
+           +'отключи блокировщик на этом адресе. Если и это не помогло — скажи ШТАБУ.</p>');
+        }
+      });
+  }
+
+  // 23.09: кнопки вешаем ОДИН раз и НЕЗАВИСИМО от того, поднялась ли линия.
+  // Так было сломано утром: vklyuchit() звали только из ветки успеха getUserMedia,
+  // и при закрытом микрофоне, чужом ключе или упавшем токене обработчик не вешался
+  // вовсе — href="#" просто кидал страницу наверх. Хуже того, ветка
+  // «Линия не поднята — смотри красную рамку» внутри обработчика не могла сработать
+  // никогда, потому что самого обработчика не было. Чинится здесь, в генераторе,
+  // а не в собранном list.html: правку в html стирает следующая пересборка.
+  var NAVESHENO=false;
+  function vklyuchit(){
+    if(NAVESHENO) return; NAVESHENO=true;
+    document.querySelectorAll('.zv[data-tel]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        if(!device){
+          alert('Линия не поднята — смотри красную рамку вверху страницы, там написано почему.');
+          return;
+        }
+        if(idet){ idet.disconnect(); return; }
+        if(OSTALOS===0){
+          alert('На сегодня двадцать звонков сделано — это по журналу телефонии, '
+              + 'а не по нажатиям. Больше с одного номера в день не звоним, иначе '
+              + 'оператор пометит нас спамом. Продолжим завтра.');
+          return;
+        }
+        pozvonit(a);
+      });
+    });
+  }
+
+  function chasy(el, s0){
+    return setInterval(function(){
+      var s=Math.floor((Date.now()-s0)/1000);
+      el.textContent=('0'+Math.floor(s/60)).slice(-2)+':'+('0'+(s%60)).slice(-2);
+    },1000);
+  }
+
+  function pozvonit(a){
+    var i=a.getAttribute('data-i'), nomer=a.getAttribute('data-tel');
+    var t=document.getElementById('t'+i), s0=Date.now(), bylo=a.textContent;
+    device.connect({params:{To:nomer, kompaniya:String(i)}}).then(function(c){
+      idet=c; a.classList.add('idet'); a.textContent='Положить трубку';
+      var nab=document.getElementById('n'+i), nz=document.getElementById('nz'+i);
+      if(nab){
+        nab.hidden=false; nz.textContent='';
+        nab.querySelectorAll('[data-cifra]').forEach(function(b){
+          b.onclick=function(){
+            var c=b.getAttribute('data-cifra');
+            try{ idet.sendDigits(c); nz.textContent+=c; }catch(e){}
+          };
+        });
+      }
+      c.on('accept', function(){ if(typeof OSTALOS==='number' && OSTALOS>0){ OSTALOS--; pokazat_potolok(); } });
+      t.hidden=false; t.textContent='00:00'; tik=chasy(t,s0);
+      sostoyanie('идёт разговор','zvonim');
+
+      c.on('disconnect', function(){
+        clearInterval(tik); idet=null;
+        a.classList.remove('idet'); a.textContent=bylo;
+        var nab2=document.getElementById('n'+i);
+        if(nab2){
+          var nazh=document.getElementById('nz'+i).textContent;
+          nab2.hidden=true;
+          if(nazh){ vzyat(i).cifry=nazh; nasever(i,'cifry',nazh); }
+        }
+        sostoyanie('линия готова','est');
+        var sek=Math.floor((Date.now()-s0)/1000);
+        var sid=(c.parameters&&c.parameters.CallSid)||c.outboundConnectionId||'';
+        var z=vzyat(i); z.sek=String(sek); z.call_sid=sid;
+        var pole=document.getElementById('sek_'+i); if(pole) pole.value=String(sek);
+        sohranit(); nasever(i,'sek',String(sek)); if(sid) nasever(i,'call_sid',sid);
+        sprosit_schet();                 // после отбоя сверяемся с журналом
+        if(sid) podobrat(i,sid,0);
+      });
+    }).catch(function(){ sostoyanie('не дозвонились','est'); });
+  }
+
+  // Запись готовится у Twilio не мгновенно — спрашиваем с паузами, не чаще.
+  function podobrat(i,sid,popytka){
+    if(popytka>6) return;
+    setTimeout(function(){
+      fetch('/.netlify/functions/zvonok-zapis?k='+encodeURIComponent(KEY)+'&sid='+encodeURIComponent(sid))
+        .then(function(r){return r.json()})
+        .then(function(d){
+          if(d && d.gotovo && d.url){
+            var z=vzyat(i); z.zapis_url=d.url; sohranit(); nasever(i,'zapis_url',d.url);
+            var k=document.getElementById('k'+i);
+            if(k && !k.querySelector('.zapis')){
+              var a=document.createElement('a');
+              a.className='ss zapis'; a.href=d.url; a.target='_blank'; a.rel='noopener';
+              a.textContent='Запись разговора';
+              k.querySelector('.dey').appendChild(a);
+            }
+          } else { podobrat(i,sid,popytka+1); }
+        })
+        .catch(function(){ podobrat(i,sid,popytka+1); });
+    }, 5000*(popytka+1));
+  }
+
+  pokazat_potolok();
+  // ─── РАЗОВАЯ ДОСЫЛКА. 24.09: сервер знал только 56 карточек, а на странице их 66,
+  // и всё, что Маша печатала по целям 57–66, он МОЛЧА отбрасывал. Предел поднят,
+  // но уже набранное само не уедет: наверх мы шлём только при изменении поля.
+  // Шлём ТОЛЬКО карточки 57–66 и только непустые поля — по 1–56 у сервера всё есть,
+  // и трогать их значит рисковать затереть более свежее чужой стариной.
+  // Один раз на браузер, метка в localStorage.
+  // Метку ставим ТОЛЬКО когда сервер подтвердил КАЖДОЕ поле (ШТАБ, 24.09). Первая версия
+  // ставила её сразу, не дожидаясь ответа, а nasever() ответ не читает и ошибку глушит:
+  // моргнула сеть или вкладку закрыли раньше — метка уже стоит, повтора нет, медспа
+  // потеряны молча. Ровно тот класс, что и сам баг с пределом. Повтор безопасен:
+  // сервер перезапишет то же поле тем же значением. Ключ метки новый (-v2), чтобы
+  // старая версия, если успела отработать неудачно, не заперла повтор.
+  (function dosylka(){
+    if(!KEY || !window.fetch || !window.Promise) return;
+    var METKA='prozvon-dosylka-57-66-v2';
+    try{ if(localStorage.getItem(METKA)) return; }catch(e){ return; }
+    var zadachi=[];
+    for(var i=57;i<=66;i++){
+      var z=D[i]; if(!z) continue;            // D[i], а не vzyat(): тот создал бы пустую карточку
+      for(var k in z){
+        if(!Object.prototype.hasOwnProperty.call(z,k)) continue;
+        var v=z[k];
+        if(v===''||v===null||v===undefined) continue;
+        zadachi.push(fetch('/.netlify/functions/prozvon',{method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({k:KEY,i:i,pole:k,znachenie:v})})
+          .then(function(r){ return r.ok ? r.json() : {ok:false}; })
+          .then(function(j){ return !!(j && j.ok); })
+          .catch(function(){ return false; }));
+      }
+    }
+    if(!zadachi.length){ try{ localStorage.setItem(METKA,'pusto'); }catch(e){} return; }
+    Promise.all(zadachi).then(function(itog){
+      var doehalo=itog.filter(Boolean).length;
+      if(doehalo===itog.length){ try{ localStorage.setItem(METKA,'1'); }catch(e){} }
+      console.log('[прозвон] досылка 57-66: доехало '+doehalo+' из '+itog.length+
+        (doehalo===itog.length ? '' : ' — повторим при следующей загрузке'));
+    });
+  })();
+
+  // Что не уехало на сервер в прошлые открытия — досылаем сейчас, текущими значениями.
+  // Пока сервер не подтвердил, пометка горит: видно, что висит.
+  (function hvost(){
+    var h=hvost_get(), zhivye=[];
+    Object.keys(h).forEach(function(kl){
+      var p=kl.split(':'), i=p[0], pole=p.slice(1).join(':'), z=D[i];
+      if(z && Object.prototype.hasOwnProperty.call(z,pole)) zhivye.push([i,pole]); else delete h[kl];
+    });
+    hvost_set(h);
+    zhivye.forEach(function(x){ pometit(x[0], x[1], true); nasever(x[0], x[1], D[x[0]][x[1]]); });
+  })();
+
+  sprosit_schet();
+  vklyuchit();   // кнопки живые с первой секунды, даже если линия не поднимется
+  podnyat();
+})();
+</script>
+</body></html>

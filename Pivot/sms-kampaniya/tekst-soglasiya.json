@@ -1,0 +1,109 @@
+{
+  "_zachem": "Единственное место правды для текста согласия на SMS. Отсюда sobrat.py собирает обе страницы и вписывает отпечатки (sha256) в функцию sms-soglasie.js. Поменяли хоть букву в «tekst» — заводите НОВУЮ версию (en-1.1 / ru-1.1), старую не трогайте: на неё ссылаются уже записанные согласия. Блоки «ui» и «sms» в отпечаток не входят. en-1.0 и ru-1.0 правлены на месте 29.09 вечером (рекламная галочка названа рекламной): на сайте их ещё не было, согласий на них ноль. После первой выкладки — только новые версии.",
+
+  "tekushchaya": { "en": "en-1.0", "ru": "ru-1.0" },
+
+  "versii": {
+    "en-1.0": {
+      "data": "2026-09-29",
+      "yazyk": "en",
+      "tekst": {
+        "galochka_servis": "<b>Texts about my request and appointments.</b> Confirmations and reminders of calls I book with Business Intelligence DNA, and replies to questions I ask.",
+        "galochka_dozhim": "<b>Marketing texts: follow-ups and offers.</b> Recurring marketing texts: follow-ups on proposals I asked for, and offers about the service I asked Business Intelligence DNA about. This is a separate choice from the box above &mdash; tick it only if you want these too.",
+        "raskrytie": "By ticking a box above and pressing <b>Save</b>, you agree to receive recurring automated text messages from <b>Business Intelligence DNA</b> (Wealthboosterpro LLC) at the number you entered &mdash; only of the kinds you ticked; the second box covers marketing messages. Consent is not a condition of any purchase. Message frequency varies, up to 8 messages per month. Msg &amp; data rates may apply. Reply <b>STOP</b> to cancel at any time; reply <b>HELP</b> for help. Texts come from +1 (424) 781-1913. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. See our <a href=\"/sms\">SMS Terms</a>, <a href=\"/privacy\">Privacy Policy</a> and <a href=\"/terms\">Terms of Service</a>."
+      }
+    },
+    "ru-1.0": {
+      "data": "2026-09-29",
+      "yazyk": "ru",
+      "tekst": {
+        "galochka_servis": "<b>SMS по моей заявке и записи.</b> Подтверждения и напоминания о звонках, которые я назначу с Business Intelligence DNA, и ответы на мои вопросы.",
+        "galochka_dozhim": "<b>Рекламные SMS: повторные сообщения и предложения.</b> Регулярные рекламные SMS: повторное сообщение по предложению, которое я запросил(а), и предложения по услуге, о которой я спрашивал(а) Business Intelligence DNA. Это отдельный выбор, не связанный с галочкой выше, &mdash; отмечайте, только если хотите получать и их.",
+        "raskrytie": "Отмечая галочку и нажимая <b>«Сохранить»</b>, вы соглашаетесь получать регулярные автоматические SMS от <b>Business Intelligence DNA</b> (Wealthboosterpro LLC) на указанный номер &mdash; только того вида, который отметили; вторая галочка &mdash; рекламные сообщения. Согласие не является условием какой-либо покупки. Частота разная, не больше 8 сообщений в месяц. Оператор может брать плату за сообщения и передачу данных по вашему тарифу (Msg &amp; data rates may apply). Ответьте <b>STOP</b> или <b>СТОП</b>, чтобы отписаться в любой момент; <b>HELP</b> или <b>ПОМОЩЬ</b> &mdash; чтобы получить помощь. SMS приходят с номера +1 (424) 781-1913. Ваш мобильный номер мы не передаём третьим лицам и аффилированным компаниям для рекламы и маркетинга. Подробнее: <a href=\"/sms\">условия сообщений</a>, <a href=\"/privacy\">конфиденциальность</a>, <a href=\"/terms\">условия работы</a>."
+      }
+    }
+  },
+
+  "ui": {
+    "en": {
+      "lang": "en",
+      "title": "Text messages — Business Intelligence DNA",
+      "desc": "Optional: choose whether Business Intelligence DNA may text you, and about what.",
+      "nazad": "← Back to site",
+      "drugoy_yazyk": "Русский",
+      "eyebrow": "Optional",
+      "h1": "Text messages from Business Intelligence DNA",
+      "lede": "We normally write to you by email. If you would also like texts, choose which ones below. Both boxes are optional and start empty: you can save with neither ticked, and nothing we do for you depends on it.",
+      "telefon": "Mobile number (US)",
+      "telefon_podskazka": "Needed only if you tick a box.",
+      "pochta": "Email you used with us",
+      "pochta_podskazka": "Helps us match this to your request.",
+      "neobyaz": "optional",
+      "knopka": "Save",
+      "potom": "Changed your mind later? Reply STOP to any text, or come back here and save with both boxes empty.",
+      "chego_net": "We never buy, rent or import phone numbers, and we never text a number that its owner did not give us here.",
+      "noscript": "JavaScript is off: the form still saves, and after saving this page opens again with the result.",
+      "pod_pravo": "Documents",
+      "ssylki": [["/terms", "Terms"], ["/privacy", "Privacy"], ["/sms", "SMS Terms"], ["/contacts", "Contacts"]],
+      "soobshcheniya": {
+        "pusto": "Nothing to save. Without a tick we will not text you — email stays as it is.",
+        "nomer": "Please enter a US mobile number, 10 digits.",
+        "zhdem": "Saving…",
+        "da": "Saved. We will text {n} only about what you ticked. Reply STOP at any time to cancel.",
+        "net": "Saved: no texts to {n}. We will keep to email.",
+        "oshibka": "It did not save — please try again in a minute, or email support@businessinteldna.com."
+      },
+      "bez_js": {
+        "sohraneno": "Saved. We will text you only about what you ticked. Reply STOP at any time to cancel.",
+        "bez-sms": "Saved: no texts to this number. We will keep to email.",
+        "pusto": "Nothing to save. Without a tick we will not text you — email stays as it is.",
+        "oshibka-nomer": "Please enter a US mobile number, 10 digits, and save again.",
+        "oshibka": "It did not save — please try again in a minute, or email support@businessinteldna.com."
+      }
+    },
+    "ru": {
+      "lang": "ru",
+      "title": "SMS от нас — Business Intelligence DNA",
+      "desc": "Необязательно: выберите, можно ли Business Intelligence DNA писать вам SMS и о чём.",
+      "nazad": "← На сайт",
+      "drugoy_yazyk": "English",
+      "eyebrow": "Необязательно",
+      "h1": "SMS от Business Intelligence DNA",
+      "lede": "Обычно мы пишем вам на почту. Если хотите получать ещё и SMS — отметьте, какие именно. Обе галочки необязательные и изначально не стоят: можно сохранить и без них, и ничего из того, что мы для вас делаем, от этого не зависит.",
+      "telefon": "Мобильный номер (США)",
+      "telefon_podskazka": "Нужен, только если отметите галочку.",
+      "pochta": "Почта, с которой вы нам писали",
+      "pochta_podskazka": "Так мы поймём, к какой заявке это относится.",
+      "neobyaz": "необязательно",
+      "knopka": "Сохранить",
+      "potom": "Передумаете — ответьте STOP или СТОП на любое наше SMS или вернитесь сюда и сохраните без галочек.",
+      "chego_net": "Мы не покупаем, не арендуем и не загружаем чужие базы номеров и не пишем на номер, который его владелец не оставил нам здесь сам.",
+      "noscript": "JavaScript выключен: форма всё равно сохранит выбор, а после сохранения эта страница откроется снова с результатом.",
+      "pod_pravo": "Документы",
+      "ssylki": [["/terms", "Условия"], ["/privacy", "Конфиденциальность"], ["/sms", "Условия сообщений"], ["/contacts", "Контакты"]],
+      "soobshcheniya": {
+        "pusto": "Сохранять нечего. Без галочки SMS не будет — почта остаётся как была.",
+        "nomer": "Введите мобильный номер США, 10 цифр.",
+        "zhdem": "Сохраняем…",
+        "da": "Сохранили. Будем писать на {n} только то, что вы отметили. STOP или СТОП в ответ — и перестанем.",
+        "net": "Сохранили: SMS на {n} не пишем. Остаёмся на почте.",
+        "oshibka": "Не сохранилось — попробуйте через минуту или напишите на support@businessinteldna.com."
+      },
+      "bez_js": {
+        "sohraneno": "Сохранили. Будем писать только то, что вы отметили. STOP или СТОП в ответ — и перестанем.",
+        "bez-sms": "Сохранили: SMS на этот номер не пишем. Остаёмся на почте.",
+        "pusto": "Сохранять нечего. Без галочки SMS не будет — почта остаётся как была.",
+        "oshibka-nomer": "Введите мобильный номер США, 10 цифр, и сохраните ещё раз.",
+        "oshibka": "Не сохранилось — попробуйте через минуту или напишите на support@businessinteldna.com."
+      }
+    }
+  },
+
+  "sms": {
+    "_zachem": "Тексты, которые уходят SMS. Подтверждение шлёт функция после первой галочки (только при SMS_PODTVERZHDAT=1). Английские три обязаны буква в букву совпадать с полями кампании в kampaniya.json — sobrat.py это сверяет.",
+    "podtverzhdenie_en": "Business Intelligence DNA (Wealthboosterpro LLC): you're signed up for the texts you chose on our site. Up to 8 msgs/mo. Msg & data rates may apply. Reply HELP for help, STOP to cancel.",
+    "podtverzhdenie_ru": "Business Intelligence DNA (Wealthboosterpro LLC): вы подписались на SMS, которые выбрали на сайте. До 8 SMS в месяц. Оператор может брать плату по тарифу. HELP или ПОМОЩЬ — помощь, STOP или СТОП — отписка.",
+    "otpiska_en": "Business Intelligence DNA (Wealthboosterpro LLC): you're unsubscribed and will get no more texts from us. Reply START to resubscribe.",
+    "pomoshch_en": "Business Intelligence DNA (Wealthboosterpro LLC): help at support@businessinteldna.com or +1 424 781 1913. Up to 8 msgs/mo. Msg & data rates may apply. Reply STOP to cancel."
+  }
+}

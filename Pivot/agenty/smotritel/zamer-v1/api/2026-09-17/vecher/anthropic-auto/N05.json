@@ -1,0 +1,580 @@
+{
+ "vopros_id": "N05",
+ "vopros": "спросила у нейросети кто лучший косметолог в лос анджелесе и меня там нет. как сделать чтобы нейросети меня советовали?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "anthropic",
+ "rezhim": "auto",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "vecher",
+ "den": "2026-09-17",
+ "vne_okna": false,
+ "zapusk_id": "20260917-190007-29696",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-17T19:03:15-07:00",
+   "zapusk_id": "20260917-190007-29696",
+   "cena": 0.08239,
+   "ishod": "ok",
+   "sekund": 30.1,
+   "meta": {
+    "request_id": "req_011CfA5mQjrLYKbNfGCBN2Gp"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Это популярный сейчас вопрос — оптимизация под нейросети называется GEO (Generative Engine Optimization) или AI SEO. Дай-ка уточню актуальные рекомендации.Это называется **GEO (Generative Engine Optimization)** — «SEO для нейросетей». Логика простая: ChatGPT, Gemini, Perplexity и другие не ранжируют сайты, а **синтезируют прямой ответ**, опираясь на то, что они «видели» в обучающих данных и/или находят при живом поиске в интернете AI tools like ChatGPT synthesize direct answers rather than ranking websites, so traditional SEO alone no longer earns recommendations. Для локальных запросов («лучший косметолог в ЛА») это почти всегда второй вариант — AI assистент, отвечая на локальный вопрос, либо тянет данные из обучения, либо ищет в живом интернете и суммирует найденное — для локальных рекомендаций это почти всегда второй сценарий.\n\nВот что реально работает:\n\n**1. Наведите порядок в базовых данных (NAP-консистентность)**\nОдинаковое название бизнеса, одинаковое описание услуг, одинаковые данные о локации на сайте, в справочниках и соцсетях — нейросети собирают понимание о бизнесе из многих источников, и несостыковки читаются как неопределённость.\n\n**2. Профиль Google Business + отзывы — критично для локальных запросов**\nGemini и Perplexity используют отзывы с популярных платформ вроде Google Business Profiles, Yelp, TripAdvisor и Angie's List для формирования рекомендаций по локальным запросам. Claude пока меньше опирается на живой веб — Claude отличается от остальных трёх крупных нейросетей ограниченным доступом в интернет.\n\n**3. Внедрите структурированные данные (Schema markup)**\nСхема LocalBusiness (название, адрес, телефон, часы, зона обслуживания, категории, рейтинги) и FAQ Schema помогают появляться в AI-ответах; бесплатные инструменты вроде Google's Structured Data Markup Helper проведут через процесс шаг за шагом.\n\n**4. Публикации в СМИ и упоминания «со стороны» — самое ценное**\nВторой шаг — заслужить упоминания, которые вы не контролируете: местная пресса, отраслевые подборки, подкасты, справочники и стабильный поток настоящих отзывов; одно реальное упоминание в отраслевом издании, вероятно, делает больше для видимости в AI, чем ещё одна страница на собственном сайте.\n\n**5. Пишите контент в формате прямых ответов**\nНейросети любят FAQ-блоки (вопрос + краткий ответ 100–150 слов) и таблицы сравнения продуктов, тарифов, характеристик.\n\n**6. Попадите в «списочные» статьи (list articles)**\nВключение в списочные статьи — самый эффективный путь к рекомендации чат-ботом; при этом награды/титулы и онлайн-отзывы влияют на рекомендацию сильнее, чем считалось ранее. То есть попадите в подборки вида «10 лучших косметологов Лос-Анджелеса» на локальных сайтах/блогах.\n\n**7. Проверяйте себя тем же способом, что и клиент**\nЗадавайте систематически в ChatGPT и другие движки вопросы вроде «Ищу [услугу] в [городе]. Какие компании вы бы порекомендовали и почему?» и «Что нужно знать перед тем, как нанять [специалиста]?» — так вы поймёте, что именно ИИ уже \"знает\" о вас (и о конкурентах).\n\n**Важный нюанс:** купить попадание в органические AI-рекомендации нельзя — реклама внутри AI-ответов появляется на некоторых платформах, но органические цитирования не продаются — органический путь идёт через заслуженные упоминания и цитируемый контент.\n\n**Итог для косметолога в ЛА:** заведите/обновите Google Business Profile с реальными отзывами, добавьте LocalBusiness+FAQ схему на сайт, попросите постоянных клиентов оставить отзывы на Yelp/Google, постарайтесь попасть в местные подборки \"best cosmetologist LA\" (питчить блогерам/локальным изданиям) — и результат в AI-выдаче обычно заметен за 4–8 недель, как отмечают маркетологи, специализирующиеся на малом бизнесе Большинство может начать с бесплатных инструментов и увидеть результаты в течение 4-8 недель, при этом локальные бизнесы имеют особое преимущество, поскольку могут доминировать в геозависимых запросах легче, чем национальные конкуренты.",
+  "poiskovye_zaprosy": [
+   "как сделать чтобы ChatGPT рекомендовал бизнес GEO оптимизация",
+   "generative engine optimization how to get recommended by AI chatbots local business"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://prex.ru/blog/kak-zastavit-chatgpt-sovetovat-vash-biznes-glavnoe-o-generativnoy-optimizacii-geo",
+    "domen": "prex.ru",
+    "title": "Как заставить ChatGPT советовать ваш бизнес: главное о генеративной оптимизации (GEO) | PREX — интернет-сервисы для PR"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=gRz7pilvAfg",
+    "domen": "youtube.com",
+    "title": "Как заставить ChatGPT рекомендовать ваш бизнес - YouTube"
+   },
+   {
+    "url": "https://vc.ru/decoded/2888644-geo-prodvizhenie-v-nevrosetjah",
+    "domen": "vc.ru",
+    "title": "GEO-продвижение в нейросетях: большое исследование о том, как ChatGPT, DeepSeek и Perplexity выбирают, кого рекомендовать. И почему вашего бизнеса в этом списке нет — Decoded - обзоры сервисов на vc.ru"
+   },
+   {
+    "url": "https://affix-group.ru/useful/geo-prodvizhenie-kak-sdelat-tak-chtoby-ii-rekomendoval-vashu-kompaniyu",
+    "domen": "affix-group.ru",
+    "title": "GEO-продвижение: как сделать так, чтобы ИИ рекомендовал вашу компанию | Аффикс Групп"
+   },
+   {
+    "url": "https://darvindigital.ru/blog/statyi/kak-prodvigat-svoj-biznes-s-pomoshchyu-geo-v-2026-sekrety-i-kejsy",
+    "domen": "darvindigital.ru",
+    "title": "Как продвигать бизнес с помощью GEO в 2026: как сайты попадают в ответы ChatGPT и AI-выдачу"
+   },
+   {
+    "url": "https://lead.media/uslugi/geo-prodvizhenie/chatgpt",
+    "domen": "lead.media",
+    "title": "Продвижение в ChatGPT в Москве — GEO-оптимизация | Lead.Media"
+   },
+   {
+    "url": "https://dragon-digital.site/geo-optimizacziya-sajta-kak-zastavit-chatgpt-rekomendovat-vash-brend-i-pochemu-eto-rabotaet-luchshe-seo",
+    "domen": "dragon-digital.site",
+    "title": "GEO оптимизация сайта: как заставить ChatGPT рекомендовать ваш бренд и почему это работает лучше SEO"
+   },
+   {
+    "url": "https://rookee.ru/blog/kak-prodvigat-biznes-v-poiske-chatgpt-polnoe-rukovodstvo-dlya-kompaniy-v-2026-godu",
+    "domen": "rookee.ru",
+    "title": "Как продвигать бизнес в поиске ChatGPT: полное руководство для компаний в 2026 году | Блог Rookee"
+   },
+   {
+    "url": "https://aksioma-web.ru/news/kak_optimizirovat_sajt_pod_chatgpt_i_generativnuyu_vydachu_kakie_faktory_vliyayut_na_geo_prodvizheni",
+    "domen": "aksioma-web.ru",
+    "title": "GEO-оптимизация сайта под ChatGPT и AI-выдачу | Aksioma Web"
+   },
+   {
+    "url": "https://www.takeflyte.com/blog/how-to-geo",
+    "domen": "takeflyte.com",
+    "title": "How to Do Generative Engine Optimization: AI Search Strategies"
+   },
+   {
+    "url": "https://blog.hubspot.com/marketing/generative-engine-optimization-small-business",
+    "domen": "blog.hubspot.com",
+    "title": "Generative engine optimization for small business: How to win with a small budget in 2026"
+   },
+   {
+    "url": "https://eseospace.com/blog/chatgpt-recommend-local-business",
+    "domen": "eseospace.com",
+    "title": "How To Make ChatGPT Recommend Your Local Business"
+   },
+   {
+    "url": "https://accelerate.citylifestyle.com/blog/get-recommended-by-ai-search",
+    "domen": "accelerate.citylifestyle.com",
+    "title": "How to Get Your Business Recommended by ChatGPT and AI Search"
+   },
+   {
+    "url": "https://fulfilldigital.com/blog/generative-engine-optimization-guide",
+    "domen": "fulfilldigital.com",
+    "title": "Generative Engine Optimization: How Small Businesses Get Cited by AI | Fulfill Digital"
+   },
+   {
+    "url": "https://marketsurge.io/post/generative-engine-optimization-for-local-businesses-ai-2026-guide",
+    "domen": "marketsurge.io",
+    "title": "Generative Engine Optimization for Local Businesses: AI 2026 Guide"
+   },
+   {
+    "url": "https://nexstair.com/how-to-make-chatgpt-recommend-your-business",
+    "domen": "nexstair.com",
+    "title": "How to Make ChatGPT Recommend Your Business in 2026 - Digital Marketing Agency | Website Design | Development | SEO"
+   },
+   {
+    "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-strategy-guide",
+    "domen": "firstpagesage.com",
+    "title": "Generative Engine Optimization (GEO) Strategy Guide – First Page Sage"
+   },
+   {
+    "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-explanation",
+    "domen": "firstpagesage.com",
+    "title": "Generative Engine Optimization (GEO): Explanation & Algorithm Breakdown – First Page Sage"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://eseospace.com/blog/chatgpt-recommend-local-business",
+    "domen": "eseospace.com",
+    "title": "How To Make ChatGPT Recommend Your Local Business"
+   },
+   {
+    "url": "https://accelerate.citylifestyle.com/blog/get-recommended-by-ai-search",
+    "domen": "accelerate.citylifestyle.com",
+    "title": "How to Get Your Business Recommended by ChatGPT and AI Search"
+   },
+   {
+    "url": "https://fulfilldigital.com/blog/generative-engine-optimization-guide",
+    "domen": "fulfilldigital.com",
+    "title": "Generative Engine Optimization: How Small Businesses Get Cited by AI | Fulfill Digital"
+   },
+   {
+    "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-explanation",
+    "domen": "firstpagesage.com",
+    "title": "Generative Engine Optimization (GEO): Explanation & Algorithm Breakdown – First Page Sage"
+   },
+   {
+    "url": "https://blog.hubspot.com/marketing/generative-engine-optimization-small-business",
+    "domen": "blog.hubspot.com",
+    "title": "Generative engine optimization for small business: How to win with a small budget in 2026"
+   },
+   {
+    "url": "https://aksioma-web.ru/news/kak_optimizirovat_sajt_pod_chatgpt_i_generativnuyu_vydachu_kakie_faktory_vliyayut_na_geo_prodvizheni",
+    "domen": "aksioma-web.ru",
+    "title": "GEO-оптимизация сайта под ChatGPT и AI-выдачу | Aksioma Web"
+   },
+   {
+    "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-strategy-guide",
+    "domen": "firstpagesage.com",
+    "title": "Generative Engine Optimization (GEO) Strategy Guide – First Page Sage"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19521,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 2335
+  },
+  "cena": 0.08239,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfA5mRHqdqmXYMr57KUNT",
+    "request_id": "req_011CfA5mQjrLYKbNfGCBN2Gp",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19521,
+     "output_tokens": 2335,
+     "output_tokens_details": {
+      "thinking_tokens": 272
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Это популярный сейчас вопрос — оптимизация под нейросети называется GEO (Generative Engine Optimization) или AI SEO. Дай-ка уточню актуальные рекомендации.",
+    "type": "text"
+   },
+   {
+    "id": "srvtoolu_01Vj4gYDpwXZRmRF58T5spFC",
+    "caller": null,
+    "input": {
+     "query": "как сделать чтобы ChatGPT рекомендовал бизнес GEO оптимизация"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01LLZS3AB4ASMtWod6WRubBS",
+    "caller": null,
+    "input": {
+     "query": "generative engine optimization how to get recommended by AI chatbots local business"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "Как заставить ChatGPT советовать ваш бизнес: главное о генеративной оптимизации (GEO) | PREX — интернет-сервисы для PR",
+      "type": "web_search_result",
+      "url": "https://prex.ru/blog/kak-zastavit-chatgpt-sovetovat-vash-biznes-glavnoe-o-generativnoy-optimizacii-geo"
+     },
+     {
+      "page_age": "August 29, 2025",
+      "title": "Как заставить ChatGPT рекомендовать ваш бизнес - YouTube",
+      "type": "web_search_result",
+      "url": "https://www.youtube.com/watch?v=gRz7pilvAfg"
+     },
+     {
+      "page_age": "April 27, 2026",
+      "title": "GEO-продвижение в нейросетях: большое исследование о том, как ChatGPT, DeepSeek и Perplexity выбирают, кого рекомендовать. И почему вашего бизнеса в этом списке нет — Decoded - обзоры сервисов на vc.ru",
+      "type": "web_search_result",
+      "url": "https://vc.ru/decoded/2888644-geo-prodvizhenie-v-nevrosetjah"
+     },
+     {
+      "page_age": "2 weeks ago",
+      "title": "GEO-продвижение: как сделать так, чтобы ИИ рекомендовал вашу компанию | Аффикс Групп",
+      "type": "web_search_result",
+      "url": "https://affix-group.ru/useful/geo-prodvizhenie-kak-sdelat-tak-chtoby-ii-rekomendoval-vashu-kompaniyu/"
+     },
+     {
+      "page_age": "January 15, 2026",
+      "title": "Как продвигать бизнес с помощью GEO в 2026: как сайты попадают в ответы ChatGPT и AI-выдачу",
+      "type": "web_search_result",
+      "url": "https://darvindigital.ru/blog/statyi/kak-prodvigat-svoj-biznes-s-pomoshchyu-geo-v-2026-sekrety-i-kejsy/"
+     },
+     {
+      "page_age": "March 23, 2026",
+      "title": "Продвижение в ChatGPT в Москве — GEO-оптимизация | Lead.Media",
+      "type": "web_search_result",
+      "url": "https://lead.media/uslugi/geo-prodvizhenie/chatgpt/"
+     },
+     {
+      "page_age": "March 2, 2026",
+      "title": "GEO оптимизация сайта: как заставить ChatGPT рекомендовать ваш бренд и почему это работает лучше SEO",
+      "type": "web_search_result",
+      "url": "https://dragon-digital.site/geo-optimizacziya-sajta-kak-zastavit-chatgpt-rekomendovat-vash-brend-i-pochemu-eto-rabotaet-luchshe-seo/"
+     },
+     {
+      "page_age": "May 30, 2026",
+      "title": "Как продвигать бизнес в поиске ChatGPT: полное руководство для компаний в 2026 году | Блог Rookee",
+      "type": "web_search_result",
+      "url": "https://rookee.ru/blog/kak-prodvigat-biznes-v-poiske-chatgpt-polnoe-rukovodstvo-dlya-kompaniy-v-2026-godu/"
+     },
+     {
+      "page_age": "February 13, 2026",
+      "title": "GEO-оптимизация сайта под ChatGPT и AI-выдачу | Aksioma Web",
+      "type": "web_search_result",
+      "url": "https://aksioma-web.ru/news/kak_optimizirovat_sajt_pod_chatgpt_i_generativnuyu_vydachu_kakie_faktory_vliyayut_na_geo_prodvizheni/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Vj4gYDpwXZRmRF58T5spFC",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "July 31, 2026",
+      "title": "How to Do Generative Engine Optimization: AI Search Strategies",
+      "type": "web_search_result",
+      "url": "https://www.takeflyte.com/blog/how-to-geo"
+     },
+     {
+      "page_age": "April 27, 2026",
+      "title": "Generative engine optimization for small business: How to win with a small budget in 2026",
+      "type": "web_search_result",
+      "url": "https://blog.hubspot.com/marketing/generative-engine-optimization-small-business"
+     },
+     {
+      "page_age": "November 19, 2025",
+      "title": "How To Make ChatGPT Recommend Your Local Business",
+      "type": "web_search_result",
+      "url": "https://eseospace.com/blog/chatgpt-recommend-local-business/"
+     },
+     {
+      "page_age": null,
+      "title": "How to Get Your Business Recommended by ChatGPT and AI Search",
+      "type": "web_search_result",
+      "url": "https://accelerate.citylifestyle.com/blog/get-recommended-by-ai-search"
+     },
+     {
+      "page_age": "August 3, 2026",
+      "title": "Generative Engine Optimization: How Small Businesses Get Cited by AI | Fulfill Digital",
+      "type": "web_search_result",
+      "url": "https://fulfilldigital.com/blog/generative-engine-optimization-guide/"
+     },
+     {
+      "page_age": "July 3, 2026",
+      "title": "Generative Engine Optimization for Local Businesses: AI 2026 Guide",
+      "type": "web_search_result",
+      "url": "https://marketsurge.io/post/generative-engine-optimization-for-local-businesses-ai-2026-guide"
+     },
+     {
+      "page_age": "1 week ago",
+      "title": "How to Make ChatGPT Recommend Your Business in 2026 - Digital Marketing Agency | Website Design | Development | SEO",
+      "type": "web_search_result",
+      "url": "https://nexstair.com/how-to-make-chatgpt-recommend-your-business/"
+     },
+     {
+      "page_age": "August 12, 2026",
+      "title": "Generative Engine Optimization (GEO) Strategy Guide – First Page Sage",
+      "type": "web_search_result",
+      "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-strategy-guide/"
+     },
+     {
+      "page_age": "July 31, 2026",
+      "title": "Generative Engine Optimization (GEO): Explanation & Algorithm Breakdown – First Page Sage",
+      "type": "web_search_result",
+      "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-explanation/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01LLZS3AB4ASMtWod6WRubBS",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Это называется **GEO (Generative Engine Optimization)** — «SEO для нейросетей». Логика простая: ChatGPT, Gemini, Perplexity и другие не ранжируют сайты, а **синтезируют прямой ответ**, опираясь на то, что они «видели» в обучающих данных и/или находят при живом поиске в интернете ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "AI tools like ChatGPT synthesize direct answers rather than ranking websites, so traditional SEO alone no longer earns recommendations. ",
+      "title": "How To Make ChatGPT Recommend Your Local Business",
+      "type": "web_search_result_location",
+      "url": "https://eseospace.com/blog/chatgpt-recommend-local-business/"
+     }
+    ],
+    "text": "AI tools like ChatGPT synthesize direct answers rather than ranking websites, so traditional SEO alone no longer earns recommendations.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Для локальных запросов («лучший косметолог в ЛА») это почти всегда второй вариант — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "An AI assistant answering a local question is doing one of two things. It is either pulling from what it absorbed during training, or it is searching ...",
+      "title": "How to Get Your Business Recommended by ChatGPT and AI Search",
+      "type": "web_search_result_location",
+      "url": "https://accelerate.citylifestyle.com/blog/get-recommended-by-ai-search"
+     }
+    ],
+    "text": "AI assистент, отвечая на локальный вопрос, либо тянет данные из обучения, либо ищет в живом интернете и суммирует найденное — для локальных рекомендаций это почти всегда второй сценарий.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\nВот что реально работает:\n\n**1. Наведите порядок в базовых данных (NAP-консистентность)**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Step three: keep your identity consistent everywhere. Same business name, same description of what you do, same location details across your site, dir...",
+      "title": "Generative Engine Optimization: How Small Businesses Get Cited by AI | Fulfill Digital",
+      "type": "web_search_result_location",
+      "url": "https://fulfilldigital.com/blog/generative-engine-optimization-guide/"
+     }
+    ],
+    "text": "Одинаковое название бизнеса, одинаковое описание услуг, одинаковые данные о локации на сайте, в справочниках и соцсетях — нейросети собирают понимание о бизнесе из многих источников, и несостыковки читаются как неопределённость.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**2. Профиль Google Business + отзывы — критично для локальных запросов**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Gemini and Perplexity use online reviews from popular platforms such as Google Business Profiles (GBP), Yelp, TripAdvisor, and Angie’s List to make re...",
+      "title": "Generative Engine Optimization (GEO): Explanation & Algorithm Breakdown – First Page Sage",
+      "type": "web_search_result_location",
+      "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-explanation/"
+     }
+    ],
+    "text": "Gemini и Perplexity используют отзывы с популярных платформ вроде Google Business Profiles, Yelp, TripAdvisor и Angie's List для формирования рекомендаций по локальным запросам.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Claude пока меньше опирается на живой веб — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Claude stands alone amongst the 4 major generative AI chatbots in that it has limited Internet access.",
+      "title": "Generative Engine Optimization (GEO): Explanation & Algorithm Breakdown – First Page Sage",
+      "type": "web_search_result_location",
+      "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-explanation/"
+     }
+    ],
+    "text": "Claude отличается от остальных трёх крупных нейросетей ограниченным доступом в интернет.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**3. Внедрите структурированные данные (Schema markup)**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "LocalBusiness Schema: Your business name, address, phone, hours, service area, categories, and ratings · FAQ Schema: Questions and answers that help y...",
+      "title": "Generative engine optimization for small business: How to win with a small budget in 2026",
+      "type": "web_search_result_location",
+      "url": "https://blog.hubspot.com/marketing/generative-engine-optimization-small-business"
+     }
+    ],
+    "text": "Схема LocalBusiness (название, адрес, телефон, часы, зона обслуживания, категории, рейтинги) и FAQ Schema помогают появляться в AI-ответах; бесплатные инструменты вроде Google's Structured Data Markup Helper проведут через процесс шаг за шагом.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**4. Публикации в СМИ и упоминания «со стороны» — самое ценное**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Step two: earn mentions you do not control. Local press, industry roundups, podcast appearances, directory listings, and a steady base of genuine revi...",
+      "title": "Generative Engine Optimization: How Small Businesses Get Cited by AI | Fulfill Digital",
+      "type": "web_search_result_location",
+      "url": "https://fulfilldigital.com/blog/generative-engine-optimization-guide/"
+     }
+    ],
+    "text": "Второй шаг — заслужить упоминания, которые вы не контролируете: местная пресса, отраслевые подборки, подкасты, справочники и стабильный поток настоящих отзывов; одно реальное упоминание в отраслевом издании, вероятно, делает больше для видимости в AI, чем ещё одна страница на собственном сайте.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**5. Пишите контент в формате прямых ответов**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Как создавать такой контент: Форматы, которые любит ChatGPT: • FAQ-блоки: вопрос + краткий ответ (100–150 слов). • Таблицы: сравнение продуктов, тариф...",
+      "title": "GEO-оптимизация сайта под ChatGPT и AI-выдачу | Aksioma Web",
+      "type": "web_search_result_location",
+      "url": "https://aksioma-web.ru/news/kak_optimizirovat_sajt_pod_chatgpt_i_generativnuyu_vydachu_kakie_faktory_vliyayut_na_geo_prodvizheni/"
+     }
+    ],
+    "text": "Нейросети любят FAQ-блоки (вопрос + краткий ответ 100–150 слов) и таблицы сравнения продуктов, тарифов, характеристик.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**6. Попадите в «списочные» статьи (list articles)**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "We agree that inclusion in list articles is the most efficient route to chatbot recommendation; but found that awards / honors and online reviews had ...",
+      "title": "Generative Engine Optimization (GEO) Strategy Guide – First Page Sage",
+      "type": "web_search_result_location",
+      "url": "https://firstpagesage.com/seo-blog/generative-engine-optimization-geo-strategy-guide/"
+     }
+    ],
+    "text": "Включение в списочные статьи — самый эффективный путь к рекомендации чат-ботом; при этом награды/титулы и онлайн-отзывы влияют на рекомендацию сильнее, чем считалось ранее.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " То есть попадите в подборки вида «10 лучших косметологов Лос-Анджелеса» на локальных сайтах/блогах.\n\n**7. Проверяйте себя тем же способом, что и клиент**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "You ask, systematically. Copy these into ChatGPT, Google, and any other engine your customers use. &quot;I’m looking for [your service] in [your city]...",
+      "title": "Generative Engine Optimization: How Small Businesses Get Cited by AI | Fulfill Digital",
+      "type": "web_search_result_location",
+      "url": "https://fulfilldigital.com/blog/generative-engine-optimization-guide/"
+     }
+    ],
+    "text": "Задавайте систематически в ChatGPT и другие движки вопросы вроде «Ищу [услугу] в [городе]. Какие компании вы бы порекомендовали и почему?» и «Что нужно знать перед тем, как нанять [специалиста]?»",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — так вы поймёте, что именно ИИ уже \"знает\" о вас (и о конкурентах).\n\n**Важный нюанс:** купить попадание в органические AI-рекомендации нельзя — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Advertising inside AI answers is emerging on some platforms, but organic citations are not purchasable. \n\nThe organic path runs through credible menti...",
+      "title": "Generative Engine Optimization: How Small Businesses Get Cited by AI | Fulfill Digital",
+      "type": "web_search_result_location",
+      "url": "https://fulfilldigital.com/blog/generative-engine-optimization-guide/"
+     }
+    ],
+    "text": "реклама внутри AI-ответов появляется на некоторых платформах, но органические цитирования не продаются — органический путь идёт через заслуженные упоминания и цитируемый контент.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**Итог для косметолога в ЛА:** заведите/обновите Google Business Profile с реальными отзывами, добавьте LocalBusiness+FAQ схему на сайт, попросите постоянных клиентов оставить отзывы на Yelp/Google, постарайтесь попасть в местные подборки \"best cosmetologist LA\" (питчить блогерам/локальным изданиям) — и результат в AI-выдаче обычно заметен за 4–8 недель, как отмечают маркетологи, специализирующиеся на малом бизнесе ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Most can start with free tools and see results within 4-8 weeks, with local businesses having a particular advantage since they can dominate geographi...",
+      "title": "Generative engine optimization for small business: How to win with a small budget in 2026",
+      "type": "web_search_result_location",
+      "url": "https://blog.hubspot.com/marketing/generative-engine-optimization-small-business"
+     }
+    ],
+    "text": "Большинство может начать с бесплатных инструментов и увидеть результаты в течение 4-8 недель, при этом локальные бизнесы имеют особое преимущество, поскольку могут доминировать в геозависимых запросах легче, чем национальные конкуренты.",
+    "type": "text"
+   }
+  ]
+ }
+}

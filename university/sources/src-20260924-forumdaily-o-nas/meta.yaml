@@ -1,0 +1,40 @@
+# Template: sources/<src-id>/meta.yaml
+id: src-20260924-forumdaily-o-nas
+url: https://www.forumdaily.com/contacts/
+canonical_url: https://www.forumdaily.com/contacts/
+type: docs
+title: 'ForumDaily — О нас (аудитория 2023) и Наши рекламодатели'
+authors: [{name: "Forum Daily Inc.", affiliation: "Brooklyn, NY"}]
+published: 2026-09-24
+fetched_at: 2026-09-24T19:00:00Z
+language: ru
+fetch_method: webfetch (curl, raw html)
+storage:
+  original: original.html (+ original-advertisers.html)
+  bytes: 73036
+
+relevance: 4
+quality: 3
+quality_breakdown:
+  primary_source: false
+  author_credible: false
+  has_math: false
+  has_empirics: false
+  reproducible: false
+  recent: true
+  cited: false
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: true
+  marketing: true
+  notes: 'Медиа о себе (самоотчёт аудитории 2023 без аудита). Список рекламодателей — витрина, а не полная статистика.'
+
+extracted:
+  notes: [n-forumdaily-million-prosmotrov-samootchet, n-reklamodateli-russkih-smi-yuristy-transport-medicina]
+  claims: [c-0413]
+  contradictions: []
+  outbound_links_tracked: 1
+
+status: processed
+reject_reason: null

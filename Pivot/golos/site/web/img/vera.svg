@@ -1,0 +1,81 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Вера">
+  <defs>
+    <clipPath id="k"><circle cx="100" cy="100" r="100"/></clipPath>
+    <radialGradient id="fon" cx="34%" cy="20%" r="92%">
+      <stop offset="0" stop-color="#26473D"/><stop offset=".58" stop-color="#17302A"/><stop offset="1" stop-color="#0D1613"/>
+    </radialGradient>
+    <linearGradient id="kozha" x1="26%" y1="6%" x2="80%" y2="100%">
+      <stop offset="0" stop-color="#F6DCC4"/><stop offset=".55" stop-color="#EBC6A8"/><stop offset="1" stop-color="#D6A98B"/>
+    </linearGradient>
+    <linearGradient id="vol" x1="12%" y1="0%" x2="92%" y2="100%">
+      <stop offset="0" stop-color="#5A3C2A"/><stop offset=".45" stop-color="#3A2619"/><stop offset="1" stop-color="#241610"/>
+    </linearGradient>
+    <linearGradient id="blesk" x1="0%" y1="0%" x2="100%" y2="60%">
+      <stop offset="0" stop-color="#8C6544" stop-opacity=".55"/><stop offset="1" stop-color="#8C6544" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="pl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0" stop-color="#20443A"/><stop offset="1" stop-color="#142923"/>
+    </linearGradient>
+    <linearGradient id="guby" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#C4705C"/><stop offset="1" stop-color="#A9503E"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#k)">
+    <rect width="200" height="200" fill="url(#fon)"/>
+    <circle cx="96" cy="88" r="78" fill="#55C79A" opacity=".06"/>
+
+    <!-- волосы за спиной: длинные, асимметричные -->
+    <path d="M46 104c-2-38 20-66 54-66s56 28 54 66c-1 22-5 44-12 62-2-8-3-19-3-30-14 8-32 12-48 10-13-2-24-6-32-12-1 12-3 23-5 32-6-19-8-40-8-62z" fill="url(#vol)"/>
+    <path d="M40 200c1-24 5-44 10-60 3 20 5 42 4 60zM160 200c-1-24-5-44-10-60-3 20-5 42-4 60z" fill="url(#vol)"/>
+
+    <!-- плечи -->
+    <path d="M30 200c4-28 24-44 50-51l20-5 20 5c26 7 46 23 50 51z" fill="url(#pl)"/>
+    <path d="M100 141l-8 21 8 11 8-11z" fill="#D9F1E8" opacity=".14"/>
+
+    <!-- шея -->
+    <path d="M88 120h24v23c0 8-24 8-24 0z" fill="#CE9E80"/>
+    <path d="M88 120h24v7c-7 5-17 5-24 0z" fill="#B8886B" opacity=".55"/>
+
+    <!-- лицо: длиннее, с подбородком -->
+    <path d="M71 90c0-21 13-35 29-35s29 14 29 35c0 13-3 25-9 34-5 8-12 13-20 13s-15-5-20-13c-6-9-9-21-9-34z" fill="url(#kozha)"/>
+    <!-- скулы -->
+    <path d="M73 96c-1 9 1 18 5 25-5-6-7-16-5-25zM127 96c1 9-1 18-5 25 5-6 7-16 5-25z" fill="#C99870" opacity=".35"/>
+
+    <!-- чёлка на бок + блик -->
+    <path d="M68 92c-3-29 13-49 32-49 20 0 36 19 33 49-3-15-9-26-17-31-6 12-22 20-38 18-6-1-9-3-10-5-2 5-1 12 0 18z" fill="url(#vol)"/>
+    <path d="M78 50c10 3 20 12 24 24-9-8-19-14-30-15 1-4 3-7 6-9z" fill="url(#blesk)"/>
+    <path d="M66 86c-3 16-2 33 2 48-6-14-7-33-5-48zM134 86c3 16 2 33-2 48 6-14 7-33 5-48z" fill="url(#vol)"/>
+
+    <!-- брови -->
+    <path d="M79 84c5-4 13-4 17-1M104 83c5-3 13-3 17 1" stroke="#3C2718" stroke-width="2.8" stroke-linecap="round" fill="none" opacity=".85"/>
+
+    <!-- глаза: крупнее, с подводкой -->
+    <path d="M78 95c5-6 14-6 19 0-5 6-14 6-19 0z" fill="#FBF6F0"/>
+    <path d="M103 95c5-6 14-6 19 0-5 6-14 6-19 0z" fill="#FBF6F0"/>
+    <circle cx="87.5" cy="95" r="4.1" fill="#4A3524"/><circle cx="87.5" cy="95" r="1.9" fill="#1E140C"/>
+    <circle cx="112.5" cy="95" r="4.1" fill="#4A3524"/><circle cx="112.5" cy="95" r="1.9" fill="#1E140C"/>
+    <circle cx="89" cy="93.3" r="1.35" fill="#fff" opacity=".95"/>
+    <circle cx="114" cy="93.3" r="1.35" fill="#fff" opacity=".95"/>
+    <path d="M77.5 93.5c5.5-6.5 14.5-6.5 20 0M102.5 93.5c5.5-6.5 14.5-6.5 20 0" stroke="#2E1D12" stroke-width="2.1" stroke-linecap="round" fill="none"/>
+    <path d="M96 90.5l3-2M104 90.5l-3-2" stroke="#2E1D12" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+
+    <!-- нос -->
+    <path d="M100 99v9c0 2.4-2 3.6-4 4" stroke="#C08F6E" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+
+    <!-- губы -->
+    <path d="M92 118c3-2.6 5-3.4 8-3.4s5 .8 8 3.4c-3 4.6-5 6-8 6s-5-1.4-8-6z" fill="url(#guby)"/>
+    <path d="M92 118c3-1.4 5-2 8-2s5 .6 8 2" stroke="#8E4232" stroke-width="1" fill="none" opacity=".65"/>
+
+    <!-- румянец -->
+    <ellipse cx="79" cy="107" rx="6" ry="3.8" fill="#E08A70" opacity=".3"/>
+    <ellipse cx="121" cy="107" rx="6" ry="3.8" fill="#E08A70" opacity=".3"/>
+
+    <!-- гарнитура: тоньше и спокойнее -->
+    <path d="M69 91a32 27 0 0 1 62 0" stroke="#3E9F80" stroke-width="3.2" fill="none" stroke-linecap="round" opacity=".9"/>
+    <rect x="63.5" y="88" width="9" height="17" rx="4.5" fill="#3E9F80"/>
+    <rect x="127.5" y="88" width="9" height="17" rx="4.5" fill="#3E9F80"/>
+    <path d="M68 105c0 10 6 16 14 18" stroke="#3E9F80" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <circle cx="83.5" cy="123.6" r="2.9" fill="#6EE7D4"/>
+  </g>
+</svg>

@@ -1,0 +1,350 @@
+<title>Ваше имя в ответе</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0a0e18; --panel:#0e1524; --card:#121a2c; --ink:#eef1f7; --dim:#97a1b8; --faint:#6b768f;
+    --line:#1e2940; --rule:#2a364f;
+    --gold:#e3c88a; --gold2:#1b2133; --red:#c4675a; --red2:#241820;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;margin:0;padding:0;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:1120px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px;margin:0 auto}
+  section{padding-block:72px;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  h1{font-size:clamp(32px,5.6vw,58px);line-height:1.04;margin:0 0 20px;letter-spacing:-.03em;
+    font-weight:700;text-wrap:balance}
+  h2{font-size:clamp(25px,3.8vw,38px);line-height:1.12;margin:0 0 16px;letter-spacing:-.025em;
+    font-weight:700;text-wrap:balance}
+  h3{font-size:20px;font-weight:600;margin:30px 0 10px}
+  p{margin:0 0 16px;max-width:64ch}
+  .lede{font-size:20px;color:var(--dim);max-width:56ch}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+  b,strong{font-weight:600}
+  ul{margin:0 0 16px;padding-left:20px} li{margin-bottom:10px;max-width:60ch}
+  li::marker{color:var(--gold)}
+  .quote{font-size:24px;line-height:1.3;letter-spacing:-.02em;font-weight:600;
+    padding-left:20px;border-left:2px solid var(--gold);margin:28px 0;max-width:24ch}
+
+  figure{margin:28px 0}
+  img{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
+  video{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#000}
+
+  .btn{display:inline-block;background:var(--gold);color:#0a0e18;text-decoration:none;
+    font-weight:700;font-size:18px;padding:17px 32px;border-radius:7px;margin:8px 0 10px}
+  .btn:hover{background:#eed6a0}
+  .bsub{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);margin:0 0 8px;letter-spacing:.02em}
+  .cena-shapka{font-family:'JetBrains Mono',monospace;font-size:13px;margin:14px 0 0}
+  .cena-shapka a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent}
+  .cena-shapka a:hover{border-bottom-color:var(--gold)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .bs{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+  .bs .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;margin-bottom:9px}
+  .bs.was{border-color:#3a2530} .bs.was .n{color:var(--red)}
+  .bs.now{border-color:#3b3524} .bs.now .n{color:var(--gold)}
+  .bs p{margin:0;font-size:16px;max-width:none}
+  .pair{margin-bottom:22px}
+  .pair h4{font-size:19px;font-weight:600;margin:0 0 12px}
+
+  .steps{margin:22px 0}
+  .st{display:grid;grid-template-columns:130px 1fr;gap:20px;padding-block:16px;border-top:1px solid var(--line)}
+  .st:first-child{border-top:0}
+  .st .k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);padding-top:3px}
+  .st p{margin:0;font-size:16.5px}
+  @media(max-width:640px){.st{grid-template-columns:1fr;gap:4px}}
+
+  .tw{overflow-x:auto;margin:22px 0}
+  table{border-collapse:collapse;width:100%;font-size:16px;min-width:520px}
+  td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  /* 'Space Grotesk' вторым: в загруженном наборе JetBrains Mono нет кириллицы,
+     и русские слова в ячейке цены падали в системный Times — замерено браузером
+     26.09. Со вторым шрифтом цифры остаются моноширинными, а слова берут наш. */
+  td.p{text-align:right;white-space:nowrap;font-family:'JetBrains Mono','Space Grotesk',monospace;color:var(--dim)}
+  td.n small{display:block;color:var(--faint);font-size:14px;margin-top:3px;font-weight:400}
+  td.n{font-weight:600}
+  tr.h td{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);background:var(--gold2);border-bottom:0}
+  tr.sum td{border-bottom:0;padding-top:18px;font-weight:700;font-size:19px}
+  tr.sum td.p{font-family:'Space Grotesk',-apple-system,sans-serif;font-size:28px;color:#8a6a22}
+  tr.was td{border-bottom:0;color:var(--faint);padding-top:16px}
+  tr.was td.p{text-decoration:line-through}
+
+  .g{background:var(--gold2);border:1px solid #3b3524;border-radius:10px;padding:24px 26px;margin:20px 0}
+  .g .t{font-size:20px;font-weight:700;color:var(--gold);margin-bottom:10px}
+  .g p{margin:0;font-size:16.5px}
+  .g + .g{margin-top:14px}
+
+  .obj{border-top:1px solid var(--line);padding-block:22px}
+  .obj:first-of-type{border-top:0}
+  .obj .q{font-size:18px;font-weight:600;margin:0 0 9px}
+  .obj p{font-size:16px;color:var(--dim)}
+  .obj p b{color:var(--ink)}
+
+  .form{background:var(--card);border:1px solid #3b3524;border-radius:12px;padding:28px 30px;margin:26px 0}
+  .form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  @media(max-width:600px){.form .row{grid-template-columns:1fr}}
+  .form label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .form input{width:100%;background:var(--bg);border:1px solid var(--rule);border-radius:7px;
+    color:var(--ink);font-family:'Space Grotesk',sans-serif;font-size:17px;padding:13px 15px}
+  .form input::placeholder{color:#4d566e}
+  .form input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+  .form button{width:100%;background:var(--gold);color:#0a0e18;border:0;border-radius:7px;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;padding:17px;cursor:pointer;margin-top:4px}
+  .form .note{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);
+    margin:12px 0 0;line-height:1.6}
+  .fine{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);line-height:1.6}
+  .cen{text-align:center}
+  .cen p,.cen .lede{margin-left:auto;margin-right:auto}
+  .hero{background:linear-gradient(180deg,#0b1220 0%,var(--bg) 100%);padding-block:56px 76px}
+  footer{border-top:1px solid var(--line);padding-block:40px 60px;color:var(--faint);font-size:14px}
+
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .w{padding:0 18px}
+    section{padding-block:48px}
+    .bsub{font-size:15px}
+    .note,.form .note{font-size:15px}
+    .fine{font-size:14px}
+    .eyebrow,.bs .n,.st .k,tr.h td,.form label{font-size:12.5px;letter-spacing:.13em}
+    td.n small{font-size:14px}
+    .btn{display:block;text-align:center;font-size:17px;padding:16px 20px}
+    .quote{font-size:20px;max-width:none}
+    figure{margin:20px -18px}
+    figure img,figure video{border-radius:0;border-left:0;border-right:0}
+    table{min-width:0;font-size:15px}
+    td{padding:11px 6px}
+    td.p{font-size:15px}
+    tr.sum td{font-size:17px}
+    tr.sum td.p{font-size:23px}
+    input[type=checkbox]{width:20px;height:20px;min-width:20px;margin-top:2px}
+  }
+.podarok{border:1.5px solid var(--gold);border-radius:9px;padding:15px 18px;margin:18px 0 6px;
+  background:rgba(214,178,94,.07);font-size:17.5px;line-height:1.5}
+.podarok b{color:var(--gold)}
+
+  /* Три условия работы — одинаковой высоты и компактные (Андрей 26.09):
+     раньше каждая карточка занимала всю ширину, и строка текста висела в пустоте. */
+  /* Условия работы — ТОНКИЕ ГОРИЗОНТАЛЬНЫЕ полосы на всю ширину, одна под другой
+     (Андрей 26.09). Столбиками они были узкими и высокими, с одной строкой текста
+     в пустоте; полосами читаются одним взглядом сверху вниз. */
+  /* Раздел светлый, а плашка тёмная — без своего цвета текст в ней оказывался
+     тёмно-синим по тёмно-синему и не читался вовсе (замерено 26.09). */
+  .gg{display:block;margin:20px 0}
+  .gg .g, .gg .g p, .gg .g li{color:var(--ink)}
+  .gg .g{margin:0 0 10px;padding:14px 18px;font-size:15px;line-height:1.5}
+  .gg .g:last-child{margin-bottom:0}
+  .gg .g .t{font-size:15.5px;margin:0 0 6px}
+  .gg .g p{margin:0 0 7px}
+  .gg .g p:last-child{margin-bottom:0}
+</style>
+<section class="hero"><div class="w"><div class="narrow">
+  <figure style="margin-top:0"><video src="../img/rolik.mp4" autoplay muted playsinline preload="metadata" aria-label="Покупатель спрашивает нейросеть, кому отдать кровлю в Тампе. Появляются шесть названий компаний. Седьмая строка пустая, потом заполняется."></video></figure>
+  <h1>Люди всё чаще ищут в нейросетях вместо Google.</h1>
+  <p class="lede">Проверьте за 30 секунд, кого они называют в вашей нише. Бесплатно.</p>
+  <p style="margin-top:26px"><a class="btn" href="#forma">Посмотреть, кого называют вместо вас</a></p>
+  <p class="bsub">Бесплатно · 30 секунд · нужны два слова, чем занимаетесь и в каком городе</p>
+  <p class="podarok"><b>Заказываете квартал — глубокая диагностика вашего бизнеса в подарок.</b> Отдельно она стоит $500.</p>
+<p class="cena-shapka"><a href="#cena">Квартал — $1&nbsp;500. Один платёж, без автопродления. Что входит →</a></p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Что изменилось</p>
+  <h2>Сайт живой. Позиции те же. А телефон звонит реже.</h2>
+  <p>Объяснение скучное. Ваш покупатель перестал искать так, как искал два года назад. Он открывает ChatGPT и пишет: <b>кому отдать кровлю в Тампе.</b></p>
+  <p>Возвращаются шесть названий, с лицензиями, рейтингами и числом отзывов. Вашего там нет, и узнать об этом неоткуда — вы же не стоите у человека за спиной, пока он это читает.</p>
+  <figure><picture><source media="(max-width:640px)" srcset="../img/m-otvet-ai.webp"><img src="../img/d-otvet-ai.webp" alt="Ответ нейросети на вопрос «кто лучший кровельщик в Тампе»: шесть компаний с лицензиями, рейтингом BBB и числом отзывов." width="1600" height="900"></picture></figure>
+  <p class="quote">Вы не упали в поиске. Вы просто не попали в ответ.</p>
+  <p><a class="btn" href="#forma">Проверить свою нишу</a></p>
+</div></div></section>
+
+<section id="check"><div class="w"><div class="narrow">
+  <p class="eyebrow">Бесплатная проверка</p>
+  <h2>Тридцать секунд, и вы видите список.</h2>
+  <div class="steps">
+    <div class="st"><span class="k">Вы пишете</span><p>Два слова. Чем занимаетесь и в каком городе. «Кровля, Тампа».</p></div>
+    <div class="st"><span class="k">Мы спрашиваем</span><p>Три движка, каждый по три раза, тем вопросом, который задал бы ваш покупатель, а не вы.</p></div>
+    <div class="st"><span class="k">Вы видите</span><p>Три прогона первого движка — прямо на этой странице, с разбросом. Остальные шесть приходят на почту. Кого назвали, сколько раз и есть ли там вы.</p></div>
+  </div>
+  <figure><picture><source media="(max-width:640px)" srcset="../img/m-zamer-9-progonov.webp"><img src="../img/d-zamer-9-progonov.webp" alt="Девять вопросов покупателя слева, справа — кого назвали и сколько раз. Строка самого владельца показывает ноль из девяти." width="1600" height="900"></picture></figure>
+  <p>Если вы в списке есть и стоите высоко — мы так и напишем. Тогда нам нечего вам продавать.</p>
+  <form class="form" id="forma" method="POST" name="geo-check-ru" data-netlify="true" action="/spasibo-vidimost">
+    <input type="hidden" name="form-name" value="geo-check-ru">
+    <div class="row">
+      <div><label for="t1">Чем занимаетесь</label><input id="t1" name="trade" type="text" placeholder="Кровля" required autocomplete="off"></div>
+      <div><label for="c1">Город</label><input id="c1" name="city" type="text" placeholder="Tampa, FL" required autocomplete="off"></div>
+    </div>
+    <div style="margin-bottom:12px"><label for="e1">Куда прислать полный разбор</label><input id="e1" name="email" type="email" placeholder="vy@vashakompaniya.com" required autocomplete="email"></div>
+    <button type="submit">Показать, кого называют</button>
+    <p class="note">Первый движок прогоняется трижды прямо на экране, это занимает секунд тридцать. Остальные шесть прогонов приходят на почту через минуту.<br>Без карты. Без звонка. Одно письмо, и только если попросите ещё.</p>
+  </form>
+      <div class="rez" id="rez" hidden></div>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Что находится чаще всего</p>
+  <h2>Три поломки, которые находятся чаще всего.</h2>
+  <figure><picture><source media="(max-width:640px)" srcset="../img/m-tri-nahodki.webp"><img src="../img/d-tri-nahodki.webp" alt="Три находки одного прохода: сервер отказал роботу ChatGPT кодом 403, в карточке Google старый адрес, три из девяти ответов приписывают услугу, которой нет." width="1600" height="900"></picture></figure>
+  <p>Это не список ваших проблем — это то, что всплывает чаще другого. У одних все три, у других ни одной, а вместо них своя. Каждую можно починить отдельно, и цены у нас открытые.</p>
+  <p><b>Но порядок важнее списка.</b> Пока сервер закрыт, переписывать страницы бессмысленно — их никто не прочитает. Пока в карточке старый адрес, чистить каталоги бесполезно — они тянут данные оттуда.</p>
+  <p><b>При заказе квартала — глубокая диагностика вашего бизнеса в подарок.</b></p>
+  <p><a class="btn" href="#forma">Разобрать, с чего начинать</a></p>
+</div></div></section>
+
+<section id="chto"><div class="w">
+  <div class="narrow"><p class="eyebrow">За квартал</p><h2>Меняется пять вещей.</h2></div>
+  <div class="pair"><h4>1. Как вас находят</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>Покупатель спрашивает нейросеть, кому отдать работу. Она называет шестерых. Вас нет, и вы об этом не узнаете.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Нейросети есть откуда вас взять: имя, профиль и цены лежат там, куда она ходит за ответом. Назвать вас она сможет — сегодня не может, даже если захочет.</p></div></div></div>
+  <div class="pair"><h4>2. Что про вас написано</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>На восьми площадках три разных телефона и два адреса, один — с точки, откуда вы съехали. Где-то вас склеили с однофамильцем из другого штата, и его отзывы читаются как ваши.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Везде одно и то же. Мёртвые карточки снесены, однофамилец отцеплен, отраслевые каталоги заполнены. Нейросети неоткуда взять про вас неправду.</p></div></div></div>
+  <div class="pair"><h4>3. Ваши страницы</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>«Качественно и профессионально с 2009 года». Цена картинкой или «по запросу». Город написан один раз, в подвале. Процитировать нечего.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Город словом в заголовке. Цена или вилка обычным текстом. Ответы теми словами, которыми люди спрашивают. Отзывы текстом, а не скриншотом.</p></div></div></div>
+  <div class="pair"><h4>4. Как вы это проверяете</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>Никак. Есть ощущение, что звонят меньше. Подрядчик показывает дашборд, где всё растёт.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Два замера, в нулевой день и на девяностый. Те же вопросы, те же три движка, по семь повторов на каждом из двух языков. Построчная разница с сохранёнными ответами, без наших толкований.</p></div></div></div>
+  <div class="pair"><h4>5. Кто за это отвечает</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>Никто. Платите помесячно, результат обсуждается прилагательными, уходить неудобно.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Список вопросов согласован письменно до старта и заморожен. Не назвал ни один движок — возвращаем всё до доллара.</p></div></div></div>
+  <div class="narrow cen" style="margin-top:34px"><p><a class="btn" href="#forma">Начать с бесплатной проверки</a></p></div>
+</div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">В подарок</p><h2>К кварталу — глубокая диагностика вашего бизнеса.</h2>
+  <p class="lede">Отдельно она стоит $500. Вместе с кварталом — в подарок.</p>
+  <div class="steps">
+    <div class="st"><span class="k">ДНК бизнеса</span><p>Ваше отличие одним предложением, которое работает и на сайте, и в разговоре.</p></div>
+    <div class="st"><span class="k">ДНК клиента</span><p>Портрет покупателя его же словами: за что он платит на самом деле, чего боится, чем возражает.</p></div>
+    <div class="st"><span class="k">Карта разрывов</span><p>Где именно вы теряете клиентов — по приоритету, а не списком. И какой рычаг трогать первым.</p></div>
+    <div class="st"><span class="k">Разбор конкурентов</span><p>Мы сами смотрим ваш рынок по открытым источникам, а не верим на слово.</p></div>
+    <div class="st"><span class="k">Три точки для AI</span><p>Ровно три места, где AI даёт вам деньги или время, привязанные к вашим потерям.</p></div>
+    <div class="st"><span class="k">Документ на руки</span><p>Всё перечисленное оформленным PDF. Останется у вас, даже если дальше вы с нами не пойдёте.</p></div>
+  </div>
+  <p>Анкету вы получаете сразу после оплаты. <b>Документ приходит в течение трёх рабочих дней</b> после того, как вы её заполнили.</p>
+</div></div></section>
+<section id="cena"><div class="w"><div class="narrow">
+  <p class="eyebrow">Цена</p><h2>Квартал работы — $1&nbsp;500.</h2>
+  <p>Справа — цены других компаний за ту же работу, взятые с их собственных сайтов. Ни одной нашей цифры там нет: наша одна, в последней строке. Можете открыть и проверить.</p>
+</div>
+<div class="tw"><table><tbody>
+  <tr class="h"><td>Работа</td><td class="p">У других</td></tr>
+  <tr><td class="n">Два замера, до и после<small>Три-пять вопросов вашего покупателя, три движка, по семь повторов на двух языках</small></td><td class="p">$190</td></tr>
+  <tr><td class="n">Восемь основных площадок и отраслевые каталоги<small>Одинаковые данные везде, мёртвое снесено</small></td><td class="p">$400</td></tr>
+  <tr><td class="n">Страницы, переписанные так, как спрашивают покупатели</td><td class="p">$600</td></tr>
+  <tr><td class="n">Чужие каталоги и письма с требованием исправить<small>Те места, которые нейросети цитируют чаще вашего сайта</small></td><td class="p">$450</td></tr>
+  <tr><td class="n">Новый сайт, который читают нейросети<small>Если своего сайта нет или свой не годится</small></td><td class="p">$1&nbsp;500</td></tr>
+  <tr class="h"><td>Сверх работы</td><td class="p"></td></tr>
+  <tr><td class="n">«Двойник»<small>Находим бизнес, с которым вас склеили, и отцепляем. Его отзывы перестают читаться как ваши</small></td><td class="p">$300</td></tr>
+  <tr><td class="n">«Открытая дверь»<small>Проверяем, пускает ли ваш сервер роботов ChatGPT, Claude и Perplexity, и открываем. Протокол до и после</small></td><td class="p">$300</td></tr>
+  <tr><td class="n">«Паспорт фактов»<small>Двадцать пять утверждений про вас, включая «с кем нас путают». Ваш навсегда — по нему вас проверит кто угодно</small></td><td class="p">$150</td></tr>
+  <tr><td class="n">«Лист для вашего вебмастера»<small>Правки его словами, одна страница. Есть свой разработчик — к сайту не прикасаемся</small></td><td class="p">$100</td></tr>
+  <tr><td class="n">Две правки в месяц<small>Поменяли цену, адрес, услугу, часы — вносим везде, где вы записаны</small></td><td class="p">$300</td></tr>
+  <tr><td class="n">Скорая по новой неправде<small>Вылезло что-то посреди квартала — чиним вне очереди, без доплаты</small></td><td class="p">$250</td></tr>
+  <tr class="was"><td>Если покупать по отдельности</td><td class="p">$4&nbsp;540</td></tr>
+  <tr class="sum"><td>Квартал</td><td class="p">$1&nbsp;500</td></tr>
+</tbody></table></div>
+<div class="narrow">
+  <p>Один платёж, квартал вперёд. Ни установки, ни сбора за оформление, ни автопродления.</p>
+  <p><b>Что делают подписки.</b> Снизу стоят: <a href="https://otterly.ai/pricing/" target="_blank" rel="noopener">$29</a> в месяц у Otterly, <a href="https://rankscale.ai/pricing" target="_blank" rel="noopener">$99</a> у Rankscale. Они показывают цифру. С мая и июня эту цифру бесплатно отдают Microsoft Clarity и Google Search Console, а работу по итогам цифры не делает никто. Мы продаём работу.</p>
+  <p><b>Что берут агентства.</b> За сопоставимую работу — от $3&nbsp;500 в месяц: <a href="https://therankcollective.com/pricing/" target="_blank" rel="noopener">The Rank Collective</a> публикует свой прайс открыто. У нас $1&nbsp;500 за весь квартал, с замером на обоих концах.</p>
+  <p><a class="btn" href="#forma">Начать с бесплатной проверки</a></p>
+  <p style="margin-top:10px"><a class="btn" href="https://buy.stripe.com/bJe00b8bm83E7zv2nxfrW08">Оплатить и начать — $1&nbsp;500</a></p>
+  <p class="bsub">Получайте глубокую диагностику в подарок.</p>
+  <p class="bsub">Оплата картой. Список вопросов пришлём сразу после — утверждаете письмом.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Девяносто дней</p><h2>Первое вы увидите в нулевой день.</h2>
+  <div class="steps">
+    <div class="st"><span class="k">День 0</span><p>Бесплатная проверка. Список имён, которые называют вместо вас.</p></div>
+    <div class="st"><span class="k">День 1</span><p>Присылаем три-пять вопросов вашего покупателя. Вы правите и утверждаете письмом. Список замораживается, снимаем нулевую точку и сохраняем все ответы.</p></div>
+    <div class="st"><span class="k">Недели 1–4</span><p>Площадки. Откройте любую и увидите одинаковые данные. Это можно проверить глазами, не дожидаясь конца квартала.</p></div>
+    <div class="st"><span class="k">Недели 5–8</span><p>Страницы. Читаете свой сайт и находите там свой город, свою цену и свои ответы.</p></div>
+    <div class="st"><span class="k">Недели 9–12</span><p>Чужие каталоги и письма тем, кто публикует про вас неправду.</p></div>
+    <div class="st"><span class="k">День 90</span><p>Второй замер. Те же вопросы, те же движки, построчная разница.</p></div>
+  </div>
+  <p><b>Девяносто дней — это срок нашей работы, а не обещание, когда придут клиенты.</b> Второй замер стоит на девяностом дне по скучной причине: замер шумный, и за один месяц разница утонула бы в шуме.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Условия работы</p><h2>Три, и все три работают сразу.</h2>
+  <div class="gg"><div class="g"><p class="t">Условие возврата: не назвали — вернём всё</p>
+    <p>До старта вместе пишем три-пять вопросов и замораживаем список. В нулевой день снимаем точку: каждый вопрос, на русском и на английском, три движка, по семь повторов — от ста двадцати шести до двухсот десяти ответов. На девяностый день прогоняем то же самое тем же способом и тем же числом повторов.</p>
+<p><b>Устойчиво названным</b> считаем имя, которое встретилось не меньше чем в четырёх повторах из семи — внутри одного сочетания «вопрос, язык, движок». Один-три повтора из семи — это мелькание: в отчёт оно попадает, но результатом не считается ни в одну сторону.</p>
+<p><b>Если устойчиво названным вы не оказались ни в одном сочетании — возвращаем все $1&nbsp;500.</b> Считаем сами, по тем же замороженным вопросам и тому же числу повторов, что и в нулевой день.</p>
+<p>Форму заполнять не надо, доказательств присылать не надо, причину объяснять не надо: мы считаем сами и возвращаем сами.</p></div>
+  <div class="g"><p class="t">Сорвём срок — следующий квартал за наш счёт</p>
+    <p>Не отдали второй замер на девяностый день — следующий квартал бесплатный. Отсчёт идёт от дня, когда вы утвердили список вопросов, а не от оплаты.</p></div>
+  <div class="g"><p class="t">Чего нельзя починить — за то не берём</p>
+    <p>Часть неправды вшита в модель при обучении, и до неё не дотянется никто в мире. Мы находим такие места на первой неделе, говорим вам и снимаем эту работу со счёта. До оплаты, а не после.</p></div>
+  </div><h3>Чего мы не обещаем</h3>
+  <p>Ни процента, ни количества звонков, ни даты, к которой придут клиенты. Честно этого не может обещать никто. Мы обещаем, что после нас нейросеть <b>сможет</b> вас назвать — сегодня она этого не сделает, даже если захочет.</p>
+  <h3>И то, что обычно прячут</h3>
+  <p>Замер шумный, и вот насколько. Один и тот же вопрос, тот же движок, шесть дней разницы, <b>никакой работы между замерами</b> — и совпадает лишь часть названных имён: Claude 13%, Google AI Mode 20%, ChatGPT 25%, Perplexity 30%. Это не чужая оценка, а наш собственный замер: шестьсот шестьдесят ответов программой и сто пятнадцать руками.</p>
+<p>Отсюда всё остальное. Поэтому в платном замере каждый движок гоняется по семь повторов на двух языках. Поэтому мы показываем разброс, а не одно число. И поэтому второй замер стоит на девяностом дне, а не на седьмом. Любой, кто показывает вам «видимость 17%» одной ровной цифрой, показывает гороскоп.</p>
+  <p><a class="btn" href="#cena">Оплатить и начать — $1&nbsp;500</a></p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Кто это делает</p><h2>С вами будут работать</h2>
+  <figure style="max-width:420px"><img src="img/foto.webp" alt="Андрей и Маша — двое, кто делает эту работу." width="820" height="850"></figure>
+  <p><b>Андрей.</b> Предприниматель с тридцатилетним опытом. Финансовый холдинг, налоговая оптимизация корпораций, стратегия. Инвестор.</p>
+  <p><b>Маша.</b> Экс-CFO крупной корпорации, предприниматель. Психология клиента, переговоры и нетворкинг. Системность и доведение до конца.</p>
+  <p>Муж и жена, выкованные в финансах.</p>
+  <p class="fine">Андрей и Маша. Wealthboosterpro LLC, Каспер, Вайоминг.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Ваша часть</p><h2>Полчаса на весь квартал.</h2>
+  <ul><li>Два слова в бесплатной проверке.</li>
+  <li>Одно письмо: утвердить список вопросов. Один раз за квартал.</li>
+  <li>Добавить нас менеджером карточки в Google. Две минуты, и права снимаются одной кнопкой в любой момент.</li></ul>
+  <p>Анкеты нет.</p>
+  <h3>Что будет с вашим сайтом — решаете вы</h3>
+  <p>Видимость держится на сайте. С вашего согласия проверяем его: годится — дорабатываем, не годится — делаем новый.</p>
+  <div class="steps">
+    <div class="st"><span class="k">Есть свой разработчик</span><p>К сайту не прикасаемся. Он получает лист правок на одну страницу, его словами. Доступ не нужен.</p></div>
+    <div class="st"><span class="k">Сайт есть, разработчика нет</span><p>Даёте доступ — правим сами. Не хотите — получаете тот же лист и делаете когда удобно.</p></div>
+    <div class="st"><span class="k">Сайта нет или он не годится</span><p>Делаем новый сайт, который нейросети умеют прочитать. Старый без вашего слова не трогаем. Новый сайт входит в квартал и остаётся вашим.</p></div>
+  </div>
+  <p>Доступа к деньгам, счетам и базе клиентов не просим никогда, ни в одном из трёх случаев.</p>
+
+  <p><a class="btn" href="#cena">Оплатить и начать — $1&nbsp;500</a></p>
+</div></div></section>
+
+<section id="voprosy"><div class="w"><div class="narrow">
+  <p class="eyebrow">Честные вопросы</p><h2>Четыре, которые вы уже задали про себя.</h2>
+  <div class="obj"><p class="q">«Я и сам могу спросить ChatGPT»</p>
+    <p>Можете, это две минуты. Спросите. Только три вещи вы сделаете иначе, и все три меняют ответ. <b>Спросите один движок</b> — а у трёх ответы разные. <b>Спросите один раз</b> — а два прогона через десять часов совпадают на 28%, значит одиночный ответ не значит ничего. И <b>спросите так, как думаете вы</b>, а не как спрашивает покупатель: в живом случае компания не появилась ни в одном из сорока одного ответа при выставленной геолокации, и появилась три раза из трёх, стоило вписать город словом внутрь фразы.</p></div>
+  <div class="obj"><p class="q">«Есть сервисы за $29 в месяц»</p>
+    <p>Есть, и работают честно. Цифру мы тоже показываем — бесплатно, в той проверке, которую вы только что прогнали. А с мая и июня её даром отдают Microsoft Clarity и Google Search Console, так что платить за неё $29 уже незачем никому. <b>Цифра сама по себе ничего не меняет.</b> Вы узнали, что вас называют ноль раз из девяти, — и дальше что? Кто-то должен вычистить восемь площадок, переписать страницы, отцепить однофамильца и написать туда, где вас указали неверно. Этого не делает ни один сервис, ни за <a href="https://otterly.ai/pricing/" target="_blank" rel="noopener">$29</a>, ни за <a href="https://rankscale.ai/pricing" target="_blank" rel="noopener">$99</a>. Это руки, и за руки берут деньги. <b>Термометр стал бесплатным. Лечить он не научился.</b></p></div>
+  <div class="obj"><p class="q">«А если не сработает»</p>
+    <p>Тогда вы не платите. Список вопросов мы пишем вместе до старта и замораживаем, чтобы потом не спорить о том, что считать успехом. Ноль упоминаний в трёх движках через девяносто дней — возврат всей суммы. Это единственная часть разговора, где риск лежит на нас, и она написана до того, как вы достали карту.</p></div>
+<div class="obj"><p class="q">«Я не уверен, что у меня болит именно это»</p>
+<p>Тогда не берите эту работу. У нас есть отдельный шаг ровно для такого случая — когда болит везде сразу или непонятно где: <b>глубокая диагностика</b>. Разбор вашего дела по открытым источникам и вашим же ответам, $500 один раз. Не увидим, где вам это выгодно, — скажем прямо. <a href="/diagnostic/ru/">Что в неё входит →</a></p></div>
+  <p><a class="btn" href="#cena">Оплатить и начать — $1&nbsp;500</a></p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow cen">
+  <h2>Сначала посмотрите список. Потом решайте.</h2>
+  <p class="lede">Проверка бесплатная и ни к чему не обязывает. Если вы в списке есть и стоите высоко — мы так и скажем.</p>
+  <p style="margin-top:28px"><a class="btn" href="#forma">Посмотреть, кого называют вместо вас</a></p>
+  <p class="bsub">30 секунд · два слова · без регистрации</p>
+  <p style="margin-top:22px"><a class="btn btn2" href="https://buy.stripe.com/bJe00b8bm83E7zv2nxfrW08">Оплатить квартал — $1&nbsp;500</a></p>
+  <p class="bsub">Получайте глубокую диагностику в подарок.</p>
+  <p class="bsub">Оплата картой. Список вопросов пришлём сразу после.</p>
+  <p class="bsub" style="margin-top:28px">Одновременно ведём ограниченное число компаний.</p>
+</div></div></section>
+
+<footer><div class="w"><div class="narrow"><p class="fine">Wealthboosterpro LLC, dba Business Intelligence DNA · 5830 E 2nd St Ste 7000, Casper, WY 82609<br>Ответ нейросети выше — настоящий, снят 21 сентября 2026 года. Названия компаний, лицензии и число отзывов показаны как есть. Цифры замеров на остальных картинках — образец.</p></div></div></footer>

@@ -1,0 +1,24 @@
+# Отдельный сайт Netlify «ответ на заявки». Не рядом с Верой: неудачная выкладка здесь
+# не кладёт её линию, а 4 КБ переменных у каждого сайта свои (PLAN-V1.md, дыра 8).
+# Кредиты Netlify при этом общие на аккаунт — этот риск отдельный сайт не снимает.
+
+[build]
+  publish = "web"
+
+# Без esbuild зависимости функций не попадают в сборку (грабля 03.09 и 12.09 на двух сайтах).
+[functions]
+  directory = "netlify-functions"
+  node_bundler = "esbuild"
+
+# Своей страницы записи нет: запись в Calendly (решение Андрея 29.09). Правило короткого адреса
+# страницы записи отложено вместе с функцией — na-potom/CHITAT.md. Папка na-potom/ в выкладку не
+# входит: функции берутся только из netlify-functions/, публикуется только web/.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"

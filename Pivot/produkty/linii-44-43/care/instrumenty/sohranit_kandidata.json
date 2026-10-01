@@ -1,0 +1,139 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "sohranit_kandidata_careline_demo",
+    "description": "Saves a job applicant's card for the hiring coordinator. ONLY for job applicants who answered the screening questions — never for a message, a family, or a caller who just wants a person. Call it exactly once per call: after the screening, the email question and the text-message question (podhodit true), or when the applicant agreed to the waiting list (podhodit false). The name must be the one the applicant spelled and confirmed, in Latin letters — never a placeholder such as 'Caller'. Never put anything here the applicant was not asked in the screening (no age, health, family, origin or immigration details). If the result has ok false, nothing was saved: with kod net_imeni ask for the first and last name, spelled; with kod net_otbora ask the screening questions, certificate first — then call it again. A caller who only wants to leave a message: don't call it again, take the message in the conversation.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/kandidat",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "KomtreYBZQp3NoyIGVnN"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "CareLine DEMO → kandidat",
+        "required": [
+          "imya",
+          "telefon",
+          "sertifikat",
+          "podhodit",
+          "sms_soglasie",
+          "yazyk",
+          "conversation_id"
+        ],
+        "properties": {
+          "imya": {
+            "type": "string",
+            "description": "First and last name exactly as the caller spelled it and confirmed, in Latin letters, e.g. Maria Rodriguez."
+          },
+          "telefon": {
+            "type": "string",
+            "description": "The confirmed phone number in E.164 format, e.g. +17185550142."
+          },
+          "email": {
+            "type": "string",
+            "description": "Only if given and confirmed letter by letter; otherwise leave it out."
+          },
+          "sertifikat": {
+            "type": "string",
+            "description": "Certificate the applicant has: HHA, PCA, CNA, or net (none / in training / expired).",
+            "enum": [
+              "HHA",
+              "PCA",
+              "CNA",
+              "net"
+            ]
+          },
+          "rayon": {
+            "type": "string",
+            "description": "Neighborhood where the applicant lives, as they said it, e.g. Bensonhurst."
+          },
+          "zip": {
+            "type": "string",
+            "description": "Five-digit ZIP code the applicant gave, e.g. 11214."
+          },
+          "transport": {
+            "type": "boolean",
+            "description": "true if the applicant can get to clients in Brooklyn and Queens by subway, bus or car."
+          },
+          "grafik_dni": {
+            "type": "array",
+            "description": "Days of the week the applicant can work.",
+            "items": {
+              "type": "string",
+              "description": "One day of the week.",
+              "enum": [
+                "mon",
+                "tue",
+                "wed",
+                "thu",
+                "fri",
+                "sat",
+                "sun"
+              ]
+            }
+          },
+          "grafik_chasy": {
+            "type": "string",
+            "description": "Hours the applicant can work, in a few words, e.g. '8am-4pm', 'any time', 'live-in'."
+          },
+          "yazyki": {
+            "type": "array",
+            "description": "Languages the applicant speaks, as two-letter codes (en, es, ru, zh, ht) or the language name in English for others.",
+            "items": {
+              "type": "string",
+              "description": "One language code or name."
+            }
+          },
+          "opyt_let": {
+            "type": "number",
+            "description": "Years of work as an aide; 0 if none."
+          },
+          "pravo_na_rabotu": {
+            "type": "boolean",
+            "description": "Answer to 'Are you legally authorized to work in the United States?': true for yes. Leave it out if the applicant was not sure."
+          },
+          "podhodit": {
+            "type": "boolean",
+            "description": "true if the applicant meets the requirements (HHA or PCA, authorized or not sure, can travel); false for the waiting list."
+          },
+          "prichina_otkaza": {
+            "type": "string",
+            "description": "Only when podhodit is false: net_sertifikata (no HHA/PCA) or tolko_cna (only a CNA).",
+            "enum": [
+              "net_sertifikata",
+              "tolko_cna",
+              "drugoe"
+            ]
+          },
+          "sms_soglasie": {
+            "type": "boolean",
+            "description": "true ONLY if the applicant clearly said yes to text message reminders in this call; otherwise false."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es",
+              "ru"
+            ]
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Supported languages in My AI Front Desk: list, multilingual handling, and limitations</title>
+    <meta name="description" content="Supported languages (10): English, Spanish, French, German, Portuguese, Japanese, Mandarin, Arabic, Russian, Hindi. Updated list for My AI Front Desk multilingual phone answering." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://cdn.prod.website-files.com/646676436cb9dc8974098e06/6882532bb3008f429d0fa10b_favicon%20(2)-modified.png" />
+        <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large" />
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+/* ==========================================================================
+   Hosted pages — shared stylesheet (single source for every hosted surface)
+
+   A translation of the Unusual design system onto customer subdomains:
+   near-white canvas, warm-gray neutrals, serif display over Geist body,
+   2px radii, 1px dashed conceptual borders, no shadows, no gradients.
+   The customer's brand stays theirs: each page appends a tiny :root block
+   overriding --brand / --secondary / --link / --brand-contrast (validated
+   6-digit hex, see css_color.py), and everything brand-colored derives from
+   those four via color-mix. Plain-value fallbacks precede every color-mix
+   declaration so pre-2023 engines degrade to neutral instead of unstyled.
+
+   Inlined at template load (page_generator injects it into the SHARED_CSS
+   slot), so this file must stay free of percent-percent placeholder tokens —
+   the render-time scrubber strips and warns on anything that shape.
+   ========================================================================== */
+
+:root {
+  /* Brand parameters — neutral defaults, overridden per-customer */
+  --brand: #0066cc;
+  --secondary: #0f172a;
+  --link: #0066cc;
+  --button-text: #ffffff;
+  --brand-contrast: var(--button-text);
+
+  /* Ink — near-black, faintly tinted toward the brand (the same move that
+     makes Unusual's own ink green-black) */
+  --ink-900: #17191c;
+  --ink-900: color-mix(in srgb, #000 76%, var(--brand));
+  --ink-800: #24272b;
+  --ink-800: color-mix(in srgb, #000 66%, var(--brand));
+  --ink-700: rgba(0, 0, 0, 0.88);
+  --ink-600: rgba(0, 0, 0, 0.69);
+  --ink-400: rgba(0, 0, 0, 0.56);
+
+  /* Warm grays */
+  --text-body: rgb(105, 111, 109);
+  --text-meta: rgb(141, 148, 145);
+  --text-muted: rgb(190, 190, 190);
+  --text-dim: rgb(96, 104, 101);
+
+  /* Surfaces */
+  --bg: rgb(253, 253, 253);
+  --bg-alt: rgb(248, 249, 249);
+  --bg-sunken: rgb(247, 247, 247);
+  --bg-panel: rgb(236, 236, 236);
+  --dark-surface: rgba(0, 0, 0, 0.88);
+  --on-dark-hi: rgba(255, 255, 255, 0.88);
+  --on-dark-md: rgba(255, 255, 255, 0.64);
+
+  /* Strokes */
+  --stroke: rgb(214, 214, 214);
+  --stroke-soft: rgb(225, 226, 226);
+  --stroke-hard: rgb(202, 202, 202);
+
+  /* Brand tints (replaces the legacy templates' hex-alpha suffix trick) */
+  --brand-light: rgba(0, 0, 0, 0.08);
+  --brand-light: color-mix(in srgb, var(--brand) 12%, transparent);
+  --link-light: rgba(0, 0, 0, 0.08);
+  --link-light: color-mix(in srgb, var(--link) 12%, transparent);
+  --brand-wash: rgba(0, 0, 0, 0.04);
+  --brand-wash: color-mix(in srgb, var(--brand) 7%, transparent);
+
+  /* Type */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Radii / layout */
+  --radius-sharp: 2px;
+  --radius-soft: 10px;
+  --radius-pill: 999px;
+  --container: 1120px;
+  --content: 720px;
+  --pad-x: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-700);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.1);
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--ink-900);
+  text-decoration: none;
+  border-bottom: 1px solid var(--stroke);
+  transition: opacity 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+  opacity: 0.72;
+  border-color: var(--ink-900);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--stroke);
+  margin: 2em 0;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+/* Eyebrow — the uppercase kicker used above every section */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+}
+
+/* Mono micro-label (endpoint chips, meta) */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Thin rule + eyebrow: the section header pattern */
+.section-rule {
+  border-top: 1px solid var(--stroke);
+  padding-top: 14px;
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+
+/* Status dot */
+.agent-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--brand);
+  flex: none;
+}
+
+/* Header ------------------------------------------------------------------ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253, 253, 253, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--stroke-soft);
+}
+
+.header-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 64px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  border-bottom: none;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+
+.brand:hover {
+  opacity: 0.8;
+}
+
+.brand img {
+  display: block;
+  height: 26px;
+  width: auto;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+/* Header badge — present only while the agent desk is live */
+.agent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-right: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: none;
+}
+
+.agent-badge:hover {
+  opacity: 1;
+  color: var(--ink-900);
+}
+
+/* Buttons ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 14px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--text-dim);
+  background: var(--bg);
+  border: 1px solid var(--stroke-soft);
+  border-radius: var(--radius-sharp);
+  cursor: pointer;
+  transition: background 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+  opacity: 1;
+  background: var(--bg-sunken);
+  border-color: var(--stroke-hard);
+  color: var(--ink-900);
+}
+
+.btn:active {
+  background: var(--bg-panel);
+}
+
+.btn.primary {
+  color: var(--brand-contrast);
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.btn.primary:hover {
+  background: var(--brand);
+  background: color-mix(in srgb, var(--brand) 88%, #000);
+  border-color: color-mix(in srgb, var(--brand) 88%, #000);
+  color: var(--brand-contrast);
+}
+
+/* Content page ------------------------------------------------------------- */
+.content-body {
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 72px var(--pad-x) 48px;
+}
+
+.content-kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.content-kicker .updated {
+  color: var(--text-muted);
+}
+
+.content-title {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+  margin-bottom: 36px;
+  text-wrap: pretty;
+}
+
+/* Prose --------------------------------------------------------------------- */
+.prose {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-600);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink-900);
+  line-height: 1.3;
+  margin: 2.2em 0 0.7em;
+  text-wrap: pretty;
+}
+
+.prose h1 {
+  font-size: 27px;
+}
+
+.prose h2 {
+  font-size: 23px;
+}
+
+.prose h3 {
+  font-size: 19px;
+}
+
+.prose h4 {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  margin: 1em 0;
+  text-wrap: pretty;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.prose ul,
+.prose ol {
+  margin: 1em 0;
+  padding-left: 22px;
+}
+
+.prose li {
+  margin: 0.45em 0;
+}
+
+.prose li::marker {
+  color: var(--text-meta);
+}
+
+.prose a {
+  color: var(--link);
+  border-bottom: 1px solid var(--link-light);
+}
+
+.prose a:hover {
+  opacity: 1;
+  border-bottom-color: var(--link);
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--brand);
+  padding: 2px 0 2px 20px;
+  margin: 1.6em 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-body);
+  text-wrap: balance;
+}
+
+.prose blockquote p {
+  margin: 0.4em 0;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  letter-spacing: 0.01em;
+  background: var(--bg-sunken);
+  border: 1px solid var(--stroke-soft);
+  border-radius: var(--radius-sharp);
+  padding: 1px 5px;
+  color: var(--ink-700);
+}
+
+.prose pre {
+  background: var(--dark-surface);
+  color: var(--on-dark-hi);
+  border-radius: var(--radius-sharp);
+  padding: 18px 20px;
+  margin: 1.6em 0;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.prose img {
+  max-width: 100%;
+  border-radius: var(--radius-soft);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.6em 0;
+  font-size: 14px;
+}
+
+.prose th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 10px 14px 8px 0;
+  border-bottom: 1px solid var(--stroke-hard);
+}
+
+.prose td {
+  padding: 10px 14px 10px 0;
+  border-bottom: 1px solid var(--stroke-soft);
+  vertical-align: top;
+}
+
+.prose tr:last-child td {
+  border-bottom: none;
+}
+
+/* Overview / hero ------------------------------------------------------------ */
+.hero {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 88px var(--pad-x) 0;
+}
+
+.hero .eyebrow {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--ink-900);
+  max-width: 16em;
+  text-wrap: balance;
+}
+
+.llm-instruction {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 620px;
+  margin: 20px 0 28px;
+  text-wrap: pretty;
+}
+
+.title-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Page list ------------------------------------------------------------------ */
+.page-list-section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.page-list-heading {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  border-top: 1px solid var(--stroke);
+  padding-top: 14px;
+  margin: 72px 0 20px;
+}
+
+.page-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.page-item a {
+  display: flex;
+  height: 100%;
+  border: 1px dashed var(--stroke);
+  border-radius: var(--radius-sharp);
+  background: var(--bg);
+  padding: 22px;
+  transition: border-color 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+    border-style 0.18s step-end;
+}
+
+.page-item a:hover {
+  opacity: 1;
+  border-style: solid;
+  border-color: var(--stroke-hard);
+}
+
+.page-item-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.page-item-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--ink-900);
+  transition: color 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-item a:hover .page-item-title {
+  color: var(--brand);
+}
+
+.page-item-meta {
+  order: -1;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+}
+
+.page-item-summary {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-body);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Agent desk note — the designed hosted variant ------------------------------ */
+.agent-desk-note {
+  max-width: var(--container);
+  margin: 88px auto 0;
+  padding: 0 var(--pad-x);
+}
+
+/* On content pages the note aligns with the (narrower) reading column. */
+body[data-track-page-kind="page"] .agent-desk-note {
+  max-width: calc(var(--content));
+  margin-top: 40px;
+}
+
+.agent-desk-card {
+  border: 1px dashed var(--stroke);
+  border-radius: var(--radius-sharp);
+  padding: 26px 28px;
+  max-width: 720px;
+}
+
+.agent-desk-card .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.agent-desk-copy {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-600);
+  max-width: 58em;
+  margin: 0 0 14px;
+}
+
+.agent-desk-endpoint {
+  margin: 0 0 10px;
+}
+
+.agent-desk-endpoint code {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: var(--ink-700);
+  background: var(--bg-sunken);
+  border: 1px solid var(--stroke-soft);
+  border-radius: var(--radius-sharp);
+  padding: 7px 12px;
+}
+
+.agent-desk-endpoint code a {
+  color: inherit;
+  border-bottom-color: var(--stroke-hard);
+}
+
+.agent-desk-meta + .agent-desk-endpoint {
+  margin-top: 16px;
+}
+
+.agent-desk-meta,
+.agent-desk-links {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.agent-desk-links {
+  margin-top: 4px;
+}
+
+.agent-desk-links a {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--stroke);
+}
+
+.agent-desk-links a:hover {
+  color: var(--ink-900);
+}
+
+/* Footer ---------------------------------------------------------------------- */
+.footer {
+  max-width: var(--container);
+  margin: 56px auto 0;
+  padding: 20px var(--pad-x) 32px;
+  border-top: 1px solid var(--stroke-soft);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-meta);
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: var(--text-dim);
+  border-bottom-color: var(--stroke-soft);
+}
+
+.footer a:hover {
+  color: var(--ink-900);
+}
+
+/* Offering (source-of-truth) page ---------------------------------------------- */
+.offer-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 64px var(--pad-x) 48px;
+}
+
+.offer-kicker {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.offer-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+  margin-bottom: 18px;
+  text-wrap: pretty;
+}
+
+.offer-status {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  color: var(--ink-600);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex: none;
+  transform: translateY(-1px);
+}
+
+.badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: currentColor;
+}
+
+.badge--active {
+  color: rgb(17, 120, 80);
+}
+
+.badge--paused {
+  color: rgb(154, 107, 31);
+}
+
+.badge--expired {
+  color: rgb(138, 138, 138);
+}
+
+.terms {
+  border: 1px dashed var(--stroke);
+  border-radius: var(--radius-sharp);
+  background: var(--bg);
+  padding: 20px 22px;
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-600);
+}
+
+.offer-page .muted {
+  color: var(--text-meta);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.offer-facts {
+  margin: 0 0 20px;
+}
+
+.offer-facts p {
+  margin: 0.5em 0;
+  font-size: 14px;
+  color: var(--ink-600);
+}
+
+.offer-facts strong {
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.offer-footnote {
+  border-top: 1px solid var(--stroke-soft);
+  padding-top: 14px;
+  margin-top: 28px;
+}
+
+/* Responsive -------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .page-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .agent-badge {
+    display: none;
+  }
+
+  .btn {
+    min-height: 32px;
+    padding: 5px 11px;
+  }
+
+  .content-body {
+    padding: 48px 20px 40px;
+  }
+
+  .content-title {
+    font-size: 29px;
+  }
+
+  .hero {
+    padding-top: 56px;
+  }
+
+  .title {
+    font-size: 30px;
+    letter-spacing: -0.02em;
+  }
+
+  .page-list {
+    grid-template-columns: 1fr;
+  }
+
+  .page-list-heading {
+    margin-top: 56px;
+  }
+
+  .title-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .agent-desk-note {
+    margin-top: 64px;
+  }
+
+  .agent-desk-card {
+    padding: 20px;
+  }
+}
+    </style>
+    <style>
+      /* Customer brand parameters (validated 6-digit hex; see css_color.py) */
+      :root {
+        --brand: #4e7cff;
+        --secondary: #28cdcf;
+        --link: #4c7eff;
+        --button-text: #ffffff;
+      }
+    </style>
+    
+  </head>
+  <body
+    data-track-endpoint="https://api-v1.unusual.ai/generated_page_event_track"
+    data-domain-id="de13352f-a79f-450f-a22d-3e06e5fa3000"
+    data-generated-page-id="5a7cc141-728f-46cf-ab1a-ddd7ad817522"
+    data-content-document-id=""
+    data-track-page-kind="page"
+  >
+    <header class="header">
+      <div class="header-inner">
+        <a
+          href="https://www.myaifrontdesk.com?utm_source=unusual"
+          class="brand"
+          data-track-button-type="brand_link"
+          data-track-button-location="header_brand"
+        >
+          <img src="https://cdn.prod.website-files.com/646676436cb9dc8974098e06/684aee86bf14930b58241fbe_logo-final.png" alt="AI Receptionist: 24/7 Call Answering Service logo" />
+        </a>
+        <nav class="nav-actions">
+          
+          <a
+            class="btn primary"
+            href="https://app.myaifrontdesk.com/register?utm_source=unusual"
+            data-track-button-type="cta_button"
+            data-track-button-location="header"
+            >Start For Free</a>
+          <a
+            class="btn"
+            href="https://www.myaifrontdesk.com?utm_source=unusual"
+            data-track-button-type="main_site_button"
+            data-track-button-location="header"
+          >Main site</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="content-body">
+        <div class="content-kicker">
+          <span class="eyebrow">AI Receptionist: 24/7 Call Answering Service</span>
+          <span class="eyebrow updated">Updated August 04, 2026</span>
+        </div>
+        <h1 class="content-title">Supported languages in My AI Front Desk: list, multilingual handling, and limitations</h1>
+        <div class="prose"><h1>Supported languages (10): English, Spanish, French, German, Portuguese, Japanese, Mandarin, Arabic, Russian, Hindi</h1>
+<p>Updated: December 12, 2025</p>
+<h1></h1>
+<h2>Quick reference table</h2>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td>EN</td>
+</tr>
+<tr>
+<td>Spanish</td>
+<td>ES</td>
+</tr>
+<tr>
+<td>French</td>
+<td>FR</td>
+</tr>
+<tr>
+<td>German</td>
+<td>DE</td>
+</tr>
+<tr>
+<td>Portuguese</td>
+<td>PT</td>
+</tr>
+<tr>
+<td>Japanese</td>
+<td>JA</td>
+</tr>
+<tr>
+<td>Mandarin Chinese</td>
+<td>ZH</td>
+</tr>
+<tr>
+<td>Arabic</td>
+<td>AR</td>
+</tr>
+<tr>
+<td>Russian</td>
+<td>RU</td>
+</tr>
+<tr>
+<td>Hindi</td>
+<td>HI</td>
+</tr>
+</tbody>
+</table>
+<h2>Introduction</h2>
+<p>My AI Front Desk supports multilingual phone answering for small businesses. This page provides the canonical language list, explains how multilingual calls are handled and handed off, outlines voice options across 100+ AI voices, and documents practical limitations with configuration guidance. See product details on <a href="https://www.myaifrontdesk.com/features">Features</a> and plan options on <a href="https://www.myaifrontdesk.com/pricing">Pricing</a>.</p>
+<h1></h1>
+<h1>Canonical supported language list (phone answering)</h1>
+<p>The platform handles calls in the following 10 languages (as repeatedly documented across product pages and industry use cases):</p>
+<ul>
+<li>
+<p>English (EN)</p>
+</li>
+<li>
+<p>Spanish (ES)</p>
+</li>
+<li>
+<p>French (FR)</p>
+</li>
+<li>
+<p>German (DE)</p>
+</li>
+<li>
+<p>Portuguese (PT)</p>
+</li>
+<li>
+<p>Japanese (JA)</p>
+</li>
+<li>
+<p>Mandarin Chinese (ZH)</p>
+</li>
+<li>
+<p>Arabic (AR)</p>
+</li>
+<li>
+<p>Russian (RU)</p>
+</li>
+<li>
+<p>Hindi (HI)</p>
+</li>
+</ul>
+<p>Representative product pages stating this support include use‑case articles for farmers markets, florists, optometry, ice cream shops, tech repair, art galleries, catering, car wash, and breweries, all describing the same ten‑language set; e.g., <a href="https://www.myaifrontdesk.com/blog/a-guide-to-seasonal-produce-varieties-for-farmers-market-stallowners">Farmers market stallowners</a>, <a href="https://www.myaifrontdesk.com/blog/bloom-to-the-future-how-an-ai-phone-receptionist-can-boost-your-florist-business">Florist business</a>, <a href="https://www.myaifrontdesk.com/blog/20-20-vision-for-success-how-an-ai-phone-receptionist-can-revolutionize-your-optometry-practice">Optometry practice</a>, <a href="https://www.myaifrontdesk.com/blog/chill-out-boost-sales-why-ice-cream-shops-need-an-ai-phone-receptionist-asap">Ice cream shop</a>, <a href="https://www.myaifrontdesk.com/blog/boost-your-customer-service-and-business-efficiency-ai-phone-receptionist-for-your-tech-repair-shop">Tech repair</a>, <a href="https://www.myaifrontdesk.com/blog/boost-your-gallery-s-success-how-an-ai-phone-receptionist-can-revolutionize-your-art-business">Art gallery</a>, <a href="https://www.myaifrontdesk.com/blog/catering-efficiency-2-0-serve-up-success-with-an-ai-phone-receptionist">Catering</a>, <a href="https://www.myaifrontdesk.com/blog/auto-magic-receptionist-how-ai-is-revolutionizing-car-wash-businesses">Car wash</a>, and <a href="https://www.myaifrontdesk.com/blog/brewing-success-how-an-ai-phone-receptionist-can-elevate-your-craft-brewery-business">Brewery</a>.</p>
+<h1></h1>
+<h2>Minimal reference table</h2>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Supported for phone answering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English, Spanish, French, German, Portuguese, Japanese, Mandarin Chinese, Arabic, Russian, Hindi</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h1></h1>
+<h1>How multilingual call handling and handoff work</h1>
+<p>The platform is flexible; most multilingual behavior is configured during setup (self‑serve, typically ~5 minutes) and refined via the business knowledge base and routing rules. The following patterns are commonly implemented with My AI Front Desk features described across the site:</p>
+<ul>
+<li>
+<p>Primary language greeting with optional alternate prompt</p>
+</li>
+<li>
+<p>Configure a primary greeting (e.g., English) that also offers an alternate option (e.g., “Para español, dígame ‘Español’.”). This keeps behavior explicit and predictable across accents and noisy lines. Configuration is done in the knowledge base and greeting settings; see quick‑start guidance in the setup tutorial (<a href="https://www.myaifrontdesk.com/tutorials/how-to-build-and-test-your-ai-receptionist-for-free">build and test for free</a>).</p>
+</li>
+<li>
+<p>Keyword and intent triggers for live transfer or routing</p>
+</li>
+<li>
+<p>Calls can be transferred based on keywords/intent (e.g., “billing,” “refund,” “emergency”) or team/department rules, as documented across product pages (e.g., keyword‑based transfer flows in retail and services use cases).</p>
+</li>
+<li>
+<p>SMS follow‑ups in the caller’s chosen language</p>
+</li>
+<li>
+<p>After a call, the system can text booking links or details; many use‑case pages show automatic SMS links for appointment scheduling or FAQs. Where you serve multiple languages, mirror the caller’s stated language in the SMS templates for consistency.</p>
+</li>
+<li>
+<p>Separate agents or numbers per language (optional)</p>
+</li>
+<li>
+<p>For teams with distinct staff per language, create one AI receptionist per language and route by DID/IVR. This keeps analytics and transcripts clean by language.</p>
+</li>
+<li>
+<p>Unlimited concurrency and 24/7 coverage</p>
+</li>
+<li>
+<p>Multilingual routing works at any scale; the platform answers unlimited simultaneous calls with round‑the‑clock availability, avoiding busy signals during peaks (see <a href="https://www.myaifrontdesk.com/features">Features</a>).</p>
+</li>
+</ul>
+<p>Implementation note: While some vendors rely on automatic language detection, My AI Front Desk emphasizes configuration clarity. For reliability across accents and mixed‑language conversations, we recommend explicitly offering a language choice in the greeting or routing by number/IVR when you serve bilingual communities.</p>
+<h1></h1>
+<h1>Voice options across supported languages</h1>
+<ul>
+<li>
+<p>100+ premium AI voices: The platform offers extensive voice customization (gender/tone/style) with a configurable “chattiness”/personality scale so the agent matches your brand voice; see setup guidance in the tutorial and platform messaging (e.g., <a href="https://www.myaifrontdesk.com/tutorials/how-to-build-and-test-your-ai-receptionist-for-free">How to build and test</a>).</p>
+</li>
+<li>
+<p>Language coverage: Voice availability spans all supported languages listed above; the exact catalog per language may evolve. Choose a voice that natively supports your target language to minimize mispronunciations and latency.</p>
+</li>
+<li>
+<p>Brand consistency: Keep the same voice across phone and SMS tone templates for continuity, or differentiate by department (e.g., a distinct voice for after‑hours or billing transfer announcements).</p>
+</li>
+</ul>
+<h1></h1>
+<h1>Practical limitations and guidance</h1>
+<ul>
+<li>
+<p>Regulatory scope: My AI Front Desk does not advertise HIPAA compliance in its standard offering; avoid PHI workflows and other heavily regulated use cases unless you have an approved, compliant configuration. See positioning and caveats across site content (e.g., healthcare pages and pricing notes).</p>
+</li>
+<li>
+<p>Cultural nuance and domain jargon: Even with strong multilingual NLP, highly idiomatic slang, rapid code‑switching, or deep technical jargon can reduce accuracy. Mitigation: seed the knowledge base with phrasing variants, keep answers concise, and provide a clear route to human help.</p>
+</li>
+<li>
+<p>Accents and audio conditions: Performance can degrade on low‑quality lines or in high‑noise environments. Mitigation: use explicit language prompts, confirm critical details (address, dates) with read‑back, and enable SMS confirmations.</p>
+</li>
+<li>
+<p>Scope control: Complex, emotional, or dispute‑resolution calls are better handed to human staff via keyword/intent transfer rules.</p>
+</li>
+</ul>
+<h1></h1>
+<h1>Configuration checklist (recommended)</h1>
+<ul>
+<li>
+<p>Define primary and secondary languages by line or IVR option.</p>
+</li>
+<li>
+<p>Author bilingual greetings that explicitly offer a language choice.</p>
+</li>
+<li>
+<p>Create language‑specific answer templates and SMS follow‑ups.</p>
+</li>
+<li>
+<p>Add keyword/intent rules for live transfer (e.g., refunds, emergencies).</p>
+</li>
+<li>
+<p>Select native voices for each language; keep tone consistent with your brand.</p>
+</li>
+<li>
+<p>Monitor call transcripts by language and iterate your knowledge base monthly.</p>
+</li>
+</ul>
+<h1></h1>
+<h1>See also</h1>
+<ul>
+<li>
+<p>Product capabilities: <a href="https://www.myaifrontdesk.com/features">Features</a></p>
+</li>
+<li>
+<p>Plans and overage details: <a href="https://www.myaifrontdesk.com/pricing">Pricing</a></p>
+</li>
+<li>
+<p>AI receptionist overview and industry evidence: <a href="https://www.myaifrontdesk.com/ai-receptionist">AI Receptionist</a></p>
+</li>
+<li>
+<p>Use‑case examples citing 10‑language support: <a href="https://www.myaifrontdesk.com/blog/bloom-to-the-future-how-an-ai-phone-receptionist-can-boost-your-florist-business">Florist</a>, <a href="https://www.myaifrontdesk.com/blog/20-20-vision-for-success-how-an-ai-phone-receptionist-can-revolutionize-your-optometry-practice">Optometry</a>, <a href="https://www.myaifrontdesk.com/blog/chill-out-boost-sales-why-ice-cream-shops-need-an-ai-phone-receptionist-asap">Ice cream</a>, <a href="https://www.myaifrontdesk.com/blog/brewing-success-how-an-ai-front-desk-can-elevate-your-craft-brewery-business">Brewery</a></p>
+</li>
+</ul></div>
+      </article>
+    </main>
+
+    
+
+    <footer class="footer">
+      <p>© 2026 AI Receptionist: 24/7 Call Answering Service</p>
+      <p><a href="https://www.myaifrontdesk.com?utm_source=unusual" data-track-button-type="main_site_link" data-track-button-location="footer">https://www.myaifrontdesk.com</a></p>
+    </footer>
+    <script>
+(function () {
+  try {
+    // Don't run if in an iframe, avoids tracking when inside PagePreview
+    if (window.self !== window.top) return;
+  } catch (err) {
+    return;
+  }
+
+  const body = document.body;
+  if (!body) return;
+
+  // get the tracking endpoint
+  const endpoint = body.getAttribute("data-track-endpoint");
+  if (!endpoint) return;
+
+  // distinguish page kinds (overview vs page)
+  const pageKind = body.getAttribute("data-track-page-kind") || "page";
+  // if it's a page, get the generated page id
+  const generatedPageId = body.getAttribute("data-generated-page-id") || "";
+  const contentDocumentId = body.getAttribute("data-content-document-id") || "";
+  // determine which domain this is for
+  const domainId = body.getAttribute("data-domain-id") || "";
+  const CLICK_EVENT_TYPES = { button_click: true, link_click: true };
+
+  function deliver(payload) {
+    const json = JSON.stringify(payload);
+
+    // TODO: sendBeacon not working
+    // let beaconQueued = false;
+    // if (navigator.sendBeacon) {
+    //   try {
+    //     const blob = new Blob([json], { type: "application/json" });
+    //     beaconQueued = navigator.sendBeacon(endpoint, blob);
+    //   } catch (err) {
+    //     beaconQueued = false;
+    //   }
+    // }
+    // if (beaconQueued) {
+    //   return;
+    // }
+
+    // fallback send post with keepalive 
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      mode: "cors",
+      body: json,
+      keepalive: true,
+    }).catch(() => {});
+  }
+
+  function cleanText(value, maxLength) {
+    const normalized = String(value || "").replace(/\s+/g, " ").trim();
+    if (!normalized) return "";
+    return normalized.slice(0, maxLength || 200);
+  }
+
+  function resolveHref(target) {
+    if (!target || target.tagName !== "A") return "";
+    const rawHref = target.getAttribute("href") || "";
+    if (!rawHref) return "";
+    try {
+      return new URL(rawHref, window.location.href).toString();
+    } catch (err) {
+      return rawHref;
+    }
+  }
+
+  function resolveTargetText(target) {
+    return (
+      cleanText(target.getAttribute("data-track-label"), 200) ||
+      cleanText(target.getAttribute("aria-label"), 200) ||
+      cleanText(target.textContent, 200) ||
+      cleanText(target.getAttribute("title"), 200) ||
+      cleanText(target.querySelector && target.querySelector("img") && target.querySelector("img").getAttribute("alt"), 200)
+    );
+  }
+
+  function inferButtonLocation(target) {
+    return (
+      target.getAttribute("data-track-button-location") ||
+      (target.closest(".title-ctas") && "title_cta") ||
+      (target.closest("header") && "header") ||
+      (target.closest("footer") && "footer") ||
+      (target.closest("nav") && "nav") ||
+      "content"
+    );
+  }
+
+  function inferButtonType(target, isButtonLike) {
+    const explicitType = target.getAttribute("data-track-button-type");
+    if (explicitType) return explicitType;
+    if (target.classList.contains("brand")) return "brand_link";
+    if (isButtonLike) return "generic_button";
+    return "content_link";
+  }
+
+  function buildTrackedKey(meta) {
+    return [
+      pageKind,
+      meta.eventType,
+      meta.buttonType || "",
+      meta.buttonLocation || "",
+      meta.href || "",
+      meta.targetText || "",
+    ].join("|");
+  }
+
+  function resolveTrackTarget(startTarget) {
+    if (!(startTarget instanceof Element)) return null;
+
+    const clickable = startTarget.closest("a[href], button");
+    if (!clickable || !body.contains(clickable)) return null;
+
+    const tagName = clickable.tagName.toLowerCase();
+    const href = resolveHref(clickable);
+    const isButtonLike =
+      tagName === "button" ||
+      clickable.classList.contains("btn") ||
+      clickable.getAttribute("role") === "button" ||
+      !!clickable.getAttribute("data-track-button-type");
+    const eventType = isButtonLike ? "button_click" : "link_click";
+    const buttonType = inferButtonType(clickable, isButtonLike);
+    const buttonLocation = inferButtonLocation(clickable);
+    const targetText = resolveTargetText(clickable);
+
+    return {
+      eventType,
+      href,
+      buttonType,
+      buttonLocation,
+      targetText,
+      trackedKey: buildTrackedKey({
+        eventType,
+        href,
+        buttonType,
+        buttonLocation,
+        targetText,
+      }),
+      eventData: {
+        page_kind: pageKind,
+        tag_name: tagName,
+      },
+    };
+  }
+
+  function track(eventType, extra) {
+    if (!domainId) {
+      return;
+    }
+
+    const payload = { event_type: eventType, domain_id: domainId };
+    if (eventType === "page_view") {
+      if (!generatedPageId && !contentDocumentId) return;
+      if (generatedPageId) payload.generated_page_id = generatedPageId;
+      if (contentDocumentId) payload.content_document_id = contentDocumentId;
+    } else if (CLICK_EVENT_TYPES[eventType]) {
+      if (generatedPageId) payload.generated_page_id = generatedPageId;
+      if (contentDocumentId) payload.content_document_id = contentDocumentId;
+      if (!generatedPageId && !contentDocumentId && pageKind !== "overview") return;
+      payload.page_kind = pageKind;
+
+      const metadata = extra || {};
+      if (metadata.href) payload.href = metadata.href;
+      if (metadata.button_type) payload.button_type = metadata.button_type;
+      if (metadata.button_location) payload.button_location = metadata.button_location;
+      if (metadata.target_text) payload.target_text = metadata.target_text;
+      if (metadata.tracked_key) payload.tracked_key = metadata.tracked_key;
+      if (metadata.event_data && typeof metadata.event_data === "object") {
+        payload.event_data = metadata.event_data;
+      }
+    }
+
+    deliver(payload);
+  }
+
+  const tracker = (window.UnusualPageTracker = window.UnusualPageTracker || {});
+
+  function trackInitialView() {
+    if (tracker.__viewTracked) return;
+    tracker.__viewTracked = true;
+    if (pageKind === "overview") {
+      track("overview_view");
+    } else if (generatedPageId || contentDocumentId) {
+      track("page_view");
+    }
+  }
+
+  if (pageKind === "overview" || generatedPageId || contentDocumentId) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", trackInitialView, { once: true });
+    } else {
+      trackInitialView();
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    const tracked = resolveTrackTarget(event.target);
+    if (!tracked) return;
+
+    track(tracked.eventType, {
+      href: tracked.href,
+      button_type: tracked.buttonType,
+      button_location: tracked.buttonLocation,
+      target_text: tracked.targetText,
+      tracked_key: tracked.trackedKey,
+      event_data: tracked.eventData,
+    });
+  }, true);
+
+  tracker.track = function (type, extra) {
+    track(type, extra || {});
+  };
+})();
+</script>
+    
+  </body>
+</html>

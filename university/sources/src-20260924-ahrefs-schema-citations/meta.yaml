@@ -1,0 +1,41 @@
+id: src-20260924-ahrefs-schema-citations
+url: https://ahrefs.com/blog/schema-ai-citations/
+canonical_url: https://ahrefs.com/blog/schema-ai-citations/
+type: blog
+title: 'We Tracked 1,885 Pages Adding Schema. AI Citations Barely Moved.'
+authors:
+  - {name: 'Louise Linehan', affiliation: 'Ahrefs'}
+  - {name: 'Xibeijia Guan', affiliation: 'Ahrefs'}
+published: 2026-05-11
+fetched_at: 2026-09-24T00:00:00Z
+language: en
+fetch_method: curl  # сырой HTML через curl -sL (для OpenAI — markdown-версия страницы .md)
+storage:
+  original: original.html
+  bytes: 824734
+
+relevance: 4
+quality: 7
+quality_breakdown:
+  primary_source: false
+  author_credible: true
+  has_math: true
+  has_empirics: true
+  reproducible: false
+  recent: true
+  cited: true
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: false
+  notes: 'Вендор SEO-инструментов (в тексте реклама Brand Radar), но вывод против выгодной для рынка гипотезы. Все страницы — крупные, уже с 100+ цитированиями в AIO; про местный бизнес без цитирований ничего не говорит.'
+
+extracted:
+  notes: [n-google-ignores-llmstxt-special-markup, n-schema-correlation-is-confounded, n-schema-no-citation-lift-matched-controls]
+  claims: [c-0104, c-0109]
+  contradictions: []
+  outbound_links_tracked: 2
+
+status: processed
+reject_reason: null

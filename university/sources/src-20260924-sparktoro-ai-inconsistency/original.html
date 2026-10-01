@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://images.sparktoro.com" crossorigin>
+    <link rel="alternate" type="application/rss+xml" title="SparkToro RSS Feed" href="https://sparktoro.com/blog/feed/">
+    <!-- Self-hosted brand fonts. Preload the render-critical faces so the body
+         (Jost) and titles/headings (League Spartan) don't flash on first paint;
+         Luminaire covers the script accents in the hero/recent sections. -->
+        <link rel="preload" href="https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/fonts/jost-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/fonts/leaguespartan-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/fonts/leaguespartan-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/fonts/luminaire.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TTT95QJ');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v28.4 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>NEW Research: AIs are highly inconsistent when recommending brands or products; marketers should take care when tracking AI visibility - SparkToro</title>
+	<meta name="description" content="Editor&#039;s Note: Watch our free webinar discussing the findings here (no ads). The Problem: For the last few years, companies have been investing inordinate" />
+	<link rel="canonical" href="https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="NEW Research: AIs are highly inconsistent when recommending brands or products; marketers should take care when tracking AI visibility - SparkToro" />
+	<meta property="og:description" content="Editor&#039;s Note: Watch our free webinar discussing the findings here (no ads). The Problem: For the last few years, companies have been investing inordinate" />
+	<meta property="og:url" content="https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/" />
+	<meta property="og:site_name" content="SparkToro" />
+	<meta property="article:publisher" content="https://facebook.com/sparktoro" />
+	<meta property="article:published_time" content="2026-01-28T06:49:00+00:00" />
+	<meta property="article:modified_time" content="2026-06-28T16:11:52+00:00" />
+	<meta property="og:image" content="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide2-1024x576.png" />
+	<meta name="author" content="Rand Fishkin" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@sparktoro" />
+	<meta name="twitter:site" content="@sparktoro" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Rand Fishkin" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="23 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/#article","isPartOf":{"@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/"},"author":{"name":"Rand Fishkin","@id":"https:\/\/sparktoro.com\/blog\/#\/schema\/person\/2acd0781db4d1905cecfec9bea406570"},"headline":"NEW Research: AIs are highly inconsistent when recommending brands or products; marketers should take care when tracking AI visibility","datePublished":"2026-01-28T06:49:00+00:00","dateModified":"2026-06-28T16:11:52+00:00","mainEntityOfPage":{"@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/"},"wordCount":3903,"commentCount":0,"image":{"@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/#primaryimage"},"thumbnailUrl":"https:\/\/sparktoro.com\/blog\/wp-content\/uploads\/2026\/01\/Slide2-1024x576.png","articleSection":["AI\/LLMs","Data","Research"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/#respond"]}]},{"@type":"WebPage","@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/","url":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/","name":"NEW Research: AIs are highly inconsistent when recommending brands or products; marketers should take care when tracking AI visibility - SparkToro","isPartOf":{"@id":"https:\/\/sparktoro.com\/blog\/#website"},"primaryImageOfPage":{"@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/#primaryimage"},"image":{"@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/#primaryimage"},"thumbnailUrl":"https:\/\/sparktoro.com\/blog\/wp-content\/uploads\/2026\/01\/Slide2-1024x576.png","datePublished":"2026-01-28T06:49:00+00:00","dateModified":"2026-06-28T16:11:52+00:00","author":{"@id":"https:\/\/sparktoro.com\/blog\/#\/schema\/person\/2acd0781db4d1905cecfec9bea406570"},"description":"Editor's Note: Watch our free webinar discussing the findings here (no ads). The Problem: For the last few years, companies have been investing inordinate","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/sparktoro.com\/blog\/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility\/#primaryimage","url":"https:\/\/images.sparktoro.com\/blog\/wp-content\/uploads\/2026\/01\/Slide2.png","contentUrl":"https:\/\/images.sparktoro.com\/blog\/wp-content\/uploads\/2026\/01\/Slide2.png","width":1280,"height":720},{"@type":"WebSite","@id":"https:\/\/sparktoro.com\/blog\/#website","url":"https:\/\/sparktoro.com\/blog\/","name":"SparkToro","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/sparktoro.com\/blog\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Person","@id":"https:\/\/sparktoro.com\/blog\/#\/schema\/person\/2acd0781db4d1905cecfec9bea406570","name":"Rand Fishkin","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/sparktoro.com\/blog\/wp-content\/themes\/sparktoro-v3\/img\/rand-head.jpg","url":"https:\/\/sparktoro.com\/blog\/wp-content\/themes\/sparktoro-v3\/img\/rand-head.jpg","contentUrl":"https:\/\/sparktoro.com\/blog\/wp-content\/themes\/sparktoro-v3\/img\/rand-head.jpg","caption":"Rand Fishkin"},"description":"Rand Fishkin is the co-founder and CEO of SparkToro. For a quarter century he's helped people do better marketing (and held big tech's feet to the fire) through his blog posts, videos, books, and research. Rand also co-founded Alertmouse, Snackbar Studio, Moz, and a hopelessly romantic marriage to bestselling author, Geraldine DeRuiter.","url":"https:\/\/sparktoro.com\/blog\/author\/rand\/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//sparktoro.com' />
+<link rel="alternate" type="application/rss+xml" title="SparkToro &raquo; Feed" href="https://sparktoro.com/blog/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://sparktoro.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsparktoro.com%2Fblog%2Fnew-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://sparktoro.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fsparktoro.com%2Fblog%2Fnew-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://sparktoro.com/blog/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:rgba(90,90,90,.25);border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto rgba(90,90,90,.25);outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:rgba(90,90,90,.25);border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://sparktoro.com/blog/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://sparktoro.com/blog/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://sparktoro.com/blog/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-quote-inline-css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=https://sparktoro.com/blog/wp-includes/blocks/quote/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='csbwf_sidebar_style-css' href='https://sparktoro.com/blog/wp-content/plugins/custom-share-buttons-with-floating-sidebar/css/csbwfs.css?ver=f411c575f7fbfe87de9f180dc47d0caf' media='all' />
+<link rel='stylesheet' id='sparktoro-main-css' href='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/dist/css/main.d7f6d55b.css' media='all' />
+<script id="jquery-core-js" src="https://sparktoro.com/blog/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-core-js-after">
+	  var windWidth=jQuery( window ).width();
+	  //alert(windWidth);
+	  var animateWidth;
+	  var defaultAnimateWidth;	jQuery(document).ready(function() { 
+	animateWidth="55";
+    defaultAnimateWidth= animateWidth-10;
+	animateHeight="49";
+	defaultAnimateHeight= animateHeight-2;jQuery("div.csbwfsbtns a").hover(function(){
+  jQuery(this).animate({width:animateWidth});
+  },function(){
+    jQuery(this).stop( true, true ).animate({width:defaultAnimateWidth});
+  });jQuery("div.csbwfs-show").hide();
+  jQuery("div.csbwfs-show a").click(function(){
+    jQuery("div#csbwfs-social-inner").show(500);
+     jQuery("div.csbwfs-show").hide(500);
+    jQuery("div.csbwfs-hide").show(500);
+    csbwfsSetCookie("csbwfs_show_hide_status","active","1");
+  });
+  
+  jQuery("div.csbwfs-hide a").click(function(){
+     jQuery("div.csbwfs-show").show(500);
+      jQuery("div.csbwfs-hide").hide(500);
+     jQuery("div#csbwfs-social-inner").hide(500);
+     csbwfsSetCookie("csbwfs_show_hide_status","in_active","1");
+  });var button_status=csbwfsGetCookie("csbwfs_show_hide_status");
+    if (button_status =="in_active") {
+      jQuery("div.csbwfs-show").show();
+      jQuery("div.csbwfs-hide").hide();
+     jQuery("div#csbwfs-social-inner").hide();
+    } else {
+      jQuery("div#csbwfs-social-inner").show();
+     jQuery("div.csbwfs-show").hide();
+    jQuery("div.csbwfs-hide").show();
+    }});
+ csbwfsCheckCookie();function csbwfsSetCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+}
+
+function csbwfsGetCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function csbwfsCheckCookie() {
+	var hideshowhide = "yes"
+    var button_status=csbwfsGetCookie("csbwfs_show_hide_status");
+    if (button_status != "") {
+        
+    } else {
+        csbwfsSetCookie("csbwfs_show_hide_status", "active",1);
+    }
+    if(hideshowhide=="yes")
+    {
+    csbwfsSetCookie("csbwfs_show_hide_status", "active",0);
+    }
+}
+
+//# sourceURL=jquery-core-js-after
+</script>
+<script id="jquery-migrate-js" src="https://sparktoro.com/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="https://api.w.org/" href="https://sparktoro.com/blog/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://sparktoro.com/blog/wp-json/wp/v2/posts/10729" /><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TTT95QJ');</script>
+<!-- End Google Tag Manager --></head>
+
+<body class="wp-singular post-template-default single single-post postid-10729 single-format-standard wp-embed-responsive wp-theme-sparktoro-v3">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTT95QJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="page" class="site">
+        <div class="topband">
+        <div class="header no-sub-nav" id="navigation-new">
+    <div class="main-container">
+        <div class="container-lg main-nav">
+            <nav class="navbar navbar-light bg-faded justify-content-start rounded navbar-expand-lg tool-nav" aria-label="Primary">
+                <a class="navbar-brand" href="/" aria-label="SparkToro home">
+                    <img src="https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/st-logo-temp.png" alt="SparkToro" height="40" class="nav-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#containerNavbarCenter" aria-controls="containerNavbarCenter" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="containerNavbarCenter">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link pricing" href="/pricing">
+                                <div class="nav-icon">
+                                    <svg width="19" height="19" viewBox="0 0 27 27" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg"><path d="M17.4796 5.87461L22.6897 11.1586C23.6636 12.1465 23.6636 13.7285 22.6897 14.7164L17.1913 20.2816C16.8644 20.6121 16.33 20.6156 15.9995 20.2887C15.669 19.9617 15.6655 19.4273 15.9925 19.0969L21.4909 13.5281C21.8144 13.2012 21.8144 12.6703 21.4909 12.3434L16.2772 7.06289C15.9503 6.73242 15.9538 6.19805 16.2843 5.87109C16.6147 5.54414 17.1491 5.54766 17.4761 5.87813L17.4796 5.87461ZM4.50342 12.5684V7.875C4.50342 6.63398 5.5124 5.625 6.75342 5.625H11.4468C12.0444 5.625 12.6175 5.86055 13.0394 6.28242L18.1019 11.3449C18.9808 12.2238 18.9808 13.6477 18.1019 14.5266L13.4085 19.2199C12.5296 20.0988 11.1058 20.0988 10.2269 19.2199L5.16436 14.1574C4.74248 13.7355 4.50693 13.1625 4.50693 12.5648L4.50342 12.5684ZM9.56592 9.5625C9.56592 9.26413 9.44739 8.97798 9.23641 8.767C9.02543 8.55603 8.73929 8.4375 8.44092 8.4375C8.14255 8.4375 7.8564 8.55603 7.64542 8.767C7.43444 8.97798 7.31592 9.26413 7.31592 9.5625C7.31592 9.86087 7.43444 10.147 7.64542 10.358C7.8564 10.569 8.14255 10.6875 8.44092 10.6875C8.73929 10.6875 9.02543 10.569 9.23641 10.358C9.44739 10.147 9.56592 9.86087 9.56592 9.5625Z" fill="currentColor"/></svg>
+                                </div>
+                                <div class="text">Pricing</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link resources" href="/api">
+                                <div class="nav-icon">
+                                    <svg width="19" height="17" viewBox="0 0 21 18" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg"><path d="M12.6835 0.0440904C12.0858 -0.128175 11.4636 0.219872 11.2913 0.817528L6.79131 16.5675C6.61904 17.1652 6.96709 17.7874 7.56475 17.9597C8.1624 18.132 8.78467 17.7839 8.95693 17.1863L13.4569 1.43628C13.6292 0.838622 13.2812 0.216356 12.6835 0.0440904ZM14.9546 4.82886C14.5151 5.26831 14.5151 5.98198 14.9546 6.42143L17.5351 9.0019L14.9546 11.5824C14.5151 12.0218 14.5151 12.7355 14.9546 13.1749C15.394 13.6144 16.1077 13.6144 16.5472 13.1749L19.9222 9.79995C20.3616 9.3605 20.3616 8.64682 19.9222 8.20737L16.5472 4.83237C16.1077 4.39292 15.394 4.39292 14.9546 4.83237V4.82886ZM5.29717 4.82886C4.85772 4.3894 4.14404 4.3894 3.70459 4.82886L0.32959 8.20386C-0.109863 8.64331 -0.109863 9.35698 0.32959 9.79643L3.70459 13.1714C4.14404 13.6109 4.85772 13.6109 5.29717 13.1714C5.73662 12.732 5.73662 12.0183 5.29717 11.5789L2.7167 9.0019L5.29365 6.42143C5.73311 5.98198 5.73311 5.26831 5.29365 4.82886H5.29717Z" fill="currentColor"/></svg>
+                                </div>
+                                <div class="text">API &amp; MCP</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link resources" href="/resources">
+                                <div class="nav-icon">
+                                    <svg width="19" height="19" viewBox="0 0 27 27" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg"><path d="M19.125 22.5H9C7.13672 22.5 5.625 20.9883 5.625 19.125V7.875C5.625 6.01172 7.13672 4.5 9 4.5H19.6875C20.6191 4.5 21.375 5.25586 21.375 6.1875V16.3125C21.375 17.0473 20.9039 17.673 20.25 17.9051V20.25C20.8723 20.25 21.375 20.7527 21.375 21.375C21.375 21.9973 20.8723 22.5 20.25 22.5H19.125ZM9 18C8.37773 18 7.875 18.5027 7.875 19.125C7.875 19.7473 8.37773 20.25 9 20.25H18V18H9ZM10.125 9.84375C10.125 10.3113 10.5012 10.6875 10.9688 10.6875H17.1562C17.6238 10.6875 18 10.3113 18 9.84375C18 9.37617 17.6238 9 17.1562 9H10.9688C10.5012 9 10.125 9.37617 10.125 9.84375ZM10.9688 12.375C10.5012 12.375 10.125 12.7512 10.125 13.2188C10.125 13.6863 10.5012 14.0625 10.9688 14.0625H17.1562C17.6238 14.0625 18 13.6863 18 13.2188C18 12.7512 17.6238 12.375 17.1562 12.375H10.9688Z" fill="currentColor"/></svg>
+                                </div>
+                                <div class="text">Resources</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link help" href="/support/">
+                                <div class="nav-icon">
+                                    <svg width="19" height="19" viewBox="0 0 30 30" fill="none" class="icon" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 13.75C6.83696 13.75 6.20107 13.4866 5.73223 13.0178C5.26339 12.5489 5 11.913 5 11.25C5 10.587 5.26339 9.95107 5.73223 9.48223C6.20107 9.01339 6.83696 8.75 7.5 8.75C8.16304 8.75 8.79893 9.01339 9.26777 9.48223C9.73661 9.95107 10 10.587 10 11.25C10 11.913 9.73661 12.5489 9.26777 13.0178C8.79893 13.4866 8.16304 13.75 7.5 13.75ZM15 8.75C15.663 8.75 16.2989 9.01339 16.7678 9.48223C17.2366 9.95107 17.5 10.587 17.5 11.25C17.5 11.913 17.2366 12.5489 16.7678 13.0178C16.2989 13.4866 15.663 13.75 15 13.75C14.337 13.75 13.7011 13.4866 13.2322 13.0178C12.7634 12.5489 12.5 11.913 12.5 11.25C12.5 10.587 12.7634 9.95107 13.2322 9.48223C13.7011 9.01339 14.337 8.75 15 8.75ZM22.5 8.75C23.163 8.75 23.7989 9.01339 24.2678 9.48223C24.7366 9.95107 25 10.587 25 11.25C25 11.913 24.7366 12.5489 24.2678 13.0178C23.7989 13.4866 23.163 13.75 22.5 13.75C21.837 13.75 21.2011 13.4866 20.7322 13.0178C20.2634 12.5489 20 11.913 20 11.25C20 10.587 20.2634 9.95107 20.7322 9.48223C21.2011 9.01339 21.837 8.75 22.5 8.75ZM22.5 16.25C23.163 16.25 23.7989 16.5134 24.2678 16.9822C24.7366 17.4511 25 18.087 25 18.75C25 19.413 24.7366 20.0489 24.2678 20.5178C23.7989 20.9866 23.163 21.25 22.5 21.25C21.837 21.25 21.2011 20.9866 20.7322 20.5178C20.2634 20.0489 20 19.413 20 18.75C20 18.087 20.2634 17.4511 20.7322 16.9822C21.2011 16.5134 21.837 16.25 22.5 16.25ZM15 21.25C14.337 21.25 13.7011 20.9866 13.2322 20.5178C12.7634 20.0489 12.5 19.413 12.5 18.75C12.5 18.087 12.7634 17.4511 13.2322 16.9822C13.7011 16.5134 14.337 16.25 15 16.25C15.663 16.25 16.2989 16.5134 16.7678 16.9822C17.2366 17.4511 17.5 18.087 17.5 18.75C17.5 19.413 17.2366 20.0489 16.7678 20.5178C16.2989 20.9866 15.663 21.25 15 21.25ZM7.5 16.25C8.16304 16.25 8.79893 16.5134 9.26777 16.9822C9.73661 17.4511 10 18.087 10 18.75C10 19.413 9.73661 20.0489 9.26777 20.5178C8.79893 20.9866 8.16304 21.25 7.5 21.25C6.83696 21.25 6.20107 20.9866 5.73223 20.5178C5.26339 20.0489 5 19.413 5 18.75C5 18.087 5.26339 17.4511 5.73223 16.9822C6.20107 16.5134 6.83696 16.25 7.5 16.25Z" fill="currentColor"/></svg>
+                                </div>
+                                <div class="text">Help Hub</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Worker rewrites .account-nav inner HTML for logged-in users. -->
+                <div class="account-nav user d-none d-xs-none d-sm-none d-md-none d-lg-block">
+                    <div class="register-button">
+                        <a href="/account/register" class="btn btn-primary">Try it Free</a>
+                    </div>
+                    <div class="login-button">
+                        <a href="/account/login" class="btn btn-primary">Log In</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+            </div>
+
+    <main id="content" class="site-content">
+<div class="container py-5 post-single">
+            <article class="post post-10729 type-post status-publish format-standard hentry category-ai-llms category-data category-research">
+            <header class="post__head">
+                <div class="row">
+                    <div class="col-12 col-lg-10 offset-lg-1">
+                        <div class="post__head-main">
+                            <div class="post__head-top">
+                                <ul class="pills" aria-label="Categories"><li class="pill pill--ai-llms" style="background:hsl(60, 60%, 88%)"><a href="https://sparktoro.com/blog/category/ai-llms/">AI/LLMs</a></li><li class="pill pill--data" style="background:hsl(87, 60%, 88%)"><a href="https://sparktoro.com/blog/category/data/">Data</a></li><li class="pill pill--research" style="background:#c3e2f7"><a href="https://sparktoro.com/blog/category/research/">Research</a></li></ul>                                <a class="return-to-blog" href="/blog/">
+                                    <span aria-hidden="true" class="return-to-blog__arrow">&larr;</span> Return to blog
+                                </a>
+                            </div>
+                            <h1 class="post__title">NEW Research: AIs are highly inconsistent when recommending brands or products; marketers should take care when tracking AI visibility</h1>
+                                <div class="byline">
+                <span class="byline__meta">
+                        <span class="byline__sub">
+                <time datetime="2026-01-27T22:49:00-08:00">27 Jan 2026</time>
+                <span class="byline__dot" aria-hidden="true">&bull;</span>
+                <span class="byline__readtime">18 min read</span>
+            </span>
+        </span>
+    </div>
+                            </div>
+                    </div>
+                </div>
+            </header>
+
+                        <div class="row post__body g-4 g-lg-5">
+                <div class="col-lg-7 order-1 order-lg-2 post__content">
+                    
+<p class="wp-block-paragraph"><em><strong>Editor&#8217;s Note: </strong><a href="https://sparktoro.com/blog/office-hours-can-you-actually-track-ai-visibility/" target="_blank" rel="noreferrer noopener">Watch our free webinar discussing the findings here</a> (no ads).</em></p>
+
+
+
+<p class="wp-block-paragraph"><strong>The Problem: </strong>For the last few years, companies have been investing inordinate sums into AI tracking and AI visibility for their brands and products. $100M+/yr is already <a href="https://searchengineland.com/measure-brand-visibility-ai-search-464524">estimated</a> to be spent on this new version of search analytics and yet, I could find absolutely no research showing whether AI tools are consistent enough, when prompted for lists of brand/product recommendations, to produce valid visibility metrics. There are loads of studies about AI accuracy (in fact, we used <a href="https://arxiv.org/html/2505.23799v1#:~:text=Large%20language%20models%20(LLMs)%20are,input%20be%20more%20broadly%20used">Carnegie Mellon&#8217;s Estimating LLM Consistency: A User Baseline vs Surrogate Metrics</a> as a model for this work), but when it came to answering the question of whether ChatGPT, Claude, or Google AI produce consistent enough lists of results to be usefully tracked&#8230; <a href="https://www.google.com/search?q=Studies+showing+the+consistency+of+AI+tool+responses+when+asked+for+lists+of+brands+and+products">Nothing</a>.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img fetchpriority="high" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide2-1024x576.png" alt="If you ask ChatGPT for a list of brand recommendations 100 times, how many different answers will you get?" class="wp-image-10730" style="width:600px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide2-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide2-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide2-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide2.png 1280w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">What the heck?! How could any serious executive willingly spend $thousands or $millions at an AI tracking provider without answers to this basic question (and all the dozens of important follow-ups that fall out from it).</p>
+
+
+
+<p class="wp-block-paragraph"><strong>The Solution:</strong> Rather than remain infuriated every time I saw another brand blow their ever-shrinking marketing budget on &#8220;tracking rankings in AI,&#8221; I decided to do the research myself (with some help). <a href="https://www.linkedin.com/in/patrickodo/">Patrick O&#8217;Donnell</a> is a longtime friend (we play <a href="https://sparktoro.com/blog/pushing-back-against-shame-and-failure-plus-a-story-about-dd/">a lot of D&amp;D together</a>), and last year, joined <a href="https://gumshoe.ai">Gumshoe.ai</a>, a Seattle-based startup in the AI tracking sector. Conflict of interest? Well, maybe, but given my starting point as a devout skeptic, already convinced that AI tracking was a boondoggle, Patrick&#8217;s calm demeanor, access to millions of AI response data points, and willingness to leverage his math major background and programming skills made for the perfect research partner. And I promise (as you&#8217;ll see) that I didn&#8217;t pull any punches in interrogating the process.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Our Experiment&#8217;s Hypothesis:</strong> AI tools produce such randomized lists of recommendations, and user prompts are so highly varied that attempting to track rankings or visibility of a brand/product for a given topic space or user intent is pointless (and brands with too much money should just pay ChatGPT, et al. for the <a href="https://searchengineland.com/chatgpt-ads-come-with-premium-prices-and-limited-data-467970">impressions data</a> in their upcoming ads products).</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Step One: </strong>Ask a bunch of folks to run the same AI prompts over and over, recording their results.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide3-1024x576.png" alt="" class="wp-image-10733" style="width:700px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide3-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide3-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide3-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide3.png 1280w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">We chose the three most popular AI tools in the US: ChatGPT, Claude, and Google search&#8217;s AI Overview (and AI Mode, if/when AI Overviews didn&#8217;t show). 600 volunteers ran 12 different prompts through each of the 3 tools a combined 2,961 times. They copied and pasted the AI tool responses into survey forms, which Patrick (and my new Chief of Staff, <a href="https://sparktoro.com/blog/welcoming-kristy-morrison-as-chief-of-staff/">Kristy Morrison</a>) normalized into ordered product/brand results.</p>
+
+
+
+<p class="wp-block-paragraph">Just how diverse were those lists of brands?</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide4-1024x576.png" alt="" class="wp-image-10734" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide4-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide4-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide4-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide4.png 1280w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">The prompt from the screenshot above (<em>What are the top chef&#8217;s knives, brand and model, for an amateur home chef with a budget &lt;$300?</em>) is one of the twelve we chose in the B2C product category. We attempted to cover multiple sectors and a variety of differently-sized spaces, meaning those where a larger or smaller group of brands/products were likely to be recommended.</p>
+
+
+
+<p class="wp-block-paragraph">Below, I&#8217;ve visualized the massive variety of brand/product listing combinations all 12 different prompts, run 60-100X each, produced:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide6-1024x576.png" alt="" class="wp-image-10736" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide6-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide6-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide6-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide6.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">What you&#8217;re seeing with the green (ChatGPT), orange (Claude), and blue (Google AI) bars is the number of unique brands, products, and entities recommended by the AI response to the prompts. The range appears to be all over the place, but is in fact closely tied to how many entities frequently appear in documents in the AI corpora around the topic (e.g. there are less than a dozen Volvo dealerships in Los Angeles, but thousands of recently-published Science Fiction novels). Those pink scatterplot-style dots, meanwhile (graphed on the secondary axis) show the average number of responses the AI tools gave (another factor complexifying the ranking/visibility problem).</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide7-1024x576.png" alt="" class="wp-image-10740" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide7-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide7-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide7-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide7.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">If you ask an AI tool for brand/product recommendations a hundred times nearly every response will be unique in three ways:</p>
+
+
+
+<ol class="wp-block-list">
+<li>the list presented</li>
+
+
+
+<li>the order of the recommendations</li>
+
+
+
+<li>the number of items on that list (sometimes the AI gave as few as 2-3 recommendations, and equally often 10 or more)</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">Just how inconsistent are these AI tools when presenting lists? This graph tells a compelling story:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide8-1024x576.png" alt="" class="wp-image-10741" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide8-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide8-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide8-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide8.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">To get mathematical about it, <strong>there&#8217;s a &lt;1 in 100 chance that ChatGPT or Google&#8217;s AI, if asked 100X, will give you the same list of brands in any two responses</strong>. Claude is just slightly more likely to give you the same list twice in a hundred runs, but even less likely to do so in the same order.</p>
+
+
+
+<p class="wp-block-paragraph">In fact, when it comes to ordering, AI tool responses are so random that it&#8217;s more like 1 in 1,000 runs before you&#8217;d see two lists in the same order. And we didn&#8217;t even try to collect data on how the AIs described each brand or how positive/negative sentiment was around the recommendation.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide9-1024x576.png" alt="" class="wp-image-10743" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide9-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide9-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide9-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide9.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">The bottom line is: AIs do not give consistent lists of brand or product recommendations. If you don&#8217;t like an answer, or your brand doesn&#8217;t show up where you want it to, just ask a few more times.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/gotta-be-careful-trusting-ai-metrics-1024x576.png" alt="" class="wp-image-10745" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/gotta-be-careful-trusting-ai-metrics-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/gotta-be-careful-trusting-ai-metrics-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/gotta-be-careful-trusting-ai-metrics-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/gotta-be-careful-trusting-ai-metrics.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">As I <a href="https://www.linkedin.com/feed/update/urn:li:activity:7420132285850648576/?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7420132285850648576%2C7420225278192513025%29&amp;dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287420225278192513025%2Curn%3Ali%3Aactivity%3A7420132285850648576%29">pithily pointed out</a> on Gaetano DiNardi&#8217;s LinkedIn post last week, AI visibility &#8220;experts&#8221; could easily weaponize this knowledge, just as sketchy SEO salespeople did in decades past. Buyer beware.</p>
+
+
+
+<p class="wp-block-paragraph">To put an even finer point on it, let&#8217;s imagine an awful scenario in which it&#8217;s absolutely essential to get the best information possible: a cancer in the family. You race to Google&#8217;s AI Mode and ask for the best cancer care hospital on the US West Coast, willing to travel and pay whatever it takes to get the best odds for your loved one.</p>
+
+
+
+<p class="wp-block-paragraph">But when Google gives back a response (in the AI Overview or AI Mode), the list, as thoughtful and well-sourced as it may seem, is so randomized that even if you ran the prompt hundreds of times, you&#8217;d likely never see the same list, in the same order, twice.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide12-1024x576.png" alt="" class="wp-image-10748" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide12-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide12-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide12-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide12.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">I truly believe that AI tools should include a disclaimer whenever they give a list of recommendations noting that each run produces randomized selection and ordering from a statistical lottery of candidates. These are not endorsements. They&#8217;re not ordered or chosen by any set of criteria other than the spicy autocomplete of AI modeling: tokens that follow other tokens frequently in the corpus (and/or in the extracted results when RAG is used).</p>
+
+
+
+<p class="wp-block-paragraph">When it comes to trusting AI answers, researchers have shown compelling numbers for factual statements in topics like news, politics, science, history, etc. in the high 90%s. But I could find no such similar analysis around the recommendations AI gives when asked for the best brands or products in a sector. Yet, I&#8217;m certain millions of people are extending the same trust they gave AIs on facts to the realm of product recommendations, oblivious to the AI&#8217;s process or its inconsistency.</p>
+
+
+
+<h2 class="wp-block-heading">Is there any way to order this randomized chaos?</h2>
+
+
+
+<p class="wp-block-paragraph">Random lists. Random orders. Random numbers of results. And we haven&#8217;t even touched on prompt variability yet, but&#8230; the short answer to the question of whether any metric makes sense is (in a shocking twist) yes. In fact, my hypothesis that AI brand answer lists are so random as for tracking to be entirely useless was (probably) wrong. Here&#8217;s how I came around:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide13-1024x576.png" alt="" class="wp-image-10753" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide13-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide13-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide13-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide13.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Those numbers you see in the green, orange, and blue bars show how many times the 1st, 2nd, and 3rd-most mentioned recommendations appeared in the responses for each prompt and model set. For example, when Google&#8217;s AI was asked to recommend digital marketing consultants with expertise in e-commerce, the Smartsites agency appeared in 85 out of the 95 responses.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide14-1024x576.png" alt="" class="wp-image-10752" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide14-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide14-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide14-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide14.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">That&#8217;s meaningful.</p>
+
+
+
+<p class="wp-block-paragraph">Even if rankings are random to the point of near-uselessness, appearances across dozens or hundreds of runs of the same prompt indicates a set of brands that the AI&#8217;s system generally associates more (or less) as a good answer for the prompt intent. Measuring that percent visibility is (probably) a reasonable way to know how prominent or invisible your entity is within the AI&#8217;s consideration set.</p>
+
+
+
+<p class="wp-block-paragraph">Another example &#8212; men&#8217;s fashion influencer Adam Gallagher only came up 36X in the 73 responses Google&#8217;s AI gave when asked for recommendations in this space.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide15-1024x576.png" alt="" class="wp-image-10754" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide15-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide15-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide15-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide15.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">By running prompts over and over, you could reasonably get a sense of how diverse or homogeneous the AI&#8217;s consideration set is, and which recommendations are more/less likely to generally appear.</p>
+
+
+
+<p class="wp-block-paragraph">Further data suggests that how often a brand shows up in a topic-space may have much less to do with their relative prominence in that space, or even the model itself, and more to do with how many potential recommendations the AI is choosing from. There are only a few Cloud Computing providers for SaaS startups&#8217; that AI tools considered, and thus the <a href="https://medium.com/@lewis.fantom9291/beginners-guide-to-pairwise-correlation-pearson-correlation-coefficient-8a7a832c2bfd">pairwise correlation</a> (a measure of response similarity we took directly from the Carnegie Mellon researchers&#8217; process) is relatively high, while the average rank difference is pretty low. That held true across ChatGPT, Claude, and Google AI.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide16-1024x576.png" alt="" class="wp-image-10755" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide16-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide16-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide16-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide16.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Now look at the same bars and dots for recently-published SciFi novel recommendations. You&#8217;ll see low pairwise correlation and relatively high average rank difference (especially for Google AI). That sector&#8217;s much more of a wildcard than SaaS cloud computing providers because there are way more options for the AI tools to choose from.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide17-1024x576.png" alt="" class="wp-image-10758" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide17-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide17-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide17-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide17.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Let&#8217;s briefly return to that example of West Coast cancer care hospitals. In ChatGPT&#8217;s results, City of Hope hospital in Los Angeles showed up in 69/71 answers: a 97% visibility rate.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide18-1024x576.png" alt="" class="wp-image-10761" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide18-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide18-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide18-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide18.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">And yet, in the &#8220;rankings&#8221; of which hospitals ChatGPT showed, it was only the top mention in 25 responses. Is it the actual &#8220;best&#8221; cancer care hospital on the West Coast? Would any reasonable person know to ask ChatGPT the same question 100X to get this answer? What does the consistently high visibility and inconsistently placed ranking in responses mean?</p>
+
+
+
+<p class="wp-block-paragraph">Honestly, other than telling us more about how ChatGPT&#8217;s model works, and more specifically the prominence City of Hope has in their corpus, I&#8217;m not sure it means anything. I&#8217;m less likely to trust ChatGPT&#8217;s, Google AI&#8217;s, or Claude&#8217;s &#8220;list of answers&#8221; than I was before this research, and much less likely to intuit any meaning from the ranking position in an answer.</p>
+
+
+
+<p class="wp-block-paragraph">My takeaway on trustworthiness is that if you really want to know an AI&#8217;s set of recommendations, you need to ask over and over again; usually at least 60-100X, then average these out, then maybe look through traditional search results for anything new, then compare against other data sources for brands/products that no longer exist (in the course of this project, the AI tools recommended a good number of inactive social influencers, no-longer-in-existence TikTok accounts, and defunct Seattle luxury real estate offices).</p>
+
+
+
+<p class="wp-block-paragraph">But, at least when it comes to measuring visibility, there seems to be some statistical validity to the practice.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide21-1024x576.png" alt="" class="wp-image-10762" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide21-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide21-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide21-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide21.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p class="wp-block-paragraph">I hadn&#8217;t seen Gumshoe&#8217;s product in action before completing 95% of this research work, so when Patrick showed me their interface, this distribution of visibility numbers was a pleasantly aligned-with-the-findings surprise:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide23-1024x576.png" alt="" class="wp-image-10763" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide23-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide23-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide23-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide23.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Their system created a set of synthetic prompts (i.e. ones an AI came up with) and ran these against all the major AI models, then produced this heatmap showing where we&#8217;re more and less visible vs. others in the AI tools&#8217; consideration sets. Patrick&#8217;s even <a href="https://app.gumshoe.ai/r/sparktorocom/audience-research-software/15948">made this project in Gumshoe public for everyone</a> so you can go play with the reports yourself.</p>
+
+
+
+<h2 class="wp-block-heading">WAIT! Are synthetic prompts a reasonable proxy for what real people type into AI tools? And how diverse are the prompts people use?</h2>
+
+
+
+<p class="wp-block-paragraph">And, also, what does that real-human-created prompt diversity means for the trackability of brands in AI responses? </p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide24-1024x576.png" alt="" class="wp-image-10765" style="width:700px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide24-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide24-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide24-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide24.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">If you&#8217;re asking these questions, bravo. You&#8217;re way ahead of the thousands of companies throwing millions at the AI tracking tools. Because this, my friends, is a huge problem. Even if visibility % is a reasonable metric, and even if it&#8217;s possible to calculate that with statistical significance a math major would find convincing, there&#8217;s still a giant hole in AI tracking: the prompts.</p>
+
+
+
+<p class="wp-block-paragraph">So, I went back to my survey volunteers and asked, yet again, for their help.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide25-1024x576.png" alt="" class="wp-image-10768" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide25-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide25-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide25-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide25.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide26-1024x576.png" alt="" class="wp-image-10769" style="width:700px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide26-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide26-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide26-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide26.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Across 142 responses, there were barely two prompts that, if you squinted, looked similar to me at all. This taught me that AI prompting is nothing like searching Google. People don&#8217;t reduce their search intent to the fewest, most logical set of 2-5 keywords, they get creative, and weird, and highly specific.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide27-1024x576.png" alt="" class="wp-image-10770" style="width:700px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide27-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide27-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide27-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide27.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">In order to proceed, we needed to put metrics (which I&#8217;ve tried to make more relatable above) against the dramatic diversity of prompts our survey takers crafted. Once again, we leaned on the Carnegie Mellon methodology and calculated semantic similarity on each pair of prompts, which I&#8217;ve visualized below:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide28-1024x576.png" alt="" class="wp-image-10771" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide28-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide28-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide28-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide28.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Overall, semantic similarity of these prompts was 0.081. Or, in the language of recipes, it&#8217;s like the average pair of prompts were Kung Pao Chicken and Peanut Butter &#8212; key ingredients had overlap, but other than being foods with peanuts in them, they&#8217;re not especially close.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide29-1024x576.png" alt="" class="wp-image-10772" style="width:700px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide29-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide29-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide29-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide29.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">OK, so AI tracking is busted, right? It&#8217;s a boondoggle after all. Rand&#8217;s original hypothesis was right. No need to track anything, since it&#8217;s all fake guesswork, eh?</p>
+
+
+
+<p class="wp-block-paragraph">Well, not so fast.</p>
+
+
+
+<p class="wp-block-paragraph">Before we completely rule out the reasonableness of AI visibility as a metric, we need to see if those highly varied, human-created AI prompts produce lists of brands in the AI tool responses that are way off of what we&#8217;d see in a synthetic set or in the initial sets of arbitrary prompts everyone used. This would be the final test: if all those Kung Pao Chicken and Peanut Butter prompts (which are actually about which headphones to buy for a family member) produced repeatedly similar results, AI visibility tracking might not be entirely snake oil. </p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide30-1024x576.png" alt="" class="wp-image-10776" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide30-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide30-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide30-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide30.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Running 142 human-crafted prompts about choosing the best headphones for a traveling family member multiple times resulted in nearly a thousand responses: 994 to be precise. And across those 994 AI responses, headphones like Bose, Sony, Sennheiser, and Apple showed up 55-77% of the time; remarkably similar to what we saw with top 3 brands in the tighter spaces from our survey-takers&#8217; results in topics like L.A. Volvo dealerships, cloud computing providers for SaaS startups, and cancer care hospitals on the West Coast.</p>
+
+
+
+<p class="wp-block-paragraph">Just to be sure this wasn&#8217;t a fluke of a tiny brand space, I asked AIs for recommendations on other types of headphones: ones for gaming, podcasting, noise suppression, and more, and got very different answers. Those wildly different lists told me that despite all the unique ways people wrote their prompts, and the low semantic similarity scores in the text analyses, the AI tools had captured the core, underlying intent across those 142 prompts and returned answers from a relatively consistent set of brands, no larger or stranger than those from the broader study across a dozen other prompts.</p>
+
+
+
+<p class="wp-block-paragraph">We&#8217;re almost done, but there was one last experiment to try &#8212; a B2B prompt in a super-wide space (similar to SciFi novels) &#8212; that could show us whether unique, human-crafted prompts in a broad sector would provide the expected, broader range of answers. So, we asked panelists to input a prompt seeking brand design agencies for their friend&#8217;s coffee shop.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide31-1024x576.png" alt="" class="wp-image-10777" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide31-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide31-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide31-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide31.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p class="wp-block-paragraph">Once again, the results were massively unique &#8212; similar rates of semantic similarity (or lack thereof). And, once again, we see exactly the expected results when Gumshoe sent those prompts to the AI tools:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><a href="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide32.png"><img loading="lazy" decoding="async" width="1024" height="576" src="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide32-1024x576.png" alt="" class="wp-image-10778" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide32-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide32-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide32-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide32.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></a></figure>
+</div>
+
+
+<p class="wp-block-paragraph">When Gumshoe ran their analysis showing the visibility percentages and rankings for the headphones prompts, the top brands often had 90-100% visibility, while the brand design agencies prompt produced high numbers in the 30%s-40%s. Note that they also make far prettier, easier-to-read charts to synthesize this data than I did above (apologies, I ran out of time to do more sophisticated data visualization).</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="889" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/image-15-1024x889.png" alt="" class="wp-image-10813" style="width:650px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/image-15-1024x889.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/image-15-300x261.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/image-15-768x667.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/image-15.png 1072w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">All of this reinforces the notion that visibility percent, across loads of prompts, whether written by humans or generated synthetically, are likely to be decent proxies for how brands actually show up in real AI answers.</p>
+
+
+
+<p class="wp-block-paragraph">I continued to grill Patrick about methodology, but even one of my assumptions (that the AI tool APIs might cache results and show less variation than they do to human tool users on the web) has some early data suggesting it may not be the insurmountable problem I presumed:</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img loading="lazy" decoding="async" width="1024" height="576" src="https://sparktoro.com/blog/wp-content/uploads/2026/01/Slide33-1024x576.png" alt="" class="wp-image-10779" style="width:800px" srcset="https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide33-1024x576.png 1024w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide33-300x169.png 300w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide33-768x432.png 768w, https://images.sparktoro.com/blog/wp-content/uploads/2026/01/Slide33.png 1280w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Now, in fairness, we didn&#8217;t research this question exhaustively or with the fortitude we put against other problems in this research, so it remains an open issue. And it&#8217;s not alone. AI tracking tools (or independent researchers) need to <strong>pick up where we left off</strong>. We need far larger sample sizes, thousands more prompts, bigger user panels, and more sophisticated stats professionals to run analyses like this and answer questions like:</p>
+
+
+
+<ul class="wp-block-list">
+<li>How many times do you need to run a prompt to have statistically sound answers about a brand’s relative visibility?</li>
+
+
+
+<li>Do API calls mimic the variety real users are getting with manually-inputted prompts? How closely? What are the differences?</li>
+
+
+
+<li>What variety of prompts are needed to get statistically meaningful answers about a sector/intent? How many are needed and does that number change based on the sector?</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">But, in spite of these shortcomings and open questions, I&#8217;m proud of our work.</p>
+
+
+
+<p class="wp-block-paragraph">We haven&#8217;t given absolute, definitive proof that AI visibility % is the best, most useful metric, but we&#8217;ve removed a healthy amount of my skepticism around the practice, largely disproven half the hypothesis, and validated the other half by illustrating how foolhardy it is to track &#8220;ranking position&#8221; in AI tools.</p>
+
+
+
+<h2 class="wp-block-heading">Research Conclusions</h2>
+
+
+
+<p class="wp-block-paragraph">More data is needed. More people should look into these questions. And anyone who&#8217;s selling AI tracking should be ashamed of themselves if they don&#8217;t publish transparent, public, reviewable reports on this stuff. If Patrick and I can do it in our spare time while running multiple companies, you know who else can do it? Venture-backed behemoths with supposedly-huge data science teams.</p>
+
+
+
+<p class="wp-block-paragraph">OK, on to the summary of our findings:</p>
+
+
+
+<ul class="wp-block-list">
+<li>AIs <strong>rarely</strong> give the same list of brands or recommendations twice (&lt;1 in 100 times, no matter the question)</li>
+
+
+
+<li>AIs <strong>almost never </strong>give the same list of brands/recs in the same order, even in spaces with limited options like LA Volvo dealers or SaaS Cloud Computing Providers (&lt;1 in 1,000 times, no matter the question)</li>
+
+
+
+<li><strong>These tools are probability engines</strong>: they’re designed to generate unique answers every time. Thinking of them as sources of truth or consistency is provably nonsensical.</li>
+
+
+
+<li>Users <strong>almost never craft similar prompts</strong>, even when they have the same intent. The variation of brands/recs in AI answers around a space in the messy wilds of AI prompting is likely much higher than what our controlled experiments revealed here.</li>
+
+
+
+<li>Measuring your brand’s presence in AI answers with precision is a fool’s errand. You can, with enough prompts run enough times, get a dartboard-pattern-like answer comparing you with others. I&#8217;ve been swayed from my initial position and now believe <strong>visibility % across dozens to hundreds of prompts run multiple times is a reasonable metric</strong>.</li>
+
+
+
+<li>But, any tool that gives a “ranking position in AI” is <strong>full of baloney</strong>.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">If you do nothing else after reading this report, please, please, marketers, analysts, and execs: stop throwing money at AI tracking products that don’t provide stats-backed, publicly-reviewable research. Before you spend a dime tracking AI visibility, make sure your provider answers the questions we&#8217;ve surfaced here and shows their math.</p>
+
+
+
+<p class="wp-block-paragraph">A huge thanks to <a href="https://www.linkedin.com/in/patrickodo/">Patrick O&#8217;Donnell</a> from Gumshoe (for being my partner on this research), Kristy Morrison (for data normalization and research review), and <a href="https://www.linkedin.com/in/lindsayperkin/">Lindsay Perkin</a>, <a href="https://www.linkedin.com/in/cyrusshepard/">Cyrus Shepard</a>, <a href="https://www.linkedin.com/in/darrenshawwhitespark/">Darren Shaw</a>, and <a href="https://www.linkedin.com/in/amandanat/">Amanda Natividad</a> (for reviewing a draft version of this research).</p>
+
+
+
+<h2 class="wp-block-heading">Methodology Details</h2>
+
+
+
+<p class="wp-block-paragraph">Last, but not least, some FAQs on our methodology:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Are you qualified to do this research? Was it peer-reviewed by the scientific community? Why should I trust your results?</strong><br>I always love these questions, because the insinuation is simultaneously: &#8220;I don&#8217;t believe your results and am also unwilling to do any work to validate or disprove them.&#8221; No, I/we aren&#8217;t professional researchers or credentialed data scientists. I&#8217;ve published <a href="https://sparktoro.com/blog/category/research/">dozens of previous research pieces</a> in the field of digital marketing, been cited by the U.S. Congress, Dept. of Justice, and hundreds of notable media publications, but that doesn&#8217;t make me a professional. And I *really* hope more credentialed researchers will be inspired by our design and publication to undertake a more significant, science-journal-publication-quality work on this topic. But if your skepticism is immense or you perceive that our process was overly flawed, please repeat these experiments and publish your work &#8212; I&#8217;ll even link to it from here and retract bad takes/point out flaws in our work.<br></li>
+
+
+
+<li><strong>Did we put constraints on the survey takers&#8217; AI tool methodologies in any way?</strong><br>No. Other than requesting that everyone use the same model and prompt, there was no request to, for example, manually adjust ChatGPT&#8217;s temperature setting, or ensure that everyone was in the same country, or used their desktop vs. mobile device, had history turned on/off &#8212; we wanted to know the normal amount of variety that would be seen from users in the real world, so we asked everyone to simply use their default experience with these tools. Some were longtime users with loads of history and custom setting, others were first time users of the AI product we asked them to query. As a result, we believe we&#8217;re showing a distribution of responses that one could expect if a distribution of &#8220;normal&#8221; people used these AI tools in their myriad of everyday ways.<br></li>
+
+
+
+<li><strong>Can you show us the full prompts and raw data?</strong><br>Yes. In fact, we&#8217;d love if you did. Patrick has painstakingly created an <a href="https://modeltest-dark-fog-8907.fly.dev/">AI consistency experiment results mini-site</a> where you can browse through each prompt, response, and metric to your heart&#8217;s content. Fair warning it&#8217;s not hosted on a giant instance, so may be slow to load.<br></li>
+
+
+
+<li><strong>Did we change the temperature settings in AI tools in an attempt to reduce disparity?</strong><br>No. We asked everyone who ran the reports to keep their usual settings (whether those were personalized or default), and Gumshoe uses non-modified (i.e. vanilla) API calls to the AI services when requesting their data.<br></li>
+
+
+
+<li><strong>Did we control for variance through timeboxing the survey takers&#8217; prompts and responses?</strong><br>Somewhat. Each survey request ran for approximately seven days, then was closed. These requests took place over November and December 2025, so newer/updated models may have more or less difference than what we found over that timeframe.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">A final request: please share this research with people in your organization, agency, or industry group who need to see it. Everyone in and around the world of AI tracking and brand measurement needs to know this stuff.</p>
+                </div>
+
+                <aside class="col-lg-3 offset-lg-1 order-2 order-lg-1 post__rail">
+                    <div class="post__rail-stick">
+                        <div class="author-box">
+    <span class="author-box__avatar"><img alt='Rand Fishkin' src='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/rand-head.jpg' srcset='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/rand-head.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy' decoding='async'/></span>
+    <div class="author-box__name">Rand Fishkin</div>
+                    <div class="author-box__bio"><p>Rand Fishkin is the co-founder and CEO of SparkToro. For a quarter century he&#039;s helped people do better marketing (and held big tech&#039;s feet to the fire) through his blog posts, videos, books, and research.</p>
+<p>Rand also co-founded Alertmouse, Snackbar Studio, Moz, and a hopelessly romantic marriage to bestselling author, Geraldine DeRuiter.</p>
+</div>
+        </div>
+                        <aside class="promo" aria-label="About SparkToro">
+    <div class="promo__eyebrow">Try SparkToro</div>
+    <h3 class="promo__title">Your customers won't tell you where they go online. SparkToro will.</h3>
+    <p class="promo__text">Discover the podcasts, publications, social accounts, and websites your customers actually engage with — in seconds.</p>
+    <a class="promo__cta" href="/account/register">Start for free</a>
+</aside>
+                    </div>
+                </aside>
+            </div>
+        </article>
+    </div>
+
+<section class="recent" aria-label="Recent posts">
+    <h2 class="recent__title"><span class="recent__title-script">Discover</span> Our Most Recent Blogs</h2>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <div class="col">
+                    <article class="rcard post-11585 post type-post status-publish format-standard hentry category-marketing category-seo category-social-media category-zero-click">
+    <div class="rcard__content">
+        <ul class="pills" aria-label="Categories"><li class="pill pill--marketing" style="background:#d9ccf5"><a href="https://sparktoro.com/blog/category/marketing/">Marketing</a></li><li class="pill pill--seo" style="background:#dfe6ef"><a href="https://sparktoro.com/blog/category/seo/">SEO</a></li><li class="pill pill--social-media" style="background:hsl(359, 60%, 88%)"><a href="https://sparktoro.com/blog/category/social-media/">Social Media</a></li></ul>
+        <h3 class="rcard__title">
+            <a href="https://sparktoro.com/blog/algorithms-dont-just-happen-to-us-we-train-them/">Algorithms Don&#8217;t Just Happen to Us — We Train Them.</a>
+        </h3>
+
+        <p class="rcard__excerpt">Everyone&#8217;s really mad about iced coffee right now. &#8220;Don&#8217;t bring it to job interviews!&#8221; one Fortune 500 recruiter&hellip;</p>
+    </div>
+
+        <div class="byline">
+                    <span class="byline__avatar"><img alt='Amanda Natividad' src='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/amanda-head.jpg' srcset='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/amanda-head.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/></span>
+                <span class="byline__meta">
+                            <span class="byline__author">Amanda Natividad</span>
+                        <span class="byline__sub">
+                <time datetime="2026-09-22T22:30:47-07:00">22 Sep 2026</time>
+                <span class="byline__dot" aria-hidden="true">&bull;</span>
+                <span class="byline__readtime">5 min read</span>
+            </span>
+        </span>
+    </div>
+    </article>
+                </div>
+                            <div class="col">
+                    <article class="rcard post-11561 post type-post status-publish format-standard hentry category-audience-research-briefs category-marketing">
+    <div class="rcard__content">
+        <ul class="pills" aria-label="Categories"><li class="pill pill--audience-research-briefs" style="background:hsl(230, 60%, 88%)"><a href="https://sparktoro.com/blog/category/audience-research-briefs/">Audience Research Briefs</a></li><li class="pill pill--marketing" style="background:#d9ccf5"><a href="https://sparktoro.com/blog/category/marketing/">Marketing</a></li></ul>
+        <h3 class="rcard__title">
+            <a href="https://sparktoro.com/blog/how-wed-market-a-400-skincare-device-before-black-friday/">How We&#8217;d Market a $400 Skincare Device Before Black Friday</a>
+        </h3>
+
+        <p class="rcard__excerpt">I&#8217;ve been trying to streamline my skincare routine while still getting solid results. The 10-step Korean skincare routine?&hellip;</p>
+    </div>
+
+        <div class="byline">
+                    <span class="byline__avatar"><img alt='Amanda Natividad' src='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/amanda-head.jpg' srcset='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/amanda-head.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/></span>
+                <span class="byline__meta">
+                            <span class="byline__author">Amanda Natividad</span>
+                        <span class="byline__sub">
+                <time datetime="2026-08-25T21:19:38-07:00">25 Aug 2026</time>
+                <span class="byline__dot" aria-hidden="true">&bull;</span>
+                <span class="byline__readtime">10 min read</span>
+            </span>
+        </span>
+    </div>
+    </article>
+                </div>
+                            <div class="col">
+                    <article class="rcard post-11541 post type-post status-publish format-standard hentry category-marketing category-product category-sparktoro">
+    <div class="rcard__content">
+        <ul class="pills" aria-label="Categories"><li class="pill pill--marketing" style="background:#d9ccf5"><a href="https://sparktoro.com/blog/category/marketing/">Marketing</a></li><li class="pill pill--product" style="background:hsl(328, 60%, 88%)"><a href="https://sparktoro.com/blog/category/product/">Product</a></li><li class="pill pill--sparktoro" style="background:hsl(256, 60%, 88%)"><a href="https://sparktoro.com/blog/category/sparktoro/">SparkToro</a></li></ul>
+        <h3 class="rcard__title">
+            <a href="https://sparktoro.com/blog/the-best-persona-tool-on-the-web-is-now-live/">The Best Persona Tool On the Web Is Now Live</a>
+        </h3>
+
+        <p class="rcard__excerpt">Starting today, SparkToro&#8217;s persona-generation tool is now live and available to all our business and agency-tier subscribers, and&hellip;</p>
+    </div>
+
+        <div class="byline">
+                    <span class="byline__avatar"><img alt='Rand Fishkin' src='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/rand-head.jpg' srcset='https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/rand-head.jpg 2x' class='avatar avatar-48 photo' height='48' width='48' loading='lazy' decoding='async'/></span>
+                <span class="byline__meta">
+                            <span class="byline__author">Rand Fishkin</span>
+                        <span class="byline__sub">
+                <time datetime="2026-08-17T23:36:18-07:00">17 Aug 2026</time>
+                <span class="byline__dot" aria-hidden="true">&bull;</span>
+                <span class="byline__readtime">4 min read</span>
+            </span>
+        </span>
+    </div>
+    </article>
+                </div>
+                    </div>
+    </div>
+</section>
+    </main><!-- #content -->
+
+    <footer class="footer-v2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="logo">
+                        <img src="https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/img/sparktoro-logo-v2.svg" width="260" height="32" alt="SparkToro">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-4 footer-content">
+                    <div class="heading">Get in touch with SparkToro</div>
+                    <p>Got questions, want to collaborate, or have feedback? Drop us a line:</p>
+                    <div class="email">support@sparktoro.com</div>
+                </div>
+
+                <div class="col-md-6 offset-md-2 mt-md-0 mt-5">
+                    <div class="row">
+                        <div class="col-lg-4 col-6">
+                            <ul>
+                                <li class="title">Find</li>
+                                <li><a href="/about">About SparkToro</a></li>
+                                <li><a href="/book">Zero Click Marketing</a></li>
+                                <li><a href="/support/">Support</a></li>
+                                <li><a href="/resources">Resources</a></li>
+                                <li><a href="/careers">Jobs</a></li>
+                                <li><a href="/blog/">Blog</a></li>
+                                <li><a href="https://sparktoro.com/blog/feed/" type="application/rss+xml">RSS</a></li>
+                                <li><a href="/entitymap.html">Entity Map</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-5 col-6">
+                            <ul>
+                                <li class="title">Policies</li>
+                                <li><a href="/policies/privacy">Privacy Policy</a></li>
+                                <li><a href="/policies/terms">Terms of Service</a></li>
+                                <li><a href="/policies/do-not-sell">Do Not Sell My Personal Information</a></li>
+                                <li><a href="/policies/privacy#california-privacy-rights">CA Privacy Rights</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-12">
+                            <ul class="social">
+                                <li class="title">Follow Us</li>
+                                <li><a href="https://www.linkedin.com/company/sparktoro" rel="noopener" target="_blank">LinkedIn</a></li>
+                                <li><a href="https://www.threads.net/@sparktorohq" rel="me noopener" target="_blank">Threads</a></li>
+                                <li><a href="https://instagram.com/sparktorohq" rel="noopener" target="_blank">Instagram</a></li>
+                                <li><a href="https://facebook.com/sparktoro" rel="noopener" target="_blank">Facebook</a></li>
+                                <li><a href="https://twitter.com/sparktoro" rel="noopener" target="_blank">Twitter</a></li>
+                                <li><a href="https://mastodon.social/@SparkToro" rel="me noopener" target="_blank">Mastodon</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <p class="copyright">&copy; 2026 SparkToro. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div><!-- #page -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/blog/*"},{"not":{"href_matches":["/blog/wp-*.php","/blog/wp-admin/*","/blog/wp-content/uploads/*","/blog/wp-content/*","/blog/wp-content/plugins/*","/blog/wp-content/themes/sparktoro-v3/*","/blog/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div id="csbwfs-delaydiv"><div class="csbwfs-social-widget"  id="csbwfs-left" title="Share This With Your Friends"  style="top:300px;left:0;"><div id="csbwfs-social-inner"><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-fb" class="csbwfs-fb"><a href="javascript:" onclick="javascript:window.open('//www.facebook.com/sharer/sharer.php?u=https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/', '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share On Facebook" ><i class="csbwfs_facebook"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-tw" class="csbwfs-tw"><a href="javascript:" onclick="window.open('//twitter.com/share?url=https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/&text=NEW%20Research%3A%20AIs%20are%20highly%20inconsistent%20when%20recommending%20brands%20or%20products%3B%20marketers%20should%20take%20care%20when%20tracking%20AI%20visibility%20-%20SparkToro','_blank','width=800,height=300')" title="Share On Twitter" ><i class="csbwfs_twitter"></i></a></div></div><div class="csbwfs-sbutton csbwfsbtns"><div id="csbwfs-li" class="csbwfs-li"><a href="javascript:" onclick="javascript:window.open('//www.linkedin.com/cws/share?mini=true&url=https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800');return false;" title="Share On Linkedin" ><i class="csbwfs_linkedin"></i></a></div></div></div></div></div><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTT95QJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><script id="sparktoro-main-js" src="https://sparktoro.com/blog/wp-content/themes/sparktoro-v3/dist/js/main.c679618c.js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://sparktoro.com/blog/wp-includes/js/wp-emoji-release.min.js?ver=f411c575f7fbfe87de9f180dc47d0caf"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://sparktoro.com/blog/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+        <script type="text/javascript">
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'gdpr_tracking': true
+          });
+        </script>
+        </body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 2118 objects (16 MB) from Redis using PhpRedis (v6.2.0).
+-->

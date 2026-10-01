@@ -1,0 +1,406 @@
+{
+ "vopros_id": "U06",
+ "vopros": "Кто в США ставит малому бизнесу голосового робота на телефон вместо живого администратора?",
+ "versiya_spiska": "v3-ssha-kto",
+ "otpechatok": "544efbb9ec75",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-09-23",
+ "vne_okna": false,
+ "zapusk_id": "20260923-135128-2693",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-23T13:51:43-07:00",
+   "zapusk_id": "20260923-135128-2693",
+   "cena": 0.0,
+   "ishod": "http 429",
+   "tekst": "{\"error\":{\"message\":\"Request rate limit exceeded, please try again later.\",\"type\":\"request_rate_limit_exceeded\",\"code\":429}}",
+   "sekund": 0.2
+  },
+  {
+   "n": 2,
+   "nachalo": "2026-09-23T13:51:59-07:00",
+   "zapusk_id": "20260923-135128-2693",
+   "cena": 0.00663,
+   "ishod": "ok",
+   "sekund": 11.1,
+   "meta": {
+    "date": "Wed, 23 Sep 2026 20:52:10 GMT",
+    "x-request-id": "da763e72-2c54-4104-8c02-6372efcf46a7"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "В США это обычно называют **AI receptionist**, **virtual receptionist** или **AI phone answering service**. Такие компании подключают голосового агента к существующему номеру или выдают новый номер. Он отвечает 24/7, рассказывает об услугах, квалифицирует лидов, записывает клиентов в календарь, принимает сообщения и переводит сложные звонки человеку.\n\n### Основные варианты\n\n| Сервис | Для кого подходит | Что умеет | Ориентировочная цена |\n|---|---|---|---:|\n| **Smith.ai** | Малый бизнес, которому иногда нужен живой оператор | AI отвечает на звонки, квалифицирует лидов, записывает, при необходимости подключает человека | от примерно **$95–150/мес.** |\n| **Rosie AI** | Салоны, подрядчики, клиники, локальные услуги | Ответы на вопросы, запись, сообщения, английский/испанский | от **$49/мес.** |\n| **Goodcall** | Компаниям с несколькими сценариями звонков | Несколько линий/агентов, маршрутизация, Zapier, CRM-интеграции | от **$79/мес.** |\n| **Dialzara** | Небольшим компаниям с умеренным количеством звонков | FAQ, прием сообщений, переводы, запись на прием | от **$29/мес.** |\n| **Nextiva XBert AI Receptionist** | Тем, кто уже использует телефонную систему Nextiva | Телефон, SMS, чат, фиксация обращений | около **$99/мес.** за пакет взаимодействий |\n| **RingCentral AI Receptionist** | Компаниям, которым нужна полноценная облачная АТС | Ответы, маршрутизация, транскрипции, интеграции | обычно доплата к тарифу RingCentral |\n| **Allo** | Маленьким командам, которым нужна АТС плюс AI | Телефон, SMS, CRM, записи и сводки звонков | примерно **$30–45/пользователь/мес.** плюс/включая AI |\n| **Quo / Sona** | Микробизнесу и стартапам | Прием пропущенных звонков, сообщения, базовые ответы | от примерно **$19/пользователь/мес.** |\n| **Phone.com AI-Connect** | Тем, кому важны недорогая телефония и соответствие требованиям | AI-ответчик, телефонная система, дополнительные функции | около **$30 за 100 минут** сверх тарифа |\n| **Slang AI** | Ресторанам | Бронирование столиков, ответы на вопросы, обработка звонков | около **$399 за локацию/мес.** |\n\n### Что выбрать по типу бизнеса\n\n- **Салон, барбершоп, массаж, клиника:** Rosie, Smith.ai, Goodcall.  \n- **Сантехник, электрик, HVAC, roofing, ремонт:** Smith.ai, Rosie, Dialzara. Важно, чтобы агент мог принимать срочные заявки и отправлять SMS.  \n- **Ресторан:** Slang AI или специализированное решение с интеграцией ресторанных бронирований.  \n- **Юристы и медицинские компании:** Smith.ai, Phone.com или кастомное решение с проверкой HIPAA/конфиденциальности.  \n- **Просто заменить администратора на телефоне:** Rosie, Dialzara, Goodcall или Nextiva.  \n- **Нужен AI, но с живым человеком для сложных звонков:** Smith.ai — один из наиболее очевидных вариантов.\n\n### Как это обычно подключается\n\n1. Вы загружаете сайт, список услуг, цены, часы работы и FAQ.  \n2. Настраиваете сценарии: что говорить, какие вопросы задавать, когда переводить звонок.  \n3. Подключаете существующий номер через переадресацию либо переносите номер.  \n4. Агент начинает принимать звонки, а записи и сообщения отправляет в SMS, email, CRM или календарь.\n\n### Сколько это стоит\n\nДля малого бизнеса типичный диапазон:\n\n- **$25–50 в месяц** — простой прием звонков и сообщений;\n- **$50–150 в месяц** — запись клиентов, квалификация лидов, интеграции;\n- **$150–400+ в месяц** — большой объем звонков, живой резервный оператор или сложные сценарии;\n- кастомные решения могут стоить заметно дороже.\n\nПри выборе обязательно проверьте: тарификацию за минуту или за звонок, стоимость переадресации, поддержку русского/испанского, интеграцию с вашим календарем, CRM, Google Business Profile и возможность быстро перевести клиента на живого сотрудника.",
+  "poiskovye_zaprosy": [
+   "AI receptionist small business phone United States pricing",
+   "voice AI receptionist small business US providers",
+   "AI phone answering service small business US"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://www.cloudtalk.io/blog/best-phone-answering-service-for-small-business",
+    "domen": "cloudtalk.io",
+    "title": "Top 10 Phone Answering..."
+   },
+   {
+    "url": "https://www.withallo.com/blog/best-ai-answering-services-guide",
+    "domen": "withallo.com",
+    "title": "6 Best AI Answering Services You Should Try in 2026 - Allo"
+   },
+   {
+    "url": "https://www.cloudtalk.io/blog/top-ai-virtual-receptionist-voice",
+    "domen": "cloudtalk.io",
+    "title": "14 Best AI Receptionist Software for SMBs (2026)"
+   },
+   {
+    "url": "https://www.vellum.ai/blog/best-ai-receptionist-for-small-business",
+    "domen": "vellum.ai",
+    "title": "10 Best AI Receptionists for Small Business in 2026 - Vellum"
+   },
+   {
+    "url": "https://www.beside.com/pricing",
+    "domen": "beside.com",
+    "title": "AI Receptionist Pricing for Small Business - Beside"
+   },
+   {
+    "url": "https://www.nextiva.com/blog/answering-service-for-small-business.html",
+    "domen": "nextiva.com",
+    "title": "7 Best Answering Services for Small Businesses in 2026"
+   },
+   {
+    "url": "https://trillet.ai/blogs/top-10-ai-receptionists-for-small-business-2026",
+    "domen": "trillet.ai",
+    "title": "AI Receptionist Pricing Comparison 2026: 10 Platforms ..."
+   },
+   {
+    "url": "https://aloware.com/blog/7-best-ai-call-answering-for-smbs",
+    "domen": "aloware.com",
+    "title": "7 Best AI Call Answering Services for SMBs in 2026 (Tested) - Aloware"
+   },
+   {
+    "url": "https://www.getnextphone.com/blog/best-ai-receptionist",
+    "domen": "getnextphone.com",
+    "title": "Best AI Receptionist for Small Business: 5 Tested (2026)"
+   },
+   {
+    "url": "https://www.quo.com/blog/best-ai-phone-answering-services",
+    "domen": "quo.com",
+    "title": "9 best AI phone answering services for small businesses"
+   },
+   {
+    "url": "https://heyrosie.com",
+    "domen": "heyrosie.com",
+    "title": "Rosie AI Call Answering Service | 24/7 Phone Support From $49"
+   },
+   {
+    "url": "https://www.withallo.com/blog/affordable-ai-receptionists",
+    "domen": "withallo.com",
+    "title": "The most affordable AI receptionist tools in 2026 - Allo"
+   },
+   {
+    "url": "https://www.crazyegg.com/blog/best-automated-answering-services-for-small-businesses",
+    "domen": "crazyegg.com",
+    "title": "Best Automated Answering Services in 2026 - Crazy Egg"
+   },
+   {
+    "url": "https://www.goodcall.com/answering-services/small-business-owners",
+    "domen": "goodcall.com",
+    "title": "Best Answering Service for Small Business: Top 7 Picks, Pricing ..."
+   },
+   {
+    "url": "https://www.nextiva.com/blog/ai-phone-answering-service.html",
+    "domen": "nextiva.com",
+    "title": "AI Phone Answering Services for Business: What to Know - Nextiva"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.00122,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00277,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00663
+   },
+   "input_tokens": 5447,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4881,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 1108,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 6555
+  },
+  "cena": 0.00663,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790196719,
+  "created_at": 1790196719,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_da763e72-2c54-4104-8c02-6372efcf46a7",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "AI receptionist small business phone United States pricing",
+     "voice AI receptionist small business US providers",
+     "AI phone answering service small business US"
+    ],
+    "results": [
+     {
+      "date": "2026-09-22",
+      "id": 1,
+      "last_updated": "2026-09-22",
+      "snippet": "From $25/user/month.\n...\nFrom $99/mo AI, $329/mo live.\n...\n**Moneypenny** – Best bilingual live answering for small business with no contract: US-based agents, English & Spanish.\nFrom $165/mo for 50 minutes.\n...\nA small business answering service costs $49–$95/month at entry level (MAP Communications and PATLive pay-as-you-go, Smith.ai's free AI tier at 25 calls/month), $99–$150/month in the mid tier where most small teams land, and $300–$650/month for full live reception.\n...\nThe cost of a phone answering service for small business in 2026 ranges from $49/month for basic pay-as-you-go coverage to $2,000+/month for full-service live reception with enterprise features.\n...\n|**Service Tier**|**Monthly Cost**|**Included Coverage**|**Best For Small Business**|\n|--|--|--|--|\n|**AI entry / pay-as-you-go**|$49–$95/mo|Basic 24/7 answering, FAQs, routing, message taking|Startups, solo operators, seasonal small businesses|\n|**AI mid-market**|$95–$150/mo|200–500 calls, CRM sync, appointment booking|Growing small business teams of 5–20 people|\n|**Hybrid AI + live**|$270–$400/mo|AI handles volume, live agents take escalations|Professional services, healthcare, legal SMBs|",
+      "source": "web",
+      "title": "Top 10 Phone Answering...",
+      "url": "https://www.cloudtalk.io/blog/best-phone-answering-service-for-small-business/"
+     },
+     {
+      "date": "2026-09-08",
+      "id": 2,
+      "last_updated": "2026-09-21",
+      "snippet": "- **Small businesses that want it cheap and simple:** **Allo** (from $32/month for the AI receptionist add-on, on top of a real phone system) and **Rosie** (from $49/month, unlimited minutes).\n...\n|Solution|Best for|Key Features|Starting price|\n...\n|Allo|Small businesses that want an AI receptionist on top of a real phone system|- Full phone system included - Call recordings and AI summaries - Zapier + native CRM integrations - English, French and Spanish|- **Monthly:** $45/user/mo (Business) + $45/mo AI receptionist add-on - **Yearly:** $120/user/year (Solo) + $32/mo AI receptionist add-on - 7-day free trial|\n...\nAllo offers two plans, and the AI receptionist is billed as a separate add-on:\n- **Solo:** $120/user/year, billed yearly only.\nIncludes one business number, unlimited national calls, SMS, and CRM autofill.\n- **Business:** $45/user/month, or $32/user/month billed yearly.\nEverything in Solo plus all integrations, power dialer, and analytics.\n- **AI receptionist add-on:** $45/month, or $32/month billed yearly.\nA flat rate for the whole account, with unlimited AI answering.\n...\n- **AI Receptionist:** from $99/month for 200 minutes (first 50 minutes free in month one).",
+      "source": "web",
+      "title": "6 Best AI Answering Services You Should Try in 2026 - Allo",
+      "url": "https://www.withallo.com/blog/best-ai-answering-services-guide"
+     },
+     {
+      "date": "2026-09-15",
+      "id": 3,
+      "last_updated": "2026-09-22",
+      "snippet": "|Provider|Key Features|Best For|Starting Price|Free Trial|G2 Rating|\n...\n|CloudTalk|AI voice agent, CRM-aware routing, live transfer|SMB sales & support teams needing smart routing and live transfer|$25/user/mo (platform); AI Receptionist from $99/mo for 200 min|Yes (14 days)|4.4/5/5|\n|Allo|AI receptionist (included), native CRM sync, appointment booking|Teams whose revenue depends on answered calls: a natural-sounding AI receptionist that books appointments and writes every call straight into the CRM, priced per seat, not per minute|$18/user/mo (Solo, billed yearly); AI Receptionist included in all plans|Yes (7 days)|4.7/5 (209+ reviews)|\n...\n|VirtualReception.ai|Appointment scheduling, FAQ responses, live transfer fallback|Small businesses needing simple 24/7 answering|$41/mo|Yes|NA|\n...\nAn AI virtual receptionist voice service typically costs between **$25 and $300** per month for a standard small business setup, while custom corporate setups can range from **$400 to $1,500+ per month.**",
+      "source": "web",
+      "title": "14 Best AI Receptionist Software for SMBs (2026)",
+      "url": "https://www.cloudtalk.io/blog/top-ai-virtual-receptionist-voice/"
+     },
+     {
+      "date": "2026-07-08",
+      "id": 4,
+      "last_updated": "2026-09-22",
+      "snippet": "AI receptionist pricing ranges from free to several hundred dollars per month.\nBudget options like Rosie start at $49/month, mid-tier tools like Goodcall start at $79/month, and hybrid AI-plus-human services like Smith.ai start at $95/month.",
+      "source": "web",
+      "title": "10 Best AI Receptionists for Small Business in 2026 - Vellum",
+      "url": "https://www.vellum.ai/blog/best-ai-receptionist-for-small-business"
+     },
+     {
+      "id": 5,
+      "last_updated": "2026-09-23",
+      "snippet": "$29/mo\n...\n$99/mo\n...\nTwo plans, both billed monthly.\nBaseline is $29.99/mo and includes 30 AI Receptionist answered calls each month.\nUnlimited is $99.99/mo with no cap on AI Receptionist answered calls.\nBoth include one phone line per user and every feature; extra lines are $4.99/mo each.",
+      "source": "web",
+      "title": "AI Receptionist Pricing for Small Business - Beside",
+      "url": "https://www.beside.com/pricing"
+     },
+     {
+      "date": "2026-09-09",
+      "id": 6,
+      "last_updated": "2026-09-17",
+      "snippet": "|Answering service|Best for|Key services|Free trial|Starting price|\n...\n|XBert AI|Automated, scalable engagement|24/7 availability, lead capture, calendar booking, omnichannel CRM sync|❌ (30-day money-back guarantee)|$99/month|\n|AnswerConnect|Comprehensive lead management|24/7 live answering, lead qualification, appointment scheduling, web chat|❌|$325/month|\n|Posh|Personalized customer service|24/7 answering, outbound logging, bilingual support, mobile app|(7 days)|$65/month|\n|Moneypenny / VoiceNation|24/7 availability & quick setup|Instant activation, custom scripting, order processing, free patching|(7 days)|$145/month|\n|Ruby|Integrated chat & phone support|Live US-based reception, live web chat, lead capture, app routing|❌|$245/month|\n|Abby Connect|Dedicated receptionist teams|Assigned receptionist pods, warm transfers, custom greetings|(14 days)|$329/month|\n|Davinci Virtual|Startups needing admin support|Business hours answering, virtual office addresses, online faxing|❌|$129/month|\n...\n**XBert AI** starts at $99/month for 100 inbound conversations.\nAdditional conversations are $0.99 each with no contracts and a 30-day money-back guarantee.\n...\nSolutions like Nextiva XBert are more affordable with a flat rate of $99 per month for 100 eligible conversations.",
+      "source": "web",
+      "title": "7 Best Answering Services for Small Businesses in 2026",
+      "url": "https://www.nextiva.com/blog/answering-service-for-small-business.html"
+     },
+     {
+      "date": "2026-04-08",
+      "id": 7,
+      "last_updated": "2026-09-22",
+      "snippet": "A side-by-side pricing comparison of 10 AI receptionists, sorted by entry price: AIRA ($24.95/mo, 30 calls), UpFirst ($24.95/mo, 30 calls), Dialzara ($29/mo, 60 min), Trillet ($49/mo, 150 min), Marlie\n...\n|**Platform**|**Entry Price**|**Included**|**Overage Rate**|**Channels**|**Compliance**|**Setup Time**|**Languages**|\n...\n|AIRA|$24.95/mo|30 calls|$1.50/call (down to $0.70 at higher tiers)|Voice|Not clearly stated|Minutes|74 (auto-detect)|\n|UpFirst|$24.95/mo|30 calls|$1.50/call (down to $0.70 at higher tiers)|Voice|Not published|Minutes|Not specified|\n|Dialzara|$29/mo|60 min|$0.48/min (down to $0.35 at higher tiers)|Voice + SMS + chat|Marketed on all tiers|Hours (website scraping)|50+ voices|\n|**Trillet**|**$49/mo**|**150 min**|**$0.20/min**|**Voice + SMS + email**|**HIPAA, TCPA, ACMA, GDPR included**|**5 minutes**|**32**|\n|Marlie|$49/mo|250 min|$0.35/min (down to $0.25 at higher tiers)|Voice|Not verified|Minutes|Standard|\n...\n|Echowin|$49.99/mo|~100 min (credits)|~$0.16/min (credit-based)|Voice + chat|Claimed, not published|Minutes|Standard|\n|Phonely|Free (100 min) / $50/mo|250 min (Starter)|$0.25/min|Voice + SMS + chat|Enterprise BAA|Minutes|Standard|\n|Goodcall|$79/mo|100 callers|$0.50/caller|Voice|No|Minutes|Standard|\n...\n|Smith.ai|$150/mo (AI Pro), Enterprise $500+|per-call (75-300 calls)|$1.60-2.00/call (AI)|Voice + chat|Contradictory (see below)|Coordination required|Standard|\n...\nAI receptionist pricing ranges from free (Phonely's 100-minute tier) up to $500+/month (Smith.ai's Enterprise AI plan) for base plans as of July 2026.\nMost small businesses on AI-only platforms pay between $49 and $99/month total when factoring in overage.",
+      "source": "web",
+      "title": "AI Receptionist Pricing Comparison 2026: 10 Platforms ...",
+      "url": "https://trillet.ai/blogs/top-10-ai-receptionists-for-small-business-2026"
+     },
+     {
+      "date": "2026-06-16",
+      "id": 8,
+      "last_updated": "2026-09-22",
+      "snippet": "- Aloware's AI call answering (the AloAi Voice Agent) is billed per minute from $0.10, separate from the $30/user/month platform seat.\n...\n1. **Aloware**: best all-around AI call answering for mid-market sales and support teams; native CRM sync, AI Call Rescue for missed inbound, per-minute pricing from $0.10/min.\n...\nFor a benchmark, traditional human answering and virtual receptionist services commonly bill about $0.75 to $2.00 per minute (answering365, 2026 cost guide).\n...\nAloware's platform starts at $30/user/month on iPro + AI (billed quarterly; $40 monthly), and the entry plan has a 10-seat minimum.\nThe AI call answering capability, the AloAi Voice Agent, is billed by usage, from $0.10/minute on the Basic tier, $0.20/minute Premium, and $0.50/minute Ultra Premium, and requires a $250/month credit commitment to activate.",
+      "source": "web",
+      "title": "7 Best AI Call Answering Services for SMBs in 2026 (Tested) - Aloware",
+      "url": "https://aloware.com/blog/7-best-ai-call-answering-for-smbs"
+     },
+     {
+      "date": "2026-01-05",
+      "id": 9,
+      "last_updated": "2026-09-23",
+      "snippet": "**Quick answer (updated September 2026):** **NextPhone** is the best AI receptionist for most small businesses: flat monthly plans from $199 with unlimited inbound calls, answers in under 2 seconds, 90–95% of calls resolved without a human, and native calendar booking from day one.\n...\n|Platform|Starting Price|Billing Model|Busy-Month Overage|\n...\n|**NextPhone**|**$199/month**|Flat, unlimited inbound calls|None: bill is identical every month|\n|Smith.ai|$300/month (30 calls)|Per call ($10–11.50/call avg)|$8.50–11.50/call over plan|\n|Dialzara|Metered entry tier|By talk-time minutes (60 min/mo base)|$0.35–0.48/min|\n|Goodcall|Metered by caller|Per unique caller (100/mo base)|$0.50/caller|\n|RingCentral AI|Add-on pricing|Add-on on top of RingEX ($30–50/user/mo)|N/A (you're already paying per-seat)|",
+      "source": "web",
+      "title": "Best AI Receptionist for Small Business: 5 Tested (2026)",
+      "url": "https://www.getnextphone.com/blog/best-ai-receptionist"
+     },
+     {
+      "date": "2026-04-14",
+      "id": 10,
+      "last_updated": "2026-09-21",
+      "snippet": "|Answering service|Starting price|Key features|Best for|Free trial|\n...\n|Sona AI|Free for up to 10 calls per month|In-app call transcripts and summaries, call transfers, custom job handling, and CRM integrations|Growing businesses needing a built-in AI receptionist with their phone system|Seven-day free trial|\n|Rosie AI|$49 per month for 250 minutes|Message taking, Spanish/English answering, and appointment links|Small businesses needing bilingual answering and message-taking|Seven-day free trial|\n|RingCentral AI|$59 per month for 100 minutes|Customizable agents, automatic SMS, and call transcripts|SMBs that want to customize agent voice and tone|❌|\n|Voiceflow|Free for up to 100 credits|CRM integrations, transcript history, and business texting|Tech-savvy businesses needing to build custom phone and chat agents|Seven-day free trial|\n|Goodcall|$79 per agent per month for unlimited minutes and tokens|Zapier integration, performance dashboard, and local numbers|Teams needing to connect large tech stacks|14-day free trial|\n|Dialzara|$29 per month for 60 minutes|Knowledge base uploads, call transfers, and Zapier integration|Small businesses needing a basic virtual receptionist|Seven-day free trial|\n|Abby Connect AI|$99 per month for 50 minutes|Custom call flows, bilingual answering, and live chat available|SMBs needing a backup human receptionist|14-day free trial|\n|Lucy AI by Curious Thing|$24 per month for unlimited calls|Call summaries, FAQ answering, and call transfers|Medical practices needing HIPAA compliance|Seven-day free trial|\n|Smith.ai|$95 per month for ~50 calls|Lead qualification, appointment booking, and call transfers|Businesses needing lead qualification|30-day money-back guarantee|\n|Synthflow|$0.09 per minute|Appointment scheduling, no-code builder, integrations|No-code custom agents|Free to start|\n...\n- **Starter:** $15 per user per month for shared phone numbers, voicemail transcriptions, unlimited calls and texts in the US and Canada, and dozens of ways to streamline your business’s phone communication\n- **Business: **$23 per user per month for phone menus, call transcripts, call transferring, and more advanced features\n- **Scale: **$35 per user per month for call tags, dedicated onboarding, and priority chat and email support",
+      "source": "web",
+      "title": "9 best AI phone answering services for small businesses",
+      "url": "https://www.quo.com/blog/best-ai-phone-answering-services/"
+     },
+     {
+      "date": "2026-09-18",
+      "id": 11,
+      "last_updated": "2026-09-21",
+      "snippet": "Rosie is trained on your business and works 24/7 — answering questions, booking appointments, and texting you the details of every call.\nStarting at $49/month.",
+      "source": "web",
+      "title": "Rosie AI Call Answering Service | 24/7 Phone Support From $49",
+      "url": "https://heyrosie.com/"
+     },
+     {
+      "date": "2026-07-27",
+      "id": 12,
+      "last_updated": "2026-09-22",
+      "snippet": "|Solution|Starting Price|Best For|G2 Rating|\n...\n|Allo|$18/mo Unlimited AI receptionist, included on every plan|Small teams and salespeople who want a flat, all-in price.\n|Quo|$19/user/mo 10 Sona calls included, then $0.75/call|Growing teams that want collaboration tools alongside AI answering.\nTeam inbox|4.7 / 5|\n|Ooma Office|from ~$35/mo Essentials $19.95/mo + AI receptionist add-on $14.99/mo per account|Budget FAQ answering and message-taking.\nBudget pick|4.6 / 5|\n|Phone.com|from ~$48/mo Basic $18/mo + AI-Connect add-on $29.99/mo per 100 min|Small offices that need HIPAA compliance.\nHIPAA-ready|3.3 / 5|\n|RingCentral|from $79/mo Core $30/user/mo + AI Receptionist $49/mo per 100 min|Larger teams needing deep integrations like Shopify and Salesforce.\nMost integrations|4.2 / 5|\n...\n- **Business: $45/month per user** (yearly: $32).\n...\n- **Starter: $19/user/month** (yearly: $15).\nIt includes a local number, unlimited US and Canada calling and messaging, voicemail transcripts, and 10 Sona calls per month.\n- **Business: $33/user/month** (yearly: $23).\n...\n- **AI Receptionist add-on: from $49/month** for 100 minutes, on top of the base plan.",
+      "source": "web",
+      "title": "The most affordable AI receptionist tools in 2026 - Allo",
+      "url": "https://www.withallo.com/blog/affordable-ai-receptionists"
+     },
+     {
+      "date": "2026-09-03",
+      "id": 13,
+      "last_updated": "2026-09-22",
+      "snippet": "|**Service**|**Best for**|**Starts at**|**Auto attendant from**|**Notable**|\n...\n|**Nextiva**|Most small businesses|$15 per user/mo|Mid-tier plans|24/7 support on every plan|\n|**Quo**|Missed calls and lead capture|$15 per user/mo|Business tier|Sona answers around the clock and now captures leads over SMS|\n|**RingCentral**|Replacing the whole phone system|$20 per user/mo|RingEX plans|Visual editor with a validator that flags broken menu paths before you publish|\n...\nAutomated answering services come with many of the best business phone systems, which start around $20 per user per month.\nIn some instances, you may need to select an upgraded plan tier to access answering service features, like an auto attendant or virtual receptionist.\nThis can add roughly $5 or $10 per month to your total cost per line.\n...\nThe cheapest automated answering service is eVoice.\nPlans start at $14 per user per month as of August 2026, and you can get two months for free when you sign up for an annual contract.",
+      "source": "web",
+      "title": "Best Automated Answering Services in 2026 - Crazy Egg",
+      "url": "https://www.crazyegg.com/blog/best-automated-answering-services-for-small-businesses/"
+     },
+     {
+      "date": "2026-05-14",
+      "id": 14,
+      "last_updated": "2026-08-20",
+      "snippet": "- **Starter: **$79/month (includes basic workflows and limited customer handling)\n- **Growth: **$129/month (expanded workflows, higher call handling capacity)\n- **Scale:** $249/month (advanced automation, larger teams, unlimited customer data)\n...\n- Starts at $95/month (approx. 2 calls)\n...\nThe average cost ranges from $50 to $300+ per month, depending on features and call volume.",
+      "source": "web",
+      "title": "Best Answering Service for Small Business: Top 7 Picks, Pricing ...",
+      "url": "https://www.goodcall.com/answering-services/small-business-owners"
+     },
+     {
+      "date": "2026-08-27",
+      "id": 15,
+      "last_updated": "2026-09-21",
+      "snippet": "|Service|Best for|Starting price|Pricing model|Key strength|\n...\n|**Nextiva XBert AI Receptionist**|Businesses combining AI with phone, text, and chat|$99/month for 100 resolved interactions|Per resolved interaction|Unified customer communications|\n|**Smith.ai**|Businesses that want optional human backup|Free for 25 calls; paid plans from $150/month|Per call|AI-first answering with live-agent escalation|\n|**Slang AI**|Restaurants and hospitality groups|$399/month per location|Per location|Restaurant reservation integrations|\n...\nThe $99 monthly subscription includes up to 100 resolved calls, texts, or chats.\nAdditional resolved interactions cost $0.99 each.\n...\n**AI phone answering services: ** Usually start between $15 and $99 per month.",
+      "source": "web",
+      "title": "AI Phone Answering Services for Business: What to Know - Nextiva",
+      "url": "https://www.nextiva.com/blog/ai-phone-answering-service.html"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "В США это обычно называют **AI receptionist**, **virtual receptionist** или **AI phone answering service**. Такие компании подключают голосового агента к существующему номеру или выдают новый номер. Он отвечает 24/7, рассказывает об услугах, квалифицирует лидов, записывает клиентов в календарь, принимает сообщения и переводит сложные звонки человеку.\n\n### Основные варианты\n\n| Сервис | Для кого подходит | Что умеет | Ориентировочная цена |\n|---|---|---|---:|\n| **Smith.ai** | Малый бизнес, которому иногда нужен живой оператор | AI отвечает на звонки, квалифицирует лидов, записывает, при необходимости подключает человека | от примерно **$95–150/мес.** |\n| **Rosie AI** | Салоны, подрядчики, клиники, локальные услуги | Ответы на вопросы, запись, сообщения, английский/испанский | от **$49/мес.** |\n| **Goodcall** | Компаниям с несколькими сценариями звонков | Несколько линий/агентов, маршрутизация, Zapier, CRM-интеграции | от **$79/мес.** |\n| **Dialzara** | Небольшим компаниям с умеренным количеством звонков | FAQ, прием сообщений, переводы, запись на прием | от **$29/мес.** |\n| **Nextiva XBert AI Receptionist** | Тем, кто уже использует телефонную систему Nextiva | Телефон, SMS, чат, фиксация обращений | около **$99/мес.** за пакет взаимодействий |\n| **RingCentral AI Receptionist** | Компаниям, которым нужна полноценная облачная АТС | Ответы, маршрутизация, транскрипции, интеграции | обычно доплата к тарифу RingCentral |\n| **Allo** | Маленьким командам, которым нужна АТС плюс AI | Телефон, SMS, CRM, записи и сводки звонков | примерно **$30–45/пользователь/мес.** плюс/включая AI |\n| **Quo / Sona** | Микробизнесу и стартапам | Прием пропущенных звонков, сообщения, базовые ответы | от примерно **$19/пользователь/мес.** |\n| **Phone.com AI-Connect** | Тем, кому важны недорогая телефония и соответствие требованиям | AI-ответчик, телефонная система, дополнительные функции | около **$30 за 100 минут** сверх тарифа |\n| **Slang AI** | Ресторанам | Бронирование столиков, ответы на вопросы, обработка звонков | около **$399 за локацию/мес.** |\n\n### Что выбрать по типу бизнеса\n\n- **Салон, барбершоп, массаж, клиника:** Rosie, Smith.ai, Goodcall.  \n- **Сантехник, электрик, HVAC, roofing, ремонт:** Smith.ai, Rosie, Dialzara. Важно, чтобы агент мог принимать срочные заявки и отправлять SMS.  \n- **Ресторан:** Slang AI или специализированное решение с интеграцией ресторанных бронирований.  \n- **Юристы и медицинские компании:** Smith.ai, Phone.com или кастомное решение с проверкой HIPAA/конфиденциальности.  \n- **Просто заменить администратора на телефоне:** Rosie, Dialzara, Goodcall или Nextiva.  \n- **Нужен AI, но с живым человеком для сложных звонков:** Smith.ai — один из наиболее очевидных вариантов.\n\n### Как это обычно подключается\n\n1. Вы загружаете сайт, список услуг, цены, часы работы и FAQ.  \n2. Настраиваете сценарии: что говорить, какие вопросы задавать, когда переводить звонок.  \n3. Подключаете существующий номер через переадресацию либо переносите номер.  \n4. Агент начинает принимать звонки, а записи и сообщения отправляет в SMS, email, CRM или календарь.\n\n### Сколько это стоит\n\nДля малого бизнеса типичный диапазон:\n\n- **$25–50 в месяц** — простой прием звонков и сообщений;\n- **$50–150 в месяц** — запись клиентов, квалификация лидов, интеграции;\n- **$150–400+ в месяц** — большой объем звонков, живой резервный оператор или сложные сценарии;\n- кастомные решения могут стоить заметно дороже.\n\nПри выборе обязательно проверьте: тарификацию за минуту или за звонок, стоимость переадресации, поддержку русского/испанского, интеграцию с вашим календарем, CRM, Google Business Profile и возможность быстро перевести клиента на живого сотрудника.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_dfeb6232-45c3-4800-a3d1-19a6da712b46",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.00122,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00277,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00663
+   },
+   "input_tokens": 5447,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4881,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 1108,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 6555
+  },
+  "user": null
+ }
+}

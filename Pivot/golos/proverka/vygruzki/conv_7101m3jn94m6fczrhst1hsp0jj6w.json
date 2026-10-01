@@ -1,0 +1,865 @@
+{
+ "agent_id": "agent_1401m2bc9k58f6nrj8v51pw2v2s3",
+ "agent_name": "Дежурный · dna",
+ "conversation_product": "agent",
+ "status": "done",
+ "user_id": "+14242756121",
+ "branch_id": "agtbrch_3401m2bc9metf2tvbn9q7pbjjtx5",
+ "version_id": "agtvrsn_6901m3jn8qmyfv09gecfpd5tchrm",
+ "metadata": {
+  "start_time_unix_secs": 1790553920,
+  "accepted_time_unix_secs": 1790553920,
+  "call_duration_secs": 30,
+  "queue_wait_secs": null,
+  "cost": 277,
+  "deletion_settings": {
+   "deletion_time_unix_secs": null,
+   "deleted_logs_at_time_unix_secs": null,
+   "deleted_audio_at_time_unix_secs": null,
+   "deleted_transcript_at_time_unix_secs": null,
+   "delete_transcript_and_pii": false,
+   "delete_audio": false
+  },
+  "feedback": {
+   "type": null,
+   "overall_score": null,
+   "likes": 0,
+   "dislikes": 0,
+   "rating": null,
+   "comment": null
+  },
+  "authorization_method": "signed_url",
+  "charging": {
+   "dev_discount": false,
+   "is_burst": false,
+   "tier": "creator",
+   "llm_usage": {
+    "irreversible_generation": {
+     "model_usage": {
+      "gemini-2.5-flash": {
+       "input": {
+        "tokens": 16336,
+        "price": 0.0024504
+       },
+       "input_cache_read": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 35,
+        "price": 2.1e-05
+       }
+      }
+     },
+     "detailed_model_usage": [
+      {
+       "config": {
+        "model": "gemini-2.5-flash",
+        "service_tier": "standard"
+       },
+       "usage": {
+        "input": {
+         "tokens": 16336,
+         "price": 0.0024504
+        },
+        "input_cache_read": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 35,
+         "price": 2.1e-05
+        }
+       }
+      }
+     ]
+    },
+    "initiated_generation": {
+     "model_usage": {
+      "gemini-2.5-flash": {
+       "input": {
+        "tokens": 66092,
+        "price": 0.0099138
+       },
+       "input_cache_read": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 81,
+        "price": 4.86e-05
+       }
+      }
+     },
+     "detailed_model_usage": [
+      {
+       "config": {
+        "model": "gemini-2.5-flash",
+        "service_tier": "standard"
+       },
+       "usage": {
+        "input": {
+         "tokens": 66092,
+         "price": 0.0099138
+        },
+        "input_cache_read": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 81,
+         "price": 4.86e-05
+        }
+       }
+      }
+     ]
+    }
+   },
+   "llm_price": 0.0099624,
+   "llm_charge": 55,
+   "call_charge": 222,
+   "platform_charge": 222,
+   "platform_usage": {
+    "category_usage": {
+     "voice": {
+      "credits": 222,
+      "price": 0.040199471597249306,
+      "quantity": 0.5024933949656163
+     }
+    }
+   },
+   "platform_price": 0.040199471597249306,
+   "free_minutes_consumed": 0.0,
+   "free_llm_dollars_consumed": 0.0,
+   "tts_usage": {
+    "primary_tts_model": "eleven_flash_v2_5",
+    "total_audio_output_seconds": 17.715625000000003,
+    "total_characters": 301,
+    "per_voice_usage": [
+     {
+      "voice_id": "EXAVITQu4vr4xnSDxMaL",
+      "audio_output_seconds": 17.715625000000003
+     }
+    ]
+   },
+   "asr_usage": {
+    "asr_model": "scribe_realtime",
+    "total_transcription_calls": 64,
+    "total_audio_input_seconds": 11.272000000000006
+   },
+   "analysis": {
+    "total": {
+     "price": 0.0,
+     "charge": 0,
+     "runs": 1,
+     "price_per_feature": {},
+     "charge_per_feature": {}
+    },
+    "last_run": {
+     "price": 0.0,
+     "charge": 0,
+     "price_per_feature": {},
+     "charge_per_feature": {}
+    }
+   }
+  },
+  "phone_call": {
+   "direction": "inbound",
+   "phone_number_id": "phnum_3301m2p4va7jejzrnfrryycc4wee",
+   "agent_number": "+14247811913",
+   "external_number": "+14242756121",
+   "type": "twilio",
+   "stream_sid": "MZ2133ac0949dfceb29c5aa0e74348039a",
+   "call_sid": "CA5f3409328af7a6e98f72ff46713c7616"
+  },
+  "batch_call": null,
+  "termination_reason": "Call ended by remote party",
+  "error": null,
+  "warnings": [],
+  "main_language": "ru",
+  "rag_usage": null,
+  "text_only": false,
+  "features_usage": {
+   "language_detection": {
+    "enabled": false,
+    "used": false
+   },
+   "transfer_to_agent": {
+    "enabled": false,
+    "used": false
+   },
+   "transfer_to_number": {
+    "enabled": true,
+    "used": false
+   },
+   "multivoice": {
+    "enabled": false,
+    "used": false
+   },
+   "dtmf_tones": {
+    "enabled": false,
+    "used": false
+   },
+   "external_mcp_servers": {
+    "enabled": false,
+    "used": false
+   },
+   "pii_zrm_workspace": false,
+   "pii_zrm_agent": false,
+   "tool_dynamic_variable_updates": {
+    "enabled": false,
+    "used": false
+   },
+   "is_livekit": false,
+   "voicemail_detection": {
+    "enabled": false,
+    "used": false
+   },
+   "dtmf_input": {
+    "enabled": false,
+    "used": false
+   },
+   "workflow": {
+    "enabled": false,
+    "tool_node": {
+     "enabled": false,
+     "used": false
+    },
+    "standalone_agent_node": {
+     "enabled": false,
+     "used": false
+    },
+    "phone_number_node": {
+     "enabled": false,
+     "used": false
+    },
+    "end_node": {
+     "enabled": false,
+     "used": false
+    }
+   },
+   "agent_testing": {
+    "enabled": false,
+    "tests_ran_after_last_modification": false,
+    "tests_ran_in_last_7_days": false
+   },
+   "versioning": {
+    "enabled": true,
+    "used": false
+   },
+   "file_input": {
+    "enabled": true,
+    "used": false
+   },
+   "freeform_procedure": {
+    "enabled": false,
+    "used": false
+   },
+   "structured_procedure": {
+    "enabled": false,
+    "used": false
+   }
+  },
+  "eleven_assistant": {
+   "is_eleven_assistant": false
+  },
+  "initiator_id": null,
+  "conversation_initiation_source": "twilio",
+  "conversation_initiation_source_version": null,
+  "timezone": "America/Los_Angeles",
+  "async_metadata": null,
+  "whatsapp": null,
+  "sms": null,
+  "agent_created_from": "api",
+  "agent_last_updated_from": "api",
+  "voice_rewards": [],
+  "cost_fiat": 0.0501618715972493
+ },
+ "analysis": {
+  "evaluation_criteria_results": {},
+  "data_collection_results": {
+   "imya": {
+    "data_collection_id": "imya",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Имя человека, как он представился. Если не назвался — пустая строка. Только имя, без лишних слов.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не представился по имени в ходе разговора."
+   },
+   "telefon": {
+    "data_collection_id": "telefon",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Номер телефона для обратной связи, если назвал. Цифрами, как продиктовал.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не предоставил свой номер телефона для обратной связи, а лишь повторил номер, предложенный агентом."
+   },
+   "pochta": {
+    "data_collection_id": "pochta",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Адрес электронной почты, если назвал и подтвердил. Латиницей.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не назвал и не подтвердил адрес электронной почты."
+   },
+   "zachem": {
+    "data_collection_id": "zachem",
+    "name": null,
+    "value": "Хочет узнать, чем занимается компания.",
+    "json_schema": {
+     "type": "string",
+     "description": "Зачем звонил, одной фразой своими словами. Например: хочет диагностику; спрашивал про цену; нужен агент на входящие.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь сказал: \"I'd like to know what you do\", что означает, что он хотел узнать о деятельности компании."
+   },
+   "biznes": {
+    "data_collection_id": "biznes",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Чем занимается его бизнес, если рассказал. Одной короткой фразой.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не рассказал, чем занимается его бизнес."
+   },
+   "obeshchali": {
+    "data_collection_id": "obeshchali",
+    "name": null,
+    "value": "Предложила позвонить на англоязычную линию или перейти на английскую версию сайта.",
+    "json_schema": {
+     "type": "string",
+     "description": "Что Вера пообещала сделать. Например: отправила письмо со ссылкой на бесплатный разбор. Если ничего не обещала — пустая строка.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Вера предложила позвонить на англоязычную линию по номеру +1 424 724 4202 или переключиться на английскую версию сайта."
+   },
+   "hvost": {
+    "data_collection_id": "hvost",
+    "name": null,
+    "value": "Не получил ответа на вопрос о деятельности компании на английском языке.",
+    "json_schema": {
+     "type": "string",
+     "description": "На какой вопрос человек НЕ получил ответа или что осталось нерешённым. Если всё закрыто — пустая строка. Это самое важное поле для владельца.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не получил ответа на свой вопрос \"what you do\" от текущего агента, его перенаправили на другой номер."
+   }
+  },
+  "evaluation_criteria_results_list": [],
+  "data_collection_results_list": [
+   {
+    "data_collection_id": "imya",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Имя человека, как он представился. Если не назвался — пустая строка. Только имя, без лишних слов.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не представился по имени в ходе разговора."
+   },
+   {
+    "data_collection_id": "telefon",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Номер телефона для обратной связи, если назвал. Цифрами, как продиктовал.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не предоставил свой номер телефона для обратной связи, а лишь повторил номер, предложенный агентом."
+   },
+   {
+    "data_collection_id": "pochta",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Адрес электронной почты, если назвал и подтвердил. Латиницей.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не назвал и не подтвердил адрес электронной почты."
+   },
+   {
+    "data_collection_id": "zachem",
+    "name": null,
+    "value": "Хочет узнать, чем занимается компания.",
+    "json_schema": {
+     "type": "string",
+     "description": "Зачем звонил, одной фразой своими словами. Например: хочет диагностику; спрашивал про цену; нужен агент на входящие.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь сказал: \"I'd like to know what you do\", что означает, что он хотел узнать о деятельности компании."
+   },
+   {
+    "data_collection_id": "biznes",
+    "name": null,
+    "value": "",
+    "json_schema": {
+     "type": "string",
+     "description": "Чем занимается его бизнес, если рассказал. Одной короткой фразой.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не рассказал, чем занимается его бизнес."
+   },
+   {
+    "data_collection_id": "obeshchali",
+    "name": null,
+    "value": "Предложила позвонить на англоязычную линию или перейти на английскую версию сайта.",
+    "json_schema": {
+     "type": "string",
+     "description": "Что Вера пообещала сделать. Например: отправила письмо со ссылкой на бесплатный разбор. Если ничего не обещала — пустая строка.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Вера предложила позвонить на англоязычную линию по номеру +1 424 724 4202 или переключиться на английскую версию сайта."
+   },
+   {
+    "data_collection_id": "hvost",
+    "name": null,
+    "value": "Не получил ответа на вопрос о деятельности компании на английском языке.",
+    "json_schema": {
+     "type": "string",
+     "description": "На какой вопрос человек НЕ получил ответа или что осталось нерешённым. Если всё закрыто — пустая строка. Это самое важное поле для владельца.",
+     "enum": null,
+     "is_system_provided": false,
+     "dynamic_variable": "",
+     "allowed_values": null,
+     "allowed_values_dynamic_variable": "",
+     "constant_value": "",
+     "is_omitted": false
+    },
+    "rationale": "Пользователь не получил ответа на свой вопрос \"what you do\" от текущего агента, его перенаправили на другой номер."
+   }
+  ],
+  "call_successful": "success",
+  "call_success_score": null,
+  "transcript_summary": "Агент начал разговор на русском языке, предлагая помощь по диагностике или внедрению. Пользователь ответил на английском, спрашивая о возможности общения на английском и о предоставляемых услугах. Агент перенаправил пользователя на англоязычную линию поддержки и предложил использовать английскую версию сайта. Пользователь подтвердил номер и поблагодарил.",
+  "call_summary_title": "Английская линия поддержки",
+  "scoped": [],
+  "sentiment_analysis": {
+   "overall_label": "positive",
+   "overall_sentiment_score": 0.4,
+   "overall_frustration_score": 0.0,
+   "min_user_sentiment_score": 0.1,
+   "max_user_frustration_score": 0.0,
+   "num_scored_user_turns": 2
+  }
+ },
+ "visited_agents": [
+  {
+   "agent_id": "agent_1401m2bc9k58f6nrj8v51pw2v2s3",
+   "branch_id": "agtbrch_3401m2bc9metf2tvbn9q7pbjjtx5"
+  }
+ ],
+ "conversation_initiation_client_data": {
+  "conversation_config_override": {
+   "asr": null,
+   "turn": null,
+   "tts": null,
+   "conversation": null,
+   "agent": null
+  },
+  "custom_llm_extra_body": {},
+  "user_id": null,
+  "source_info": {
+   "source": null,
+   "version": null
+  },
+  "branch_id": null,
+  "environment": null,
+  "starting_workflow_node_id": null,
+  "experiments": [],
+  "procedure_ids": null,
+  "dynamic_variables": {
+   "system__agent_id": "agent_1401m2bc9k58f6nrj8v51pw2v2s3",
+   "system__agent_turns": 2,
+   "system__current_agent_turns": 2,
+   "system__current_subagent_turns": 2,
+   "system__current_agent_id": "agent_1401m2bc9k58f6nrj8v51pw2v2s3",
+   "system__conversation_id": "conv_7101m3jn94m6fczrhst1hsp0jj6w",
+   "system__call_duration_secs": 30,
+   "system__time_utc": "2026-09-28T00:05:50.405355+00:00",
+   "system__timezone": "America/Los_Angeles",
+   "system__time": "Sunday, 17:05 27 September 2026",
+   "system__time_hour": 17,
+   "system__time_minute": 5,
+   "system__time_second": 50,
+   "system__is_text_only": false,
+   "system__channel": "twilio",
+   "system__caller_id": "+14242756121",
+   "system__called_number": "+14247811913",
+   "system__call_sid": "CA5f3409328af7a6e98f72ff46713c7616",
+   "system__call_id": null,
+   "system__conversation_history": "{\"x-elevenlabs-history\": true, \"entries\": [{\"role\": \"agent\", \"message\": \"\\u0414\\u043e\\u0431\\u0440\\u044b\\u0439 \\u0434\\u0435\\u043d\\u044c, Business Intelligence DNA, \\u043c\\u0435\\u043d\\u044f \\u0437\\u043e\\u0432\\u0443\\u0442 \\u0412\\u0435\\u0440\\u0430, \\u044f \\u0432\\u0438\\u0440\\u0442\\u0443\\u0430\\u043b\\u044c\\u043d\\u044b\\u0439 \\u0430\\u0441\\u0441\\u0438\\u0441\\u0442\\u0435\\u043d\\u0442, \\u0440\\u0430\\u0437\\u0433\\u043e\\u0432\\u043e\\u0440 \\u0441\\u043e\\u0445\\u0440\\u0430\\u043d\\u044f\\u0435\\u0442\\u0441\\u044f \\u0432 \\u0432\\u0438\\u0434\\u0435 \\u0442\\u0435\\u043a\\u0441\\u0442\\u0430. \\u0412\\u044b \\u043f\\u043e \\u0434\\u0438\\u0430\\u0433\\u043d\\u043e\\u0441\\u0442\\u0438\\u043a\\u0435 \\u0438\\u043b\\u0438 \\u043f\\u043e \\u0432\\u043d\\u0435\\u0434\\u0440\\u0435\\u043d\\u0438\\u044e?\"}, {\"role\": \"user\", \"message\": \"Hi, do you speak English? I'd like to know what you do.\"}, {\"role\": \"agent\", \"message\": \"For English, please call our English line: plus one, four two four, seven two four, four two zero two. Or switch to the English version of our site.\"}, {\"role\": \"user\", \"message\": \"Okay, I'll call that number. It's plus one, four two four, seven two four, four two zero two. Thanks!\"}]}",
+   "system__user_id": "+14242756121",
+   "system__initiator_id": null
+  },
+  "tool_mock_config": {
+   "mocking_strategy": "none",
+   "fallback_strategy": "raise_error",
+   "mocked_tool_names": []
+  },
+  "tool_mock_overrides": {}
+ },
+ "environment": "production",
+ "experiment_assignments": null,
+ "hiding_reason": null,
+ "smb_metadata": null,
+ "conversation_id": "conv_7101m3jn94m6fczrhst1hsp0jj6w",
+ "has_audio": false,
+ "has_user_audio": false,
+ "has_response_audio": false,
+ "has_auxiliary_audio": false,
+ "transcript": [
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_1401m2bc9k58f6nrj8v51pw2v2s3",
+    "branch_id": "agtbrch_3401m2bc9metf2tvbn9q7pbjjtx5",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_6901m3jn8qmyfv09gecfpd5tchrm"
+   },
+   "message": "Добрый день, Business Intelligence DNA, меня зовут Вера, я виртуальный ассистент, разговор сохраняется в виде текста. Вы по диагностике или по внедрению?",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 0,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.10069754905998707
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 0.11712143803015351
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 0.0
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2_5",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 1,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "user",
+   "agent_metadata": null,
+   "message": "Hi, do you speak English? I'd like to know what you do.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 11,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.017441320000216365
+     }
+    },
+    "convai_asr_provider": "Scribe v2 Realtime",
+    "convai_tts_model": null,
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": "audio",
+   "source_event_id": 83,
+   "used_static_kb_document_ids": [],
+   "analysis": {
+    "user_sentiment_score": 0.1,
+    "user_frustration_score": 0.0
+   },
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_1401m2bc9k58f6nrj8v51pw2v2s3",
+    "branch_id": "agtbrch_3401m2bc9metf2tvbn9q7pbjjtx5",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_6901m3jn8qmyfv09gecfpd5tchrm"
+   },
+   "message": "For English, please call our English line: plus one, four two four, seven two four, four two zero two. Or switch to the English version of our site.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 14,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttf_sentence": {
+      "elapsed_time": 0.7777916300110519
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.6455704818945378
+     },
+     "convai_llm_service_tt_last_sentence": {
+      "elapsed_time": 0.9152569989673793
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.09000272885896266
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 1.2186585878301412
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 0.32
+     },
+     "convai_turn_asr_latency": {
+      "elapsed_time": 0.017441320000216365
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2_5",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": {
+    "model_usage": {
+     "gemini-2.5-flash": {
+      "input": {
+       "tokens": 16336,
+       "price": 0.0024504
+      },
+      "input_cache_read": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "input_cache_write": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "output_total": {
+       "tokens": 35,
+       "price": 2.1e-05
+      }
+     }
+    },
+    "detailed_model_usage": [
+     {
+      "config": {
+       "model": "gemini-2.5-flash",
+       "service_tier": "standard"
+      },
+      "usage": {
+       "input": {
+        "tokens": 16336,
+        "price": 0.0024504
+       },
+       "input_cache_read": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 35,
+        "price": 2.1e-05
+       }
+      }
+     }
+    ]
+   },
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 83,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "user",
+   "agent_metadata": null,
+   "message": "Okay, I'll call that number. It's plus one, four two four, seven two four, four two zero two. Thanks!",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 23,
+   "conversation_turn_metrics": null,
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 187,
+   "used_static_kb_document_ids": [],
+   "analysis": {
+    "user_sentiment_score": 0.5,
+    "user_frustration_score": 0.0
+   },
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  }
+ ],
+ "tag_ids": [],
+ "realtime_config_snapshots": null,
+ "otlp_traces": null
+}

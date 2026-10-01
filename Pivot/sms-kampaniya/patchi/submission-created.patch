@@ -1,0 +1,16 @@
+--- netlify-functions/submission-created.js	2026-09-29 20:47:26
++++ netlify-functions/submission-created.js	2026-09-29 20:47:26
+@@ -14,6 +14,13 @@
+     const clientEmail = (data.client_email || '').trim();
+     const clientName  = (data.client_name  || '').trim();
+     const formName = payload.form_name || data['form-name'] || 'intake';
++    // SMS-согласие идёт своей функцией (sms-soglasie.js), а не формой Netlify. Если кто-то
++    // всё же пометит его форму для Netlify Forms, без этой строки незнакомое имя упало бы
++    // в ветку интейка: владельцу — «Новый интейк», человеку — «Анкета получена».
++    if (/^sms[-_]/i.test(formName)) {
++      console.log('[intake] форма SMS-согласия — не наша, писем не шлём:', formName);
++      return { statusCode: 200, body: 'sms: skip' };
++    }
+       // Подарочные анкеты (24-25.09.2026): та же форма и тот же файл, но смонтированы
+       // по своим адресам со скрытым полем `produkt` в статике. Подарков теперь два —
+       // к кварталу видимости и к Вере, письма у них отличаются одной строкой.

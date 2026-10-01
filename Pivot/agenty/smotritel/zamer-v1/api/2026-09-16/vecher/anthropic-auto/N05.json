@@ -1,0 +1,548 @@
+{
+ "vopros_id": "N05",
+ "vopros": "спросила у нейросети кто лучший косметолог в лос анджелесе и меня там нет. как сделать чтобы нейросети меня советовали?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "anthropic",
+ "rezhim": "auto",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "vecher",
+ "den": "2026-09-16",
+ "vne_okna": false,
+ "zapusk_id": "20260916-190009-84063",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-16T19:03:21-07:00",
+   "zapusk_id": "20260916-190009-84063",
+   "cena": 0.08141,
+   "ishod": "ok",
+   "sekund": 29.2,
+   "meta": {
+    "request_id": "req_011Cf8Bxx6zX5FWXXccSnmcK"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Понимаю — это очень актуальная тема, называется **GEO (Generative Engine Optimization)** или **AEO (Answer Engine Optimization)**: продвижение не в поисковой выдаче, а в самих ответах нейросетей вроде ChatGPT, Gemini, Perplexity.\n\nВот что реально влияет на то, посоветует ли ИИ именно вас.\n\n## Как ИИ вообще выбирает, кого рекомендовать\n\nChatGPT выбирает, каких локальных специалистов рекомендовать, подгружая живые страницы в момент запроса, синтезируя ответ и ссылаясь на использованные источники, а не ранжируя компании по фиксированному списку. Рекомендуют тех, чью информацию легко найти, она везде одинакова и подтверждена независимыми источниками. При этом важно понимать масштаб проблемы: лишь 1,2% локальных бизнесов вообще попадают в рекомендации ИИ — 98,8% для него просто невидимы.\n\n## Что конкретно нужно сделать\n\n**1. Единый профиль везде (NAP-консистентность)**\nНазвание, адрес и телефон должны быть идентичны на всех площадках, особенно на Yelp и Foursquare — нужно выбрать один канонический вариант (обычно из Google Business Profile) и следить, чтобы он совпадал символ в символ везде. Кстати, Foursquare особенно важен, так как поставляет около 70% локальных данных, которые ChatGPT использует для рекомендаций.\n\n**2. Отзывы — это главный сигнал**\nОриентир на 2026 год: от 150+ отзывов на локацию — ниже этого уровня ИИ-ассистенты редко называют бизнес; средний рейтинг 4.2–4.7 звёзд (идеальные 5.0 выглядят подозрительно); стабильный ежемесячный приток новых отзывов; и обязательно отвечайте на каждый отзыв — это тоже читаемый ИИ контент.\n\n**3. Структурированные данные (schema) и понятный контент**\nСоздавайте подробные, ориентированные на вопросы страницы услуг и локаций, используйте разметку schema (LocalBusiness, FAQPage), чтобы сайт был \"читаем\" для ИИ. Если текст на сайте — просто \"простыня\", ИИ не сможет из неё ничего вытащить полезного.\n\n**4. Профиль в Google Business + Bing Places**\nВажно не забывать про Bing, потому что поиск ChatGPT в реальном времени работает через поисковый индекс Bing.\n\n**5. Внешние упоминания и цитируемость**\nХорошо, если о вас пишут другие сайты, блоги, локальные СМИ — ИИ ценит независимые подтверждения, а не только вашу собственную страницу.\n\n## Важные нюансы\n\n- Заплатить за появление в ChatGPT нельзя — прямого механизма оплаты, как в Google Ads, не существует. Авторитетность нужно зарабатывать через стратегическое присутствие.\n- Точный текст ответа контролировать нельзя, и результат никогда не гарантирован, так как ответы ИИ меняются — это нужно рассматривать как постоянную \"гигиену\", а не разовую настройку.\n\n**С чего начать практически:**\n1. Заполнить и «прокачать» Google Business Profile + Bing Places (регулярные посты, фото с геометками)\n2. Зарегистрироваться на Yelp, Foursquare — с одинаковыми NAP-данными\n3. Запустить систему сбора отзывов у клиентов (после каждой процедуры — просьба оставить отзыв)\n4. На сайте сделать страницы-ответы на вопросы («лучший косметолог в Лос-Анджелесе для чистки лица», «специалист по [ваша ниша] рядом со мной») с schema-разметкой\n5. Периодически самой спрашивать разные ИИ («кто лучший косметолог в LA») и смотреть, что они отвечают и откуда берут инфу — так можно понять, каких данных не хватает\n\nЕсли хотите, могу помочь составить конкретный текст для страницы услуг или структуру schema-разметки под ваш профиль.",
+  "poiskovye_zaprosy": [
+   "Generative Engine Optimization GEO как попасть в рекомендации ИИ чатботов 2026",
+   "how to get recommended by ChatGPT AI search local business 2026"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://habr.com/ru/articles/1042732",
+    "domen": "habr.com",
+    "title": "Гайд по GEO/AEO на 2026 год. Как попасть в ИИ-ответы нейросетей: ChatGpt, Алиса AI, Perplexity, DeepSeek и прочих / Хабр"
+   },
+   {
+    "url": "https://ppc.world/articles/kak-popadat-v-otvety-neyrosetey-s-pomoschyu-geo-v-2026-godu",
+    "domen": "ppc.world",
+    "title": "GEO-оптимизация: как попасть в ответы нейросетей"
+   },
+   {
+    "url": "https://netology.ru/blog/generative-engine-optimization",
+    "domen": "netology.ru",
+    "title": "GEO: что такое generative engine optimization и как попасть в рекомендации нейросетей"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Generative_engine_optimization",
+    "domen": "en.wikipedia.org",
+    "title": "Generative engine optimization"
+   },
+   {
+    "url": "https://companies.rbc.ru/news/VVWJGhIKsz/geo-prodvizhenie-kak-popast-v-nejrovyidachu-i-ii-otvetyi-v-2026-godu",
+    "domen": "companies.rbc.ru",
+    "title": "GEO-продвижение: как попасть в нейровыдачу и ИИ-ответы в 2026 году | РБК Компании"
+   },
+   {
+    "url": "https://www.qmedia.by/blog/rukovodstvo_po_geo_i_aeo_optimizacii.html",
+    "domen": "qmedia.by",
+    "title": "Руководство по GEO и AEO оптимизации: как попасть в ответы ИИ и AI-блоки | Маркетинговый блог Qmedia"
+   },
+   {
+    "url": "https://vc.ru/seo/2975086-geo-optimizatsiya-dlya-biznesa",
+    "domen": "vc.ru",
+    "title": "GEO-оптимизация 2026: как попасть в ответы ИИ, обойти конкурентов и защитить сайт — SEO на vc.ru"
+   },
+   {
+    "url": "https://www.seologic.by/blog/geo-prodvizhenie-kak-popast-v-otvety-ii",
+    "domen": "seologic.by",
+    "title": "Продвижение в нейросетях или как попасть в ответы ИИ в 2026 году?"
+   },
+   {
+    "url": "https://sedovcompany.ru/blog/gibridnoe-seo-2026-kak-integratsiya-aeo-geo-i-ai-pereopredelyaet-prodvizhenie-v-rossii",
+    "domen": "sedovcompany.ru",
+    "title": "SEO + AEO + GEO 2026: Как попасть в ответы ChatGPT и Алисы"
+   },
+   {
+    "url": "https://cited.so/blog/how-to-get-chatgpt-to-recommend-your-business-to-users",
+    "domen": "cited.so",
+    "title": "How to Get ChatGPT to Recommend Your Business (2026) | Cited"
+   },
+   {
+    "url": "https://leadlocalseo.com/blog/how-to-get-recommended-by-chatgpt",
+    "domen": "leadlocalseo.com",
+    "title": "How to Get Your Business Recommended by ChatGPT (2026 Playbook) | Lead Local SEO"
+   },
+   {
+    "url": "https://twentyonesolutions.com/resources/local-businesses-show-up-in-chatgpt-ai-search-guide",
+    "domen": "twentyonesolutions.com",
+    "title": "How Local Businesses Show Up in ChatGPT and AI Search (2026 Guide) | TwentyOne Solutions"
+   },
+   {
+    "url": "https://involvedigitalmarketing.com/get-your-business-recommended-by-chatgpt",
+    "domen": "involvedigitalmarketing.com",
+    "title": "How to Get Recommended by ChatGPT and AI | Involve"
+   },
+   {
+    "url": "https://lyv-ia.com/en/articles/how-chatgpt-recommends-businesses",
+    "domen": "lyv-ia.com",
+    "title": "How ChatGPT chooses which local businesses to recommend | LYVIA"
+   },
+   {
+    "url": "https://www.realconnectionmedia.com/post/how-to-get-your-local-business-to-show-up-on-chatgpt-without-the-hype",
+    "domen": "realconnectionmedia.com",
+    "title": "How to Show Up on ChatGPT: Local Business Guide"
+   },
+   {
+    "url": "https://thestacc.com/blog/local-business-chatgpt-recommendation",
+    "domen": "thestacc.com",
+    "title": "How to Get Your Local Business Recommended by ChatGPT"
+   },
+   {
+    "url": "https://evolveamz.com/local-business-ai-search-guide",
+    "domen": "evolveamz.com",
+    "title": "Local Business AI Search: The 2026 Playbook for Getting Cited by ChatGPT, Claude, and Gemini"
+   },
+   {
+    "url": "https://www.clickmentality.com/blog/ai-visibility-for-local-businesses-how-to-get-recommended-by-chatgpt-and-google-ai",
+    "domen": "clickmentality.com",
+    "title": "How to Get Recommended by ChatGPT and Google AI"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://lyv-ia.com/en/articles/how-chatgpt-recommends-businesses",
+    "domen": "lyv-ia.com",
+    "title": "How ChatGPT chooses which local businesses to recommend | LYVIA"
+   },
+   {
+    "url": "https://evolveamz.com/local-business-ai-search-guide",
+    "domen": "evolveamz.com",
+    "title": "Local Business AI Search: The 2026 Playbook for Getting Cited by ChatGPT, Claude, and Gemini"
+   },
+   {
+    "url": "https://twentyonesolutions.com/resources/local-businesses-show-up-in-chatgpt-ai-search-guide",
+    "domen": "twentyonesolutions.com",
+    "title": "How Local Businesses Show Up in ChatGPT and AI Search (2026 Guide) | TwentyOne Solutions"
+   },
+   {
+    "url": "https://leadlocalseo.com/blog/how-to-get-recommended-by-chatgpt",
+    "domen": "leadlocalseo.com",
+    "title": "How to Get Your Business Recommended by ChatGPT (2026 Playbook) | Lead Local SEO"
+   },
+   {
+    "url": "https://cited.so/blog/how-to-get-chatgpt-to-recommend-your-business-to-users",
+    "domen": "cited.so",
+    "title": "How to Get ChatGPT to Recommend Your Business (2026) | Cited"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19993,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 2142
+  },
+  "cena": 0.08141,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011Cf8BxxQbaTpygNzah7mhW",
+    "request_id": "req_011Cf8Bxx6zX5FWXXccSnmcK",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19993,
+     "output_tokens": 2142,
+     "output_tokens_details": {
+      "thinking_tokens": 332
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "srvtoolu_01Wy4sERtd1ufZoMpWrXmAp5",
+    "caller": null,
+    "input": {
+     "query": "Generative Engine Optimization GEO как попасть в рекомендации ИИ чатботов 2026"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01KjhX8CwZJSB3o5UuuSj5Ji",
+    "caller": null,
+    "input": {
+     "query": "how to get recommended by ChatGPT AI search local business 2026"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "June 16, 2026",
+      "title": "Гайд по GEO/AEO на 2026 год. Как попасть в ИИ-ответы нейросетей: ChatGpt, Алиса AI, Perplexity, DeepSeek и прочих / Хабр",
+      "type": "web_search_result",
+      "url": "https://habr.com/ru/articles/1042732/"
+     },
+     {
+      "page_age": "March 10, 2026",
+      "title": "GEO-оптимизация: как попасть в ответы нейросетей",
+      "type": "web_search_result",
+      "url": "https://ppc.world/articles/kak-popadat-v-otvety-neyrosetey-s-pomoschyu-geo-v-2026-godu/"
+     },
+     {
+      "page_age": null,
+      "title": "GEO: что такое generative engine optimization и как попасть в рекомендации нейросетей",
+      "type": "web_search_result",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     },
+     {
+      "page_age": null,
+      "title": "Generative engine optimization",
+      "type": "web_search_result",
+      "url": "https://en.wikipedia.org/wiki/Generative_engine_optimization"
+     },
+     {
+      "page_age": "December 3, 2025",
+      "title": "GEO-продвижение: как попасть в нейровыдачу и ИИ-ответы в 2026 году | РБК Компании",
+      "type": "web_search_result",
+      "url": "https://companies.rbc.ru/news/VVWJGhIKsz/geo-prodvizhenie-kak-popast-v-nejrovyidachu-i-ii-otvetyi-v-2026-godu/"
+     },
+     {
+      "page_age": null,
+      "title": "Руководство по GEO и AEO оптимизации: как попасть в ответы ИИ и AI-блоки | Маркетинговый блог Qmedia",
+      "type": "web_search_result",
+      "url": "https://www.qmedia.by/blog/rukovodstvo_po_geo_i_aeo_optimizacii.html"
+     },
+     {
+      "page_age": "June 11, 2026",
+      "title": "GEO-оптимизация 2026: как попасть в ответы ИИ, обойти конкурентов и защитить сайт — SEO на vc.ru",
+      "type": "web_search_result",
+      "url": "https://vc.ru/seo/2975086-geo-optimizatsiya-dlya-biznesa"
+     },
+     {
+      "page_age": null,
+      "title": "Продвижение в нейросетях или как попасть в ответы ИИ в 2026 году?",
+      "type": "web_search_result",
+      "url": "https://www.seologic.by/blog/geo-prodvizhenie-kak-popast-v-otvety-ii"
+     },
+     {
+      "page_age": null,
+      "title": "SEO + AEO + GEO 2026: Как попасть в ответы ChatGPT и Алисы",
+      "type": "web_search_result",
+      "url": "https://sedovcompany.ru/blog/gibridnoe-seo-2026-kak-integratsiya-aeo-geo-i-ai-pereopredelyaet-prodvizhenie-v-rossii/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Wy4sERtd1ufZoMpWrXmAp5",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "May 12, 2026",
+      "title": "How to Get ChatGPT to Recommend Your Business (2026) | Cited",
+      "type": "web_search_result",
+      "url": "https://cited.so/blog/how-to-get-chatgpt-to-recommend-your-business-to-users"
+     },
+     {
+      "page_age": "July 6, 2026",
+      "title": "How to Get Your Business Recommended by ChatGPT (2026 Playbook) | Lead Local SEO",
+      "type": "web_search_result",
+      "url": "https://leadlocalseo.com/blog/how-to-get-recommended-by-chatgpt/"
+     },
+     {
+      "page_age": "August 12, 2026",
+      "title": "How Local Businesses Show Up in ChatGPT and AI Search (2026 Guide) | TwentyOne Solutions",
+      "type": "web_search_result",
+      "url": "https://twentyonesolutions.com/resources/local-businesses-show-up-in-chatgpt-ai-search-guide"
+     },
+     {
+      "page_age": "August 13, 2026",
+      "title": "How to Get Recommended by ChatGPT and AI | Involve",
+      "type": "web_search_result",
+      "url": "https://involvedigitalmarketing.com/get-your-business-recommended-by-chatgpt/"
+     },
+     {
+      "page_age": "August 11, 2026",
+      "title": "How ChatGPT chooses which local businesses to recommend | LYVIA",
+      "type": "web_search_result",
+      "url": "https://lyv-ia.com/en/articles/how-chatgpt-recommends-businesses"
+     },
+     {
+      "page_age": "June 9, 2026",
+      "title": "How to Show Up on ChatGPT: Local Business Guide",
+      "type": "web_search_result",
+      "url": "https://www.realconnectionmedia.com/post/how-to-get-your-local-business-to-show-up-on-chatgpt-without-the-hype"
+     },
+     {
+      "page_age": "July 10, 2026",
+      "title": "How to Get Your Local Business Recommended by ChatGPT",
+      "type": "web_search_result",
+      "url": "https://thestacc.com/blog/local-business-chatgpt-recommendation/"
+     },
+     {
+      "page_age": "June 2, 2026",
+      "title": "Local Business AI Search: The 2026 Playbook for Getting Cited by ChatGPT, Claude, and Gemini",
+      "type": "web_search_result",
+      "url": "https://evolveamz.com/local-business-ai-search-guide/"
+     },
+     {
+      "page_age": "July 20, 2026",
+      "title": "How to Get Recommended by ChatGPT and Google AI",
+      "type": "web_search_result",
+      "url": "https://www.clickmentality.com/blog/ai-visibility-for-local-businesses-how-to-get-recommended-by-chatgpt-and-google-ai"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01KjhX8CwZJSB3o5UuuSj5Ji",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Понимаю — это очень актуальная тема, называется **GEO (Generative Engine Optimization)** или **AEO (Answer Engine Optimization)**: продвижение не в поисковой выдаче, а в самих ответах нейросетей вроде ChatGPT, Gemini, Perplexity.\n\nВот что реально влияет на то, посоветует ли ИИ именно вас.\n\n## Как ИИ вообще выбирает, кого рекомендовать\n\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "ChatGPT chooses which local businesses to recommend by retrieving live web pages when you ask, then synthesizing an answer and linking the sources it ...",
+      "title": "How ChatGPT chooses which local businesses to recommend | LYVIA",
+      "type": "web_search_result_location",
+      "url": "https://lyv-ia.com/en/articles/how-chatgpt-recommends-businesses"
+     }
+    ],
+    "text": "ChatGPT выбирает, каких локальных специалистов рекомендовать, подгружая живые страницы в момент запроса, синтезируя ответ и ссылаясь на использованные источники, а не ранжируя компании по фиксированному списку.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The businesses that get recommended are the ones whose information is easy to retrieve, consistent everywhere, and corroborated by independent third p...",
+      "title": "How ChatGPT chooses which local businesses to recommend | LYVIA",
+      "type": "web_search_result_location",
+      "url": "https://lyv-ia.com/en/articles/how-chatgpt-recommends-businesses"
+     }
+    ],
+    "text": "Рекомендуют тех, чью информацию легко найти, она везде одинакова и подтверждена независимыми источниками.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " При этом важно понимать масштаб проблемы: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Only 1.2% of local businesses get recommended by AI. ",
+      "title": "Local Business AI Search: The 2026 Playbook for Getting Cited by ChatGPT, Claude, and Gemini",
+      "type": "web_search_result_location",
+      "url": "https://evolveamz.com/local-business-ai-search-guide/"
+     },
+     {
+      "cited_text": "98.8% of local businesses are invisible to AI search. ",
+      "title": "Local Business AI Search: The 2026 Playbook for Getting Cited by ChatGPT, Claude, and Gemini",
+      "type": "web_search_result_location",
+      "url": "https://evolveamz.com/local-business-ai-search-guide/"
+     }
+    ],
+    "text": "лишь 1,2% локальных бизнесов вообще попадают в рекомендации ИИ — 98,8% для него просто невидимы.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## Что конкретно нужно сделать\n\n**1. Единый профиль везде (NAP-консистентность)**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Consistency Across Platforms: Ensure your Name, Address, and Phone (NAP) details match everywhere, especially on platforms like Yelp and Foursquare. \n...",
+      "title": "How Local Businesses Show Up in ChatGPT and AI Search (2026 Guide) | TwentyOne Solutions",
+      "type": "web_search_result_location",
+      "url": "https://twentyonesolutions.com/resources/local-businesses-show-up-in-chatgpt-ai-search-guide"
+     },
+     {
+      "cited_text": "NAP - short for Name, Address, and Phone number - needs to be identical everywhere your business appears online. Pick one canonical version of your NA...",
+      "title": "How Local Businesses Show Up in ChatGPT and AI Search (2026 Guide) | TwentyOne Solutions",
+      "type": "web_search_result_location",
+      "url": "https://twentyonesolutions.com/resources/local-businesses-show-up-in-chatgpt-ai-search-guide"
+     }
+    ],
+    "text": "Название, адрес и телефон должны быть идентичны на всех площадках, особенно на Yelp и Foursquare — нужно выбрать один канонический вариант (обычно из Google Business Profile) и следить, чтобы он совпадал символ в символ везде.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Кстати, ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Foursquare is especially important, as it supplies about 70% of the local business data ChatGPT uses for recommendations. ",
+      "title": "How Local Businesses Show Up in ChatGPT and AI Search (2026 Guide) | TwentyOne Solutions",
+      "type": "web_search_result_location",
+      "url": "https://twentyonesolutions.com/resources/local-businesses-show-up-in-chatgpt-ai-search-guide"
+     }
+    ],
+    "text": "Foursquare особенно важен, так как поставляет около 70% локальных данных, которые ChatGPT использует для рекомендаций.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**2. Отзывы — это главный сигнал**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The 2026 benchmarks to aim at: 150+ reviews per location — the level below which AI assistants rarely name a business · 4.2–4.7 star average — ChatGPT...",
+      "title": "How to Get Your Business Recommended by ChatGPT (2026 Playbook) | Lead Local SEO",
+      "type": "web_search_result_location",
+      "url": "https://leadlocalseo.com/blog/how-to-get-recommended-by-chatgpt/"
+     }
+    ],
+    "text": "Ориентир на 2026 год: от 150+ отзывов на локацию — ниже этого уровня ИИ-ассистенты редко называют бизнес; средний рейтинг 4.2–4.7 звёзд (идеальные 5.0 выглядят подозрительно); стабильный ежемесячный приток новых отзывов; и обязательно отвечайте на каждый отзыв — это тоже читаемый ИИ контент.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**3. Структурированные данные (schema) и понятный контент**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "AI-Friendly Content: Create detailed, question-focused pages for services and locations. Use schema markup (like LocalBusiness and FAQPage) to make yo...",
+      "title": "How Local Businesses Show Up in ChatGPT and AI Search (2026 Guide) | TwentyOne Solutions",
+      "type": "web_search_result_location",
+      "url": "https://twentyonesolutions.com/resources/local-businesses-show-up-in-chatgpt-ai-search-guide"
+     }
+    ],
+    "text": "Создавайте подробные, ориентированные на вопросы страницы услуг и локаций, используйте разметку schema (LocalBusiness, FAQPage), чтобы сайт был \"читаем\" для ИИ.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Если текст на сайте — просто \"простыня\", ИИ не сможет из неё ничего вытащить полезного.\n\n**4. Профиль в Google Business + Bing Places**\nВажно не забывать про Bing, потому что ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Its live web lookups run on Bing's search index. ",
+      "title": "How to Get Your Business Recommended by ChatGPT (2026 Playbook) | Lead Local SEO",
+      "type": "web_search_result_location",
+      "url": "https://leadlocalseo.com/blog/how-to-get-recommended-by-chatgpt/"
+     }
+    ],
+    "text": "поиск ChatGPT в реальном времени работает через поисковый индекс Bing.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**5. Внешние упоминания и цитируемость**\nХорошо, если о вас пишут другие сайты, блоги, локальные СМИ — ИИ ценит независимые подтверждения, а не только вашу собственную страницу.\n\n## Важные нюансы\n\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "You can't pay to show up in ChatGPT. Unlike Google Ads, no direct payment mechanism exists for AI recommendations. Authority must be earned through st...",
+      "title": "How to Get ChatGPT to Recommend Your Business (2026) | Cited",
+      "type": "web_search_result_location",
+      "url": "https://cited.so/blog/how-to-get-chatgpt-to-recommend-your-business-to-users"
+     }
+    ],
+    "text": "Заплатить за появление в ChatGPT нельзя — прямого механизма оплаты, как в Google Ads, не существует. Авторитетность нужно зарабатывать через стратегическое присутствие.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "You cannot control the exact wording of an answer, and results are never guaranteed because AI answers change. Treat it as ongoing hygiene, not a one-...",
+      "title": "How ChatGPT chooses which local businesses to recommend | LYVIA",
+      "type": "web_search_result_location",
+      "url": "https://lyv-ia.com/en/articles/how-chatgpt-recommends-businesses"
+     }
+    ],
+    "text": "Точный текст ответа контролировать нельзя, и результат никогда не гарантирован, так как ответы ИИ меняются — это нужно рассматривать как постоянную \"гигиену\", а не разовую настройку.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**С чего начать практически:**\n1. Заполнить и «прокачать» Google Business Profile + Bing Places (регулярные посты, фото с геометками)\n2. Зарегистрироваться на Yelp, Foursquare — с одинаковыми NAP-данными\n3. Запустить систему сбора отзывов у клиентов (после каждой процедуры — просьба оставить отзыв)\n4. На сайте сделать страницы-ответы на вопросы («лучший косметолог в Лос-Анджелесе для чистки лица», «специалист по [ваша ниша] рядом со мной») с schema-разметкой\n5. Периодически самой спрашивать разные ИИ («кто лучший косметолог в LA») и смотреть, что они отвечают и откуда берут инфу — так можно понять, каких данных не хватает\n\nЕсли хотите, могу помочь составить конкретный текст для страницы услуг или структуру schema-разметки под ваш профиль.",
+    "type": "text"
+   }
+  ]
+ }
+}

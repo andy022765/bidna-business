@@ -1,0 +1,6951 @@
+{
+  "ok": true,
+  "versiya": 1,
+  "demo": true,
+  "sformirovano": "2026-09-30T14:05:00-04:00",
+  "klient": {
+    "id": "brightside",
+    "nazvanie": "Brightside Home Care (DEMO)",
+    "shtat": "NY",
+    "poyas": "America/New_York",
+    "yazyki": [
+      "en",
+      "es",
+      "ru",
+      "zh",
+      "ht"
+    ],
+    "opisanie": "Brooklyn and Queens, NY"
+  },
+  "nastroyki_zameny": {
+    "volna": 3,
+    "ozhidanie_min": 15,
+    "eskalaciya_za_chasov": 2
+  },
+  "segodnya": {
+    "data": "2026-09-30",
+    "zvonki": {
+      "vsego": 7,
+      "minut": 45,
+      "po_yazykam": {
+        "es": 3,
+        "ru": 1,
+        "en": 3
+      },
+      "po_liniyam": {
+        "care-hiring": 7
+      },
+      "po_namereniyam": {
+        "rabota": 5,
+        "semya": 2
+      },
+      "po_itogam": {
+        "zapisan": 3,
+        "list_ozhidaniya": 1,
+        "perezvon": 1,
+        "soobshchenie": 1,
+        "ocenka": 1
+      }
+    },
+    "kandidaty": {
+      "novyh": 6,
+      "podhodyat": 5,
+      "ne_podhodyat": 1,
+      "po_yazykam": {
+        "es": 2,
+        "ru": 1,
+        "en": 3
+      }
+    },
+    "sobesedovaniya": {
+      "zapisano": 4,
+      "naznacheno": 4,
+      "prishli": 2,
+      "ne_prishli": 1
+    },
+    "otkazy": {
+      "vsego": 2,
+      "zakryto": 1,
+      "eskalaciya": 1,
+      "ne_zakryto": 0,
+      "v_rabote": 0,
+      "mediana_min": 12
+    },
+    "evv": {
+      "progonov": 0,
+      "strok": 0,
+      "isklyucheniy": 0,
+      "kritichnyh": 0
+    }
+  },
+  "vchera": {
+    "data": "2026-09-29",
+    "zvonki": {
+      "vsego": 9,
+      "minut": 43,
+      "po_yazykam": {
+        "es": 3,
+        "ru": 4,
+        "en": 2
+      },
+      "po_liniyam": {
+        "care-caregivers": 2,
+        "care-hiring": 7
+      },
+      "po_namereniyam": {
+        "otkaz": 1,
+        "rabota": 6,
+        "drugoe": 1,
+        "semya": 1
+      },
+      "po_itogam": {
+        "otkaz_prinyat": 1,
+        "zapisan": 4,
+        "list_ozhidaniya": 1,
+        "ne_podhodit": 1,
+        "perevod": 1,
+        "ocenka": 1
+      }
+    },
+    "kandidaty": {
+      "novyh": 6,
+      "podhodyat": 4,
+      "ne_podhodyat": 2,
+      "po_yazykam": {
+        "es": 2,
+        "ru": 1,
+        "en": 3
+      }
+    },
+    "sobesedovaniya": {
+      "zapisano": 4,
+      "naznacheno": 3,
+      "prishli": 2,
+      "ne_prishli": 1
+    },
+    "otkazy": {
+      "vsego": 2,
+      "zakryto": 1,
+      "eskalaciya": 0,
+      "ne_zakryto": 1,
+      "v_rabote": 0,
+      "mediana_min": 9
+    },
+    "evv": {
+      "progonov": 1,
+      "strok": 255,
+      "isklyucheniy": 30,
+      "kritichnyh": 24
+    }
+  },
+  "voronka": {
+    "s": "2026-09-01",
+    "po": "2026-09-30",
+    "dney": 30,
+    "etapy": [
+      {
+        "kod": "new",
+        "n": 106
+      },
+      {
+        "kod": "booked",
+        "n": 77
+      },
+      {
+        "kod": "attended",
+        "n": 38
+      }
+    ],
+    "statusy": {
+      "no_show": 28,
+      "attended": 38,
+      "waitlist": 24,
+      "new": 5,
+      "reminded": 6,
+      "booked": 5
+    },
+    "otkazy_po_prichinam": [
+      {
+        "kod": "net_sertifikata",
+        "tekst": "No HHA or PCA certificate",
+        "n": 18
+      },
+      {
+        "kod": "tolko_cna",
+        "tekst": "CNA only; HHA or PCA required",
+        "n": 6
+      }
+    ]
+  },
+  "kandidaty": [
+    {
+      "id": "kand-128",
+      "created_at": "2026-09-30T13:22:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_47c05a6dce13",
+      "yazyk": "en",
+      "imya": "Latoya Mitchell",
+      "telefon": "+19295550181",
+      "email": "latoya.mitchell@example.com",
+      "sertifikat": "hha",
+      "rayon": "Jamaica",
+      "zip": "11432",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 11,
+      "pravo_na_rabotu": null,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": null,
+      "status": "new",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-127",
+      "created_at": "2026-09-30T11:47:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_0e63245323e4",
+      "yazyk": "es",
+      "imya": "Wilson Peña",
+      "telefon": "+19175550171",
+      "email": "wilson.pena@example.com",
+      "sertifikat": "hha",
+      "rayon": "Bushwick",
+      "zip": "11237",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 8,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-02T13:00:00-04:00",
+        "end": "2026-10-02T13:30:00-04:00",
+        "event_id": "evt_demo_8c38ece697",
+        "zapisano_v": "2026-09-30T11:48:55-04:00"
+      },
+      "status": "booked",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-126",
+      "created_at": "2026-09-30T10:05:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_d0f2b78606db",
+      "yazyk": "en",
+      "imya": "Hui Min Liu",
+      "telefon": "+19175550108",
+      "email": "hui.min.liu@example.com",
+      "sertifikat": "net",
+      "rayon": "Flushing",
+      "zip": "11355",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "zh",
+        "en"
+      ],
+      "opyt_let": 8,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "net_sertifikata",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-125",
+      "created_at": "2026-09-30T08:20:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Monique Grant",
+      "telefon": "+13475550149",
+      "email": "monique.grant@example.com",
+      "sertifikat": "pca",
+      "rayon": "Crown Heights",
+      "zip": "11213",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 14,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-01T16:00:00-04:00",
+        "end": "2026-10-01T16:30:00-04:00",
+        "event_id": "evt_demo_8377beb4f0",
+        "zapisano_v": "2026-09-30T08:21:30-04:00"
+      },
+      "status": "booked",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-124",
+      "created_at": "2026-09-30T06:35:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_117affa38457",
+      "yazyk": "ru",
+      "imya": "Irina Sadykova",
+      "telefon": "+13475550175",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Sheepshead Bay",
+      "zip": "11229",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 6,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-02T10:00:00-04:00",
+        "end": "2026-10-02T10:30:00-04:00",
+        "event_id": "evt_demo_04ad74afc5",
+        "zapisano_v": "2026-09-30T06:36:39-04:00"
+      },
+      "status": "booked",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-123",
+      "created_at": "2026-09-30T01:12:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_5de12d7f7943",
+      "yazyk": "es",
+      "imya": "Esperanza Guzmán",
+      "telefon": "+16465550183",
+      "email": "esperanza.guzman@example.com",
+      "sertifikat": "hha",
+      "rayon": "Elmhurst",
+      "zip": "11373",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "es",
+        "en"
+      ],
+      "opyt_let": 3,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-01T11:30:00-04:00",
+        "end": "2026-10-01T12:00:00-04:00",
+        "event_id": "evt_demo_7d47663d58",
+        "zapisano_v": "2026-09-30T01:13:24-04:00"
+      },
+      "status": "reminded",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-121",
+      "created_at": "2026-09-29T18:03:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_b38c88ce92e5",
+      "yazyk": "en",
+      "imya": "Widline Désir",
+      "telefon": "+16465550163",
+      "email": null,
+      "sertifikat": "cna",
+      "rayon": "Flatbush",
+      "zip": "11226",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "ht",
+        "en"
+      ],
+      "opyt_let": 13,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "tolko_cna",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-120",
+      "created_at": "2026-09-29T14:25:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_2360a568c3cf",
+      "yazyk": "es",
+      "imya": "Paola Vargas",
+      "telefon": "+17185550187",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Jackson Heights",
+      "zip": "11372",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 8,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-01T14:30:00-04:00",
+        "end": "2026-10-01T15:00:00-04:00",
+        "event_id": "evt_demo_1403b7fabb",
+        "zapisano_v": "2026-09-29T14:27:00-04:00"
+      },
+      "status": "booked",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-119",
+      "created_at": "2026-09-29T11:40:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_3fa65541e6b5",
+      "yazyk": "en",
+      "imya": "Grace Adeyemi",
+      "telefon": "+16465550119",
+      "email": "grace.adeyemi@example.com",
+      "sertifikat": "hha",
+      "rayon": "Canarsie",
+      "zip": "11236",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 9,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-01T10:00:00-04:00",
+        "end": "2026-10-01T10:30:00-04:00",
+        "event_id": "evt_demo_96ae1da7ac",
+        "zapisano_v": "2026-09-29T11:41:24-04:00"
+      },
+      "status": "reminded",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-118",
+      "created_at": "2026-09-29T09:12:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Tamika Richards",
+      "telefon": "+16465550117",
+      "email": null,
+      "sertifikat": "net",
+      "rayon": "East Flatbush",
+      "zip": "11203",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 14,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "net_sertifikata",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-117",
+      "created_at": "2026-09-29T07:58:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_c10bdc63c320",
+      "yazyk": "ru",
+      "imya": "Alla Kuzmina",
+      "telefon": "+19175550166",
+      "email": "alla.kuzmina@example.com",
+      "sertifikat": "pca",
+      "rayon": "Brighton Beach",
+      "zip": "11235",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "ru"
+      ],
+      "opyt_let": 3,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-30T11:30:00-04:00",
+        "end": "2026-09-30T12:00:00-04:00",
+        "event_id": "evt_demo_3d026acf91",
+        "zapisano_v": "2026-09-29T07:59:25-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-116",
+      "created_at": "2026-09-29T00:47:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_17b736c01b72",
+      "yazyk": "es",
+      "imya": "Yudelka Cruz",
+      "telefon": "+19175550143",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Corona",
+      "zip": "11368",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 11,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-30T10:00:00-04:00",
+        "end": "2026-09-30T10:30:00-04:00",
+        "event_id": "evt_demo_9277ef4b76",
+        "zapisano_v": "2026-09-29T00:49:08-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": false
+      }
+    },
+    {
+      "id": "kand-109",
+      "created_at": "2026-09-28T23:08:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_321c8a5a916f",
+      "yazyk": "en",
+      "imya": "Patrice Adeyemi",
+      "telefon": "+16465550174",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Bay Ridge",
+      "zip": "11209",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 4,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-01T13:00:00-04:00",
+        "end": "2026-10-01T13:30:00-04:00",
+        "event_id": "evt_demo_628b2bc0d8",
+        "zapisano_v": "2026-09-28T23:09:14-04:00"
+      },
+      "status": "reminded",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-115",
+      "created_at": "2026-09-28T20:12:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "es",
+      "imya": "Lucía Méndez",
+      "telefon": "+19295550100",
+      "email": null,
+      "sertifikat": "pca",
+      "rayon": "Elmhurst",
+      "zip": "11373",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 3,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-30T15:00:00-04:00",
+        "end": "2026-09-30T15:30:00-04:00",
+        "event_id": "evt_demo_1fba34b90e",
+        "zapisano_v": "2026-09-28T20:13:30-04:00"
+      },
+      "status": "reminded",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-114",
+      "created_at": "2026-09-28T09:31:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Andrea Boateng",
+      "telefon": "+19295550105",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Jamaica",
+      "zip": "11432",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 4,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-30T13:00:00-04:00",
+        "end": "2026-09-30T13:30:00-04:00",
+        "event_id": "evt_demo_7664806f43",
+        "zapisano_v": "2026-09-28T09:32:30-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-108",
+      "created_at": "2026-09-28T07:59:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_915405052e35",
+      "yazyk": "ru",
+      "imya": "Alla Bondarenko",
+      "telefon": "+19175550139",
+      "email": "alla.bondarenko@example.com",
+      "sertifikat": "hha",
+      "rayon": "Sheepshead Bay",
+      "zip": "11229",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 1,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-01T11:00:00-04:00",
+        "end": "2026-10-01T11:30:00-04:00",
+        "event_id": "evt_demo_2ed1a265db",
+        "zapisano_v": "2026-09-28T08:01:09-04:00"
+      },
+      "status": "reminded",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-107",
+      "created_at": "2026-09-28T00:32:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_1fc103bdddb5",
+      "yazyk": "es",
+      "imya": "Altagracia Ortega",
+      "telefon": "+16465550139",
+      "email": null,
+      "sertifikat": "pca",
+      "rayon": "Bushwick",
+      "zip": "11237",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 2,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-02T16:00:00-04:00",
+        "end": "2026-10-02T16:30:00-04:00",
+        "event_id": "evt_demo_34d2673435",
+        "zapisano_v": "2026-09-28T00:33:24-04:00"
+      },
+      "status": "booked",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-113",
+      "created_at": "2026-09-27T16:05:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Kimberly Harris",
+      "telefon": "+17185550166",
+      "email": "kimberly.harris@example.com",
+      "sertifikat": "pca",
+      "rayon": "Canarsie",
+      "zip": "11236",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 13,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-29T16:00:00-04:00",
+        "end": "2026-09-29T16:30:00-04:00",
+        "event_id": "evt_demo_51a79725fb",
+        "zapisano_v": "2026-09-27T16:06:30-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-106",
+      "created_at": "2026-09-27T11:30:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Fabiola François",
+      "telefon": "+16465550101",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Crown Heights",
+      "zip": "11213",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "ht",
+        "en"
+      ],
+      "opyt_let": 9,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-10-01T09:30:00-04:00",
+        "end": "2026-10-01T10:00:00-04:00",
+        "event_id": "evt_demo_8ccfd97ef4",
+        "zapisano_v": "2026-09-27T11:31:30-04:00"
+      },
+      "status": "reminded",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": false
+      }
+    },
+    {
+      "id": "kand-105",
+      "created_at": "2026-09-26T22:40:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_d41515660367",
+      "yazyk": "en",
+      "imya": "Latoya Mitchell",
+      "telefon": "+16465550134",
+      "email": null,
+      "sertifikat": "cna",
+      "rayon": "Crown Heights",
+      "zip": "11213",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 14,
+      "pravo_na_rabotu": null,
+      "podhodit": false,
+      "prichina_otkaza": "tolko_cna",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-112",
+      "created_at": "2026-09-26T10:44:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_154df7d5f4c6",
+      "yazyk": "ru",
+      "imya": "Galina Morozova",
+      "telefon": "+16465550162",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Midwood",
+      "zip": "11230",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 4,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-29T13:00:00-04:00",
+        "end": "2026-09-29T13:30:00-04:00",
+        "event_id": "evt_demo_109763eb59",
+        "zapisano_v": "2026-09-26T10:45:30-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-103",
+      "created_at": "2026-09-25T21:14:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_5389a163b0ab",
+      "yazyk": "en",
+      "imya": "Latoya Boateng",
+      "telefon": "+19295550121",
+      "email": "latoya.boateng@example.com",
+      "sertifikat": "hha",
+      "rayon": "Sunset Park",
+      "zip": "11220",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 7,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-28T10:00:00-04:00",
+        "end": "2026-09-28T10:30:00-04:00",
+        "event_id": "evt_demo_1a6ba91ed2",
+        "zapisano_v": "2026-09-25T21:15:37-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-111",
+      "created_at": "2026-09-25T19:20:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "es",
+      "imya": "Dayana Castillo",
+      "telefon": "+19295550161",
+      "email": "dayana.castillo@example.com",
+      "sertifikat": "hha",
+      "rayon": "Ridgewood",
+      "zip": "11385",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "es",
+        "en"
+      ],
+      "opyt_let": 12,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-29T10:00:00-04:00",
+        "end": "2026-09-29T10:30:00-04:00",
+        "event_id": "evt_demo_c4f7b5593c",
+        "zapisano_v": "2026-09-25T19:21:30-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-099",
+      "created_at": "2026-09-25T08:02:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "es",
+      "imya": "Marisol Cabrera",
+      "telefon": "+19175550105",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Staten Island",
+      "zip": "10314",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "es",
+        "en"
+      ],
+      "opyt_let": 4,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-28T16:00:00-04:00",
+        "end": "2026-09-28T16:30:00-04:00",
+        "event_id": "evt_demo_3f32f473ee",
+        "zapisano_v": "2026-09-25T08:03:30-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-098",
+      "created_at": "2026-09-25T02:16:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_cc2a0a5d0c1e",
+      "yazyk": "en",
+      "imya": "Tanya Robinson",
+      "telefon": "+19295550109",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Forest Hills",
+      "zip": "11375",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 11,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-28T11:00:00-04:00",
+        "end": "2026-09-28T11:30:00-04:00",
+        "event_id": "evt_demo_d5ee91a24b",
+        "zapisano_v": "2026-09-25T02:17:49-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-097",
+      "created_at": "2026-09-24T22:13:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_adb6dd18b11b",
+      "yazyk": "en",
+      "imya": "Andrea Forbes",
+      "telefon": "+19175550156",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Brighton Beach",
+      "zip": "11235",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 7,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-28T14:00:00-04:00",
+        "end": "2026-09-28T14:30:00-04:00",
+        "event_id": "evt_demo_7bb885ef56",
+        "zapisano_v": "2026-09-24T22:14:21-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-095",
+      "created_at": "2026-09-24T18:11:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Kimberly Mitchell",
+      "telefon": "+19175550126",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Ridgewood",
+      "zip": "11385",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 7,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-25T16:00:00-04:00",
+        "end": "2026-09-25T16:30:00-04:00",
+        "event_id": "evt_demo_60c27f59a4",
+        "zapisano_v": "2026-09-24T18:12:30-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-094",
+      "created_at": "2026-09-24T16:27:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Nadège Dorvil",
+      "telefon": "+17185550162",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Bay Ridge",
+      "zip": "11209",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "ht",
+        "en"
+      ],
+      "opyt_let": 13,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-25T14:30:00-04:00",
+        "end": "2026-09-25T15:00:00-04:00",
+        "event_id": "evt_demo_464aaabe11",
+        "zapisano_v": "2026-09-24T16:28:30-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": false
+      }
+    },
+    {
+      "id": "kand-093",
+      "created_at": "2026-09-24T12:26:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_6a630c534b7a",
+      "yazyk": "ru",
+      "imya": "Dilnoza Bondarenko",
+      "telefon": "+13475550162",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Brighton Beach",
+      "zip": "11235",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 5,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-28T13:00:00-04:00",
+        "end": "2026-09-28T13:30:00-04:00",
+        "event_id": "evt_demo_5a3da31acb",
+        "zapisano_v": "2026-09-24T12:28:04-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-092",
+      "created_at": "2026-09-24T05:34:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_ee8d0adf40d8",
+      "yazyk": "ru",
+      "imya": "Larisa Rakhimova",
+      "telefon": "+16465550120",
+      "email": "larisa.rakhimova@example.com",
+      "sertifikat": "pca",
+      "rayon": "Elmhurst",
+      "zip": "11373",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 13,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-25T09:30:00-04:00",
+        "end": "2026-09-25T10:00:00-04:00",
+        "event_id": "evt_demo_dbe36e4c5b",
+        "zapisano_v": "2026-09-24T05:35:52-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-091",
+      "created_at": "2026-09-23T20:46:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "es",
+      "imya": "Leticia Cruz",
+      "telefon": "+19295550113",
+      "email": "leticia.cruz@example.com",
+      "sertifikat": "hha",
+      "rayon": "Flushing",
+      "zip": "11355",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 8,
+      "pravo_na_rabotu": null,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-25T10:00:00-04:00",
+        "end": "2026-09-25T10:30:00-04:00",
+        "event_id": "evt_demo_2db830f723",
+        "zapisano_v": "2026-09-23T20:47:30-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-090",
+      "created_at": "2026-09-23T18:29:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "es",
+      "imya": "Esperanza Cruz",
+      "telefon": "+19175550135",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Brighton Beach",
+      "zip": "11235",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 3,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": null,
+      "status": "new",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-089",
+      "created_at": "2026-09-23T16:17:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_f57bf3148eda",
+      "yazyk": "es",
+      "imya": "Gloria Paredes",
+      "telefon": "+13475550155",
+      "email": "gloria.paredes@example.com",
+      "sertifikat": "hha",
+      "rayon": "Crown Heights",
+      "zip": "11213",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 1,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-25T11:30:00-04:00",
+        "end": "2026-09-25T12:00:00-04:00",
+        "event_id": "evt_demo_225f2fe3c1",
+        "zapisano_v": "2026-09-23T16:18:36-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-088",
+      "created_at": "2026-09-23T12:20:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_61ca67fdc150",
+      "yazyk": "en",
+      "imya": "Kwame Asante",
+      "telefon": "+16465550151",
+      "email": null,
+      "sertifikat": "pca",
+      "rayon": "Elmhurst",
+      "zip": "11373",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 9,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-25T13:00:00-04:00",
+        "end": "2026-09-25T13:30:00-04:00",
+        "event_id": "evt_demo_0eafb9bf2e",
+        "zapisano_v": "2026-09-23T12:21:59-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-086",
+      "created_at": "2026-09-22T21:57:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_8c3a823febce",
+      "yazyk": "en",
+      "imya": "Abena Robinson",
+      "telefon": "+19295550198",
+      "email": "abena.robinson@example.com",
+      "sertifikat": "hha",
+      "rayon": "Sunset Park",
+      "zip": "11220",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 5,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-24T13:00:00-04:00",
+        "end": "2026-09-24T13:30:00-04:00",
+        "event_id": "evt_demo_b71e53b70b",
+        "zapisano_v": "2026-09-22T21:58:53-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-085",
+      "created_at": "2026-09-22T20:46:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_64cccb93f074",
+      "yazyk": "ru",
+      "imya": "Natalia Nazarova",
+      "telefon": "+16465550104",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Richmond Hill",
+      "zip": "11418",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "ru"
+      ],
+      "opyt_let": 1,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-23T14:00:00-04:00",
+        "end": "2026-09-23T14:30:00-04:00",
+        "event_id": "evt_demo_92b64de90b",
+        "zapisano_v": "2026-09-22T20:47:29-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": false
+      }
+    },
+    {
+      "id": "kand-083",
+      "created_at": "2026-09-22T10:43:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_676ffb9531cb",
+      "yazyk": "ru",
+      "imya": "Olga Tkachenko",
+      "telefon": "+19295550128",
+      "email": "olga.tkachenko@example.com",
+      "sertifikat": "pca",
+      "rayon": "Bay Ridge",
+      "zip": "11209",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 1,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-24T14:00:00-04:00",
+        "end": "2026-09-24T14:30:00-04:00",
+        "event_id": "evt_demo_52a7957af4",
+        "zapisano_v": "2026-09-22T10:44:56-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-082",
+      "created_at": "2026-09-22T08:31:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_869f04d85408",
+      "yazyk": "en",
+      "imya": "Marie-Claude Célestin",
+      "telefon": "+19175550176",
+      "email": "marie.claude.celestin@example.com",
+      "sertifikat": "hha",
+      "rayon": "Crown Heights",
+      "zip": "11213",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "ht",
+        "en"
+      ],
+      "opyt_let": 8,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-23T10:00:00-04:00",
+        "end": "2026-09-23T10:30:00-04:00",
+        "event_id": "evt_demo_d5b9053759",
+        "zapisano_v": "2026-09-22T08:32:28-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-081",
+      "created_at": "2026-09-21T16:43:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_9e13221ebcca",
+      "yazyk": "en",
+      "imya": "Hui Min Wu",
+      "telefon": "+19175550111",
+      "email": null,
+      "sertifikat": "cna",
+      "rayon": "Elmhurst",
+      "zip": "11373",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "zh",
+        "en"
+      ],
+      "opyt_let": 11,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "tolko_cna",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-080",
+      "created_at": "2026-09-21T09:26:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_23082b149de6",
+      "yazyk": "en",
+      "imya": "Chantal Charles",
+      "telefon": "+16465550142",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Rego Park",
+      "zip": "11374",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "ht",
+        "en"
+      ],
+      "opyt_let": 7,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-22T09:30:00-04:00",
+        "end": "2026-09-22T10:00:00-04:00",
+        "event_id": "evt_demo_bc0c441f71",
+        "zapisano_v": "2026-09-21T09:27:36-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-079",
+      "created_at": "2026-09-21T04:50:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_880f5be71f10",
+      "yazyk": "en",
+      "imya": "Xiu Ying Wu",
+      "telefon": "+19175550152",
+      "email": "xiu.ying.wu@example.com",
+      "sertifikat": "hha",
+      "rayon": "East Flatbush",
+      "zip": "11203",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "zh",
+        "en"
+      ],
+      "opyt_let": 13,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": null,
+      "status": "new",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": false
+      }
+    },
+    {
+      "id": "kand-078",
+      "created_at": "2026-09-20T08:39:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_3cb8f0d8986e",
+      "yazyk": "es",
+      "imya": "Maribel Rojas",
+      "telefon": "+16465550106",
+      "email": "maribel.rojas@example.com",
+      "sertifikat": "cna",
+      "rayon": "Bay Ridge",
+      "zip": "11209",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "es"
+      ],
+      "opyt_let": 1,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "tolko_cna",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-077",
+      "created_at": "2026-09-19T09:15:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_3081daf4ea3d",
+      "yazyk": "en",
+      "imya": "Kimberly Edwards",
+      "telefon": "+17185550188",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Ridgewood",
+      "zip": "11385",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 13,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-21T16:00:00-04:00",
+        "end": "2026-09-21T16:30:00-04:00",
+        "event_id": "evt_demo_fc6678fffa",
+        "zapisano_v": "2026-09-19T09:16:52-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-076",
+      "created_at": "2026-09-19T09:05:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_f1fbe4825909",
+      "yazyk": "en",
+      "imya": "Patrice Boateng",
+      "telefon": "+19175550112",
+      "email": null,
+      "sertifikat": "pca",
+      "rayon": "Bushwick",
+      "zip": "11237",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 11,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-21T10:00:00-04:00",
+        "end": "2026-09-21T10:30:00-04:00",
+        "event_id": "evt_demo_ba161b7ff4",
+        "zapisano_v": "2026-09-19T09:06:59-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-075",
+      "created_at": "2026-09-18T15:06:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_335347cef58f",
+      "yazyk": "ru",
+      "imya": "Zarina Pavlova",
+      "telefon": "+19175550191",
+      "email": null,
+      "sertifikat": "net",
+      "rayon": "Canarsie",
+      "zip": "11236",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 1,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "net_sertifikata",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-074",
+      "created_at": "2026-09-18T12:08:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_8cb60f60bfa0",
+      "yazyk": "es",
+      "imya": "Gloria Vargas",
+      "telefon": "+19295550131",
+      "email": null,
+      "sertifikat": "net",
+      "rayon": "Flushing",
+      "zip": "11355",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "es",
+        "en"
+      ],
+      "opyt_let": 13,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "net_sertifikata",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-073",
+      "created_at": "2026-09-18T12:04:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_23585060b36e",
+      "yazyk": "en",
+      "imya": "Folake Brown",
+      "telefon": "+19175550198",
+      "email": null,
+      "sertifikat": "net",
+      "rayon": "Corona",
+      "zip": "11368",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 8,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "net_sertifikata",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-072",
+      "created_at": "2026-09-18T09:18:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_21ebb1acc284",
+      "yazyk": "en",
+      "imya": "Marie-Claude Moïse",
+      "telefon": "+16465550165",
+      "email": "marie.claude.moise@example.com",
+      "sertifikat": "pca",
+      "rayon": "Midwood",
+      "zip": "11230",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "wed",
+          "fri",
+          "sat"
+        ],
+        "chasy": "days"
+      },
+      "yazyki": [
+        "ht",
+        "en"
+      ],
+      "opyt_let": 0,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-21T11:00:00-04:00",
+        "end": "2026-09-21T11:30:00-04:00",
+        "event_id": "evt_demo_ce16ce9800",
+        "zapisano_v": "2026-09-18T09:20:05-04:00"
+      },
+      "status": "attended",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-071",
+      "created_at": "2026-09-18T00:53:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_8bfa892dac21",
+      "yazyk": "es",
+      "imya": "Ingrid Reyes",
+      "telefon": "+16465550145",
+      "email": "ingrid.reyes@example.com",
+      "sertifikat": "pca",
+      "rayon": "Bay Ridge",
+      "zip": "11209",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "evenings"
+      },
+      "yazyki": [
+        "es",
+        "en"
+      ],
+      "opyt_let": 11,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-22T11:30:00-04:00",
+        "end": "2026-09-22T12:00:00-04:00",
+        "event_id": "evt_demo_ffa696c897",
+        "zapisano_v": "2026-09-18T00:55:01-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-070",
+      "created_at": "2026-09-17T14:05:00-04:00",
+      "istochnik": "sms",
+      "conversation_id": null,
+      "yazyk": "en",
+      "imya": "Shanice Okafor",
+      "telefon": "+19295550168",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Crown Heights",
+      "zip": "11213",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 4,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-18T14:00:00-04:00",
+        "end": "2026-09-18T14:30:00-04:00",
+        "event_id": "evt_demo_441b11e5fa",
+        "zapisano_v": "2026-09-17T14:06:30-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": null,
+        "ii": true,
+        "sms": false
+      }
+    },
+    {
+      "id": "kand-068",
+      "created_at": "2026-09-17T07:13:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_48157d192d45",
+      "yazyk": "en",
+      "imya": "Denise Richards",
+      "telefon": "+19175550145",
+      "email": null,
+      "sertifikat": "net",
+      "rayon": "Ridgewood",
+      "zip": "11385",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "mon",
+          "tue",
+          "wed",
+          "thu",
+          "fri",
+          "sat"
+        ],
+        "chasy": "overnights"
+      },
+      "yazyki": [
+        "en"
+      ],
+      "opyt_let": 2,
+      "pravo_na_rabotu": true,
+      "podhodit": false,
+      "prichina_otkaza": "net_sertifikata",
+      "sobesedovanie": null,
+      "status": "waitlist",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    },
+    {
+      "id": "kand-067",
+      "created_at": "2026-09-17T01:10:00-04:00",
+      "istochnik": "call",
+      "conversation_id": "conv_demo_dc7e6f06ad21",
+      "yazyk": "ru",
+      "imya": "Svetlana Zaitseva",
+      "telefon": "+13475550195",
+      "email": null,
+      "sertifikat": "hha",
+      "rayon": "Flushing",
+      "zip": "11355",
+      "transport": true,
+      "grafik": {
+        "dni": [
+          "sat",
+          "sun"
+        ],
+        "chasy": "flexible"
+      },
+      "yazyki": [
+        "ru",
+        "en"
+      ],
+      "opyt_let": 4,
+      "pravo_na_rabotu": true,
+      "podhodit": true,
+      "prichina_otkaza": null,
+      "sobesedovanie": {
+        "start": "2026-09-21T14:00:00-04:00",
+        "end": "2026-09-21T14:30:00-04:00",
+        "event_id": "evt_demo_80a729afaf",
+        "zapisano_v": "2026-09-17T01:12:01-04:00"
+      },
+      "status": "no_show",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true,
+        "sms": true
+      }
+    }
+  ],
+  "sobesedovaniya": [
+    {
+      "kandidat_id": "kand-116",
+      "imya": "Yudelka Cruz",
+      "telefon": "+19175550143",
+      "yazyk": "es",
+      "sertifikat": "hha",
+      "start": "2026-09-30T10:00:00-04:00",
+      "end": "2026-09-30T10:30:00-04:00",
+      "status": "attended"
+    },
+    {
+      "kandidat_id": "kand-117",
+      "imya": "Alla Kuzmina",
+      "telefon": "+19175550166",
+      "yazyk": "ru",
+      "sertifikat": "pca",
+      "start": "2026-09-30T11:30:00-04:00",
+      "end": "2026-09-30T12:00:00-04:00",
+      "status": "no_show"
+    },
+    {
+      "kandidat_id": "kand-114",
+      "imya": "Andrea Boateng",
+      "telefon": "+19295550105",
+      "yazyk": "en",
+      "sertifikat": "hha",
+      "start": "2026-09-30T13:00:00-04:00",
+      "end": "2026-09-30T13:30:00-04:00",
+      "status": "attended"
+    },
+    {
+      "kandidat_id": "kand-115",
+      "imya": "Lucía Méndez",
+      "telefon": "+19295550100",
+      "yazyk": "es",
+      "sertifikat": "pca",
+      "start": "2026-09-30T15:00:00-04:00",
+      "end": "2026-09-30T15:30:00-04:00",
+      "status": "reminded"
+    },
+    {
+      "kandidat_id": "kand-106",
+      "imya": "Fabiola François",
+      "telefon": "+16465550101",
+      "yazyk": "en",
+      "sertifikat": "hha",
+      "start": "2026-10-01T09:30:00-04:00",
+      "end": "2026-10-01T10:00:00-04:00",
+      "status": "reminded"
+    },
+    {
+      "kandidat_id": "kand-119",
+      "imya": "Grace Adeyemi",
+      "telefon": "+16465550119",
+      "yazyk": "en",
+      "sertifikat": "hha",
+      "start": "2026-10-01T10:00:00-04:00",
+      "end": "2026-10-01T10:30:00-04:00",
+      "status": "reminded"
+    },
+    {
+      "kandidat_id": "kand-108",
+      "imya": "Alla Bondarenko",
+      "telefon": "+19175550139",
+      "yazyk": "ru",
+      "sertifikat": "hha",
+      "start": "2026-10-01T11:00:00-04:00",
+      "end": "2026-10-01T11:30:00-04:00",
+      "status": "reminded"
+    },
+    {
+      "kandidat_id": "kand-123",
+      "imya": "Esperanza Guzmán",
+      "telefon": "+16465550183",
+      "yazyk": "es",
+      "sertifikat": "hha",
+      "start": "2026-10-01T11:30:00-04:00",
+      "end": "2026-10-01T12:00:00-04:00",
+      "status": "reminded"
+    },
+    {
+      "kandidat_id": "kand-109",
+      "imya": "Patrice Adeyemi",
+      "telefon": "+16465550174",
+      "yazyk": "en",
+      "sertifikat": "hha",
+      "start": "2026-10-01T13:00:00-04:00",
+      "end": "2026-10-01T13:30:00-04:00",
+      "status": "reminded"
+    },
+    {
+      "kandidat_id": "kand-120",
+      "imya": "Paola Vargas",
+      "telefon": "+17185550187",
+      "yazyk": "es",
+      "sertifikat": "hha",
+      "start": "2026-10-01T14:30:00-04:00",
+      "end": "2026-10-01T15:00:00-04:00",
+      "status": "booked"
+    },
+    {
+      "kandidat_id": "kand-125",
+      "imya": "Monique Grant",
+      "telefon": "+13475550149",
+      "yazyk": "en",
+      "sertifikat": "pca",
+      "start": "2026-10-01T16:00:00-04:00",
+      "end": "2026-10-01T16:30:00-04:00",
+      "status": "booked"
+    },
+    {
+      "kandidat_id": "kand-124",
+      "imya": "Irina Sadykova",
+      "telefon": "+13475550175",
+      "yazyk": "ru",
+      "sertifikat": "hha",
+      "start": "2026-10-02T10:00:00-04:00",
+      "end": "2026-10-02T10:30:00-04:00",
+      "status": "booked"
+    },
+    {
+      "kandidat_id": "kand-127",
+      "imya": "Wilson Peña",
+      "telefon": "+19175550171",
+      "yazyk": "es",
+      "sertifikat": "hha",
+      "start": "2026-10-02T13:00:00-04:00",
+      "end": "2026-10-02T13:30:00-04:00",
+      "status": "booked"
+    },
+    {
+      "kandidat_id": "kand-107",
+      "imya": "Altagracia Ortega",
+      "telefon": "+16465550139",
+      "yazyk": "es",
+      "sertifikat": "pca",
+      "start": "2026-10-02T16:00:00-04:00",
+      "end": "2026-10-02T16:30:00-04:00",
+      "status": "booked"
+    }
+  ],
+  "otkazy": [
+    {
+      "id": "otk-11",
+      "kod": "11",
+      "smena_id": "SM-0134-0930",
+      "sidelka_id": "CG-020",
+      "prichina": "semya",
+      "soobshcheno": "2026-09-30T12:40:00-04:00",
+      "kanal": "sms",
+      "volny": [
+        {
+          "at": "2026-09-30T12:41:00-04:00",
+          "sidelki": [
+            "CG-019",
+            "CG-018",
+            "CG-012"
+          ]
+        },
+        {
+          "at": "2026-09-30T12:56:00-04:00",
+          "sidelki": [
+            "CG-010"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-018",
+          "otvet": "net",
+          "at": "2026-09-30T12:49:00-04:00"
+        }
+      ],
+      "zakreplena_za": null,
+      "zakreplena_v": null,
+      "eskalaciya_v": "2026-09-30T13:11:00-04:00",
+      "smena": {
+        "id": "SM-0134-0930",
+        "start": "2026-09-30T16:00:00-04:00",
+        "end": "2026-09-30T20:00:00-04:00",
+        "kod_uslugi": "T1019:U1",
+        "status": "offered",
+        "klient_kod": "BK-122",
+        "rayon": "Bushwick",
+        "zip": "11237"
+      },
+      "sidelka": {
+        "id": "CG-020",
+        "imya": "Beatriz M."
+      },
+      "zamena": null,
+      "status": "eskalaciya",
+      "zakryta_za_min": null,
+      "predlozheno": 4
+    },
+    {
+      "id": "otk-10",
+      "kod": "10",
+      "smena_id": "SM-0118-0930",
+      "sidelka_id": "CG-002",
+      "prichina": "bolezn",
+      "soobshcheno": "2026-09-30T05:02:00-04:00",
+      "kanal": "sms",
+      "volny": [
+        {
+          "at": "2026-09-30T05:03:00-04:00",
+          "sidelki": [
+            "CG-040",
+            "CG-012",
+            "CG-032"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-040",
+          "otvet": "da",
+          "at": "2026-09-30T05:14:00-04:00"
+        },
+        {
+          "sidelka_id": "CG-012",
+          "otvet": "da",
+          "at": "2026-09-30T05:16:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-040",
+      "zakreplena_v": "2026-09-30T05:14:00-04:00",
+      "eskalaciya_v": null,
+      "smena": {
+        "id": "SM-0118-0930",
+        "start": "2026-09-30T12:00:00-04:00",
+        "end": "2026-09-30T18:00:00-04:00",
+        "kod_uslugi": "S5125",
+        "status": "filled",
+        "klient_kod": "BK-111",
+        "rayon": "Brooklyn Heights",
+        "zip": "11201"
+      },
+      "sidelka": {
+        "id": "CG-002",
+        "imya": "Sharon M."
+      },
+      "zamena": {
+        "id": "CG-040",
+        "imya": "Fabienne P."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 12,
+      "predlozheno": 3
+    },
+    {
+      "id": "otk-09",
+      "kod": "9",
+      "smena_id": "SM-0088-0929",
+      "sidelka_id": "CG-034",
+      "prichina": "semya",
+      "soobshcheno": "2026-09-29T13:52:00-04:00",
+      "kanal": "sms",
+      "volny": [
+        {
+          "at": "2026-09-29T13:53:00-04:00",
+          "sidelki": [
+            "CG-036",
+            "CG-033",
+            "CG-028"
+          ]
+        },
+        {
+          "at": "2026-09-29T14:08:00-04:00",
+          "sidelki": [
+            "CG-032",
+            "CG-029"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-033",
+          "otvet": "net",
+          "at": "2026-09-29T13:58:00-04:00"
+        },
+        {
+          "sidelka_id": "CG-028",
+          "otvet": "net",
+          "at": "2026-09-29T14:20:00-04:00"
+        }
+      ],
+      "zakreplena_za": null,
+      "zakreplena_v": null,
+      "eskalaciya_v": "2026-09-29T14:00:00-04:00",
+      "zakrit": true,
+      "ne_zakryta_v": "2026-09-29T16:00:00-04:00",
+      "smena": {
+        "id": "SM-0088-0929",
+        "start": "2026-09-29T16:00:00-04:00",
+        "end": "2026-09-29T20:00:00-04:00",
+        "kod_uslugi": "S5125",
+        "status": "unfilled",
+        "klient_kod": "BK-144",
+        "rayon": "Bensonhurst",
+        "zip": "11204"
+      },
+      "sidelka": {
+        "id": "CG-034",
+        "imya": "Ling A."
+      },
+      "zamena": null,
+      "status": "ne_zakryta",
+      "zakryta_za_min": null,
+      "predlozheno": 5
+    },
+    {
+      "id": "otk-08",
+      "kod": "8",
+      "smena_id": "SM-0069-0929",
+      "sidelka_id": "CG-018",
+      "prichina": "bolezn",
+      "soobshcheno": "2026-09-29T05:31:00-04:00",
+      "kanal": "call",
+      "volny": [
+        {
+          "at": "2026-09-29T05:32:00-04:00",
+          "sidelki": [
+            "CG-015",
+            "CG-020",
+            "CG-017"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-015",
+          "otvet": "da",
+          "at": "2026-09-29T05:40:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-015",
+      "zakreplena_v": "2026-09-29T05:40:00-04:00",
+      "eskalaciya_v": null,
+      "smena": {
+        "id": "SM-0069-0929",
+        "start": "2026-09-29T09:00:00-04:00",
+        "end": "2026-09-29T15:00:00-04:00",
+        "kod_uslugi": "S5125",
+        "status": "filled",
+        "klient_kod": "QN-121",
+        "rayon": "Jackson Heights",
+        "zip": "11372"
+      },
+      "sidelka": {
+        "id": "CG-018",
+        "imya": "Yolanda O."
+      },
+      "zamena": {
+        "id": "CG-015",
+        "imya": "Juana R."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 9,
+      "predlozheno": 3
+    },
+    {
+      "id": "otk-07",
+      "kod": "7",
+      "smena_id": "SM-0035-0928",
+      "sidelka_id": "CG-004",
+      "prichina": "drugoe",
+      "soobshcheno": "2026-09-28T06:50:00-04:00",
+      "kanal": "call",
+      "volny": [
+        {
+          "at": "2026-09-28T06:52:00-04:00",
+          "sidelki": [
+            "CG-005",
+            "CG-012",
+            "CG-032"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-005",
+          "otvet": "da",
+          "at": "2026-09-28T06:57:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-005",
+      "zakreplena_v": "2026-09-28T06:57:00-04:00",
+      "eskalaciya_v": null,
+      "smena": {
+        "id": "SM-0035-0928",
+        "start": "2026-09-28T13:00:00-04:00",
+        "end": "2026-09-28T18:00:00-04:00",
+        "kod_uslugi": "T1019:U1",
+        "status": "filled",
+        "klient_kod": "QN-107",
+        "rayon": "Ozone Park",
+        "zip": "11417"
+      },
+      "sidelka": {
+        "id": "CG-004",
+        "imya": "Denise J."
+      },
+      "zamena": {
+        "id": "CG-005",
+        "imya": "Sharon G."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 7,
+      "predlozheno": 3
+    },
+    {
+      "id": "otk-06",
+      "kod": "6",
+      "smena_id": "SM-0003-0928",
+      "sidelka_id": "CG-001",
+      "prichina": "semya",
+      "soobshcheno": "2026-09-27T21:30:00-04:00",
+      "kanal": "sms",
+      "volny": [
+        {
+          "at": "2026-09-27T21:31:00-04:00",
+          "sidelki": [
+            "CG-013",
+            "CG-015",
+            "CG-002"
+          ]
+        },
+        {
+          "at": "2026-09-27T21:46:00-04:00",
+          "sidelki": [
+            "CG-005",
+            "CG-022"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-015",
+          "otvet": "net",
+          "at": "2026-09-27T21:40:00-04:00"
+        },
+        {
+          "sidelka_id": "CG-005",
+          "otvet": "net",
+          "at": "2026-09-27T21:58:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-013",
+      "zakreplena_v": "2026-09-27T22:37:00-04:00",
+      "eskalaciya_v": "2026-09-27T22:01:00-04:00",
+      "smena": {
+        "id": "SM-0003-0928",
+        "start": "2026-09-28T07:00:00-04:00",
+        "end": "2026-09-28T11:00:00-04:00",
+        "kod_uslugi": "S5125",
+        "status": "filled",
+        "klient_kod": "QN-113",
+        "rayon": "Astoria",
+        "zip": "11102"
+      },
+      "sidelka": {
+        "id": "CG-001",
+        "imya": "Gloria D."
+      },
+      "zamena": {
+        "id": "CG-013",
+        "imya": "Milagros G."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 67,
+      "predlozheno": 5
+    },
+    {
+      "id": "otk-05",
+      "kod": "5",
+      "smena_id": "SM-0249-0927",
+      "sidelka_id": "CG-025",
+      "prichina": "semya",
+      "soobshcheno": "2026-09-27T10:05:00-04:00",
+      "kanal": "call",
+      "volny": [
+        {
+          "at": "2026-09-27T10:06:00-04:00",
+          "sidelki": [
+            "CG-024",
+            "CG-021",
+            "CG-026"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-021",
+          "otvet": "net",
+          "at": "2026-09-27T10:12:00-04:00"
+        },
+        {
+          "sidelka_id": "CG-024",
+          "otvet": "da",
+          "at": "2026-09-27T10:19:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-024",
+      "zakreplena_v": "2026-09-27T10:19:00-04:00",
+      "eskalaciya_v": null,
+      "smena": {
+        "id": "SM-0249-0927",
+        "start": "2026-09-27T14:00:00-04:00",
+        "end": "2026-09-27T18:00:00-04:00",
+        "kod_uslugi": "T1019:U1",
+        "status": "filled",
+        "klient_kod": "QN-139",
+        "rayon": "Rego Park",
+        "zip": "11374"
+      },
+      "sidelka": {
+        "id": "CG-025",
+        "imya": "Lyudmila S."
+      },
+      "zamena": {
+        "id": "CG-024",
+        "imya": "Olga N."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 14,
+      "predlozheno": 3
+    },
+    {
+      "id": "otk-04",
+      "kod": "4",
+      "smena_id": "SM-0234-0926",
+      "sidelka_id": "CG-040",
+      "prichina": "bolezn",
+      "soobshcheno": "2026-09-26T07:15:00-04:00",
+      "kanal": "sms",
+      "volny": [
+        {
+          "at": "2026-09-26T07:17:00-04:00",
+          "sidelki": [
+            "CG-013",
+            "CG-015",
+            "CG-002"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-013",
+          "otvet": "da",
+          "at": "2026-09-26T07:25:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-013",
+      "zakreplena_v": "2026-09-26T07:25:00-04:00",
+      "eskalaciya_v": null,
+      "smena": {
+        "id": "SM-0234-0926",
+        "start": "2026-09-26T12:00:00-04:00",
+        "end": "2026-09-26T20:00:00-04:00",
+        "kod_uslugi": "T1019:U1",
+        "status": "filled",
+        "klient_kod": "BK-104",
+        "rayon": "Crown Heights",
+        "zip": "11213"
+      },
+      "sidelka": {
+        "id": "CG-040",
+        "imya": "Fabienne P."
+      },
+      "zamena": {
+        "id": "CG-013",
+        "imya": "Milagros G."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 10,
+      "predlozheno": 3
+    },
+    {
+      "id": "otk-03",
+      "kod": "3",
+      "smena_id": "SM-0178-0925",
+      "sidelka_id": "CG-006",
+      "prichina": "transport",
+      "soobshcheno": "2026-09-25T04:40:00-04:00",
+      "kanal": "sms",
+      "volny": [
+        {
+          "at": "2026-09-25T04:41:00-04:00",
+          "sidelki": [
+            "CG-013",
+            "CG-015",
+            "CG-002"
+          ]
+        },
+        {
+          "at": "2026-09-25T04:56:00-04:00",
+          "sidelki": [
+            "CG-023",
+            "CG-039",
+            "CG-022"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-015",
+          "otvet": "net",
+          "at": "2026-09-25T04:47:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-023",
+      "zakreplena_v": "2026-09-25T05:38:00-04:00",
+      "eskalaciya_v": "2026-09-25T05:01:00-04:00",
+      "smena": {
+        "id": "SM-0178-0925",
+        "start": "2026-09-25T07:00:00-04:00",
+        "end": "2026-09-25T11:00:00-04:00",
+        "kod_uslugi": "T1019:U1",
+        "status": "filled",
+        "klient_kod": "BK-109",
+        "rayon": "Bushwick",
+        "zip": "11237"
+      },
+      "sidelka": {
+        "id": "CG-006",
+        "imya": "Renee J."
+      },
+      "zamena": {
+        "id": "CG-023",
+        "imya": "Lyudmila T."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 58,
+      "predlozheno": 6
+    },
+    {
+      "id": "otk-02",
+      "kod": "2",
+      "smena_id": "SM-0210-0925",
+      "sidelka_id": "CG-003",
+      "prichina": "semya",
+      "soobshcheno": "2026-09-24T20:47:00-04:00",
+      "kanal": "call",
+      "volny": [
+        {
+          "at": "2026-09-24T20:49:00-04:00",
+          "sidelki": [
+            "CG-005",
+            "CG-032",
+            "CG-012"
+          ]
+        },
+        {
+          "at": "2026-09-24T21:04:00-04:00",
+          "sidelki": [
+            "CG-006",
+            "CG-041",
+            "CG-040"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-032",
+          "otvet": "net",
+          "at": "2026-09-24T20:55:00-04:00"
+        },
+        {
+          "sidelka_id": "CG-005",
+          "otvet": "da",
+          "at": "2026-09-24T21:09:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-005",
+      "zakreplena_v": "2026-09-24T21:09:00-04:00",
+      "eskalaciya_v": null,
+      "smena": {
+        "id": "SM-0210-0925",
+        "start": "2026-09-25T14:00:00-04:00",
+        "end": "2026-09-25T20:00:00-04:00",
+        "kod_uslugi": "T1019:U1",
+        "status": "filled",
+        "klient_kod": "QN-102",
+        "rayon": "Rosedale",
+        "zip": "11422"
+      },
+      "sidelka": {
+        "id": "CG-003",
+        "imya": "Brenda A."
+      },
+      "zamena": {
+        "id": "CG-005",
+        "imya": "Sharon G."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 22,
+      "predlozheno": 6
+    },
+    {
+      "id": "otk-01",
+      "kod": "1",
+      "smena_id": "SM-0160-0924",
+      "sidelka_id": "CG-021",
+      "prichina": "bolezn",
+      "soobshcheno": "2026-09-24T06:12:00-04:00",
+      "kanal": "sms",
+      "volny": [
+        {
+          "at": "2026-09-24T06:13:00-04:00",
+          "sidelki": [
+            "CG-026",
+            "CG-022",
+            "CG-024"
+          ]
+        }
+      ],
+      "otvety": [
+        {
+          "sidelka_id": "CG-022",
+          "otvet": "net",
+          "at": "2026-09-24T06:16:00-04:00"
+        },
+        {
+          "sidelka_id": "CG-026",
+          "otvet": "da",
+          "at": "2026-09-24T06:21:00-04:00"
+        }
+      ],
+      "zakreplena_za": "CG-026",
+      "zakreplena_v": "2026-09-24T06:21:00-04:00",
+      "eskalaciya_v": null,
+      "smena": {
+        "id": "SM-0160-0924",
+        "start": "2026-09-24T09:00:00-04:00",
+        "end": "2026-09-24T14:00:00-04:00",
+        "kod_uslugi": "S5125",
+        "status": "filled",
+        "klient_kod": "BK-142",
+        "rayon": "Gravesend",
+        "zip": "11223"
+      },
+      "sidelka": {
+        "id": "CG-021",
+        "imya": "Olga S."
+      },
+      "zamena": {
+        "id": "CG-026",
+        "imya": "Svetlana Z."
+      },
+      "status": "zakryta",
+      "zakryta_za_min": 9,
+      "predlozheno": 3
+    }
+  ],
+  "evv": {
+    "posledniy": {
+      "run_id": "evv-20260929-1812",
+      "zagruzheno": "2026-09-29T18:12:00-04:00",
+      "shtat": "NY",
+      "strok": 255,
+      "fayl": "visits_2026-09-21_to_09-27.csv",
+      "isklyucheniya": [
+        {
+          "vizit_id": "V-10006",
+          "pravilo": "NET_ISPOLNITELYA",
+          "pravilo_tekst": "Missing caregiver",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no caregiver code, so the person who provided the service is not identified.",
+          "kak_ispravit": "Assign the caregiver who actually worked the visit.",
+          "vizit": {
+            "data": "2026-09-21",
+            "klient_id": "CL-047",
+            "klient_kod": "BK-147",
+            "sidelka_id": null,
+            "smena_id": "SM-0006-0921",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 7,
+            "sidelka": null
+          },
+          "detali": {}
+        },
+        {
+          "vizit_id": "V-10018",
+          "pravilo": "VNE_RASPISANIYA",
+          "pravilo_tekst": "Visit not on the schedule",
+          "vazhnost": "preduprezhdenie",
+          "chto_ne_tak": "The visit is linked to shift SM-0106-0923 (Sep 23, 8:00 AM), but it took place Sep 21, 8:02 AM.",
+          "kak_ispravit": "Link the visit to the right shift, or add the shift to the schedule and confirm the visit was authorized.",
+          "vizit": {
+            "data": "2026-09-21",
+            "klient_id": "CL-050",
+            "klient_kod": "QN-150",
+            "sidelka_id": "CG-035",
+            "smena_id": "SM-0106-0923",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 19,
+            "sidelka": "Xiuying S."
+          },
+          "detali": {
+            "tip": "ne_ta_smena",
+            "smena_id": "SM-0106-0923"
+          }
+        },
+        {
+          "vizit_id": "V-10030",
+          "pravilo": "MESTO_NE_SOVPADAET",
+          "pravilo_tekst": "Location does not match",
+          "vazhnost": "preduprezhdenie",
+          "chto_ne_tak": "Clock-in was recorded 2480 m from the member's address (limit 400 m).",
+          "kak_ispravit": "Confirm with the caregiver where the service took place. If it was in the community, set the location type to Community; if the member moved, update the address; otherwise correct the visit before billing.",
+          "vizit": {
+            "data": "2026-09-21",
+            "klient_id": "CL-011",
+            "klient_kod": "BK-111",
+            "sidelka_id": "CG-002",
+            "smena_id": "SM-0030-0921",
+            "kod_uslugi": "S5125",
+            "stroka": 31,
+            "sidelka": "Sharon M."
+          },
+          "detali": {
+            "problemy": [
+              {
+                "punkt": "prihod",
+                "tip": "gps",
+                "m": 2480
+              }
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10031",
+          "pravilo": "EDINICY_BOLSHE_VREMENI",
+          "pravilo_tekst": "Billed units exceed EVV time",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "15 units billed, but the EVV times (3 h 5 min) support 12 (whole 15-minute units only).",
+          "kak_ispravit": "Bill 12 units, or correct the visit times with a reason code if the caregiver really worked longer.",
+          "vizit": {
+            "data": "2026-09-21",
+            "klient_id": "CL-023",
+            "klient_kod": "QN-123",
+            "sidelka_id": "CG-015",
+            "smena_id": "SM-0031-0921",
+            "kod_uslugi": "S5125",
+            "stroka": 32,
+            "sidelka": "Juana R."
+          },
+          "detali": {
+            "edinic": 15,
+            "dopustimo": 12,
+            "minut": 185
+          }
+        },
+        {
+          "vizit_id": "V-10034",
+          "pravilo": "NET_MESTA",
+          "pravilo_tekst": "Missing location",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "No location was captured at clock-out: no GPS, no phone, no FOB, and no Home/Community location type.",
+          "kak_ispravit": "Record where the service started and ended (GPS, the member's phone, a FOB, or location type Home/Community) and keep the evidence for an audit.",
+          "vizit": {
+            "data": "2026-09-21",
+            "klient_id": "CL-048",
+            "klient_kod": "BK-148",
+            "sidelka_id": "CG-035",
+            "smena_id": "SM-0034-0921",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 35,
+            "sidelka": "Xiuying S."
+          },
+          "detali": {
+            "otmetki": [
+              "uhod"
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10058",
+          "pravilo": "MESTO_NE_SOVPADAET",
+          "pravilo_tekst": "Location does not match",
+          "vazhnost": "preduprezhdenie",
+          "chto_ne_tak": "Clock-in was called in from +13475550113, which is not a phone registered to the member.",
+          "kak_ispravit": "Confirm with the caregiver where the service took place. If it was in the community, set the location type to Community; if the member moved, update the address; otherwise correct the visit before billing.",
+          "vizit": {
+            "data": "2026-09-22",
+            "klient_id": "CL-029",
+            "klient_kod": "QN-129",
+            "sidelka_id": "CG-014",
+            "smena_id": "SM-0058-0922",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 59,
+            "sidelka": "Maritza E."
+          },
+          "detali": {
+            "problemy": [
+              {
+                "punkt": "prihod",
+                "tip": "telefon",
+                "telefon": "+13475550113"
+              }
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10101",
+          "pravilo": "KOD_NE_AVTORIZOVAN",
+          "pravilo_tekst": "Service not authorized",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "Service code S5125 is not in the member's authorizations (authorized: T1019:U1).",
+          "kak_ispravit": "Bill under the authorized service code, or get an authorization for S5125 from the plan.",
+          "vizit": {
+            "data": "2026-09-23",
+            "klient_id": "CL-032",
+            "klient_kod": "BK-132",
+            "sidelka_id": "CG-010",
+            "smena_id": "SM-0101-0923",
+            "kod_uslugi": "S5125",
+            "stroka": 102,
+            "sidelka": "Maritza L."
+          },
+          "detali": {
+            "kod": "S5125",
+            "avtorizovano": [
+              "T1019:U1"
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10102",
+          "pravilo": "NET_UHODA",
+          "pravilo_tekst": "No clock-out",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no clock-out (end time). Scheduled end: Sep 23, 12:00 PM.",
+          "kak_ispravit": "Confirm the real end time with the caregiver and the member, then enter it as a visit edit with a reason code and supervisor approval.",
+          "vizit": {
+            "data": "2026-09-23",
+            "klient_id": "CL-036",
+            "klient_kod": "BK-136",
+            "sidelka_id": "CG-026",
+            "smena_id": "SM-0102-0923",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 103,
+            "sidelka": "Svetlana Z."
+          },
+          "detali": {
+            "plan_end": "2026-09-23T12:00:00-04:00"
+          }
+        },
+        {
+          "vizit_id": "V-10105",
+          "pravilo": "UHOD_RANSHE_PRIHODA",
+          "pravilo_tekst": "Clock-out before clock-in",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "Clock-out Sep 23, 1:58 AM is not after clock-in Sep 23, 7:56 AM.",
+          "kak_ispravit": "Check for an AM/PM or date mistake and correct the times with a reason code.",
+          "vizit": {
+            "data": "2026-09-23",
+            "klient_id": "CL-049",
+            "klient_kod": "BK-149",
+            "sidelka_id": "CG-028",
+            "smena_id": "SM-0105-0923",
+            "kod_uslugi": "S5125",
+            "stroka": 106,
+            "sidelka": "Fang L."
+          },
+          "detali": {
+            "prihod": "2026-09-23T07:56:00-04:00",
+            "uhod": "2026-09-23T01:58:00-04:00"
+          }
+        },
+        {
+          "vizit_id": "V-10114",
+          "pravilo": "PRAVKA_BEZ_PRICHINY",
+          "pravilo_tekst": "Manual edit without reason",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit was changed by hand without a reason code: clock-out entered manually (1:00 PM).",
+          "kak_ispravit": "Add the reason code and supervisor approval. NYSDOH requires keeping both the original and the edited times with the documented reason for audit.",
+          "vizit": {
+            "data": "2026-09-23",
+            "klient_id": "CL-034",
+            "klient_kod": "BK-134",
+            "sidelka_id": "CG-017",
+            "smena_id": "SM-0114-0923",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 115,
+            "sidelka": "Juana B."
+          },
+          "detali": {
+            "pravki": [
+              {
+                "punkt": "uhod",
+                "tip": "vruchnuyu"
+              }
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10130",
+          "pravilo": "KOD_NE_AVTORIZOVAN",
+          "pravilo_tekst": "Service not authorized",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "Service code T1019:U6 is not in the member's authorizations (authorized: T1019:U1).",
+          "kak_ispravit": "Bill under the authorized service code, or get an authorization for T1019:U6 from the plan.",
+          "vizit": {
+            "data": "2026-09-23",
+            "klient_id": "CL-043",
+            "klient_kod": "QN-143",
+            "sidelka_id": "CG-027",
+            "smena_id": "SM-0130-0923",
+            "kod_uslugi": "T1019:U6",
+            "stroka": 131,
+            "sidelka": "Irina B."
+          },
+          "detali": {
+            "kod": "T1019:U6",
+            "avtorizovano": [
+              "T1019:U1"
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10131",
+          "pravilo": "NE_TA_SIDELKA",
+          "pravilo_tekst": "Different caregiver than scheduled",
+          "vazhnost": "preduprezhdenie",
+          "chto_ne_tak": "Shift SM-0131-0923 was scheduled for caregiver CG-039, but the visit was recorded by CG-040.",
+          "kak_ispravit": "If this was a replacement, update the schedule; if not, find out who actually worked the visit before billing.",
+          "vizit": {
+            "data": "2026-09-23",
+            "klient_id": "CL-056",
+            "klient_kod": "QN-156",
+            "sidelka_id": "CG-040",
+            "smena_id": "SM-0131-0923",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 132,
+            "sidelka": "Fabienne P."
+          },
+          "detali": {
+            "smena_id": "SM-0131-0923",
+            "po_raspisaniyu": "CG-039"
+          }
+        },
+        {
+          "vizit_id": "V-10140",
+          "pravilo": "NET_UHODA",
+          "pravilo_tekst": "No clock-out",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no clock-out (end time). Scheduled end: Sep 23, 8:00 PM.",
+          "kak_ispravit": "Confirm the real end time with the caregiver and the member, then enter it as a visit edit with a reason code and supervisor approval.",
+          "vizit": {
+            "data": "2026-09-23",
+            "klient_id": "CL-017",
+            "klient_kod": "QN-117",
+            "sidelka_id": "CG-037",
+            "smena_id": "SM-0140-0923",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 141,
+            "sidelka": "Fabienne J."
+          },
+          "detali": {
+            "plan_end": "2026-09-23T20:00:00-04:00"
+          }
+        },
+        {
+          "vizit_id": "V-10157",
+          "pravilo": "NET_DATY",
+          "pravilo_tekst": "Missing date of service",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The date of service is empty.",
+          "kak_ispravit": "Enter the date of service on the visit; it must match the clock-in date (Sep 24, 2026).",
+          "vizit": {
+            "data": "2026-09-24",
+            "klient_id": "CL-021",
+            "klient_kod": "QN-121",
+            "sidelka_id": "CG-018",
+            "smena_id": "SM-0157-0924",
+            "kod_uslugi": "S5125",
+            "stroka": 158,
+            "sidelka": "Yolanda O."
+          },
+          "detali": {}
+        },
+        {
+          "vizit_id": "V-10164",
+          "pravilo": "NET_MESTA",
+          "pravilo_tekst": "Missing location",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "No location was captured at clock-in: no GPS, no phone, no FOB, and no Home/Community location type.",
+          "kak_ispravit": "Record where the service started and ended (GPS, the member's phone, a FOB, or location type Home/Community) and keep the evidence for an audit.",
+          "vizit": {
+            "data": "2026-09-24",
+            "klient_id": "CL-048",
+            "klient_kod": "BK-148",
+            "sidelka_id": "CG-035",
+            "smena_id": "SM-0164-0924",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 165,
+            "sidelka": "Xiuying S."
+          },
+          "detali": {
+            "otmetki": [
+              "prihod"
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10165",
+          "pravilo": "NET_USLUGI",
+          "pravilo_tekst": "Missing service type",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no service (procedure) code, so the type of service, one of the six required EVV data elements, is missing.",
+          "kak_ispravit": "Add the procedure code from the member's authorization to the visit in the EVV system before billing.",
+          "vizit": {
+            "data": "2026-09-24",
+            "klient_id": "CL-007",
+            "klient_kod": "QN-107",
+            "sidelka_id": "CG-004",
+            "smena_id": "SM-0165-0924",
+            "kod_uslugi": null,
+            "stroka": 166,
+            "sidelka": "Denise J."
+          },
+          "detali": {}
+        },
+        {
+          "vizit_id": "V-10172",
+          "pravilo": "MESTO_NE_SOVPADAET",
+          "pravilo_tekst": "Location does not match",
+          "vazhnost": "preduprezhdenie",
+          "chto_ne_tak": "Clock-out was recorded 1204 m from the member's address (limit 400 m).",
+          "kak_ispravit": "Confirm with the caregiver where the service took place. If it was in the community, set the location type to Community; if the member moved, update the address; otherwise correct the visit before billing.",
+          "vizit": {
+            "data": "2026-09-24",
+            "klient_id": "CL-020",
+            "klient_kod": "BK-120",
+            "sidelka_id": "CG-013",
+            "smena_id": "SM-0172-0924",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 173,
+            "sidelka": "Milagros G."
+          },
+          "detali": {
+            "problemy": [
+              {
+                "punkt": "uhod",
+                "tip": "gps",
+                "m": 1204
+              }
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10188",
+          "pravilo": "PREVYSHENIE_AVTORIZACII",
+          "pravilo_tekst": "Over authorized units",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "Authorization AU-016 allows 120 units per week; with this visit the total is 122 (2 over).",
+          "kak_ispravit": "Bill only the authorized units, or ask the plan to increase the authorization before billing the extra time.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-016",
+            "klient_kod": "QN-116",
+            "sidelka_id": "CG-008",
+            "smena_id": "SM-0188-0925",
+            "kod_uslugi": "S5125",
+            "stroka": 189,
+            "sidelka": "Denise T."
+          },
+          "detali": {
+            "avtorizaciya": "AU-016",
+            "limit": 120,
+            "itogo": 122,
+            "period": "nedelya"
+          }
+        },
+        {
+          "vizit_id": "V-10191",
+          "pravilo": "NET_PRIHODA",
+          "pravilo_tekst": "No clock-in",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no clock-in (start time). Scheduled start: Sep 25, 8:00 AM.",
+          "kak_ispravit": "Confirm the real start time with the caregiver and the member, then enter it as a visit edit with a reason code and supervisor approval.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-045",
+            "klient_kod": "BK-145",
+            "sidelka_id": "CG-036",
+            "smena_id": "SM-0191-0925",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 192,
+            "sidelka": "Mei B."
+          },
+          "detali": {
+            "plan_start": "2026-09-25T08:00:00-04:00"
+          }
+        },
+        {
+          "vizit_id": "V-10192",
+          "pravilo": "PREVYSHENIE_AVTORIZACII",
+          "pravilo_tekst": "Over authorized units",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "Authorization AU-046 allows 119 units per week; with this visit the total is 121 (2 over).",
+          "kak_ispravit": "Bill only the authorized units, or ask the plan to increase the authorization before billing the extra time.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-046",
+            "klient_kod": "QN-146",
+            "sidelka_id": "CG-029",
+            "smena_id": "SM-0192-0925",
+            "kod_uslugi": "S5125",
+            "stroka": 193,
+            "sidelka": "Mei O."
+          },
+          "detali": {
+            "avtorizaciya": "AU-046",
+            "limit": 119,
+            "itogo": 121,
+            "period": "nedelya"
+          }
+        },
+        {
+          "vizit_id": "V-10206",
+          "pravilo": "EDINICY_BOLSHE_VREMENI",
+          "pravilo_tekst": "Billed units exceed EVV time",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "15 units billed, but the EVV times (3 h 1 min) support 12 (whole 15-minute units only).",
+          "kak_ispravit": "Bill 12 units, or correct the visit times with a reason code if the caregiver really worked longer.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-023",
+            "klient_kod": "QN-123",
+            "sidelka_id": "CG-015",
+            "smena_id": "SM-0206-0925",
+            "kod_uslugi": "S5125",
+            "stroka": 207,
+            "sidelka": "Juana R."
+          },
+          "detali": {
+            "edinic": 15,
+            "dopustimo": 12,
+            "minut": 181
+          }
+        },
+        {
+          "vizit_id": "V-10217",
+          "pravilo": "NET_UHODA",
+          "pravilo_tekst": "No clock-out",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no clock-out (end time). Scheduled end: Sep 25, 8:00 PM.",
+          "kak_ispravit": "Confirm the real end time with the caregiver and the member, then enter it as a visit edit with a reason code and supervisor approval.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-056",
+            "klient_kod": "QN-156",
+            "sidelka_id": "CG-039",
+            "smena_id": "SM-0217-0925",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 218,
+            "sidelka": "Marjorie S."
+          },
+          "detali": {
+            "plan_end": "2026-09-25T20:00:00-04:00"
+          }
+        },
+        {
+          "vizit_id": "V-10221",
+          "pravilo": "VNE_DAT_AVTORIZACII",
+          "pravilo_tekst": "Outside authorization dates",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit on Sep 25, 2026 is outside the authorization dates (AU-037: Mar 26, 2026 – Sep 24, 2026).",
+          "kak_ispravit": "Get the authorization extended or renewed to cover this date, or do not bill the visit. Update the schedule so no more visits are booked outside it.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-037",
+            "klient_kod": "BK-137",
+            "sidelka_id": "CG-022",
+            "smena_id": "SM-0221-0925",
+            "kod_uslugi": "S5125",
+            "stroka": 222,
+            "sidelka": "Svetlana H."
+          },
+          "detali": {
+            "data": "2026-09-25",
+            "periody": [
+              {
+                "id": "AU-037",
+                "s": "2026-03-26",
+                "po": "2026-09-24"
+              }
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10225",
+          "pravilo": "PERESECHENIE",
+          "pravilo_tekst": "Overlapping visits",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "This visit overlaps visit V-10196 of the same caregiver by 30 min (11:36 AM–12:06 PM).",
+          "kak_ispravit": "A caregiver cannot be in two places at once: check clock-in and clock-out of both visits and correct the wrong one with a reason code.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-058",
+            "klient_kod": "QN-158",
+            "sidelka_id": "CG-042",
+            "smena_id": "SM-0225-0925",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 226,
+            "sidelka": "Nathalie O."
+          },
+          "detali": {
+            "svyazannyy_vizit": "V-10196",
+            "minut": 30
+          },
+          "svyazannyy_vizit": "V-10196"
+        },
+        {
+          "vizit_id": "V-10234",
+          "pravilo": "PRAVKA_BEZ_PRICHINY",
+          "pravilo_tekst": "Manual edit without reason",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit was changed by hand without a reason code: clock-in changed from 11:57 AM to 11:17 AM.",
+          "kak_ispravit": "Add the reason code and supervisor approval. NYSDOH requires keeping both the original and the edited times with the documented reason for audit.",
+          "vizit": {
+            "data": "2026-09-26",
+            "klient_id": "CL-004",
+            "klient_kod": "BK-104",
+            "sidelka_id": "CG-013",
+            "smena_id": "SM-0234-0926",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 235,
+            "sidelka": "Milagros G."
+          },
+          "detali": {
+            "pravki": [
+              {
+                "punkt": "prihod",
+                "tip": "izmeneno"
+              }
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10238",
+          "pravilo": "VNE_DAT_AVTORIZACII",
+          "pravilo_tekst": "Outside authorization dates",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit on Sep 26, 2026 is outside the authorization dates (AU-037: Mar 26, 2026 – Sep 24, 2026).",
+          "kak_ispravit": "Get the authorization extended or renewed to cover this date, or do not bill the visit. Update the schedule so no more visits are booked outside it.",
+          "vizit": {
+            "data": "2026-09-26",
+            "klient_id": "CL-037",
+            "klient_kod": "BK-137",
+            "sidelka_id": "CG-022",
+            "smena_id": "SM-0238-0926",
+            "kod_uslugi": "S5125",
+            "stroka": 239,
+            "sidelka": "Svetlana H."
+          },
+          "detali": {
+            "data": "2026-09-26",
+            "periody": [
+              {
+                "id": "AU-037",
+                "s": "2026-03-26",
+                "po": "2026-09-24"
+              }
+            ]
+          }
+        },
+        {
+          "vizit_id": "V-10240",
+          "pravilo": "NET_POLUCHATELYA",
+          "pravilo_tekst": "Missing member",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no member ID or Medicaid number, so the person who received the service is not identified.",
+          "kak_ispravit": "Link the visit to the member in the EVV system (Member ID or Medicaid number).",
+          "vizit": {
+            "data": "2026-09-27",
+            "klient_id": null,
+            "klient_kod": null,
+            "sidelka_id": "CG-006",
+            "smena_id": "SM-0240-0927",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 241,
+            "sidelka": "Renee J."
+          },
+          "detali": {}
+        },
+        {
+          "vizit_id": "V-10241",
+          "pravilo": "NET_PRIHODA",
+          "pravilo_tekst": "No clock-in",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "The visit has no clock-in (start time). Scheduled start: Sep 27, 7:00 AM.",
+          "kak_ispravit": "Confirm the real start time with the caregiver and the member, then enter it as a visit edit with a reason code and supervisor approval.",
+          "vizit": {
+            "data": "2026-09-27",
+            "klient_id": "CL-013",
+            "klient_kod": "QN-113",
+            "sidelka_id": "CG-001",
+            "smena_id": "SM-0241-0927",
+            "kod_uslugi": "S5125",
+            "stroka": 242,
+            "sidelka": "Gloria D."
+          },
+          "detali": {
+            "plan_start": "2026-09-27T07:00:00-04:00"
+          }
+        },
+        {
+          "vizit_id": "V-19001",
+          "pravilo": "PERESECHENIE",
+          "pravilo_tekst": "Overlapping visits",
+          "vazhnost": "kritichno",
+          "chto_ne_tak": "This visit overlaps visit V-10182 of the same caregiver by 3 h 59 min (6:59 AM–10:58 AM).",
+          "kak_ispravit": "A caregiver cannot be in two places at once: check clock-in and clock-out of both visits and correct the wrong one with a reason code.",
+          "vizit": {
+            "data": "2026-09-25",
+            "klient_id": "CL-047",
+            "klient_kod": "BK-147",
+            "sidelka_id": "CG-032",
+            "smena_id": "SM-0182-0925",
+            "kod_uslugi": "T1019:U1",
+            "stroka": 255,
+            "sidelka": "Mei R."
+          },
+          "detali": {
+            "svyazannyy_vizit": "V-10182",
+            "minut": 239
+          },
+          "svyazannyy_vizit": "V-10182"
+        },
+        {
+          "vizit_id": "V-19002",
+          "pravilo": "VNE_RASPISANIYA",
+          "pravilo_tekst": "Visit not on the schedule",
+          "vazhnost": "preduprezhdenie",
+          "chto_ne_tak": "There is no scheduled shift for this member at this time (Sep 26, 3:02 PM).",
+          "kak_ispravit": "Link the visit to the right shift, or add the shift to the schedule and confirm the visit was authorized.",
+          "vizit": {
+            "data": "2026-09-26",
+            "klient_id": "CL-049",
+            "klient_kod": "BK-149",
+            "sidelka_id": "CG-028",
+            "smena_id": null,
+            "kod_uslugi": "S5125",
+            "stroka": 256,
+            "sidelka": "Fang L."
+          },
+          "detali": {
+            "tip": "bez_smeny",
+            "smena_id": null
+          }
+        }
+      ]
+    },
+    "progony": [
+      {
+        "run_id": "evv-20260929-1812",
+        "zagruzheno": "2026-09-29T18:12:00-04:00",
+        "shtat": "NY",
+        "strok": 255,
+        "fayl": "visits_2026-09-21_to_09-27.csv",
+        "isklyucheniy": 30,
+        "kritichnyh": 24
+      },
+      {
+        "run_id": "evv-20260922-1748",
+        "zagruzheno": "2026-09-22T17:48:00-04:00",
+        "shtat": "NY",
+        "strok": 255,
+        "fayl": "visits_2026-09-14_to_09-20.csv",
+        "isklyucheniy": 20,
+        "kritichnyh": 14
+      },
+      {
+        "run_id": "evv-20260915-1803",
+        "zagruzheno": "2026-09-15T18:03:00-04:00",
+        "shtat": "NY",
+        "strok": 255,
+        "fayl": "visits_2026-09-07_to_09-13.csv",
+        "isklyucheniy": 24,
+        "kritichnyh": 19
+      }
+    ]
+  },
+  "soglasiya": [
+    {
+      "telefon": "+19295550181",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-30T13:24:05-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Latoya Mitchell"
+      }
+    },
+    {
+      "telefon": "+19295550140",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-30T12:08:48-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19175550171",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-30T11:50:04-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Wilson Peña"
+      }
+    },
+    {
+      "telefon": "+19175550108",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-30T10:06:37-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Hui Min Liu"
+      }
+    },
+    {
+      "telefon": "+17185550192",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-30T09:15:22-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+13475550149",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-30T08:20:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Monique Grant"
+      }
+    },
+    {
+      "telefon": "+13475550175",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-30T06:37:38-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Irina Sadykova"
+      }
+    },
+    {
+      "telefon": "+16465550183",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-30T01:14:14-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Esperanza Guzmán"
+      }
+    },
+    {
+      "telefon": "+16465550191",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-29T22:16:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+16465550163",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-29T18:04:28-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Widline Désir"
+      }
+    },
+    {
+      "telefon": "+19295550188",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-29T16:42:29-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+17185550187",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-29T14:28:12-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Paola Vargas"
+      }
+    },
+    {
+      "telefon": "+16465550119",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-29T11:42:14-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Grace Adeyemi"
+      }
+    },
+    {
+      "telefon": "+13475550122",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-29T10:12:30-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Lyudmila T."
+      }
+    },
+    {
+      "telefon": "+16465550117",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-29T09:12:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Tamika Richards"
+      }
+    },
+    {
+      "telefon": "+19175550166",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-29T08:00:16-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Alla Kuzmina"
+      }
+    },
+    {
+      "telefon": "+13475550117",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-29T05:31:25-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Yolanda O."
+      }
+    },
+    {
+      "telefon": "+19175550143",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-29T00:50:25-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Yudelka Cruz"
+      }
+    },
+    {
+      "telefon": "+16465550174",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-28T23:09:59-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Patrice Adeyemi"
+      }
+    },
+    {
+      "telefon": "+19295550132",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-28T23:08:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19295550100",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-28T20:12:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Lucía Méndez"
+      }
+    },
+    {
+      "telefon": "+19295550170",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-28T11:09:09-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+16465550162",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "sms_stop",
+      "at": "2026-09-28T11:01:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Galina Morozova"
+      }
+    },
+    {
+      "telefon": "+19295550105",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-28T09:31:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Andrea Boateng"
+      }
+    },
+    {
+      "telefon": "+19175550139",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-28T08:02:26-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Alla Bondarenko"
+      }
+    },
+    {
+      "telefon": "+13475550103",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-28T06:50:25-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Denise J."
+      }
+    },
+    {
+      "telefon": "+16465550139",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-28T00:34:14-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Altagracia Ortega"
+      }
+    },
+    {
+      "telefon": "+17185550166",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-27T16:05:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Kimberly Harris"
+      }
+    },
+    {
+      "telefon": "+16465550101",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-27T11:30:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Fabiola François"
+      }
+    },
+    {
+      "telefon": "+13475550124",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-27T10:05:25-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Lyudmila S."
+      }
+    },
+    {
+      "telefon": "+16465550134",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-26T22:41:49-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Latoya Mitchell"
+      }
+    },
+    {
+      "telefon": "+19295550161",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "sms_stop",
+      "at": "2026-09-26T19:37:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Dayana Castillo"
+      }
+    },
+    {
+      "telefon": "+16465550185",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-26T12:05:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19295550121",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-25T21:16:35-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Latoya Boateng"
+      }
+    },
+    {
+      "telefon": "+17185550170",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-25T19:13:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+16465550110",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-25T18:06:43-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+16465550149",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-25T16:43:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19175550105",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-25T08:02:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Marisol Cabrera"
+      }
+    },
+    {
+      "telefon": "+19295550109",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-25T02:18:54-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Tanya Robinson"
+      }
+    },
+    {
+      "telefon": "+19175550156",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-24T22:15:10-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Andrea Forbes"
+      }
+    },
+    {
+      "telefon": "+13475550102",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-24T20:47:25-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Brenda A."
+      }
+    },
+    {
+      "telefon": "+19175550126",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-24T18:11:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Kimberly Mitchell"
+      }
+    },
+    {
+      "telefon": "+17185550162",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-24T16:27:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Nadège Dorvil"
+      }
+    },
+    {
+      "telefon": "+13475550126",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-24T14:59:08-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Irina B."
+      }
+    },
+    {
+      "telefon": "+13475550162",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-24T12:29:18-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Dilnoza Bondarenko"
+      }
+    },
+    {
+      "telefon": "+16465550120",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-24T05:36:59-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Larisa Rakhimova"
+      }
+    },
+    {
+      "telefon": "+19295550113",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-23T20:46:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Leticia Cruz"
+      }
+    },
+    {
+      "telefon": "+19175550135",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-23T18:29:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Esperanza Cruz"
+      }
+    },
+    {
+      "telefon": "+13475550155",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-23T16:19:33-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Gloria Paredes"
+      }
+    },
+    {
+      "telefon": "+19175550194",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-23T12:54:36-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+16465550151",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-23T12:23:10-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Kwame Asante"
+      }
+    },
+    {
+      "telefon": "+19175550170",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-23T11:36:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19295550198",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-22T22:00:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Abena Robinson"
+      }
+    },
+    {
+      "telefon": "+16465550104",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-22T20:48:23-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Natalia Nazarova"
+      }
+    },
+    {
+      "telefon": "+19295550190",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-22T20:25:52-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+13475550147",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-22T19:11:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+13475550137",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-22T15:46:00-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Guerline Z."
+      }
+    },
+    {
+      "telefon": "+19295550128",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-22T10:46:05-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Olga Tkachenko"
+      }
+    },
+    {
+      "telefon": "+19175550176",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-22T08:33:21-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Marie-Claude Célestin"
+      }
+    },
+    {
+      "telefon": "+19175550111",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-21T16:44:38-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Hui Min Wu"
+      }
+    },
+    {
+      "telefon": "+16465550142",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-21T09:28:34-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Chantal Charles"
+      }
+    },
+    {
+      "telefon": "+19175550102",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-21T08:11:55-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19175550152",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-21T04:52:55-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Xiu Ying Wu"
+      }
+    },
+    {
+      "telefon": "+16465550106",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-20T08:40:36-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Maribel Rojas"
+      }
+    },
+    {
+      "telefon": "+19175550149",
+      "zapis": false,
+      "ii": false,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-20T02:43:45-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+17185550188",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-19T09:17:59-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Kimberly Edwards"
+      }
+    },
+    {
+      "telefon": "+19175550112",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-19T09:08:10-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Patrice Boateng"
+      }
+    },
+    {
+      "telefon": "+13475550142",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-18T18:29:44-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Fabienne N."
+      }
+    },
+    {
+      "telefon": "+16465550169",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-18T15:21:10-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19175550191",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-18T15:07:47-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Zarina Pavlova"
+      }
+    },
+    {
+      "telefon": "+19295550131",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-18T12:09:52-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Gloria Vargas"
+      }
+    },
+    {
+      "telefon": "+19175550198",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-18T12:04:58-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Folake Brown"
+      }
+    },
+    {
+      "telefon": "+16465550165",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-18T09:21:20-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Marie-Claude Moïse"
+      }
+    },
+    {
+      "telefon": "+16465550145",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-18T00:56:13-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Ingrid Reyes"
+      }
+    },
+    {
+      "telefon": "+19295550168",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-17T14:05:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Shanice Okafor"
+      }
+    },
+    {
+      "telefon": "+13475550139",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-17T12:13:04-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Fabienne P."
+      }
+    },
+    {
+      "telefon": "+19295550152",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-17T09:37:08-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19175550145",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-17T07:14:08-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Denise Richards"
+      }
+    },
+    {
+      "telefon": "+13475550195",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-17T01:13:13-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Svetlana Zaitseva"
+      }
+    },
+    {
+      "telefon": "+16465550180",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-16T22:41:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Mei Lin Zhou"
+      }
+    },
+    {
+      "telefon": "+19295550158",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-16T20:14:15-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+13475550136",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-16T18:48:34-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Fabienne J."
+      }
+    },
+    {
+      "telefon": "+19295550144",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-16T15:52:22-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Galina Sokolova"
+      }
+    },
+    {
+      "telefon": "+19175550110",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-16T10:19:10-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Guerline Célestin"
+      }
+    },
+    {
+      "telefon": "+16465550194",
+      "zapis": true,
+      "ii": true,
+      "sms": false,
+      "istochnik": "call",
+      "at": "2026-09-16T05:56:03-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Denise Walker"
+      }
+    },
+    {
+      "telefon": "+16465550188",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-15T14:11:00-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+16465550125",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-15T10:44:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Guerline Noël"
+      }
+    },
+    {
+      "telefon": "+19295550156",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-15T07:10:01-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Nancy Acosta"
+      }
+    },
+    {
+      "telefon": "+17185550163",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-14T17:28:32-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Marie-Claude Joseph"
+      }
+    },
+    {
+      "telefon": "+16465550146",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-14T16:51:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Ana Tejada"
+      }
+    },
+    {
+      "telefon": "+19295550129",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-14T12:06:33-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Zarina Petrenko"
+      }
+    },
+    {
+      "telefon": "+19175550168",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-14T09:43:28-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Lyudmila Zaitseva"
+      }
+    },
+    {
+      "telefon": "+16465550167",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-14T08:15:48-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Yan Zhang"
+      }
+    },
+    {
+      "telefon": "+13475550114",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-14T07:11:51-04:00",
+      "kto": {
+        "tip": "sidelka",
+        "imya": "Juana R."
+      }
+    },
+    {
+      "telefon": "+17185550198",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-14T02:01:46-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Frantz Noël"
+      }
+    },
+    {
+      "telefon": "+19175550122",
+      "zapis": null,
+      "ii": true,
+      "sms": true,
+      "istochnik": "sms",
+      "at": "2026-09-13T14:54:00-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Guerline Étienne"
+      }
+    },
+    {
+      "telefon": "+19295550160",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-13T14:19:46-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Hui Min Xu"
+      }
+    },
+    {
+      "telefon": "+19175550161",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-13T14:10:29-04:00",
+      "kto": null
+    },
+    {
+      "telefon": "+19175550167",
+      "zapis": true,
+      "ii": true,
+      "sms": true,
+      "istochnik": "call",
+      "at": "2026-09-13T14:02:39-04:00",
+      "kto": {
+        "tip": "kandidat",
+        "imya": "Marcus Boateng"
+      }
+    },
+    {
+      "telefon": "+19175550115",
+      "zapis": true,
+      "ii": true,
+      "sms": null,
+      "istochnik": "call",
+      "at": "2026-09-12T11:29:00-04:00",
+      "kto": null
+    }
+  ],
+  "zvonki": [
+    {
+      "conversation_id": "conv_demo_47c05a6dce13",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-30T13:18:52-04:00",
+      "dlitelnost_s": 313,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "perezvon",
+      "kratko": "HHA, Jamaica. Meets requirements; none of the offered times worked. Coordinator to call back.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19295550181",
+      "imya": "Latoya Mitchell",
+      "kandidat_id": "kand-128"
+    },
+    {
+      "conversation_id": "conv_demo_5a8a2463fdcd",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-30T12:00:21-04:00",
+      "dlitelnost_s": 507,
+      "yazyk": "en",
+      "namerenie": "semya",
+      "itog": "ocenka",
+      "kratko": "Family inquiry for care in Flatbush, about 20 hours a week, long-term care insurance, needed within a week or two. Home assessment booked for Fri, Oct 2, 2:00 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19295550140",
+      "imya": "Andre Forbes",
+      "semya_id": "sem-20260930-b26d0edd"
+    },
+    {
+      "conversation_id": "conv_demo_0e63245323e4",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-30T11:42:23-04:00",
+      "dlitelnost_s": 461,
+      "yazyk": "es",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Bushwick. Interview booked for Fri, Oct 2, 1:00 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19175550171",
+      "imya": "Wilson Peña",
+      "kandidat_id": "kand-127"
+    },
+    {
+      "conversation_id": "conv_demo_d0f2b78606db",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-30T10:02:34-04:00",
+      "dlitelnost_s": 243,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "list_ozhidaniya",
+      "kratko": "No certificate, Flushing. Shared where to get HHA training; added to the waitlist.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19175550108",
+      "imya": "Hui Min Liu",
+      "kandidat_id": "kand-126"
+    },
+    {
+      "conversation_id": "conv_demo_39126dbf3593",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-30T09:07:54-04:00",
+      "dlitelnost_s": 448,
+      "yazyk": "es",
+      "namerenie": "semya",
+      "itog": "soobshchenie",
+      "kratko": "Family inquiry for care in Corona, about 40 hours a week, private pay, needed within a few days. None of the assessment times worked; message left for the intake coordinator.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+17185550192",
+      "imya": "Esperanza Suárez",
+      "semya_id": "sem-20260930-c81992c7"
+    },
+    {
+      "conversation_id": "conv_demo_117affa38457",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-30T06:31:04-04:00",
+      "dlitelnost_s": 394,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Sheepshead Bay. Interview booked for Fri, Oct 2, 10:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550175",
+      "imya": "Irina Sadykova",
+      "kandidat_id": "kand-124"
+    },
+    {
+      "conversation_id": "conv_demo_5de12d7f7943",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-30T01:08:38-04:00",
+      "dlitelnost_s": 336,
+      "yazyk": "es",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Elmhurst. Interview booked for Thu, Oct 1, 11:30 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550183",
+      "imya": "Esperanza Guzmán",
+      "kandidat_id": "kand-123"
+    },
+    {
+      "conversation_id": "conv_demo_4dc9934478ba",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-29T22:12:40-04:00",
+      "dlitelnost_s": 200,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "ne_podhodit",
+      "kratko": "Lives in Staten Island and cannot travel to clients in Brooklyn or Queens. No card saved.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550191"
+    },
+    {
+      "conversation_id": "conv_demo_b38c88ce92e5",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-29T18:00:48-04:00",
+      "dlitelnost_s": 220,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "list_ozhidaniya",
+      "kratko": "CNA only, Flatbush. HHA or PCA is required; added to the waitlist for the coordinator to review.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550163",
+      "imya": "Widline Désir",
+      "kandidat_id": "kand-121"
+    },
+    {
+      "conversation_id": "conv_demo_78decd3a16c2",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-29T16:36:57-04:00",
+      "dlitelnost_s": 332,
+      "yazyk": "ru",
+      "namerenie": "semya",
+      "itog": "ocenka",
+      "kratko": "Family inquiry for care in Brighton Beach, about 25 hours a week, Medicaid, needed within a few days. Home assessment booked for Thu, Oct 1, 11:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19295550188",
+      "imya": "Olga Volkova",
+      "semya_id": "sem-20260929-d9fe3449"
+    },
+    {
+      "conversation_id": "conv_demo_2360a568c3cf",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-29T14:20:11-04:00",
+      "dlitelnost_s": 481,
+      "yazyk": "es",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Jackson Heights. Interview booked for Thu, Oct 1, 2:30 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+17185550187",
+      "imya": "Paola Vargas",
+      "kandidat_id": "kand-120"
+    },
+    {
+      "conversation_id": "conv_demo_3fa65541e6b5",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-29T11:36:39-04:00",
+      "dlitelnost_s": 335,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Canarsie. Interview booked for Thu, Oct 1, 10:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550119",
+      "imya": "Grace Adeyemi",
+      "kandidat_id": "kand-119"
+    },
+    {
+      "conversation_id": "conv_demo_9108297ba093",
+      "liniya": "care-caregivers",
+      "nachalo": "2026-09-29T10:11:00-04:00",
+      "dlitelnost_s": 90,
+      "yazyk": "ru",
+      "namerenie": "drugoe",
+      "itog": "perevod",
+      "kratko": "Lyudmila T.. Asked to speak with a coordinator about a client. Transferred to the coordinator.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550122",
+      "imya": "Lyudmila T."
+    },
+    {
+      "conversation_id": "conv_demo_c10bdc63c320",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-29T07:54:35-04:00",
+      "dlitelnost_s": 341,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "PCA, Brighton Beach. Interview booked for Wed, Sep 30, 11:30 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19175550166",
+      "imya": "Alla Kuzmina",
+      "kandidat_id": "kand-117"
+    },
+    {
+      "conversation_id": "conv_demo_94a4edb8480f",
+      "liniya": "care-caregivers",
+      "nachalo": "2026-09-29T05:30:01-04:00",
+      "dlitelnost_s": 84,
+      "yazyk": "es",
+      "namerenie": "otkaz",
+      "itog": "otkaz_prinyat",
+      "kratko": "Yolanda O. can't work the Tue, Sep 29, 9:00 AM shift for QN-121 (illness). Replacement search started.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550117",
+      "imya": "Yolanda O.",
+      "otkaz_id": "otk-08"
+    },
+    {
+      "conversation_id": "conv_demo_17b736c01b72",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-29T00:41:52-04:00",
+      "dlitelnost_s": 513,
+      "yazyk": "es",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Corona. Interview booked for Wed, Sep 30, 10:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19175550143",
+      "imya": "Yudelka Cruz",
+      "kandidat_id": "kand-116"
+    },
+    {
+      "conversation_id": "conv_demo_c2144264dec2",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-28T23:06:04-04:00",
+      "dlitelnost_s": 116,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "ne_podhodit",
+      "kratko": "No certificate, East Flatbush. Shared where to get HHA training; did not want to join the waitlist.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19295550132"
+    },
+    {
+      "conversation_id": "conv_demo_321c8a5a916f",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-28T23:05:01-04:00",
+      "dlitelnost_s": 298,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Bay Ridge. Interview booked for Thu, Oct 1, 1:00 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550174",
+      "imya": "Patrice Adeyemi",
+      "kandidat_id": "kand-109"
+    },
+    {
+      "conversation_id": "conv_demo_5457fdd32668",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-28T22:03:00-04:00",
+      "dlitelnost_s": 11,
+      "yazyk": "en",
+      "namerenie": "drugoe",
+      "itog": "sbros",
+      "kratko": "Caller hung up during the greeting.",
+      "soglasiya": {
+        "zapis": null,
+        "ii": null
+      },
+      "telefon": "+19175550172"
+    },
+    {
+      "conversation_id": "conv_demo_1a09cd2d96cf",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-28T11:02:10-04:00",
+      "dlitelnost_s": 419,
+      "yazyk": "en",
+      "namerenie": "semya",
+      "itog": "ocenka",
+      "kratko": "Family inquiry for care in Forest Hills, about 25 hours a week, Medicaid, needed within a week or two. Home assessment booked for Tue, Sep 29, 11:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19295550170",
+      "imya": "Marie-Claude Dorvil",
+      "semya_id": "sem-20260928-d0867ae5"
+    },
+    {
+      "conversation_id": "conv_demo_915405052e35",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-28T07:53:52-04:00",
+      "dlitelnost_s": 514,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Sheepshead Bay. Interview booked for Thu, Oct 1, 11:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19175550139",
+      "imya": "Alla Bondarenko",
+      "kandidat_id": "kand-108"
+    },
+    {
+      "conversation_id": "conv_demo_c0274e8a3c16",
+      "liniya": "care-caregivers",
+      "nachalo": "2026-09-28T06:48:58-04:00",
+      "dlitelnost_s": 87,
+      "yazyk": "en",
+      "namerenie": "otkaz",
+      "itog": "otkaz_prinyat",
+      "kratko": "Denise J. can't work the Mon, Sep 28, 1:00 PM shift for QN-107 (other reason). Replacement search started.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550103",
+      "imya": "Denise J.",
+      "otkaz_id": "otk-07"
+    },
+    {
+      "conversation_id": "conv_demo_1fc103bdddb5",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-28T00:28:39-04:00",
+      "dlitelnost_s": 335,
+      "yazyk": "es",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "PCA, Bushwick. Interview booked for Fri, Oct 2, 4:00 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550139",
+      "imya": "Altagracia Ortega",
+      "kandidat_id": "kand-107"
+    },
+    {
+      "conversation_id": "conv_demo_f87a3ca0ab82",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-27T18:15:00-04:00",
+      "dlitelnost_s": 17,
+      "yazyk": "en",
+      "namerenie": "drugoe",
+      "itog": "sbros",
+      "kratko": "Caller hung up during the greeting.",
+      "soglasiya": {
+        "zapis": null,
+        "ii": null
+      },
+      "telefon": "+19295550155"
+    },
+    {
+      "conversation_id": "conv_demo_0fe163c18372",
+      "liniya": "care-caregivers",
+      "nachalo": "2026-09-27T10:03:51-04:00",
+      "dlitelnost_s": 94,
+      "yazyk": "ru",
+      "namerenie": "otkaz",
+      "itog": "otkaz_prinyat",
+      "kratko": "Lyudmila S. can't work the Sun, Sep 27, 2:00 PM shift for QN-139 (family reasons). Replacement search started.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550124",
+      "imya": "Lyudmila S.",
+      "otkaz_id": "otk-05"
+    },
+    {
+      "conversation_id": "conv_demo_d41515660367",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-26T22:37:17-04:00",
+      "dlitelnost_s": 272,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "list_ozhidaniya",
+      "kratko": "CNA only, Crown Heights. HHA or PCA is required; added to the waitlist for the coordinator to review.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550134",
+      "imya": "Latoya Mitchell",
+      "kandidat_id": "kand-105"
+    },
+    {
+      "conversation_id": "conv_demo_8e752c8c4db8",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-26T12:02:04-04:00",
+      "dlitelnost_s": 176,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "ne_podhodit",
+      "kratko": "CNA only, Crown Heights. Explained that HHA or PCA is required; did not want to join the waitlist.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550185"
+    },
+    {
+      "conversation_id": "conv_demo_154df7d5f4c6",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-26T10:40:23-04:00",
+      "dlitelnost_s": 361,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Midwood. Interview booked for Tue, Sep 29, 1:00 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550162",
+      "imya": "Galina Morozova",
+      "kandidat_id": "kand-112"
+    },
+    {
+      "conversation_id": "conv_demo_5389a163b0ab",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-25T21:10:07-04:00",
+      "dlitelnost_s": 388,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Sunset Park. Interview booked for Mon, Sep 28, 10:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19295550121",
+      "imya": "Latoya Boateng",
+      "kandidat_id": "kand-103"
+    },
+    {
+      "conversation_id": "conv_demo_8589f0b083d3",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-25T19:09:41-04:00",
+      "dlitelnost_s": 199,
+      "yazyk": "es",
+      "namerenie": "rabota",
+      "itog": "ne_podhodit",
+      "kratko": "No certificate, Brighton Beach. Shared where to get HHA training; did not want to join the waitlist.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+17185550170"
+    },
+    {
+      "conversation_id": "conv_demo_02bb059184ed",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-25T17:58:27-04:00",
+      "dlitelnost_s": 496,
+      "yazyk": "en",
+      "namerenie": "semya",
+      "itog": "soobshchenie",
+      "kratko": "Family inquiry for care in Richmond Hill, about 20 hours a week, Medicaid, needed within a few days. None of the assessment times worked; message left for the intake coordinator.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550110",
+      "imya": "Tanya Clarke",
+      "semya_id": "sem-20260925-4637bde3"
+    },
+    {
+      "conversation_id": "conv_demo_283bab8318cd",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-25T16:39:10-04:00",
+      "dlitelnost_s": 230,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "ne_podhodit",
+      "kratko": "No certificate, Richmond Hill. Shared where to get HHA training; did not want to join the waitlist.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550149"
+    },
+    {
+      "conversation_id": "conv_demo_cc2a0a5d0c1e",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-25T02:11:40-04:00",
+      "dlitelnost_s": 434,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Forest Hills. Interview booked for Mon, Sep 28, 11:00 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19295550109",
+      "imya": "Tanya Robinson",
+      "kandidat_id": "kand-098"
+    },
+    {
+      "conversation_id": "conv_demo_adb6dd18b11b",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-24T22:09:45-04:00",
+      "dlitelnost_s": 325,
+      "yazyk": "en",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Brighton Beach. Interview booked for Mon, Sep 28, 2:00 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+19175550156",
+      "imya": "Andrea Forbes",
+      "kandidat_id": "kand-097"
+    },
+    {
+      "conversation_id": "conv_demo_113369e5f259",
+      "liniya": "care-caregivers",
+      "nachalo": "2026-09-24T20:45:39-04:00",
+      "dlitelnost_s": 106,
+      "yazyk": "en",
+      "namerenie": "otkaz",
+      "itog": "otkaz_prinyat",
+      "kratko": "Brenda A. can't work the Fri, Sep 25, 2:00 PM shift for QN-102 (family reasons). Replacement search started.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550102",
+      "imya": "Brenda A.",
+      "otkaz_id": "otk-02"
+    },
+    {
+      "conversation_id": "conv_demo_e9d20875878d",
+      "liniya": "care-caregivers",
+      "nachalo": "2026-09-24T14:56:00-04:00",
+      "dlitelnost_s": 188,
+      "yazyk": "ru",
+      "namerenie": "drugoe",
+      "itog": "perevod",
+      "kratko": "Irina B.. Asked to speak with a coordinator about a client. Transferred to the coordinator.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550126",
+      "imya": "Irina B."
+    },
+    {
+      "conversation_id": "conv_demo_6a630c534b7a",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-24T12:21:03-04:00",
+      "dlitelnost_s": 495,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "HHA, Brighton Beach. Interview booked for Mon, Sep 28, 1:00 PM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+13475550162",
+      "imya": "Dilnoza Bondarenko",
+      "kandidat_id": "kand-093"
+    },
+    {
+      "conversation_id": "conv_demo_ee8d0adf40d8",
+      "liniya": "care-hiring",
+      "nachalo": "2026-09-24T05:29:32-04:00",
+      "dlitelnost_s": 447,
+      "yazyk": "ru",
+      "namerenie": "rabota",
+      "itog": "zapisan",
+      "kratko": "PCA, Elmhurst. Interview booked for Fri, Sep 25, 9:30 AM.",
+      "soglasiya": {
+        "zapis": true,
+        "ii": true
+      },
+      "telefon": "+16465550120",
+      "imya": "Larisa Rakhimova",
+      "kandidat_id": "kand-092"
+    }
+  ],
+  "semi": [
+    {
+      "id": "sem-20260930-b26d0edd",
+      "created_at": "2026-09-30T12:05:00-04:00",
+      "conversation_id": "conv_demo_5a8a2463fdcd",
+      "kontakt": {
+        "imya": "Andre Forbes",
+        "telefon": "+19295550140"
+      },
+      "rayon": "Flatbush",
+      "zip": "11226",
+      "chasy_v_nedelyu": 20,
+      "oplata": "ltc",
+      "srochnost": "nedelya",
+      "yazyk": "en",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-10-02T14:00:00-04:00",
+        "end": "2026-10-02T15:00:00-04:00",
+        "event_id": "evt_demo_af27ef7bb0",
+        "zapisano_v": "2026-09-30T12:07:32-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-30T12:07:32-04:00"
+    },
+    {
+      "id": "sem-20260930-c81992c7",
+      "created_at": "2026-09-30T09:12:00-04:00",
+      "conversation_id": "conv_demo_39126dbf3593",
+      "kontakt": {
+        "imya": "Esperanza Suárez",
+        "telefon": "+17185550192"
+      },
+      "rayon": "Corona",
+      "zip": "11368",
+      "chasy_v_nedelyu": 40,
+      "oplata": "private",
+      "srochnost": "srochno",
+      "yazyk": "es",
+      "soglasiya": {
+        "sms": false
+      },
+      "ocenka": null,
+      "status": "new",
+      "updated_at": "2026-09-30T09:12:00-04:00"
+    },
+    {
+      "id": "sem-20260929-d9fe3449",
+      "created_at": "2026-09-29T16:40:00-04:00",
+      "conversation_id": "conv_demo_78decd3a16c2",
+      "kontakt": {
+        "imya": "Olga Volkova",
+        "telefon": "+19295550188"
+      },
+      "rayon": "Brighton Beach",
+      "zip": "11235",
+      "chasy_v_nedelyu": 25,
+      "oplata": "medicaid",
+      "srochnost": "srochno",
+      "yazyk": "ru",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-10-01T11:00:00-04:00",
+        "end": "2026-10-01T12:00:00-04:00",
+        "event_id": "evt_demo_0b4288a994",
+        "zapisano_v": "2026-09-29T16:41:39-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-29T16:41:39-04:00"
+    },
+    {
+      "id": "sem-20260928-d0867ae5",
+      "created_at": "2026-09-28T11:06:00-04:00",
+      "conversation_id": "conv_demo_1a09cd2d96cf",
+      "kontakt": {
+        "imya": "Marie-Claude Dorvil",
+        "telefon": "+19295550170"
+      },
+      "rayon": "Forest Hills",
+      "zip": "11375",
+      "chasy_v_nedelyu": 25,
+      "oplata": "medicaid",
+      "srochnost": "nedelya",
+      "yazyk": "en",
+      "soglasiya": {
+        "sms": false
+      },
+      "ocenka": {
+        "start": "2026-09-29T11:00:00-04:00",
+        "end": "2026-09-29T12:00:00-04:00",
+        "event_id": "evt_demo_a4c686dee7",
+        "zapisano_v": "2026-09-28T11:08:06-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-28T11:08:06-04:00"
+    },
+    {
+      "id": "sem-20260925-4637bde3",
+      "created_at": "2026-09-25T18:03:00-04:00",
+      "conversation_id": "conv_demo_02bb059184ed",
+      "kontakt": {
+        "imya": "Tanya Clarke",
+        "telefon": "+16465550110"
+      },
+      "rayon": "Richmond Hill",
+      "zip": "11418",
+      "chasy_v_nedelyu": 20,
+      "oplata": "medicaid",
+      "srochnost": "srochno",
+      "yazyk": "en",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": null,
+      "status": "new",
+      "updated_at": "2026-09-25T18:03:00-04:00"
+    },
+    {
+      "id": "sem-20260923-db81a165",
+      "created_at": "2026-09-23T12:52:00-04:00",
+      "conversation_id": "conv_demo_c38e4b7f7531",
+      "kontakt": {
+        "imya": "Leticia Polanco",
+        "telefon": "+19175550194"
+      },
+      "rayon": "Crown Heights",
+      "zip": "11213",
+      "chasy_v_nedelyu": 30,
+      "oplata": "medicaid",
+      "srochnost": "nedelya",
+      "yazyk": "es",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": null,
+      "status": "new",
+      "updated_at": "2026-09-23T12:52:00-04:00"
+    },
+    {
+      "id": "sem-20260922-cdaca23d",
+      "created_at": "2026-09-22T20:22:00-04:00",
+      "conversation_id": "conv_demo_85bfb408a837",
+      "kontakt": {
+        "imya": "Irina Melnyk",
+        "telefon": "+19295550190"
+      },
+      "rayon": "Flushing",
+      "zip": "11355",
+      "chasy_v_nedelyu": 25,
+      "oplata": "unknown",
+      "srochnost": "srochno",
+      "yazyk": "ru",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": null,
+      "status": "new",
+      "updated_at": "2026-09-22T20:22:00-04:00"
+    },
+    {
+      "id": "sem-20260921-bfcd7ad4",
+      "created_at": "2026-09-21T08:08:00-04:00",
+      "conversation_id": "conv_demo_4f26568dd252",
+      "kontakt": {
+        "imya": "Gulnara Sokolova",
+        "telefon": "+19175550102"
+      },
+      "rayon": "Flatbush",
+      "zip": "11226",
+      "chasy_v_nedelyu": 12,
+      "oplata": "private",
+      "srochnost": "nedelya",
+      "yazyk": "ru",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-09-24T10:00:00-04:00",
+        "end": "2026-09-24T11:00:00-04:00",
+        "event_id": "evt_demo_2611db937d",
+        "zapisano_v": "2026-09-21T08:10:37-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-21T08:10:37-04:00"
+    },
+    {
+      "id": "sem-20260918-186d498f",
+      "created_at": "2026-09-18T15:18:00-04:00",
+      "conversation_id": "conv_demo_21c2f604fdcc",
+      "kontakt": {
+        "imya": "Frantz Charles",
+        "telefon": "+16465550169"
+      },
+      "rayon": "Forest Hills",
+      "zip": "11375",
+      "chasy_v_nedelyu": 12,
+      "oplata": "unknown",
+      "srochnost": "nedelya",
+      "yazyk": "en",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-09-21T11:00:00-04:00",
+        "end": "2026-09-21T12:00:00-04:00",
+        "event_id": "evt_demo_2150962249",
+        "zapisano_v": "2026-09-18T15:20:07-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-18T15:20:07-04:00"
+    },
+    {
+      "id": "sem-20260917-b5f47acf",
+      "created_at": "2026-09-17T09:34:00-04:00",
+      "conversation_id": "conv_demo_a59cadf6f7ca",
+      "kontakt": {
+        "imya": "Keisha Grant",
+        "telefon": "+19295550152",
+        "email": "keisha.grant@example.com"
+      },
+      "rayon": "Sheepshead Bay",
+      "zip": "11229",
+      "chasy_v_nedelyu": 40,
+      "oplata": "unknown",
+      "srochnost": "srochno",
+      "yazyk": "en",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-09-18T13:00:00-04:00",
+        "end": "2026-09-18T14:00:00-04:00",
+        "event_id": "evt_demo_3f94aab14e",
+        "zapisano_v": "2026-09-17T09:36:05-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-17T09:36:05-04:00"
+    },
+    {
+      "id": "sem-20260916-f14bec6b",
+      "created_at": "2026-09-16T20:12:00-04:00",
+      "conversation_id": "conv_demo_64c6925d62bd",
+      "kontakt": {
+        "imya": "Wei Chen",
+        "telefon": "+19295550158",
+        "email": "wei.chen@example.com"
+      },
+      "rayon": "Forest Hills",
+      "zip": "11375",
+      "chasy_v_nedelyu": 12,
+      "oplata": "private",
+      "srochnost": "nedelya",
+      "yazyk": "en",
+      "soglasiya": {
+        "sms": false
+      },
+      "ocenka": {
+        "start": "2026-09-17T13:00:00-04:00",
+        "end": "2026-09-17T14:00:00-04:00",
+        "event_id": "evt_demo_442fcb3ff8",
+        "zapisano_v": "2026-09-16T20:13:30-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-16T20:13:30-04:00"
+    },
+    {
+      "id": "sem-20260913-13a79f26",
+      "created_at": "2026-09-13T14:07:00-04:00",
+      "conversation_id": "conv_demo_971b1f53c02f",
+      "kontakt": {
+        "imya": "Monique Asante",
+        "telefon": "+19175550161"
+      },
+      "rayon": "Borough Park",
+      "zip": "11219",
+      "chasy_v_nedelyu": 25,
+      "oplata": "unknown",
+      "srochnost": "nedelya",
+      "yazyk": "en",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-09-15T14:00:00-04:00",
+        "end": "2026-09-15T15:00:00-04:00",
+        "event_id": "evt_demo_b6424efe9a",
+        "zapisano_v": "2026-09-13T14:09:19-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-13T14:09:19-04:00"
+    },
+    {
+      "id": "sem-20260911-a50d95f5",
+      "created_at": "2026-09-11T10:51:00-04:00",
+      "conversation_id": "conv_demo_57c5d76f28ce",
+      "kontakt": {
+        "imya": "Galina Volkova",
+        "telefon": "+17185550175"
+      },
+      "rayon": "Brighton Beach",
+      "zip": "11235",
+      "chasy_v_nedelyu": 40,
+      "oplata": "private",
+      "srochnost": "srochno",
+      "yazyk": "ru",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": null,
+      "status": "new",
+      "updated_at": "2026-09-11T10:51:00-04:00"
+    },
+    {
+      "id": "sem-20260909-04289f9c",
+      "created_at": "2026-09-09T11:21:00-04:00",
+      "conversation_id": "conv_demo_54ac2dd4ad36",
+      "kontakt": {
+        "imya": "Olga Karimova",
+        "telefon": "+13475550161",
+        "email": "olga.karimova@example.com"
+      },
+      "rayon": "Elmhurst",
+      "zip": "11373",
+      "chasy_v_nedelyu": 12,
+      "oplata": "medicaid",
+      "srochnost": "pozzhe",
+      "yazyk": "ru",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-09-10T14:00:00-04:00",
+        "end": "2026-09-10T15:00:00-04:00",
+        "event_id": "evt_demo_de910504b7",
+        "zapisano_v": "2026-09-09T11:23:44-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-09T11:23:44-04:00"
+    },
+    {
+      "id": "sem-20260908-c6c2b9e8",
+      "created_at": "2026-09-08T11:21:00-04:00",
+      "conversation_id": "conv_demo_51bae16af03e",
+      "kontakt": {
+        "imya": "Yelena Petrenko",
+        "telefon": "+16465550140"
+      },
+      "rayon": "East Flatbush",
+      "zip": "11203",
+      "chasy_v_nedelyu": 20,
+      "oplata": "ltc",
+      "srochnost": "srochno",
+      "yazyk": "ru",
+      "soglasiya": {
+        "sms": true
+      },
+      "ocenka": {
+        "start": "2026-09-11T14:00:00-04:00",
+        "end": "2026-09-11T15:00:00-04:00",
+        "event_id": "evt_demo_8c413258b2",
+        "zapisano_v": "2026-09-08T11:22:27-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-08T11:22:27-04:00"
+    },
+    {
+      "id": "sem-20260904-c23187ae",
+      "created_at": "2026-09-04T10:42:00-04:00",
+      "conversation_id": "conv_demo_783012077ece",
+      "kontakt": {
+        "imya": "Yesenia Valdez",
+        "telefon": "+16465550157"
+      },
+      "rayon": "Corona",
+      "zip": "11368",
+      "chasy_v_nedelyu": 20,
+      "oplata": "private",
+      "srochnost": "nedelya",
+      "yazyk": "es",
+      "soglasiya": {
+        "sms": false
+      },
+      "ocenka": {
+        "start": "2026-09-07T14:00:00-04:00",
+        "end": "2026-09-07T15:00:00-04:00",
+        "event_id": "evt_demo_94ce0c025a",
+        "zapisano_v": "2026-09-04T10:43:55-04:00"
+      },
+      "status": "booked",
+      "updated_at": "2026-09-04T10:43:55-04:00"
+    }
+  ],
+  "zhurnal": [
+    {
+      "at": "2026-09-30T13:24:21-04:00",
+      "kto": "itog",
+      "chto": "soglasie",
+      "obekt": "zvonki/conv_demo_47c05a6dce13",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "zapis": true,
+          "ii": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T13:24:20-04:00",
+      "kto": "itog",
+      "chto": "zvonok_itog",
+      "obekt": "zvonki/conv_demo_47c05a6dce13",
+      "detali": {
+        "liniya": "care-hiring",
+        "namerenie": "rabota",
+        "itog": "perezvon",
+        "dlitelnost_s": 313,
+        "raskrytie_ii": true,
+        "soobshchenie": false
+      }
+    },
+    {
+      "at": "2026-09-30T13:22:01-04:00",
+      "kto": "agent",
+      "chto": "soglasie",
+      "obekt": "kandidaty/kand-128",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "sms": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T13:22:00-04:00",
+      "kto": "agent",
+      "chto": "kandidat_novyy",
+      "obekt": "kandidaty/kand-128",
+      "detali": {
+        "status": "new",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T13:18:52-04:00",
+      "kto": "vhod",
+      "chto": "zvonok_vhod",
+      "obekt": null,
+      "detali": {
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T13:13:00-04:00",
+      "kto": "dezhurnyy",
+      "chto": "eskalaciya_prinyata",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "nomer": "+16465550161",
+        "i": 0
+      }
+    },
+    {
+      "at": "2026-09-30T13:11:01-04:00",
+      "kto": "zamena",
+      "chto": "eskalaciya_zvonok",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "nomer_v_cepochke": 0,
+        "komu": "+16465550161",
+        "prichina": "nikto_ne_otvetil",
+        "dry_run": false,
+        "ok": true
+      }
+    },
+    {
+      "at": "2026-09-30T13:11:00-04:00",
+      "kto": "zamena",
+      "chto": "zvonok_nachat",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "komu": "+16465550161",
+        "sid": "CA3979ec704d2799d2b4b11363eba1f0f6"
+      }
+    },
+    {
+      "at": "2026-09-30T12:56:08-04:00",
+      "kto": "zamena",
+      "chto": "volna_sleduyushchaya",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "sidelki": [
+          "CG-010"
+        ],
+        "otpravleno": 1
+      }
+    },
+    {
+      "at": "2026-09-30T12:56:02-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "komu": "+13475550109",
+        "sid": "SMebf39e7fcec03927d5dee0f6de540fc7"
+      }
+    },
+    {
+      "at": "2026-09-30T12:49:01-04:00",
+      "kto": "sms",
+      "chto": "otvet_net",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "sidelka_id": "CG-018",
+        "rezultat": "otkaz_prinyat"
+      }
+    },
+    {
+      "at": "2026-09-30T12:49:00-04:00",
+      "kto": "sms",
+      "chto": "sms_vhod",
+      "obekt": "sidelki/CG-018",
+      "detali": {
+        "ot": "+13475550117",
+        "tip": "net",
+        "tekst": "NO 11",
+        "liniya": "care-caregivers"
+      }
+    },
+    {
+      "at": "2026-09-30T12:41:08-04:00",
+      "kto": "zamena",
+      "chto": "volna_pervaya",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "sidelki": [
+          "CG-019",
+          "CG-018",
+          "CG-012"
+        ],
+        "otpravleno": 3
+      }
+    },
+    {
+      "at": "2026-09-30T12:41:04-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "komu": "+13475550111",
+        "sid": "SM09b3703d4d0575456592cf72140fea30"
+      }
+    },
+    {
+      "at": "2026-09-30T12:41:03-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "komu": "+13475550117",
+        "sid": "SM841e994ee70391edc9082e62f1e59975"
+      }
+    },
+    {
+      "at": "2026-09-30T12:41:02-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "komu": "+13475550118",
+        "sid": "SM470ed5e2e6aa6af2bdaf024d9f478ee0"
+      }
+    },
+    {
+      "at": "2026-09-30T12:40:22-04:00",
+      "kto": "sms",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "komu": "+13475550119",
+        "sid": "SMca0571962dee02869de8664366f92c39"
+      }
+    },
+    {
+      "at": "2026-09-30T12:40:20-04:00",
+      "kto": "sms",
+      "chto": "otkaz_ot_smeny",
+      "obekt": "otkazy/otk-11",
+      "detali": {
+        "smena_id": "SM-0134-0930",
+        "sidelka_id": "CG-020",
+        "prichina": "semya"
+      }
+    },
+    {
+      "at": "2026-09-30T12:40:00-04:00",
+      "kto": "sms",
+      "chto": "sms_vhod",
+      "obekt": "sidelki/CG-020",
+      "detali": {
+        "ot": "+13475550119",
+        "tip": "otkaz",
+        "tekst": "Hoy no puedo ir a las 4, es un problema familiar. Beatriz",
+        "liniya": "care-caregivers"
+      }
+    },
+    {
+      "at": "2026-09-30T12:09:04-04:00",
+      "kto": "itog",
+      "chto": "soglasie",
+      "obekt": "zvonki/conv_demo_5a8a2463fdcd",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "zapis": true,
+          "ii": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T12:09:03-04:00",
+      "kto": "itog",
+      "chto": "zvonok_itog",
+      "obekt": "zvonki/conv_demo_5a8a2463fdcd",
+      "detali": {
+        "liniya": "care-hiring",
+        "namerenie": "semya",
+        "itog": "ocenka",
+        "dlitelnost_s": 507,
+        "raskrytie_ii": true,
+        "soobshchenie": false
+      }
+    },
+    {
+      "at": "2026-09-30T12:07:36-04:00",
+      "kto": "agent",
+      "chto": "sms_otpravleno",
+      "obekt": "semi/sem-20260930-b26d0edd",
+      "detali": {
+        "komu": "+19295550140",
+        "sid": "SMb4fa43fb90fb8f0a0f29d3657507b85d"
+      }
+    },
+    {
+      "at": "2026-09-30T12:07:32-04:00",
+      "kto": "agent",
+      "chto": "zapis",
+      "obekt": "semi/sem-20260930-b26d0edd",
+      "detali": {
+        "tip": "ocenka",
+        "start": "2026-10-02T14:00:00-04:00",
+        "event_id": "evt_demo_af27ef7bb0",
+        "pismo": null,
+        "sms": "otpravleno",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T12:05:01-04:00",
+      "kto": "agent",
+      "chto": "soglasie",
+      "obekt": "semi/sem-20260930-b26d0edd",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "sms": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T12:05:00-04:00",
+      "kto": "agent",
+      "chto": "semya_novaya",
+      "obekt": "semi/sem-20260930-b26d0edd",
+      "detali": {
+        "oplata": "ltc",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T12:00:21-04:00",
+      "kto": "vhod",
+      "chto": "zvonok_vhod",
+      "obekt": null,
+      "detali": {
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T11:50:20-04:00",
+      "kto": "itog",
+      "chto": "soglasie",
+      "obekt": "zvonki/conv_demo_0e63245323e4",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "zapis": true,
+          "ii": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T11:50:19-04:00",
+      "kto": "itog",
+      "chto": "zvonok_itog",
+      "obekt": "zvonki/conv_demo_0e63245323e4",
+      "detali": {
+        "liniya": "care-hiring",
+        "namerenie": "rabota",
+        "itog": "zapisan",
+        "dlitelnost_s": 461,
+        "raskrytie_ii": true,
+        "soobshchenie": false
+      }
+    },
+    {
+      "at": "2026-09-30T11:48:59-04:00",
+      "kto": "agent",
+      "chto": "sms_otpravleno",
+      "obekt": "kandidaty/kand-127",
+      "detali": {
+        "komu": "+19175550171",
+        "sid": "SM4855396aa8956295d7ea4ba7f57cda77"
+      }
+    },
+    {
+      "at": "2026-09-30T11:48:58-04:00",
+      "kto": "agent",
+      "chto": "pismo_otpravleno",
+      "obekt": "kandidaty/kand-127",
+      "detali": {
+        "komu": [
+          "wilson.pena@example.com"
+        ],
+        "tema": "Brightside Home Care (DEMO): your appointment on Friday, October 2 at 1:00 PM",
+        "id": "em_demo_b7ded586b7"
+      }
+    },
+    {
+      "at": "2026-09-30T11:48:55-04:00",
+      "kto": "agent",
+      "chto": "zapis",
+      "obekt": "kandidaty/kand-127",
+      "detali": {
+        "tip": "sobesedovanie",
+        "start": "2026-10-02T13:00:00-04:00",
+        "event_id": "evt_demo_8c38ece697",
+        "pismo": "otpravleno",
+        "sms": "otpravleno",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T11:47:01-04:00",
+      "kto": "agent",
+      "chto": "soglasie",
+      "obekt": "kandidaty/kand-127",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "sms": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T11:47:00-04:00",
+      "kto": "agent",
+      "chto": "kandidat_novyy",
+      "obekt": "kandidaty/kand-127",
+      "detali": {
+        "status": "new",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T11:42:23-04:00",
+      "kto": "vhod",
+      "chto": "zvonok_vhod",
+      "obekt": null,
+      "detali": {
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T10:06:53-04:00",
+      "kto": "itog",
+      "chto": "soglasie",
+      "obekt": "zvonki/conv_demo_d0f2b78606db",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "zapis": true,
+          "ii": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T10:06:52-04:00",
+      "kto": "itog",
+      "chto": "zvonok_itog",
+      "obekt": "zvonki/conv_demo_d0f2b78606db",
+      "detali": {
+        "liniya": "care-hiring",
+        "namerenie": "rabota",
+        "itog": "list_ozhidaniya",
+        "dlitelnost_s": 243,
+        "raskrytie_ii": true,
+        "soobshchenie": false
+      }
+    },
+    {
+      "at": "2026-09-30T10:05:01-04:00",
+      "kto": "agent",
+      "chto": "soglasie",
+      "obekt": "kandidaty/kand-126",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "sms": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T10:05:00-04:00",
+      "kto": "agent",
+      "chto": "kandidat_novyy",
+      "obekt": "kandidaty/kand-126",
+      "detali": {
+        "status": "waitlist",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T10:02:34-04:00",
+      "kto": "vhod",
+      "chto": "zvonok_vhod",
+      "obekt": null,
+      "detali": {
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T09:15:40-04:00",
+      "kto": "itog",
+      "chto": "pismo_otpravleno",
+      "obekt": "zvonki/conv_demo_39126dbf3593",
+      "detali": {
+        "komu": [
+          "intake@brightside.example.com"
+        ],
+        "tema": "Brightside Home Care (DEMO): message from Esperanza Suárez",
+        "id": "em_demo_953715f53b"
+      }
+    },
+    {
+      "at": "2026-09-30T09:15:38-04:00",
+      "kto": "itog",
+      "chto": "soglasie",
+      "obekt": "zvonki/conv_demo_39126dbf3593",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "zapis": true,
+          "ii": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T09:15:37-04:00",
+      "kto": "itog",
+      "chto": "zvonok_itog",
+      "obekt": "zvonki/conv_demo_39126dbf3593",
+      "detali": {
+        "liniya": "care-hiring",
+        "namerenie": "semya",
+        "itog": "soobshchenie",
+        "dlitelnost_s": 448,
+        "raskrytie_ii": true,
+        "soobshchenie": true
+      }
+    },
+    {
+      "at": "2026-09-30T09:12:01-04:00",
+      "kto": "agent",
+      "chto": "soglasie",
+      "obekt": "semi/sem-20260930-c81992c7",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "sms": false
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T09:12:00-04:00",
+      "kto": "agent",
+      "chto": "semya_novaya",
+      "obekt": "semi/sem-20260930-c81992c7",
+      "detali": {
+        "oplata": "private",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T09:07:54-04:00",
+      "kto": "vhod",
+      "chto": "zvonok_vhod",
+      "obekt": null,
+      "detali": {
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T08:20:00-04:00",
+      "kto": "sms",
+      "chto": "kandidat_novyy",
+      "obekt": "kandidaty/kand-125",
+      "detali": {
+        "status": "booked",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T07:00:05-04:00",
+      "kto": "svodka",
+      "chto": "svodka",
+      "obekt": "svodki/2026-09-30",
+      "detali": {
+        "tema": "Brightside Home Care (DEMO), Tue, Sep 29: 9 calls, 4 interviews booked, 1 shift not filled, 24 EVV issues to fix",
+        "komu": 1,
+        "rezultat": "otpravleno"
+      }
+    },
+    {
+      "at": "2026-09-30T07:00:04-04:00",
+      "kto": "svodka",
+      "chto": "pismo_otpravleno",
+      "obekt": "svodki/2026-09-30",
+      "detali": {
+        "komu": [
+          "owner@brightside.example.com"
+        ],
+        "tema": "Brightside Home Care (DEMO), Tue, Sep 29: 9 calls, 4 interviews booked, 1 shift not filled, 24 EVV issues to fix",
+        "id": "em_demo_bcbb786490"
+      }
+    },
+    {
+      "at": "2026-09-30T06:37:54-04:00",
+      "kto": "itog",
+      "chto": "soglasie",
+      "obekt": "zvonki/conv_demo_117affa38457",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "zapis": true,
+          "ii": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T06:37:53-04:00",
+      "kto": "itog",
+      "chto": "zvonok_itog",
+      "obekt": "zvonki/conv_demo_117affa38457",
+      "detali": {
+        "liniya": "care-hiring",
+        "namerenie": "rabota",
+        "itog": "zapisan",
+        "dlitelnost_s": 394,
+        "raskrytie_ii": true,
+        "soobshchenie": false
+      }
+    },
+    {
+      "at": "2026-09-30T06:36:43-04:00",
+      "kto": "agent",
+      "chto": "sms_otpravleno",
+      "obekt": "kandidaty/kand-124",
+      "detali": {
+        "komu": "+13475550175",
+        "sid": "SM441e484f6777bdef30c5f72f5bbee0c2"
+      }
+    },
+    {
+      "at": "2026-09-30T06:36:39-04:00",
+      "kto": "agent",
+      "chto": "zapis",
+      "obekt": "kandidaty/kand-124",
+      "detali": {
+        "tip": "sobesedovanie",
+        "start": "2026-10-02T10:00:00-04:00",
+        "event_id": "evt_demo_04ad74afc5",
+        "pismo": null,
+        "sms": "otpravleno",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T06:35:01-04:00",
+      "kto": "agent",
+      "chto": "soglasie",
+      "obekt": "kandidaty/kand-124",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "sms": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T06:35:00-04:00",
+      "kto": "agent",
+      "chto": "kandidat_novyy",
+      "obekt": "kandidaty/kand-124",
+      "detali": {
+        "status": "new",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T06:31:04-04:00",
+      "kto": "vhod",
+      "chto": "zvonok_vhod",
+      "obekt": null,
+      "detali": {
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T05:16:02-04:00",
+      "kto": "sms",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550111",
+        "sid": "SMf1e422bae76303cc2730f34dde7a53c1"
+      }
+    },
+    {
+      "at": "2026-09-30T05:16:01-04:00",
+      "kto": "sms",
+      "chto": "otvet_da",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "sidelka_id": "CG-012",
+        "rezultat": "zanyato"
+      }
+    },
+    {
+      "at": "2026-09-30T05:16:00-04:00",
+      "kto": "sms",
+      "chto": "sms_vhod",
+      "obekt": "sidelki/CG-012",
+      "detali": {
+        "ot": "+13475550111",
+        "tip": "da",
+        "tekst": "YES 10",
+        "liniya": "care-caregivers"
+      }
+    },
+    {
+      "at": "2026-09-30T05:14:09-04:00",
+      "kto": "zamena",
+      "chto": "pismo_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": [
+          "intake@brightside.example.com"
+        ],
+        "tema": "Brightside Home Care (DEMO): shift filled, Wednesday, September 30 at 12:00 PM",
+        "id": "em_demo_816e976061"
+      }
+    },
+    {
+      "at": "2026-09-30T05:14:05-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550131",
+        "sid": "SM393404b517202fa967195f225f4e71c6"
+      }
+    },
+    {
+      "at": "2026-09-30T05:14:04-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550111",
+        "sid": "SM538656d4bd179f35e65b14c52a40ce2b"
+      }
+    },
+    {
+      "at": "2026-09-30T05:14:03-04:00",
+      "kto": "sms",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550139",
+        "sid": "SM5b2b4e2f9c95b9aa2d96c4ea39302b19"
+      }
+    },
+    {
+      "at": "2026-09-30T05:14:02-04:00",
+      "kto": "sms",
+      "chto": "smena_zakreplena",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "sidelka_id": "CG-040",
+        "smena_id": "SM-0118-0930"
+      }
+    },
+    {
+      "at": "2026-09-30T05:14:01-04:00",
+      "kto": "sms",
+      "chto": "otvet_da",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "sidelka_id": "CG-040",
+        "rezultat": "zakreplena"
+      }
+    },
+    {
+      "at": "2026-09-30T05:14:00-04:00",
+      "kto": "sms",
+      "chto": "sms_vhod",
+      "obekt": "sidelki/CG-040",
+      "detali": {
+        "ot": "+13475550139",
+        "tip": "da",
+        "tekst": "YES 10",
+        "liniya": "care-caregivers"
+      }
+    },
+    {
+      "at": "2026-09-30T05:03:08-04:00",
+      "kto": "zamena",
+      "chto": "volna_pervaya",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "sidelki": [
+          "CG-040",
+          "CG-012",
+          "CG-032"
+        ],
+        "otpravleno": 3
+      }
+    },
+    {
+      "at": "2026-09-30T05:03:04-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550131",
+        "sid": "SM886ca38eb0deda32787516dbbf63199d"
+      }
+    },
+    {
+      "at": "2026-09-30T05:03:03-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550111",
+        "sid": "SMde5b2cfc48beb62e0f7da547e8ebdf1d"
+      }
+    },
+    {
+      "at": "2026-09-30T05:03:02-04:00",
+      "kto": "zamena",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550139",
+        "sid": "SM744cf9dbf07897f991384b7b41e68860"
+      }
+    },
+    {
+      "at": "2026-09-30T05:02:22-04:00",
+      "kto": "sms",
+      "chto": "sms_otpravleno",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "komu": "+13475550101",
+        "sid": "SMa46376c96de648d585ddaec3bd80d2f5"
+      }
+    },
+    {
+      "at": "2026-09-30T05:02:20-04:00",
+      "kto": "sms",
+      "chto": "otkaz_ot_smeny",
+      "obekt": "otkazy/otk-10",
+      "detali": {
+        "smena_id": "SM-0118-0930",
+        "sidelka_id": "CG-002",
+        "prichina": "bolezn"
+      }
+    },
+    {
+      "at": "2026-09-30T05:02:00-04:00",
+      "kto": "sms",
+      "chto": "sms_vhod",
+      "obekt": "sidelki/CG-002",
+      "detali": {
+        "ot": "+13475550101",
+        "tip": "otkaz",
+        "tekst": "Hi, it's Sharon. I'm sick today and can't do my 12pm shift.",
+        "liniya": "care-caregivers"
+      }
+    },
+    {
+      "at": "2026-09-30T01:14:30-04:00",
+      "kto": "itog",
+      "chto": "soglasie",
+      "obekt": "zvonki/conv_demo_5de12d7f7943",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "zapis": true,
+          "ii": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T01:14:29-04:00",
+      "kto": "itog",
+      "chto": "zvonok_itog",
+      "obekt": "zvonki/conv_demo_5de12d7f7943",
+      "detali": {
+        "liniya": "care-hiring",
+        "namerenie": "rabota",
+        "itog": "zapisan",
+        "dlitelnost_s": 336,
+        "raskrytie_ii": true,
+        "soobshchenie": false
+      }
+    },
+    {
+      "at": "2026-09-30T01:13:28-04:00",
+      "kto": "agent",
+      "chto": "sms_otpravleno",
+      "obekt": "kandidaty/kand-123",
+      "detali": {
+        "komu": "+16465550183",
+        "sid": "SMe2b7e57f0410ce704f6bd2311b3b8911"
+      }
+    },
+    {
+      "at": "2026-09-30T01:13:27-04:00",
+      "kto": "agent",
+      "chto": "pismo_otpravleno",
+      "obekt": "kandidaty/kand-123",
+      "detali": {
+        "komu": [
+          "esperanza.guzman@example.com"
+        ],
+        "tema": "Brightside Home Care (DEMO): your appointment on Thursday, October 1 at 11:30 AM",
+        "id": "em_demo_e25821258b"
+      }
+    },
+    {
+      "at": "2026-09-30T01:13:24-04:00",
+      "kto": "agent",
+      "chto": "zapis",
+      "obekt": "kandidaty/kand-123",
+      "detali": {
+        "tip": "sobesedovanie",
+        "start": "2026-10-01T11:30:00-04:00",
+        "event_id": "evt_demo_7d47663d58",
+        "pismo": "otpravleno",
+        "sms": "otpravleno",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T01:12:01-04:00",
+      "kto": "agent",
+      "chto": "soglasie",
+      "obekt": "kandidaty/kand-123",
+      "detali": {
+        "bylo": {
+          "zapis": null,
+          "ii": null,
+          "sms": null
+        },
+        "stalo": {
+          "sms": true
+        },
+        "istochnik": "call"
+      }
+    },
+    {
+      "at": "2026-09-30T01:12:00-04:00",
+      "kto": "agent",
+      "chto": "kandidat_novyy",
+      "obekt": "kandidaty/kand-123",
+      "detali": {
+        "status": "new",
+        "liniya": "care-hiring"
+      }
+    },
+    {
+      "at": "2026-09-30T01:08:38-04:00",
+      "kto": "vhod",
+      "chto": "zvonok_vhod",
+      "obekt": null,
+      "detali": {
+        "liniya": "care-hiring"
+      }
+    }
+  ],
+  "pometka": "DEMO: all agencies, people, phone numbers (555-01xx) and records here are fictional."
+}

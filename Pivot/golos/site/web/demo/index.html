@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Поговорить с Верой — Business Intelligence DNA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fon:#0F1211; --panel:#161A17; --liniya:#272D29;
+  --tekst:#E7EBE6; --tusklo:#95A099; --seryy:#C3CBC5;
+  --zel:#55C79A; --krasn:#E2566A; --zhelt:#E3C17A;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --disp:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fon);color:var(--tekst);font:15px/1.5 var(--mono);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
+button:focus-visible,input:focus-visible{outline:2px solid var(--zel);outline-offset:3px}
+
+.karta{width:100%;max-width:400px;background:linear-gradient(168deg,#1A211D,#0D1211 62%);
+  border:1px solid rgba(85,199,154,.2);border-radius:26px;padding:26px 22px 20px;
+  box-shadow:0 22px 60px rgba(0,0,0,.5);text-align:center}
+
+#avatar{width:104px;height:104px;margin:0 auto;border-radius:50%;position:relative;overflow:hidden;
+  border:1px solid rgba(85,199,154,.28);background:#162A25}
+#avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.live #avatar{box-shadow:0 0 0 6px rgba(85,199,154,.12)}
+.imya{font:700 21px var(--disp);color:#fff;margin-top:14px}
+.rol{font:500 10px var(--mono);color:var(--tusklo);letter-spacing:.14em;text-transform:uppercase;margin-top:5px}
+
+#sost{font:500 13px var(--mono);color:var(--zel);margin-top:14px;min-height:20px}
+
+.taymer{margin:14px auto 0;max-width:260px}
+#vremya{font:600 38px/1 var(--mono);color:#fff;letter-spacing:.02em}
+.polosa{height:4px;background:var(--liniya);border-radius:3px;margin-top:10px;overflow:hidden}
+#polosa{height:100%;width:100%;background:var(--zel);transition:width 1s linear,background .3s}
+.malo #vremya{color:var(--zhelt)} .malo #polosa{background:var(--zhelt)}
+
+#podpis{font:400 12.5px/1.5 var(--mono);color:var(--seryy);min-height:58px;max-height:58px;overflow:hidden;
+  margin:14px 2px 0;text-align:left}
+#podpis .kto{color:var(--tusklo)} #podpis .vera{color:var(--zel)}
+
+.knopka{margin-top:14px;width:100%;border:none;border-radius:14px;padding:15px 16px;cursor:pointer;
+  font:600 15px var(--disp);color:#0F1211;background:radial-gradient(circle at 30% 30%,#6BE3B1,#2E9B6E);
+  transition:transform .12s,opacity .2s}
+.knopka:active{transform:scale(.98)}
+.knopka.otboy{background:radial-gradient(circle at 30% 30%,#F0788A,#B32B40);color:#fff}
+.knopka[disabled]{opacity:.45;cursor:default}
+
+.pod{font:400 11px/1.5 var(--mono);color:var(--tusklo);margin-top:14px}
+.pod a{color:var(--seryy)}
+
+#forma{display:none;margin-top:16px;text-align:left}
+#forma p{font-size:13px;color:var(--seryy);margin:0 0 10px}
+#forma input[type=email],#forma input[type=text]{width:100%;background:#0A0D0C;border:1px solid var(--liniya);
+  border-radius:10px;color:var(--tekst);font:15px var(--mono);padding:12px;margin-bottom:8px}
+#forma .lovushka{position:absolute;left:-9999px}
+#formaOtvet{font-size:13px;margin-top:8px;min-height:18px}
+</style>
+</head>
+<body>
+<main class="karta" id="karta">
+  <div id="avatar"><img src="../img/vera-risovannaya-2.jpg" alt="Вера" width="104" height="104"></div>
+  <div class="imya">Вера</div>
+  <div class="rol">виртуальный ассистент · демо</div>
+  <div id="sost">Поговорите со мной три минуты</div>
+
+  <div class="taymer" id="taymerBlok" hidden>
+    <div id="vremya">3:00</div>
+    <div class="polosa"><div id="polosa"></div></div>
+  </div>
+
+  <div id="podpis" aria-live="polite"></div>
+
+  <button class="knopka" id="knopka">Позвонить Вере</button>
+
+  <form id="forma" novalidate>
+    <p id="formaTekst">Сейчас все линии заняты. Оставьте почту — пришлём, с чего начать.</p>
+    <input type="email" id="fEmail" placeholder="name@example.com" autocomplete="email" inputmode="email" required>
+    <input type="text" id="fImya" placeholder="Как к вам обращаться (необязательно)" autocomplete="name">
+    <input type="text" class="lovushka" id="fSayt" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="knopka" id="fKnopka" type="submit">Прислать</button>
+    <div id="formaOtvet"></div>
+  </form>
+
+  <div class="pod">
+    Вы говорите с программой, а не с человеком. Нужен микрофон.<br>
+    Звук не записывается, остаётся текст разговора · <a href="https://businessinteldna.com/privacy" target="_blank" rel="noopener">конфиденциальность</a>
+  </div>
+</main>
+<script src="demo.js"></script>
+</body>
+</html>

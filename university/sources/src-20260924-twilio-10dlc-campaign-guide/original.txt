@@ -1,0 +1,260 @@
+Overview
+All new A2P 10DLC Campaigns go through a vetting process to protect the messaging ecosystem for everyone and make sure everything aligns with carrier requirements and CTIA guidelines. 
+This guide will walk you through exactly what you need to prepare before you register, so you can get approved smoothly the first time.
+What You Need To Know
+Campaign Details & Description
+This section is all about defining what your campaign is and who it's for. Let's break it down.
+Campaign Use Case
+(Console Label: Use cases | API Field: us_app_to_person_usecase)
+Pick the use case that best matches your message content. Getting this right helps reviewers understand your campaign.
+Standard Use Cases
+Two-factor authentication (2FA): Authentication and one-time passwords
+Account notification: Updates about account status
+Agents and franchises: Brands with multiple agents, franchises, or offices in the same industry that need separate local numbers for each location or representative.
+Customer care: Support and account management messages
+Delivery notification: Shipping and delivery updates
+Emergency: Public safety or health notifications during national or regional emergencies
+Fraud alert messaging: Spending alerts and potential fraud warnings
+Higher education: Messages from colleges and universities
+K-12 education: Messages from K-12 education institutions
+Marketing: Promotional content, sales, and special offers
+Mixed: When you're sending multiple types of messages (note: this comes with higher costs and lower throughput)
+Polling and voting: Surveys and polls (non-political)
+Proxy: Peer-to-peer app-based group messaging with proxy/pooled numbers. 
+Public service announcement: PSAs and community alerts
+Security alert: Notifications about compromised systems
+Social: Communication between public figures/influences and their communities. 
+Sweepstake: Messages regarding entry confirmations, prize drawings, giveaways, or contest winner announcements.
+Low Volume Use Cases 
+Low volume mixed: Used to send messages of multiple use cases such as customer care and delivery notifications. Note: Low Volume Campaigns operates on the lowest throughput tier, regardless of the Brand's Trust Score. 
+Sole proprietor: Specifically designed for Sole Proprietor A2P Brands. Note: This option will only be displayed during Campaign creation when a Sole Proprietor A2P Brand has been selected.
+Special Use Cases 
+Some campaigns qualify as Special Use Cases, which can mean higher messaging throughput and lower carrier fees. A few of these are sensitive or critical and need additional approval. Learn more about special use cases.
+Campaign Description
+(Console Label: Campaign description | API Field: description)
+Your campaign description needs to answer three questions: 
+Who is sending the message?
+Who is receiving it? 
+Why are they receiving it?
+Your campaign description also needs to match the campaign type you selected and your sample messages. Keeping these consistent helps your registration get approved. Double-check that your campaign description matches your brand registration. If your brand name, website, or other details have changed since you registered your brand, make sure your campaign description reflects the current registered info to avoid rejection.
+Please don't include any Personal Identifiable Information (PII) in the Campaign Description field. Publicly available info like brand names and phone numbers is fine.
+If you're a financial institution engaged in direct, first-party lending, you must mention "Direct Lending" in your description, even if you're only sending OTP/2FA messages.
+This works | 
+This doesn't | 
+"Messages are sent by {Brand Name} to existing customers who have opted in. Messages include OTP codes for MFA logging into our online portal and security alerts regarding profile changes." | 
+"We send texts to people." (Too vague, no brand, no recipient info, no purpose)
+ | 
+"Messages are sent by {Brand Name} to patients with upcoming appointments. Messages include appointment reminders, rescheduling options, and post-visit care instructions." | 
+"John Smith at 555-123-4567 receives appointment reminders from our dental office." (Contains PII)
+ | 
+"Messages are sent by {Financial Institution} (Direct Lending) to loan applicants. Messages include application status updates and payment reminders." (Direct lending disclosed)
+ | 
+"Messages are sent by {ISV Name} to dental patients." (ISV registered instead of the actual dental practice)
+ | 
+"Messages are sent by {Brand Name} to customers who schedule service. Messages include appointment confirmations and vehicle ready notifications." | 
+"Messages are sent by {ISV Name} to auto repair customers." (Platform/ISV name instead of end business)
+ | 
+Message Flow 
+(Console Label: How do end-users consent to receive messages? | API Field: message_flow)
+This is the heart of your registration, and it's also where most rejections happen. Your message flow needs to include a clear description of the opt-in method(s) you use to collect consent. If you use multiple opt-in methods for the same campaign (like both a website form and a text keyword campaign), you’ll be asked to provide a description of how end-users consent to receive messages and a visual example of the opt-in proof for each of them.
+In the message flow, we’re checking to make sure that the call-to-action and the right disclosures are displayed at the time of phone number collection. A call-to-action is the language that invites someone to sign up for your messaging program. Here’s what your message flow needs to include for each opt-in method:
+Web form
+Field: Message flow: How do end-users consent to receive messages? 
+Your response should answer three questions: 
+Where do users see the opt-in? 
+How do they consent to receive messages? 
+What happens after they’ve opted-in? 
+Example answer: “End users opt-in by web form by visiting the Acme website contact form [insert webform URL here] and adding their phone number. They then check a box agreeing to receive text messages from Acme, Inc. After submitting the form they receive a confirmation message that they have been opted-in to Acme SMS messages."
+What if my web form isn’t live yet or is behind a login?
+If your web form isn’t live yet, or is behind a login, provide a publicly accessible URL link to a screenshot or image of your webform via Google Drive, OneDrive, etc. Also be sure to include a screenshot of what the form looks like after it has been submitted.
+A compliant web form must include all of the following: 
+Phone number input field
+Checkbox for consent (must NOT be pre-selected)
+Clear description of the type of messages users will receive
+Message frequency information
+"Msg & data rates may apply" disclosure
+Instructions for getting help (reply HELP for help)
+Instructions for opting out (reply STOP to opt-out)
+Links to Terms of Service and Privacy Policy
+Submit button with clear language ("Yes, sign me up!")
+Important notes: 
+Marketing and transactional message consent must be consented to separately with two checkboxes.
+A consent checkbox for privacy policy and terms of service must be separate from any messaging consent checkboxes.
+Verbal consent
+Important: Verbal consent is not enough for marketing use cases. You must obtain express written consent, such as a website checkbox selection, a physical signature, or an SMS text message opt-in.
+Field: Message flow: How do end-users consent to receive messages? 
+Your response should answer three questions: 
+Where do users see the opt-in? 
+How do they consent to receive messages? 
+What happens after they’ve opted-in? 
+Example answer: “Customers opt-in verbally over the phone during a [ support / service / etc.] call. Once the reason for the call is resolved, the agent asks for consent and the customer verbally confirms by saying 'yes.' A confirmation text message is sent to verify enrollment. Calls are recorded for compliance purposes. [Insert the full verbal consent script here]"
+A compliant verbal consent script must include all of the following: 
+Clear description of the service and message content
+Frequency of messages (e.g., "two messages per month")
+"Msg & data rates may apply" disclosure
+Instructions for getting help (reply HELP for help)
+Instructions for opting out (reply STOP to opt-out)
+Links to Terms of Service and Privacy Policy
+Clear request for explicit consent ("yes" or "no")
+Confirmation of enrollment
+Script example:
+Paper form
+Important: You must keep physical copies of completed forms as records of consent. Do not discard signed forms.
+Field: Message flow: How do end-users consent to receive messages? 
+Your response should answer three questions: 
+Where do users see the opt-in? 
+How do they consent to receive messages? 
+What happens after they’ve opted-in? 
+Example answer: “Customers encounter a physical paper form at [point of sale / in-store / event / other location] and opt-in by completing and signing it. Signed forms are retained on file as records of consent, and customers receive a confirmation text message welcoming them to the program. [Insert publicly accessible link to an image of the paper form here]"
+A compliant paper form must include all of the following: 
+Field for customer’s mobile phone number
+Clear description of the texting service
+Frequency of messages (e.g., "two messages per month")
+"Msg & data rates may apply" disclosure
+Instructions for getting help (reply HELP for help)
+Instructions for opting out (reply STOP to opt-out)
+Links to Terms of Service and Privacy Policy (or QR code linking to them)
+Checkbox or signature line for explicit consent
+Date field
+Customer signature
+Paper form example:
+Mobile QR Code
+Field: Message flow: How do end-users consent to receive messages? 
+Your response should answer three questions: 
+Where do users see the opt-in? 
+How do they consent to receive messages? 
+What happens after they’ve opted-in? 
+Example answer: “Customers see a QR code displayed on [marketing material / location] and scan it to opt-in, either by submitting a mobile-optimized web form or sending a pre-filled text message via keyword. After opting in, customers receive a confirmation text message welcoming them to the program. [Insert publicly accessible link to an image of the QR code marketing material here][Insert publicly accessible link to the web form or an example of the text campaign the QR code directs to]"
+A compliant QR code opt-in must include all of the following: 
+Marketing material requirements: 
+Brief description of what the QR code does
+Value proposition for signing up
+Basic frequency information
+Your brand/company name clearly visible
+QR code that directs to a web form requirements: 
+All requirements for a compliant web form [link to web form section], plus: 
+Mobile-optimized form design
+QR code that directs to text message campaign requirements: 
+All requirements for a compliant via text (keyword campaign) [link to via text section], plus: 
+Pre-populated message with phone number and keyword pre-filled when QR code is scanned
+Important note: Test QR codes on multiple devices before deployment
+QR code marketing material example:
+Via text (keyword campaign)
+Field: Message flow: How do end-users consent to receive messages? 
+Your response should answer three questions: 
+Where do users see the opt-in? 
+How do they consent to receive messages? 
+What happens after they’ve opted-in? 
+Example answer: “Customers opt-in by texting the keyword “Join”] to [phone number] after seeing a call-to-action advertisement. A compliant welcome message is sent immediately upon opt-in. Enrollment is confirmed only after the customer replies Y (double opt-in). 
+[Insert publicly accessible link showing how customers are invited to sign up for text messages][Insert the exact messages sent back and forth when somewhen texts your keyword]"
+A compliant text keyword campaign opt-in must include all of the following: 
+Sign up invitation requirements: 
+A clear keyword for customers to text
+Phone number to text
+Text message flow requirements: 
+Welcome message explaining the service
+Request for final confirmation (e.g. reply Y)
+Confirmation message once enrolled
+Required in both the sign up invitation and text message flow: 
+Message frequency information
+"Msg & data rates may apply" disclosure
+Instructions for getting help (reply HELP)
+Instructions for opting out (reply STOP)
+Links to Terms of Service and Privacy Policy
+Important note: The welcome message sent after the customer texts the keyword must contain all required disclosures before any other content is sent.
+Sign up invitation example:
+Text message flow example:
+Privacy policy and Terms and Conditions
+Every registration needs to include both a privacy policy and terms and conditions, and they need to meet specific requirements that protect your customers and keep you compliant with industry standards. Both are required for approval.
+Your privacy policy must include:
+Disclose what data you collect and how it’s used
+Explain that mobile information and opt-in consent won’t be shared with third parties or affiliates for marketing or promotional purposes (required by CTIA). Include this statement, "We do not sell or share your SMS opt-in data or personal information with third parties for marketing purposes."
+Point to a page titled “Privacy policy”
+Mention the registered brand name
+Your terms & conditions must include:
+Program or brand name
+Program description
+Message and data rates may apply disclosure
+Message frequency (or recurring message disclosure)
+Customer support contact information
+Complete opt-out instructions (HELP and STOP), displayed in bold
+Link to the privacy policy
+Disclosure that states "Carriers are not liable for any delayed or undelivered messages"
+We recommend consulting with your legal counsel to make sure that your terms of service and privacy policy are compliant with applicable laws and consistent with standards for your particular campaign and industry. 
+Pro tip: Consider creating messaging-specific privacy policies and terms and conditions rather than updating your main company documents. Dedicated messaging policies are easier to keep current if requirements change.
+Important: The privacy policy and terms & conditions links included in these fields should match the links included in your opt-in (web form, text key word campaign, etc.).
+Sample Messages
+(Console Labels: Sample message #1, #2, #3... | API Fields: message_samples)
+Provide 2-5 examples of what your actual messages will look like. This helps reviewers understand exactly what your customers will receive.
+On Twilio Console, you’ll be able to check the following boxes:
+Messages will include embedded links: Check this if you're sending URLs 
+Messages will include phone numbers: Check this if you're including phone numbers 
+Messages include content related to direct lending: This one's critical. Check it if your campaign involves any loan arrangements.
+Messages include age-gated content: Check this if your content requires age verification (alcohol, tobacco, etc.)
+The Twilio API includes the has_embedded_links field to indicate whether your campaign will send messages with links and the has_embedded_phone if your campaign will send messages with phone numbers.
+Tips for strong sample messages:
+Use brackets for variables: Show dynamic content like [Name], [1234], or [Date]
+Include your brand name: Make it clear who's sending the message
+Add opt-out language: Include "Reply STOP to unsubscribe" in at least one sample
+This works | 
+This doesn't | 
+"Dental check due for {Name}. Visit {website} to schedule an appointment or call {Phone number}. Reply STOP to opt out." | 
+"Here is your code." (No brand name, no context)
+ | 
+"Hi, is this the owner of 123 Oak St? I want to buy your house." (Cold outreach isn't allowed)
+ | 
+Keywords & Automated Responses
+You'll need to set up how your system responds to standard keywords. This is how your customers will manage their preferences.
+Opt-In Keywords & Message
+(Console: Opt-in Keywords | API: opt_in_keywords)
+(Console: Opt-in Message | API: opt_in_message)
+These are required if users can text a keyword to subscribe.
+Keywords
+Common ones include START, OPTIN, UNSTOP, IN (max 255 characters total)
+MessageInclude your brand name, confirmation of enrollment, help info, and how to opt out
+Opt-In Confirmation (Required for all recurring campaigns)
+No matter how someone opts in (web, paper, or text), they need to receive an immediate confirmation message. Here's what it should include:
+Brand Name or Program Name
+"Message and data rates may apply"
+Help contact info
+Opt-out instructions
+Frequency disclosure (like "Message frequency varies")
+Example: "Welcome to Acme Alerts! You'll receive up to 4 msgs/month. Msg & data rates may apply. Reply HELP for help, STOP to cancel."
+Opt-Out Keywords & Message
+Required if you're managing opt-outs yourself (not using the default Twilio opt-out or Advanced Opt-Out).
+Keywords (API: opt_out_keywords)
+Common ones include STOP, UNSUBSCRIBE, END, QUIT, HALT (max 255 characters)
+Message (API: opt_out_message)
+Acknowledge the opt-out and confirm no more messages will be sent. Include your brand name.
+Field | 
+What's Required | 
+Example | 
+Opt-Out Message | 
+Acknowledge the request, state the brand name, confirm no further messages | 
+You are unsubscribed from {Campaign Name} {Description} Alerts. No more messages will be sent. Reply HELP for help or {toll free number}. | 
+Help Keywords & Message
+Required if you're managing help messages yourself.
+Keywords (API: help_keywords): Common ones include HELP, INFO, SUPPORT (max 255 characters)
+Message (API: help_message): Provide support options (email, website, or phone). Include your brand name.
+Field | 
+What's Required | 
+Example | 
+Help Message | 
+Provide a way to get support | 
+{Campaign Name} {Description} Alerts: Help at {source of help #1} or {toll free number}. Msg&data rates may apply. {Message frequency}. Text STOP to cancel. | 
+Data Consistency & Common Rejection Reasons
+Before you hit submit, take a few minutes to double-check these common issues. A little extra attention here can save you from starting over.
+Keep PII Out of Registration Fields
+Don't include real consumer names or phone numbers in your descriptions or samples. Use placeholders like [Name] or [555-555-5555] instead.
+Make Sure Your Data Matches Up
+Consistency matters a lot here. Reviewers will check that everything lines up:
+Brand Name: If you register as "Acme Inc" but your messages say "Contoso," reviewers will flag that mismatch.
+Email Domain: Corporate brands (like Twilio Inc) should use matching email domains, not gmail or yahoo addresses.
+Consistency across brand details: Your brand name, website, and email domain should all clearly connect to the same business. If they point to different entities, reviewers will flag the mismatch.
+Website: The URL you provide needs to be functional and represent the brand you're registering. Sites that don't load, return errors, or aren't live yet won't pass review.
+Third-party URLs: Links within the messaging content must represent the registered brand. Third-party redirects aren't permitted.
+ISVs: If you provide software for dentists, don't register your software company. Register the specific dental practice that's actually sending the messages.
+Duplicate Brands: Creating multiple brands with the same EIN or duplicate campaigns can slow down your approval.
+Use Cases That Aren't Allowed
+Some types of messaging will result in immediate rejection. Refer to our Help Article on Forbidden Message Categories in the US and Canada for more information.
+Need more help? If your campaign gets rejected, our Campaign Rejection FAQ explains common rejection reasons and walks you through the resubmission process.

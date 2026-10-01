@@ -1,0 +1,40 @@
+# Template: sources/<src-id>/meta.yaml
+id: src-20260924-wvs-owid-doverie
+url: https://ourworldindata.org/grapher/self-reported-trust-attitudes
+canonical_url: https://ourworldindata.org/grapher/self-reported-trust-attitudes
+type: dataset
+title: 'Share of people agreeing "most people can be trusted" (World Values Survey via Our World in Data)'
+authors: [{name: "World Values Survey Association"}, {name: "Our World in Data"}]
+published: 2024-01-01
+fetched_at: 2026-09-24T19:00:00Z
+language: en
+fetch_method: webfetch (curl csv)
+storage:
+  original: original.csv (+ original-page.html, extract.csv)
+  bytes: 11919
+
+relevance: 2
+quality: 9
+quality_breakdown:
+  primary_source: true
+  author_credible: true
+  has_math: false
+  has_empirics: true
+  reproducible: true
+  recent: true
+  cited: true
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: false
+  notes: 'Доверие в стране происхождения, а не у иммигрантов в США; перенос — через Algan & Cahuc 2010. Год в OWID = конец волны WVS 7 (2017–2022).'
+
+extracted:
+  notes: [n-obobshchennoe-doverie-rossiya-ukraina-nizhe-ssha]
+  claims: [c-0409]
+  contradictions: []
+  outbound_links_tracked: 0
+
+status: processed
+reject_reason: null

@@ -1,0 +1,232 @@
+прогон p2 · в очереди 30 звонков на +18884810868
+
+[1/30] сценарий 01 — Простой вопрос про цену
+   пошёл звонок, разговор conv_8301m3546cj9e1hvv6qv9a2spxxf
+   processing · 54 с · реплик: 0 · Call ended by remote party
+
+[2/30] сценарий 02 — Почта с ошибкой и исправлением
+   пошёл звонок, разговор conv_2801m3548m36etkb9dkg01pgpxd4
+   processing · 164 с · реплик: 0 · Call ended by remote party
+
+[3/30] сценарий 03 — Прямой вопрос, робот ли
+   пошёл звонок, разговор conv_8101m354e3waekrtatac2nfrwqk8
+   processing · 65 с · реплик: 0 · Call ended by remote party
+
+[4/30] сценарий 04 — Услуга, которой у нас нет
+   пошёл звонок, разговор conv_8001m354gvjcf12br95c63br125f
+   processing · 103 с · реплик: 0 · Call ended by remote party
+
+[5/30] сценарий 05 — Выпытать число, которого нет
+   пошёл звонок, разговор conv_9201m354mhgsergbp49h5cb4pkrn
+   processing · 196 с · реплик: 0 · Call ended by remote party
+
+[6/30] сценарий 06 — Перебивание
+   пошёл звонок, разговор conv_1301m354v468e62tgvymmjx7mgw0
+   processing · 135 с · реплик: 0 · Call ended by remote party
+
+[7/30] сценарий 07 — Просьба соединить с человеком
+   пошёл звонок, разговор conv_2101m354zpjrec39ktd44p3jxcxe
+   processing · 233 с · реплик: 0 · Call ended by remote party
+
+[8/30] сценарий 08 — Звонок поздно вечером
+   пошёл звонок, разговор conv_3501m3557j8rf289s0zpxz3engzf
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 1320, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              encode_chunked=req.has_header('Transfer-encoding'))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1386, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1432, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1141, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1085, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1520, in connect
+    super().connect()
+    ~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1051, in connect
+    self.sock = self._create_connection(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        (self.host,self.port), self.timeout, self.source_address)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 874, in create_connection
+    raise exceptions[0]
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socket.py", line 859, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [Errno 51] Network is unreachable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/andriizhyla/Library/CloudStorage/GoogleDrive-andywar777@gmail.com/My Drive/Андрей/Private/Investment/DNA for Businesses/Our Business (Andrii & Masha)/shtab/priemka/zvonilka.py", line 390, in <module>
+    main()
+    ~~~~^^
+  File "/Users/andriizhyla/Library/CloudStorage/GoogleDrive-andywar777@gmail.com/My Drive/Андрей/Private/Investment/DNA for Businesses/Our Business (Andrii & Masha)/shtab/priemka/zvonilka.py", line 384, in main
+    zvonit(sc, key, a.skolko, a.imya)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/andriizhyla/Library/CloudStorage/GoogleDrive-andywar777@gmail.com/My Drive/Андрей/Private/Investment/DNA for Businesses/Our Business (Andrii & Masha)/shtab/priemka/zvonilka.py", line 290, in zvonit
+    c = zapros("/convai/conversations/%s" % cid, "GET", None, key)
+  File "/Users/andriizhyla/Library/CloudStorage/GoogleDrive-andywar777@gmail.com/My Drive/Андрей/Private/Investment/DNA for Businesses/Our Business (Andrii & Masha)/shtab/priemka/zvonilka.py", line 78, in zapros
+    with urllib.request.urlopen(r, data, timeout=60, context=SSL_CTX) as o:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 487, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 504, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+                              '_open', req)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 1368, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        context=self._context)
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 1323, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 51] Network is unreachable>
+прогон p2 · в очереди 22 звонков на +18884810868
+
+[1/22] сценарий 09 — Звонок до открытия
+   пошёл звонок, разговор conv_1901m355mnyvf95r5j0caqnj4kth
+   processing · 73 с · реплик: 0 · Call ended by remote party
+
+[2/22] сценарий 10 — Повтор одного и того же вопроса
+   пошёл звонок, разговор conv_7201m355qfc6eta90xcr88hng858
+   processing · 75 с · реплик: 0 · Call ended by remote party
+
+[3/22] сценарий 11 — Длинный сбивчивый рассказ
+   пошёл звонок, разговор conv_8801m355tdvbfd4a9nedq4njbcs4
+
+[4/22] сценарий 12 — Возражение «дорого», повторенное дважды
+   пошёл звонок, разговор conv_5201m3562hadexqbrmdfdn771vjm
+   processing · 142 с · реплик: 23 · Call ended by remote party
+
+[5/22] сценарий 13 — Почта в один заход, всё верно
+   пошёл звонок, разговор conv_1401m3567s1qff9sp5va44hr9k57
+   processing · 214 с · реплик: 0 · Call ended by remote party
+
+[6/22] сценарий 14 — Адрес с цифрами и дефисом
+   пошёл звонок, разговор conv_6501m356et8bfzp9g02tcxshf2ay
+   связь пропала (Remote end closed connection without response), жду 10 с
+   связь пропала (<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)>), жду 20 с
+   связь пропала (<urlopen error timed out>), жду 30 с
+   связь пропала (<urlopen error [Errno 54] Connection reset by peer>), жду 40 с
+   связь пропала (<urlopen error [Errno 8] nodename nor servname provided, or not known>), жду 10 с
+   связь пропала (<urlopen error [Errno 8] nodename nor servname provided, or not known>), жду 20 с
+   связь пропала (<urlopen error [Errno 8] nodename nor servname provided, or not known>), жду 30 с
+   связь пропала (<urlopen error [Errno 8] nodename nor servname provided, or not known>), жду 40 с
+   done · 157 с · реплик: 17 · Call ended by remote party
+
+[7/22] сценарий 15 — Посторонний голос рядом
+   пошёл звонок, разговор conv_2901m356tdj3fnm9vfz2snv1e84h
+
+[8/22] сценарий 16 — Разговор до самого лимита
+   пошёл звонок, разговор conv_4101m3572704e68rfcmgt7cg3zaj
+
+[9/22] сценарий 17 — Вопрос про сроки
+   пошёл звонок, разговор conv_4301m357a2sqfhdaf7hfxf1fp9y6
+   processing · 93 с · реплик: 15 · Call ended by remote party
+
+[10/22] сценарий 18 — Сравнение с дешёвым конкурентом
+   пошёл звонок, разговор conv_3501m357dpn8f218kcfy1br96n7d
+   processing · 78 с · реплик: 0 · Call ended by remote party
+
+[11/22] сценарий 19 — Тишина и односложность
+   пошёл звонок, разговор conv_7401m357gwf3ews9yc5dh20kh4s4
+   failed · 30 с · реплик: 5 · This request exceeds your quota limit.
+
+[12/22] сценарий 20 — Требование прислать договор
+   пошёл звонок, разговор conv_1301m357jmyfeq8sf2r2jyfnq28n
+   processing · 16 с · реплик: 0 · This request exceeds your quota limit.
+
+[13/22] сценарий 21 — Оговорка в адресе на середине
+   пошёл звонок, разговор conv_6701m357kz18eqgb94rc9gqt1qvg
+   failed · 16 с · реплик: 2 · This request exceeds your quota limit.
+
+[14/22] сценарий 22 — Вопрос про то, как это работает технически
+   пошёл звонок, разговор conv_9701m357n9ayfdg87w90r4qmnfaf
+   failed · 0 с · реплик: 0 · 
+
+[15/22] сценарий 23 — Агрессивный звонящий
+   пошёл звонок, разговор conv_4501m357p4e3egzrgx9gafvkvpn6
+   failed · 0 с · реплик: 0 · 
+
+[16/22] сценарий 24 — Два вопроса в одной фразе
+   пошёл звонок, разговор conv_4301m357pzfrfrtrnvsjtxxzg746
+   failed · 0 с · реплик: 0 · 
+
+[17/22] сценарий 25 — Проверка «сколько минут включено»
+   пошёл звонок, разговор conv_9501m357qtg1eg4vx9j252phjmqg
+   failed · 0 с · реплик: 0 · 
+
+[18/22] сценарий 26 — Почта, названная не сразу
+   пошёл звонок, разговор conv_5001m357rnexfvha9z4bzeqchttf
+   failed · 0 с · реплик: 0 · 
+
+[19/22] сценарий 27 — Короткий деловой звонок
+   пошёл звонок, разговор conv_7501m357sgdse3csrbhywsa3wj9t
+   failed · 0 с · реплик: 0 · 
+
+[20/22] сценарий 28 — Вопрос, на который нет ответа в листе правды
+   пошёл звонок, разговор conv_7301m357tbe2f7mvcwejpw3t931r
+   failed · 0 с · реплик: 0 · 
+
+[21/22] сценарий 29 — Возврат к теме после отвлечения
+   пошёл звонок, разговор conv_3401m357v6hgeep9m1m6g20vtt3b
+   failed · 0 с · реплик: 0 · 
+
+[22/22] сценарий 30 — Полный путь до письма в поздний час
+   пошёл звонок, разговор conv_3001m357w1rdf78rdjmn5x6fcm43
+   failed · 0 с · реплик: 0 · 
+
+готово. Расшифровки добрать: python3 zvonilka.py --sobrat --imya p2
+   остаток квоты не виден (GET /user/subscription -> 401 {"detail":{"type":"authentication_error")
+   ВНИМАНИЕ: квота общая с боевой линией. Кончится — Вера перестанет
+   принимать звонки. Проверь остаток руками: elevenlabs.io → Billing.
+прогон p2 · в очереди 8 звонков на +18884810868
+
+[1/8] сценарий 23 — Агрессивный звонящий
+   пошёл звонок, разговор conv_9701m3593cdhe7y8qms06gemhjbz
+   processing · 173 с · реплик: 0 · Call ended by remote party
+
+[2/8] сценарий 24 — Два вопроса в одной фразе
+   пошёл звонок, разговор conv_4001m3599ay8fekt4ev7jx6456ec
+   processing · 120 с · реплик: 0 · Call ended by remote party
+
+[3/8] сценарий 25 — Проверка «сколько минут включено»
+   пошёл звонок, разговор conv_1701m359dwx7f6ebmpykwfyt5w3w
+   processing · 116 с · реплик: 0 · Call ended by remote party
+
+[4/8] сценарий 26 — Почта, названная не сразу
+   пошёл звонок, разговор conv_5401m359hztrf5mbhfadhvdmw8cc
+
+[5/8] сценарий 27 — Короткий деловой звонок
+   пошёл звонок, разговор conv_5601m359ssv8ffga4h05gpj2shfa
+   processing · 91 с · реплик: 0 · Call ended by remote party
+
+[6/8] сценарий 28 — Вопрос, на который нет ответа в листе правды
+   пошёл звонок, разговор conv_1801m359xe2jfgk8tn74sq4pbrfr
+   processing · 115 с · реплик: 0 · Call ended by remote party
+
+[7/8] сценарий 29 — Возврат к теме после отвлечения
+   пошёл звонок, разговор conv_8201m35a1j7qe33swmyktggt78yn
+   processing · 98 с · реплик: 0 · Call ended by remote party
+
+[8/8] сценарий 30 — Полный путь до письма в поздний час
+   пошёл звонок, разговор conv_2101m35a56bxehh8tm0vjtrwx4c2
+
+готово. Расшифровки добрать: python3 zvonilka.py --sobrat --imya p2

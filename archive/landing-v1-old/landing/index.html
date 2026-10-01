@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Видимый эксперт · Business Intelligence DNA</title>
+<meta name="description" content="За 10 рабочих дней собираем систему, которая объясняет ценность вашего бизнеса за вас: отличие, клиент, предложение и сайт.">
+<meta property="og:title" content="Business Intelligence DNA">
+<meta property="og:description" content="Ваш бизнес лучше, чем о нём знает рынок. Мы делаем ваше мастерство видимым.">
+<meta property="og:image" content="img/founders.jpg">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#f7f5f1; --card:#ffffff; --dark:#0f1022; --dark2:#1a1b36;
+    --ink:#17172b; --muted:#616175; --line:#e6e3dc;
+    --gold:#c69749; --gold-deep:#a3762b; --gold-hi:#e2b872; --cta-ink:#14142b;
+    --ok:#2f9e6f; --no:#c1544c; --blue:#6b7cff;
+    --cube:#e5c67a; --cube-deep:#a8823a; --cube-hi:#f8ecc4;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:70px}
+  section[id],header[id]{scroll-margin-top:72px}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  section{padding:74px 0}
+  h1,h2,h3{line-height:1.15;margin:0 0 .5em;text-wrap:balance}
+  .serif{font-family:Georgia,"Times New Roman",serif}
+  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold-deep);font-weight:800;margin-bottom:18px}
+  .muted{color:var(--muted)}
+
+  /* ===== 3D BUTTONS (объёмные) ===== */
+  .btn{position:relative;display:inline-block;text-decoration:none;cursor:pointer;
+    font-size:16px;font-weight:800;letter-spacing:.01em;padding:15px 28px;border-radius:13px;
+    color:var(--cta-ink);border:1px solid rgba(120,84,20,.55);
+    background:linear-gradient(180deg,#e6c070 0%,var(--gold) 48%,var(--gold-deep) 100%);
+    box-shadow:
+      inset 0 1.5px 0 rgba(255,255,255,.6),
+      inset 0 -3px 6px rgba(120,84,20,.4),
+      0 5px 0 #86611c,
+      0 11px 20px rgba(160,120,40,.4);
+    transform:translateY(0);transition:transform .09s ease, box-shadow .09s ease}
+  .btn:hover{transform:translateY(-2px);
+    box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),inset 0 -3px 6px rgba(120,84,20,.4),0 7px 0 #86611c,0 14px 26px rgba(160,120,40,.5)}
+  .btn:active{transform:translateY(4px);
+    box-shadow:inset 0 2px 5px rgba(90,60,10,.5),0 1px 0 #86611c,0 3px 8px rgba(160,120,40,.35)}
+  .btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .btn.ghost{color:#f2f0ea;background:linear-gradient(180deg,#33345f 0%,#22233f 55%,#191a30 100%);
+    border:1px solid rgba(0,0,0,.5);
+    box-shadow:inset 0 1.5px 0 rgba(255,255,255,.16),inset 0 -3px 6px rgba(0,0,0,.5),0 5px 0 #0a0a16,0 11px 20px rgba(0,0,0,.4)}
+  .btn.ghost:hover{transform:translateY(-2px);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.16),inset 0 -3px 6px rgba(0,0,0,.5),0 7px 0 #0a0a16,0 14px 26px rgba(0,0,0,.5)}
+  .btn.ghost:active{transform:translateY(4px);box-shadow:inset 0 2px 5px rgba(0,0,0,.6),0 1px 0 #0a0a16,0 3px 8px rgba(0,0,0,.4)}
+  .btn.sm{font-size:14px;padding:11px 20px;border-radius:11px;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 5px rgba(120,84,20,.4),0 4px 0 #86611c,0 8px 15px rgba(160,120,40,.38)}
+  .btn.sm:active{transform:translateY(3px);box-shadow:inset 0 2px 4px rgba(90,60,10,.5),0 1px 0 #86611c,0 2px 6px rgba(160,120,40,.3)}
+
+  /* top bar */
+  #bar{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(15,16,34,.96);color:#f2f0ea;backdrop-filter:blur(7px);border-bottom:1px solid rgba(255,255,255,.05)}
+  #bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+  #bar .brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#f2f0ea;font-weight:800;font-size:15px}
+  .logo-mark{flex:none;display:block}
+  .logo-word b{color:var(--gold)}
+  .topnav{display:flex;gap:10px;margin-left:22px}
+  .topnav a{color:#d4d3e4;text-decoration:none;font-size:14px;font-weight:600;padding:7px 13px;border-radius:9px;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 2px 0 rgba(0,0,0,.45);transition:transform .1s,color .1s,background .1s}
+  .topnav a:hover{color:var(--gold);transform:translateY(-1px);background:rgba(255,255,255,.1)}
+  .topnav a:active{transform:translateY(1px);box-shadow:inset 0 1px 3px rgba(0,0,0,.4)}
+  #bar .slots{margin-left:auto;font-size:13px;color:#d8b878;white-space:nowrap}
+  .langsw{display:flex;background:rgba(255,255,255,.08);border-radius:999px;padding:3px}
+  .langsw button{border:none;background:transparent;color:#c9c8dc;font-weight:800;font-size:12px;padding:5px 11px;border-radius:999px;cursor:pointer}
+  .langsw button.on{background:var(--gold);color:var(--cta-ink)}
+  #bar .btn{padding:9px 17px;font-size:14px;border-radius:10px;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 4px rgba(120,84,20,.4),0 3px 0 #86611c,0 6px 12px rgba(160,120,40,.4)}
+  #bar .btn:active{transform:translateY(3px)}
+  @media(max-width:980px){#bar .slots{display:none}}
+  @media(max-width:760px){.topnav{display:none}}
+  @media(max-width:520px){.logo-word{display:none}}
+
+  /* ===== HERO ===== */
+  .hero{background:radial-gradient(1200px 600px at 72% -10%,#242551 0%,var(--dark) 55%);color:#f2f0ea;padding:104px 0 70px}
+  .hero .eyebrow{color:var(--gold-hi)}
+  .hero h1{font-size:clamp(30px,5vw,54px);font-weight:800;max-width:16ch}
+  .hero .sub{font-size:clamp(17px,2.2vw,21px);color:#c9c8dc;max-width:54ch;margin:22px 0 30px}
+  .hero .sub b{color:#fff}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:38px;align-items:center}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:26px}}
+
+  /* 3D coin scene */
+  .stage{position:relative;width:100%;height:360px;border-radius:18px;overflow:hidden;
+    background:radial-gradient(900px 520px at 60% 6%, #262754 0%, #0c0d1e 64%);perspective:1100px;perspective-origin:52% 40%}
+  @media(max-width:880px){.stage{height:260px}}
+  .world{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(-20deg)}
+  .floor{position:absolute;left:50%;top:250px;width:3000px;height:2600px;margin-left:-1500px;margin-top:-1300px;
+    transform-origin:50% 50%;transform:rotateX(-90deg);
+    background:
+      repeating-linear-gradient(90deg, rgba(244,223,160,.16) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(0deg,  rgba(244,223,160,.10) 0 1px, transparent 1px 64px),
+      linear-gradient(0deg, rgba(198,151,73,.24), rgba(15,16,34,0) 58%);
+    animation:floorRun 2.6s linear infinite}
+  @keyframes floorRun{to{background-position:-64px 0,-64px 0,0 0}}
+  .track{position:absolute;left:50%;top:250px;width:2400px;height:120px;margin-left:-1200px;
+    transform-origin:50% 0;transform:rotateX(-90deg) translateY(-60px);
+    background:linear-gradient(90deg,transparent,rgba(226,184,114,.14) 12%,rgba(226,184,114,.2) 50%,rgba(226,184,114,.14) 88%,transparent);
+    box-shadow:0 0 40px rgba(198,151,73,.25)}
+  .edge{position:absolute;left:0;right:0;top:250px;height:1px;background:linear-gradient(90deg,transparent,rgba(244,223,160,.5) 22%,rgba(244,223,160,.5) 78%,transparent)}
+  .vign{position:absolute;inset:0;background:radial-gradient(72% 72% at 60% 44%,transparent 40%,rgba(0,0,0,.42) 100%);pointer-events:none}
+  .coinHolder{position:absolute;left:34px;top:119px;width:130px;height:130px;transform-style:preserve-3d}
+  @media(max-width:880px){.coinHolder{left:18px;top:88px;width:100px;height:100px}}
+  .coinTilt{width:100%;height:100%;transform-style:preserve-3d;transform:rotateY(9deg) rotateX(-90deg)}
+  .coinSpin{width:100%;height:100%;transform-style:preserve-3d;animation:coinRoll 2.6s linear infinite}
+  @keyframes coinRoll{to{transform:rotateY(-360deg)}}
+  .cface{position:absolute;left:50%;top:50%;width:130px;height:130px;margin:-65px 0 0 -65px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  @media(max-width:880px){.cface{width:100px;height:100px;margin:-50px 0 0 -50px}}
+  .cface.front{transform:rotateX(90deg) translateZ(13px);
+    background:radial-gradient(circle at 50% 50%,transparent 0 37%,rgba(0,0,0,.18) 37.5% 40.5%,transparent 41%),radial-gradient(circle at 33% 28%,#f4dfa0 0%,var(--gold) 44%,var(--gold-deep) 78%,#6b4a18 100%);
+    box-shadow:inset 0 0 0 6px rgba(255,255,255,.15),inset 0 0 20px rgba(0,0,0,.3)}
+  .cface.back{transform:rotateX(90deg) translateZ(-13px);
+    background:radial-gradient(circle at 50% 50%,transparent 0 37%,rgba(0,0,0,.18) 37.5% 40.5%,transparent 41%),radial-gradient(circle at 64% 70%,#f4dfa0 0%,var(--gold) 42%,var(--gold-deep) 78%,#6b4a18 100%);
+    box-shadow:inset 0 0 0 6px rgba(255,255,255,.15),inset 0 0 20px rgba(0,0,0,.3)}
+  .emblem{font:900 60px/1 Georgia,serif;color:transparent;background:linear-gradient(165deg,#fff6da,#e2bd72 38%,#a3762b 72%,#6b4a18);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 2px 1px rgba(0,0,0,.45)) drop-shadow(0 -1px 0 rgba(255,255,255,.5));user-select:none}
+  @media(max-width:880px){.emblem{font-size:46px}}
+  .cseg{position:absolute;left:50%;top:50%}
+  .cshadow{position:absolute;left:4px;top:213px;width:200px;height:24px;background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent 74%);filter:blur(3px)}
+  .cols{position:absolute;left:0;top:0;transform-style:preserve-3d}
+  .col{position:absolute;transform-style:preserve-3d}
+  .colGrow{transform-style:preserve-3d;transform-origin:50% 100%}
+  .f{position:absolute;left:50%;top:50%}
+  .f.top{background:linear-gradient(140deg,#fff4d2,#e8cc84);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+  .f.front{background:linear-gradient(180deg,#dcb85f,#a8823a)}
+  .f.right,.f.left{background:linear-gradient(180deg,#8f6c2c,#5c451a)}
+  .f.back{background:#7d5f27}.f.bottom{background:#4a3714}
+
+  /* founders photo band */
+  .photoband{margin-top:44px;border-radius:18px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08)}
+  .photoband img,.photoband video{width:100%;display:block;aspect-ratio:16/8.2;object-fit:cover;object-position:center 32%}
+  .photoband .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 28px 20px;color:#fff;
+    background:linear-gradient(0deg,rgba(9,10,20,.9),rgba(9,10,20,.35) 60%,transparent)}
+  .photoband .cap b{font-size:17px}
+  .photoband .cap span{display:block;color:#c9c8dc;font-size:14px;margin-top:2px}
+  @media(max-width:620px){.photoband img,.photoband video{aspect-ratio:4/3;object-position:70% 30%}}
+
+  .quote{font-family:Georgia,serif;font-size:clamp(21px,3vw,27px);font-weight:700;margin:0 0 8px}
+  .pain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:14px}
+  .pain{background:rgba(255,255,255,.9);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:24px;backdrop-filter:blur(3px)}
+  @media(max-width:820px){.pain-grid{grid-template-columns:1fr}}
+
+  /* ===== PAIN section with 2A crowd ===== */
+  #pain{position:relative;overflow:hidden;background:var(--dark);color:#eceafa}
+  #pain>.wrap>h2{color:#fff}
+  #pain .eyebrow{color:var(--gold-hi)}
+  #pain .pain{color:var(--ink)}
+  #pain .pain .quote{color:var(--ink)}
+  #pain .pain .muted{color:var(--muted)}
+  #pain .crowd{position:absolute;left:0;right:0;top:0;height:440px;z-index:0}
+  #pain .crowd-scrim{position:absolute;left:0;right:0;top:0;height:440px;z-index:1;background:linear-gradient(90deg,rgba(15,16,34,.95) 0%,rgba(15,16,34,.7) 36%,rgba(15,16,34,.24) 64%,rgba(15,16,34,.08) 100%),linear-gradient(180deg,transparent 46%,var(--dark) 96%)}
+  #pain .wrap{position:relative;z-index:2}
+  .fig{position:absolute}
+  .fig .head,.fig .body{position:absolute;left:50%;transform:translateX(-50%)}
+  .fig .head{border-radius:50%;top:0}
+  .fig .body{border-radius:46% 46% 14% 14%/34% 34% 8% 8%}
+  .beam{position:absolute;pointer-events:none;mix-blend-mode:screen;filter:blur(9px)}
+
+  /* panels & interactives */
+  .panel{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:30px;margin-top:34px;box-shadow:0 12px 44px rgba(20,20,40,.06)}
+  .panel .muted{color:var(--muted)}
+  .panel .eyebrow{color:var(--gold-deep)}
+  .panel.dark{background:var(--dark);color:#eceafa;border-color:#2c2d55}
+
+  /* seg controls — 3D raised */
+  .seg{display:inline-flex;background:#f0ede6;border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;flex-wrap:wrap;box-shadow:inset 0 2px 5px rgba(0,0,0,.08)}
+  .seg.on-dark{background:rgba(255,255,255,.08);border-color:#2c2d55;box-shadow:inset 0 2px 6px rgba(0,0,0,.4)}
+  .seg button{border:none;background:transparent;color:var(--muted);font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;cursor:pointer;transition:all .13s}
+  .seg.on-dark button{color:#c9c8dc}
+  .seg button.on{background:linear-gradient(180deg,#2a2b52,var(--dark));color:#fff;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 3px 0 #080810,0 6px 12px rgba(0,0,0,.35)}
+  .seg.gold button.on{background:linear-gradient(180deg,#e6c070,var(--gold-deep));color:var(--cta-ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 3px 0 #86611c,0 6px 12px rgba(160,120,40,.4)}
+
+  /* ① QUIZ */
+  .quiz-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start}
+  @media(max-width:820px){.quiz-grid{grid-template-columns:1fr}}
+  .q{padding:14px 0;border-bottom:1px solid var(--line)}
+  .q:last-child{border-bottom:none}
+  .q .qt{font-weight:700;margin-bottom:9px;font-size:15px}
+  .opts{display:flex;gap:8px;flex-wrap:wrap}
+  .opts button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:11px;padding:9px 14px;cursor:pointer;font-size:14px;font-weight:600;transition:all .12s;
+    box-shadow:0 2px 0 #dcd8ce}
+  .opts button:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .opts button.on{background:linear-gradient(180deg,#2a2b52,var(--dark));color:#fff;border-color:var(--dark);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 3px 0 #080810,0 5px 10px rgba(0,0,0,.3)}
+  .gauge-card{position:sticky;top:80px;background:var(--dark);color:#f2f0ea;border-radius:16px;padding:24px;text-align:center;box-shadow:0 16px 44px rgba(0,0,0,.3)}
+  .gwrap{position:relative;width:100%;max-width:300px;margin:0 auto}
+  .gauge-card .score{font-size:52px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;margin-top:4px}
+  .gauge-card .seglbl{font-weight:800;font-size:18px;margin-top:6px}
+  .verdict{margin-top:14px;text-align:left;font-size:14.5px;color:#d7d6ea;min-height:20px}
+  .verdict .weak{display:block;margin-top:10px;padding-left:12px;border-left:3px solid var(--gold);color:#fff}
+  .gauge-card .btn{margin-top:16px}
+
+  /* ② BUILDER */
+  .b-generic{color:#9a9aa5;font-size:15px;margin:16px 0 2px;transition:opacity .45s,filter .45s}
+  .b-generic .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#b3b3bd;display:block;margin-bottom:4px}
+  .b-arrow{color:var(--gold-deep);font-weight:800;font-size:12px;letter-spacing:.08em;margin:8px 0 10px}
+  .sentence{font-family:Georgia,serif;font-size:clamp(18px,2.3vw,23px);line-height:2;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;transition:box-shadow .35s,border-color .35s,transform .3s}
+  .sentence.done{border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,151,73,.16),0 14px 36px rgba(198,151,73,.15)}
+  .sentence.pulse{transform:scale(1.012)}
+  .blank{position:relative;display:inline-block;white-space:normal}
+  .blank select,.blank input{appearance:none;-webkit-appearance:none;font:inherit;color:var(--gold-deep);font-weight:700;background:transparent;border:none;border-bottom:2px dashed var(--gold);padding:1px 4px;cursor:pointer;border-radius:0;vertical-align:baseline;max-width:100%}
+  .blank input{min-width:210px}
+  .blank[data-t="sel"]::after{content:'▾';color:var(--gold-deep);font-size:11px;margin-left:1px;pointer-events:none}
+  .blank.filled select,.blank.filled input{border-bottom-style:solid;color:var(--ink);background:#faf3e0}
+  .blank select:focus,.blank input:focus{outline:none;background:#faf3e0}
+  .blank .custom{display:none;align-items:baseline;gap:2px}
+  .blank.is-custom>select{display:none}.blank.is-custom>.custom{display:inline-flex}.blank.is-custom::after{content:none}
+  .blank .cin{min-width:210px}
+  .blank .revert{border:none;background:transparent;color:var(--gold-deep);cursor:pointer;font-size:13px;font-weight:800;padding:0 2px}
+  .done-badge{display:none;align-items:center;gap:8px;margin-top:14px;color:var(--ok);font-weight:800;font-size:14.5px}
+  .done-badge.show{display:inline-flex}
+  .b-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+  .b-ghost{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:14px;box-shadow:0 3px 0 #dcd8ce;transition:transform .1s}
+  .b-ghost:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .b-ghost:active{transform:translateY(2px);box-shadow:0 1px 0 #dcd8ce}
+  .note{margin-top:16px;background:#faf5ea;border:1px solid #ecdcbb;border-radius:12px;padding:14px 16px;font-size:14px;color:#6b5a33}
+
+  /* ③ SLIDER — 3D knob */
+  .rev{position:relative;height:320px;border-radius:16px;overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:none;margin-top:18px}
+  .rev .layer{position:absolute;inset:0;padding:30px 34px;display:flex;flex-direction:column;justify-content:center}
+  .rev .fog{background:#eceae4;color:#9a9aa5;clip-path:inset(0 50% 0 0)}
+  .rev .sharp{background:linear-gradient(135deg,#12132b,#242551);color:#f2f0ea}
+  .rev .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin-bottom:14px}
+  .rev .fog .tag{color:#a2a2ad}.rev .sharp .tag{color:var(--gold-hi)}
+  .rev .big{font-size:clamp(18px,2.4vw,23px);font-weight:700;font-family:Georgia,serif;line-height:1.3}
+  .rev .sub{margin-top:12px;font-size:14.5px;opacity:.92}
+  .rev .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--gold);transform:translateX(-1.5px);cursor:ew-resize;z-index:5}
+  .rev .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#fbeec2,var(--gold) 55%,var(--gold-deep) 100%);
+    color:#3a2a08;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;
+    box-shadow:inset 0 2px 3px rgba(255,255,255,.6),inset 0 -3px 5px rgba(90,60,10,.55),0 6px 16px rgba(0,0,0,.4)}
+
+  /* ④ TIMELINE — 3D nodes */
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+  @media(max-width:700px){.tl{grid-template-columns:1fr 1fr}}
+  .tl .node{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .14s;box-shadow:0 4px 0 #e0dcd2}
+  .tl .node:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .tl .node.on{background:linear-gradient(180deg,#2a2b52,var(--dark));color:#fff;border-color:var(--dark);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 5px 0 #080810,0 9px 16px rgba(0,0,0,.3)}
+  .tl .node .day{font-size:12px;font-weight:800;letter-spacing:.05em;color:var(--gold-deep)}
+  .tl .node.on .day{color:var(--gold-hi)}
+  .tl .node .nm{font-weight:800;margin-top:5px;font-size:16px}
+  .tl-detail{margin-top:16px;background:#f4f2ee;border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-height:70px}
+  .tl-detail h4{margin:0 0 6px;font-size:16px}
+  .tl-detail .out{margin-top:10px;color:var(--ok);font-weight:700;font-size:14.5px}
+
+  /* solution / result / contrast / steps */
+  .contrast{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:30px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+  .cbad,.cgood{padding:18px 22px;border-bottom:1px solid var(--line)}
+  .cbad{color:var(--no)}.cgood{color:var(--ink);background:#f6faf7;font-weight:600}
+  @media(max-width:640px){.contrast{grid-template-columns:1fr}}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px;counter-reset:s}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px;position:relative;box-shadow:0 6px 0 #eae6dc}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:22px;width:34px;height:34px;
+    background:linear-gradient(180deg,#2a2b52,var(--dark));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 3px 0 #080810,0 6px 10px rgba(0,0,0,.3)}
+  .step h3{font-size:17px;margin:8px 0 6px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+  .result-list{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .result-list li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 3px 0 #eae6dc}
+  .result-list .ok{color:var(--ok);font-weight:800;flex:none}
+  @media(max-width:700px){.result-list{grid-template-columns:1fr}}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#2a2b52,var(--dark));color:#f2f0ea;padding:12px 20px;border-radius:999px;font-weight:700;margin-top:24px;box-shadow:0 4px 0 #080810,0 8px 16px rgba(0,0,0,.3)}
+  .badge b{color:var(--gold-hi)}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+  .ba .before,.ba .after{border-radius:14px;padding:22px}
+  .ba .before{background:#fbf1f0;border:1px solid #f0d6d3}
+  .ba .after{background:#eef7f1;border:1px solid #cfe8d9}
+  .ba .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;margin-bottom:10px}
+  .ba .before .lbl{color:var(--no)}.ba .after .lbl{color:var(--ok)}
+  @media(max-width:640px){.ba{grid-template-columns:1fr}}
+
+  /* founders */
+  .dark-sec{background:var(--dark);color:#e9e8f5}
+  .dark-sec h2,.dark-sec .quote{color:#fff}
+  .fnd-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;margin-top:30px;align-items:center}
+  @media(max-width:820px){.fnd-grid{grid-template-columns:1fr}}
+  .fnd-photo{border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.08)}
+  .fnd-photo img,.fnd-photo video{width:100%;display:block;aspect-ratio:16/11;object-fit:cover;object-position:center 26%}
+  .founders{display:grid;grid-template-columns:1fr;gap:16px}
+  .founder{background:var(--dark2);border:1px solid #2c2d55;border-radius:16px;padding:22px;display:flex;gap:16px}
+  .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8a6220);flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;color:#1a1408;font-size:20px;box-shadow:inset 0 2px 2px rgba(255,255,255,.4),0 4px 8px rgba(0,0,0,.3)}
+  .founder h3{color:#fff;margin:0 0 4px}.founder p{color:#bdbcd4;margin:0;font-size:14.5px}
+  .proof-note{margin-top:22px;color:#9a99b6;font-size:14px;border-left:3px solid var(--gold);padding-left:14px}
+
+  /* case (reuse ba/steps/result) */
+  .anti{margin-top:24px;background:linear-gradient(180deg,#1a1b36,var(--dark));color:#f2f0ea;border-radius:16px;padding:32px;border-left:5px solid var(--gold);box-shadow:0 14px 40px rgba(0,0,0,.25)}
+  .anti .quote{color:#fff;font-size:clamp(20px,3vw,26px)}
+  .anti b{color:var(--gold-hi)}
+
+  /* ask your business */
+  .askbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;margin-top:26px}
+  .ask-input{display:flex;gap:10px;border:1px solid var(--line);border-radius:12px;padding:8px 8px 8px 16px;background:#fbfaf8}
+  .ask-input input{border:none;background:transparent;flex:1;font-size:16px;outline:none;color:var(--ink)}
+  .chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+  .chip{padding:9px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-size:14px;transition:all .13s;box-shadow:0 3px 0 #e6e2d8}
+  .chip:hover{border-color:var(--gold);color:var(--gold-deep);transform:translateY(-1px)}
+  .chip:active{transform:translateY(2px);box-shadow:0 1px 0 #e6e2d8}
+  #answer{margin-top:20px;display:none;background:#0f1022;color:#e9e8f5;border-radius:12px;padding:22px}
+  #answer .step-a{margin:0 0 12px;padding-left:14px;border-left:2px solid var(--gold)}
+  #answer .step-a b{color:var(--gold-hi)}
+  #answer .step-a:last-child{margin-bottom:0}
+
+  /* continuous */
+  .cont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .cont .c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 3px 0 #eae6dc}
+  .cont .c b{display:block;margin-bottom:4px}
+  .cont-flow{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-weight:700}
+  .cont-flow .fl{background:linear-gradient(180deg,#2a2b52,var(--dark));color:#f2f0ea;padding:10px 16px;border-radius:10px;box-shadow:0 3px 0 #080810}
+  .cont-flow .ar{color:var(--gold);font-size:20px}
+  @media(max-width:640px){.cont{grid-template-columns:1fr}}
+
+  /* offer */
+  .stack{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  .stack .item{background:var(--dark2);border:1px solid #2c2d55;border-radius:12px;padding:16px 18px;box-shadow:0 4px 0 #0c0c1c}
+  .stack .item b{color:#fff}
+  @media(max-width:640px){.stack{grid-template-columns:1fr}}
+  .calc{background:var(--card);color:var(--ink);border-radius:16px;padding:28px;margin-top:30px;border:1px solid var(--line)}
+  .calc-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+  .calc-tab{padding:12px 18px;border:1px solid var(--line);border-radius:11px;cursor:pointer;font-weight:600;flex:1;text-align:center;min-width:150px;transition:all .13s;box-shadow:0 3px 0 #e6e2d8}
+  .calc-tab:hover{transform:translateY(-1px)}
+  .calc-tab.active{background:linear-gradient(180deg,#2a2b52,var(--dark));color:#fff;border-color:var(--dark);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 4px 0 #080810}
+  .calc-out{margin-top:8px;display:flex;gap:18px;flex-wrap:wrap;align-items:stretch}
+  .calc-card{flex:1;min-width:220px;border-radius:12px;padding:20px}
+  .calc-card.them{background:#fbf1f0;border:1px solid #f0d6d3}
+  .calc-card.us{background:#eef7f1;border:1px solid #cfe8d9}
+  .calc-card .big{font-size:26px;font-weight:800;margin:6px 0;font-variant-numeric:tabular-nums}
+  .calc-card.them .big{color:var(--no)}.calc-card.us .big{color:var(--ok)}
+
+  /* guarantee */
+  .guar{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  .guar .g{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 5px 0 #eae6dc}
+  .guar .g .ic{font-size:24px;margin-bottom:8px}
+  @media(max-width:760px){.guar{grid-template-columns:1fr}}
+
+  /* CTA / booking */
+  .final{background:radial-gradient(900px 500px at 50% 120%,#2a2b57 0%,var(--dark) 60%);color:#f2f0ea;text-align:center}
+  .final h2{font-size:clamp(26px,4vw,40px)}
+  .qs{max-width:640px;margin:20px auto 26px;color:#c9c8dc}
+  .book{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .secCta{margin-top:38px}
+  .secCta .btn{padding:13px 24px;font-size:15px}
+  .scount{margin-top:12px;display:inline-flex;align-items:center;gap:4px;color:#c9c8dc;font-size:14px}
+  .scount b{color:var(--gold-hi)}
+  .scount .pips{display:inline-flex;gap:5px;margin-right:2px}
+  .scount .pip{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 1px 1px rgba(255,255,255,.3),0 2px 4px rgba(0,0,0,.4)}
+  .scount .pip.free{background:radial-gradient(circle at 34% 30%,#fbeec2,var(--gold) 60%,var(--gold-deep))}
+  .scount .pip.taken{background:radial-gradient(circle at 34% 30%,#40415f,#22233c);opacity:.7}
+  .tgbtn{background:linear-gradient(180deg,#3aa3e0,#2a86c4);border-color:rgba(0,0,0,.35);color:#fff;
+    box-shadow:inset 0 1.5px 0 rgba(255,255,255,.35),inset 0 -3px 6px rgba(0,50,90,.4),0 5px 0 #1d6699,0 11px 20px rgba(30,100,160,.4)}
+  .tgbtn:hover{transform:translateY(-2px);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.35),inset 0 -3px 6px rgba(0,50,90,.4),0 7px 0 #1d6699,0 14px 26px rgba(30,100,160,.5)}
+  .tgbtn:active{transform:translateY(4px);box-shadow:inset 0 2px 5px rgba(0,40,70,.5),0 1px 0 #1d6699,0 3px 8px rgba(30,100,160,.35)}
+
+  /* faq */
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-q{padding:20px 0;cursor:pointer;font-weight:700;font-size:18px;display:flex;justify-content:space-between;gap:16px}
+  .faq-q .tog{color:var(--gold);font-weight:800;flex:none;transition:transform .2s}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;color:var(--muted)}
+  .faq-a p{margin:0 0 20px}
+  .faq-item.open .tog{transform:rotate(45deg)}
+
+  footer{background:#0b0b18;color:#8988a6;font-size:13px;padding:40px 0}
+  footer .fcols{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+  footer a{color:#c9c8dc;text-decoration:none}
+  footer a:hover{color:var(--gold)}
+  footer .fbrand b{color:var(--gold)}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div id="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Business Intelligence DNA">
+      <svg class="logo-mark" viewBox="0 0 30 24" width="28" height="22" aria-hidden="true">
+        <rect x="0" y="15" width="5" height="9" rx="1.4" fill="rgba(201,206,232,.5)"/>
+        <rect x="8" y="10" width="5" height="14" rx="1.4" fill="rgba(201,206,232,.68)"/>
+        <rect x="16" y="5" width="5" height="19" rx="1.4" fill="#c69749"/>
+        <rect x="24" y="0" width="5" height="24" rx="1.4" fill="#e2b872"/>
+      </svg>
+      <span class="logo-word">Business Intelligence <b>DNA</b></span>
+    </a>
+    <nav class="topnav">
+      <a href="#how" data-en="How it works">Как работает</a>
+      <a href="#offer" data-en="What&rsquo;s included">Что входит</a>
+      <a href="#case" data-en="Case study">Кейс</a>
+      <a href="#faq" data-en="FAQ">Вопросы</a>
+    </nav>
+    <span class="slots" data-en="● 3 of 5 slots left">● 3 из 5 мест</span>
+    <div class="langsw"><button id="btnRu" class="on" onclick="setLang('ru')">РУ</button><button id="btnEn" onclick="setLang('en')">EN</button></div>
+    <a href="#cta" class="btn" data-en="Book a call">Записаться</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow" data-en="For business owners &amp; experts">Для бизнеса и экспертов</span>
+        <h1 class="serif" data-en="Your business is better than the market knows it is.">Ваш бизнес лучше, чем о нём знает рынок.</h1>
+        <p class="sub" data-en="In 10 business days we build a system that explains your value for you: <b>your difference, your client, your offer, and a website you&rsquo;re proud to share</b> &mdash; without turning you into a blogger.">За 10 рабочих дней собираем систему, которая объясняет ценность вашего бизнеса за вас: <b>ваше отличие, ваш клиент, ваше предложение и сайт, которым не стыдно поделиться</b> — без того, чтобы вы становились блогером.</p>
+        <div class="hero-cta">
+          <a href="#cta" class="btn" data-en="Start with an Audit →">Начать с Audit →</a>
+          <a href="#how" class="btn ghost" data-en="How it works ↓">Как это работает ↓</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="stage">
+          <div class="world">
+            <div class="floor"></div><div class="track"></div><div class="edge"></div>
+            <div class="cshadow"></div>
+            <div class="cols" id="cols"></div>
+            <div class="coinHolder"><div class="coinTilt"><div class="coinSpin" id="coinSpin"></div></div></div>
+          </div>
+          <div class="vign"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="photoband">
+      <video class="herovideo" autoplay muted loop playsinline><source src="img/hero-clip.mp4" type="video/mp4"></video>
+      <div class="cap">
+        <b data-en="From noise — to clarity">Из шума — в ясность</b>
+        <span data-en="That&rsquo;s what we do with your business: turn scattered data into one clear decision.">Это то, что мы делаем с вашим бизнесом: превращаем разрозненные данные в одно ясное решение.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PAIN + QUIZ -->
+<section id="pain">
+  <div class="crowd" id="crowd"></div>
+  <div class="crowd-scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow" data-en="Sound familiar?">Знакомо?</span>
+    <h2 class="serif" style="font-size:clamp(24px,3.4vw,34px);max-width:22ch" data-en="It&rsquo;s not that you weren&rsquo;t chosen. You weren&rsquo;t even seen.">Дело не в том, что вас не выбрали. Вас даже не увидели.</h2>
+    <div class="pain-grid">
+      <div class="pain"><p class="quote" data-en="&laquo;I had nothing to even send them.&raquo;">«Мне даже нечего было ему прислать.»</p><p class="muted" data-en="You get recommended — and then &ldquo;send me your portfolio&rdquo; lands on an awkward silence.">Вас рекомендуют — а на «пришлите портфолио» повисает неловкая пауза.</p></div>
+      <div class="pain"><p class="quote" data-en="&laquo;I can&rsquo;t say in one sentence why I&rsquo;m better.&raquo;">«Не могу сказать в одном предложении, почему я лучше.»</p><p class="muted" data-en="Asked &ldquo;how are you different?&rdquo; you answer in the same words as everyone else.">На вопрос «чем вы отличаетесь?» вы отвечаете теми же словами, что и все.</p></div>
+      <div class="pain"><p class="quote" data-en="&laquo;It&rsquo;s not a system. It&rsquo;s luck — and it didn&rsquo;t show up.&raquo;">«У меня не система. У меня везение — и оно не пришло.»</p><p class="muted" data-en="Your pipeline runs on word of mouth. An empty month — and you don&rsquo;t know where the next client comes from.">Поток держится на сарафане. Пустой месяц — и вы не знаете, откуда придёт следующий клиент.</p></div>
+    </div>
+
+    <!-- ① ИНДЕКС ВИДИМОСТИ -->
+    <div class="panel">
+      <span class="eyebrow" style="color:var(--gold-deep)" data-en="Free 2-minute self-check">Бесплатная само-диагностика · 2 минуты</span>
+      <h3 style="margin:0 0 4px;font-size:clamp(20px,2.6vw,26px)" data-en="Visibility Index">Индекс видимости</h3>
+      <p class="muted" style="max-width:60ch" data-en="A free micro-version of our Audit. Answer 6 questions — the needle shows how well the market sees you, and exactly where your clients leak away.">Бесплатная микро-версия нашего Audit. Ответьте на 6 вопросов — стрелка покажет, насколько рынок вас видит, и куда именно у вас утекают клиенты.</p>
+      <div class="quiz-grid" style="margin-top:18px">
+        <div id="quiz"></div>
+        <div class="gauge-card">
+          <div class="gwrap">
+            <svg id="gauge" viewBox="0 0 320 200" width="100%" aria-hidden="true">
+              <g id="arcs"></g>
+              <line id="needle" x1="160" y1="160" x2="160" y2="55" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="160" cy="160" r="9" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="score" id="score">—</div>
+          <div class="seglbl" id="seglbl" data-en="Take the test">Пройдите тест</div>
+          <div class="verdict" id="verdict" data-en="Answer the questions — the needle comes alive.">Отвечайте на вопросы — стрелка оживёт.</div>
+          <a href="#cta" class="btn sm" id="quizCta" style="display:none" data-en="Start with an Audit →">Начать с Audit →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section style="background:#efece5">
+  <div class="wrap">
+    <span class="eyebrow" data-en="The solution">Решение</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px);max-width:22ch" data-en="We&rsquo;re not ads, not SMM, not a course. We make your mastery visible.">Мы не реклама, не SMM и не курс. Мы делаем ваше мастерство видимым.</h2>
+    <p class="muted" style="max-width:60ch" data-en="We research your market, competitors and clients — and turn it into positioning and ready assets that explain your value for you. Data isn&rsquo;t intelligence. We deliver a decision, not 150 pages.">Исследуем ваш рынок, конкурентов и клиентов — и превращаем это в позиционирование и готовые активы, которые объясняют вашу ценность вместо вас. Данные — это не интеллект. Мы отдаём решение, а не 150 страниц.</p>
+    <div class="contrast">
+      <div class="cbad" data-en="✕ Ads drive traffic to an unclear offer">✕ Реклама гонит трафик на непонятное предложение</div>
+      <div class="cgood" data-en="✓ We make the offer itself clear">✓ Мы делаем само предложение понятным</div>
+      <div class="cbad" data-en="✕ A course gives generic &ldquo;one-size&rdquo; theory">✕ Курс даёт общую теорию «для всех»</div>
+      <div class="cgood" data-en="✓ We build it personally around your practice">✓ Мы строим персонально под вашу практику</div>
+      <div class="cbad" data-en="✕ A freelancer hands you a pretty picture">✕ Фрилансер отдаёт красивую картинку</div>
+      <div class="cgood" data-en="✓ You&rsquo;re led by specific people with a name and a face">✓ Вас ведут конкретные люди с именем и лицом</div>
+    </div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Get your breakdown →">Получить разбор →</a></div>
+  </div>
+</section>
+
+<!-- HOW + TIMELINE -->
+<section id="how">
+  <div class="wrap">
+    <span class="eyebrow" data-en="How it works">Как это работает</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px)" data-en="4 steps. Your part — one interview.">4 шага. Ваше участие — одно интервью.</h2>
+    <div class="steps">
+      <div class="step"><h3 data-en="Audit (diagnosis)">Audit (диагноз)</h3><p class="muted" data-en="A light entry: why you&rsquo;re not always chosen and where the biggest lever is. Credited toward the core.">Малый вход: почему вас выбирают не всегда и где главный рычаг. Засчитывается в ядро.</p></div>
+      <div class="step"><h3 data-en="Interview">Интервью</h3><p class="muted" data-en="Once, we unpack your expertise or business. From there — we work.">Один раз распаковываем вашу экспертизу или бизнес. Дальше работаем мы.</p></div>
+      <div class="step"><h3 data-en="Build">Сборка</h3><p class="muted" data-en="Business DNA + client portrait + competitor analysis + positioning + your offer.">ДНК бизнеса + портрет клиента + разбор конкурентов + позиционирование + ваш оффер.</p></div>
+      <div class="step"><h3 data-en="Delivery">Выдача</h3><p class="muted" data-en="Website + a &ldquo;one page for the referrer&rdquo; + Ask Your Business. In 10 business days.">Сайт + «одна страница для рекомендателя» + Ask Your Business. За 10 рабочих дней.</p></div>
+    </div>
+
+    <!-- ④ ТАЙМЛАЙН -->
+    <div style="margin-top:44px">
+      <h3 style="font-size:clamp(19px,2.4vw,24px)" data-en="10 business days — step by step">10 рабочих дней — по шагам</h3>
+      <p class="muted" style="margin-top:-4px" data-en="Click a stage — see what happens and what lands on your desk. Your part is only the interview.">Нажмите на этап — увидите, что происходит и что у вас на руках. Ваше участие — только интервью.</p>
+      <div class="tl" id="tl"></div>
+      <div class="tl-detail" id="tlDetail"></div>
+    </div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Start with step 1 →">Начать с шага 1 →</a></div>
+  </div>
+</section>
+
+<!-- RESULT + BUILDER + SLIDER -->
+<section style="background:#efece5">
+  <div class="wrap">
+    <span class="eyebrow" data-en="The result">Результат</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px)" data-en="What ends up on your desk">Что окажется у вас на столе</h2>
+    <ul class="result-list">
+      <li><span class="ok">✓</span> <span data-en="<b>Your difference in one sentence</b> — the answer to &ldquo;why you&rdquo;"><b>Ваше отличие в одном предложении</b> — ответ на «чем вы лучше»</span></li>
+      <li><span class="ok">✓</span> <span data-en="<b>A strong offer for your clients</b> — irresistible, Grand Slam method"><b>Сильное предложение для ваших клиентов</b> — по методу Большого Шлема</span></li>
+      <li><span class="ok">✓</span> <span data-en="<b>A portrait of your ideal client</b> in their own words"><b>Портрет идеального клиента</b> его же словами</span></li>
+      <li><span class="ok">✓</span> <span data-en="<b>A website</b> you&rsquo;re proud to share"><b>Сайт</b>, которым не стыдно поделиться</span></li>
+      <li><span class="ok">✓</span> <span data-en="<b>&ldquo;One page for the referrer&rdquo;</b> — so you get passed on without distortion"><b>«Одна страница для рекомендателя»</b> — чтобы вас пересылали без искажений</span></li>
+      <li><span class="ok">✓</span> <span data-en="<b>Ask Your Business</b> — query the system about your market anytime"><b>Ask Your Business</b> — спрашивайте систему о рынке в любой момент</span></li>
+    </ul>
+    <div class="badge" data-en="⏱ All of it — in &nbsp;<b>10 business days</b>">⏱ Всё — за <b>&nbsp;10 рабочих дней</b></div>
+
+    <!-- ② КОНСТРУКТОР ОТЛИЧИЯ -->
+    <div class="panel">
+      <span class="eyebrow" style="color:var(--gold-deep)" data-en="Try the product on yourself">Продукт на себе</span>
+      <h3 style="margin:0 0 4px;font-size:clamp(20px,2.6vw,26px)" data-en="Difference builder">Конструктор отличия</h3>
+      <p class="muted" data-en="Fill the gold blanks right inside the sentence. With each choice the grey &laquo;like everyone&raquo; line blurs away, and yours comes together." style="margin-bottom:2px">Заполните золотые пропуски прямо в предложении. С каждым выбором серая фраза «как у всех» расфокусируется, а ваша — собирается.</p>
+      <div class="seg gold" id="whoBuild" style="margin:12px 0 2px">
+        <button data-m="expert" class="on" data-en="I&rsquo;m an expert">Я — эксперт</button>
+        <button data-m="biz" data-en="We&rsquo;re a business">Мы — бизнес</button>
+      </div>
+      <div class="b-generic" id="genExpert"><span class="lbl" data-en="How most sound">Так звучит большинство</span><span class="gt" data-en="An expert with experience. I help with a wide range of questions. An individual approach, reasonable prices.">Эксперт с опытом. Помогаю по широкому кругу вопросов. Индивидуальный подход, разумные цены, гибкие условия.</span></div>
+      <div class="b-generic" id="genBiz" hidden><span class="lbl" data-en="How most sound">Так звучит большинство</span><span class="gt" data-en="A full-cycle company. A wide range of services, high quality, affordable prices, an individual approach to everyone.">Компания полного цикла. Широкий спектр услуг, высокое качество, доступные цены, индивидуальный подход к каждому.</span></div>
+      <div class="b-arrow" data-en="↓&nbsp;&nbsp;YOUR DIFFERENCE&nbsp;&nbsp;↓">↓&nbsp;&nbsp;ВАШЕ ОТЛИЧИЕ&nbsp;&nbsp;↓</div>
+
+      <p class="sentence" id="sentExpert">
+        <span class="s-lead" data-en="I help">Я помогаю</span>
+        <span class="blank slot" data-t="sel"><select id="eWho" class="bl"></select><span class="custom"><input class="bl cin" type="text"><button type="button" class="revert">↺</button></span></span>
+        <span class="blank slot" data-t="sel"><select id="eProb" class="bl"></select><span class="custom"><input class="bl cin" type="text"><button type="button" class="revert">↺</button></span></span>,
+        <span class="s-mid" data-en="unlike">в отличие от</span>
+        <span class="blank slot" data-t="sel"><select id="eAlt" class="bl"></select><span class="custom"><input class="bl cin" type="text"><button type="button" class="revert">↺</button></span></span>.
+        <span class="s-proof" data-en="Proof:">Доказательство:</span>
+        <span class="blank"><input id="eProof" class="bl" type="text"></span>.
+      </p>
+
+      <p class="sentence" id="sentBiz" hidden>
+        <span class="s-lead" data-en="We&rsquo;re a">Мы —</span>
+        <span class="blank slot" data-t="sel"><select id="bBiz" class="bl"></select><span class="custom"><input class="bl cin" type="text"><button type="button" class="revert">↺</button></span></span>
+        <span class="s-for" data-en="for">для</span>
+        <span class="blank slot" data-t="sel"><select id="bSeg" class="bl"></select><span class="custom"><input class="bl cin" type="text"><button type="button" class="revert">↺</button></span></span>.
+        <span class="s-chosen" data-en="Chosen for">Нас выбирают за</span>
+        <span class="blank slot" data-t="sel"><select id="bDist" class="bl"></select><span class="custom"><input class="bl cin" type="text"><button type="button" class="revert">↺</button></span></span>.
+        <span class="s-proof" data-en="Proof:">Доказательство:</span>
+        <span class="blank"><input id="bProof" class="bl" type="text"></span>.
+      </p>
+
+      <div class="done-badge" id="doneBadge" data-en="✓ Done — your difference in one sentence">✓ Готово — ваше отличие в одном предложении</div>
+      <div class="b-actions">
+        <button class="b-ghost" id="fillDemo" data-en="Show me an example →">Показать на примере →</button>
+        <button class="b-ghost" id="clearB" data-en="Clear">Очистить</button>
+      </div>
+      <div class="note" data-en="This is a 30-second draft. We go deeper — on your market&rsquo;s data and your clients&rsquo; own words. This is the first artifact from the build.">Это черновик за 30 секунд. Мы делаем это глубже — на данных вашего рынка и словах ваших клиентов. Так работает первый артефакт из сборки.</div>
+    </div>
+
+    <!-- ③ СЛАЙДЕР ДО/ПОСЛЕ -->
+    <div style="margin-top:44px">
+      <h3 style="font-size:clamp(19px,2.4vw,24px)" data-en="Out of focus → in focus">Расфокус → фокус</h3>
+      <p class="muted" style="margin-top:-4px" data-en="Drag the handle. On the left — how someone the market can&rsquo;t see looks. On the right — the same business, made clear.">Потяните ручку. Слева — как выглядит тот, кого рынок не видит. Справа — тот же бизнес, ставший понятным.</p>
+      <div class="seg gold" id="revToggle" style="margin-top:12px">
+        <button data-m="expert" class="on" data-en="Expert">Эксперт</button>
+        <button data-m="biz" data-en="Business">Бизнес</button>
+      </div>
+      <div class="rev" id="rev">
+        <div class="layer sharp"><div class="tag" data-en="After — in focus">После — в фокусе</div><div class="big" id="sharpBig"></div><div class="sub" id="sharpSub"></div></div>
+        <div class="layer fog" id="fog"><div class="tag" data-en="Before — blurred">До — размыто</div><div class="big" id="fogBig"></div><div class="sub" id="fogSub"></div></div>
+        <div class="handle" id="handle"><div class="knob">⇆</div></div>
+      </div>
+    </div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Get your version →">Получить свой результат →</a></div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="dark-sec">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold-hi)" data-en="Who does this">Кто это делает</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px)" data-en="Not a faceless team of juniors. Two operators lead you.">Не безликая команда джуниоров. Вас ведут двое операторов.</h2>
+    <div class="fnd-grid">
+      <div class="fnd-photo"><video class="foundersvideo" autoplay muted loop playsinline><source src="img/founders-anim.mp4" type="video/mp4"><img class="foundersimg" src="img/founders.jpg" alt="Андрей и Маша за работой" loading="lazy"></video></div>
+      <div class="founders">
+        <div class="founder"><div class="avatar">A</div><div><h3 data-en="Andrey">Андрей</h3><p data-en="Entrepreneur and business founder. Built a holding of ~30 companies: corporate tax optimization, strategy, reading any business. Earlier in his career — CFO of a corporation.">Предприниматель и основатель бизнесов. Строил холдинг из ~30 предприятий: налоговая оптимизация корпораций, стратегия, разбор любого бизнеса. В прошлом — CFO в корпорации.</p></div></div>
+        <div class="founder"><div class="avatar">M</div><div><h3 data-en="Masha">Маша</h3><p data-en="Former CFO of a large corporation. Client psychology, negotiation and networking. Systematic execution, end to end.">Экс-CFO крупной корпорации. Психология клиента, переговоры и нетворкинг. Системность и доведение до конца.</p></div></div>
+      </div>
+    </div>
+    <p style="margin-top:22px;color:#c9c8dc" data-en="Husband and wife, forged in finance. That&rsquo;s exactly why you hand access to specific people — not a team you&rsquo;ll never see.">Муж и жена, выкованные в финансах. Именно поэтому вы отдаёте доступ конкретным людям, а не команде, которую никогда не увидите.</p>
+    <div class="proof-note" data-en="Our first case study is right below. Client name and details are withheld by agreement — testimonials from first clients will appear as they&rsquo;re ready. We don&rsquo;t publish invented stories.">Наш первый кейс — сразу ниже. Имя и детали клиента скрыты по договору; отзывы первых клиентов появятся по мере готовности. Мы не публикуем выдуманных историй.</div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Ask Andrey &amp; Masha →">Задать вопрос Андрею и Маше →</a></div>
+  </div>
+</section>
+
+<!-- CASE -->
+<section id="case" style="background:#efece5">
+  <div class="wrap">
+    <span class="eyebrow" data-en="First case study">Первый кейс</span>
+    <h2 class="serif" style="font-size:clamp(24px,3.4vw,34px);max-width:24ch" data-en="An excellent specialist the market couldn&rsquo;t see.">Отличный специалист, которого рынок не мог разглядеть.</h2>
+    <p class="muted" style="max-width:64ch" data-en="A boutique fractional-CFO practice in the US. The founder &mdash; 15+ years in finance and operations, a forensic background, bilingual, has built and run businesses herself. She does work few can replicate. And yet &mdash; nearly invisible to the market.">Бутиковая практика fractional CFO в США. Основатель — 15+ лет в финансах и операциях, forensic-бэкграунд, двуязычная, сама строила и вела бизнесы. Делает работу, которую мало кто может повторить. И при этом — почти невидима для рынка.</p>
+    <div class="ba" style="margin-top:26px">
+      <div class="before">
+        <div class="lbl" data-en="Before">До</div>
+        <p style="margin:0 0 12px" data-en="&laquo;Fractional CFO&raquo; &mdash; thousands call themselves that. It explained nothing.">«Fractional CFO» — так себя называют тысячи. Это ничего не объясняло.</p>
+        <p style="margin:0 0 12px" data-en="A website she herself called &ldquo;unclear.&rdquo; After a referral &mdash; nothing to send.">Сайт, который она сама называла «непонятным». После рекомендации — нечего прислать.</p>
+        <p style="margin:0 0 12px" data-en="Brilliant work priced like a bookkeeper&rsquo;s &mdash; she charged about half her own target.">Блестящая работа по цене бухгалтера — брала примерно вдвое меньше собственной цели.</p>
+        <p style="margin:0" data-en="Pipeline on word of mouth alone. A system &mdash; none.">Поток — только на сарафане. Системы — нет.</p>
+      </div>
+      <div class="after">
+        <div class="lbl" data-en="After — what we made visible">После — что мы сделали видимым</div>
+        <p style="margin:0 0 12px" data-en="Her difference in one sentence: <b>financial leadership for companies that have outgrown their financial infrastructure.</b>">Её отличие в одном предложении: <b>финансовое руководство для компаний, которые переросли свою финансовую инфраструктуру.</b></p>
+        <p style="margin:0 0 12px" data-en="A product spine no competitor even starts with: <b>Reconstruct &rarr; Control &rarr; Advise.</b>">Несущая логика продукта, с которой не начинает ни один конкурент: <b>Восстановить → Взять под контроль → Советовать.</b></p>
+        <p style="margin:0 0 12px" data-en="Ideal client redefined &mdash; by complexity, not revenue.">Идеальный клиент переопределён — по сложности, а не по обороту.</p>
+        <p style="margin:0" data-en="Her single strongest proof &mdash; surfaced and placed at the center. She had never used it in sales.">Её главное доказательство — найдено и поставлено в центр. В продажах она им не пользовалась.</p>
+      </div>
+    </div>
+    <div class="anti" style="margin-top:34px">
+      <p class="quote" data-en="We&rsquo;re not showing you a revenue chart.">Мы не показываем вам график выручки.</p>
+      <p data-en="The work is weeks old, and results in numbers aren&rsquo;t ours to promise. We show something else: <b>exactly what landed on her desk in 3 days.</b> The rest &mdash; her market, her clients, her decisions.">Работе несколько недель, а результат в цифрах — не то, что мы вправе обещать. Мы показываем другое: <b>что именно легло ей на стол за 3 дня.</b> Дальше — её рынок, её клиенты, её решения.</p>
+    </div>
+    <div class="badge" data-en="⏱ Built in &nbsp;<b>3 business days</b>&nbsp; · client name and details withheld by agreement">⏱ Собрано за <b>&nbsp;3 рабочих дня&nbsp;</b> · имя и детали клиента скрыты по договору</div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Discuss your case →">Обсудить свой случай →</a></div>
+  </div>
+</section>
+
+<!-- ASK YOUR BUSINESS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow" data-en="A living system">Живая система</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px)" data-en="Ask Your Business — ask about your own business">Ask Your Business — спросите о своём бизнесе</h2>
+    <p class="muted" data-en="After the build you&rsquo;re left with a workspace, not a PDF. Tap a question — see how the system answers.">После сборки у вас остаётся рабочее пространство, а не PDF. Нажмите на вопрос — посмотрите, как отвечает система.</p>
+    <div class="askbox">
+      <div class="ask-input"><input id="askInput" data-en-ph="Ask about your market…" placeholder="Спросите о своём рынке…" readonly><a href="#cta" class="btn sm" data-en="Ask">Спросить</a></div>
+      <div class="chips" id="chips">
+        <div class="chip" data-a="0" data-en="Can I raise my price?">Можно ли поднять цену?</div>
+        <div class="chip" data-a="1" data-en="Why are competitors growing faster?">Почему конкуренты растут быстрее?</div>
+        <div class="chip" data-a="2" data-en="Which client segment should I take?">Какой сегмент клиентов брать?</div>
+      </div>
+      <div id="answer"></div>
+    </div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Get a system like this →">Получить такую систему →</a></div>
+  </div>
+</section>
+
+<!-- CONTINUOUS -->
+<section style="background:#efece5">
+  <div class="wrap">
+    <span class="eyebrow" data-en="And you&rsquo;re not on your own">И дальше вы не одни</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px)" data-en="Continuous Intelligence — your system stays alive">Continuous Intelligence — ваша система остаётся живой</h2>
+    <p class="muted" style="max-width:62ch" data-en="A market that&rsquo;s frozen in a report goes stale in a month. So after the build we don&rsquo;t disappear — every month you get:">Рынок, застывший в отчёте, устаревает за месяц. Поэтому после сборки мы не исчезаем — каждый месяц вы получаете:</p>
+    <div class="cont">
+      <div class="c"><b data-en="Market &amp; competitor changes">Изменения рынка и конкурентов</b><span class="muted" data-en="what shifted around you, and what it means for you">что сдвинулось вокруг вас и что это для вас значит</span></div>
+      <div class="c"><b data-en="New opportunities and threats">Новые возможности и угрозы</b><span class="muted" data-en="signals worth acting on before your competitors do">сигналы, на которые стоит реагировать раньше конкурентов</span></div>
+      <div class="c"><b data-en="Ask Your Business — anytime">Ask Your Business — в любой момент</b><span class="muted" data-en="a new question comes up — you ask the system, not start from scratch">возник вопрос — вы спрашиваете систему, а не начинаете с нуля</span></div>
+      <div class="c"><b data-en="Recommended actions">Рекомендованные действия</b><span class="muted" data-en="not raw data — a decision you can act on">не сырые данные, а решение, которое можно применить</span></div>
+    </div>
+    <div class="cont-flow">
+      <span class="fl" data-en="What changed">Что изменилось</span><span class="ar">→</span>
+      <span class="fl" data-en="Why it matters">Почему это важно</span><span class="ar">→</span>
+      <span class="fl" data-en="What to do">Что делать</span>
+    </div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Book 20 minutes →">Записаться на 20 минут →</a></div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="dark-sec" id="offer">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold-hi)" data-en="What&rsquo;s included">Что входит</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px)" data-en="The &ldquo;Visible Expert&rdquo; offer">Оффер «Видимый эксперт»</h2>
+    <div class="stack">
+      <div class="item"><b data-en="🧬 Company DNA">🧬 Company DNA</b> <span data-en="— your difference in one sentence">— ваше отличие в одном предложении</span></div>
+      <div class="item"><b data-en="🎁 A strong offer for your clients">🎁 Сильное предложение для клиентов</b> <span data-en="— irresistible, Grand Slam method">— неотразимое, по методу Большого Шлема</span></div>
+      <div class="item"><b data-en="🎯 Customer Intelligence">🎯 Customer Intelligence</b> <span data-en="— your client&rsquo;s portrait in their words">— портрет клиента его словами</span></div>
+      <div class="item"><b data-en="🔍 Competitor Intelligence">🔍 Competitor Intelligence</b> <span data-en="— how you actually differ">— чем вы реально отличаетесь</span></div>
+      <div class="item"><b data-en="🖥 Website / landing">🖥 Сайт / лендинг</b> <span data-en="— a selling structure, not a picture">— продающая структура, не картинка</span></div>
+      <div class="item"><b data-en="📄 One page for the referrer">📄 Одна страница для рекомендателя</b></div>
+      <div class="item"><b data-en="🤖 Ask Your Business">🤖 Ask Your Business</b> <span data-en="— a living intelligence system">— живая интеллект-система</span></div>
+      <div class="item"><b data-en="❓ First Decision Research">❓ Первый Decision Research</b> <span data-en="— included">— включён</span></div>
+    </div>
+    <div class="calc">
+      <span class="eyebrow" data-en="Honest comparison">Честное сравнение</span>
+      <h3 style="margin-top:6px" data-en="What it costs otherwise">Во что это обходится иначе</h3>
+      <p class="muted" style="margin-top:0" data-en="Pick what you&rsquo;d otherwise consider — and compare with our entry. All numbers are real market rates.">Выберите, что вы бы рассматривали — и сравните с нашим входом. Все цифры рыночные.</p>
+      <div class="calc-tabs" id="calcTabs">
+        <div class="calc-tab active" data-c="0" data-en="In-house marketer">Маркетолог в штат</div>
+        <div class="calc-tab" data-c="1" data-en="Fractional CMO / agency">Fractional CMO / агентство</div>
+        <div class="calc-tab" data-c="2" data-en="Consulting firm">Консалтфирма</div>
+      </div>
+      <div class="calc-out">
+        <div class="calc-card them"><div class="muted" data-en="Alternative">Альтернатива</div><div class="big" id="calcThemPrice"></div><div id="calcThemNote" class="muted"></div></div>
+        <div class="calc-card us"><div class="muted" data-en="Our entry">Наш вход</div><div class="big" data-en="Audit $500–2,500">Audit $500–2 500</div><div class="muted" data-en="Credited toward the core ($5–15k). Whatever you decide — you lose nothing.">Засчитывается в ядро ($5–15k). Что бы вы ни решили — ничего не теряете.</div></div>
+      </div>
+    </div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Choose the Audit →">Выбрать Audit →</a></div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow" data-en="Guarantee">Гарантия</span>
+    <h2 class="serif" style="font-size:clamp(23px,3.2vw,32px);max-width:26ch" data-en="Your fear isn&rsquo;t &ldquo;too expensive.&rdquo; Your fear is paying again and getting nothing.">Ваш страх не «дорого». Ваш страх — снова заплатить и ничего не получить.</h2>
+    <div class="guar">
+      <div class="g"><div class="ic">🔒</div><b data-en="Audit credited toward the core">Audit засчитывается в ядро</b><p class="muted" data-en="You lose nothing, whatever you decide.">Не теряете ничего, что бы ни решили.</p></div>
+      <div class="g"><div class="ic">⏱</div><b data-en="Artifacts in 10 business days">Артефакты за 10 рабочих дней</b><p class="muted" data-en="Or we keep working free until they&rsquo;re done.">Или доработка бесплатно, пока не будет.</p></div>
+      <div class="g"><div class="ic">🚪</div><b data-en="Permission to say &ldquo;no&rdquo;">Разрешение на «нет»</b><p class="muted" data-en="After the Audit you&rsquo;re not tied to anything.">После Audit вы ничем не связаны.</p></div>
+    </div>
+    <div class="anti">
+      <p class="quote" data-en="🚫 &laquo;We don&rsquo;t guarantee you a flood of clients.&raquo;">🚫 «Мы не гарантируем вам поток клиентов.»</p>
+      <p data-en="Anyone who guarantees it either doesn&rsquo;t understand your work or is lying. <b>We guarantee something else: you&rsquo;ll stop being invisible.</b> You&rsquo;ll have an answer to &ldquo;why you,&rdquo; something to send instead of a silence, and a system instead of luck.">Кто гарантирует — либо не понимает вашу работу, либо врёт. <b>Мы гарантируем другое: вы перестанете быть невидимыми.</b> Будет чем ответить на «чем вы лучше», будет что прислать вместо паузы, и будет система, а не везение.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="final">
+  <div class="wrap">
+    <h2 data-en="Book a call">Записаться на разговор</h2>
+    <p class="qs" data-en="<b>20 minutes, by voice. Not a form.</b><br>Three questions: when did you last lose a client — do you know why? · can you say in one sentence how you&rsquo;re different? · and, straight up: we start with an Audit, and if there&rsquo;s nothing to fix, we&rsquo;ll say so."><b>20 минут голосом. Не анкета.</b><br>Три вопроса: когда вы в последний раз теряли клиента — знаете, почему? · ответите одним предложением, чем вы отличаетесь? · и сразу честно: входим через Audit, если чинить нечего — скажем прямо.</p>
+    <div class="book">
+      <a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Pick a time →">Выбрать время →</a>
+      <a href="https://t.me/business_int_dna" target="_blank" rel="noopener" class="btn tgbtn" data-en="✈ Message on Telegram">✈ Написать в Telegram</a>
+    </div>
+    <p style="margin-top:20px;color:#c9c8dc;font-size:15px" data-en="No more than 5 clients at a time. Individual work with each.">Не более 5 клиентов одновременно. Индивидуальная работа с каждым.</p>
+    <div class="scount"><span class="pips" id="pips"></span><span data-en="&nbsp;·&nbsp; <b id='slotN2'>3</b> of 5 slots free">&nbsp;·&nbsp; свободно <b id="slotN">3</b> из 5 мест</span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Questions">Вопросы</span>
+    <h2 style="font-size:clamp(24px,3.4vw,34px)" data-en="Common objections">Частые возражения</h2>
+    <div id="faq">
+      <div class="faq-item"><div class="faq-q"><span data-en="&ldquo;Too expensive&rdquo;">«Дорого»</span> <span class="tog">+</span></div><div class="faq-a"><p data-en="You&rsquo;re afraid not of the price but of repeating the disappointment. That&rsquo;s why the entry is a cheap Audit, and it&rsquo;s credited toward the core.">Вы боитесь не суммы, а повторить разочарование. Поэтому вход — недорогой Audit, и он засчитывается в ядро.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-en="&ldquo;I&rsquo;ve tried marketing — it didn&rsquo;t work&rdquo;">«Уже пробовал маркетинг — не сработало»</span> <span class="tog">+</span></div><div class="faq-a"><p data-en="We&rsquo;re not ads and not traffic. We make you clear once you&rsquo;ve already been found or referred. That&rsquo;s a different job.">Мы не реклама и не трафик. Мы делаем вас понятным, когда вас уже нашли или порекомендовали. Это другая работа.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-en="&ldquo;Maybe it&rsquo;ll sort itself out&rdquo;">«Может, само наладится»</span> <span class="tog">+</span></div><div class="faq-a"><p data-en="An empty month isn&rsquo;t bad luck — it&rsquo;s a system with no control. It will repeat, and the next client again picks whoever was easier to understand.">Пустой месяц — не невезение, а система без контроля. Он повторится, и следующий клиент снова выберет того, кого было легче понять.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-en="&ldquo;I don&rsquo;t want to become a blogger&rdquo;">«Не хочу становиться блогером»</span> <span class="tog">+</span></div><div class="faq-a"><p data-en="And you don&rsquo;t need to. The product requires no publicity or content. We amplify you as a master, not turn you into an influencer.">И не нужно. Продукт не требует публичности и контента. Мы усиливаем вас как мастера, а не делаем инфлюенсером.</p></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-en="&ldquo;It won&rsquo;t work for my narrow niche&rdquo;">«Не сработает для моей узкой ниши»</span> <span class="tog">+</span></div><div class="faq-a"><p data-en="Everything is built personally around your practice, not from a template. You recognize yourself, not &ldquo;an expert in general.&rdquo;">Всё строится персонально под вашу практику, а не по шаблону. Вы узнаёте себя, а не «эксперта вообще».</p></div></div>
+    </div>
+    <div class="secCta"><a href="https://calendly.com/andywar777/30min" rel="noopener" class="btn" data-en="Still have questions? Book a call →">Остались вопросы? Записаться на разговор →</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div style="max-width:38ch">
+        <div class="fbrand" style="color:#c9c8dc;font-weight:800;margin-bottom:6px">Business Intelligence <b>DNA</b></div>
+        <span data-en="We don&rsquo;t guarantee outcomes we can&rsquo;t control. We help you become clear and visible.">Мы не гарантируем результатов, которые не контролируем. Помогаем вам стать понятным и видимым.</span>
+      </div>
+      <div>
+        <div style="color:#c9c8dc;font-weight:700;margin-bottom:8px" data-en="Get in touch">Связаться</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <a href="https://t.me/business_int_dna" target="_blank" rel="noopener">✈ Telegram — @business_int_dna</a>
+          <a href="https://calendly.com/andywar777/30min" rel="noopener" data-en="📅 Pick a time for a call">📅 Выбрать время для разговора</a>
+        </div>
+      </div>
+      <div>
+        <span>© <span id="yr">2026</span> · Андрей &amp; Маша</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var lang='ru';
+  document.querySelectorAll('[data-en]').forEach(function(el){el.dataset.ru=el.innerHTML});
+
+  function setLang(l){
+    lang=l;
+    document.documentElement.lang=l;
+    document.getElementById('btnRu').classList.toggle('on',l==='ru');
+    document.getElementById('btnEn').classList.toggle('on',l==='en');
+    document.querySelectorAll('[data-en]').forEach(function(el){el.innerHTML=(l==='en')?el.dataset.en:el.dataset.ru});
+    var ai=document.getElementById('askInput');if(ai)ai.placeholder=(l==='en')?ai.dataset.enPh:'Спросите о своём рынке…';
+    renderQuiz();renderBuilderOptions();renderSlider();renderTimeline();renderCalc();renderAsk();
+  }
+
+  /* ============ HERO COIN ============ */
+  (function(){
+    var spin=document.getElementById('coinSpin');if(!spin)return;
+    var f=document.createElement('div');f.className='cface front';f.innerHTML='<div class="emblem">$</div>';
+    var b=document.createElement('div');b.className='cface back';b.innerHTML='<div class="emblem">$</div>';
+    spin.appendChild(f);spin.appendChild(b);
+    var isM=window.matchMedia('(max-width:880px)').matches;
+    var N=36,r=isM?50:65,th=isM?22:28,segW=2*r*Math.tan(Math.PI/N)+0.7;
+    function mix(c1,c2,t){function h(x){x=x.replace('#','');return [parseInt(x.slice(0,2),16),parseInt(x.slice(2,4),16),parseInt(x.slice(4,6),16)];}var A=h(c1),B=h(c2);return 'rgb('+Math.round(B[0]+(A[0]-B[0])*t)+','+Math.round(B[1]+(A[1]-B[1])*t)+','+Math.round(B[2]+(A[2]-B[2])*t)+')';}
+    for(var i=0;i<N;i++){var s=document.createElement('div'),a=i*(360/N);s.className='cseg';
+      s.style.width=segW+'px';s.style.height=th+'px';s.style.marginLeft=(-segW/2)+'px';s.style.marginTop=(-th/2)+'px';
+      s.style.transform='rotateY('+a+'deg) translateZ('+r+'px)';
+      var lit=0.5+0.5*Math.cos((a-45)*Math.PI/180);
+      s.style.background='linear-gradient(180deg,'+mix('#f6e2ab','#5a4118',lit)+','+mix('#c9974d','#48340f',lit)+')';
+      spin.appendChild(s);}
+  })();
+
+  /* ============ HERO COLUMNS (wave) ============ */
+  (function(){
+    var host=document.getElementById('cols');if(!host)return;
+    var GROUND=250, WAVE=3.0;
+    var W=54,D=54,GAP=6,START=196,N=9;
+    var MIN=0.16,STEP=0.26,RISE=1.0,HOLD=0.76,FALL=1.0,TAIL=0.6;
+    var fallBase=(N-1)*STEP+RISE+HOLD, T=fallBase+(N-1)*STEP+FALL+TAIL;
+    for(var i=0;i<N;i++){
+      var H=64+i*20, x=START+i*(W+GAP);
+      var col=document.createElement('div');col.className='col';
+      col.style.left=x+'px';col.style.top=GROUND+'px';col.style.width=W+'px';col.style.height='0px';col.style.transform='translateZ(-38px)';
+      var grow=document.createElement('div');grow.className='colGrow';grow.style.position='absolute';grow.style.left='0';grow.style.bottom='0';grow.style.width=W+'px';grow.style.height=H+'px';
+      var box=document.createElement('div');box.style.position='absolute';box.style.left='0';box.style.top='0';box.style.width=W+'px';box.style.height=H+'px';box.style.transformStyle='preserve-3d';
+      var h=W/2;
+      [['top',W,D,'rotateX(90deg) translateZ('+(H/2)+'px)'],['bottom',W,D,'rotateX(-90deg) translateZ('+(H/2)+'px)'],['front',W,H,'translateZ('+(D/2)+'px)'],['back',W,H,'rotateY(180deg) translateZ('+(D/2)+'px)'],['right',D,H,'rotateY(90deg) translateZ('+h+'px)'],['left',D,H,'rotateY(-90deg) translateZ('+h+'px)']].forEach(function(F){
+        var d=document.createElement('div');d.className='f '+F[0];d.style.width=F[1]+'px';d.style.height=F[2]+'px';d.style.marginLeft=(-F[1]/2)+'px';d.style.marginTop=(-F[2]/2)+'px';d.style.transform=F[3];box.appendChild(d);});
+      grow.appendChild(box);col.appendChild(grow);host.appendChild(col);
+      var riseStart=i*STEP,riseEnd=riseStart+RISE,fallStart=fallBase+(N-1-i)*STEP,fallEnd=fallStart+FALL,E='cubic-bezier(.34,.85,.32,1)';
+      var kf=[{offset:0,transform:'scaleY('+MIN+')'},{offset:riseStart/T,transform:'scaleY('+MIN+')',easing:E},{offset:riseEnd/T,transform:'scaleY(1)'},{offset:fallStart/T,transform:'scaleY(1)',easing:E},{offset:fallEnd/T,transform:'scaleY('+MIN+')'},{offset:1,transform:'scaleY('+MIN+')'}].filter(function(k,idx,arr){return idx===0||k.offset>arr[idx-1].offset;});
+      if(grow.animate)grow.animate(kf,{duration:T*1000,iterations:Infinity});
+    }
+  })();
+
+  /* ============ 2A CROWD (pain bg) — visible cluster, one gold lit ============ */
+  (function(){
+    var host=document.getElementById('crowd');if(!host)return;
+    var CW=1200,CH=440;
+    function px(v){return (v/CW*100)+'%';}function py(v){return (v/CH*100)+'%';}
+    // spotlight beam over the gold figure
+    var beam=document.createElement('div');beam.className='beam';
+    beam.style.left=px(700);beam.style.top='0';beam.style.width=px(360);beam.style.height=py(340);
+    beam.style.background='linear-gradient(180deg,rgba(242,198,112,.66),rgba(214,164,72,.24) 60%,transparent)';
+    beam.style.clipPath='polygon(40% 0%,60% 0%,84% 100%,16% 100%)';host.appendChild(beam);
+    function addFig(x,y,scale,hero,dim,blur){
+      var hh=150*scale,hw=hh*0.40;
+      var f=document.createElement('div');f.className='fig';
+      f.style.left=px(x-hw);f.style.top=py(y-hh);f.style.width=(hw*2)+'px';f.style.height=hh+'px';f.style.zIndex=hero?9:2;
+      var headD=hh*0.26;
+      var head=document.createElement('div');head.className='head';head.style.width=headD+'px';head.style.height=headD+'px';
+      var body=document.createElement('div');body.className='body';body.style.width=(hw*1.75)+'px';body.style.height=(hh*0.8)+'px';body.style.top=(headD*0.86)+'px';
+      if(hero){var g='linear-gradient(168deg,#fff3cf,#ecca80 32%,#c69749 62%,#7d5a20)';head.style.background=g;body.style.background=g;head.style.boxShadow='0 0 '+(hh*0.36)+'px rgba(236,196,120,.9)';body.style.boxShadow='0 0 '+(hh*0.42)+'px rgba(198,151,73,.62)';}
+      else{var gr='linear-gradient(170deg,rgba(178,181,206,'+(0.95*dim)+'),rgba(100,103,128,'+(0.92*dim)+') 55%,rgba(54,56,76,'+(0.95*dim)+'))';head.style.background=gr;body.style.background=gr;if(blur)f.style.filter='blur('+blur.toFixed(2)+'px)';f.style.opacity=(0.55+0.45*dim).toFixed(2);}
+      f.appendChild(head);f.appendChild(body);host.appendChild(f);
+    }
+    // grey crowd — packed to the right of the headline
+    var rows=[
+      {y:120,sc:0.60,dim:0.55,blur:2.4,xs:[560,636,712,946,1022,1098,1174]},
+      {y:170,sc:0.74,dim:0.72,blur:1.7,xs:[600,684,912,996,1080,1164]},
+      {y:225,sc:0.92,dim:0.9, blur:1.0,xs:[556,650,1010,1104]}
+    ];
+    rows.forEach(function(r){r.xs.forEach(function(x){addFig(x,r.y,r.sc,false,r.dim,r.blur);});});
+    // the one lit gold figure — front & center-right, prominent
+    addFig(830,262,1.16,true,1,0);
+  })();
+
+  /* ============ ① QUIZ ============ */
+  var quizData={
+    questions:[
+      {k:'who',qt:{ru:'Кто вы для рынка?',en:'Who are you to the market?'},opts:[{v:'expert',ru:'Эксперт / практик — продаю своё мастерство',en:'Expert / practitioner — I sell my own mastery'},{v:'biz',ru:'Бизнес / компания — продаю продукт, а не себя',en:'Business / company — I sell a product, not myself'}]},
+      {k:'diff',qt:{ru:'Можете назвать своё отличие одним предложением?',en:'Can you name your difference in one sentence?'},opts:[{p:2,ru:'Да, чётко',en:'Yes, clearly'},{p:1,ru:'Почти',en:'Almost'},{p:0,ru:'Нет',en:'No'}]},
+      {k:'lost',qt:{ru:'За последний год теряли клиента, выбравшего более понятного, но слабого?',en:'In the past year, lost a client who picked someone clearer but weaker?'},opts:[{p:0,ru:'Да, было',en:'Yes, it happened'},{p:2,ru:'Нет',en:'No'}]},
+      {k:'send',qt:{ru:'После рекомендации есть что прислать — сайт или страница?',en:'After a referral, do you have something to send — a site or a page?'},opts:[{p:2,ru:'Да, не стыдно',en:'Yes, proud of it'},{p:0.6,ru:'Есть, но так себе',en:'There is, but meh'},{p:0,ru:'Стыдно показать',en:'Embarrassing to show'}]},
+      {k:'flow',qt:{ru:'Откуда идёт поток клиентов?',en:'Where does your client flow come from?'},opts:[{p:2,ru:'Есть система',en:'There&rsquo;s a system'},{p:1,ru:'Только сарафан',en:'Word of mouth only'},{p:0,ru:'Бывают пустые месяцы',en:'There are empty months'}]},
+      {k:'price',qt:{ru:'Цена относительно вашей ценности?',en:'Price relative to your value?'},opts:[{p:2,ru:'На уровне ценности',en:'At the level of the value'},{p:1,ru:'Ниже, чем могли бы',en:'Lower than it could be'},{p:0,ru:'Не знаю оптимума',en:'Not sure of the optimum'}]}
+    ],
+    segs:[{min:0,ru:'Невидимка',en:'Invisible',col:'#c1544c'},{min:31,ru:'Известны по сарафану',en:'Known by word of mouth',col:'#d0a24a'},{min:56,ru:'Видно, но размыто',en:'Seen, but blurry',col:'#9aa0c9'},{min:76,ru:'Понятны и видимы',en:'Clear and visible',col:'#2f9e6f'}],
+    weak:{
+      diff:{e:{ru:'Слабая точка: отличие не звучит одним предложением — рынок не понимает, чем вы лучше.',en:'Weak spot: your difference doesn&rsquo;t fit one sentence — the market doesn&rsquo;t get why you&rsquo;re better.'},b:{ru:'Слабая точка: отличие не звучит одним предложением — клиенты не понимают, чем вы лучше соседних.',en:'Weak spot: your difference doesn&rsquo;t fit one sentence — clients don&rsquo;t see why you beat the one next door.'}},
+      lost:{e:{ru:'Слабая точка: вы уже теряете сделки тем, кого проще выбрать, а не тем, кто сильнее.',en:'Weak spot: you already lose deals to whoever&rsquo;s easier to choose, not whoever&rsquo;s stronger.'},b:{ru:'Слабая точка: вы уже теряете клиентов тем, кого проще понять, а не тем, кто реально лучше.',en:'Weak spot: you already lose clients to whoever&rsquo;s easier to understand, not whoever&rsquo;s actually better.'}},
+      send:{e:{ru:'Слабая точка: после рекомендации нечего прислать — тёплый контакт остывает в паузе.',en:'Weak spot: after a referral there&rsquo;s nothing to send — a warm lead cools in the silence.'},b:{ru:'Слабая точка: после рекомендации нечего прислать — тёплый клиент остывает в паузе.',en:'Weak spot: after a referral there&rsquo;s nothing to send — a warm client cools in the silence.'}},
+      flow:{e:{ru:'Слабая точка: поток держится на везении, а не на системе.',en:'Weak spot: your flow runs on luck, not on a system.'},b:{ru:'Слабая точка: поток держится на везении, а не на системе привлечения.',en:'Weak spot: your flow runs on luck, not on an acquisition system.'}},
+      price:{e:{ru:'Слабая точка: вы берёте меньше, чем стоите, — ценность не упакована.',en:'Weak spot: you charge less than you&rsquo;re worth — the value isn&rsquo;t packaged.'},b:{ru:'Слабая точка: цена и маржа ниже возможной — ценность не упакована.',en:'Weak spot: price and margin are below what&rsquo;s possible — the value isn&rsquo;t packaged.'}}
+    }
+  };
+  var answers={who:null,diff:null,lost:null,send:null,flow:null,price:null};
+  function segOf(v){var s=quizData.segs[0];for(var i=0;i<quizData.segs.length;i++){if(v>=quizData.segs[i].min)s=quizData.segs[i];}return s;}
+  function subject(){return answers.who==='biz'?(lang==='en'?'your business':'ваш бизнес'):(answers.who==='expert'?(lang==='en'?'you as an expert':'вас как эксперта'):(lang==='en'?'you':'вас'));}
+  function polar(cx,cy,r,deg){var a=deg*Math.PI/180;return [cx+r*Math.cos(a),cy-r*Math.sin(a)];}
+  function arcPath(a1,a2){var p1=polar(160,160,130,a1),p2=polar(160,160,130,a2);var large=(a1-a2)>180?1:0;return 'M'+p1[0].toFixed(1)+' '+p1[1].toFixed(1)+' A130 130 0 '+large+' 1 '+p2[0].toFixed(1)+' '+p2[1].toFixed(1);}
+  (function(){var bounds=[180,135,90,45,0],cols=['#c1544c','#d0a24a','#9aa0c9','#2f9e6f'],g=document.getElementById('arcs');for(var i=0;i<4;i++){var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',arcPath(bounds[i],bounds[i+1]));p.setAttribute('stroke',cols[i]);p.setAttribute('stroke-width','15');p.setAttribute('fill','none');p.setAttribute('opacity','.9');g.appendChild(p);}})();
+  var curV=0,targetV=0,raf=null,snapT=null;
+  function paint(v){var deg=180*(1-v/100);var p=polar(160,160,108,deg);var n=document.getElementById('needle');n.setAttribute('x2',p[0].toFixed(1));n.setAttribute('y2',p[1].toFixed(1));document.getElementById('score').textContent=Math.round(v);}
+  function animate(){curV+=(targetV-curV)*0.18;if(Math.abs(targetV-curV)<0.4)curV=targetV;paint(curV);if(curV!==targetV)raf=requestAnimationFrame(animate);}
+  function setTarget(v){targetV=v;cancelAnimationFrame(raf);raf=requestAnimationFrame(animate);clearTimeout(snapT);snapT=setTimeout(function(){curV=targetV;paint(curV);},650);}
+  function computeQuiz(){
+    var keys=['diff','lost','send','flow','price'],sum=0,cnt=0,lowKey=null,lowVal=99;
+    keys.forEach(function(k){if(answers[k]!==null){sum+=answers[k];cnt++;if(answers[k]<lowVal){lowVal=answers[k];lowKey=k;}}});
+    if(cnt===0){setTarget(0);document.getElementById('seglbl').textContent=(lang==='en'?'Take the test':'Пройдите тест');document.getElementById('score').textContent='—';document.getElementById('verdict').textContent=(lang==='en'?'Answer the questions — the needle comes alive.':'Отвечайте на вопросы — стрелка оживёт.');document.getElementById('quizCta').style.display='none';return;}
+    var v=Math.round(sum/(cnt*2)*100);setTarget(v);var s=segOf(v);
+    document.getElementById('seglbl').textContent=s[lang];document.getElementById('seglbl').style.color=s.col;
+    var allDone=cnt===5&&answers.who,vEl=document.getElementById('verdict');
+    if(allDone){
+      var subj=subject(),head;
+      if(lang==='en'){head=v>=76?('The market mostly sees '+subj+' — but there&rsquo;s still a ceiling.'):v>=56?('The market sees '+subj+' blurrily: you get found, but not fully understood.'):v>=31?('For now '+subj+' runs on word of mouth only — that&rsquo;s a ceiling and a risk of empty months.'):('Right now the market barely sees '+subj+' — and picks whoever&rsquo;s easier to understand.');}
+      else{head=v>=76?('Рынок в основном видит '+subj+' — но потолок ещё есть.'):v>=56?('Рынок видит '+subj+' размыто: вас находят, но не понимают до конца.'):v>=31?('Пока '+subj+' держит только сарафан — это потолок и риск пустых месяцев.'):('Сейчас '+subj+' рынок почти не видит — и выбирают тех, кого проще понять.');}
+      var wk=quizData.weak[lowKey]?quizData.weak[lowKey][answers.who==='biz'?'b':'e'][lang]:'';
+      vEl.innerHTML=head+'<span class="weak">'+wk+'</span>';document.getElementById('quizCta').style.display='inline-block';
+    }else{vEl.innerHTML=(lang==='en'?'Answer all the questions — we&rsquo;ll show exactly where it leaks.':'Ответьте на все вопросы — покажем, где именно течёт.');document.getElementById('quizCta').style.display='none';}
+  }
+  function renderQuiz(){
+    var host=document.getElementById('quiz');host.innerHTML='';
+    quizData.questions.forEach(function(q){
+      var d=document.createElement('div');d.className='q';
+      var qt=document.createElement('div');qt.className='qt';qt.textContent=q.qt[lang];d.appendChild(qt);
+      var op=document.createElement('div');op.className='opts';
+      q.opts.forEach(function(o){var b=document.createElement('button');b.innerHTML=o[lang];
+        var val=(q.k==='who')?o.v:o.p;
+        if(answers[q.k]===val)b.classList.add('on');
+        b.addEventListener('click',function(){op.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');answers[q.k]=val;computeQuiz();});
+        op.appendChild(b);});
+      d.appendChild(op);host.appendChild(d);});
+    computeQuiz();
+  }
+
+  /* ============ ② BUILDER ============ */
+  var buildData={
+    expert:{
+      lead:{ru:'Я помогаю',en:'I help'},mid:{ru:'в отличие от',en:'unlike'},proof:{ru:'Доказательство:',en:'Proof:'},
+      who:{ph:{ru:'кому именно?',en:'whom exactly?'},opts:[{ru:'экспертам и практикам',en:'experts and practitioners'},{ru:'владельцам бизнеса',en:'business owners'},{ru:'руководителям и первым лицам',en:'executives and leaders'},{ru:'растущим компаниям',en:'growing companies'},{ru:'частным клиентам',en:'private clients'}]},
+      prob:{ph:{ru:'с какой задачей?',en:'with what task?'},opts:[{ru:'объяснить рынку, чем они сильнее',en:'explain to the market why they&rsquo;re stronger'},{ru:'перестать зависеть от сарафана',en:'stop depending on word of mouth'},{ru:'поднять чек без потери клиентов',en:'raise their rate without losing clients'},{ru:'навести порядок там, где раньше не получалось',en:'bring order where it never worked before'}]},
+      alt:{ph:{ru:'кого?',en:'whom?'},opts:[{ru:'специалистов «на все руки»',en:'jack-of-all-trades specialists'},{ru:'штатного сотрудника',en:'an in-house hire'},{ru:'типичных консультантов',en:'typical consultants'}]},
+      proofPh:{ru:'кейс, цифра, результат',en:'a case, a number, a result'},
+      demo:{who:{ru:'владельцам бизнеса',en:'business owners'},prob:{ru:'объяснить рынку, чем они сильнее',en:'explain to the market why they&rsquo;re stronger'},alt:{ru:'специалистов «на все руки»',en:'jack-of-all-trades specialists'},proof:{ru:'кейс: собрали отличие за 3 дня',en:'case: built their difference in 3 days'}}
+    },
+    biz:{
+      lead:{ru:'Мы —',en:'We&rsquo;re a'},forw:{ru:'для',en:'for'},chosen:{ru:'Нас выбирают за',en:'Chosen for'},proof:{ru:'Доказательство:',en:'Proof:'},
+      biz:{ph:{ru:'что за бизнес?',en:'what kind of business?'},opts:[{ru:'сеть салонов красоты',en:'a chain of beauty salons'},{ru:'автосервис и body shop',en:'an auto repair & body shop'},{ru:'сеть автосалонов',en:'a dealership network'},{ru:'сеть кофеен',en:'a coffee-shop chain'},{ru:'розничная сеть',en:'a retail chain'},{ru:'производственная компания',en:'a manufacturing company'},{ru:'клиника',en:'a clinic'},{ru:'фитнес-студия',en:'a fitness studio'}]},
+      seg:{ph:{ru:'каких клиентов?',en:'which clients?'},opts:[{ru:'тех, кто ценит своё время',en:'those who value their time'},{ru:'владельцев премиум-авто',en:'premium-car owners'},{ru:'семей нашего района',en:'families in our area'},{ru:'занятых горожан',en:'busy city dwellers'},{ru:'клиентов, которым важно стабильное качество',en:'clients who care about consistent quality'}]},
+      dist:{ph:{ru:'что именно?',en:'what exactly?'},opts:[{ru:'точный срок и гарантию, а не «может быть, успеем»',en:'an exact deadline and a guarantee, not &laquo;maybe we&rsquo;ll make it&raquo;'},{ru:'стабильное качество на всех точках, а не «как повезёт»',en:'consistent quality across all locations, not &laquo;luck of the draw&raquo;'},{ru:'запись без ожидания, а не очередь ради низкой цены',en:'no-wait booking, not a queue for a low price'},{ru:'честную цену сразу, без «звоните — уточним»',en:'an honest upfront price, no &laquo;call us to find out&raquo;'}]},
+      proofPh:{ru:'цифра, отзыв, результат',en:'a number, a review, a result'},
+      demo:{biz:{ru:'сеть салонов красоты',en:'a chain of beauty salons'},seg:{ru:'тех, кто ценит своё время',en:'those who value their time'},dist:{ru:'запись без ожидания, а не очередь ради низкой цены',en:'no-wait booking, not a queue for a low price'},proof:{ru:'отзывы 4,9★ и загрузка на 90%',en:'4.9★ reviews and 90% occupancy'}}
+    },
+    custom:{ru:'✏️ свой вариант',en:'✏️ my own'},custph:{ru:'ваш вариант',en:'your own'}
+  };
+  function fillSelect(id,cfg){var el=document.getElementById(id);if(!el)return;var prev=el.value;el.innerHTML='';
+    var o0=document.createElement('option');o0.value='';o0.textContent=cfg.ph[lang];el.appendChild(o0);
+    cfg.opts.forEach(function(o){var op=document.createElement('option');op.innerHTML=o[lang];op.dataset.ru=o.ru;if(prev&&(o.ru===prev||o[lang]===prev||op.textContent===prev))op.selected=true;el.appendChild(op);});
+    var oc=document.createElement('option');oc.value='__custom__';oc.textContent=buildData.custom[lang];el.appendChild(oc);
+  }
+  function renderBuilderOptions(){
+    fillSelect('eWho',buildData.expert.who);fillSelect('eProb',buildData.expert.prob);fillSelect('eAlt',buildData.expert.alt);
+    fillSelect('bBiz',buildData.biz.biz);fillSelect('bSeg',buildData.biz.seg);fillSelect('bDist',buildData.biz.dist);
+    document.getElementById('eProof').placeholder=buildData.expert.proofPh[lang];
+    document.getElementById('bProof').placeholder=buildData.biz.proofPh[lang];
+    document.querySelectorAll('#sentExpert .cin, #sentBiz .cin').forEach(function(c){c.placeholder=buildData.custph[lang];});
+    buildUpdate();
+  }
+  (function(){
+    var mode='expert';
+    var sentExpert=document.getElementById('sentExpert'),sentBiz=document.getElementById('sentBiz'),
+        genExpert=document.getElementById('genExpert'),genBiz=document.getElementById('genBiz'),badge=document.getElementById('doneBadge');
+    window._buildMode=function(){return mode;};
+    function active(){return mode==='expert'?sentExpert:sentBiz;}
+    function activeGen(){return mode==='expert'?genExpert:genBiz;}
+    function slotVal(sl){var cin=sl.querySelector('.cin'),sel=sl.querySelector('select');if(sl.classList.contains('is-custom'))return cin?cin.value.trim():'';return sel?sel.value:'';}
+    function proofOf(s){return s.querySelector('.blank:not(.slot) input');}
+    window.buildUpdate=function(){
+      var sent=active(),gen=activeGen();
+      var slots=sent.querySelectorAll('.slot'),need=slots.length,f=0;
+      slots.forEach(function(sl){var ok=!!slotVal(sl);sl.classList.toggle('filled',ok);if(ok)f++;});
+      var proof=proofOf(sent);if(proof)proof.closest('.blank').classList.toggle('filled',!!proof.value.trim());
+      gen.style.opacity=(1-0.72*(f/need)).toFixed(2);gen.style.filter='blur('+(f/need*2.5).toFixed(2)+'px)';
+      var done=f===need;
+      if(done&&!sent.classList.contains('done')){sent.classList.add('done','pulse');setTimeout(function(){sent.classList.remove('pulse');},350);}
+      if(!done)sent.classList.remove('done');badge.classList.toggle('show',done);
+    };
+    function switchMode(m){mode=m;sentExpert.hidden=m!=='expert';sentBiz.hidden=m!=='biz';genExpert.hidden=m!=='expert';genBiz.hidden=m!=='biz';buildUpdate();}
+    document.querySelectorAll('#whoBuild button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#whoBuild button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');switchMode(b.dataset.m);});});
+    [sentExpert,sentBiz].forEach(function(sent){
+      sent.querySelectorAll('.slot').forEach(function(slot){
+        var sel=slot.querySelector('select'),cin=slot.querySelector('.cin'),rev=slot.querySelector('.revert');
+        if(sel)sel.addEventListener('change',function(){if(sel.value==='__custom__'){slot.classList.add('is-custom');if(cin){cin.value='';setTimeout(function(){cin.focus();},0);}}else slot.classList.remove('is-custom');buildUpdate();});
+        if(cin)cin.addEventListener('input',buildUpdate);
+        if(rev)rev.addEventListener('click',function(){slot.classList.remove('is-custom');if(sel)sel.value='';if(cin)cin.value='';buildUpdate();});
+      });
+      var proof=proofOf(sent);if(proof)proof.addEventListener('input',buildUpdate);
+    });
+    function setSlot(id,val){var el=document.getElementById(id);if(!el)return;var found=false;[].forEach.call(el.options,function(o){if(o.dataset.ru===val||o.textContent===val){el.value=o.value||o.textContent;found=true;}});if(!found)el.value=val;el.closest('.slot').classList.remove('is-custom');}
+    document.getElementById('fillDemo').addEventListener('click',function(){
+      if(mode==='expert'){var d=buildData.expert.demo;setSlot('eWho',d.who[lang]);setSlot('eProb',d.prob[lang]);setSlot('eAlt',d.alt[lang]);document.getElementById('eProof').value=d.proof[lang];}
+      else{var d2=buildData.biz.demo;setSlot('bBiz',d2.biz[lang]);setSlot('bSeg',d2.seg[lang]);setSlot('bDist',d2.dist[lang]);document.getElementById('bProof').value=d2.proof[lang];}
+      buildUpdate();
+    });
+    document.getElementById('clearB').addEventListener('click',function(){var sent=active();sent.querySelectorAll('.slot').forEach(function(sl){sl.classList.remove('is-custom');var s=sl.querySelector('select');if(s)s.value='';var c=sl.querySelector('.cin');if(c)c.value='';});var p=proofOf(sent);if(p)p.value='';buildUpdate();});
+  })();
+
+  /* ============ ③ SLIDER ============ */
+  var sliderContent={
+    expert:{fogBig:{ru:'«Эксперт с опытом. Помогаю по широкому кругу вопросов.»',en:'&laquo;An expert with experience. I help with a wide range of questions.&raquo;'},fogSub:{ru:'Индивидуальный подход, разумные цены, гибкие условия.',en:'An individual approach, reasonable prices, flexible terms.'},sharpBig:{ru:'«Помогаю Х убрать конкретную боль за срок — и вот доказательство.»',en:'&laquo;I help X remove a specific pain within a deadline — and here&rsquo;s the proof.&raquo;'},sharpSub:{ru:'Отличие в одном предложении + одна страница, которую можно переслать.',en:'A difference in one sentence + one page you can forward.'}},
+    biz:{fogBig:{ru:'«Сеть салонов. Широкий спектр услуг, высокое качество, доступные цены.»',en:'&laquo;A chain of salons. A wide range of services, high quality, affordable prices.&raquo;'},fogSub:{ru:'Работаем со всеми, любые услуги, индивидуальный подход к каждому.',en:'We work with everyone, any service, an individual approach to each.'},sharpBig:{ru:'«Салоны для тех, кто ценит время: запись без ожидания и мастер точно в срок.»',en:'&laquo;Salons for those who value time: no-wait booking and your stylist exactly on time.&raquo;'},sharpSub:{ru:'За минуту понятно, почему выбирают вас, а не салон у дома.',en:'In a minute it&rsquo;s clear why they pick you, not the salon next door.'}}
+  };
+  var revMode='expert';
+  function renderSlider(){var c=sliderContent[revMode];document.getElementById('fogBig').innerHTML=c.fogBig[lang];document.getElementById('fogSub').innerHTML=c.fogSub[lang];document.getElementById('sharpBig').innerHTML=c.sharpBig[lang];document.getElementById('sharpSub').innerHTML=c.sharpSub[lang];}
+  (function(){
+    document.querySelectorAll('#revToggle button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#revToggle button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');revMode=b.dataset.m;renderSlider();});});
+    var rev=document.getElementById('rev'),fog=document.getElementById('fog'),handle=document.getElementById('handle'),drag=false;
+    var SAFE_PX=10; // just enough for a smooth grab; the container's overflow:hidden trims the knob visually at true edges — letting it get this close is what makes each side's text show fully uncut
+    function apply(ratio){
+      var w=rev.getBoundingClientRect().width||1;
+      var minR=SAFE_PX/w, maxR=1-SAFE_PX/w;
+      ratio=Math.max(minR,Math.min(maxR,ratio));
+      fog.style.clipPath='inset(0 '+((1-ratio)*100).toFixed(2)+'% 0 0)';
+      handle.style.left=(ratio*100).toFixed(2)+'%';
+    }
+    function fromE(e){var r=rev.getBoundingClientRect();var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;apply(x/r.width);}
+    handle.addEventListener('pointerdown',function(){drag=true;});window.addEventListener('pointerup',function(){drag=false;});window.addEventListener('pointermove',function(e){if(drag)fromE(e);});
+    rev.addEventListener('pointerdown',function(e){if(e.target!==handle&&!handle.contains(e.target)){drag=true;fromE(e);}});
+    apply(0.5);
+  })();
+
+  /* ============ ④ TIMELINE ============ */
+  var tlData=[
+    {day:{ru:'День 0',en:'Day 0'},nm:{ru:'Audit',en:'Audit'},h:{ru:'День 0 — Audit (диагноз)',en:'Day 0 — Audit (diagnosis)'},t:{ru:'Лёгкий вход: смотрим, почему вас выбирают не всегда и где главный рычаг роста. Ваше участие минимально.',en:'A light entry: we look at why you&rsquo;re not always chosen and where the biggest growth lever is. Your part is minimal.'},o:{ru:'На руках: карта слабых точек. Стоимость засчитывается в ядро.',en:'In hand: a map of weak spots. The cost is credited toward the core.'}},
+    {day:{ru:'День 1',en:'Day 1'},nm:{ru:'Интервью',en:'Interview'},h:{ru:'День 1 — Интервью',en:'Day 1 — Interview'},t:{ru:'Одно глубокое интервью — распаковываем вашу экспертизу или бизнес. Дальше работаем мы, вас не дёргаем.',en:'One deep interview — we unpack your expertise or business. From there we work; we don&rsquo;t bother you.'},o:{ru:'На руках: сырьё для всей системы — вашими же словами.',en:'In hand: the raw material for the whole system — in your own words.'}},
+    {day:{ru:'Дни 2–7',en:'Days 2–7'},nm:{ru:'Сборка',en:'Build'},h:{ru:'Дни 2–7 — Сборка',en:'Days 2–7 — Build'},t:{ru:'ДНК бизнеса, разбор рынка и конкурентов, портрет клиента, позиционирование и сильный оффер.',en:'Business DNA, market and competitor analysis, client portrait, positioning and a strong offer.'},o:{ru:'На руках: отличие в одном предложении + оффер + интеллект по рынку.',en:'In hand: a difference in one sentence + an offer + market intelligence.'}},
+    {day:{ru:'Дни 8–10',en:'Days 8–10'},nm:{ru:'Выдача',en:'Delivery'},h:{ru:'Дни 8–10 — Выдача',en:'Days 8–10 — Delivery'},t:{ru:'Сайт, «одна страница для рекомендателя» и Ask Your Business — живое пространство, а не PDF.',en:'A website, a &laquo;one page for the referrer&raquo; and Ask Your Business — a living workspace, not a PDF.'},o:{ru:'На руках: готовая система, которой не стыдно поделиться.',en:'In hand: a finished system you&rsquo;re proud to share.'}}
+  ];
+  var tlActive=0;
+  function renderTimeline(){
+    var host=document.getElementById('tl');host.innerHTML='';
+    tlData.forEach(function(d,i){var n=document.createElement('div');n.className='node'+(i===tlActive?' on':'');
+      n.innerHTML='<div class="day">'+d.day[lang]+'</div><div class="nm">'+d.nm[lang]+'</div>';
+      n.addEventListener('click',function(){tlActive=i;renderTimeline();});host.appendChild(n);});
+    var d=tlData[tlActive];document.getElementById('tlDetail').innerHTML='<h4>'+d.h[lang]+'</h4><div class="muted">'+d.t[lang]+'</div><div class="out">✓ '+d.o[lang]+'</div>';
+  }
+
+  /* ============ ASK YOUR BUSINESS ============ */
+  var askAnswers=[
+    {ru:[['Данные','остаток кэша стабилен, спрос превышает вашу мощность 3 месяца подряд, ближайший конкурент дороже на 20%.'],['Интерпретация','вы недооценены и уже отказываете клиентам — цена не сдерживает спрос.'],['Рекомендация','поднять цену на новых клиентов на 15–20%, действующих оставить на квартал.'],['Риск','1–2 самых чувствительных к цене уйдут — это нормально и даже полезно.'],['Следующий шаг','обновить прайс на сайте и в письме-рекомендателе к пятнице.']],en:[['Evidence','cash balance is stable, demand exceeds your capacity 3 months running, the nearest competitor is 20% more expensive.'],['Interpretation','you&rsquo;re underpriced and already turning clients away — price isn&rsquo;t holding back demand.'],['Recommendation','raise prices 15–20% for new clients, keep existing ones for a quarter.'],['Risk','the 1–2 most price-sensitive leave — normal and even useful.'],['Next step','update the price on the site and in the referrer one-pager by Friday.']]},
+    {ru:[['Данные','у 3 конкурентов есть понятный сайт с кейсами и отзывами, у вас — резюме и сарафан.'],['Интерпретация','они растут не потому, что лучше, а потому что их проще выбрать и порекомендовать.'],['Рекомендация','собрать позиционирование и «одну страницу для рекомендателя» — закрыть разрыв видимости.'],['Риск','без этого разрыв растёт: каждый год конкурентов, умеющих себя показать, больше.'],['Следующий шаг','начать с Audit — увидеть, где именно вы проигрываете в понятности.']],en:[['Evidence','3 competitors have a clear website with cases and reviews; you have a résumé and word of mouth.'],['Interpretation','they grow not because they&rsquo;re better, but because they&rsquo;re easier to choose and refer.'],['Recommendation','build positioning and a &laquo;one page for the referrer&raquo; — close the visibility gap.'],['Risk','without it the gap widens every year.'],['Next step','start with an Audit — see exactly where you lose on clarity.']]},
+    {ru:[['Данные','сегмент А приносит 70% дохода при 30% времени, сегмент Б — наоборот.'],['Интерпретация','вы распыляетесь на менее прибыльный сегмент из привычки, а не из расчёта.'],['Рекомендация','сфокусировать позиционирование на сегменте А, сегмент Б — по остаточному принципу.'],['Риск','страшно «сузиться» — но именно узкий фокус повышает и поток, и чек.'],['Следующий шаг','определить сегмент А точнее в ходе сборки Company DNA.']],en:[['Evidence','segment A brings 70% of revenue on 30% of your time; segment B is the reverse.'],['Interpretation','you spread across the less profitable segment out of habit, not calculation.'],['Recommendation','focus positioning on segment A; treat B as secondary.'],['Risk','narrowing feels scary — but a tight focus raises both flow and price.'],['Next step','define segment A more precisely during the Company DNA build.']]}
+  ];
+  var curAsk=null;
+  function renderAsk(){var box=document.getElementById('answer');if(curAsk===null){box.style.display='none';return;}var a=askAnswers[curAsk][lang],html='';a.forEach(function(s){html+='<p class="step-a"><b>'+s[0]+' → </b>'+s[1]+'</p>';});box.innerHTML=html;box.style.display='block';}
+  document.querySelectorAll('.chip').forEach(function(ch){ch.addEventListener('click',function(){curAsk=+ch.dataset.a;document.getElementById('askInput').value=ch.textContent;renderAsk();document.getElementById('answer').scrollIntoView({behavior:'smooth',block:'center'});});});
+
+  /* ============ CALC ============ */
+  var calcData=[{ru:['$90–120k / год','Плюс поиск 3–5 месяцев, риск нанять не того, и это надолго.'],en:['$90–120k / year','Plus a 3–5 month search, the risk of the wrong hire, and it&rsquo;s long-term.']},{ru:['$3–10k / мес','Постоянный платёж за процесс, результатом вы не владеете.'],en:['$3–10k / month','A recurring fee for process; you don&rsquo;t own the result.']},{ru:['$15–50k / проект','Качество решения — но с прослойкой большой фирмы и в разы дороже.'],en:['$15–50k / project','Quality — but with a big-firm layer, at many times the cost.']}];
+  var curCalc=0;
+  function renderCalc(){var d=calcData[curCalc][lang];document.getElementById('calcThemPrice').textContent=d[0];document.getElementById('calcThemNote').innerHTML=d[1];}
+  document.querySelectorAll('.calc-tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.calc-tab').forEach(function(x){x.classList.remove('active');});t.classList.add('active');curCalc=+t.dataset.c;renderCalc();});});
+
+  /* ============ FAQ ============ */
+  document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var it=q.parentElement,a=it.querySelector('.faq-a');var open=it.classList.toggle('open');a.style.maxHeight=open?a.scrollHeight+'px':null;});});
+
+  /* in-page anchor scrolling — makes every #-button work even in restricted iframes */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;
+    var id=a.getAttribute('href').slice(1);if(!id)return;
+    var t=document.getElementById(id);if(!t)return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+    try{history.replaceState(null,'','#'+id);}catch(_){}
+  });
+
+  /* slots counter */
+  var SLOTS_FREE=3, SLOTS_TOTAL=5;
+  (function(){var p=document.getElementById('pips');if(!p)return;for(var i=0;i<SLOTS_TOTAL;i++){var d=document.createElement('span');d.className='pip '+(i<SLOTS_FREE?'free':'taken');p.appendChild(d);}var s=document.getElementById('slotN');if(s)s.textContent=SLOTS_FREE;var s2=document.getElementById('slotN2');if(s2)s2.textContent=SLOTS_FREE;})();
+
+  /* init */
+  renderQuiz();renderBuilderOptions();renderSlider();renderTimeline();renderCalc();
+</script>
+<script>document.getElementById("yr").textContent="2026";</script>
+</body>
+</html>

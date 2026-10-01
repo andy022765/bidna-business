@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Интерактивы — прототип</title>
+<style>
+  :root{
+    --bg:#f7f5f1; --card:#ffffff; --dark:#0f1022; --dark2:#1a1b36;
+    --ink:#17172b; --muted:#616175; --line:#e6e3dc;
+    --gold:#c69749; --gold-deep:#a3762b; --ok:#2f9e6f; --no:#c1544c; --blue:#6b7cff;
+    --maxw:1000px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .serif{font-family:Georgia,"Times New Roman",serif}
+  h1,h2,h3{line-height:1.15;margin:0 0 .4em;text-wrap:balance}
+  .muted{color:var(--muted)}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:800;margin-bottom:12px}
+  .btn{display:inline-block;background:var(--gold);color:#14142b;font-weight:800;padding:13px 24px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;font-size:15px;box-shadow:0 6px 22px rgba(198,151,73,.28);transition:transform .12s}
+  .btn:hover{transform:translateY(-2px)}
+
+  header.top{background:radial-gradient(1000px 500px at 70% -20%,#242551,var(--dark) 60%);color:#f2f0ea;padding:48px 0 40px}
+  header.top h1{font-size:clamp(24px,4vw,38px)}
+  header.top .eyebrow{color:#e2b872}
+  header.top p{color:#c9c8dc;max-width:64ch}
+
+  section.block{padding:52px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:13px;color:var(--gold-deep);font-weight:800;letter-spacing:.04em}
+  .lead{max-width:60ch}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-top:22px;box-shadow:0 10px 40px rgba(20,20,40,.05)}
+
+  /* segmented controls (used across quiz/toggles) */
+  .seg{display:inline-flex;background:#f1eee7;border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;flex-wrap:wrap}
+  .seg button{border:none;background:transparent;color:var(--muted);font-weight:700;font-size:14px;padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s}
+  .seg button.on{background:var(--dark);color:#fff}
+
+  /* ① QUIZ */
+  .quiz-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:start}
+  @media(max-width:820px){.quiz-grid{grid-template-columns:1fr}}
+  .q{padding:14px 0;border-bottom:1px solid var(--line)}
+  .q:last-child{border-bottom:none}
+  .q .qt{font-weight:700;margin-bottom:9px;font-size:15px}
+  .opts{display:flex;gap:8px;flex-wrap:wrap}
+  .opts button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:14px;font-weight:600;transition:all .13s}
+  .opts button:hover{border-color:var(--gold)}
+  .opts button.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+  .gauge-card{position:sticky;top:14px;background:var(--dark);color:#f2f0ea;border-radius:16px;padding:24px;text-align:center}
+  .gauge-card .score{font-size:52px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;margin-top:4px}
+  .gauge-card .seglbl{font-weight:800;font-size:18px;margin-top:6px}
+  .verdict{margin-top:14px;text-align:left;font-size:14.5px;color:#d7d6ea;min-height:20px}
+  .verdict .weak{display:block;margin-top:10px;padding-left:12px;border-left:3px solid var(--gold);color:#fff}
+  .gauge-card .btn{margin-top:16px}
+  .gwrap{position:relative;width:100%;max-width:300px;margin:0 auto}
+
+  /* ② BUILDER — заполни пропуски в предложении */
+  .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+  .b-generic{color:#9a9aa5;font-size:15px;margin:16px 0 2px;transition:opacity .45s ease,filter .45s ease}
+  .b-generic .lbl{color:#b3b3bd;display:block;margin-bottom:4px}
+  .b-arrow{color:var(--gold-deep);font-weight:800;font-size:12px;letter-spacing:.08em;margin:8px 0 10px}
+  .sentence{font-family:Georgia,serif;font-size:clamp(18px,2.3vw,23px);line-height:2;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;transition:box-shadow .35s,border-color .35s,transform .3s}
+  .sentence.done{border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,151,73,.16),0 14px 36px rgba(198,151,73,.15)}
+  .sentence.pulse{transform:scale(1.012)}
+  .blank{position:relative;display:inline-block;white-space:normal}
+  .blank select,.blank input{appearance:none;-webkit-appearance:none;font:inherit;color:var(--gold-deep);font-weight:700;background:transparent;border:none;border-bottom:2px dashed var(--gold);padding:1px 4px;cursor:pointer;border-radius:0;vertical-align:baseline;max-width:100%}
+  .blank input{min-width:150px}
+  .blank[data-t="sel"]::after{content:'▾';color:var(--gold-deep);font-size:11px;margin-left:1px;pointer-events:none}
+  .blank.filled select,.blank.filled input{border-bottom-style:solid;color:var(--ink);background:#faf3e0}
+  .blank select:focus,.blank input:focus{outline:none;background:#faf3e0}
+  .blank .custom{display:none;align-items:baseline;gap:2px}
+  .blank.is-custom>select{display:none}
+  .blank.is-custom>.custom{display:inline-flex}
+  .blank.is-custom::after{content:none}
+  .blank .cin{min-width:210px}
+  .blank .revert{border:none;background:transparent;color:var(--gold-deep);cursor:pointer;font-size:13px;font-weight:800;padding:0 2px;line-height:1}
+  .done-badge{display:none;align-items:center;gap:8px;margin-top:14px;color:var(--ok);font-weight:800;font-size:14.5px}
+  .done-badge.show{display:inline-flex}
+  .b-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:16px}
+  .b-ghost{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:14px}
+  .b-ghost:hover{border-color:var(--gold)}
+  .note{margin-top:16px;background:#faf5ea;border:1px solid #ecdcbb;border-radius:12px;padding:14px 16px;font-size:14px;color:#6b5a33}
+
+  /* ③ DRAG SLIDER */
+  .rev{position:relative;height:320px;border-radius:16px;overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:none;margin-top:18px}
+  .rev .layer{position:absolute;inset:0;padding:30px 34px;display:flex;flex-direction:column;justify-content:center}
+  .rev .sharp{background:linear-gradient(135deg,#12132b,#242551);color:#f2f0ea}
+  .rev .fog{background:#eceae4;color:#9a9aa5;clip-path:inset(0 50% 0 0)}
+  .rev .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;margin-bottom:14px;opacity:.9}
+  .rev .fog .tag{color:#a2a2ad}.rev .sharp .tag{color:#e2b872}
+  .rev .big{font-size:clamp(18px,2.4vw,23px);font-weight:700;font-family:Georgia,serif;line-height:1.3}
+  .rev .sub{margin-top:12px;font-size:14.5px;opacity:.92}
+  .rev .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--gold);transform:translateX(-1.5px);cursor:ew-resize;z-index:5}
+  .rev .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--gold);color:#14142b;display:flex;align-items:center;justify-content:center;font-weight:900;box-shadow:0 6px 20px rgba(198,151,73,.5)}
+
+  /* ④ TIMELINE */
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px;position:relative}
+  @media(max-width:700px){.tl{grid-template-columns:1fr 1fr}}
+  .tl .node{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;cursor:pointer;transition:all .15s;position:relative}
+  .tl .node:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .tl .node.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+  .tl .node .day{font-size:12px;font-weight:800;letter-spacing:.05em;color:var(--gold-deep)}
+  .tl .node.on .day{color:var(--gold)}
+  .tl .node .nm{font-weight:800;margin-top:5px;font-size:16px}
+  .tl-detail{margin-top:16px;background:#f4f2ee;border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-height:70px}
+  .tl-detail h4{margin:0 0 6px;font-size:16px}
+  .tl-detail .out{margin-top:10px;color:var(--ok);font-weight:700;font-size:14.5px}
+
+  .disc{font-size:13px;color:var(--muted);margin-top:26px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="eyebrow">Прототип интерактивов · Business Intelligence DNA</span>
+    <h1 class="serif">Пощупать, а не представлять по описанию</h1>
+    <p>Четыре интерактивных блока для нового лендинга. Тексты сбалансированы под оба аватара — <b>эксперта-практика</b> и <b>владельца бизнеса</b>. Двуязычность (RU/EN) добавим при вшивании в лендинг.</p>
+  </div>
+</header>
+
+<!-- ① ИНДЕКС ВИДИМОСТИ -->
+<section class="block">
+  <div class="wrap">
+    <span class="kicker">① Двигатель конверсии</span>
+    <h2 class="serif" style="font-size:clamp(22px,3vw,30px);margin-top:4px">Индекс видимости</h2>
+    <p class="muted lead">Бесплатная микро-версия нашего Audit. Отвечаете на 6 вопросов — стрелка показывает, насколько рынок вас видит, и куда именно у вас утекают клиенты.</p>
+
+    <div class="panel">
+      <div class="quiz-grid">
+        <div id="quiz">
+          <div class="q" data-k="who">
+            <div class="qt">Кто вы для рынка?</div>
+            <div class="opts">
+              <button data-v="expert">Эксперт / практик — продаю своё мастерство</button>
+              <button data-v="biz">Бизнес / компания — продаю продукт, а не себя</button>
+            </div>
+          </div>
+          <div class="q" data-k="diff">
+            <div class="qt">Можете назвать своё отличие одним предложением?</div>
+            <div class="opts">
+              <button data-p="2">Да, чётко</button>
+              <button data-p="1">Почти</button>
+              <button data-p="0">Нет</button>
+            </div>
+          </div>
+          <div class="q" data-k="lost">
+            <div class="qt">За последний год теряли клиента, выбравшего более понятного, но слабого?</div>
+            <div class="opts">
+              <button data-p="0">Да, было</button>
+              <button data-p="2">Нет</button>
+            </div>
+          </div>
+          <div class="q" data-k="send">
+            <div class="qt">После рекомендации есть что прислать — сайт или страница?</div>
+            <div class="opts">
+              <button data-p="2">Да, не стыдно</button>
+              <button data-p="0.6">Есть, но так себе</button>
+              <button data-p="0">Стыдно показать</button>
+            </div>
+          </div>
+          <div class="q" data-k="flow">
+            <div class="qt">Откуда идёт поток клиентов?</div>
+            <div class="opts">
+              <button data-p="2">Есть система</button>
+              <button data-p="1">Только сарафан</button>
+              <button data-p="0">Бывают пустые месяцы</button>
+            </div>
+          </div>
+          <div class="q" data-k="price">
+            <div class="qt">Цена относительно вашей ценности?</div>
+            <div class="opts">
+              <button data-p="2">На уровне ценности</button>
+              <button data-p="1">Ниже, чем могли бы</button>
+              <button data-p="0">Не знаю оптимума</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gauge-card">
+          <div class="gwrap">
+            <svg id="gauge" viewBox="0 0 320 200" width="100%" aria-hidden="true">
+              <g id="arcs"></g>
+              <line id="needle" x1="160" y1="160" x2="160" y2="55" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="160" cy="160" r="9" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="score" id="score">—</div>
+          <div class="seglbl" id="seglbl">Пройдите тест</div>
+          <div class="verdict" id="verdict">Отвечайте на вопросы — стрелка оживёт.</div>
+          <a href="#" class="btn" id="quizCta" style="display:none">Начать с Audit →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ② КОНСТРУКТОР ОТЛИЧИЯ -->
+<section class="block">
+  <div class="wrap">
+    <span class="kicker">② Продукт на себе</span>
+    <h2 class="serif" style="font-size:clamp(22px,3vw,30px);margin-top:4px">Конструктор отличия</h2>
+    <p class="muted lead">Соберите своё отличие в одном предложении прямо сейчас. Это черновик за 30 секунд — чтобы почувствовать, как «как у всех» превращается в «понятно и остро».</p>
+
+    <div class="panel">
+      <p class="muted" style="margin-top:0"><b>Заполните золотые пропуски прямо в предложении.</b> С каждым выбором серая фраза «как у всех» расфокусируется, а ваша — собирается.</p>
+
+      <div class="seg" id="whoBuild" style="margin:8px 0 2px">
+        <button data-m="expert" class="on">Я — эксперт</button>
+        <button data-m="biz">Мы — бизнес</button>
+      </div>
+
+      <!-- generic «как у всех» — своё под каждый аватар -->
+      <div class="b-generic" id="genExpert">
+        <span class="lbl">Так звучит большинство</span>
+        Эксперт с опытом. Помогаю по широкому кругу вопросов. Индивидуальный подход, разумные цены, гибкие условия.
+      </div>
+      <div class="b-generic" id="genBiz" hidden>
+        <span class="lbl">Так звучит большинство</span>
+        Компания полного цикла. Широкий спектр услуг, высокое качество, доступные цены, индивидуальный подход к каждому.
+      </div>
+      <div class="b-arrow">↓&nbsp;&nbsp;ВАШЕ ОТЛИЧИЕ&nbsp;&nbsp;↓</div>
+
+      <!-- ЭКСПЕРТ: «Я помогаю …» -->
+      <p class="sentence" id="sentExpert">
+        Я помогаю
+        <span class="blank slot" data-t="sel"><select id="eWho" class="bl">
+          <option value="" selected>кому именно?</option>
+          <option>экспертам и практикам</option>
+          <option>владельцам бизнеса</option>
+          <option>руководителям и первым лицам</option>
+          <option>растущим компаниям</option>
+          <option>частным клиентам</option>
+          <option value="__custom__">✏️ свой вариант</option>
+        </select><span class="custom"><input class="bl cin" type="text" placeholder="кому именно"><button type="button" class="revert" title="выбрать из списка">↺</button></span></span>
+        <span class="blank slot" data-t="sel"><select id="eProb" class="bl">
+          <option value="" selected>с какой задачей?</option>
+          <option>объяснить рынку, чем они сильнее</option>
+          <option>перестать зависеть от сарафана</option>
+          <option>поднять чек без потери клиентов</option>
+          <option>навести порядок там, где раньше не получалось</option>
+          <option value="__custom__">✏️ свой вариант</option>
+        </select><span class="custom"><input class="bl cin" type="text" placeholder="с какой задачей"><button type="button" class="revert" title="выбрать из списка">↺</button></span></span>,
+        в отличие от
+        <span class="blank slot" data-t="sel"><select id="eAlt" class="bl">
+          <option value="" selected>кого?</option>
+          <option>специалистов «на все руки»</option>
+          <option>штатного сотрудника</option>
+          <option>типичных консультантов</option>
+          <option value="__custom__">✏️ свой вариант</option>
+        </select><span class="custom"><input class="bl cin" type="text" placeholder="в отличие от кого"><button type="button" class="revert" title="выбрать из списка">↺</button></span></span>.
+        Доказательство:
+        <span class="blank"><input id="eProof" class="bl" type="text" placeholder="кейс, цифра, результат"></span>.
+      </p>
+
+      <!-- БИЗНЕС: «Мы — … нас выбирают за …» -->
+      <p class="sentence" id="sentBiz" hidden>
+        Мы —
+        <span class="blank slot" data-t="sel"><select id="bBiz" class="bl">
+          <option value="" selected>что за бизнес?</option>
+          <option>сеть салонов красоты</option>
+          <option>автосервис и body shop</option>
+          <option>сеть автосалонов</option>
+          <option>сеть кофеен</option>
+          <option>розничная сеть</option>
+          <option>производственная компания</option>
+          <option>клиника</option>
+          <option>фитнес-студия</option>
+          <option value="__custom__">✏️ свой вариант</option>
+        </select><span class="custom"><input class="bl cin" type="text" placeholder="что за бизнес"><button type="button" class="revert" title="выбрать из списка">↺</button></span></span>
+        для
+        <span class="blank slot" data-t="sel"><select id="bSeg" class="bl">
+          <option value="" selected>каких клиентов?</option>
+          <option>тех, кто ценит своё время</option>
+          <option>владельцев премиум-авто</option>
+          <option>семей нашего района</option>
+          <option>занятых горожан</option>
+          <option>клиентов, которым важно стабильное качество</option>
+          <option value="__custom__">✏️ свой вариант</option>
+        </select><span class="custom"><input class="bl cin" type="text" placeholder="каких клиентов"><button type="button" class="revert" title="выбрать из списка">↺</button></span></span>.
+        Нас выбирают за
+        <span class="blank slot" data-t="sel"><select id="bDist" class="bl">
+          <option value="" selected>что именно?</option>
+          <option>точный срок и гарантию, а не «может быть, успеем»</option>
+          <option>стабильное качество на всех точках, а не «как повезёт»</option>
+          <option>запись без ожидания, а не очередь ради низкой цены</option>
+          <option>честную цену сразу, без «звоните — уточним»</option>
+          <option value="__custom__">✏️ свой вариант</option>
+        </select><span class="custom"><input class="bl cin" type="text" placeholder="за что именно"><button type="button" class="revert" title="выбрать из списка">↺</button></span></span>.
+        Доказательство:
+        <span class="blank"><input id="bProof" class="bl" type="text" placeholder="цифра, отзыв, результат"></span>.
+      </p>
+
+      <div class="done-badge" id="doneBadge">✓ Готово — ваше отличие в одном предложении</div>
+
+      <div class="b-actions">
+        <button class="b-ghost" id="fillDemo">Показать на примере →</button>
+        <button class="b-ghost" id="clearB">Очистить</button>
+      </div>
+
+      <div class="note">Это черновик за 30 секунд. Мы делаем это глубже — на данных вашего рынка и словах ваших клиентов. Так работает первый артефакт из сборки.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ СЛАЙДЕР ДО/ПОСЛЕ -->
+<section class="block">
+  <div class="wrap">
+    <span class="kicker">③ Один жест — вся история</span>
+    <h2 class="serif" style="font-size:clamp(22px,3vw,30px);margin-top:4px">Расфокус → фокус</h2>
+    <p class="muted lead">Потяните ручку. Слева — как выглядит тот, кого рынок не видит. Справа — тот же бизнес, ставший понятным.</p>
+
+    <div class="seg" id="revToggle" style="margin-top:14px">
+      <button data-m="expert" class="on">Эксперт</button>
+      <button data-m="biz">Бизнес</button>
+    </div>
+
+    <div class="rev" id="rev">
+      <div class="layer sharp">
+        <div class="tag">После — в фокусе</div>
+        <div class="big" id="sharpBig"></div>
+        <div class="sub" id="sharpSub"></div>
+      </div>
+      <div class="layer fog" id="fog">
+        <div class="tag">До — размыто</div>
+        <div class="big" id="fogBig"></div>
+        <div class="sub" id="fogSub"></div>
+      </div>
+      <div class="handle" id="handle"><div class="knob">⇆</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ ТАЙМЛАЙН -->
+<section class="block">
+  <div class="wrap">
+    <span class="kicker">④ Снимаем страх «чёрного ящика»</span>
+    <h2 class="serif" style="font-size:clamp(22px,3vw,30px);margin-top:4px">10 рабочих дней — по шагам</h2>
+    <p class="muted lead">Нажмите на этап — увидите, что происходит и что у вас на руках. Ваше участие — только интервью.</p>
+
+    <div class="tl" id="tl">
+      <div class="node on" data-i="0"><div class="day">День 0</div><div class="nm">Audit</div></div>
+      <div class="node" data-i="1"><div class="day">День 1</div><div class="nm">Интервью</div></div>
+      <div class="node" data-i="2"><div class="day">Дни 2–7</div><div class="nm">Сборка</div></div>
+      <div class="node" data-i="3"><div class="day">Дни 8–10</div><div class="nm">Выдача</div></div>
+    </div>
+    <div class="tl-detail" id="tlDetail"></div>
+
+    <p class="disc">Прототип. Финальные тексты, EN-версия и точная посадка блоков — на этапе сборки лендинга.</p>
+  </div>
+</section>
+
+<script>
+/* ===== ① QUIZ ===== */
+(function(){
+  var answers={who:null,diff:null,lost:null,send:null,flow:null,price:null};
+  var weakTxt={
+    diff:{e:'Слабая точка: отличие не звучит одним предложением — рынок не понимает, чем вы лучше.',
+          b:'Слабая точка: отличие не звучит одним предложением — клиенты не понимают, чем вы лучше соседних.'},
+    lost:{e:'Слабая точка: вы уже теряете сделки тем, кого проще выбрать, а не тем, кто сильнее.',
+          b:'Слабая точка: вы уже теряете клиентов тем, кого проще понять, а не тем, кто реально лучше.'},
+    send:{e:'Слабая точка: после рекомендации нечего прислать — тёплый контакт остывает в паузе.',
+          b:'Слабая точка: после рекомендации нечего прислать — тёплый клиент остывает в паузе.'},
+    flow:{e:'Слабая точка: поток держится на везении, а не на системе.',
+          b:'Слабая точка: поток держится на везении, а не на системе привлечения.'},
+    price:{e:'Слабая точка: вы берёте меньше, чем стоите, — ценность не упакована.',
+           b:'Слабая точка: цена и маржа ниже возможной — ценность не упакована.'}
+  };
+  var segs=[
+    {min:0,  name:'Невидимка',                col:'#c1544c'},
+    {min:31, name:'Известны по сарафану',      col:'#d0a24a'},
+    {min:56, name:'Видно, но размыто',         col:'#9aa0c9'},
+    {min:76, name:'Понятны и видимы',          col:'#2f9e6f'}
+  ];
+  function subject(){return answers.who==='biz'?'ваш бизнес':(answers.who==='expert'?'вас как эксперта':'вас');}
+  function segOf(v){var s=segs[0];for(var i=0;i<segs.length;i++){if(v>=segs[i].min)s=segs[i];}return s;}
+
+  // build arcs
+  function polar(cx,cy,r,deg){var a=deg*Math.PI/180;return [cx+r*Math.cos(a),cy-r*Math.sin(a)];}
+  function arcPath(a1,a2){var p1=polar(160,160,130,a1),p2=polar(160,160,130,a2);var large=(a1-a2)>180?1:0;return 'M'+p1[0].toFixed(1)+' '+p1[1].toFixed(1)+' A130 130 0 '+large+' 1 '+p2[0].toFixed(1)+' '+p2[1].toFixed(1);}
+  var bounds=[180,135,90,45,0], cols=['#c1544c','#d0a24a','#9aa0c9','#2f9e6f'], g=document.getElementById('arcs');
+  for(var i=0;i<4;i++){var pth=document.createElementNS('http://www.w3.org/2000/svg','path');pth.setAttribute('d',arcPath(bounds[i],bounds[i+1]));pth.setAttribute('stroke',cols[i]);pth.setAttribute('stroke-width','15');pth.setAttribute('fill','none');pth.setAttribute('opacity','.9');g.appendChild(pth);}
+
+  var curV=0,targetV=0,raf=null,snapT=null;
+  function paint(v){drawNeedle(v);document.getElementById('score').textContent=Math.round(v);}
+  function drawNeedle(v){var deg=180*(1-v/100);var p=polar(160,160,108,deg);var n=document.getElementById('needle');n.setAttribute('x2',p[0].toFixed(1));n.setAttribute('y2',p[1].toFixed(1));}
+  function animate(){curV+=(targetV-curV)*0.18;if(Math.abs(targetV-curV)<0.4){curV=targetV;}paint(curV);if(curV!==targetV){raf=requestAnimationFrame(animate);}}
+  function setTarget(v){targetV=v;cancelAnimationFrame(raf);raf=requestAnimationFrame(animate);clearTimeout(snapT);snapT=setTimeout(function(){curV=targetV;paint(curV);},650);}
+
+  function recompute(){
+    var keys=['diff','lost','send','flow','price'],sum=0,cnt=0,lowKey=null,lowVal=99;
+    keys.forEach(function(k){if(answers[k]!==null){sum+=answers[k];cnt++;if(answers[k]<lowVal){lowVal=answers[k];lowKey=k;}}});
+    if(cnt===0){setTarget(0);document.getElementById('seglbl').textContent='Пройдите тест';document.getElementById('score').textContent='—';return;}
+    var v=Math.round(sum/(cnt*2)*100);
+    setTarget(v);
+    var s=segOf(v);
+    document.getElementById('seglbl').textContent=s.name;
+    document.getElementById('seglbl').style.color=s.col;
+    var allDone=cnt===5 && answers.who;
+    var vEl=document.getElementById('verdict');
+    if(allDone){
+      var head=v>=76?('Рынок в основном видит '+subject()+' — но потолок ещё есть.'):
+               v>=56?('Рынок видит '+subject()+' размыто: вас находят, но не понимают до конца.'):
+               v>=31?('Пока '+subject()+' держит только сарафан — это потолок и риск пустых месяцев.'):
+                      ('Сейчас '+subject()+' рынок почти не видит — и выбирают тех, кого проще понять.');
+      var wk=weakTxt[lowKey]?weakTxt[lowKey][answers.who==='biz'?'b':'e']:'';
+      vEl.innerHTML=head+'<span class="weak">'+wk+'</span>';
+      document.getElementById('quizCta').style.display='inline-block';
+    }else{
+      vEl.textContent='Ответьте на все вопросы — покажу, где именно течёт.';
+      document.getElementById('quizCta').style.display='none';
+    }
+  }
+
+  document.querySelectorAll('#quiz .q').forEach(function(q){
+    var key=q.dataset.k;
+    q.querySelectorAll('.opts button').forEach(function(b){
+      b.addEventListener('click',function(){
+        q.querySelectorAll('.opts button').forEach(function(x){x.classList.remove('on');});
+        b.classList.add('on');
+        answers[key]= key==='who'? b.dataset.v : parseFloat(b.dataset.p);
+        recompute();
+      });
+    });
+  });
+  drawNeedle(0);
+})();
+
+/* ===== ② BUILDER — два шаблона + «свой вариант» ===== */
+(function(){
+  var mode='expert';
+  var sentExpert=document.getElementById('sentExpert'),sentBiz=document.getElementById('sentBiz'),
+      genExpert=document.getElementById('genExpert'),genBiz=document.getElementById('genBiz'),
+      badge=document.getElementById('doneBadge');
+  function active(){return mode==='expert'?sentExpert:sentBiz;}
+  function activeGen(){return mode==='expert'?genExpert:genBiz;}
+  function slotVal(slot){
+    var cin=slot.querySelector('.cin'),sel=slot.querySelector('select');
+    if(slot.classList.contains('is-custom'))return cin?cin.value.trim():'';
+    return sel?sel.value:'';
+  }
+  function proofOf(sent){return sent.querySelector('.blank:not(.slot) input');}
+  function update(){
+    var sent=active(),gen=activeGen();
+    var slots=sent.querySelectorAll('.slot'),need=slots.length,f=0;
+    slots.forEach(function(sl){var ok=!!slotVal(sl);sl.classList.toggle('filled',ok);if(ok)f++;});
+    var proof=proofOf(sent);if(proof)proof.closest('.blank').classList.toggle('filled',!!proof.value.trim());
+    gen.style.opacity=(1-0.72*(f/need)).toFixed(2);
+    gen.style.filter='blur('+(f/need*2.5).toFixed(2)+'px)';
+    var done=f===need;
+    if(done && !sent.classList.contains('done')){sent.classList.add('done','pulse');setTimeout(function(){sent.classList.remove('pulse');},350);}
+    if(!done)sent.classList.remove('done');
+    badge.classList.toggle('show',done);
+  }
+  function switchMode(m){
+    mode=m;
+    sentExpert.hidden=m!=='expert';sentBiz.hidden=m!=='biz';
+    genExpert.hidden=m!=='expert';genBiz.hidden=m!=='biz';
+    update();
+  }
+  document.querySelectorAll('#whoBuild button').forEach(function(b){
+    b.addEventListener('click',function(){document.querySelectorAll('#whoBuild button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');switchMode(b.dataset.m);});
+  });
+  [sentExpert,sentBiz].forEach(function(sent){
+    sent.querySelectorAll('.slot').forEach(function(slot){
+      var sel=slot.querySelector('select'),cin=slot.querySelector('.cin'),rev=slot.querySelector('.revert');
+      if(sel)sel.addEventListener('change',function(){
+        if(sel.value==='__custom__'){slot.classList.add('is-custom');if(cin){cin.value='';setTimeout(function(){cin.focus();},0);}}
+        else slot.classList.remove('is-custom');
+        update();
+      });
+      if(cin)cin.addEventListener('input',update);
+      if(rev)rev.addEventListener('click',function(){slot.classList.remove('is-custom');if(sel)sel.value='';if(cin)cin.value='';update();});
+    });
+    var proof=proofOf(sent);if(proof)proof.addEventListener('input',update);
+  });
+  function setSlot(id,val){var el=document.getElementById(id);if(!el)return;el.value=val;el.closest('.slot').classList.remove('is-custom');}
+  document.getElementById('fillDemo').addEventListener('click',function(){
+    if(mode==='expert'){
+      setSlot('eWho','владельцам бизнеса');setSlot('eProb','объяснить рынку, чем они сильнее');setSlot('eAlt','специалистов «на все руки»');
+      document.getElementById('eProof').value='кейс: собрали отличие за 3 дня';
+    }else{
+      setSlot('bBiz','сеть салонов красоты');setSlot('bSeg','тех, кто ценит своё время');setSlot('bDist','запись без ожидания, а не очередь ради низкой цены');
+      document.getElementById('bProof').value='отзывы 4,9★ и загрузка на 90%';
+    }
+    update();
+  });
+  document.getElementById('clearB').addEventListener('click',function(){
+    var sent=active();
+    sent.querySelectorAll('.slot').forEach(function(sl){sl.classList.remove('is-custom');var s=sl.querySelector('select');if(s)s.value='';var c=sl.querySelector('.cin');if(c)c.value='';});
+    var proof=proofOf(sent);if(proof)proof.value='';
+    update();
+  });
+  update();
+})();
+
+/* ===== ③ DRAG REVEAL ===== */
+(function(){
+  var content={
+    expert:{
+      fogBig:'«Эксперт с опытом. Помогаю по широкому кругу вопросов.»',
+      fogSub:'Индивидуальный подход, разумные цены, гибкие условия.',
+      sharpBig:'«Помогаю Х убрать конкретную боль за срок — и вот доказательство.»',
+      sharpSub:'Отличие в одном предложении + одна страница, которую можно переслать.'
+    },
+    biz:{
+      fogBig:'«Сеть салонов. Широкий спектр услуг, высокое качество, доступные цены.»',
+      fogSub:'Работаем со всеми, любые услуги, индивидуальный подход к каждому.',
+      sharpBig:'«Салоны для тех, кто ценит время: запись без ожидания и мастер точно в срок.»',
+      sharpSub:'За минуту понятно, почему выбирают вас, а не салон у дома.'
+    }
+  };
+  function setMode(m){var c=content[m];fogBig.textContent=c.fogBig;fogSub.textContent=c.fogSub;sharpBig.textContent=c.sharpBig;sharpSub.textContent=c.sharpSub;}
+  var fogBig=document.getElementById('fogBig'),fogSub=document.getElementById('fogSub'),
+      sharpBig=document.getElementById('sharpBig'),sharpSub=document.getElementById('sharpSub');
+  document.querySelectorAll('#revToggle button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#revToggle button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');setMode(b.dataset.m);});});
+  setMode('expert');
+
+  var rev=document.getElementById('rev'),fog=document.getElementById('fog'),handle=document.getElementById('handle'),drag=false;
+  function apply(ratio){ratio=Math.max(0.04,Math.min(0.96,ratio));fog.style.clipPath='inset(0 '+((1-ratio)*100).toFixed(1)+'% 0 0)';handle.style.left=(ratio*100).toFixed(1)+'%';}
+  function fromEvent(e){var r=rev.getBoundingClientRect();var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;apply(x/r.width);}
+  handle.addEventListener('pointerdown',function(){drag=true;});
+  window.addEventListener('pointerup',function(){drag=false;});
+  window.addEventListener('pointermove',function(e){if(drag)fromEvent(e);});
+  rev.addEventListener('pointerdown',function(e){if(e.target!==handle&&!handle.contains(e.target)){drag=true;fromEvent(e);}});
+  apply(0.5);
+})();
+
+/* ===== ④ TIMELINE ===== */
+(function(){
+  var data=[
+    {h:'День 0 — Audit (диагноз)',t:'Лёгкий вход: смотрим, почему вас выбирают не всегда и где главный рычаг роста. Ваше участие минимально.',o:'На руках: карта слабых точек. Стоимость засчитывается в ядро.'},
+    {h:'День 1 — Интервью',t:'Одно глубокое интервью — распаковываем вашу экспертизу или бизнес. Дальше работаем мы, вас не дёргаем.',o:'На руках: сырьё для всей системы — вашими же словами.'},
+    {h:'Дни 2–7 — Сборка',t:'ДНК бизнеса, разбор рынка и конкурентов, портрет клиента, позиционирование и сильный оффер.',o:'На руках: отличие в одном предложении + оффер + интеллект по рынку.'},
+    {h:'Дни 8–10 — Выдача',t:'Сайт, «одна страница для рекомендателя» и Ask Your Business — живое пространство, а не PDF.',o:'На руках: готовая система, которой не стыдно поделиться.'}
+  ];
+  function show(i){var d=data[i];document.getElementById('tlDetail').innerHTML='<h4>'+d.h+'</h4><div class="muted">'+d.t+'</div><div class="out">✓ '+d.o+'</div>';}
+  document.querySelectorAll('#tl .node').forEach(function(n){n.addEventListener('click',function(){document.querySelectorAll('#tl .node').forEach(function(x){x.classList.remove('on');});n.classList.add('on');show(+n.dataset.i);});});
+  show(0);
+})();
+</script>
+</body>
+</html>

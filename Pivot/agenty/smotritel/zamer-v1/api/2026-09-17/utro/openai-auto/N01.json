@@ -1,0 +1,585 @@
+{
+ "vopros_id": "N01",
+ "vopros": "Кто в США ставит голосового AI-ассистента, который отвечает клиентам на звонки по-русски?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "openai",
+ "rezhim": "auto",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "utro",
+ "den": "2026-09-17",
+ "vne_okna": false,
+ "zapusk_id": "20260917-090013-88676",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-17T09:08:42-07:00",
+   "zapusk_id": "20260917-090013-88676",
+   "cena": 0.02742,
+   "ishod": "ok",
+   "sekund": 12.0,
+   "meta": {
+    "date": "Thu, 17 Sep 2026 16:08:53 GMT",
+    "x-request-id": "req_87849563fd9e4d96a638c6f27c726fff",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "11492"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. В США уже есть сервисы, которые могут поставить на американский номер AI-рецепциониста, отвечающего клиентам по-русски.\n\nИз тех, где поддержка русского заявлена прямо:\n- UpNewLevel — компания из Jersey City, NJ; AI receptionist отвечает на английском, испанском и русском. Ориентирован на service businesses. ([upnewlevel.com](https://www.upnewlevel.com/?utm_source=openai))\n- Asisto — полноценная телефонная система + AI receptionist; русский входит в список языков, есть автоматическое определение языка, запись на appointments и перевод звонка живому сотруднику. ([asisto.one](https://www.asisto.one/?utm_source=openai))\n- Kallina AI — предлагает AI phone agents для американского бизнеса, включая русский язык и локальные номера во всех 50 штатах. ([kallina.info](https://kallina.info/en-us/?utm_source=openai))\n\nЕсть и более кастомный вариант: собрать ассистента на ElevenLabs + Twilio. Twilio обслуживает сам американский номер/звонок, а ElevenLabs — разговорного AI и голос. ElevenLabs официально поддерживает подключение телефонных номеров Twilio для входящих и исходящих звонков. ([help.elevenlabs.io](https://help.elevenlabs.io/hc/en-us/articles/34669360058257-Can-I-connect-Twilio-to-ElevenLabs-Agents-formerly-Conversational-AI?utm_source=openai)) Это имеет смысл, если нужно, чтобы бот не просто говорил «оставьте сообщение», а знал ваш бизнес, называл цены, квалифицировал клиента, записывал в календарь, отправлял SMS и переключал на человека.\n\nЕсли вы ищете именно компанию, которая «под ключ» установит такого русскоязычного AI-секретаря для бизнеса в США, я могу подобрать 5–7 вариантов с ценами и демо и сравнить их. Могу отдельно поискать для вашего города/отрасли — например, medical office, dental, trucking, auto repair, real estate, home services или law office.",
+  "poiskovye_zaprosy": [
+   "US AI voice receptionist Russian language phone calls businesses Russian speaking",
+   "AI phone answering service Russian language USA",
+   "voice AI agent Russian phone calls Twilio ElevenLabs Russian"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://help.elevenlabs.io/hc/en-us/articles/34669360058257-Can-I-connect-Twilio-to-ElevenLabs-Agents-formerly-Conversational-AI",
+    "domen": "help.elevenlabs.io",
+    "title": "Can I connect Twilio to ElevenAgents? – ElevenLabs"
+   },
+   {
+    "url": "https://elevenlabs.io/blog/build-voice-agent-twilio-elevenlabs",
+    "domen": "elevenlabs.io",
+    "title": null
+   },
+   {
+    "url": "https://www.upnewlevel.com",
+    "domen": "upnewlevel.com",
+    "title": "UpNewLevel — AI Receptionist in English, Spanish & Russian | Jersey City NJ"
+   },
+   {
+    "url": "https://www.twilio.com/en-us/voice/pricing/ru",
+    "domen": "twilio.com",
+    "title": null
+   },
+   {
+    "url": "https://elevenlabs.io/docs/eleven-agents/phone-numbers/twilio-integration/custom-llm-integration",
+    "domen": "elevenlabs.io",
+    "title": null
+   },
+   {
+    "url": "https://www.ring-ready.com",
+    "domen": "ring-ready.com",
+    "title": null
+   },
+   {
+    "url": "https://www.asisto.one",
+    "domen": "asisto.one",
+    "title": "Asisto - Phone System & AI Receptionist for Business | Asisto"
+   },
+   {
+    "url": "https://www.twilio.com/en-us/products/conversational-ai/conversationrelay",
+    "domen": "twilio.com",
+    "title": null
+   },
+   {
+    "url": "https://github.com/elevenlabs/skills/blob/main/agents/references/outbound-calls.md",
+    "domen": "github.com",
+    "title": null
+   },
+   {
+    "url": "https://www.11labs.ru/conversational-ai",
+    "domen": "11labs.ru",
+    "title": null
+   },
+   {
+    "url": "https://syntalia.com",
+    "domen": "syntalia.com",
+    "title": null
+   },
+   {
+    "url": "https://kallina.info/en-us",
+    "domen": "kallina.info",
+    "title": "Kallina AI Voice Agents for US Businesses | 24/7 AI Phone Answering | Kallina AI"
+   },
+   {
+    "url": "https://www.reddit.com/r/n8n/comments/1oluev5/i_built_an_ai_voice_agent_receptionist_that",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/startups_promotion/comments/1k8ad7r",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SaaS/comments/1rda1or/i_built_an_ai_voice_agent_that_calls_leads_back",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/twilio/comments/1uvry8o/built_an_ai_phone_agent_for_my_property_mgmt",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Interactions_Corporation",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/twilio/comments/1qdy4wy/guide_add_elevenlabs_voices_to_twilio",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://ru.wikipedia.org/wiki/ElevenLabs",
+    "domen": "ru.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1t392kb/i_built_the_first_estonian_ai_hotel_voice_agent",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/ElevenLabs/comments/1pbawqn/twilio_elevenlabs_inbound_stt_is_very_bad_any",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/twilio/comments/1p05ls7/i_found_an_opensource_project_that_lets_you_build",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/n8n/comments/1kosjp4",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/ElevenLabs/comments/1ssu7f2/built_an_ai_lead_recovery_system_with_twilio",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/VoiceAIAgent/comments/1v0ja01/anyone_actually_build_their_own_voice_agent_vapi",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/aiagents/comments/1tw24l0/looking_for_best_ai_phone_agent_with_crm",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.twilio.com/content/dam/twilio-com/global/en/other/landing-pages/pdfs/twilio-ebook-ivrvoice-virtual-agents-blueprint-healthcare-v2.pdf",
+    "domen": "twilio.com",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/ElevenLabs",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://meduzzen.com/wp-content/uploads/2026/02/Nataliia-P.pdf",
+    "domen": "meduzzen.com",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Witlingo",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://aifrontdesk.co/wp-content/uploads/2025/10/AI-Call-Agent-Customer-Guide-AIFrontDesk-Pro.pdf",
+    "domen": "aifrontdesk.co",
+    "title": null
+   },
+   {
+    "url": "https://ru.wikipedia.org/wiki/Twilio",
+    "domen": "ru.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://www.mndassociation.org/sites/default/files/public/2025-05/Voice%20banking%20services%20-%20most%20popular%20comparison%20charts%20-%20May%202025.pdf",
+    "domen": "mndassociation.org",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Upptalk",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://www.korean-linguistics.com/uploads/2025/11/Transforming_Language_Learning_with_Generative_AI.pdf",
+    "domen": "korean-linguistics.com",
+    "title": null
+   },
+   {
+    "url": "https://www2.census.gov/library/working-papers/2018/adrm/rsm2018-08.pdf",
+    "domen": "www2.census.gov",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://www.upnewlevel.com",
+    "domen": "upnewlevel.com",
+    "title": "UpNewLevel — AI Receptionist in English, Spanish & Russian | Jersey City NJ"
+   },
+   {
+    "url": "https://www.asisto.one",
+    "domen": "asisto.one",
+    "title": "Asisto - Phone System & AI Receptionist for Business | Asisto"
+   },
+   {
+    "url": "https://kallina.info/en-us",
+    "domen": "kallina.info",
+    "title": "Kallina AI Voice Agents for US Businesses | 24/7 AI Phone Answering | Kallina AI"
+   },
+   {
+    "url": "https://help.elevenlabs.io/hc/en-us/articles/34669360058257-Can-I-connect-Twilio-to-ElevenLabs-Agents-formerly-Conversational-AI",
+    "domen": "help.elevenlabs.io",
+    "title": "Can I connect Twilio to ElevenAgents? – ElevenLabs"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10652,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 411,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11063
+  },
+  "cena": 0.02742,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_055813ddd2979406006aac108a603087d088ff3c12f969f29a",
+  "object": "response",
+  "created_at": 1789661322,
+  "status": "completed",
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1789661333,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_055813ddd2979406006aac108da03487d09f7e0f2fd4849fb1",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "US AI voice receptionist Russian language phone calls businesses Russian speaking",
+      "AI phone answering service Russian language USA",
+      "voice AI agent Russian phone calls Twilio ElevenLabs Russian"
+     ],
+     "query": "US AI voice receptionist Russian language phone calls businesses Russian speaking",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://help.elevenlabs.io/hc/en-us/articles/34669360058257-Can-I-connect-Twilio-to-ElevenLabs-Agents-formerly-Conversational-AI"
+      },
+      {
+       "type": "url",
+       "url": "https://elevenlabs.io/blog/build-voice-agent-twilio-elevenlabs"
+      },
+      {
+       "type": "url",
+       "url": "https://www.upnewlevel.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.twilio.com/en-us/voice/pricing/ru"
+      },
+      {
+       "type": "url",
+       "url": "https://elevenlabs.io/docs/eleven-agents/phone-numbers/twilio-integration/custom-llm-integration"
+      },
+      {
+       "type": "url",
+       "url": "https://www.ring-ready.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.asisto.one/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.twilio.com/en-us/products/conversational-ai/conversationrelay"
+      },
+      {
+       "type": "url",
+       "url": "https://github.com/elevenlabs/skills/blob/main/agents/references/outbound-calls.md"
+      },
+      {
+       "type": "url",
+       "url": "https://www.11labs.ru/conversational-ai"
+      },
+      {
+       "type": "url",
+       "url": "https://syntalia.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://kallina.info/en-us/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/n8n/comments/1oluev5/i_built_an_ai_voice_agent_receptionist_that/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/startups_promotion/comments/1k8ad7r"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SaaS/comments/1rda1or/i_built_an_ai_voice_agent_that_calls_leads_back/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/twilio/comments/1uvry8o/built_an_ai_phone_agent_for_my_property_mgmt/"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Interactions_Corporation"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/twilio/comments/1qdy4wy/guide_add_elevenlabs_voices_to_twilio/"
+      },
+      {
+       "type": "url",
+       "url": "https://ru.wikipedia.org/wiki/ElevenLabs"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1t392kb/i_built_the_first_estonian_ai_hotel_voice_agent/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/ElevenLabs/comments/1pbawqn/twilio_elevenlabs_inbound_stt_is_very_bad_any/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/twilio/comments/1p05ls7/i_found_an_opensource_project_that_lets_you_build/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/n8n/comments/1kosjp4"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/ElevenLabs/comments/1ssu7f2/built_an_ai_lead_recovery_system_with_twilio/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/VoiceAIAgent/comments/1v0ja01/anyone_actually_build_their_own_voice_agent_vapi/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/aiagents/comments/1tw24l0/looking_for_best_ai_phone_agent_with_crm/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.twilio.com/content/dam/twilio-com/global/en/other/landing-pages/pdfs/twilio-ebook-ivrvoice-virtual-agents-blueprint-healthcare-v2.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/ElevenLabs"
+      },
+      {
+       "type": "url",
+       "url": "https://meduzzen.com/wp-content/uploads/2026/02/Nataliia-P.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Witlingo"
+      },
+      {
+       "type": "url",
+       "url": "https://aifrontdesk.co/wp-content/uploads/2025/10/AI-Call-Agent-Customer-Guide-AIFrontDesk-Pro.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://ru.wikipedia.org/wiki/Twilio"
+      },
+      {
+       "type": "url",
+       "url": "https://www.mndassociation.org/sites/default/files/public/2025-05/Voice%20banking%20services%20-%20most%20popular%20comparison%20charts%20-%20May%202025.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Upptalk"
+      },
+      {
+       "type": "url",
+       "url": "https://www.korean-linguistics.com/uploads/2025/11/Transforming_Language_Learning_with_Generative_AI.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www2.census.gov/library/working-papers/2018/adrm/rsm2018-08.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.upnewlevel.com/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://www.asisto.one/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://kallina.info/en-us/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.elevenlabs.io/hc/en-us/articles/34669360058257-Can-I-connect-Twilio-to-ElevenLabs-Agents-formerly-Conversational-AI?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_055813ddd2979406006aac1093a21887d0b8ce65ea63fe0144",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 378,
+        "start_index": 313,
+        "title": "UpNewLevel — AI Receptionist in English, Spanish & Russian | Jersey City NJ",
+        "url": "https://www.upnewlevel.com/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 627,
+        "start_index": 570,
+        "title": "Asisto - Phone System & AI Receptionist for Business | Asisto",
+        "url": "https://www.asisto.one/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 819,
+        "start_index": 756,
+        "title": "Kallina AI Voice Agents for US Businesses | 24/7 AI Phone Answering | Kallina AI",
+        "url": "https://kallina.info/en-us/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1263,
+        "start_index": 1093,
+        "title": "Can I connect Twilio to ElevenAgents? – ElevenLabs",
+        "url": "https://help.elevenlabs.io/hc/en-us/articles/34669360058257-Can-I-connect-Twilio-to-ElevenLabs-Agents-formerly-Conversational-AI?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да. В США уже есть сервисы, которые могут поставить на американский номер AI-рецепциониста, отвечающего клиентам по-русски.\n\nИз тех, где поддержка русского заявлена прямо:\n- UpNewLevel — компания из Jersey City, NJ; AI receptionist отвечает на английском, испанском и русском. Ориентирован на service businesses. ([upnewlevel.com](https://www.upnewlevel.com/?utm_source=openai))\n- Asisto — полноценная телефонная система + AI receptionist; русский входит в список языков, есть автоматическое определение языка, запись на appointments и перевод звонка живому сотруднику. ([asisto.one](https://www.asisto.one/?utm_source=openai))\n- Kallina AI — предлагает AI phone agents для американского бизнеса, включая русский язык и локальные номера во всех 50 штатах. ([kallina.info](https://kallina.info/en-us/?utm_source=openai))\n\nЕсть и более кастомный вариант: собрать ассистента на ElevenLabs + Twilio. Twilio обслуживает сам американский номер/звонок, а ElevenLabs — разговорного AI и голос. ElevenLabs официально поддерживает подключение телефонных номеров Twilio для входящих и исходящих звонков. ([help.elevenlabs.io](https://help.elevenlabs.io/hc/en-us/articles/34669360058257-Can-I-connect-Twilio-to-ElevenLabs-Agents-formerly-Conversational-AI?utm_source=openai)) Это имеет смысл, если нужно, чтобы бот не просто говорил «оставьте сообщение», а знал ваш бизнес, называл цены, квалифицировал клиента, записывал в календарь, отправлял SMS и переключал на человека.\n\nЕсли вы ищете именно компанию, которая «под ключ» установит такого русскоязычного AI-секретаря для бизнеса в США, я могу подобрать 5–7 вариантов с ценами и демо и сравнить их. Могу отдельно поискать для вашего города/отрасли — например, medical office, dental, trucking, auto repair, real estate, home services или law office."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10652,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 411,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11063
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

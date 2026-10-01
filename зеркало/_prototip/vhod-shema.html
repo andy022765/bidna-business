@@ -1,0 +1,150 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Новая точка входа — общая схема</title><style>
+:root{--ink:#161c33;--pap:#fbfaf7;--gold:#c69a4c;--goldd:#a8791f;--line:#ddd8cd;--mut:#7b8194;--mach:#1f6f5c;--we:#2a4a9c;--you:#8a5a12;--old:#9aa0b2}
+*{box-sizing:border-box}
+body{margin:0;background:#e9e6e0;color:var(--ink);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.page{max-width:940px;margin:0 auto;padding:32px 18px 90px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.4px}
+.sub{color:var(--mut);font-size:15.5px;margin:0 0 30px;max-width:660px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.step{margin:0 0 30px}
+.step-h{display:flex;gap:14px;align-items:baseline;margin:0 0 12px}
+.step-n{font:700 13px ui-monospace,monospace;letter-spacing:.1em;color:#fff;background:var(--ink);border-radius:20px;padding:5px 13px;flex:none}
+.step-n.keep{background:#b8b2a4}
+.step-t{font-size:21px;font-weight:700;letter-spacing:-.2px}
+.step-w{font-size:14px;color:var(--mut);margin-left:auto;white-space:nowrap;font-family:ui-monospace,monospace}
+.scr{background:#fff;border:1px solid var(--line);border-radius:13px;padding:26px 28px;box-shadow:0 5px 18px rgba(22,28,51,.07)}
+.scr.keep{background:#f4f2ee;border-style:dashed}
+.scr h4{margin:0 0 12px;font-size:19px}
+.scr p{margin:0 0 12px;font-size:16.5px}
+.scr p:last-child{margin:0}
+.lead{color:var(--mut);font-size:15px}
+.url{font:12.5px ui-monospace,monospace;color:var(--mut);background:#f2f0ec;border:1px solid var(--line);border-radius:20px;padding:4px 13px;display:inline-block;margin-bottom:14px}
+.fld{border:1px solid #d9d5cc;border-radius:9px;padding:12px 15px;margin:10px 0;background:#fcfbf9}
+.fld .lb{font:700 11px ui-monospace,monospace;letter-spacing:.11em;color:var(--mut);text-transform:uppercase;margin-bottom:6px}
+.fld .ph{color:#9aa0b2;font-size:15.5px}
+.fld .req{color:#a5453b;font-size:11px;font-weight:700;letter-spacing:.08em;float:right}
+.btn{display:inline-block;background:var(--ink);color:#fff;border-radius:9px;padding:13px 26px;font-weight:700;font-size:15.5px;margin-top:6px}
+.btn.gold{background:var(--gold);color:#20263f}
+.chips span{display:inline-block;border:1px solid #d9d5cc;border-radius:20px;padding:7px 14px;margin:4px 6px 0 0;font-size:14.5px;background:#fcfbf9}
+.chips span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* лист */
+.sheet{border:1px solid #d4cec1;border-radius:6px;background:var(--pap);overflow:hidden;margin:14px 0}
+.sh-head{border-bottom:2px solid var(--ink);padding:15px 20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.sh-head .t{font:700 12px ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase}
+.sh-head .m{font:11.5px/1.7 ui-monospace,monospace;color:var(--mut);text-align:right}
+.claim{font:700 14px ui-monospace,monospace;padding:11px 14px;background:#f3f0e8;border-left:4px solid var(--gold);margin:14px 20px}
+.band-h{display:flex;justify-content:space-between;gap:10px;padding:11px 20px;background:#f1eee6;border-top:1px solid var(--line);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.band-h .t{font:700 11.5px ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase}
+.band-h .n{font:700 11.5px ui-monospace,monospace}
+.b1 .band-h{border-left:5px solid var(--mach)} .b1 .n{color:var(--mach)}
+.b2 .band-h{border-left:5px solid var(--we)}   .b2 .n{color:var(--we)}
+.b3 .band-h{border-left:5px solid var(--you)}  .b3 .n{color:var(--you)}
+.r{padding:13px 20px;border-bottom:1px solid #ece8de;display:flex;gap:14px}
+.r:last-child{border-bottom:0}
+.r .c{font:11.5px ui-monospace,monospace;color:#a9a294;width:40px;flex:none;padding-top:3px}
+.r .m{flex:1;min-width:0}
+.r .nm{font-weight:700;font-size:17px}
+.r .nm em{font-style:normal;color:var(--mut);font-weight:500;font-size:15px}
+.r .d{font-size:15px;margin:5px 0 0;color:#3d4356}
+.ax{flex:none;font:700 10px ui-monospace,monospace;letter-spacing:.1em;padding:3px 8px;border-radius:11px;border:1px solid;height:fit-content;margin-top:3px}
+.ax-p{color:#8a2f28;border-color:#e2c3bf;background:#fdf3f2}
+.ax-m{color:#25607f;border-color:#c2dae5;background:#f1f8fb}
+.ax-v{color:#5a4098;border-color:#d3c9ec;background:#f6f3fd}
+.arrow{text-align:center;color:var(--gold);font-size:22px;margin:-14px 0 14px}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font:700 11px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.tbl code{background:#f2f0ec;padding:2px 6px;border-radius:4px;font-size:13px}
+.note{background:#fff;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15.5px;margin:24px 0}
+.note b{color:var(--goldd)}
+ol.num{padding-left:22px;margin:10px 0}
+ol.num li{margin:7px 0;font-size:16.5px}
+</style></head><body><div class="page">
+<h1>Новая точка входа</h1>
+<p class="sub">Общая схема для сегмента «бизнес», без привязки к конкретному клиенту. Тёмные шаги — новые. Серые пунктирные — то, что уже собрано и работает, мы это не трогаем.</p>
+<div class="step"><div class="step-h"><span class="step-n">ШАГ 1</span><span class="step-t">Вход</span><span class="step-w">~10 сек</span></div><div class="scr">
+<div class="url">businessinteldna.com/business/list</div>
+<h4>Лист работ</h4>
+<p>Кто что делает в вашем деле, когда всё поставлено. И чего мы делать не будем.</p>
+<p class="lead">Десять работ. У каждой написано, кто её делает после сборки: цифровой сотрудник, ваш человек по написанному или вы сами.</p>
+<p class="mono" style="font-size:13px;letter-spacing:.08em;color:#7b8194">ПРОДАЖИ · МАРКЕТИНГ · ВИДИМОСТЬ В НЕЙРОСЕТЯХ И НА КАРТАХ</p>
+<span class="btn">Собрать мой лист</span>
+<p class="lead" style="margin-top:14px">Бесплатно. Без карты. Ни одного вопроса о том, что у вас не получается.</p></div></div><div class="arrow">↓</div><div class="step"><div class="step-h"><span class="step-n">ШАГ 2</span><span class="step-t">Три вопроса</span><span class="step-w">40–60 сек</span></div><div class="scr">
+<div class="fld"><div class="lb">1 · Чем занимается компания и где</div><div class="ph">одна строка — что делаете, кто покупает, сколько людей, город</div></div>
+<div class="fld"><div class="lb">2 · Что в вашей неделе повторяется каждый раз одинаково &nbsp;🎙</div><div class="ph">две-три фразы: что вы или ваши люди делаете снова и снова — отвечаете, записываете, напоминаете, объясняете одно и то же</div></div>
+<div class="fld"><div class="lb">3 · Кто отвечает клиенту первым</div><div class="chips"><span class="on">я сам</span><span>мой человек</span><span>как получится</span></div></div>
+<div class="fld"><div class="lb">Ссылка на вас — если есть <span class="req">необязательно</span></div><div class="ph">Мы прочитаем только вас. Соседей не открываем и ни с кем не сравниваем.</div></div>
+<span class="btn">Собрать мой лист</span>
+<p class="lead" style="margin-top:14px"><b>Почему второй вопрос именно такой.</b> Не «что у вас не получается» — это просьба перечислить, а не оценить. Отвечают охотно. И это ровно то сырьё, из которого собирается первая полоса: цифрового сотрудника ставят на повтор.</p></div></div><div class="arrow">↓</div><div class="step"><div class="step-h"><span class="step-n">ШАГ 3</span><span class="step-t">Лист</span><span class="step-w">1–2 мин</span></div><div class="scr">
+<p class="lead">Строки появляются по мере того, как пишутся. Состав постоянный, наполнение — его.</p>
+
+<div class="sheet">
+<div class="sh-head"><div class="t">Лист работ<div style="font:400 13.5px/1.5 -apple-system,sans-serif;letter-spacing:0;text-transform:none;color:#7b8194;margin-top:6px">{здесь встаёт его строка: чем занимается и где}</div></div>
+<div class="m">ЛИСТ 1 ИЗ 1<br>РАБОТ <b>10</b><br>ПРОШЛО 01:0X<br>» ЛИСТ СОБРАН</div></div>
+<div style="padding:16px 20px 0"><p style="margin:0;font-size:16.5px"><b>В конце у вас:</b> продающий оффер, страница, на которую ведут людей, и четыре цифровых сотрудника.</p>
+<p style="margin:8px 0 0;font-size:15.5px;color:#4a5163">Из десяти работ <b>семь идут без вашего участия</b>.</p></div>
+<div class="claim mono">МАШИНЕ ОТДАЁТСЯ НЕ РЕШЕНИЕ. МАШИНЕ ОТДАЁТСЯ ПОВТОРЕНИЕ.</div>
+
+<div class="b1"><div class="band-h"><span class="t">01 · Это делают цифровые сотрудники</span><span class="n mono">4 РАБОТЫ</span></div>
+<div class="r"><div class="c">01.01</div><div class="m"><div class="nm">ДЕЖУРНЫЙ <em>· отвечает первым</em></div><p class="d">Отвечает на первое сообщение за минуту, в любое время. Разбирает, с чем человек пришёл, задаёт два уточняющих вопроса и предлагает время.</p></div><span class="ax ax-p">ПРОДАЖИ</span></div>
+<div class="r"><div class="c">01.02</div><div class="m"><div class="nm">ДОГОНЯЮЩИЙ <em>· возвращается к тем, кто не дошёл</em></div><p class="d">Пишет тем, кто спросил и замолчал: через три дня по делу, через две недели ещё раз. Готовое сообщение — вы жмёте «отправить».</p></div><span class="ax ax-p">ПРОДАЖИ</span></div>
+<div class="r"><div class="c">01.03</div><div class="m"><div class="nm">СБОРЩИК <em>· собирает доказательства</em></div><p class="d">Просит отзыв у тех, кто дошёл до конца. Раскладывает: что хвалят чаще всего, чьими словами, что можно показывать.</p></div><span class="ax ax-m">МАРКЕТИНГ</span></div>
+<div class="r"><div class="c">01.04</div><div class="m"><div class="nm">СМОТРИТЕЛЬ <em>· держит вас видимым</em></div><p class="d">Следит, чтобы ассистенту и картам было что о вас сказать. Раз в месяц докладывает: назвали или нет и какими словами.</p></div><span class="ax ax-v">ВИДИМОСТЬ</span></div>
+</div>
+
+<div class="b2"><div class="band-h"><span class="t">02 · Это пишем мы, говорят ваши люди</span><span class="n mono">3 РАБОТЫ</span></div>
+<div class="r"><div class="c">02.01</div><div class="m"><div class="nm">ЧТО ВЫ ПРОДАЁТЕ И ПОЧЕМУ СТОЛЬКО</div><p class="d">Что входит, что не входит, из чего складывается сумма. И тридцать секунд на «а почему у вас дороже» — так, чтобы это мог произнести не только вы.</p></div><span class="ax ax-p">ПРОДАЖИ</span></div>
+<div class="r"><div class="c">02.02</div><div class="m"><div class="nm">СТРАНИЦА, НА КОТОРУЮ ВЕДЁМ</div><p class="d">Одна страница, которую человек открывает раньше, чем вы с ним заговорили. Её же пересылает тот, кто вас рекомендует.</p></div><span class="ax ax-m">МАРКЕТИНГ</span></div>
+<div class="r"><div class="c">02.03</div><div class="m"><div class="nm">ЧТО О ВАС НАПИСАНО ТАМ, ГДЕ ЧИТАЮТ ДО ВАС</div><p class="d">Один и тот же текст — на карте, на странице и в первом ответе. Из него ассистент берёт свой абзац.</p></div><span class="ax ax-v">ВИДИМОСТЬ</span></div>
+</div>
+
+<div class="b3"><div class="band-h"><span class="t">03 · Остаётся вам</span><span class="n mono">3 РЕШЕНИЯ</span></div>
+<div class="r"><div class="c">03.01</div><div class="m"><div class="nm">Кого берём и кого не берём</div><p class="d">Дежурный записывает. Дверь держите вы.</p></div></div>
+<div class="r"><div class="c">03.02</div><div class="m"><div class="nm">Сама работа</div><p class="d">То, ради чего к вам идут. Мы туда не заходим.</p></div></div>
+<div class="r"><div class="c">03.03</div><div class="m"><div class="nm">Где нижняя граница цены</div><p class="d">Названная цена отсекает часть людей. Это ваше решение.</p></div></div>
+</div>
+</div>
+<p class="lead">Каждая строка раскрывается по клику в карточку: что делает · когда включается · что отдаёт · где работает · что остаётся человеку · чем этот шаг платит · что можно сделать сегодня без нас.</p></div></div><div class="arrow">↓</div><div class="step"><div class="step-h"><span class="step-n">ШАГ 4</span><span class="step-t">Контакты — чтобы забрать лист</span><span class="step-w">~15 сек</span></div><div class="scr">
+<h4>Куда прислать лист</h4>
+<p class="lead">Лист живёт по постоянному адресу — пришлём ссылку, чтобы не потерялся, и PDF.</p>
+<div class="fld"><div class="lb">Имя <span class="req">обязательно</span></div><div class="ph">Имя</div></div>
+<div class="fld"><div class="lb">Email <span class="req">обязательно</span></div><div class="ph">Email</div></div>
+<div class="fld"><div class="lb">Telegram или телефон <span class="req" style="color:#7b8194">по желанию</span></div><div class="ph">@ник или номер</div></div>
+<span class="btn">Прислать лист</span>
+<p class="lead" style="margin-top:14px">Это существующая форма <code>lead-diagnostika</code> (поля <code>client_name</code>, <code>client_email</code>, <code>client_tg</code>, <code>segment</code>). Уходит в Netlify Forms и кладётся в <code>localStorage.bidna_lead</code> — дальше подставляется сама и на оплате, и в анкете. Человек вводит контакты <b>один раз за всю воронку</b>.</p></div></div><div class="arrow">↓</div><div class="step"><div class="step-h"><span class="step-n">ШАГ 5</span><span class="step-t">Переход в диагностику</span><span class="step-w"></span></div><div class="scr">
+<h4>Чтобы это поставить, нужно знать ваши цифры</h4>
+<p>Лист показывает состав. Какие из десяти работ ваши, в каком порядке и какая стоит вам дороже всех — из двух фраз не выводится.</p>
+<ol class="num">
+<li>Разбираем ваш рынок и конкурентов по открытым источникам — сами, а не с ваших слов.</li>
+<li>Собираем ДНК бизнеса и ДНК вашего клиента — его же словами.</li>
+<li>Строим карту разрывов по приоритету: где именно теряете и какой рычаг первый.</li>
+<li>Ставим три AI-точки — привязанные к вашим потерям, а не «внедрите нейросети».</li>
+<li>Отдаём PDF и разбираем один на один 45–60 минут.</li>
+</ol>
+<p><b>Часть работ из листа вычеркнем</b> — окажется, что они не про вас. Это тоже результат.</p>
+<span class="btn gold">Перейти к диагностике — $500</span>
+<p class="lead" style="margin-top:12px">Ведёт на существующую страницу <code>/business/oplata</code>. Сумма зачтётся в первый платёж за внедрение.</p></div></div><div class="arrow">↓</div><div class="step"><div class="step-h"><span class="step-n keep">ШАГ 6</span><span class="step-t">Оплата</span><span class="step-w"></span></div><div class="scr keep">
+<p><b>Страница не меняется.</b> Контакты уже подставлены из <code>bidna_lead</code> — человек их не вводит второй раз. Дальше как было: промокод <code>FIRST10</code> с живым счётчиком мест из Stripe, кнопка на Payment Link.</p>
+<p class="lead">Единственная правка: блок контактов на этой странице сворачивается, если <code>bidna_lead</code> уже есть.</p></div></div><div class="arrow">↓</div><div class="step"><div class="step-h"><span class="step-n keep">ШАГ 7</span><span class="step-t">Спасибо → анкета</span><span class="step-w"></span></div><div class="scr keep">
+<p><b>Не меняется.</b> Stripe возвращает на <code>spasibo-biznes</code>, оттуда ссылка на анкету <code>anketa-b-7k3m9x</code>. 67 вопросов, контакты подставляются из <code>bidna_lead</code>, ответы сохраняются в браузере.</p></div></div><div class="arrow">↓</div><div class="step"><div class="step-h"><span class="step-n keep">ШАГ 8</span><span class="step-t">Работа и сессия</span><span class="step-w"></span></div><div class="scr keep">
+<p><b>Не меняется.</b> Три рабочих дня research через <code>dna-research</code> → PDF → письма через Resend → бронь в Calendly на час. Дальше — продажа внедрения от $5000: оффер, лендинг, поставленные сотрудники.</p></div></div>
+
+<div class="note"><b>Что реально меняется в файлах.</b></div>
+<table class="tbl">
+<tr><th>Файл</th><th>Что делаем</th></tr>
+<tr><td><code>landings/list-biznes.html</code></td><td><b>Новый.</b> Шаги 1–5. Генератор рядом, как у остальных страниц.</td></tr>
+<tr><td><code>netlify-functions/list.js</code></td><td><b>Новый.</b> Сборка листа. Браузер ведёт цепочку короткими шагами — та же схема, что в <code>mirror.js</code>, стена Netlify 40с.</td></tr>
+<tr><td><code>landings/zerkalo-*.html</code></td><td>Снимаем с кнопок лендинга. Оставляем по адресу как запасную ветку.</td></tr>
+<tr><td><code>landings/biznes.html</code>, <code>ekspert.html</code></td><td>Переводим CTA с зеркала на лист. Скрипт <code>rewire_mirror.py</code> уже это умеет — правим карту замен.</td></tr>
+<tr><td><code>landings/oplata-*.html</code></td><td>Одна правка: сворачивать блок контактов, если <code>bidna_lead</code> уже есть.</td></tr>
+<tr><td><code>submission-created.js</code></td><td>Чиним ветку письма клиенту — она сейчас делает <code>return</code> до отправки, письмо не уходит вообще.</td></tr>
+<tr><td>Всё остальное</td><td>Не трогаем. Stripe, промокод, спасибо, анкета, Resend, Calendly, агент диагностики — как есть.</td></tr>
+</table>
+
+<div class="note"><b>Главное про сам лист.</b> Состав постоянный — десять работ, три полосы, одни и те же четыре сотрудника: Дежурный, Догоняющий, Сборщик, Смотритель. Они универсальны: первое сообщение, недошедшие, отзывы и видимость есть у любого бизнеса. Личным лист делает не состав, а <b>наполнение</b>: что именно делает каждый в его деле и в какой момент его недели включается. Это и держит два требования сразу — лист собирается предсказуемо и при этом не выглядит шаблоном.</div>
+
+<div class="note"><b>Что ещё не решено, скажу прямо.</b> Один вопрос: показывать лист до контактов или после. Сейчас нарисовано <b>сначала лист, потом контакты за PDF и ссылку</b> — так честнее и совпадает с обещанием «ни о чём не спросим, пока не отдадим». Но часть людей уйдёт с листом и не оставит почту. Обратный порядок даст больше контактов и меньше доверия. Моё мнение — оставить как нарисовано и мерить; если через полсотни прогонов почт мало, поменять местами это две строки кода.</div>
+
+</div></body></html>

@@ -1,0 +1,69 @@
+<title>One Call Booked</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="robots" href="">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0a0e18; --panel:#0e1524; --card:#121a2c; --ink:#eef1f7; --dim:#97a1b8; --faint:#6b768f;
+    --line:#1e2940; --gold:#d87f70;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;
+    min-height:100vh;display:flex;flex-direction:column}
+  .w{max-width:1120px;margin:0 auto;padding:0 24px;width:100%}
+  .narrow{max-width:640px;margin:0 auto}
+  main{flex:1;padding-block:86px 72px}
+  h1{font-size:clamp(30px,5.2vw,46px);line-height:1.06;margin:0 0 18px;letter-spacing:-.03em;
+    font-weight:700;text-wrap:balance}
+  p{margin:0 0 16px;max-width:60ch}
+  .lede{font-size:19px;color:var(--dim)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+  b,strong{font-weight:600}
+  ol{counter-reset:s;list-style:none;margin:30px 0 26px;padding:0}
+  ol li{counter-increment:s;position:relative;padding:0 0 0 46px;margin-bottom:20px;max-width:58ch}
+  ol li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:2px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--gold)}
+  .btn{display:inline-block;background:var(--gold);color:#0a0e18;text-decoration:none;
+    font-weight:700;font-size:18px;padding:17px 32px;border-radius:7px;margin:6px 0 12px}
+  .btn:hover{filter:brightness(1.08)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:26px 0}
+  .card p{margin:0;color:var(--dim);font-size:16px}
+  .note{color:var(--faint);font-size:14px;max-width:58ch}
+  footer{border-top:1px solid var(--line);padding-block:32px 46px;color:var(--faint);font-size:14px}
+  .fine{font-size:13px;color:var(--faint);max-width:none}
+  a{color:var(--gold)}
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .w{padding:0 18px}
+    main{padding-block:56px 48px}
+    .eyebrow{font-size:12.5px;letter-spacing:.13em}
+    .btn{display:block;text-align:center;font-size:17px;padding:16px 20px}
+    ol li{padding-left:38px}
+    .note{font-size:15px}
+    .fine{font-size:14px}
+  }
+</style>
+
+<main><div class="w"><div class="narrow">
+  <p class="eyebrow">Request received</p>
+  <h1>One call to your line. Within one business day.</h1>
+  <p class="lede">You've told us you own this business or can act for it. That permission is what lets us dial.</p>
+  <ol><li>We call your public number once, as an ordinary caller with an ordinary question.</li><li>We write down what happened: whether anyone picked up, how long it took, what was said about price, and whether an appointment was offered.</li><li>The transcript and a short report go to your email.</li></ol>
+  <div class="card"><p>If the call is recorded, the recording starts with a spoken announcement — Florida and California require every party to agree, so there is no quiet recording on our side, ever.</p></div>
+  <p class="note">One call is not a sample, and we put that line in the report itself. A line can answer correctly once and fall over on the third call. This shows whether there is anything to talk about. The full audit is thirty calls across a grid of hours.</p>
+
+  <div class="card"><p><b>This answers one question. Not all of them.</b></p>
+  <p>If it isn't clear where you're losing customers at all, there is a separate step: the <b>deep diagnostic</b>. Your business and customer DNA, a ranked map of the leaks, a read on your competitors, and a document in your hands. $500 once, credited against your first implementation payment. <a href="/diagnostic/">See what's in it →</a></p></div>
+
+  <div class="card"><p><b>Already decided?</b> You don't have to wait for the read-out.</p>
+  <p><a class="btn" href="https://buy.stripe.com/3cI4grezKgAa8Dz2nxfrW02">Pay and start — $450</a></p>
+  <p>The truth sheet opens right after payment, with no email to wait for. You fill it in at your own pace.</p></div>
+</div></div></main>
+
+<footer><div class="w"><div class="narrow">
+  <p class="fine">Wealthboosterpro LLC, dba Business Intelligence DNA · 5830 E 2nd St Ste 7000, Casper, WY 82609</p>
+</div></div></footer>

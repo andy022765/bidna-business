@@ -1,0 +1,174 @@
+{
+ "vopros_id": "N01",
+ "vopros": "Кто в США ставит голосового AI-ассистента, который отвечает клиентам на звонки по-русски?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "openai",
+ "rezhim": "auto",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-09-16",
+ "vne_okna": false,
+ "zapusk_id": "20260916-130006-55159",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-16T13:00:46-07:00",
+   "zapusk_id": "20260916-130006-55159",
+   "cena": 0.0063,
+   "ishod": "ok",
+   "sekund": 2.2,
+   "meta": {
+    "date": "Wed, 16 Sep 2026 20:00:48 GMT",
+    "x-request-id": "req_8e104cc01e7f403d9de483c6131bf746",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "2002"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да, могу подсказать компании и сервисы в США, которые могут поставить AI voice receptionist/телефонного агента с русским языком. Если скажете штат и сферу бизнеса (например, dental, trucking, law firm, home services), подберу 5–10 конкретных вариантов с ценами и примерами.",
+  "poiskovye_zaprosy": [],
+  "poiskovyh_zaprosov": 0,
+  "poiskovyh_vyzovov": 0,
+  "istochniki": [],
+  "citaty_v_tekste": [],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 4468,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 3328
+   },
+   "output_tokens": 72,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 4540
+  },
+  "cena": 0.0063,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0abff59fee2f2d12006aaaf56e3e0087d09ea0e192b9a7e79e",
+  "object": "response",
+  "created_at": 1789588846,
+  "status": "completed",
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1789588848,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "msg_0abff59fee2f2d12006aaaf56efc7487d09049b0fe5e9c5d0b",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [],
+      "logprobs": [],
+      "text": "Да, могу подсказать компании и сервисы в США, которые могут поставить AI voice receptionist/телефонного агента с русским языком. Если скажете штат и сферу бизнеса (например, dental, trucking, law firm, home services), подберу 5–10 конкретных вариантов с ценами и примерами."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 0
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 4468,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 3328
+   },
+   "output_tokens": 72,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 4540
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

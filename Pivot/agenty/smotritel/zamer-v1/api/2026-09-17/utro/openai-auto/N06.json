@@ -1,0 +1,432 @@
+{
+ "vopros_id": "N06",
+ "vopros": "Should I pay for a tool that tracks whether ChatGPT and other AI assistants mention my business, or hire someone to get my business recommended by AI?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "openai",
+ "rezhim": "auto",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "utro",
+ "den": "2026-09-17",
+ "vne_okna": false,
+ "zapusk_id": "20260917-090013-88676",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-17T09:11:02-07:00",
+   "zapusk_id": "20260917-090013-88676",
+   "cena": 0.03203,
+   "ishod": "ok",
+   "sekund": 10.9,
+   "meta": {
+    "date": "Thu, 17 Sep 2026 16:11:13 GMT",
+    "x-request-id": "req_fec143ae93d946d3956aee4e34024ba9",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "10570"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Potentially—but I’d separate “measurement” from “optimization.” If you’re deciding where to spend money, I’d usually start with measurement and basic fixes before paying someone an ongoing fee to “get you recommended by AI.”\n\nThere is now a real marketing channel here. ChatGPT Search can surface and cite businesses from the public web, and OpenAI says ranking considers factors intended to surface reliable, relevant information. For shopping specifically, ChatGPT uses merchant/product data and public web information, while results are organic rather than something a consultant can simply purchase placement in. ([help.openai.com](https://help.openai.com/en/articles/9237897-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.class?utm_source=openai))\n\nSo I’d approach it like this:\n\n- First, test the 20–50 questions a prospective customer would actually ask: “best [your service] in Los Angeles,” “alternatives to [competitor],” “who should I hire for X,” “best X for Y,” etc. Test ChatGPT plus whichever other assistants matter to your customers.\n- Record whether you appear, which competitors appear, what the AI says about you, and—most importantly—which sources it relies on. A paid tracking tool becomes worthwhile if doing this manually is cumbersome, especially if you have many locations/products or need historical competitor tracking.\n- Fix discoverability first. For ChatGPT, OpenAI explicitly says sites should permit OAI-SearchBot if they want content included in summaries/snippets. You can also measure ChatGPT referral traffic because its links carry a `utm_source=chatgpt.com` parameter. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Work on the underlying signals rather than trying to “game ChatGPT”: clear pages explaining exactly what you offer and whom it's for, accurate business information, credible third-party coverage/listings/reviews where appropriate, comparison/use-case content, and solid conventional SEO. Google similarly says its AI features rely on the same foundational SEO practices rather than requiring some special AI-specific markup. ([developers.google.com](https://developers.google.com/search/docs/appearance/ai-features?utm_source=openai))\n- If you're an ecommerce business, the opportunity is more concrete. ChatGPT can use merchant feeds and product metadata; Shopify catalog data is already integrated, and other eligible merchants can pursue direct product feeds. ([help.openai.com](https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv?utm_source=openai))\n\nI would be skeptical of an agency promising things like “we'll make ChatGPT recommend you,” guaranteed AI rankings, secret prompt hacks, hundreds of AI-optimized articles, or a proprietary schema that supposedly unlocks LLM visibility. There isn't a dependable mechanism for guaranteeing that an independent model will recommend a particular business, and responses can differ depending on the user's question and context. OpenAI itself says relevance drives product selection and that its ranking systems evolve. ([help.openai.com](https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv?utm_source=openai))\n\nA good consultant can still be valuable, but what I'd want them selling is recognizable marketing work: technical crawl/indexing fixes, entity/business-data cleanup, content improvements, digital PR, review/reputation strategy, product feeds, conventional SEO, and measurement—with AI visibility as one outcome. I would want them to show before/after measurements and tie those improvements to qualified traffic, leads, or sales rather than a vanity metric such as “AI mentions.”\n\nIf you're a small local/service business, I wouldn't immediately sign a $2k–$5k/month “GEO/AEO” retainer. A modest tracking tool—or even a spreadsheet and periodic manual testing—plus spending money on the underlying website/reputation/SEO work is likely a better starting point. A larger company with dozens of products, locations, competitors, or markets has a much stronger case for a dedicated monitoring platform.\n\nIf you tell me what kind of business you have (and roughly your monthly marketing budget), I can tell you whether an AI-visibility tool or agency is likely worth paying for in your particular case.",
+  "poiskovye_zaprosy": [
+   "site:openai.com ChatGPT search ranking recommendations businesses merchants product discovery official",
+   "site:openai.com OAI-SearchBot ChatGPT search publishers official",
+   "site:developers.google.com AI features search structured data business official AI overviews",
+   "site:blogs.bing.com generative search webmaster AI citations official Bing"
+  ],
+  "poiskovyh_zaprosov": 4,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://openai.com/index/buy-it-in-chatgpt",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://openai.com/policies/commerce-policies",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv",
+    "domen": "help.openai.com",
+    "title": "Shopping with ChatGPT Search | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features",
+    "domen": "developers.google.com",
+    "title": "AI Features and Your Website | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/es-419/articles/11128490-comprar-con-chatgpt-search",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.class",
+    "domen": "help.openai.com",
+    "title": "ChatGPT Search | OpenAI Help Center"
+   },
+   {
+    "url": "https://openai.com/business/plugins/semrush",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/business-guides-and-resources/how-small-teams-win-with-chatgpt.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/ChatGPT-and-the-price-of-work_report.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/32153121-f87f-4320-a725-9c94ee8d9b30/empowering-entrepreneurship-in-chatgpt-report.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/business-guides-and-resources/ai-in-the-enterprise.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/2025-11-24-memorandum-of-law-dckt-841-0.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.class",
+    "domen": "help.openai.com",
+    "title": "ChatGPT Search | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features",
+    "domen": "developers.google.com",
+    "title": "AI Features and Your Website | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv",
+    "domen": "help.openai.com",
+    "title": "Shopping with ChatGPT Search | OpenAI Help Center"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10666,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 870,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11536
+  },
+  "cena": 0.03203,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0493062807e53d5c006aac1116d79887d096af01afca67d14b",
+  "object": "response",
+  "created_at": 1789661462,
+  "status": "completed",
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1789661473,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_0493062807e53d5c006aac1117801087d0826f8795ceca6dd6",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "site:openai.com ChatGPT search ranking recommendations businesses merchants product discovery official",
+      "site:openai.com OAI-SearchBot ChatGPT search publishers official",
+      "site:developers.google.com AI features search structured data business official AI overviews",
+      "site:blogs.bing.com generative search webmaster AI citations official Bing"
+     ],
+     "query": "site:openai.com ChatGPT search ranking recommendations businesses merchants product discovery official",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/index/buy-it-in-chatgpt/"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/policies/commerce-policies/"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/ai-features"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/es-419/articles/11128490-comprar-con-chatgpt-search"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.class"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/business/plugins/semrush/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/business-guides-and-resources/how-small-teams-win-with-chatgpt.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/ChatGPT-and-the-price-of-work_report.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/32153121-f87f-4320-a725-9c94ee8d9b30/empowering-entrepreneurship-in-chatgpt-report.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/business-guides-and-resources/ai-in-the-enterprise.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/2025-11-24-memorandum-of-law-dckt-841-0.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.class?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/ai-features?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_0493062807e53d5c006aac111a851487d0975101ebc02fc2a4",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 919,
+        "start_index": 617,
+        "title": "ChatGPT Search | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.class?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1858,
+        "start_index": 1775,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2395,
+        "start_index": 2286,
+        "title": "AI Features and Your Website | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/appearance/ai-features?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 3040,
+        "start_index": 2624,
+        "title": "Shopping with ChatGPT Search | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 3972,
+        "start_index": 3556,
+        "title": "Shopping with ChatGPT Search | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Potentially—but I’d separate “measurement” from “optimization.” If you’re deciding where to spend money, I’d usually start with measurement and basic fixes before paying someone an ongoing fee to “get you recommended by AI.”\n\nThere is now a real marketing channel here. ChatGPT Search can surface and cite businesses from the public web, and OpenAI says ranking considers factors intended to surface reliable, relevant information. For shopping specifically, ChatGPT uses merchant/product data and public web information, while results are organic rather than something a consultant can simply purchase placement in. ([help.openai.com](https://help.openai.com/en/articles/9237897-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.class?utm_source=openai))\n\nSo I’d approach it like this:\n\n- First, test the 20–50 questions a prospective customer would actually ask: “best [your service] in Los Angeles,” “alternatives to [competitor],” “who should I hire for X,” “best X for Y,” etc. Test ChatGPT plus whichever other assistants matter to your customers.\n- Record whether you appear, which competitors appear, what the AI says about you, and—most importantly—which sources it relies on. A paid tracking tool becomes worthwhile if doing this manually is cumbersome, especially if you have many locations/products or need historical competitor tracking.\n- Fix discoverability first. For ChatGPT, OpenAI explicitly says sites should permit OAI-SearchBot if they want content included in summaries/snippets. You can also measure ChatGPT referral traffic because its links carry a `utm_source=chatgpt.com` parameter. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Work on the underlying signals rather than trying to “game ChatGPT”: clear pages explaining exactly what you offer and whom it's for, accurate business information, credible third-party coverage/listings/reviews where appropriate, comparison/use-case content, and solid conventional SEO. Google similarly says its AI features rely on the same foundational SEO practices rather than requiring some special AI-specific markup. ([developers.google.com](https://developers.google.com/search/docs/appearance/ai-features?utm_source=openai))\n- If you're an ecommerce business, the opportunity is more concrete. ChatGPT can use merchant feeds and product metadata; Shopify catalog data is already integrated, and other eligible merchants can pursue direct product feeds. ([help.openai.com](https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv?utm_source=openai))\n\nI would be skeptical of an agency promising things like “we'll make ChatGPT recommend you,” guaranteed AI rankings, secret prompt hacks, hundreds of AI-optimized articles, or a proprietary schema that supposedly unlocks LLM visibility. There isn't a dependable mechanism for guaranteeing that an independent model will recommend a particular business, and responses can differ depending on the user's question and context. OpenAI itself says relevance drives product selection and that its ranking systems evolve. ([help.openai.com](https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525253F.mkv?utm_source=openai))\n\nA good consultant can still be valuable, but what I'd want them selling is recognizable marketing work: technical crawl/indexing fixes, entity/business-data cleanup, content improvements, digital PR, review/reputation strategy, product feeds, conventional SEO, and measurement—with AI visibility as one outcome. I would want them to show before/after measurements and tie those improvements to qualified traffic, leads, or sales rather than a vanity metric such as “AI mentions.”\n\nIf you're a small local/service business, I wouldn't immediately sign a $2k–$5k/month “GEO/AEO” retainer. A modest tracking tool—or even a spreadsheet and periodic manual testing—plus spending money on the underlying website/reputation/SEO work is likely a better starting point. A larger company with dozens of products, locations, competitors, or markets has a much stronger case for a dedicated monitoring platform.\n\nIf you tell me what kind of business you have (and roughly your monthly marketing budget), I can tell you whether an AI-visibility tool or agency is likely worth paying for in your particular case."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10666,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 870,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11536
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

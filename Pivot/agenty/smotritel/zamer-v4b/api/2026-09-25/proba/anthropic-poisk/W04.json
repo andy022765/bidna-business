@@ -1,0 +1,550 @@
+{
+ "vopros_id": "W04",
+ "vopros": "Есть ли в США услуга исправить неверные данные о компании в ответах нейросетей?",
+ "versiya_spiska": "v4b-zameny-CHERNOVIK",
+ "otpechatok": "af7b973de22d",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "proba",
+ "den": "2026-09-25",
+ "vne_okna": false,
+ "zapusk_id": "20260925-120449-33615",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-25T12:04:56-07:00",
+   "zapusk_id": "20260925-120449-33615",
+   "cena": 0.07799,
+   "ishod": "ok",
+   "sekund": 25.4,
+   "meta": {
+    "request_id": "req_011CfQgLYj124r1UBYZZrgKP"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "## Да, такие услуги существуют\n\nВ США (и не только) есть целая индустрия сервисов, которые занимаются исправлением неверной информации о компаниях в ответах ИИ-чатботов (ChatGPT, Gemini, Perplexity, Copilot, Google AI Overviews и др.). Направление называется **AEO/GEO** (Answer Engine Optimization / Generative Engine Optimization), иногда также **AI ORM** или **GERM** (управление репутацией в ответах ИИ).\n\n### Важный нюанс: напрямую отредактировать ответ ИИ нельзя\nПрактически все источники сходятся в одном ключевом моменте: вы не можете написать письмо в OpenAI с просьбой исправить ответ, но вы не бессильны. Аналогично: нельзя отредактировать то, во что верит ИИ-ассистент о вашем бизнесе, и никакой тикет в поддержку это не изменит — можно лишь исправить источники, которые он читает.\n\n### Как работают такие сервисы\n\n**1. Аудит и фиксация проблемы.** Специалисты просят ChatGPT, Perplexity и Google AI задать те же вопросы, которые задал бы клиент, и фиксируют точный запрос, что было сказано, что неверно, тон и цитируемые источники.\n\n**2. Поиск первопричины ошибки.** Ошибка может исходить из устаревших данных обучения, неверной страницы-источника, которой доверяет модель, путаницы с похожей по названию компанией, или устаревшего листинга в каталоге, который модель когда-то просканировала.\n\n**3. Исправление источников, а не самого чат-бота.** Основной принцип: нельзя редактировать ИИ напрямую, но можно исправить то, что он читает — в порядке приоритета: собственный сайт, профиль Google Business, затем сторонние страницы, на которые ссылается ИИ. Также важна согласованность данных: когда название, адрес, телефон, часы работы и зона обслуживания совпадают везде, ИИ перестаёт \"гадать\" и многие неточности исчезают сами.\n\n**4. Использование встроенных фидбек-кнопок** (дополнительно, но не основной метод): в ChatGPT можно поставить \"не нравится\" на ответ и воспользоваться опцией репорта с фактическим уточнением; в Google AI Overviews — нажать на иконку фидбека, отметить неточность и указать правильный факт со ссылкой на источник.\n\n**5. Мониторинг результата.** Так как модели периодически пересканируют веб и обновляются, нужно регулярно проверять, что говорят разные ИИ-системы, и перепроверять по расписанию.\n\n### Масштаб проблемы\nПроблема действительно массовая: исследование Tow Center при Колумбийском университете протестировало 1600 запросов в восьми ИИ-поисковиках и обнаружило, что более 60% ответов содержали фактические ошибки. Отдельное исследование показало: \"5W Hallucination Index\" — исследование мая 2026 года от 5W Public Relations, задавшее ИИ-моделям 25 базовых бизнес-вопросов на бренд, — обнаружило, что 20% ответов содержали существенные ошибки.\n\n### Кто предоставляет такие услуги\nНа рынке есть коммерческие платформы и агентства (LSEO AI, Senso.ai, SubscribePR, Catchy Clouds, Nexum Sol, MaxAEO и др.), которые предлагают: отслеживание упоминаний бренда в разных ИИ-системах, аудит ошибок, работу с источниками (сайт, Google Business Profile, Wikipedia, Wikidata, Crunchbase, LinkedIn), публикацию структурированных данных (schema.org/Organization) и постоянный мониторинг изменений в ответах моделей. Например, один из сервисов утверждает, что медианное время исправления составило 412 отслеженных ошибок с сентября 2025 по май 2026 года, хотя результаты варьируются в зависимости от авторитетности сайта и частоты сканирования.\n\nПохожие сервисы (GERM, GEO-агентства) активно развиваются и на русскоязычном рынке — по той же логике «исправить не ответ, а информационную среду, из которой он собирается».",
+  "poiskovye_zaprosy": [
+   "услуга исправить неверные данные о компании в ответах ИИ нейросетей США",
+   "AI answer engine optimization fix incorrect company information ChatGPT service"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://www.sostav.ru/blogs/287011/93252",
+    "domen": "sostav.ru",
+    "title": "Как исправлять неправильные ответы нейросетей о компании"
+   },
+   {
+    "url": "https://www.sostav.ru/blogs/260474/103925",
+    "domen": "sostav.ru",
+    "title": "Как исправить ошибки нейросети с помощью GERM"
+   },
+   {
+    "url": "https://texterra.ru/blog/kontentnaya-gigiena-dlya-ai-otvetov.html",
+    "domen": "texterra.ru",
+    "title": "Контентная гигиена для AI-ответов: как навести порядок в фактах о компании"
+   },
+   {
+    "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii",
+    "domen": "1ps.ru",
+    "title": "Как ошибки AI-ответов портят репутацию компании: AI ORM и GEO в 2026 году"
+   },
+   {
+    "url": "https://vc.ru/marketing/2971504-kak-borotsya-s-negativom-v-otvetakh-ii",
+    "domen": "vc.ru",
+    "title": "Борьба с негативом в ответах ИИ: что делать, если нейросеть пишет о вас плохо — Маркетинг на vc.ru"
+   },
+   {
+    "url": "https://www.synapse-studio.ru/blog/useful/kak-proverit-i-ispravit-lozhnuyu-informaciyu-o-brende-kotoruyu-generiruyut-neyroseti",
+    "domen": "synapse-studio.ru",
+    "title": "Как проверить и исправить ложную информацию о бренде, которую генерируют нейросети | Синапс - создание сайтов, Яндекс Директ, реклама в интернете"
+   },
+   {
+    "url": "https://kompot.bz/blog/tpost/54xj8zbhd1-pochemu-chatgpt-inogda-vryot-pro-vashu-k",
+    "domen": "kompot.bz",
+    "title": "Почему нейросети видят вашу компанию неправильно и как взять информацию под контроль | Компот"
+   },
+   {
+    "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende",
+    "domen": "ai.pixeltools.ru",
+    "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс"
+   },
+   {
+    "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah",
+    "domen": "kultura101.ru",
+    "title": "Что нейросети говорят о вашей компании: как проверить"
+   },
+   {
+    "url": "https://lseo.com/answer-engine-optimization-services/fixing-incorrect-ai-answers-about-your-brand",
+    "domen": "lseo.com",
+    "title": "Incorrect AI Answers About Your Brand: How to Fix"
+   },
+   {
+    "url": "https://www.senso.ai/prompts-content/why-does-chatgpt-get-my-business-information-wrong",
+    "domen": "senso.ai",
+    "title": "Why does ChatGPT get my business information wrong?"
+   },
+   {
+    "url": "https://kaizenaire.ai/blog/how-do-i-fix-wrong-information-chatgpt-says-about-my-company",
+    "domen": "kaizenaire.ai",
+    "title": "How do I fix wrong information ChatGPT says about my company - kaizenaire.ai"
+   },
+   {
+    "url": "https://searchscore.io/guides/fix-wrong-ai-information",
+    "domen": "searchscore.io",
+    "title": "ChatGPT Says Wrong Things About My Business: How to Fix It | SearchScore"
+   },
+   {
+    "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business",
+    "domen": "qbizleadsai.com",
+    "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and Fix It | QBiz Leads AI"
+   },
+   {
+    "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information",
+    "domen": "subscribepr.com",
+    "title": "ChatGPT says wrong things about your business: how to fix it in 2026 | Subscribe PR"
+   },
+   {
+    "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business",
+    "domen": "catchyclouds.co",
+    "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is How to Fix It. | SEO & AI Search Guide | Catchy Clouds"
+   },
+   {
+    "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html",
+    "domen": "nexum-sol.com",
+    "title": "ChatGPT Is Giving Customers Wrong Information About Your Business. Here Is How to Fix It."
+   },
+   {
+    "url": "https://maxaeo.ai/blog/chatgpt-wrong-company-information",
+    "domen": "maxaeo.ai",
+    "title": "ChatGPT Wrong Information About My Company? How to Fix It - MaxAEO Blog"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://searchscore.io/guides/fix-wrong-ai-information",
+    "domen": "searchscore.io",
+    "title": "ChatGPT Says Wrong Things About My Business: How to Fix It | SearchScore"
+   },
+   {
+    "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business",
+    "domen": "catchyclouds.co",
+    "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is How to Fix It. | SEO & AI Search Guide | Catchy Clouds"
+   },
+   {
+    "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business",
+    "domen": "qbizleadsai.com",
+    "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and Fix It | QBiz Leads AI"
+   },
+   {
+    "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information",
+    "domen": "subscribepr.com",
+    "title": "ChatGPT says wrong things about your business: how to fix it in 2026 | Subscribe PR"
+   },
+   {
+    "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html",
+    "domen": "nexum-sol.com",
+    "title": "ChatGPT Is Giving Customers Wrong Information About Your Business. Here Is How to Fix It."
+   },
+   {
+    "url": "https://maxaeo.ai/blog/chatgpt-wrong-company-information",
+    "domen": "maxaeo.ai",
+    "title": "ChatGPT Wrong Information About My Company? How to Fix It - MaxAEO Blog"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19878,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1823
+  },
+  "cena": 0.07799,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfQgLZWtNZETvucLKTxLo",
+    "request_id": "req_011CfQgLYj124r1UBYZZrgKP",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19878,
+     "output_tokens": 1823,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_0195uUR4qrku2s4EkV4jja5o",
+    "caller": null,
+    "input": {
+     "query": "услуга исправить неверные данные о компании в ответах ИИ нейросетей США"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01JccMjdFDSVZNwznNSuQ5ie",
+    "caller": null,
+    "input": {
+     "query": "AI answer engine optimization fix incorrect company information ChatGPT service"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "Как исправлять неправильные ответы нейросетей о компании",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/blogs/287011/93252"
+     },
+     {
+      "page_age": "1 month ago",
+      "title": "Как исправить ошибки нейросети с помощью GERM",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/blogs/260474/103925"
+     },
+     {
+      "page_age": "June 24, 2026",
+      "title": "Контентная гигиена для AI-ответов: как навести порядок в фактах о компании",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kontentnaya-gigiena-dlya-ai-otvetov.html"
+     },
+     {
+      "page_age": "July 17, 2026",
+      "title": "Как ошибки AI-ответов портят репутацию компании: AI ORM и GEO в 2026 году",
+      "type": "web_search_result",
+      "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii/"
+     },
+     {
+      "page_age": "June 9, 2026",
+      "title": "Борьба с негативом в ответах ИИ: что делать, если нейросеть пишет о вас плохо — Маркетинг на vc.ru",
+      "type": "web_search_result",
+      "url": "https://vc.ru/marketing/2971504-kak-borotsya-s-negativom-v-otvetakh-ii"
+     },
+     {
+      "page_age": null,
+      "title": "Как проверить и исправить ложную информацию о бренде, которую генерируют нейросети | Синапс - создание сайтов, Яндекс Директ, реклама в интернете",
+      "type": "web_search_result",
+      "url": "https://www.synapse-studio.ru/blog/useful/kak-proverit-i-ispravit-lozhnuyu-informaciyu-o-brende-kotoruyu-generiruyut-neyroseti"
+     },
+     {
+      "page_age": null,
+      "title": "Почему нейросети видят вашу компанию неправильно и как взять информацию под контроль | Компот",
+      "type": "web_search_result",
+      "url": "https://kompot.bz/blog/tpost/54xj8zbhd1-pochemu-chatgpt-inogda-vryot-pro-vashu-k"
+     },
+     {
+      "page_age": null,
+      "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс",
+      "type": "web_search_result",
+      "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende"
+     },
+     {
+      "page_age": "July 24, 2026",
+      "title": "Что нейросети говорят о вашей компании: как проверить",
+      "type": "web_search_result",
+      "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_0195uUR4qrku2s4EkV4jja5o",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "May 6, 2026",
+      "title": "Incorrect AI Answers About Your Brand: How to Fix",
+      "type": "web_search_result",
+      "url": "https://lseo.com/answer-engine-optimization-services/fixing-incorrect-ai-answers-about-your-brand/"
+     },
+     {
+      "page_age": "December 22, 2025",
+      "title": "Why does ChatGPT get my business information wrong?",
+      "type": "web_search_result",
+      "url": "https://www.senso.ai/prompts-content/why-does-chatgpt-get-my-business-information-wrong"
+     },
+     {
+      "page_age": "July 29, 2026",
+      "title": "How do I fix wrong information ChatGPT says about my company - kaizenaire.ai",
+      "type": "web_search_result",
+      "url": "https://kaizenaire.ai/blog/how-do-i-fix-wrong-information-chatgpt-says-about-my-company/"
+     },
+     {
+      "page_age": "July 6, 2026",
+      "title": "ChatGPT Says Wrong Things About My Business: How to Fix It | SearchScore",
+      "type": "web_search_result",
+      "url": "https://searchscore.io/guides/fix-wrong-ai-information/"
+     },
+     {
+      "page_age": "July 11, 2026",
+      "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and Fix It | QBiz Leads AI",
+      "type": "web_search_result",
+      "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business/"
+     },
+     {
+      "page_age": "August 5, 2026",
+      "title": "ChatGPT says wrong things about your business: how to fix it in 2026 | Subscribe PR",
+      "type": "web_search_result",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     },
+     {
+      "page_age": "3 weeks ago",
+      "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is How to Fix It. | SEO & AI Search Guide | Catchy Clouds",
+      "type": "web_search_result",
+      "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business"
+     },
+     {
+      "page_age": "August 13, 2026",
+      "title": "ChatGPT Is Giving Customers Wrong Information About Your Business. Here Is How to Fix It.",
+      "type": "web_search_result",
+      "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html"
+     },
+     {
+      "page_age": "June 24, 2026",
+      "title": "ChatGPT Wrong Information About My Company? How to Fix It - MaxAEO Blog",
+      "type": "web_search_result",
+      "url": "https://maxaeo.ai/blog/chatgpt-wrong-company-information/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01JccMjdFDSVZNwznNSuQ5ie",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "## Да, такие услуги существуют\n\nВ США (и не только) есть целая индустрия сервисов, которые занимаются исправлением неверной информации о компаниях в ответах ИИ-чатботов (ChatGPT, Gemini, Perplexity, Copilot, Google AI Overviews и др.). Направление называется **AEO/GEO** (Answer Engine Optimization / Generative Engine Optimization), иногда также **AI ORM** или **GERM** (управление репутацией в ответах ИИ).\n\n### Важный нюанс: напрямую отредактировать ответ ИИ нельзя\nПрактически все источники сходятся в одном ключевом моменте: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "You cannot email OpenAI a correction, but you are not powerless. ",
+      "title": "ChatGPT Says Wrong Things About My Business: How to Fix It | SearchScore",
+      "type": "web_search_result_location",
+      "url": "https://searchscore.io/guides/fix-wrong-ai-information/"
+     }
+    ],
+    "text": "вы не можете написать письмо в OpenAI с просьбой исправить ответ, но вы не бессильны",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Аналогично: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "... You cannot edit what an AI assistant believes about your business, and no support ticket will change it. What you can do is fix the sources it rea...",
+      "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is How to Fix It. | SEO & AI Search Guide | Catchy Clouds",
+      "type": "web_search_result_location",
+      "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business"
+     }
+    ],
+    "text": "нельзя отредактировать то, во что верит ИИ-ассистент о вашем бизнесе, и никакой тикет в поддержку это не изменит — можно лишь исправить источники, которые он читает",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n### Как работают такие сервисы\n\n**1. Аудит и фиксация проблемы.** Специалисты ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Ask ChatGPT, Perplexity and Google AI the questions a customer would, and record the exact prompt, what was said, what was wrong, the tone and any cit...",
+      "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and Fix It | QBiz Leads AI",
+      "type": "web_search_result_location",
+      "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business/"
+     }
+    ],
+    "text": "просят ChatGPT, Perplexity и Google AI задать те же вопросы, которые задал бы клиент, и фиксируют точный запрос, что было сказано, что неверно, тон и цитируемые источники",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**2. Поиск первопричины ошибки.** Ошибка может исходить ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "When ChatGPT, Perplexity, or Google AI Overviews states something false about your business, the error traces back to one of four causes: stale traini...",
+      "title": "ChatGPT says wrong things about your business: how to fix it in 2026 | Subscribe PR",
+      "type": "web_search_result_location",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     }
+    ],
+    "text": "из устаревших данных обучения, неверной страницы-источника, которой доверяет модель, путаницы с похожей по названию компанией, или устаревшего листинга в каталоге, который модель когда-то просканировала",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**3. Исправление источников, а не самого чат-бота.** Основной принцип: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "You cannot edit the AI, but you can correct what it reads, in order of control: your website, your Google Business Profile, then the third-party pages...",
+      "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and Fix It | QBiz Leads AI",
+      "type": "web_search_result_location",
+      "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business/"
+     }
+    ],
+    "text": "нельзя редактировать ИИ напрямую, но можно исправить то, что он читает — в порядке приоритета: собственный сайт, профиль Google Business, затем сторонние страницы, на которые ссылается ИИ",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Также важна согласованность данных: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "When your name, address, phone, hours and service area agree everywhere, the AI stops guessing and many inaccuracies fade on their own.\n\n",
+      "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and Fix It | QBiz Leads AI",
+      "type": "web_search_result_location",
+      "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business/"
+     }
+    ],
+    "text": "когда название, адрес, телефон, часы работы и зона обслуживания совпадают везде, ИИ перестаёт \"гадать\" и многие неточности исчезают сами",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**4. Использование встроенных фидбек-кнопок** (дополнительно, но не основной метод): ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Now use the feedback channels. In ChatGPT, thumbs-down the response and use the report option with a factual note. For Google AI Overviews, click the ...",
+      "title": "ChatGPT says wrong things about your business: how to fix it in 2026 | Subscribe PR",
+      "type": "web_search_result_location",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     }
+    ],
+    "text": "в ChatGPT можно поставить \"не нравится\" на ответ и воспользоваться опцией репорта с фактическим уточнением; в Google AI Overviews — нажать на иконку фидбека, отметить неточность и указать правильный факт со ссылкой на источник",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**5. Мониторинг результата.** Так как модели периодически пересканируют веб и обновляются, нужно ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Check what each engine currently says about you, trace every wrong claim to a public source (your own website, your Google Business Profile, a directo...",
+      "title": "ChatGPT Is Giving Customers Wrong Information About Your Business. Here Is How to Fix It.",
+      "type": "web_search_result_location",
+      "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html"
+     }
+    ],
+    "text": "регулярно проверять, что говорят разные ИИ-системы, и перепроверять по расписанию",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n### Масштаб проблемы\nПроблема действительно массовая: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The scale of the problem in 2026 is documented: Columbia University’s Tow Center tested 1,600 queries across eight AI search engines and found more th...",
+      "title": "ChatGPT says wrong things about your business: how to fix it in 2026 | Subscribe PR",
+      "type": "web_search_result_location",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     }
+    ],
+    "text": "исследование Tow Center при Колумбийском университете протестировало 1600 запросов в восьми ИИ-поисковиках и обнаружило, что более 60% ответов содержали фактические ошибки",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Отдельное исследование показало: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "This guide covers the full workflow: how OpenAI, Google, and Microsoft engines assemble answers about your company, why your Google Business Profile, ...",
+      "title": "ChatGPT says wrong things about your business: how to fix it in 2026 | Subscribe PR",
+      "type": "web_search_result_location",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     }
+    ],
+    "text": "\"5W Hallucination Index\" — исследование мая 2026 года от 5W Public Relations, задавшее ИИ-моделям 25 базовых бизнес-вопросов на бренд, — обнаружило, что 20% ответов содержали существенные ошибки",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n### Кто предоставляет такие услуги\nНа рынке есть коммерческие платформы и агентства (LSEO AI, Senso.ai, SubscribePR, Catchy Clouds, Nexum Sol, MaxAEO и др.), которые предлагают: отслеживание упоминаний бренда в разных ИИ-системах, аудит ошибок, работу с источниками (сайт, Google Business Profile, Wikipedia, Wikidata, Crunchbase, LinkedIn), публикацию структурированных данных (schema.org/Organization) и постоянный мониторинг изменений в ответах моделей. Например, один из сервисов утверждает, что ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "*Median from 412 corrected errors tracked by maxaeo, Sep 2025 – May 2026. ",
+      "title": "ChatGPT Wrong Information About My Company? How to Fix It - MaxAEO Blog",
+      "type": "web_search_result_location",
+      "url": "https://maxaeo.ai/blog/chatgpt-wrong-company-information/"
+     }
+    ],
+    "text": "медианное время исправления составило 412 отслеженных ошибок с сентября 2025 по май 2026 года",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", хотя результаты варьируются в зависимости от авторитетности сайта и частоты сканирования.\n\nПохожие сервисы (GERM, GEO-агентства) активно развиваются и на русскоязычном рынке — по той же логике «исправить не ответ, а информационную среду, из которой он собирается».",
+    "type": "text"
+   }
+  ]
+ }
+}

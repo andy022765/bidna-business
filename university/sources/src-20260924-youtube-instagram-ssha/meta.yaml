@@ -1,0 +1,40 @@
+# Template: sources/<src-id>/meta.yaml
+id: src-20260924-youtube-instagram-ssha
+url: https://www.youtube.com/results?search_query=бизнес+в+США
+canonical_url: https://www.youtube.com/
+type: dataset
+title: 'Snapshot of Russian-language YouTube channels, Instagram profiles and Facebook groups for Russian-speaking US audience, 2026-09-24'
+authors: [{name: "Business Intel DNA (own snapshot)"}]
+published: 2026-09-24
+fetched_at: 2026-09-24T19:00:00Z
+language: ru
+fetch_method: webfetch (curl YouTube search, Instagram/Facebook og-meta)
+storage:
+  original: original.md (+ raw/yt_*.html)
+  bytes: 23226
+
+relevance: 5
+quality: 7
+quality_breakdown:
+  primary_source: true
+  author_credible: false
+  has_math: false
+  has_empirics: true
+  reproducible: true
+  recent: true
+  cited: false
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: false
+  notes: 'Собственный срез. Выдача YouTube персонализирована слабо, но не полна; подписчики ≠ владельцы. Язык канала проверен по описанию только для 12 ключевых. Facebook без входа размер не отдаёт.'
+
+extracted:
+  notes: [n-youtube-biznes-v-ssha-40-105-tysyach, n-handyman-sreda-na-youtube-i-instagram, n-trak-youtube-v-trake-55-tysyach, n-podkast-lantsman-format-gostya, n-facebook-gruppy-razmer-ne-proverit, n-smezhniki-marketing-dlya-russkoyazychnyh-uzhe-est]
+  claims: [c-0411]
+  contradictions: []
+  outbound_links_tracked: 3
+
+status: processed
+reject_reason: null

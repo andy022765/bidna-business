@@ -1,0 +1,73 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "zapisat_careline_demo",
+    "description": "Books the time the caller chose. The caller picking an option is NOT permission: first ask 'Shall I book it?' with that exact time, wait for yes, and only then call this — once per call. Pass start exactly as it came from svobodnye_okna_careline_demo. Say it is booked ONLY if the result has ok true; if ok is false, say the meaning of soobshchenie and offer another time.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/zapis",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "KomtreYBZQp3NoyIGVnN"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "CareLine DEMO → zapis",
+        "required": [
+          "tip",
+          "start",
+          "imya",
+          "telefon",
+          "conversation_id"
+        ],
+        "properties": {
+          "tip": {
+            "type": "string",
+            "description": "sobesedovanie = job interview at our office; ocenka = free in-home assessment for a family.",
+            "enum": [
+              "sobesedovanie",
+              "ocenka"
+            ]
+          },
+          "start": {
+            "type": "string",
+            "description": "The start value of the chosen time, copied character for character from svobodnye_okna_careline_demo."
+          },
+          "imya": {
+            "type": "string",
+            "description": "First and last name exactly as the caller spelled it and confirmed, in Latin letters, e.g. Maria Rodriguez."
+          },
+          "telefon": {
+            "type": "string",
+            "description": "The confirmed phone number in E.164 format, e.g. +17185550142."
+          },
+          "email": {
+            "type": "string",
+            "description": "Only if the caller gave an email and confirmed the spelling; otherwise leave it out."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es",
+              "ru"
+            ]
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          }
+        }
+      }
+    }
+  }
+}

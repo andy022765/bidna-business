@@ -1,0 +1,285 @@
+{
+  "opisanie": "Скептик №7, ревью 15.09 №7 и №12. Чистка по срокам в первом обходе дня: некупивший чат годичной давности уходит целиком (meta, история, adm/chat), оплативший остаётся (3 года), свежий чат не теряет старых сообщений; upd/schet/rashod — по дате в ключе; kod, razgovor-kod, pochta, zvonok, otvet, ishodyashchee, media — по exp; выключенная связь через 30 дней; настройки и ключи без срока не трогаются. Второй обход в тот же день чистку не повторяет.",
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-400d"
+    },
+    "svyaz/bc-old": {
+      "id": "bc-old",
+      "user_id": 7001,
+      "rights": {},
+      "is_enabled": false,
+      "t": "@now-40d"
+    },
+    "nastroyki": {
+      "vklyuchen": true,
+      "t": "@now-300d"
+    },
+    "upd/2026-09-01/1": {
+      "s": "gotovo",
+      "t": "@now-14d"
+    },
+    "upd/{den}/2": {
+      "s": "gotovo",
+      "t": "@now"
+    },
+    "schet/2026-05-01/soglasie/1-aa": "",
+    "schet/{den}/soglasie/2-bb": "",
+    "rashod/2026-05-01": {
+      "vyzovov": 3,
+      "usd": 0.1
+    },
+    "rashod/{den}": {
+      "vyzovov": 1,
+      "usd": 0.02
+    },
+    "ishodyashchee/bc-test-1/5001/abc": {
+      "t": "@now-2d",
+      "exp": "@now-1d"
+    },
+    "otvet/bc-test-1/5001/100": {
+      "s": "gotovo",
+      "exp": "@now-1h"
+    },
+    "otvet/bc-test-1/5001/101": {
+      "s": "gotovo",
+      "exp": "@now+6d"
+    },
+    "media/bc-test-1/5001/g1": {
+      "id": 1,
+      "exp": "@now-1h"
+    },
+    "kod/OLD77": {
+      "kod": "OLD77",
+      "email": "old@example-staryy.com",
+      "imya": "Старый",
+      "t": "@now-31d",
+      "exp": "@now-1d"
+    },
+    "kod/NEW77": {
+      "kod": "NEW77",
+      "email": "new@example-novyy.com",
+      "t": "@now-10d",
+      "exp": "@now+20d"
+    },
+    "razgovor-kod/conv_old00001": {
+      "kod": "OLD77",
+      "exp": "@now-1d"
+    },
+    "pochta/0123456789abcdef0123456789abcdef": {
+      "kody": [
+        "OLD77"
+      ],
+      "exp": "@now-1d"
+    },
+    "zvonok/conv_old00001": {
+      "conv": "conv_old00001",
+      "sobrano": {
+        "imya": "Старый"
+      },
+      "itog": "старый звонок",
+      "exp": "@now-1d"
+    },
+    "zvonok/conv_new00001": {
+      "conv": "conv_new00001",
+      "sobrano": {
+        "imya": "Новый"
+      },
+      "itog": "свежий звонок",
+      "exp": "@now+300d"
+    },
+    "zvonok-obrabotan/conv_old00001": {
+      "s": "gotovo",
+      "exp": "@now-1d"
+    },
+    "chat/bc-test-1/6001/meta": {
+      "chat_id": 6001,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 6001,
+        "first_name": "Старый",
+        "username": "user_6001",
+        "language_code": "ru"
+      },
+      "kod": "K6001",
+      "razgovor": null,
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-2h"
+      },
+      "pauza_do": null,
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "predstavilas": true,
+      "tseli": [],
+      "segment": "biznes",
+      "signal_t": {},
+      "topic_id": 6001,
+      "sozdano": "@now-500d",
+      "obnovleno": "@now-400d"
+    },
+    "chat/bc-test-1/6001/m/000000000001": {
+      "kto": "klient",
+      "text": "некупивший год назад",
+      "t": "@now-400d",
+      "exp": "@now-35d"
+    },
+    "adm/chat/6001": "bc-test-1",
+    "chat/bc-test-1/6002/meta": {
+      "chat_id": 6002,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 6002,
+        "first_name": "Старый",
+        "username": "user_6002",
+        "language_code": "ru"
+      },
+      "kod": "K6002",
+      "razgovor": null,
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-2h"
+      },
+      "pauza_do": null,
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "predstavilas": true,
+      "tseli": [],
+      "segment": "biznes",
+      "signal_t": {},
+      "topic_id": 6002,
+      "sozdano": "@now-500d",
+      "obnovleno": "@now-400d",
+      "oplatil": true
+    },
+    "chat/bc-test-1/6002/m/000000000001": {
+      "kto": "klient",
+      "text": "оплативший год назад",
+      "t": "@now-400d",
+      "exp": "@now-35d"
+    },
+    "adm/chat/6002": {
+      "bc": "bc-test-1",
+      "t": "@now-400d",
+      "exp": "@now-35d"
+    },
+    "chat/bc-test-1/6003/meta": {
+      "chat_id": 6003,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 6003,
+        "first_name": "Старый",
+        "username": "user_6003",
+        "language_code": "ru"
+      },
+      "kod": "K6003",
+      "razgovor": null,
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-2h"
+      },
+      "pauza_do": null,
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "predstavilas": true,
+      "tseli": [],
+      "segment": "biznes",
+      "signal_t": {},
+      "topic_id": 6003,
+      "sozdano": "@now-2h",
+      "obnovleno": "@now-1d"
+    },
+    "chat/bc-test-1/6003/m/000000000001": {
+      "kto": "klient",
+      "text": "свежий чат, старое сообщение",
+      "t": "@now-380d",
+      "exp": "@now-15d"
+    },
+    "chat/bc-test-1/6004/m/000000000001": {
+      "kto": "klient",
+      "text": "сирота просрочен",
+      "exp": "@now-1d"
+    },
+    "chat/bc-test-1/6005/m/000000000001": {
+      "kto": "klient",
+      "text": "сирота свежий",
+      "exp": "@now+1d"
+    },
+    "adm/chat/6009": "bc-test-1",
+    "strannyy/klyuch": {
+      "a": 1
+    }
+  },
+  "updates": [
+    {
+      "now": "@now",
+      "obkhod": true
+    },
+    {
+      "now": "@now+10m",
+      "obkhod": true
+    }
+  ],
+  "ozhidaem": {
+    "klientu": 0,
+    "gruppe_est": false,
+    "klyuchi_net": [
+      "upd/2026-09-01/1",
+      "schet/2026-05-01/*",
+      "rashod/2026-05-01",
+      "ishodyashchee/*",
+      "otvet/bc-test-1/5001/100",
+      "media/*",
+      "kod/OLD77",
+      "razgovor-kod/conv_old00001",
+      "pochta/*",
+      "zvonok/conv_old00001",
+      "zvonok-obrabotan/*",
+      "chat/bc-test-1/6001/*",
+      "adm/chat/6001",
+      "chat/bc-test-1/6004/*",
+      "adm/chat/6009",
+      "svyaz/bc-old"
+    ],
+    "klyuchi_est": [
+      "upd/{den}/2",
+      "schet/{den}/soglasie/2-bb",
+      "rashod/{den}",
+      "otvet/bc-test-1/5001/101",
+      "kod/NEW77",
+      "zvonok/conv_new00001",
+      "chat/bc-test-1/6002/meta",
+      "chat/bc-test-1/6002/m/000000000001",
+      "adm/chat/6002",
+      "chat/bc-test-1/6003/meta",
+      "chat/bc-test-1/6003/m/000000000001",
+      "chat/bc-test-1/6005/m/000000000001",
+      "svyaz/bc-test-1",
+      "nastroyki",
+      "strannyy/klyuch"
+    ],
+    "tekst_ne_hranitsya": [
+      "old@example-staryy.com",
+      "некупивший год назад",
+      "старый звонок"
+    ],
+    "znachenie": {
+      "obkhod/chistka/{den}": {
+        "gotovo": true
+      }
+    }
+  }
+}

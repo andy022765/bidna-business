@@ -1,0 +1,757 @@
+{
+  "opisanie": "SPEC 7.1 №20 + крайний случай 5 + скептик №10. 25 сообщений за минуту подряд: после 20 входящих в час Вера молчит до конца часа, модель больше не зовётся, в группу сигнал.",
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    },
+    "adm/chat/5001": "bc-test-1",
+    "zvonok/conv_test7m3x01": {
+      "conv": "conv_test7m3x01",
+      "agent_id": "agent_test_prodavec",
+      "istochnik": "telefon",
+      "t": "@now-2h",
+      "dlit": 360,
+      "sobrano": {
+        "imya": "Ирина Соколова",
+        "telefon": "+15615550100",
+        "pochta": "irina@salon-test.com",
+        "zachem": "узнать про Дежурного для салона",
+        "biznes": "салон маникюра в Тампе",
+        "obeshchali": "письмо со списком работ",
+        "hvost": "когда можно запустить"
+      },
+      "itog": "Звонила про Дежурного, письмо razbor ушло",
+      "dialog": [
+        {
+          "kto": "klient",
+          "text": "Меня зовут Ирина Соколова, почта irina@salon-test.com, номер 561 555 0100"
+        },
+        {
+          "kto": "vera",
+          "text": "Проверю по буквам."
+        },
+        {
+          "kto": "klient",
+          "text": "Мы на Жасминовой улице, вечером администратор уходит"
+        }
+      ],
+      "nomer": "+15615550100",
+      "kod": "K7M3X"
+    },
+    "kod/K7M3X": {
+      "kod": "K7M3X",
+      "razgovor": "conv_test7m3x01",
+      "istochnik": "vera",
+      "email": "irina@salon-test.com",
+      "imya": "Ирина Соколова",
+      "segment": "biznes",
+      "shag": "razbor",
+      "t": "@now-2h",
+      "chaty": [
+        {
+          "bc": "bc-test-1",
+          "chat": 5001,
+          "user_id": 5001,
+          "t": "@now-1h"
+        }
+      ],
+      "suhoy": false
+    },
+    "chat/bc-test-1/5001/meta": {
+      "chat_id": 5001,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 5001,
+        "first_name": "Ирина",
+        "username": "irina_nails",
+        "language_code": "ru"
+      },
+      "kod": "K7M3X",
+      "razgovor": "conv_test7m3x01",
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-1h"
+      },
+      "pauza_do": null,
+      "pauza_prichina": null,
+      "posl_vhod": {
+        "id": 100,
+        "t": "@now-1h"
+      },
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "okno_do": "@now+23h",
+      "predstavilas": true,
+      "nuzhno_snova_predstavitsya": false,
+      "tseli": [],
+      "segment": "biznes",
+      "tema": "dezhurny",
+      "oplatil": false,
+      "kasaniy": 0,
+      "signal_t": {},
+      "topic_id": 42
+    },
+    "chat/bc-test-1/5001/m/000000000100": {
+      "kto": "klient",
+      "tip": "text",
+      "text": "Здравствуйте! Пишу после разговора с Верой. Код K7M3X",
+      "t": "@now-1h"
+    },
+    "chat/bc-test-1/5001/m/000000000101": {
+      "kto": "vera",
+      "tip": "text",
+      "text": "Это Вера, виртуальный ассистент Business Intelligence DNA. По телефону вы спрашивали про Дежурного. Что осталось непонятным?",
+      "t": "@now-1h"
+    }
+  },
+  "updates": [
+    {
+      "now": "@now+0s",
+      "update": {
+        "update_id": 1200,
+        "business_message": {
+          "message_id": 300,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 1"
+        }
+      }
+    },
+    {
+      "now": "@now+2s",
+      "update": {
+        "update_id": 1201,
+        "business_message": {
+          "message_id": 301,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 2"
+        }
+      }
+    },
+    {
+      "now": "@now+4s",
+      "update": {
+        "update_id": 1202,
+        "business_message": {
+          "message_id": 302,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 3"
+        }
+      }
+    },
+    {
+      "now": "@now+6s",
+      "update": {
+        "update_id": 1203,
+        "business_message": {
+          "message_id": 303,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 4"
+        }
+      }
+    },
+    {
+      "now": "@now+8s",
+      "update": {
+        "update_id": 1204,
+        "business_message": {
+          "message_id": 304,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 5"
+        }
+      }
+    },
+    {
+      "now": "@now+10s",
+      "update": {
+        "update_id": 1205,
+        "business_message": {
+          "message_id": 305,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 6"
+        }
+      }
+    },
+    {
+      "now": "@now+12s",
+      "update": {
+        "update_id": 1206,
+        "business_message": {
+          "message_id": 306,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 7"
+        }
+      }
+    },
+    {
+      "now": "@now+14s",
+      "update": {
+        "update_id": 1207,
+        "business_message": {
+          "message_id": 307,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 8"
+        }
+      }
+    },
+    {
+      "now": "@now+16s",
+      "update": {
+        "update_id": 1208,
+        "business_message": {
+          "message_id": 308,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 9"
+        }
+      }
+    },
+    {
+      "now": "@now+18s",
+      "update": {
+        "update_id": 1209,
+        "business_message": {
+          "message_id": 309,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 10"
+        }
+      }
+    },
+    {
+      "now": "@now+20s",
+      "update": {
+        "update_id": 1210,
+        "business_message": {
+          "message_id": 310,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 11"
+        }
+      }
+    },
+    {
+      "now": "@now+22s",
+      "update": {
+        "update_id": 1211,
+        "business_message": {
+          "message_id": 311,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 12"
+        }
+      }
+    },
+    {
+      "now": "@now+24s",
+      "update": {
+        "update_id": 1212,
+        "business_message": {
+          "message_id": 312,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 13"
+        }
+      }
+    },
+    {
+      "now": "@now+26s",
+      "update": {
+        "update_id": 1213,
+        "business_message": {
+          "message_id": 313,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 14"
+        }
+      }
+    },
+    {
+      "now": "@now+28s",
+      "update": {
+        "update_id": 1214,
+        "business_message": {
+          "message_id": 314,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 15"
+        }
+      }
+    },
+    {
+      "now": "@now+30s",
+      "update": {
+        "update_id": 1215,
+        "business_message": {
+          "message_id": 315,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 16"
+        }
+      }
+    },
+    {
+      "now": "@now+32s",
+      "update": {
+        "update_id": 1216,
+        "business_message": {
+          "message_id": 316,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 17"
+        }
+      }
+    },
+    {
+      "now": "@now+34s",
+      "update": {
+        "update_id": 1217,
+        "business_message": {
+          "message_id": 317,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 18"
+        }
+      }
+    },
+    {
+      "now": "@now+36s",
+      "update": {
+        "update_id": 1218,
+        "business_message": {
+          "message_id": 318,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 19"
+        }
+      }
+    },
+    {
+      "now": "@now+38s",
+      "update": {
+        "update_id": 1219,
+        "business_message": {
+          "message_id": 319,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 20"
+        }
+      }
+    },
+    {
+      "now": "@now+40s",
+      "update": {
+        "update_id": 1220,
+        "business_message": {
+          "message_id": 320,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 21"
+        }
+      }
+    },
+    {
+      "now": "@now+42s",
+      "update": {
+        "update_id": 1221,
+        "business_message": {
+          "message_id": 321,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 22"
+        }
+      }
+    },
+    {
+      "now": "@now+44s",
+      "update": {
+        "update_id": 1222,
+        "business_message": {
+          "message_id": 322,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 23"
+        }
+      }
+    },
+    {
+      "now": "@now+46s",
+      "update": {
+        "update_id": 1223,
+        "business_message": {
+          "message_id": 323,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 24"
+        }
+      }
+    },
+    {
+      "now": "@now+48s",
+      "update": {
+        "update_id": 1224,
+        "business_message": {
+          "message_id": 324,
+          "from": {
+            "id": 5001,
+            "is_bot": false,
+            "first_name": "Ирина",
+            "username": "irina_nails",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5001,
+            "type": "private",
+            "first_name": "Ирина",
+            "username": "irina_nails"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Сообщение номер 25"
+        }
+      }
+    }
+  ],
+  "ozhidaem": {
+    "model_vyzovov_max": 20,
+    "gruppe_est": true,
+    "po_shagam": [
+      {
+        "shagi": [
+          21,
+          25
+        ],
+        "klientu": 0,
+        "model_vyzovov": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "_meta": {
+    "klient": "brightside",
+    "versiya": "1.0",
+    "data": "2026-09-30",
+    "demo": true,
+    "primechanie": "ЛИСТ ПРАВДЫ ДЕМО-КЛИЕНТА №44. Агентство, люди, адрес, телефоны, ставки — ВЫМЫШЛЕННЫЕ (DEMO). Промпты prompty/*.md берут факты ТОЛЬКО отсюда; поменял число здесь — ищи его в промптах всех языков (prompty/proverka.py падает при расхождении). Чего здесь нет — агент не знает и записывает вопрос для координатора.",
+    "istochniki_prava": "university/claims/c-0600…c-0604 (раскрытие ИИ, запись, TCPA), c-0605/c-0606 (SMS только по согласию, отказ STOP); формулировка о праве на работу — только одна, без вопросов о гражданстве и происхождении"
+  },
+  "agentstvo": {
+    "nazvanie": "Brightside Home Care (DEMO)",
+    "nazvanie_vsluh": "Brightside Home Care",
+    "tip": "Licensed Home Care Services Agency (LHCSA), New York State — DEMO, номер лицензии не называется",
+    "adres": "450 Brightside Avenue, Suite 3, Brooklyn, NY 11235 (DEMO)",
+    "adres_vsluh_en": "four fifty Brightside Avenue, Suite three, Brooklyn",
+    "telefon_ofisa": "+17185550142 (DEMO, вымышленный диапазон 555-01xx)",
+    "pochta_nayma": "jobs@brightside-demo.example",
+    "pochta_semey": "care@brightside-demo.example",
+    "chasovoy_poyas": "America/New_York",
+    "chasy_ofisa": {
+      "dni": [
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"
+      ],
+      "s": "09:00",
+      "do": "17:00",
+      "vsluh_en": "Monday to Friday, nine to five, New York time",
+      "vsluh_es": "de lunes a viernes, de nueve a cinco, hora de Nueva York",
+      "vsluh_ru": "с понедельника по пятницу, с девяти до пяти по нью-йоркскому времени",
+      "subbota_voskresene": "закрыто",
+      "prazdniki": "НЕ ЗАДАНЫ в листе — агент не знает, записывает вопрос"
+    },
+    "liniya_ii": "Обе линии (найм и сиделки) отвечает ИИ-ассистент круглосуточно. Живой перевод — по правилам раздела perevod_na_cheloveka.",
+    "lyudi": {
+      "koordinator_nayma": {
+        "imya": "Dana Reyes (DEMO)",
+        "vsluh": "Dana",
+        "rol": "hiring coordinator — собеседования, кандидаты, лист ожидания"
+      },
+      "planirovanie": {
+        "imya": "scheduling team",
+        "rol": "смены, замены, опоздания"
+      },
+      "dezhurnyy": {
+        "imya": "on-call coordinator",
+        "rol": "ночью и в выходные: срочное по сменам и безопасности клиентов"
+      },
+      "medsestra": {
+        "imya": "registered nurse (RN) of the agency",
+        "rol": "оценка на дому для семей"
+      }
+    },
+    "yazyki_personala": [
+      "en",
+      "es",
+      "ru",
+      "zh",
+      "ht"
+    ],
+    "yazyki_linii_ii": [
+      "en",
+      "es",
+      "ru"
+    ],
+    "drugie_yazyki": "zh (китайский) и ht (гаитянский креольский): агент записывает имя, телефон и язык медленно по-английски — перезванивает координатор, говорящий на языке. Сроков перезвона не обещать."
+  },
+  "rayony": {
+    "obsluzhivaem": [
+      "Brooklyn",
+      "Queens"
+    ],
+    "primery_brooklyn": [
+      "Brighton Beach",
+      "Sheepshead Bay",
+      "Coney Island",
+      "Gravesend",
+      "Bensonhurst",
+      "Bath Beach",
+      "Bay Ridge",
+      "Dyker Heights",
+      "Borough Park",
+      "Midwood",
+      "Flatbush",
+      "Kensington",
+      "Sunset Park",
+      "Crown Heights",
+      "Bedford-Stuyvesant",
+      "Bushwick",
+      "Canarsie",
+      "Marine Park",
+      "Flatlands",
+      "East New York"
+    ],
+    "primery_queens": [
+      "Flushing",
+      "Jackson Heights",
+      "Elmhurst",
+      "Corona",
+      "Astoria",
+      "Long Island City",
+      "Forest Hills",
+      "Rego Park",
+      "Kew Gardens",
+      "Richmond Hill",
+      "Jamaica",
+      "Ozone Park",
+      "Woodhaven",
+      "Ridgewood",
+      "Bayside",
+      "Fresh Meadows"
+    ],
+    "ne_obsluzhivaem": [
+      "Manhattan",
+      "the Bronx",
+      "Staten Island",
+      "Long Island (Nassau, Suffolk)",
+      "New Jersey",
+      "Westchester"
+    ],
+    "pravilo_klienty": "Уход — только если человек, которому нужен уход, живёт в Бруклине или Квинсе. Решаем по названному району/боро, не по ZIP (ZIP только записываем).",
+    "pravilo_kandidaty": "Кандидат может жить где угодно, если может добираться к клиентам в Бруклине и Квинсе (метро, автобус или машина)."
+  },
+  "uslugi": {
+    "chto_delaem": [
+      "personal care: bathing, dressing, grooming, toileting, help moving around the home",
+      "home health aide services under the supervision of our registered nurse",
+      "companionship, light housekeeping, laundry, meal preparation",
+      "medication reminders (aides remind, they do not give medications)",
+      "escort to medical appointments and errands",
+      "hourly visits (minimum 4 hours per visit) and live-in care",
+      "respite care for family caregivers"
+    ],
+    "chego_ne_delaem": [
+      "medical care: no nursing treatments, no therapy, no medical advice by phone",
+      "we do not bill Medicare",
+      "we do not run CDPAP",
+      "no care outside Brooklyn and Queens"
+    ],
+    "ocenka_na_domu": {
+      "chto": "free in-home assessment by our registered nurse",
+      "besplatno": true,
+      "dlitelnost_min": 60,
+      "dni": [
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"
+      ],
+      "okno": {
+        "s": "10:00",
+        "do": "16:00"
+      },
+      "zapis": "только через инструмент svobodnye_okna / zapisat (tip = ocenka); время из памяти не называть",
+      "kto_prisutstvuet": "the person who needs care; a family member may be present"
+    }
+  },
+  "oplata_i_programmy": {
+    "private_pay": {
+      "stavka_v_chas_usd": 34.0,
+      "minimum_chasov_za_vizit": 4,
+      "vsluh_en": "thirty-four dollars an hour, with a four-hour minimum per visit",
+      "live_in": "цена live-in называется только после оценки на дому — агент цифру не называет"
+    },
+    "medicaid": {
+      "prinimaem": true,
+      "kak": "через планы Medicaid managed long-term care (MLTC), с которыми работаем",
+      "chto_govorit": "Покрывает ли Medicaid уход на дому и сколько часов — решает план Medicaid человека, не мы. Часов и покрытия не обещаем. Если Medicaid ещё нет — заявку по линии не ведём; медсестра подскажет следующие шаги на оценке.",
+      "zapreshcheno": [
+        "обещать часы",
+        "обещать одобрение",
+        "называть сроки одобрения"
+      ]
+    },
+    "ltc_insurance": {
+      "prinimaem": "работаем со страховками долгосрочного ухода: даём документы для возмещения; покрытие зависит от полиса — координатор проверяет после оценки",
+      "zapreshcheno": [
+        "обещать, что полис покроет"
+      ]
+    },
+    "medicare": "не выставляем счета Medicare; что покрывает Medicare — не знаем, не объясняем",
+    "cdpap": "не ведём CDPAP; программу по линии не объясняем; если хотят обсудить — сообщение координатору"
+  },
+  "kandidaty": {
+    "obyazatelno": [
+      {
+        "kod": "sertifikat",
+        "trebovanie": "действующий сертификат New York HHA (home health aide) ИЛИ PCA (personal care aide)",
+        "vopros_en": "Do you have a current New York home health aide or personal care aide certificate — HHA or PCA?"
+      },
+      {
+        "kod": "pravo_na_rabotu",
+        "trebovanie": "законное право работать в США — ТОЛЬКО одним вопросом",
+        "vopros_en": "Are you legally authorized to work in the United States?",
+        "vopros_es": "¿Está usted legalmente autorizado/a para trabajar en los Estados Unidos?",
+        "vopros_ru": "Имеете ли вы законное право работать в США?"
+      },
+      {
+        "kod": "doroga",
+        "trebovanie": "может добираться к клиентам в Бруклине и Квинсе (метро, автобус или машина)"
+      }
+    ],
+    "zhelatelno": [
+      "опыт работы помощником по уходу (не обязателен, ноль лет — нормально)",
+      "второй язык: испанский, русский, китайский (мандарин), гаитянский креольский",
+      "готовность к сменам в выходные и к live-in"
+    ],
+    "pravo_na_rabotu_pravila": {
+      "tolko_formulirovka": "Are you legally authorized to work in the United States?",
+      "otvet_da": "продолжаем",
+      "otvet_net": "вежливо заканчиваем отбор, больше ни о чём не спрашиваем, карточку НЕ сохраняем (итог звонка хранит факт)",
+      "otvet_ne_uveren": "продолжаем; координатор проверит документы при найме; pravo_na_rabotu не передаём (null)",
+      "zapreshcheno_sprashivat": [
+        "гражданство",
+        "грин-карта",
+        "тип визы",
+        "страна рождения или откуда родом",
+        "акцент",
+        "номер SSN по телефону",
+        "нужна ли спонсорская виза"
+      ],
+      "vopros_o_vize_ot_zvonyashchego": "по визам и иммиграции не консультируем; единственный наш вопрос — о законном праве работать; остальное — сообщение координатору"
+    },
+    "etapy_nayma": [
+      "короткий отбор по телефону (эта линия)",
+      "собеседование в офисе, 30 минут",
+      "документы для найма, проверка биографии (background check) и медосмотр по требованиям штата Нью-Йорк — объясняет координатор; по телефону о здоровье НЕ спрашиваем",
+      "вводный инструктаж (orientation)",
+      "первый клиент — когда есть подходящий случай; сроков и часов не обещаем"
+    ],
+    "stavki": {
+      "hha_pca_v_chas_usd": {
+        "ot": 22.0,
+        "do": 24.0
+      },
+      "vsluh_en": "from twenty-two to twenty-four dollars an hour, depending on the case",
+      "vyplata": "еженедельно, прямым переводом на счёт (DEMO)",
+      "kto_utochnyaet": "точную ставку подтверждает координатор на собеседовании",
+      "torg": "по телефону не торгуемся"
+    },
+    "smeny": {
+      "tipy": [
+        "почасовые смены 4–12 часов",
+        "live-in",
+        "выходные"
+      ],
+      "obeshchaniya": "НЕ обещаем количество часов, конкретные смены, дату начала, работу вообще — всё зависит от открытых случаев, решает координатор после собеседования"
+    },
+    "sobesedovanie": {
+      "gde": "в офисе: 450 Brightside Avenue, Suite 3, Brooklyn (DEMO)",
+      "dlitelnost_min": 30,
+      "dni": [
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri"
+      ],
+      "okno": {
+        "s": "10:00",
+        "do": "16:00",
+        "posledniy_start": "15:30"
+      },
+      "vsluh_en": "Monday to Friday, between ten and four",
+      "chto_vzyat": [
+        "сертификат HHA или PCA",
+        "удостоверение личности с фото (photo ID)"
+      ],
+      "zapis": "только через svobodnye_okna / zapisat (tip = sobesedovanie). Одна запись на звонок. Передумал после записи — не записываем второй раз, сообщение координатору."
+    },
+    "otkaz_i_list_ozhidaniya": {
+      "net_sertifikata": {
+        "reshenie": "сейчас не подходит",
+        "chto_skazat": "объяснить, где учиться (sertifikat_hha), предложить лист ожидания",
+        "list_ozhidaniya": "только если согласен: имя по буквам + телефон, sohranit_kandidata podhodit=false prichina_otkaza=net_sertifikata"
+      },
+      "tolko_cna": {
+        "reshenie": "одного CNA для наших вакансий мало; засчитывается ли обучение в HHA — решает координатор",
+        "list_ozhidaniya": "если согласен: sertifikat=CNA, podhodit=false, prichina_otkaza=tolko_cna"
+      },
+      "net_prava_na_rabotu": {
+        "reshenie": "не можем продолжить",
+        "kartochka": "не сохраняем, вопросов больше не задаём"
+      },
+      "ne_mozhet_ezdit": {
+        "reshenie": "наши клиенты только в Бруклине и Квинсе — предложить нечего",
+        "kartochka": "не сохраняем"
+      },
+      "list_ozhidaniya_chto_obeshchaem": "позвоним, когда будет сертификат или подходящее место; сроков не обещаем"
+    },
+    "poryadok_razgovora": "30.09 v3: сначала контакты (имя по буквам, телефон, почта, согласие на SMS), потом отбор, потом одна карточка, окна, подтверждение, запись"
+  },
+  "sertifikat_hha": {
+    "pravilo": "Только общие сведения. Названия школ не называть (ни настоящих, ни выдуманных). Своих курсов у Brightside в демо нет.",
+    "en": "In New York, home health aide certificates come from training programs approved by the New York State Department of Health. The training is at least seventy-five hours, including supervised hands-on practice, and ends with a skills test. Personal care aide training is shorter, at least forty hours. Many licensed home care agencies run approved classes, and some are free if you then work for that agency. Once you're certified, you're listed in the New York State Home Care Registry.",
+    "es": "En Nueva York, el certificado de asistente de salud en el hogar lo dan programas aprobados por el Departamento de Salud del Estado de Nueva York. La capacitación dura al menos setenta y cinco horas, con práctica supervisada, y termina con un examen de habilidades. La de asistente de cuidado personal es más corta, de al menos cuarenta horas. Muchas agencias de cuidado en el hogar con licencia tienen clases aprobadas, y algunas son gratis si después trabaja con esa agencia. Con el certificado, usted aparece en el Registro de Cuidado en el Hogar del Estado de Nueva York.",
+    "ru": "В Нью-Йорке сертификат помощника по уходу на дому выдают программы обучения, утверждённые Департаментом здравоохранения штата Нью-Йорк. Обучение — не меньше семидесяти пяти часов, с практикой под наблюдением, в конце — проверка навыков. Обучение на помощника по личному уходу короче — не меньше сорока часов. Многие лицензированные агентства по уходу ведут утверждённые курсы, а некоторые бесплатны, если потом работать в этом агентстве. После сертификации вас вносят в реестр работников по уходу на дому штата Нью-Йорк."
+  },
+  "sms": {
+    "politika": "SMS шлём ТОЛЬКО тем, кто ясно сказал «да» в этом звонке. Нет «да» — только письмо или звонок координатора.",
+    "vopros_en": "Can we text you about your application — for example, a reminder about your interview? Message and data rates may apply, and you can reply STOP at any time.",
+    "vopros_es": "¿Podemos enviarle mensajes de texto sobre su solicitud, por ejemplo un recordatorio de la entrevista? Pueden aplicarse tarifas de mensajes y datos, y puede responder STOP en cualquier momento.",
+    "vopros_ru": "Можно присылать вам SMS о вашей заявке — например, напоминание о собеседовании? Оператор может взять плату за сообщения, а ответить STOP можно в любой момент.",
+    "otkaz": "STOP/отказ голосом или текстом — больше не пишем (исполняет стенд, sms-vhod)",
+    "chto_shlem": "только сервисное: напоминание о собеседовании/оценке; никакой рекламы",
+    "demo": "на стенде отправка через адаптер DRY_RUN=1 — пишет в журнал, что ушло бы; настоящие SMS агентства — только после регистрации 10DLC на агентство"
+  },
+  "perevod_na_cheloveka": {
+    "liniya_nayma": "В рабочие часы (пн–пт 9–17 NY) по просьбе звонящего — перевод координатору (transfer_to_number → функция perevod, ширма «нажмите 1», 20 с). Вне часов — сообщение, перезвон в рабочие часы, время не обещаем.",
+    "liniya_sidelok": "В рабочие часы — перевод по просьбе. Вне часов — перевод дежурному только для срочного: угроза безопасности клиента, клиент один/ждёт, сиделка не может попасть к клиенту, опоздание на уже начавшуюся смену. Остальное — сообщение.",
+    "opasnost": "Кто-то в опасности или нужна скорая — сначала «повесьте трубку и звоните 911», потом (если человек на линии) перевод дежурному.",
+    "nomer_perevoda": "номер функции perevod на стенде — ЕЩЁ НЕ КУПЛЕН; в агентах стоит заглушка +17185550199 (вымышленный диапазон), заменить по решению Андрея"
+  },
+  "otkazy_ot_smen": {
+    "kak": "Сиделку узнаём по номеру, с которого звонит (system__caller_id). Смену определяем по дате (и коду клиента, если назвала). Перед записью агент повторяет день недели и дату и ждёт «да».",
+    "kody_klientov": "формат BK-### (Бруклин) и QN-### (Квинс); имена клиентов по линии не называем и не записываем",
+    "prichiny": [
+      "bolezn",
+      "semya",
+      "transport",
+      "drugoe"
+    ],
+    "chto_delaet_sistema": "стенд фиксирует отказ и запускает подбор замены движком (волны по 3, 15 минут, эскалация дежурному за 2 часа до начала) — агент ничего сверх ответа инструмента не обещает",
+    "zapreshcheno": [
+      "обещать, что смену закроют",
+      "говорить, кто выйдет вместо",
+      "обсуждать взыскания, штрафы, «баллы», оплату",
+      "требовать справку от врача",
+      "спрашивать подробности болезни"
+    ],
+    "peredumala": "Отказ уже записан, а сиделка передумала — отменить инструментом нельзя: сообщение планированию срочно; в рабочие часы или если смена скоро — предложить перевод"
+  },
+  "zaprety": {
+    "zdorove_klientov": "Не обсуждать здоровье, имена, адреса, расписание клиентов агентства — никому по телефону, даже родственникам и нашим сиделкам.",
+    "semi_meddannye": "У семьи не спрашивать диагнозы, лекарства, состояние. Сказали сами — не повторять и не записывать: «медсестра всё обсудит на оценке».",
+    "obeshchaniya": "Не обещать: смены, часы, дату начала, работу, одобрение Medicaid, покрытие страховки, что уход начнётся сегодня.",
+    "zapretnye_voprosy_kandidatam": [
+      "гражданство и иммиграционный статус (кроме одного разрешённого вопроса)",
+      "национальность, страна рождения, откуда родом, акцент",
+      "возраст, дата рождения, год окончания школы",
+      "семейное положение, дети, планы на детей, уход за родственниками",
+      "беременность",
+      "инвалидность, здоровье, лекарства, травмы",
+      "религия",
+      "аресты"
+    ],
+    "esli_zvonyashchiy_sam_skazal": "не записывать, не комментировать, не задавать уточняющих; «Спасибо, эта информация нам не нужна» — и дальше по отбору",
+    "dengi_i_dokumenty": "Не спрашивать SSN, дату рождения, номера карт и счетов.",
+    "sovety": "Никаких медицинских, юридических и иммиграционных советов.",
+    "o_sebe": "Не выдавать себя за человека, за Dana или сотрудника. Не говорить «HIPAA compliant», «TCPA compliant», «гарантируем»."
+  },
+  "chego_ne_znaem": {
+    "pravilo": "Нет в листе — агент говорит «не знаю» и записывает вопрос для координатора (сообщение). Не выдумывает.",
+    "primery": [
+      "праздничные дни",
+      "медстраховка и льготы для сотрудников",
+      "оплата сверхурочных",
+      "спонсорство виз",
+      "конкретные вакансии по районам",
+      "сроки одобрения Medicaid",
+      "что покрывает Medicare"
+    ]
+  }
+}

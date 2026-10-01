@@ -1,0 +1,763 @@
+<title>Пульт рекламы Веры</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@500;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0A0E18; --surface:#121622; --raised:#1A2030; --line:#262D40; --line-soft:#1D2333;
+  --text:#EEF1F7; --muted:#929AAC; --faint:#6C748A;
+  --gold:#E3C88A; --gold-ink:#0A0E18; --gold-soft:rgba(227,200,138,.14);
+  --good:#63C995; --good-soft:rgba(99,201,149,.14);
+  --warn:#E8AE45; --warn-soft:rgba(232,174,69,.15);
+  --bad:#E8705F; --bad-soft:rgba(232,112,95,.15);
+  --info:#86A9EA; --info-soft:rgba(134,169,234,.14);
+  --bar:#3A4460; --bar-top:#E3C88A;
+  --shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 12px 32px -18px rgba(0,0,0,.6);
+  --f-ui: "Golos Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-num: "Unbounded", "Golos Text", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    color-scheme: light;
+    --bg:#F2F4F8; --surface:#FFFFFF; --raised:#F7F8FB; --line:#DCE1EA; --line-soft:#E8ECF2;
+    --text:#0F1422; --muted:#5A6378; --faint:#8A92A5;
+    --gold:#8C6A1E; --gold-ink:#FFFFFF; --gold-soft:rgba(140,106,30,.10);
+    --good:#1F8A55; --good-soft:rgba(31,138,85,.10);
+    --warn:#A86A00; --warn-soft:rgba(168,106,0,.10);
+    --bad:#B83A2A; --bad-soft:rgba(184,58,42,.09);
+    --info:#2F5DB8; --info-soft:rgba(47,93,184,.09);
+    --bar:#C9D0DD; --bar-top:#8C6A1E;
+    --shadow: 0 1px 2px rgba(15,20,34,.05), 0 10px 24px -18px rgba(15,20,34,.25);
+  }
+}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --bg:#F2F4F8; --surface:#FFFFFF; --raised:#F7F8FB; --line:#DCE1EA; --line-soft:#E8ECF2;
+  --text:#0F1422; --muted:#5A6378; --faint:#8A92A5;
+  --gold:#8C6A1E; --gold-ink:#FFFFFF; --gold-soft:rgba(140,106,30,.10);
+  --good:#1F8A55; --good-soft:rgba(31,138,85,.10);
+  --warn:#A86A00; --warn-soft:rgba(168,106,0,.10);
+  --bad:#B83A2A; --bad-soft:rgba(184,58,42,.09);
+  --info:#2F5DB8; --info-soft:rgba(47,93,184,.09);
+  --bar:#C9D0DD; --bar-top:#8C6A1E;
+  --shadow: 0 1px 2px rgba(15,20,34,.05), 0 10px 24px -18px rgba(15,20,34,.25);
+}
+:root[data-theme="dark"]{ color-scheme: dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--f-ui);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.app{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:18px 48px;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h2{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+
+/* top */
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 320px}
+.brand > div{min-width:0}
+.mark{width:40px;height:40px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.mark svg{width:24px;height:24px}
+.brand h1{font-family:var(--f-num);font-weight:700;font-size:20px;letter-spacing:-.01em}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.top-right{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--gold);color:var(--gold-ink)}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.info{background:var(--info-soft);color:var(--info)}
+.pill.muted{background:var(--raised);color:var(--muted)}
+.fresh{font-size:12px;color:var(--faint)}
+
+.banner{border-radius:12px;padding:10px 14px;font-size:13.5px;display:flex;gap:10px;align-items:flex-start}
+.banner.example{background:var(--gold-soft);color:var(--text);border:1px dashed var(--gold)}
+.banner.example b{color:var(--gold)}
+.banner.note{background:var(--info-soft);color:var(--text)}
+.banner.err{background:var(--bad-soft);color:var(--text)}
+
+/* decisions */
+.decision{background:var(--surface);border:1px solid var(--gold);border-radius:16px;padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:12px 18px;align-items:center;box-shadow:var(--shadow)}
+.decision .eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.decision h3{font-size:18px;font-weight:600;margin-top:4px}
+.decision p{margin:6px 0 0;color:var(--muted);font-size:14px;max-width:70ch}
+.decision .money{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;padding:4px 9px;border-radius:8px;background:var(--raised);border:1px solid var(--line);color:var(--text)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.btn{border:1px solid var(--line);background:var(--raised);padding:10px 16px;border-radius:10px;font-weight:600;cursor:pointer;min-height:40px}
+.btn:hover{border-color:var(--muted)}
+.btn.yes{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+.btn.danger{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.quiet{color:var(--muted);font-size:14px;display:flex;align-items:center;gap:8px}
+.quiet::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--good);flex:none}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi .label{font-size:12.5px;color:var(--muted);font-weight:500}
+.kpi .big{font-family:var(--f-num);font-weight:600;font-size:30px;letter-spacing:-.02em;line-height:1.1}
+.kpi .big small{font-family:var(--f-ui);font-size:14px;font-weight:500;color:var(--muted);letter-spacing:0}
+.kpi .sub{font-size:13px;color:var(--muted)}
+.kpi .sub b{color:var(--text);font-weight:600}
+.track{position:relative;height:8px;border-radius:99px;background:var(--raised);overflow:visible;margin-top:4px}
+.track .fill{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--gold)}
+.track .plan{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--text);opacity:.55;border-radius:2px}
+.split{display:flex;gap:14px;flex-wrap:wrap}
+.split div{display:flex;flex-direction:column}
+.split .v{font-family:var(--f-num);font-size:18px;font-weight:600}
+.split .k{font-size:12px;color:var(--muted)}
+
+/* grid */
+.grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:18px;align-items:start}
+.col{display:flex;flex-direction:column;gap:18px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+
+/* chart */
+.chart-wrap{overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:520px;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:3px;border-radius:2px;background:var(--gold);display:inline-block}
+.sw.bar{height:10px;width:10px;border-radius:3px;background:var(--bar)}
+.sw.dash{background:none;border-top:2px dashed var(--faint);height:0}
+.sw.dot{width:8px;height:8px;border-radius:50%;background:var(--info)}
+
+/* creatives */
+.ads{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ad{background:var(--raised);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ad .thumb{position:relative;aspect-ratio:9/16;max-height:260px;width:100%;background:#0A0E18;border:0;padding:0;cursor:pointer;display:block;overflow:hidden}
+.ad .thumb img,.ad .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.ad .play{position:absolute;right:8px;bottom:8px;width:34px;height:34px;border-radius:50%;background:rgba(10,14,24,.72);display:grid;place-items:center;border:1px solid rgba(227,200,138,.5)}
+.ad .play svg{width:12px;height:12px;margin-left:2px}
+.ad .flag{position:absolute;left:8px;top:8px}
+.ad .body{padding:10px 11px 12px;display:flex;flex-direction:column;gap:8px}
+.ad .t{font-weight:600;font-size:14.5px}
+.ad .hook{font-size:12.5px;color:var(--muted);line-height:1.35;min-height:2.7em}
+.ad dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:3px 8px;font-size:12.5px}
+.ad dt{color:var(--muted)}
+.ad dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.ad .note{font-size:12px;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:5px 7px}
+.ad.paused .thumb img{filter:grayscale(.8) brightness(.6)}
+.leader{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:var(--gold-ink);padding:3px 7px;border-radius:6px}
+
+/* calls */
+.calls{display:flex;flex-direction:column}
+.call{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line-soft)}
+.call:first-child{border-top:0;padding-top:2px}
+.call .when{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.call .what{font-size:13.5px}
+.call .dur{grid-column:1 / -1;display:flex;align-items:center;gap:8px}
+.durbar{position:relative;flex:1;height:6px;border-radius:99px;background:var(--raised)}
+.durbar i{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--info)}
+.durbar i.ok{background:var(--good)}
+.durbar i.short{background:var(--faint)}
+.durbar .tick{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--muted);opacity:.6}
+.dur .s{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:44px;text-align:right}
+.sumline{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+
+/* log */
+.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.log li{display:grid;grid-template-columns:14px 1fr;gap:10px;padding:8px 0}
+.log .dot{width:9px;height:9px;border-radius:50%;margin-top:6px;background:var(--faint)}
+.log .dot.agent{background:var(--gold)}
+.log .dot.andrey{background:var(--info)}
+.log .dot.alert{background:var(--bad)}
+.log .when{font-family:var(--f-mono);font-size:11.5px;color:var(--faint)}
+.log .txt{font-size:13.5px}
+
+/* inbox */
+textarea{width:100%;min-height:74px;resize:vertical;background:var(--raised);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:8px}
+.hint{font-size:12.5px;color:var(--muted)}
+
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rules .card h3{font-size:14.5px;margin-bottom:8px}
+.rules ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--text)}
+.rules li::marker{color:var(--gold)}
+.danger{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border:1px solid var(--bad-soft);background:var(--surface);border-radius:16px;padding:14px 18px}
+.danger p{margin:0;color:var(--muted);font-size:13.5px;max-width:68ch}
+.danger b{color:var(--text)}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+footer{color:var(--faint);font-size:12px;display:flex;flex-direction:column;gap:4px}
+.empty{color:var(--muted);font-size:13.5px;padding:6px 0}
+
+@media (max-width: 980px){
+  .grid{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ads{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rules{grid-template-columns:1fr}
+}
+@media (max-width: 520px){
+  .app{padding-inline:16px}
+  .kpis{grid-template-columns:1fr}
+  .kpi .big{font-size:26px}
+  .decision{grid-template-columns:1fr}
+  .actions{justify-content:flex-start}
+  .ad .thumb{max-height:220px}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 3.6c.5-.5 1.3-.5 1.8 0l2 2.1c.5.5.5 1.3 0 1.8L9 8.9a11 11 0 0 0 6.1 6.1l1.4-1.4c.5-.5 1.3-.5 1.8 0l2.1 2c.5.5.5 1.3 0 1.8l-1.2 1.2c-1.1 1.1-2.8 1.4-4.2.8C9.7 17.3 6.7 14.3 4.6 9c-.6-1.4-.3-3.1.8-4.2z" fill="currentColor" style="color:var(--gold)"/></svg>
+      </div>
+      <div>
+        <h1>Пульт рекламы Веры</h1>
+        <p>«Вера звонком» · Нью-Йорк и Лос-Анджелес · русский язык · линия <span class="mono">+1 424 781 1913</span></p>
+      </div>
+    </div>
+    <div class="top-right">
+      <span id="campStatus" class="pill muted">…</span>
+      <div class="seg" role="tablist" aria-label="Что показывать">
+        <button id="tabExample" role="tab" data-mode="example" aria-selected="false">Пример · 6-й день</button>
+        <button id="tabLive" role="tab" data-mode="live" aria-selected="false">Сейчас</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="modeBanner"></div>
+  <section id="decisions" aria-label="Нужно ваше слово"></section>
+  <section class="kpis" id="kpis" aria-label="Главные цифры"></section>
+
+  <div class="grid">
+    <div class="col">
+      <section class="card chart">
+        <div class="card-h"><h2>Деньги и звонки по дням</h2><span class="fresh" id="fresh1"></span></div>
+        <div class="chart-wrap" id="chart"></div>
+        <div class="legend">
+          <span><i class="sw bar"></i>потрачено за день</span>
+          <span><i class="sw"></i>бюджет $15 в день</span>
+          <span><i class="sw dash"></i>потолок дня у Meta $26,25</span>
+          <span><i class="sw dot"></i>звонки 20+ с по журналу линии</span>
+        </div>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Объявления</h2><span class="fresh" id="fresh2"></span></div>
+        <div class="ads" id="ads"></div>
+      </section>
+    </div>
+    <aside class="col">
+      <section class="card">
+        <div class="card-h"><h2>Звонки на линию</h2><span class="fresh" id="fresh3"></span></div>
+        <div id="calls"></div>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Что сделал агент</h2></div>
+        <ul class="log" id="log"></ul>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Написать агенту</h2></div>
+        <textarea id="msg" placeholder="Например: «Сделайте ещё одно объявление про стоматологов» или «Почему бот тратит больше других?»"></textarea>
+        <div class="row"><span class="hint" id="msgHint">Агент прочитает на ближайшей проверке (8:30 или 18:30).</span><button class="btn" id="msgSend">Отправить</button></div>
+      </section>
+    </aside>
+  </div>
+
+  <section class="rules" aria-label="Правила">
+    <div class="card"><h3>Агент делает сам</h3><ul>
+      <li>Проверяет кампанию в 8:30 и 18:30 и пишет отчёт.</li>
+      <li>Сверяет звонки из отчёта Meta с журналом линии Веры.</li>
+      <li>Ставит объявление на паузу, если оно потратило $15 и не принесло ни одного звонка 20+ с.</li>
+      <li>Ставит на паузу, если звонок 20+ с стоит дороже $40 при двух и больше звонках.</li>
+      <li>Заменяет отклонённое объявление тем же текстом, исправив причину.</li>
+    </ul></div>
+    <div class="card"><h3>Только с вашим словом</h3><ul>
+      <li>Включить рекламу или новое объявление.</li>
+      <li>Поднять бюджет или продлить тест.</li>
+      <li>Запустить новую кампанию.</li>
+      <li>Такие вопросы появляются наверху — одной строкой, с суммой и датой.</li>
+    </ul></div>
+    <div class="card"><h3>Страховки</h3><ul>
+      <li>Лимит кампании — <b>$150</b>, дальше Meta не тратит.</li>
+      <li>Потолок кабинета — <b>$200</b>.</li>
+      <li>$15 в день; в отдельный день Meta может взять до $26,25, но не больше недельной нормы.</li>
+      <li>Тест: 28.09 – 07.10. Лучшее объявление — не раньше 7-го дня и при 3+ звонках.</li>
+    </ul></div>
+  </section>
+
+  <section class="danger" aria-label="Экстренно">
+    <p><b>Остановить всю рекламу.</b> Кампания встанет на паузу сразу, деньги перестанут тратиться. Включить обратно — снова только вашим словом.</p>
+    <div class="confirm" id="stopBox"><button class="btn danger" id="stopBtn">Остановить всю рекламу</button></div>
+  </section>
+
+  <footer>
+    <span>Цифры Meta обновляются раз в 15 минут; за последние 2 дня ещё уточняются. Звонки считаем по журналу линии Веры — это правда, у Meta часть звонков досчитана моделью.</span>
+    <span id="footMeta"></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var ACCOUNT = "1004461399321073";
+  var CAMPAIGN = "120249932374020430";
+  var SERVER = "Meta Ads";
+  var TEST = { start: "2026-09-28", end: "2026-10-07", days: 10, budget: 150, daily: 15, maxDay: 26.25 };
+  var COVERS = __COVERS__;
+  var VIDEOS = __VIDEOS__;
+  var ADS = [
+    { id: "120249933239550430", tag: "noch",  title: "Ночь",   hook: "«Пятница, 23:41. Вам звонят…»" },
+    { id: "120249933241890430", tag: "bot",   title: "Бот",    hook: "«Бот пообещал клиенту бесплатный визит»" },
+    { id: "120249933244060430", tag: "pismo", title: "Письмо", hook: "«После каждого звонка — письмо вам»" },
+    { id: "120249933648860430", tag: "demo",  title: "Дорого", hook: "«Скажите ей «дорого»»" }
+  ];
+
+  /* ---------- пример: 6-й день (не настоящие цифры) ---------- */
+  var EXAMPLE = {
+    today: "2026-10-03",
+    campaignStatus: "ACTIVE",
+    spend: 78.40, impressions: 21480, reach: 9730, cpm: 3.65, metaCalls: 9,
+    daily: [
+      { d: "2026-09-28", spend: 6.10, calls: 0 }, { d: "2026-09-29", spend: 15.20, calls: 2 },
+      { d: "2026-09-30", spend: 14.70, calls: 1 }, { d: "2026-10-01", spend: 16.40, calls: 3 },
+      { d: "2026-10-02", spend: 13.60, calls: 1 }, { d: "2026-10-03", spend: 12.40, calls: 1 }
+    ],
+    ads: {
+      noch:  { status: "ACTIVE", spend: 31.20, impressions: 8900, calls: 5, ctr: 1.9 },
+      bot:   { status: "ACTIVE", spend: 9.20,  impressions: 2410, calls: 1, ctr: 1.2 },
+      pismo: { status: "PAUSED", spend: 15.40, impressions: 4070, calls: 0, ctr: 0.8, note: "Пауза агентом 02.10: $15,40 без звонков 20+ с" },
+      demo:  { status: "ACTIVE", spend: 22.60, impressions: 6100, calls: 3, ctr: 2.3 }
+    },
+    line: { total: 11, c20: 8, c60: 5, calls: [
+      { t: "03.10 19:42", dur: 134, text: "Автосервис, LA. Записан на разговор с Андреем" },
+      { t: "03.10 13:05", dur: 41,  text: "Спросил цену, сказал «дорого» — Вера ответила, прислала предложение" },
+      { t: "02.10 21:17", dur: 92,  text: "Стоматология, Бруклин. Интересует второй этап" },
+      { t: "02.10 10:03", dur: 12,  text: "Сбросил на приветствии" },
+      { t: "01.10 23:48", dur: 65,  text: "Ночной звонок. Клининг, NY. Оставил почту" },
+      { t: "01.10 16:20", dur: 26,  text: "Попросил человека — Вера перевела на Андрея" }
+    ]},
+    log: [
+      { t: "03.10 18:30", who: "agent", text: "Проверка: без вопросов к Андрею. «Ночь» — лучшая цена звонка, но 7-й день ещё не наступил." },
+      { t: "02.10 08:30", who: "agent", text: "Поставил на паузу «Письмо»: $15,40 без единого звонка 20+ с (правило остановки)." },
+      { t: "01.10 18:30", who: "agent", text: "Звонков за день — 3, лимит линии не близко. Бюджет в норме." },
+      { t: "30.09 08:30", who: "andrey", text: "Андрей написал: «Почему бот тратит больше?» — ответ в отчёте." },
+      { t: "28.09 10:50", who: "andrey", text: "Андрей: «включай». Кампания запущена." }
+    ],
+    decision: { title: "Продлить тест на 3 дня?", detail: "«Ночь» и «Дорого» дают звонки дешевле цели. Три дня дадут уверенного лидера.", chips: ["+$15 в день", "+$45 всего", "до 10.10", "лимит кампании станет $195"] }
+  };
+
+  /* ---------- состояние ---------- */
+  var mode = "example";
+  try { var m = localStorage.getItem("pult-mode"); if (m === "live" || m === "example") mode = m; } catch (e) {}
+  var live = { meta: null, daily: null, ads: null, metaAt: null, metaErr: null, dbState: null, dbLog: [], andrey: [], decisions: [], dbErr: null, mcp: null, db: null, user: null, canAct: true };
+  var CCID = (function(){ var s = "", a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; for (var i = 0; i < 20; i++) s += a.charAt(Math.floor(Math.random() * a.length)); return s; })();
+
+  /* ---------- формат ---------- */
+  var nf2 = new Intl.NumberFormat("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  var nf0 = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 });
+  var nf1 = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 1 });
+  function usd(v){ return v == null ? "—" : "$" + nf2.format(v); }
+  function int(v){ return v == null ? "—" : nf0.format(v); }
+  function el(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]; }); }
+  function val(x){
+    if (x == null) return null;
+    if (typeof x === "number") return isFinite(x) ? x : null;
+    if (typeof x === "string") { var n = Number(x); return isFinite(n) ? n : null; }
+    if (typeof x === "object" && "value" in x) return val(x.value);
+    return null;
+  }
+  function laToday(){
+    try { return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()); }
+    catch (e) { return new Date().toISOString().slice(0, 10); }
+  }
+  function dayIndex(iso){ return Math.round((Date.parse(iso + "T12:00:00Z") - Date.parse(TEST.start + "T12:00:00Z")) / 86400000); }
+  function ddmm(iso){ return iso.slice(8, 10) + "." + iso.slice(5, 7); }
+  function hhmm(ms){ try { return new Intl.DateTimeFormat("ru-RU", { hour: "2-digit", minute: "2-digit" }).format(new Date(ms)); } catch (e) { return ""; } }
+  function statusPill(st){
+    var map = {
+      ACTIVE: ["good", "Показывается"], PAUSED: ["muted", "На паузе"], CAMPAIGN_PAUSED: ["muted", "Кампания на паузе"],
+      ADSET_PAUSED: ["muted", "Группа на паузе"], IN_PROCESS: ["info", "На проверке Meta"], PENDING_REVIEW: ["info", "На проверке Meta"],
+      PREAPPROVED: ["info", "Одобрено заранее"], DISAPPROVED: ["bad", "Отклонено Meta"], WITH_ISSUES: ["warn", "Есть проблема"],
+      PENDING_BILLING_INFO: ["bad", "Нужна оплата"], DELETED: ["muted", "Удалено"], ARCHIVED: ["muted", "В архиве"]
+    };
+    var p = map[st] || ["muted", st || "нет данных"];
+    return '<span class="pill ' + p[0] + '">' + esc(p[1]) + "</span>";
+  }
+
+  /* ---------- сборка данных для текущего режима ---------- */
+  function view(){
+    if (mode === "example") {
+      var e = EXAMPLE, ads = {};
+      ADS.forEach(function(a){ ads[a.tag] = e.ads[a.tag]; });
+      return { example: true, today: e.today, campaignStatus: e.campaignStatus, spend: e.spend, impressions: e.impressions, reach: e.reach,
+        cpm: e.cpm, metaCalls: e.metaCalls, daily: e.daily, ads: ads, line: e.line, log: e.log, decisions: [e.decision], metaAt: null, lineAt: null };
+    }
+    var v = { example: false, today: laToday(), campaignStatus: null, spend: null, impressions: null, reach: null, cpm: null, metaCalls: null,
+      daily: [], ads: {}, line: null, log: [], decisions: [], metaAt: live.metaAt, lineAt: null };
+    if (live.meta) {
+      v.campaignStatus = live.meta.effective_status || null;
+      v.spend = val(live.meta.amount_spent) || 0;
+      v.impressions = val(live.meta.impressions) || 0;
+      v.reach = val(live.meta.reach) || 0;
+      v.cpm = val(live.meta.cpm);
+      v.metaCalls = val(live.meta.results && live.meta.results.value) || 0;
+    }
+    var lineDaily = (live.dbState && live.dbState.lineDaily) || {};
+    if (live.daily) {
+      v.daily = live.daily.map(function(r){ return { d: r.date_start, spend: val(r.amount_spent) || 0, calls: lineDaily[r.date_start] != null ? lineDaily[r.date_start] : null }; });
+    }
+    if (live.ads) {
+      live.ads.forEach(function(r){
+        var a = ADS.filter(function(x){ return x.id === String(r.id); })[0];
+        if (!a) return;
+        var notes = (live.dbState && live.dbState.adNotes) || {};
+        v.ads[a.tag] = { status: r.effective_status, spend: val(r.amount_spent) || 0, impressions: val(r.impressions) || 0,
+          calls: val(r.results && r.results.value), ctr: val(r.ctr), note: notes[a.tag] || null };
+      });
+    }
+    if (live.dbState) { v.line = live.dbState.line || null; v.lineAt = live.dbState.updatedAt || null; }
+    var merged = (live.dbLog || []).map(function(x){ return { t: x.t, who: x.who || "agent", text: x.text, sort: x.at || "" }; })
+      .concat((live.andrey || []).map(function(x){ return { t: x.t || "", who: "andrey", text: x.text, sort: x.at || "" }; }));
+    merged.sort(function(a, b){ return a.sort < b.sort ? 1 : a.sort > b.sort ? -1 : 0; });
+    v.log = merged.slice(0, 12);
+    v.decisions = (live.decisions || []).filter(function(d){ return d.status === "pending"; });
+    return v;
+  }
+
+  /* ---------- отрисовка ---------- */
+  function render(){
+    var v = view();
+    el("tabExample").setAttribute("aria-selected", String(mode === "example"));
+    el("tabLive").setAttribute("aria-selected", String(mode === "live"));
+    renderBanner(v); renderStatus(v); renderDecisions(v); renderKpis(v); renderChart(v); renderAds(v); renderCalls(v); renderLog(v);
+    el("msgSend").disabled = v.example || !live.db;
+    el("msgHint").textContent = v.example ? "В примере сообщение не отправляется." : (live.db ? "Агент прочитает на ближайшей проверке (8:30 или 18:30)." : "Хранилище панели недоступно в этом окне.");
+    var sb = el("stopBtn"); if (sb) sb.disabled = v.example || !live.mcp || !live.canAct;
+    el("footMeta").textContent = v.example ? "Сейчас показан пример." :
+      (v.metaAt ? "Meta: данные на " + hhmm(v.metaAt) + "." : "") + (v.lineAt ? " Журнал линии: агент обновил " + String(v.lineAt).replace("T", " ").slice(0, 16) + "." : "");
+    var f = v.example ? "пример" : (v.metaAt ? "на " + hhmm(v.metaAt) : "");
+    el("fresh1").textContent = f; el("fresh2").textContent = f;
+    el("fresh3").textContent = v.example ? "пример" : (v.lineAt ? "агент, " + String(v.lineAt).slice(11, 16) : "");
+  }
+
+  function renderBanner(v){
+    var b = el("modeBanner");
+    if (v.example) {
+      b.innerHTML = '<div class="banner example"><span><b>Пример.</b> Так панель будет выглядеть на 6-й день теста — цифры придуманы для показа. Живые данные — на вкладке «Сейчас».</span></div>';
+      return;
+    }
+    var msg = "";
+    if (live.metaErr) msg = metaErrText(live.metaErr);
+    else if (!live.meta) msg = "Загружаю цифры Meta…";
+    else if ((v.impressions || 0) === 0) msg = "Реклама включена, показы ещё не начались: Meta только что одобрила объявления. Первые цифры появятся в течение нескольких часов.";
+    b.innerHTML = msg ? '<div class="banner ' + (live.metaErr ? "err" : "note") + '"><span>' + esc(msg) + "</span></div>" : "";
+  }
+  function metaErrText(e){
+    var c = e && e.code;
+    if (c === "needs_reauth") return "Коннектор Meta Ads нужно переподключить: claude.ai → Settings → Connectors → Meta Ads.";
+    if (c === "server_not_connected" || c === "selection_required") return "Коннектор Meta Ads не подключён к вашему аккаунту: claude.ai → Settings → Connectors.";
+    if (c === "not_in_manifest") return "Вы не разрешили панели читать Meta Ads. Разрешение можно дать при следующем открытии.";
+    if (c === "blocked_by_policy" || c === "approval_required") return "Политика организации не даёт панели читать Meta Ads.";
+    if (c === "not_granted" || c === "capability_disabled" || c === "capability_removed" || c === "unavailable") return "В этом окне живые цифры Meta недоступны — откройте панель на claude.ai.";
+    if (c === "tool_error") return "Meta ответила ошибкой: " + (e.message || "без описания") + ". Показываю прошлые цифры.";
+    return "Meta сейчас не ответила. Показываю прошлые цифры, обновлю сам.";
+  }
+
+  function renderStatus(v){
+    var s = el("campStatus");
+    if (v.campaignStatus == null) { s.className = "pill muted"; s.textContent = v.example ? "Пример" : "Нет данных"; return; }
+    var st = v.campaignStatus;
+    if (st === "ACTIVE" && !v.example && (v.impressions || 0) === 0) { s.className = "pill info"; s.textContent = "Включена, ждёт показов"; return; }
+    var map = { ACTIVE: ["good", "Реклама идёт"], PAUSED: ["muted", "На паузе"], WITH_ISSUES: ["warn", "Есть проблема"], IN_PROCESS: ["info", "Готовится"], PENDING_BILLING_INFO: ["bad", "Нужна оплата"] };
+    var p = map[st] || ["muted", st];
+    s.className = "pill " + p[0]; s.textContent = p[1];
+  }
+
+  function renderDecisions(v){
+    var box = el("decisions");
+    if (!v.decisions.length) {
+      box.innerHTML = '<div class="quiet">Вопросов к вам нет — агент справляется сам.</div>';
+      return;
+    }
+    box.innerHTML = v.decisions.map(function(d, i){
+      var chips = (d.chips || []).map(function(c){ return '<span class="chip num">' + esc(c) + "</span>"; }).join("");
+      var dis = (v.example || !live.canAct) ? " disabled" : "";
+      return '<div class="decision" data-i="' + i + '"><div><div class="eyebrow">Нужно ваше слово' + (v.example ? " · пример" : "") + "</div><h3>" + esc(d.title) + "</h3>" +
+        (d.detail ? "<p>" + esc(d.detail) + "</p>" : "") + (chips ? '<div class="money">' + chips + "</div>" : "") +
+        '</div><div class="actions" id="dact' + i + '"><button class="btn" data-ans="no" data-i="' + i + '"' + dis + '>Нет</button><button class="btn yes" data-ans="yes" data-i="' + i + '"' + dis + ">Да</button></div></div>";
+    }).join("");
+    box.querySelectorAll("button[data-ans]").forEach(function(b){
+      b.addEventListener("click", function(){ answerDecision(v.decisions[Number(b.getAttribute("data-i"))], b.getAttribute("data-ans") === "yes", Number(b.getAttribute("data-i"))); });
+    });
+  }
+
+  function renderKpis(v){
+    var dayN = Math.min(TEST.days, Math.max(1, dayIndex(v.today) + 1));
+    var plan = Math.min(TEST.budget, TEST.daily * dayN);
+    var spend = v.spend || 0;
+    var pct = Math.min(100, spend / TEST.budget * 100);
+    var planPct = Math.min(100, plan / TEST.budget * 100);
+    var line = v.line || {};
+    var c20 = line.c20 != null ? line.c20 : null;
+    var costCall = (c20 && spend) ? spend / c20 : null;
+    var costMeta = (v.metaCalls && spend) ? spend / v.metaCalls : null;
+    el("kpis").innerHTML =
+      '<div class="kpi"><span class="label">Потрачено</span><span class="big num">' + usd(spend) + ' <small>из $150</small></span>' +
+        '<div class="track" title="Золотая полоса — потрачено, риска — план на сегодня"><div class="fill" style="width:' + pct.toFixed(1) + '%"></div><div class="plan" style="left:' + planPct.toFixed(1) + '%"></div></div>' +
+        '<span class="sub">День <b>' + dayN + "</b> из 10 · по плану к сегодня " + usd(plan) + "</span></div>" +
+      '<div class="kpi"><span class="label">Звонки 20+ с · журнал линии</span><span class="big num">' + (c20 == null ? "—" : int(c20)) + "</span>" +
+        '<div class="split"><div><span class="v num">' + (line.c60 == null ? "—" : int(line.c60)) + '</span><span class="k">из них 60+ с</span></div><div><span class="v num">' + (line.total == null ? "—" : int(line.total)) + '</span><span class="k">все звонки</span></div><div><span class="v num">' + (v.metaCalls == null ? "—" : int(v.metaCalls)) + '</span><span class="k">по данным Meta</span></div></div></div>' +
+      '<div class="kpi"><span class="label">Цена звонка 20+ с</span><span class="big num">' + (costCall == null ? "—" : usd(costCall)) + "</span>" +
+        '<span class="sub">Цель ~$20 (прикидка брифа)' + (costMeta != null ? " · по Meta " + usd(costMeta) : "") + "</span></div>" +
+      '<div class="kpi"><span class="label">Показы</span><span class="big num">' + int(v.impressions) + "</span>" +
+        '<div class="split"><div><span class="v num">' + int(v.reach) + '</span><span class="k">охват</span></div><div><span class="v num">' + (v.cpm == null ? "—" : usd(v.cpm)) + '</span><span class="k">за 1000 показов</span></div></div></div>';
+  }
+
+  function renderChart(v){
+    var W = 640, H = 230, L = 40, R = 12, T = 18, B = 34;
+    var iw = W - L - R, ih = H - T - B, n = TEST.days, maxY = 30;
+    var bw = iw / n;
+    var y = function(d){ return T + ih - (d / maxY) * ih; };
+    var byDay = {}; (v.daily || []).forEach(function(r){ byDay[r.d] = r; });
+    var todayIdx = dayIndex(v.today);
+    var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Траты и звонки по дням теста">';
+    [0, 10, 20, 30].forEach(function(t){
+      s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(t) + '" y2="' + y(t) + '" stroke="var(--line-soft)" stroke-width="1"/>';
+      s += '<text x="' + (L - 8) + '" y="' + (y(t) + 4) + '" text-anchor="end" font-size="11" fill="var(--faint)" font-family="JetBrains Mono, monospace">$' + t + "</text>";
+    });
+    for (var i = 0; i < n; i++) {
+      var iso = new Date(Date.parse(TEST.start + "T12:00:00Z") + i * 86400000).toISOString().slice(0, 10);
+      var r = byDay[iso], x = L + i * bw, cx = x + bw / 2;
+      var future = i > todayIdx;
+      if (r && r.spend > 0) {
+        var h = Math.max(1, ih - (y(Math.min(r.spend, maxY)) - T));
+        s += '<rect x="' + (x + bw * 0.2) + '" y="' + y(Math.min(r.spend, maxY)) + '" width="' + (bw * 0.6) + '" height="' + h + '" rx="4" fill="var(--bar)"/>';
+        s += '<rect x="' + (x + bw * 0.2) + '" y="' + y(Math.min(r.spend, maxY)) + '" width="' + (bw * 0.6) + '" height="3" rx="1.5" fill="var(--bar-top)"/>';
+        s += '<text x="' + cx + '" y="' + (y(Math.min(r.spend, maxY)) - 6) + '" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace">' + nf1.format(r.spend) + "</text>";
+      } else if (!future) {
+        s += '<rect x="' + (x + bw * 0.2) + '" y="' + (y(0) - 2) + '" width="' + (bw * 0.6) + '" height="2" rx="1" fill="var(--line)"/>';
+      }
+      if (r && r.calls != null && r.calls > 0) {
+        var base0 = (r.spend > 0 ? y(Math.min(r.spend, maxY)) - 22 : y(0) - 10);
+        for (var k = 0; k < Math.min(r.calls, 6); k++) s += '<circle cx="' + cx + '" cy="' + (base0 - k * 9) + '" r="3.5" fill="var(--info)"/>';
+      }
+      var lab = ddmm(iso);
+      s += '<text x="' + cx + '" y="' + (H - 12) + '" text-anchor="middle" font-size="11" fill="' + (i === todayIdx ? "var(--text)" : "var(--faint)") + '" font-weight="' + (i === todayIdx ? 700 : 400) + '" font-family="Golos Text, sans-serif">' + lab + "</text>";
+      if (i === todayIdx) s += '<line x1="' + (x + 2) + '" x2="' + (x + bw - 2) + '" y1="' + (H - 4) + '" y2="' + (H - 4) + '" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>';
+    }
+    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(TEST.daily) + '" y2="' + y(TEST.daily) + '" stroke="var(--gold)" stroke-width="1.5"/>';
+    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(TEST.maxDay) + '" y2="' + y(TEST.maxDay) + '" stroke="var(--faint)" stroke-width="1.2" stroke-dasharray="5 5"/>';
+    s += "</svg>";
+    el("chart").innerHTML = s;
+  }
+
+  function renderAds(v){
+    var dayN = dayIndex(v.today) + 1;
+    var best = null;
+    if (dayN >= 7) {
+      ADS.forEach(function(a){
+        var x = v.ads[a.tag]; if (!x) return;
+        var calls = x.calls;
+        if (calls >= 3) { var c = x.spend / calls; if (!best || c < best.c) best = { tag: a.tag, c: c }; }
+      });
+    }
+    el("ads").innerHTML = ADS.map(function(a){
+      var x = v.ads[a.tag] || {};
+      var calls = x.calls;
+      var cost = (calls && x.spend) ? usd(x.spend / calls) : "—";
+      var paused = x.status === "PAUSED";
+      var vid = VIDEOS[a.tag];
+      return '<article class="ad' + (paused ? " paused" : "") + '">' +
+        '<button class="thumb" data-tag="' + a.tag + '" aria-label="Смотреть ролик «' + esc(a.title) + '»">' +
+          '<img src="' + COVERS[a.tag] + '" alt="Обложка ролика «' + esc(a.title) + '»" loading="lazy">' +
+          (best && best.tag === a.tag ? '<span class="flag"><span class="leader">Лидер</span></span>' : "") +
+          (vid ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="var(--gold)"/></svg></span>' : "") +
+        "</button>" +
+        '<div class="body"><div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap"><span class="t">' + esc(a.title) + "</span>" + (x.status ? statusPill(x.status) : '<span class="pill muted">нет данных</span>') + "</div>" +
+        '<div class="hook">' + esc(a.hook) + "</div>" +
+        "<dl><dt>Потрачено</dt><dd>" + usd(x.spend) + "</dd><dt>Показы</dt><dd>" + int(x.impressions) + "</dd><dt>Звонки (Meta)</dt><dd>" + (calls == null ? "—" : int(calls)) + "</dd><dt>Цена звонка</dt><dd>" + cost + "</dd>" +
+        (x.ctr != null ? "<dt>Нажатия, %</dt><dd>" + nf1.format(x.ctr) + "</dd>" : "") + "</dl>" +
+        (x.note ? '<div class="note">' + esc(x.note) + "</div>" : "") +
+        "</div></article>";
+    }).join("");
+    el("ads").querySelectorAll("button.thumb").forEach(function(b){
+      b.addEventListener("click", function(){
+        var tag = b.getAttribute("data-tag"); var src = VIDEOS[tag];
+        if (!src) return;
+        b.innerHTML = '<video src="' + src + '" controls autoplay muted playsinline></video>';
+      });
+    });
+  }
+
+  function renderCalls(v){
+    var box = el("calls"), line = v.line;
+    if (!line) { box.innerHTML = '<div class="empty">' + (live.db ? "Агент ещё не выложил журнал линии. Появится после ближайшей проверки." : "Журнал линии недоступен в этом окне.") + "</div>"; return; }
+    var calls = line.calls || [];
+    var head = '<div class="sumline"><span class="chip num">всего ' + int(line.total) + '</span><span class="chip num">20+ с — ' + int(line.c20) + '</span><span class="chip num">60+ с — ' + int(line.c60) + "</span></div>";
+    if (!calls.length) { box.innerHTML = head + '<div class="empty">Звонков по рекламе пока нет. Наши проверочные звонки сюда не попадают.</div>'; return; }
+    var MAX = 180;
+    box.innerHTML = head + '<div class="calls">' + calls.slice(0, 8).map(function(c){
+      var p = Math.min(100, c.dur / MAX * 100);
+      var cls = c.dur >= 60 ? "ok" : c.dur >= 20 ? "" : "short";
+      var m = Math.floor(c.dur / 60), sec = c.dur % 60;
+      return '<div class="call"><span class="when">' + esc(c.t) + '</span><span class="what">' + esc(c.text) + "</span>" +
+        '<div class="dur"><div class="durbar"><i class="' + cls + '" style="width:' + p.toFixed(1) + '%"></i><span class="tick" style="left:' + (20 / MAX * 100).toFixed(1) + '%" title="20 с"></span><span class="tick" style="left:' + (60 / MAX * 100).toFixed(1) + '%" title="60 с"></span></div><span class="s">' + m + ":" + (sec < 10 ? "0" : "") + sec + "</span></div></div>";
+    }).join("") + "</div>";
+  }
+
+  function renderLog(v){
+    var box = el("log");
+    if (!v.log.length) { box.innerHTML = '<li><span class="dot"></span><span class="empty">Записей пока нет.</span></li>'; return; }
+    box.innerHTML = v.log.map(function(x){
+      return '<li><span class="dot ' + esc(x.who) + '"></span><div><div class="when">' + esc(x.t) + '</div><div class="txt">' + esc(x.text) + "</div></div></li>";
+    }).join("");
+  }
+
+  /* ---------- действия ---------- */
+  function nowIso(){ return new Date().toISOString(); }
+  function stamp(){ try { return new Intl.DateTimeFormat("ru-RU", { timeZone: "America/Los_Angeles", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }).format(new Date()).replace(",", ""); } catch (e) { return ""; } }
+
+  async function answerDecision(d, yes, i){
+    if (!d || !live.db) return;
+    var box = el("dact" + i);
+    if (yes && d.action && !box.getAttribute("data-armed")) {
+      box.setAttribute("data-armed", "1");
+      box.innerHTML = '<span class="hint">Это ' + esc((d.chips || []).join(", ")) + '. Точно?</span><button class="btn" id="dno' + i + '">Отмена</button><button class="btn yes" id="dyes' + i + '">Да, подтверждаю</button>';
+      el("dno" + i).addEventListener("click", render);
+      el("dyes" + i).addEventListener("click", function(){ answerDecision(d, true, i); });
+      return;
+    }
+    box.innerHTML = '<span class="hint">Записываю…</span>';
+    var executed = false, err = null;
+    if (yes && d.action && live.mcp) {
+      try {
+        var input = Object.assign({}, d.action.input, { client_conversation_id: CCID, advertiser_request: "Андрей нажал «Да» на панели: " + d.title });
+        await live.mcp.callTool(SERVER, d.action.tool, input);
+        executed = true;
+        try { await live.mcp.invalidate(SERVER); } catch (e) {}
+      } catch (e) { err = e; }
+    }
+    try {
+      await live.db.doc("decisions/" + d.id).update({ status: yes ? "approved" : "declined", answeredAt: nowIso(), executed: executed, error: err ? (err.code || "error") : null });
+      await live.db.collection("andrey").add({ at: nowIso(), t: stamp(), text: (yes ? "Андрей: «да» — " : "Андрей: «нет» — ") + d.title + (err ? " (Meta не подтвердила выполнение, агент проверит)" : "") });
+    } catch (e) {
+      box.innerHTML = '<span class="hint">Не записалось: ' + esc(e.code || "ошибка") + ". Попробуйте ещё раз.</span>";
+    }
+  }
+
+  el("msgSend").addEventListener("click", async function(){
+    var t = el("msg").value.trim();
+    if (!t || !live.db) return;
+    el("msgSend").disabled = true;
+    try {
+      await live.db.collection("inbox").add({ at: nowIso(), t: stamp(), text: t, status: "new" });
+      await live.db.collection("andrey").add({ at: nowIso(), t: stamp(), text: "Андрей написал агенту: «" + t.slice(0, 140) + "»" });
+      el("msg").value = ""; el("msgHint").textContent = "Отправлено. Агент ответит в ближайшем отчёте.";
+    } catch (e) {
+      el("msgHint").textContent = e && e.code === "quota_exceeded" ? "Хранилище панели заполнено — скажите агенту почистить." : "Не отправилось (" + esc(e && e.code || "ошибка") + "). Попробуйте ещё раз.";
+    }
+    el("msgSend").disabled = false;
+  });
+
+  function wireStop(){
+    el("stopBox").innerHTML = '<button class="btn danger" id="stopBtn">Остановить всю рекламу</button>';
+    el("stopBtn").addEventListener("click", function(){
+      el("stopBox").innerHTML = '<span class="hint">Остановить всю рекламу сейчас?</span><button class="btn" id="stopNo">Отмена</button><button class="btn danger" id="stopYes">Да, остановить</button>';
+      el("stopNo").addEventListener("click", function(){ wireStop(); render(); });
+      el("stopYes").addEventListener("click", doStop);
+    });
+  }
+  wireStop();
+  async function doStop(){
+    var box = el("stopBox");
+    if (!live.mcp) { box.innerHTML = '<span class="hint">Нет доступа к Meta в этом окне.</span>'; return; }
+    box.innerHTML = '<span class="hint">Останавливаю…</span>';
+    try {
+      await live.mcp.callTool(SERVER, "ads_update_entity", { ad_account_id: ACCOUNT, entity_id: CAMPAIGN, entity_type: "campaign",
+        fields: JSON.stringify({ status: "PAUSED" }), client_conversation_id: CCID, advertiser_request: "Андрей нажал «Остановить всю рекламу» на панели" });
+      box.innerHTML = '<span class="hint" style="color:var(--good)">Кампания на паузе. Деньги больше не тратятся.</span>';
+      try { await live.mcp.invalidate(SERVER); } catch (e) {}
+      if (live.db) { try { await live.db.collection("andrey").add({ at: nowIso(), t: stamp(), text: "Андрей остановил всю рекламу кнопкой на панели." }); } catch (e) {} }
+    } catch (e) {
+      var c = e && e.code;
+      if (c === "server_unavailable" || c === "upstream_error" || c === "cancelled") box.innerHTML = '<span class="hint">Meta не подтвердила — возможно, уже остановилось. Проверьте статус вверху через минуту.</span>';
+      else box.innerHTML = '<span class="hint">Не получилось: ' + esc(metaErrText(e)) + "</span>";
+    }
+  }
+
+  document.querySelectorAll(".seg button").forEach(function(b){
+    b.addEventListener("click", function(){
+      mode = b.getAttribute("data-mode");
+      try { localStorage.setItem("pult-mode", mode); } catch (e) {}
+      render();
+    });
+  });
+
+  /* ---------- живые данные ---------- */
+  function parseEntities(result){
+    var p = result && result.payload;
+    if (typeof p === "string") { try { p = JSON.parse(p); } catch (e) { return null; } }
+    if (!p) return null;
+    var a = p.ad_entities;
+    if (typeof a === "string") { try { a = JSON.parse(a); } catch (e) { return null; } }
+    return Array.isArray(a) ? a : null;
+  }
+  function onMeta(key){
+    return function(ev){
+      if (ev.type === "data") {
+        var rows = parseEntities(ev.result);
+        if (rows) {
+          if (key === "camp") live.meta = rows[0] || null;
+          if (key === "daily") live.daily = rows;
+          if (key === "ads") live.ads = rows;
+          live.metaErr = null;
+          live.metaAt = (ev.result.cache && ev.result.cache.storedAt) || Date.now();
+        }
+      } else {
+        var c = ev.error && ev.error.code;
+        if (["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest", "selection_required"].indexOf(c) >= 0) {
+          live.meta = null; live.daily = null; live.ads = null;
+        }
+        live.metaErr = ev.error || { code: "upstream_error" };
+      }
+      render();
+    };
+  }
+  function base(extra){ return Object.assign({ ad_account_id: ACCOUNT, client_conversation_id: CCID, advertiser_request: "панель: показать цифры рекламы Веры", include_additional_context: false }, extra); }
+
+  render();
+
+  (async function(){
+    var c = window.claude;
+    if (!c || !c.use) { live.metaErr = { code: "unavailable" }; render(); return; }
+    try { live.user = await c.use("user"); if (live.user) { var own = live.user.isOwner(); live.canAct = !!(own && typeof own.then === "function" ? await own : own); } } catch (e) {}
+    try {
+      var db = await c.use("db");
+      if (db) {
+        live.db = db;
+        db.doc("panel/state").onSnapshot(function(s){ live.dbState = s.exists ? s.data() : null; render(); }, function(e){ live.dbErr = e; render(); });
+        db.doc("panel/log").onSnapshot(function(s){ live.dbLog = (s.exists && s.data().items) || []; render(); }, function(e){ live.dbErr = e; });
+        db.collection("andrey").orderBy("at", "desc").limit(10).onSnapshot(function(q){ live.andrey = q.docs.map(function(d){ return d.data(); }); render(); }, function(e){ live.dbErr = e; });
+        db.collection("decisions").orderBy("createdAt", "desc").limit(10).onSnapshot(function(q){ live.decisions = q.docs.map(function(d){ var x = Object.assign({}, d.data()); x.id = d.id; return x; }); render(); }, function(e){ live.dbErr = e; });
+      }
+    } catch (e) { live.dbErr = e; }
+    try {
+      var mcp = await c.use("mcp");
+      if (!mcp) { live.metaErr = { code: "unavailable" }; render(); return; }
+      live.mcp = mcp;
+      var opts = { refetchInterval: 900000 };
+      mcp.watchTool(SERVER, "ads_get_ad_entities", base({ level: "campaign", object_ids: [CAMPAIGN], date_preset: "maximum",
+        fields: ["id", "name", "effective_status", "amount_spent", "impressions", "reach", "cpm", "results", "cost_per_result", "spend_cap"] }), onMeta("camp"), opts);
+      mcp.watchTool(SERVER, "ads_get_ad_entities", base({ level: "campaign", object_ids: [CAMPAIGN], time_increment: "1",
+        time_range: JSON.stringify({ since: TEST.start, until: TEST.end }), fields: ["amount_spent", "impressions", "results"] }), onMeta("daily"), opts);
+      mcp.watchTool(SERVER, "ads_get_ad_entities", base({ level: "ad", object_ids: ADS.map(function(a){ return a.id; }), date_preset: "maximum",
+        fields: ["id", "name", "effective_status", "amount_spent", "impressions", "results", "cost_per_result", "ctr", "clicks"] }), onMeta("ads"), opts);
+      render();
+    } catch (e) { live.metaErr = e; render(); }
+  })();
+})();
+</script>

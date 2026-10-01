@@ -1,0 +1,25 @@
+[build]
+  publish = "web"
+
+# Без node_bundler="esbuild" зависимости функций НЕ попадают в бандл и функция
+# падает на проде с Cannot find module. Та же грабля, что в основном проекте
+# 03.09.2026 (@anthropic-ai/sdk), здесь наступили повторно 12.09.2026 (@netlify/blobs).
+[functions]
+  directory = "netlify-functions"
+  node_bundler = "esbuild"
+
+# Доводчик: обход «без ответа» и чистка по срокам (ревью 15.09 №12). Лимит запланированной функции 30 с.
+# [не проверено] подхватывается ли расписание при деплое готовой папкой через CLI — SPEC §8.
+[functions."tg-dogon"]
+  schedule = "*/10 * * * *"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "no-store"

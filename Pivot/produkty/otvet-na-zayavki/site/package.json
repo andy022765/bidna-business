@@ -1,0 +1,14 @@
+{
+  "name": "otvet-na-zayavki",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Ответ на заявки: цены из паспорта и ссылка на Calendly. Пилот: Business Intelligence DNA.",
+  "scripts": {
+    "test": "node --test \"tests/test-*.js\"",
+    "test:na-potom": "node --test \"na-potom/tests/test-*.js\"",
+    "test:vse": "node --test \"tests/test-*.js\" \"na-potom/tests/test-*.js\""
+  },
+  "dependencies": {
+    "@netlify/blobs": "10.7.13"
+  }
+}

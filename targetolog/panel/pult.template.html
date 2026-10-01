@@ -1,0 +1,2137 @@
+<title>Пульт рекламы Веры</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Unbounded:wght@500;700&display=swap">
+<style>
+/* Пульт v2. Сверху вниз по важности: тревоги → слово Андрея → деньги и аккаунт → кабинет (слева) и агент с линией (справа) → правила → стоп.
+   Токены — прежние (тёмная тема основная), светофор — good / warn / bad, акцент — золото. */
+:root{
+  color-scheme: dark;
+  --bg:#0A0E18; --surface:#121622; --raised:#1A2030; --line:#262D40; --line-soft:#1D2333;
+  --text:#EEF1F7; --muted:#929AAC; --faint:#6C748A;
+  --gold:#E3C88A; --gold-ink:#0A0E18; --gold-soft:rgba(227,200,138,.14);
+  --good:#63C995; --good-soft:rgba(99,201,149,.14);
+  --warn:#E8AE45; --warn-soft:rgba(232,174,69,.15);
+  --bad:#E8705F; --bad-soft:rgba(232,112,95,.15);
+  --info:#86A9EA; --info-soft:rgba(134,169,234,.14);
+  --bar:#3A4460; --bar-top:#E3C88A; --on-bad:#FFFFFF; --thumb:#0A0E18;
+  --shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 12px 32px -18px rgba(0,0,0,.6);
+  --f-ui: "Golos Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-num: "Unbounded", "Golos Text", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    color-scheme: light;
+    --bg:#F2F4F8; --surface:#FFFFFF; --raised:#F7F8FB; --line:#DCE1EA; --line-soft:#E8ECF2;
+    --text:#0F1422; --muted:#5A6378; --faint:#8A92A5;
+    --gold:#8C6A1E; --gold-ink:#FFFFFF; --gold-soft:rgba(140,106,30,.10);
+    --good:#1F8A55; --good-soft:rgba(31,138,85,.10);
+    --warn:#A86A00; --warn-soft:rgba(168,106,0,.10);
+    --bad:#B83A2A; --bad-soft:rgba(184,58,42,.09);
+    --info:#2F5DB8; --info-soft:rgba(47,93,184,.09);
+    --bar:#C9D0DD; --bar-top:#8C6A1E; --on-bad:#FFFFFF; --thumb:#1A2030;
+    --shadow: 0 1px 2px rgba(15,20,34,.05), 0 10px 24px -18px rgba(15,20,34,.25);
+  }
+}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --bg:#F2F4F8; --surface:#FFFFFF; --raised:#F7F8FB; --line:#DCE1EA; --line-soft:#E8ECF2;
+  --text:#0F1422; --muted:#5A6378; --faint:#8A92A5;
+  --gold:#8C6A1E; --gold-ink:#FFFFFF; --gold-soft:rgba(140,106,30,.10);
+  --good:#1F8A55; --good-soft:rgba(31,138,85,.10);
+  --warn:#A86A00; --warn-soft:rgba(168,106,0,.10);
+  --bad:#B83A2A; --bad-soft:rgba(184,58,42,.09);
+  --info:#2F5DB8; --info-soft:rgba(47,93,184,.09);
+  --bar:#C9D0DD; --bar-top:#8C6A1E; --on-bad:#FFFFFF; --thumb:#1A2030;
+  --shadow: 0 1px 2px rgba(15,20,34,.05), 0 10px 24px -18px rgba(15,20,34,.25);
+}
+:root[data-theme="dark"]{ color-scheme: dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--f-ui);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.app{max-width:1240px;margin:0 auto;padding-inline:20px;padding-block:18px 48px;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h2{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--info)}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+
+/* шапка */
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 320px}
+.brand > div{min-width:0}
+.mark{width:40px;height:40px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.mark svg{width:24px;height:24px}
+.brand h1{font-family:var(--f-num);font-weight:700;font-size:20px;letter-spacing:-.01em}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.top-right{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.info{background:var(--info-soft);color:var(--info)}
+.pill.muted{background:var(--raised);color:var(--muted)}
+.pill.big{font-size:14px;padding:7px 14px}
+.fresh{font-size:12px;color:var(--faint)}
+.summary{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--muted)}
+.summary b{color:var(--text);font-weight:600}
+.signal{font-size:12.5px;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+.signal .dot{transform:translateY(1px)}
+.signal b{color:var(--text);font-weight:600}
+
+.banner{border-radius:12px;padding:10px 14px;font-size:13.5px;display:flex;gap:10px;align-items:flex-start}
+.banner.note{background:var(--info-soft);color:var(--text)}
+.banner.err{background:var(--bad-soft);color:var(--text)}
+
+/* тревоги */
+.alerts{display:flex;flex-direction:column;gap:8px}
+.al{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:2px 12px;align-items:start;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line-soft)}
+.al.red{background:var(--bad-soft);border-color:var(--bad-soft)}
+.al.yellow{background:var(--warn-soft);border-color:var(--warn-soft)}
+.al .ic{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--bg);background:var(--faint);grid-row:span 3}
+.al.red .ic{background:var(--bad)}
+.al.yellow .ic{background:var(--warn)}
+.al.info{background:var(--info-soft);border-color:var(--info-soft)}
+.al.info .ic{background:var(--info)}
+.al .t{font-weight:600;font-size:14.5px}
+.al .x{color:var(--text);opacity:.85;font-size:13.5px;grid-column:2}
+.al .todo{font-size:13.5px;grid-column:2;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.al .todo b{font-weight:600}
+.al .src{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;grid-column:3;grid-row:1}
+.allgood{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:var(--good-soft);font-size:14px}
+.allgood::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--good);flex:none}
+details.warns > summary{cursor:pointer;font-size:13.5px;color:var(--warn);font-weight:600;list-style:none;padding:4px 2px}
+details.warns > summary::-webkit-details-marker{display:none}
+details.warns[open] > summary{margin-bottom:8px}
+.stack{display:flex;flex-direction:column;gap:8px}
+
+/* решения */
+.decision{background:var(--surface);border:1px solid var(--gold);border-radius:16px;padding:16px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 18px;align-items:center;box-shadow:var(--shadow)}
+.decision.failed{border-color:var(--bad)}
+.decision .eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.decision.failed .eyebrow{color:var(--bad)}
+.decision h3{font-size:18px;font-weight:600;margin-top:4px}
+.decision p{margin:6px 0 0;color:var(--muted);font-size:14px;max-width:70ch}
+.decision .money{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.decision .res{margin-top:8px;font-size:13.5px}
+.chip{font-size:12.5px;padding:4px 9px;border-radius:8px;background:var(--raised);border:1px solid var(--line);color:var(--text)}
+.chip.warn{border-color:var(--warn);color:var(--warn)}
+.chip.bad{border-color:var(--bad);color:var(--bad)}
+.chip.good{border-color:var(--good);color:var(--good)}
+.chip.grey{color:var(--muted)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.btn{border:1px solid var(--line);background:var(--raised);padding:10px 16px;border-radius:10px;font-weight:600;cursor:pointer;min-height:40px;text-decoration:none;display:inline-flex;align-items:center;color:var(--text)}
+.btn:hover{border-color:var(--muted)}
+.btn.small{padding:6px 12px;min-height:32px;font-size:13px}
+.btn.yes{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+.btn.danger{background:var(--bad);border-color:var(--bad);color:var(--on-bad)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+@media (pointer: coarse){ .btn, .btn.small{min-height:44px} }
+.quiet{color:var(--muted);font-size:14px;display:flex;align-items:center;gap:8px}
+.quiet::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--good);flex:none}
+.ok-t{color:var(--good)} .warn-t{color:var(--warn)} .bad-t{color:var(--bad)} .muted-t{color:var(--muted)}
+
+/* плитки денег */
+.band{display:flex;flex-direction:column;gap:10px}
+.band-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile .hd{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tile .label{font-size:12.5px;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:7px;min-width:0}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--faint);flex:none;display:inline-block}
+.dot.good{background:var(--good)} .dot.warn{background:var(--warn)} .dot.bad{background:var(--bad)} .dot.info{background:var(--info)} .dot.grey{background:var(--faint)}
+.tile .v{font-family:var(--f-num);font-size:21px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.tile .v small{font-family:var(--f-ui);font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0}
+.tile .s{font-size:12.5px;color:var(--muted)}
+.tile .s b{color:var(--text);font-weight:600}
+.src{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line);border-radius:5px;padding:1px 5px;white-space:nowrap}
+.bar{height:6px;border-radius:99px;background:var(--raised);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--gold);border-radius:99px}
+.bar i.warn{background:var(--warn)} .bar i.bad{background:var(--bad)} .bar i.good{background:var(--good)}
+.bar b{position:absolute;top:0;bottom:0;width:2px;background:var(--text);opacity:.5}
+.spark svg{display:block;width:100%;height:40px}
+.events{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;font-size:12.5px}
+.events .when{font-family:var(--f-mono);font-size:11.5px;color:var(--faint);margin-right:6px}
+
+/* сетка */
+.grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:18px;align-items:start}
+.col{display:flex;flex-direction:column;gap:18px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.sub-h{font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin:16px 0 8px}
+.kv{display:grid;grid-template-columns:minmax(0,max-content) minmax(0,1fr);gap:6px 14px;font-size:13.5px;margin:0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.tw{overflow-x:auto}
+table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t th{font-weight:500;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line-soft);white-space:nowrap;font-size:12px}
+table.t td{padding:8px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+table.t td.r, table.t th.r{text-align:right;font-variant-numeric:tabular-nums}
+.sec-err{font-size:12.5px;color:var(--warn);margin-top:6px}
+
+/* график */
+.chart-wrap{overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:520px;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:3px;border-radius:2px;background:var(--gold);display:inline-block}
+.sw.bar{height:10px;width:10px;border-radius:3px;background:var(--bar)}
+.sw.dash{background:none;border-top:2px dashed var(--faint);height:0}
+.sw.dot{width:8px;height:8px;border-radius:50%;background:var(--info)}
+
+/* объявления */
+.ads{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.ad{background:var(--raised);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ad .thumb{position:relative;aspect-ratio:9/16;max-height:240px;width:100%;background:var(--thumb);border:0;padding:0;cursor:pointer;display:block;overflow:hidden}
+.ad .thumb img,.ad .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.ad .play{position:absolute;right:8px;bottom:8px;width:34px;height:34px;border-radius:50%;background:rgba(10,14,24,.72);display:grid;place-items:center;border:1px solid rgba(227,200,138,.5)}
+.ad .play svg{width:12px;height:12px;margin-left:2px}
+.ad .flag{position:absolute;left:8px;top:8px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.ad .body{padding:10px 11px 12px;display:flex;flex-direction:column;gap:8px}
+.ad .t{font-weight:600;font-size:14.5px}
+.ad .nm{font-family:var(--f-mono);font-size:11px;color:var(--faint)}
+.ad .hook{font-size:12.5px;color:var(--muted);line-height:1.35}
+.ad .pill, .tw .pill{white-space:normal;line-height:1.25}
+.aud{font-size:11.5px;color:var(--muted);margin-top:3px;max-width:52ch;overflow-wrap:anywhere}
+.ad dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 8px;font-size:12.5px}
+.ad dt{color:var(--muted)}
+.ad dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.ad .rule{font-size:12px;display:flex;flex-direction:column;gap:4px}
+.ad .note{font-size:12px;color:var(--text);background:var(--warn-soft);border-radius:8px;padding:5px 7px}
+.ad.off .thumb img{filter:grayscale(.8) brightness(.6)}
+.leader{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:var(--gold-ink);padding:3px 7px;border-radius:6px}
+.early{font-size:11px;font-weight:600;background:var(--raised);color:var(--muted);padding:3px 7px;border-radius:6px;border:1px solid var(--line)}
+details.old{margin-top:12px}
+details.old > summary{cursor:pointer;font-size:13px;color:var(--muted)}
+
+/* звонки */
+.calls{display:flex;flex-direction:column}
+.call{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:10px 0;border-top:1px solid var(--line-soft)}
+.call:first-child{border-top:0;padding-top:2px}
+.call .when{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.call .what{font-size:13.5px}
+.call .dur{grid-column:1 / -1;display:flex;align-items:center;gap:8px}
+.durbar{position:relative;flex:1;height:6px;border-radius:99px;background:var(--raised)}
+.durbar i{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--info)}
+.durbar i.ok{background:var(--good)}
+.durbar i.short{background:var(--faint)}
+.durbar .tick{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--muted);opacity:.6}
+.dur .s{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:44px;text-align:right}
+.sumline{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.rows{display:flex;flex-direction:column;gap:7px;font-size:13.5px}
+.rows > div{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:8px;align-items:baseline}
+.rows .dot{transform:translateY(1px)}
+.rows .r{font-variant-numeric:tabular-nums;font-weight:600;white-space:normal;overflow-wrap:anywhere;text-align:right}
+
+/* журнал, лента */
+.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.log li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;padding:8px 0}
+.log .dot{margin-top:6px}
+.log .dot.agent{background:var(--gold)}
+.log .dot.andrey{background:var(--info)}
+.log .dot.alert{background:var(--bad)}
+.log .dot.human{background:var(--warn)}
+.log .dot.meta{background:var(--faint)}
+.log .when{font-family:var(--f-mono);font-size:11.5px;color:var(--faint)}
+.log .txt{font-size:13.5px;overflow-wrap:anywhere}
+
+/* агент */
+.pulse{display:flex;align-items:center;gap:12px}
+.pulse .big{font-family:var(--f-num);font-size:20px;font-weight:600}
+.beat{width:14px;height:14px;border-radius:50%;background:var(--faint);flex:none;box-shadow:0 0 0 5px var(--raised)}
+.beat.good{background:var(--good);box-shadow:0 0 0 5px var(--good-soft)}
+.beat.warn{background:var(--warn);box-shadow:0 0 0 5px var(--warn-soft)}
+.beat.bad{background:var(--bad);box-shadow:0 0 0 5px var(--bad-soft)}
+.worry{font-size:13.5px;margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+
+/* сообщения */
+textarea{width:100%;min-height:74px;resize:vertical;background:var(--raised);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:8px}
+.hint{font-size:12.5px;color:var(--muted)}
+.msgs{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.msgs li{display:flex;flex-direction:column;gap:2px;padding:6px 0;border-top:1px solid var(--line-soft)}
+
+/* правила и стоп */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.rules .card h3{font-size:14.5px;margin-bottom:8px}
+.rules ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--text)}
+.rules li::marker{color:var(--gold)}
+.danger{display:flex;flex-direction:column;gap:12px;border:1px solid var(--bad-soft);background:var(--surface);border-radius:16px;padding:14px 18px}
+.danger .dh{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.danger p{margin:0;color:var(--muted);font-size:13.5px;max-width:72ch}
+.danger b{color:var(--text)}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.stopres{font-size:14px;border-radius:10px;padding:10px 12px}
+.stopres.ok{background:var(--good-soft)}
+.stopres.bad{background:var(--bad-soft)}
+.stopres.run{background:var(--raised)}
+footer{color:var(--faint);font-size:12px;display:flex;flex-direction:column;gap:4px}
+.empty{color:var(--muted);font-size:13.5px;padding:6px 0}
+
+@media (max-width: 980px){
+  .grid{grid-template-columns:1fr}
+  .rules{grid-template-columns:1fr}
+}
+@media (max-width: 520px){
+  .app{padding-inline:16px}
+  .decision{grid-template-columns:1fr}
+  .actions{justify-content:flex-start}
+  .al{grid-template-columns:22px minmax(0,1fr)}
+  .al .src{grid-column:2;grid-row:auto}
+  .ads{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ad .thumb{max-height:200px}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 3.6c.5-.5 1.3-.5 1.8 0l2 2.1c.5.5.5 1.3 0 1.8L9 8.9a11 11 0 0 0 6.1 6.1l1.4-1.4c.5-.5 1.3-.5 1.8 0l2.1 2c.5.5.5 1.3 0 1.8l-1.2 1.2c-1.1 1.1-2.8 1.4-4.2.8C9.7 17.3 6.7 14.3 4.6 9c-.6-1.4-.3-3.1.8-4.2z" fill="currentColor" style="color:var(--gold)"/></svg>
+      </div>
+      <div>
+        <h1>Пульт рекламы Веры</h1>
+        <p id="subline">«Вера звонком» · Нью-Йорк и Лос-Анджелес · русский язык · линия <span class="mono">+1 424 781 1913</span></p>
+      </div>
+    </div>
+    <div class="top-right">
+      <span id="overall" class="pill big muted">Загружаю…</span>
+    </div>
+  </header>
+  <div class="summary" id="summary"></div>
+  <div class="signal" id="signal"></div>
+  <div id="pageBanner"></div>
+
+  <section id="alerts" class="alerts" aria-label="Тревоги"></section>
+  <section id="decisions" class="stack" aria-label="Нужно ваше слово"></section>
+
+  <section class="band" aria-label="Деньги и аккаунт">
+    <div class="band-h"><h2>Деньги и аккаунт</h2><span class="fresh" id="freshMoney"></span></div>
+    <div class="tiles" id="money"></div>
+  </section>
+
+  <div class="grid">
+    <div class="col">
+      <section class="card">
+        <div class="card-h"><h2>Кампания и группы</h2><span class="fresh" id="freshCamp"></span></div>
+        <div id="campaign"></div>
+      </section>
+      <section class="card chart">
+        <div class="card-h"><h2>Деньги и звонки по дням</h2><span class="fresh" id="freshChart"></span></div>
+        <div class="chart-wrap" id="chart"></div>
+        <div class="legend" id="legend"></div>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Объявления</h2><span class="fresh" id="freshAds"></span></div>
+        <div id="ads"></div>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Кто что менял в кабинете · 72 часа</h2><span class="fresh" id="freshChanges"></span></div>
+        <div id="changes"></div>
+      </section>
+    </div>
+    <aside class="col">
+      <section class="card">
+        <div class="card-h"><h2>Агент</h2><span class="fresh" id="freshAgent"></span></div>
+        <div id="agent"></div>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Линия и звонки</h2><span class="fresh" id="freshLine"></span></div>
+        <div id="line"></div>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Что сделал агент</h2></div>
+        <ul class="log" id="log"></ul>
+      </section>
+      <section class="card">
+        <div class="card-h"><h2>Написать агенту</h2></div>
+        <label for="msg" class="hint">Вопрос или просьба. Читает главное окно «ГЛАВНЫЙ АГЕНТ», ответ появится под сообщением.</label>
+        <textarea id="msg" placeholder="Например: «Почему бот тратит больше других?»"></textarea>
+        <div class="row"><span class="hint" id="msgHint">Хранилище пульта подключается…</span><button class="btn" id="msgSend" disabled>Отправить</button></div>
+        <ul class="msgs" id="msgs"></ul>
+      </section>
+    </aside>
+  </div>
+
+  <section class="rules" aria-label="Правила" id="rules"></section>
+
+  <section class="danger" aria-label="Экстренно">
+    <div class="dh">
+      <p><b>Остановить рекламу Веры.</b> Пульт ставит на паузу все работающие группы кампании Веры и саму кампанию, публикует только паузу и сам перечитывает статус в Meta. «Остановлено» появится только после проверки. Включить обратно — только ваша кнопка «Включить». Другие кампании кабинета (если появятся) эта кнопка не трогает — их останавливают в <a id="stopAm" href="#" target="_blank" rel="noopener">Ads Manager</a>.</p>
+    </div>
+    <div class="confirm" id="stopBox"></div>
+  </section>
+
+  <footer id="foot">
+    <span><span class="src">Meta</span> пульт читает Meta сам под вашим коннектором: оплата, журнал и траты по часам — раз в 5 минут, остальное — раз в 15 минут. <span class="src">агент</span> пишет агент (линия, причины, вопросы, пульс). <span class="src">расчёт</span> пульт считает из двух первых.</span>
+    <span>Пороги — наши эвристики, не правила Meta; числа пульта лежат в его настройках (panel/config). У сторожа и проверки свои числа в их задачах: правка настроек пульта меняет только пульт. Цифры Meta за последние 2 дня ещё уточняются, итог — через 2 дня, окончательно — через 28. Время на пульте — Лос-Анджелес.</span>
+    <span id="footMeta"></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ================= значения по умолчанию (главные — в db panel/config) ================= */
+  var LA = "America/Los_Angeles";
+  var DEF = {
+    server: "Meta Ads",
+    account: "1004461399321073",
+    campaign: "120249932374020430",
+    phone: "+1 424 781 1913",
+    workingAdset: null,
+    doNotEnable: [],
+    test: { start: "2026-09-28", end: "2026-10-07", endTime: "2026-10-07T23:59:00-07:00", leaderFrom: "2026-10-04" },
+    money: { daily: 15, campaignCap: 150, accountCap: 200, weekly: [ { from: "2026-09-27", to: "2026-10-03", max: 90 }, { from: "2026-10-04", to: "2026-10-10", max: 60 } ] },
+    quiet: null,
+    knownDrafts: [],
+    poll: { fastMin: 5, slowMin: 15 },
+    /* Предохранитель кнопки «Да»: что пульт вообще согласен отправить в Meta (защита от опечатки в центах и чужих объектов).
+       Это не решение о деньгах, а потолок исполнения; maxCampaignCap null = не выше потолка аккаунта. */
+    guard: { maxDaily: 30, maxCampaignCap: null, maxEnd: "2026-10-31T23:59:00-07:00",
+             fields: ["status", "daily_budget", "spend_cap", "end_time", "stop_time"] },
+    tags: {
+      noch: { title: "Ночь", hook: "«Пятница, 23:41. Вам звонят…»" },
+      bot: { title: "Бот", hook: "«Бот пообещал клиенту бесплатный визит»" },
+      pismo: { title: "Письмо", hook: "«После каждого звонка — письмо вам»" },
+      demo: { title: "Дорого", hook: "«Скажите ей «дорого»»" }
+    },
+    links: {
+      billing: "https://business.facebook.com/latest/billing_hub/payment_settings/?payment_account_id=1004461399321073&asset_id=1004461399321073",
+      adsManager: "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=1004461399321073&selected_campaign_ids=120249932374020430",
+      failedPaymentHelp: "https://www.facebook.com/business/help/268196136699959",
+      spendingLimitHelp: "https://www.facebook.com/business/help/764293677236889"
+    },
+    thresholds: {
+      dayHours: { from: 7, to: 23 },
+      pulse: { dayYellowMin: 75, dayRedMin: 120, nightYellowMin: 600, nightRedMin: 720, morningGraceMin: 45 },
+      noData: { waitSec: 90, staleMult: 3 },
+      nothingRunsGraceMin: 30,
+      fullCheck: { yellowH: 16, redH: 24 },
+      watch: { yellowH: 3, redH: 6 },
+      payment: { notActiveAfterMoneyMin: 60 },
+      quietStop: { zeroHours: 2, graceHoursAfterStart: 3, lagMin: 30, halfDayHour: 18, halfDayShare: 0.5 },
+      todaySpend: { yellowPct: 150, redPct: 175 },
+      week: { yellowShare: 0.9 },
+      planLag: { yellowShare: 0.3 },
+      endSoonH: 48,
+      draftYellowH: 2,
+      pendingReviewH: 24,
+      deliveryPendingH: 24,
+      campaignCapLeft: { yellow: 45, red: 15 },
+      accountCapLeft: { yellow: 45, red: 15 },
+      prepaidLeft: { yellow: 15, red: 5 },
+      ads: { judgeSpend: 10, judgeImpr: 1000, stopSpend: 15, stopWarnSpend: 12, costPerCallRed: 40, costPerCallYellow: 30, costMinCalls: 2,
+             waitYellow: 2, waitRed: 5, frequencyYellow: 2.5, spendShareYellow: 0.7, leaderMinCalls: 3, benchLow: 0.7, benchHigh: 1.3 },
+      line: { callsDayYellow: 10, callsDayRed: 15, mailsYellow: 45, mailsRed: 60, clicksNoCallYellow: 3, clicksNoCallRed: 5,
+              metaVsLineYellow: 3, unansweredYellowH: 4, unansweredRedH: 24, targetCost: 20, costRed: 40 },
+      test: { noCallsYellow: 75, noCallsStop: 100 },
+      decisionPendingYellowH: 12,
+      inboxNewYellowH: 12
+    }
+  };
+  var COVERS = __COVERS__;
+  var VIDEOS = __VIDEOS__;
+  var PAGE_TOOLS = ["ads_get_ad_accounts", "ads_account_get_activity_logs", "ads_get_ad_entities", "ads_get_errors", "ads_update_entity", "ads_activate_entity"];
+  var REQ_READ = "пульт управления рекламы — все необходимые поля, которые мне необходимо контролировать; если деньги не списаны — чтобы сигнализировал";
+  /* advertiser_request — слова того, кто нажал, без имён (схема коннектора имена запрещает) */
+  var REQ_STOP = "остановить всю рекламу";
+  var REQ_RESUME = "включить рекламу обратно";
+  var REQ_PAID = "я оплатил";
+  var OFF = { PAUSED: 1, CAMPAIGN_PAUSED: 1, ADSET_PAUSED: 1, DELETED: 1, ARCHIVED: 1 };
+  var AUTHZ = ["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest", "selection_required"];
+  var PAGE_EXEC = ["ads_update_entity", "ads_activate_entity"];
+
+  var CFG = DEF;
+  var S = {
+    cfgDb: null, state: null, log: [], andrey: [], decisions: [], alertsDb: [], inbox: [], stops: [],
+    meta: {}, at: {}, err: {}, mcp: null, mcpNull: false, mcpAt: null, db: null, dbNull: false, dbErr: null,
+    canAct: false, who: "loading", dUi: {}, stopUi: { phase: "idle" }, payUi: null, started: Date.now(),
+    ui: { warnsOpen: null, oldOpen: null }, stopEpoch: 0, stopRunAt: null
+  };
+
+  var CCID = (function(){
+    var k = "pult-ccid", v = null;
+    try { v = localStorage.getItem(k); } catch (e) {}
+    if (!v || !/^[A-Za-z0-9]{20}$/.test(v)) {
+      var a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; v = "";
+      for (var i = 0; i < 20; i++) v += a.charAt(Math.floor(Math.random() * a.length));
+      try { localStorage.setItem(k, v); } catch (e) {}
+    }
+    return v;
+  })();
+
+  /* ================= помощники ================= */
+  function isObj(x){ return !!x && typeof x === "object" && !Array.isArray(x); }
+  function merge(a, b){
+    if (!isObj(b)) return a;
+    var o = {}; Object.keys(a).forEach(function(k){ o[k] = a[k]; });
+    Object.keys(b).forEach(function(k){ if (k.charAt(0) === "_") return; o[k] = (isObj(a[k]) && isObj(b[k])) ? merge(a[k], b[k]) : b[k]; });
+    return o;
+  }
+  function recomputeCfg(){ CFG = merge(DEF, S.cfgDb || {}); }
+  function TH(){ return CFG.thresholds; }
+  function el(id){ return document.getElementById(id); }
+  /* Перерисовывать секцию только когда её разметка изменилась: иначе раз в минуту обрывается ролик и закрываются раскрытые списки */
+  function put(id, html){ var e = el(id); if (!e) return false; if (e.__h === html) return false; e.innerHTML = html; e.__h = html; return true; }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function z(n){ return (n < 10 ? "0" : "") + n; }
+  var nf2 = new Intl.NumberFormat("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  var nf0 = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 });
+  var nf1 = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 1 });
+  function usd(v){ return (v == null || !isFinite(v)) ? "—" : "$" + nf2.format(v); }
+  function usdS(v){ return (v == null || !isFinite(v)) ? "—" : "$" + (Math.abs(v - Math.round(v)) < 0.005 ? nf0.format(v) : nf2.format(v)); }
+  function int(v){ return (v == null || !isFinite(v)) ? "—" : nf0.format(v); }
+  function pct(v){ return (v == null || !isFinite(v)) ? "—" : nf1.format(v) + "%"; }
+  function val(x){
+    if (x == null) return null;
+    if (typeof x === "number") return isFinite(x) ? x : null;
+    if (typeof x === "string") { var n = Number(x); return isFinite(n) ? n : null; }
+    if (typeof x === "object" && "value" in x) return val(x.value);
+    return null;
+  }
+  function pj(x){ if (typeof x === "string") { try { return JSON.parse(x); } catch (e) { return null; } } return x; }
+  function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+  function nowIso(){ return new Date().toISOString(); }
+
+  var fmtParts = new Intl.DateTimeFormat("en-US", { timeZone: LA, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" });
+  function laP(ms){
+    var o = {}; fmtParts.formatToParts(new Date(ms)).forEach(function(p){ o[p.type] = p.value; });
+    var h = +o.hour; if (h === 24) h = 0;
+    return { y: +o.year, m: +o.month, d: +o.day, h: h, mi: +o.minute, s: +o.second };
+  }
+  function laDate(ms){ var p = laP(ms); return p.y + "-" + z(p.m) + "-" + z(p.d); }
+  function laOffset(ms){ var p = laP(ms); return Date.UTC(p.y, p.m - 1, p.d, p.h, p.mi, p.s) - Math.floor(ms / 1000) * 1000; }
+  function laToMs(y, m, d, h, mi){ var g = Date.UTC(y, m - 1, d, h, mi); return g - laOffset(g); }
+  function tDM(ms){ if (ms == null) return "—"; var p = laP(ms); return z(p.d) + "." + z(p.m) + " " + z(p.h) + ":" + z(p.mi); }
+  function tHM(ms){ if (ms == null) return "—"; var p = laP(ms); return z(p.h) + ":" + z(p.mi); }
+  function dm(iso){ return iso ? iso.slice(8, 10) + "." + iso.slice(5, 7) : "—"; }
+  function dayDiff(a, b){ return Math.round((Date.parse(b + "T12:00:00Z") - Date.parse(a + "T12:00:00Z")) / 86400000); }
+  function addDay(iso, n){ return new Date(Date.parse(iso + "T12:00:00Z") + n * 86400000).toISOString().slice(0, 10); }
+  function ago(ms){
+    if (ms == null) return "—";
+    var m = Math.round((Date.now() - ms) / 60000);
+    if (m < 1) return "только что";
+    if (m < 60) return m + " мин назад";
+    var h = Math.floor(m / 60);
+    if (h < 48) return h + " ч" + (m % 60 ? " " + (m % 60) + " мин" : "") + " назад";
+    return Math.floor(h / 24) + " дн назад";
+  }
+  function hrs(ms){ return (Date.now() - ms) / 3600000; }
+  function pt(s){
+    if (s == null || s === "") return null;
+    if (typeof s === "number") return s < 1e12 ? s * 1000 : s;
+    var t = String(s).replace(/([+-]\d\d)(\d\d)$/, "$1:$2");
+    var v = Date.parse(t); return isFinite(v) ? v : null;
+  }
+  function parseLogTime(s){
+    var m = /(\d{1,2})\/(\d{1,2})\/(\d{4})\D+(\d{1,2}):(\d{2})\s*([AP]M)/i.exec(String(s || "").replace(/[  ]/g, " "));
+    if (!m) return pt(s);
+    var h = (+m[4]) % 12; if (/p/i.test(m[6])) h += 12;
+    return laToMs(+m[3], +m[1], +m[2], h, +m[5]);
+  }
+  function stamp(){ return tDM(Date.now()); }
+
+  /* ================= разбор ответов Meta ================= */
+  function payload(r){
+    if (!r) return null;
+    var p = pj(r.payload);
+    if (p == null && Array.isArray(r.content)) { for (var i = 0; i < r.content.length; i++) { if (r.content[i] && r.content[i].type === "text") { p = pj(r.content[i].text); break; } } }
+    return p;
+  }
+  function arr(p, key){ if (!p) return null; var a = pj(p[key]); return Array.isArray(a) ? a : null; }
+  function callsOf(r){ var c = val(r["cost_per_action_type:click_to_call_call_confirm"]), sp = val(r.amount_spent) || 0; return (c && c > 0 && sp > 0) ? Math.round(sp / c) : 0; }
+  function deliv(r){ var d = r && r.delivery; if (!d) return null; if (typeof d === "string") d = pj(d) || { status: d }; return { status: d.status || null, sub: d.substatuses || [] }; }
+  function deepFind(o, key, depth){
+    if (!o || typeof o !== "object" || (depth || 0) > 6) return undefined;
+    if (Object.prototype.hasOwnProperty.call(o, key)) return o[key];
+    for (var k in o) { if (Object.prototype.hasOwnProperty.call(o, k)) { var v = deepFind(pj(o[k]), key, (depth || 0) + 1); if (v !== undefined) return v; } }
+    return undefined;
+  }
+  var PARSE = {
+    account: function(p){
+      var a = p && (Array.isArray(p.ad_accounts) ? p.ad_accounts : arr(p, "ad_accounts"));
+      if (!a) return null;
+      return a.filter(function(x){ return String(x.ad_account_id) === String(CFG.account); })[0] || { missing: true };
+    },
+    /* журнал Meta приходит голым массивом (текст ответа) или обёрнутым {result: …} (structuredContent) — принимаем оба */
+    logs: function(p){ if (Array.isArray(p)) return p; var a = arr(p, "result"); if (a) return a; return arr(p, "data") || arr(p, "activity_logs"); },
+    drafts: function(p){ return arr(p, "ad_drafts"); },
+    errors: function(p){ return Array.isArray(p) ? p : arr(p, "errors"); }
+  };
+  function parseKey(key, p){ return PARSE[key] ? PARSE[key](p) : arr(p, "ad_entities"); }
+
+  function metaErrText(e){
+    var c = e && e.code;
+    if (c === "needs_reauth") return "Коннектор Meta Ads нужно переподключить: claude.ai → Settings → Connectors → Meta Ads.";
+    if (c === "server_not_connected") return "Коннектор Meta Ads не подключён к вашему аккаунту: claude.ai → Settings → Connectors.";
+    if (c === "selection_required") return "У вас подключено несколько коннекторов Meta Ads — выберите один в окне claude.ai.";
+    if (c === "not_in_manifest") return "Пульту не разрешено читать Meta Ads. Разрешение можно дать при следующем открытии.";
+    if (c === "blocked_by_policy" || c === "approval_required") return "Политика организации не даёт пульту читать Meta Ads.";
+    if (c === "not_granted" || c === "capability_disabled" || c === "capability_removed" || c === "unavailable") return "Живые цифры Meta доступны только на claude.ai.";
+    if (c === "tool_error") return "Meta ответила ошибкой: " + String(e.message || "без описания").slice(0, 220);
+    if (c === "shape") return "Не разобрал ответ Meta — показываю прошлые цифры.";
+    return "Meta сейчас не ответила — показываю прошлые цифры, обновлю сам.";
+  }
+
+  /* ================= живое чтение Meta ================= */
+  var W = {};
+  var renderQueued = false;
+  function queueRender(){ if (renderQueued) return; renderQueued = true; setTimeout(function(){ renderQueued = false; render(); }, 40); }
+  function onData(key, result){
+    var p = payload(result), rows = parseKey(key, p);
+    if (rows == null) { S.err[key] = { code: "shape" }; }
+    else { S.meta[key] = rows; S.err[key] = null; S.at[key] = (result && result.cache && result.cache.storedAt) || Date.now(); if (W[key]) W[key].retried = false; }
+    queueRender();
+    if (key === "adsets") wireErrors();
+  }
+  function onErr(key, e){
+    S.err[key] = e || { code: "upstream_error" };
+    if (e && AUTHZ.indexOf(e.code) >= 0) S.meta[key] = null;
+    /* Повторяем только то, что Meta/оболочка пометили «можно повторить», один раз на обновление, с паузой (первое открытие: окно согласия) */
+    var rec = W[key];
+    if (e && e.retryable && rec && !rec.retried && S.mcp) {
+      rec.retried = true;
+      var wait = Math.min(60000, Math.max(1500, +e.retryAfterMs || 0)) + Math.floor(Math.random() * 1500);
+      setTimeout(function(){ if (W[key] !== rec) return; S.mcp.invalidate(CFG.server, rec.tool, rec.input).catch(function(){}); if (rec.fallback && rec.run) rec.run(); }, wait);
+    }
+    queueRender();
+  }
+  function watch(key, tool, input, ms){
+    var id = tool + "|" + JSON.stringify(input);
+    var w = W[key];
+    if (w && w.id === id) return;
+    if (w) { try { w.unsub && w.unsub(); } catch (e) {} if (w.timer) clearInterval(w.timer); }
+    var rec = W[key] = { id: id, tool: tool, input: input };
+    function handle(ev){ if (W[key] !== rec) return; if (ev.type === "data") onData(key, ev.result); else onErr(key, ev.error); }
+    function poll(){
+      try { rec.unsub && rec.unsub(); } catch (e) {}
+      rec.fallback = true;
+      var run = rec.run = function(){ S.mcp.callTool(CFG.server, tool, input).then(function(r){ handle({ type: "data", result: r }); }, function(e){ handle({ type: "error", error: e }); }); };
+      run(); rec.timer = setInterval(run, ms);
+    }
+    try {
+      rec.unsub = S.mcp.watchTool(CFG.server, tool, input, function(ev){
+        if (ev.type === "error" && ev.error && ev.error.code === "bad_request" && !rec.fallback) { poll(); return; }
+        handle(ev);
+      }, { refetchInterval: ms });
+    } catch (e) { poll(); }
+  }
+  function base(extra, req){ return Object.assign({ ad_account_id: String(CFG.account), client_conversation_id: CCID, advertiser_request: req || REQ_READ, include_additional_context: false }, extra); }
+  function campFilter(level){ return [{ field: level + ".campaign_id", operator: "EQUAL", value: [String(CFG.campaign)] }]; }
+  function logsStart(){ var d = new Date(Date.now() - 3 * 86400000); return d.toISOString().slice(0, 10) + "T00:00:00Z"; }
+  var F = {
+    camp: ["id", "name", "status", "effective_status", "delivery", "spend_cap", "stop_time", "amount_spent", "impressions", "reach", "cpm", "frequency", "link_click", "clicks", "cost_per_action_type"],
+    sets: ["id", "name", "status", "effective_status", "delivery", "daily_budget", "start_time", "end_time", "amount_spent", "impressions", "created_time", "updated_time"],
+    ads: ["id", "name", "adset_id", "status", "effective_status", "delivery", "amount_spent", "impressions", "cpm", "frequency", "link_click", "website_ctr", "cost_per_action_type", "video_thruplay_watched_actions", "video_avg_time_watched_actions", "created_time", "updated_time"]
+  };
+  function wireMeta(){
+    if (!S.mcp) return;
+    var fast = Math.max(1, +CFG.poll.fastMin || 5) * 60000, slow = Math.max(1, +CFG.poll.slowMin || 15) * 60000, c = String(CFG.campaign);
+    watch("account", "ads_get_ad_accounts", { client_conversation_id: CCID, advertiser_request: REQ_READ }, fast);
+    watch("logs", "ads_account_get_activity_logs", { ad_account_id: String(CFG.account), start_time: logsStart(), limit: 300, client_conversation_id: CCID, advertiser_request: REQ_READ }, fast);
+    watch("hourly", "ads_get_ad_entities", base({ level: "campaign", object_ids: [c], date_preset: "today", breakdowns: ["hourly_stats_aggregated_by_advertiser_time_zone"], fields: ["amount_spent", "impressions"] }), fast);
+    watch("camp", "ads_get_ad_entities", base({ level: "campaign", object_ids: [c], date_preset: "maximum", fields: F.camp }), slow);
+    watch("daily", "ads_get_ad_entities", base({ level: "campaign", object_ids: [c], time_increment: "1", time_range: JSON.stringify({ since: CFG.test.start, until: CFG.test.end }), fields: ["amount_spent", "impressions", "link_click", "cost_per_action_type"] }), slow);
+    /* limit: каждая пересборка добавляет группу и объявления; без него список обрежется на первой странице */
+    watch("adsets", "ads_get_ad_entities", base({ level: "adset", date_preset: "today", filtering: campFilter("adset"), fields: F.sets, limit: 200 }), slow);
+    watch("ads", "ads_get_ad_entities", base({ level: "ad", date_preset: "maximum", filtering: campFilter("ad"), fields: F.ads, limit: 500 }), slow);
+    watch("ads7", "ads_get_ad_entities", base({ level: "ad", date_preset: "last_7d", filtering: campFilter("ad"), fields: ["id", "frequency"], limit: 500 }), slow);
+    watch("acct", "ads_get_ad_entities", base({ level: "ad_account", date_preset: "maximum", fields: ["amount_spent"] }), slow);
+    watch("drafts", "ads_get_ad_entities", { ad_account_id: String(CFG.account), object_state: "draft", object_ids: [c], client_conversation_id: CCID, advertiser_request: REQ_READ }, slow);
+    wireErrors();
+  }
+  function wireErrors(){
+    if (!S.mcp) return;
+    var ids = [String(CFG.campaign)];
+    (S.meta.adsets || []).forEach(function(r){ if (!/DELETED|ARCHIVED/.test(r.effective_status || "")) ids.push(String(r.id)); });
+    ids.sort();
+    watch("errors", "ads_get_errors", { entity_ids: ids, client_conversation_id: CCID, advertiser_request: REQ_READ }, Math.max(1, +CFG.poll.slowMin || 15) * 60000);
+  }
+
+  /* ================= модель: всё, что пульт знает сейчас ================= */
+  function tagOf(name){
+    var n = String(name || "").toLowerCase();
+    var keys = Object.keys(COVERS);
+    for (var i = 0; i < keys.length; i++) if (n.indexOf(keys[i]) === 0) return keys[i];
+    return null;
+  }
+  var EVT = {
+    "Account status updated": "Статус аккаунта", "Account billed": "Meta списала оплату", "Money added to balance": "Пополнен баланс",
+    "Spending limit updated": "Изменён потолок трат аккаунта", "Ad status updated": "Статус объявления", "Ad set status updated": "Статус группы",
+    "Campaign status updated": "Статус кампании", "Ad created": "Создано объявление", "Ad set created": "Создана группа", "Campaign created": "Создана кампания",
+    "Ad set budget updated": "Бюджет группы", "Campaign budget updated": "Бюджет кампании", "Ad set name updated": "Имя группы", "Ad name updated": "Имя объявления",
+    "Campaign name updated": "Имя кампании", "Ad review approved": "Meta одобрила объявление", "Ad review declined": "Meta отклонила объявление",
+    "Ad set schedule updated": "Даты группы", "Ad set targeting updated": "Аудитория группы", "Campaign spend cap updated": "Лимит трат кампании",
+    "Ad set bidding updated": "Ставка группы", "Ad set bid strategy updated": "Стратегия ставок группы", "Campaign bid strategy updated": "Стратегия ставок кампании",
+    "Ad set optimization goal updated": "Цель оптимизации группы", "Updated status of ad after it finishes Ad Review": "Статус объявления после проверки Meta",
+    "Ad set duration updated": "Даты группы", "Campaign schedule updated": "Даты кампании", "Ad creative updated": "Креатив объявления", "Ad creative edited": "Креатив объявления",
+    "Ad delivered": "Показ", "Ad set run status updated": "Статус группы", "Campaign run status updated": "Статус кампании", "Ad run status updated": "Статус объявления",
+    "Images added": "Добавлены картинки", "Images edited": "Изменены картинки", "Ad account user added": "Добавлен пользователь аккаунта", "Ad account user removed": "Удалён пользователь аккаунта"
+  };
+  var ST = {
+    ACTIVE: "Работает", PAUSED: "Пауза", CAMPAIGN_PAUSED: "Пауза кампании", ADSET_PAUSED: "Пауза группы", AD_PAUSED: "Пауза объявления",
+    IN_PROCESS: "Готовится", WITH_ISSUES: "Есть проблема", DISAPPROVED: "Отклонено Meta", PENDING_REVIEW: "На проверке Meta",
+    PREAPPROVED: "Одобрено заранее", PENDING_BILLING_INFO: "Нужна оплата", DELETED: "Удалено", ARCHIVED: "В архиве"
+  };
+  /* статус аккаунта Meta → по-русски (Payment Needed в API приходит как UNSETTLED) */
+  var ACC = { ACTIVE: "Активен", UNSETTLED: "Не оплачен (UNSETTLED)", DISABLED: "Отключён Meta", PENDING_RISK_REVIEW: "Проверка Meta", PENDING_SETTLEMENT: "Ждёт оплаты",
+    IN_GRACE_PERIOD: "Льготный период оплаты", PENDING_CLOSURE: "Закрывается", CLOSED: "Закрыт", ANY_ACTIVE: "Активен", ANY_CLOSED: "Закрыт" };
+  var DL = { active: "показ идёт", pending: "готовится к показу", inactive: "не показывается", off: "выключено", error: "ошибка показа", completed: "завершено", draft: "черновик", deleted: "удалено" };
+  var SUB = { active: "идёт", off: "выключено", preparing: "готовится", learning: "обучение", learning_limited: "обучение ограничено", in_review: "на проверке",
+    rejected: "отклонено", ad_set_off: "группа выключена", campaign_off: "кампания выключена", ad_off: "объявление выключено", no_ads: "нет объявлений",
+    account_off: "аккаунт выключен", billing_issue: "проблема с оплатой", spending_limit_reached: "достигнут лимит трат", scheduled: "по расписанию", completed: "закончилось" };
+  function subTxt(a){ return (a || []).map(function(s){ return SUB[s] || s; }).join(", "); }
+  /* значения из журнала Meta → по-русски */
+  var VAL = { "Active": "работает", "Paused": "пауза", "Inactive": "выключено", "Pending Review": "на проверке Meta", "Pending Process": "готовится", "In Process": "готовится",
+    "Payment Needed": "нужна оплата", "Disapproved": "отклонено Meta", "Deleted": "удалено", "Archived": "в архиве", "Calls": "звонки", "Link Clicks": "переходы",
+    "Automatically bid for actions": "автоставка", "Started delivery": "показ начался", "Stopped delivery": "показ остановлен", "On": "вкл", "Off": "выкл" };
+  var TGT = { "Location:": "Где", "Age:": "Возраст", "Minimum age:": "Возраст от", "Maximum age:": "Возраст до", "Language:": "Язык", "Placements:": "Плейсменты",
+    "Advantage+ audience:": "Advantage+ аудитория", "Gender:": "Пол", "Interests:": "Интересы", "Excluded:": "Исключены" };
+  function tgtItem(it){
+    var k = String(it && it.content || "").trim(), v = (it && it.children || []).join("; ");
+    if (/^Location/i.test(k)) {
+      var m, re = /Longitude\s+-?[\d.]+\s+([^;(]+?)\s*\(\+(\d+)\s*mi\)/g, out = [];
+      while ((m = re.exec(v))) out.push(m[1].trim() + " +" + m[2] + " миль");
+      if (out.length) v = out.join(", ");
+    }
+    if (/^Placements/i.test(k)) v = v.replace(/^on pages:\s*/i, "");
+    return (TGT[k] || k.replace(/:$/, "")) + ": " + (VAL[v] || v);
+  }
+  function tgtList(a){ return Array.isArray(a) ? a.map(tgtItem) : []; }
+  /* было → стало по-человечески; для аудитории — только то, что поменялось */
+  function fmtVal(v){
+    if (v == null || v === "") return "—";
+    if (typeof v === "number") return String(v);
+    if (typeof v === "string") return VAL[v] || v;
+    if (Array.isArray(v)) return v.length && isObj(v[0]) && "content" in v[0] ? tgtList(v).join(" · ") : v.map(fmtVal).join(", ");
+    if (isObj(v)) {
+      if (v.type === "payment_amount" && v.new_value != null) return usd(val(v.new_value) / 100) + (/per day/i.test(String(v.additional_value || "")) ? " в день" : "");
+      if ("new" in v) return fmtVal(v.new);
+      var s = []; Object.keys(v).forEach(function(k){ if (typeof v[k] !== "object") s.push(k + ": " + v[k]); });
+      return s.join(", ").slice(0, 120) || "—";
+    }
+    return String(v);
+  }
+  function changeTxt(e){
+    var x = e.x || {};
+    if (x.type === "targets_spec") {
+      var o = tgtList(x.old_value), n = tgtList(x.new_value), diff = n.filter(function(s){ return o.indexOf(s) < 0; });
+      return diff.length ? (o.length ? "стало: " : "") + diff.join(" · ") : "без видимых изменений";
+    }
+    if (/billed/i.test(e.type)) return usd((val(x.new_value) || 0) / 100);
+    if (/balance/i.test(e.type)) return usd((val(x.amount) || 0) / 100);
+    if (/Spending limit/i.test(e.type)) return usd((val(x.old_value) || 0) / 100) + " → " + usd((val(x.new_value) || 0) / 100);
+    if (x.type === "composite_data" && isObj(x.new_value)) return fmtVal(x.new_value);
+    if (x.old_value != null || x.new_value != null) return fmtVal(x.old_value) + " → " + fmtVal(x.new_value);
+    return "";
+  }
+  function stPill(st, extra){
+    var cls = st === "ACTIVE" ? "good" : (st === "DISAPPROVED" || st === "PENDING_BILLING_INFO") ? "bad" : st === "WITH_ISSUES" ? "warn" : (st === "PENDING_REVIEW" || st === "IN_PROCESS") ? "info" : "muted";
+    return '<span class="pill ' + cls + '">' + esc((ST[st] || st || "нет данных") + (extra ? " · " + extra : "")) + "</span>";
+  }
+  function whoOf(e){ if (e.app === "ads MCP server") return "agent"; if (e.actorId === "0" || e.actor === "Meta") return "meta"; return "human"; }
+  /* Advantage+ включили не мы: только ВКЛЮЧЕНИЕ (On / OPT_IN), и только не через коннектор. «Advantage+ audience: Off» в нашей же правке — не тревога. */
+  function enhOf(e){
+    if (whoOf(e) === "agent") return null;
+    var x = e.x || {};
+    if (x.type === "targets_spec") {
+      var on = function(a){ return (Array.isArray(a) ? a : []).some(function(it){ return /advantage\+?\s*audience/i.test(it && it.content || "") && /^\s*on\b/i.test((it.children || []).join(" ")); }); };
+      return on(x.new_value) && !on(x.old_value) ? "Advantage+ аудиторию" : null;
+    }
+    var s = e.type + " " + JSON.stringify(x);
+    if (!/advantage\+?\s*creative|creative[ _]features?|standard[ _]enhancements?|creative[ _]enhancements?|degrees_of_freedom/i.test(s)) return null;
+    var nv = JSON.stringify(x.new_value != null ? x.new_value : x);
+    if (/OPT_OUT/i.test(nv) && !/OPT_IN/i.test(nv)) return null;
+    return /OPT_IN|"\s*on\s*"|:\s*on\b|enabled|true/i.test(nv) ? "улучшения креатива Advantage+" : null;
+  }
+
+  function model(){
+    var now = Date.now(), c = CFG, th = TH(), m = S.meta, st = S.state || {};
+    var M = { now: now, today: laDate(now), hour: laP(now).h, c: c, st: st };
+    M.day = M.hour >= th.dayHours.from && M.hour < th.dayHours.to;
+
+    /* аккаунт */
+    var a = m.account;
+    M.acc = a ? { status: a.account_status || null, pay: a.has_payment_method, q: a.is_queryable, reason: a.not_queryable_reason, missing: !!a.missing } : null;
+
+    /* журнал Meta */
+    M.logs = (m.logs || []).map(function(e){
+      return { t: parseLogTime(e.datetime), type: String(e.event_type || ""), actor: String(e.actor_name || ""), actorId: String(e.actor_id == null ? "" : e.actor_id),
+        app: String(e.application_name || ""), obj: String(e.object_name || ""), objId: String(e.object_id || ""), x: pj(e.extra_data) || {} };
+    }).filter(function(e){ return e.t; }).sort(function(x, y){ return y.t - x.t; });
+    M.logsOk = Array.isArray(m.logs);
+    /* запрашиваем с 00:00 UTC три дня назад (стабильный запрос), показываем ровно 72 часа */
+    var t72 = now - 72 * 3600000;
+    M.logs72 = M.logs.filter(function(e){ return e.t >= t72; });
+    M.pay = M.logs72.filter(function(e){ return /Account status|billed|balance|Spending limit|payment|funding|fail|declin/i.test(e.type); });
+    M.changes = M.logs72.filter(function(e){ return M.pay.indexOf(e) < 0 && e.x.type !== "delivery_event" && !/delivered/i.test(e.type); });
+    M.enh = M.logs72.map(function(e){ var w = enhOf(e); return w ? { e: e, what: w } : null; }).filter(Boolean);
+    /* аудитория группы — последняя запись «Аудитория группы» / создание группы в журнале Meta (за 3–4 дня) */
+    M.aud = {};
+    M.logs.forEach(function(e){ if (e.x && e.x.type === "targets_spec" && !M.aud[e.objId]) M.aud[e.objId] = { t: e.t, items: tgtList(e.x.new_value) }; });
+    var capEv = M.logs.filter(function(e){ return /Spending limit/i.test(e.type) && val(e.x.new_value) > 0; })[0];
+    M.capFromLog = capEv ? val(capEv.x.new_value) / 100 : null;
+    var campEv = M.logs.filter(function(e){ return /Campaign created/i.test(e.type) && e.objId === String(c.campaign); })[0];
+
+    /* траты по часам сегодня */
+    var hr = []; for (var i = 0; i < 24; i++) hr.push(0);
+    (m.hourly || []).forEach(function(r){ var h = parseInt(r.hourly_stats_aggregated_by_advertiser_time_zone, 10); if (h >= 0 && h < 24) hr[h] += val(r.amount_spent) || 0; });
+    M.hourly = hr; M.hourlyOk = Array.isArray(m.hourly);
+    M.todaySpend = M.hourlyOk ? hr.reduce(function(s, v){ return s + v; }, 0) : null;
+
+    /* кампания */
+    var cr = m.camp && m.camp[0];
+    M.camp = cr ? { id: String(cr.id), name: cr.name, status: cr.status, eff: cr.effective_status, del: deliv(cr), cap: val(cr.spend_cap), stop: pt(cr.stop_time),
+      spent: val(cr.amount_spent) || 0, impr: val(cr.impressions) || 0, reach: val(cr.reach) || 0, cpm: val(cr.cpm), freq: val(cr.frequency),
+      link: val(cr.link_click) || 0, calls: callsOf(cr),
+      /* у кампании нет даты создания в ответе: берём из журнала Meta, иначе — начало теста */
+      created: campEv ? campEv.t : laToMs(+c.test.start.slice(0, 4), +c.test.start.slice(5, 7), +c.test.start.slice(8, 10), 0, 0) } : null;
+
+    /* по дням */
+    M.daily = (m.daily || []).map(function(r){ return { d: r.date_start, spend: val(r.amount_spent) || 0, impr: val(r.impressions) || 0, link: val(r.link_click) || 0, calls: callsOf(r) }; });
+    if (M.todaySpend == null) { var td = M.daily.filter(function(r){ return r.d === M.today; })[0]; if (td) M.todaySpend = td.spend; }
+
+    /* группы кампании */
+    M.sets = (m.adsets || []).map(function(r){
+      return { id: String(r.id), name: r.name, status: r.status, eff: r.effective_status, del: deliv(r), budget: val(r.daily_budget), start: pt(r.start_time), end: pt(r.end_time),
+        created: pt(r.created_time), updated: pt(r.updated_time), today: val(r.amount_spent) || 0, impr: val(r.impressions) || 0 };
+    }).sort(function(x, y){ return (y.created || 0) - (x.created || 0); });
+    M.running = M.sets.filter(function(s){ return s.status === "ACTIVE" && s.eff === "ACTIVE"; });
+    var setById = {}; M.sets.forEach(function(s){ setById[s.id] = s; }); M.setById = setById;
+
+    /* объявления */
+    var f7 = {}; (m.ads7 || []).forEach(function(r){ f7[String(r.id)] = val(r.frequency); });
+    var cfgAds = {}; (c.ads || []).forEach(function(x){ cfgAds[String(x.id)] = x; });
+    var line = st.line || {};
+    M.line = line;
+    M.c20 = line.c20 != null ? line.c20 : null;
+    M.ads = (m.ads || []).map(function(r){
+      var id = String(r.id), ca = cfgAds[id] || null, tag = (ca && ca.tag) || tagOf(r.name), t = (c.tags || {})[tag] || {};
+      /* Текст — только из config.ads по id этого объявления. По тегу ролика не берём: после Д1 у bot_t1 был бы текст старого bot_v2s. */
+      var ad = { id: id, name: r.name, tag: tag, title: (ca && ca.title) || t.title || r.name, hook: ca ? (ca.hook || "") : null, set: String(r.adset_id || ""), status: r.status, eff: r.effective_status, del: deliv(r),
+        spend: val(r.amount_spent) || 0, impr: val(r.impressions) || 0, cpm: val(r.cpm), freq: val(r.frequency), freq7: f7[id] != null ? f7[id] : null, link: val(r.link_click) || 0,
+        ctr: val(r.website_ctr), calls: callsOf(r), thru: val(r.video_thruplay_watched_actions), avgT: val(r.video_avg_time_watched_actions), created: pt(r.created_time) };
+      var s = setById[ad.set];
+      ad.working = ad.status === "ACTIVE" && !!s && s.status === "ACTIVE";
+      ad.serving = ad.working && ad.eff === "ACTIVE" && s.eff === "ACTIVE";
+      var cba = st.callsByAd || {}, x = cba[id] || cba[r.name] || (tag ? cba[tag] : null);
+      ad.c20 = x ? (val(x.c20) || 0) : (M.c20 === 0 ? 0 : null);
+      ad.c60 = x ? val(x.c60) : (M.c20 === 0 ? 0 : null);
+      ad.c20est = x ? x.estimate !== false : false;
+      ad.early = ad.spend < th.ads.judgeSpend && ad.impr < th.ads.judgeImpr;
+      return ad;
+    });
+    M.work = M.ads.filter(function(a){ return a.working; }).sort(function(x, y){ return y.spend - x.spend; });
+    M.old = M.ads.filter(function(a){ return !a.working; });
+    var workSpend = M.work.reduce(function(s, a){ return s + a.spend; }, 0);
+    M.work.forEach(function(a){ a.share = workSpend > 0 ? a.spend / workSpend : null; });
+
+    /* аккаунт: траты за всё время */
+    M.acctSpent = m.acct && m.acct[0] ? val(m.acct[0].amount_spent) : null;
+    /* смена потолка, попавшая в окно журнала, — самая свежая из всех; иначе то, что записал агент; иначе настройки */
+    M.accountCap = M.capFromLog || val(st.money && st.money.accountCapFromLog) || c.money.accountCap;
+
+    /* черновики, ошибки */
+    var known = {}; (c.knownDrafts || []).concat(st.knownDrafts || []).forEach(function(k){ known[String(k.id) + ":" + k.time_updated] = k.why || "известен"; });
+    M.drafts = (m.drafts || []).map(function(d){
+      var tu = val(d.time_updated);
+      return { id: String(d.ad_object_id), type: d.ad_object_type, parent: String(d.parent_ad_object_id || ""), action: d.action, status: d.status, valid: d.validation_status,
+        t: tu ? tu * 1000 : null, tu: tu, values: d.values || {}, errors: d.active_errors || [], known: known[String(d.ad_object_id) + ":" + tu] || null };
+    });
+    M.errors = m.errors || [];
+
+    /* тест и деньги */
+    M.days = dayDiff(c.test.start, c.test.end) + 1;
+    M.dayN = Math.min(M.days, Math.max(1, dayDiff(c.test.start, M.today) + 1));
+    var inTest = M.today >= c.test.start && M.today <= c.test.end;
+    M.plan = inTest ? Math.min(c.money.campaignCap, c.money.daily * (M.dayN - 1 + M.hour / 24)) : null;
+    M.workToday = M.running.reduce(function(s, x){ return s + x.today; }, 0);
+    var daysAfter = Math.max(0, dayDiff(M.today, c.test.end));
+    M.need = inTest ? c.money.daily * daysAfter + Math.max(0, c.money.daily - M.workToday) : 0;
+    M.capLeft = M.camp && M.camp.cap != null ? M.camp.cap - M.camp.spent : null;
+    M.acctLeft = M.acctSpent != null ? M.accountCap - M.acctSpent : null;
+    M.week = null;
+    (c.money.weekly || []).forEach(function(w){
+      if (M.today >= w.from && M.today <= w.to) {
+        var sum = M.daily.filter(function(r){ return r.d >= w.from && r.d <= w.to; }).reduce(function(s, r){ return s + r.spend; }, 0);
+        M.week = { from: w.from, to: w.to, max: w.max, sum: sum, last: M.today === w.to };
+      }
+    });
+    var ws = M.running[0] || M.sets.filter(function(s){ return s.id === String(c.workingAdset); })[0];
+    M.endAt = (ws && ws.end) || pt(c.test.endTime);
+    M.quiet = st.quiet || c.quiet || null;
+    M.quietUntil = M.quiet ? pt(M.quiet.until) : null;
+
+    /* агент */
+    M.pulseAt = pt(st.updatedAt);
+    M.agent = st.agent || {};
+    M.decPending = (S.decisions || []).filter(function(d){ return d.status === "pending" || d.status === "executing" || d.status === "failed"; });
+
+    /* кнопки «Стоп»/«Включить»: последняя запись stop/* (с любого устройства) */
+    var stops = (S.stops || []).slice().sort(function(a, b){ return (pt(b.at) || 0) - (pt(a.at) || 0); });
+    M.lastStop = stops[0] || null;
+    M.stopRunning = S.stopUi.phase === "run" && S.stopUi.kind === "stop" ||
+      stops.some(function(s){ return s.result === "running" && pt(s.at) && now - pt(s.at) < 10 * 60000; });
+    M.testOn = M.today >= c.test.start && (M.endAt ? now < M.endAt : M.today <= c.test.end);
+    return M;
+  }
+
+  /* ================= светофор: тревоги ================= */
+  function lvl(v, y, r, higherWorse){ if (v == null) return "grey"; if (higherWorse === false) return v < r ? "bad" : v < y ? "warn" : "good"; return v > r ? "bad" : v > y ? "warn" : "good"; }
+  /* Утром первый сторож в 07:05 (+ сдвиг до 10 мин + пересылка главным окном): первые morningGraceMin минут дня — ночные пороги */
+  function dayMode(M){
+    if (!M.day) return false;
+    var p = laP(M.now), start = laToMs(p.y, p.m, p.d, TH().dayHours.from, 0);
+    return (M.now - start) / 60000 >= (+TH().pulse.morningGraceMin || 0);
+  }
+  function pulseLevel(M){
+    if (!M.pulseAt) return "grey";
+    var p = TH().pulse, mins = (Date.now() - M.pulseAt) / 60000;
+    if (dayMode(M)) return mins > p.dayRedMin ? "bad" : mins > p.dayYellowMin ? "warn" : "good";
+    return mins > p.nightRedMin ? "bad" : mins > p.nightYellowMin ? "warn" : "good";
+  }
+  function alertsOf(M){
+    var A = [], th = TH(), c = CFG, L = c.links;
+    function add(level, code, title, text, todo, src, extra){ A.push(Object.assign({ level: level, code: code, title: title, text: text || "", todo: todo || "", src: src || "Meta" }, extra || {})); }
+    var billingTodo = 'Оплатить: <a href="' + esc(L.billing) + '" target="_blank" rel="noopener">Billing &amp; payments</a> → аккаунт ' + esc(c.account) + " → Payment methods → Pay now. Баланс обновляется до 5 минут.";
+
+    /* А. деньги и аккаунт */
+    if (M.acc) {
+      if (M.acc.missing) add("red", "ACC_MISSING", "Коннектор не видит рекламный аккаунт " + c.account, "Коннектор Meta Ads подключён другой учёткой или доступ к аккаунту снят.", "Проверьте, какой учёткой подключён Meta Ads в claude.ai → Settings → Connectors.");
+      else {
+        var lastMoney = M.pay.filter(function(e){ return /balance/i.test(e.type); })[0];
+        if (M.acc.status && M.acc.status !== "ACTIVE") {
+          var tx = "Meta: статус аккаунта «" + (ACC[M.acc.status] || M.acc.status) + "». " + (/GRACE/i.test(M.acc.status) ? "Показы пока идут." : "Показы стоят, пока долг не погашен.");
+          if (lastMoney && (Date.now() - lastMoney.t) / 60000 > th.payment.notActiveAfterMoneyMin) tx += " Деньги вносили " + tDM(lastMoney.t) + " (" + usd((val(lastMoney.x.amount) || 0) / 100) + "), а статус за час не стал Active.";
+          add("red", "B6", /GRACE/i.test(M.acc.status) ? "Оплата не прошла: льготный период, потом Meta остановит показы" : "Реклама стоит: Meta ждёт оплату", tx, billingTodo, "Meta", { btn: "recheckPay" });
+        }
+        if (M.acc.pay === false) add("red", "B6_NOPAY", "У аккаунта нет способа оплаты", "Meta не спишет деньги — реклама остановится.", billingTodo, "Meta", { btn: "recheckPay" });
+        if (M.acc.q === false) add("red", "ACC_QUERY", "Meta не даёт читать аккаунт", String(M.acc.reason || "причина не указана"), "Проверьте аккаунт в Ads Manager.");
+      }
+    } else if (!M.acc && M.pay.length) {
+      var ls = M.pay.filter(function(e){ return /Account status/i.test(e.type); })[0];
+      if (ls && String(ls.x.new_value || "") !== "Active") add("red", "B6", "Реклама стоит: " + fmtVal(ls.x.new_value || "статус аккаунта сменился"), "По журналу Meta " + tDM(ls.t) + ": «" + fmtVal(ls.x.old_value) + " → " + fmtVal(ls.x.new_value) + "».", billingTodo, "Meta", { btn: "recheckPay" });
+    }
+    /* платёж не прошёл, а аккаунт ещё Active (льготный период) — после такого события не было успешного списания */
+    var failEv = M.pay.filter(function(e){ return /fail|declin|unsuccess|not processed/i.test(e.type + " " + String(e.x.new_value || "")); })[0];
+    var billedEv = M.pay.filter(function(e){ return /billed/i.test(e.type); })[0];
+    if (failEv && (!billedEv || billedEv.t < failEv.t) && (!M.acc || M.acc.status === "ACTIVE")) add("red", "PAY_FAIL", "Платёж не прошёл — аккаунт пока Active", "Журнал Meta " + tDM(failEv.t) + ": " + (EVT[failEv.type] || failEv.type) + ". Без оплаты Meta остановит показы.", billingTodo, "Meta", { btn: "recheckPay" });
+
+    /* тихая остановка — «деньги не идут» */
+    var qs = th.quietStop;
+    if (M.hourlyOk && M.running.length && (!M.acc || M.acc.status === "ACTIVE")) {
+      var servingAds = M.work.filter(function(a){ return a.eff === "ACTIVE"; });
+      var startMs = Math.max.apply(null, M.running.map(function(s){ return s.start || s.created || 0; }));
+      var lagT = Date.now() - qs.lagMin * 60000, lp = laP(lagT), H = lp.h;
+      if (laDate(lagT) === M.today && servingAds.length && (Date.now() - startMs) / 3600000 > qs.graceHoursAfterStart) {
+        var zero = true, n = 0;
+        for (var h = H - 1; h >= H - qs.zeroHours; h--) {
+          var hourStart = laToMs(lp.y, lp.m, lp.d, Math.max(0, h), 0);
+          if (h < th.dayHours.from || hourStart < startMs) { zero = false; break; }
+          if (M.hourly[h] > 0) { zero = false; break; }
+          n++;
+        }
+        if (zero && n === qs.zeroHours) add("red", "B8", "Деньги не идут: " + n + " часа подряд $0", "Группа и объявления включены и не на проверке, а траты по часам стоят с " + z(H - n) + ":00.", "Агент проверяет по порядку: статусы → оплата → лимиты → даты → проверка Meta → ошибки. Если причина — деньги, он спросит вас здесь.", "Meta");
+      }
+      if (M.hour >= qs.halfDayHour && M.todaySpend != null && M.todaySpend < c.money.daily * qs.halfDayShare) add("yellow", "B8_HALF", "К " + qs.halfDayHour + ":00 потрачено " + usd(M.todaySpend) + " из " + usdS(c.money.daily), "Меньше половины дневного бюджета: признак недопоказа.", "Агент ищет причину; это не цель «освоить бюджет».", "Meta");
+    }
+
+    /* «деньги не идут», когда не работает НИ ОДНА группа: старая на паузе, а новая не опубликовалась; снято последнее объявление; кто-то выключил */
+    if (M.testOn && M.camp && S.meta.adsets && !M.running.length && (!M.acc || M.acc.status === "ACTIVE")) {
+      var ls0 = M.lastStop, byButton = ls0 && ls0.kind !== "resume" && (ls0.result === "stopped" || ls0.result === "running");
+      var a4 = M.c20 === 0 && M.camp.spent >= th.test.noCallsStop;
+      var ids0 = {}; ids0[String(c.campaign)] = 1; M.sets.forEach(function(s){ ids0[s.id] = 1; });
+      var offEv = M.logs.filter(function(e){ return ids0[e.objId] && /status/i.test(e.type) && /paused|inactive|off|deleted|archived/i.test(String(e.x.new_value || "")); })[0];
+      var whoTxt = offEv ? tDM(offEv.t) + " · " + ({ agent: "коннектор (агент или пульт)", meta: "Meta", human: offEv.actor || "человек" })[whoOf(offEv)] + " · " + (EVT[offEv.type] || offEv.type) + ": " + offEv.obj : "в журнале Meta за 3 дня остановки не видно";
+      var campTxt = "Кампания: " + (ST[M.camp.eff] || M.camp.eff || "?") + "; групп работает: 0 из " + M.sets.length + ".";
+      if (byButton) add("info", "STOPPED_BY_YOU", "Реклама остановлена вашей кнопкой " + tDM(pt(ls0.at)), campTxt, "Включить обратно — кнопка внизу пульта. Агент сам не включает.", "пульт");
+      else if (a4) add("yellow", "STOPPED_A4", "Реклама остановлена по правилу «" + usdS(th.test.noCallsStop) + " без звонков 20+»", campTxt + " Последняя остановка: " + whoTxt + ".", "Что дальше — решаете вы: агент приносит итоги.", "расчёт");
+      else if (offEv && whoOf(offEv) === "agent" && (Date.now() - offEv.t) / 60000 < (+th.nothingRunsGraceMin || 30)) add("yellow", "NOTHING_RUNS", "Сейчас не работает ни одна группа — похоже, идёт пересборка", campTxt + " Последняя остановка: " + whoTxt + ".", "Если через " + (th.nothingRunsGraceMin || 30) + " мин после остановки ничего не заработает, пульт покажет аварию.", "Meta");
+      else add("red", "NOTHING_RUNS", "Реклама не крутится: не работает ни одна группа", campTxt + " Последняя остановка: " + whoTxt + ".",
+        "Агент по правилу Б2 включает старую группу, если новая не опубликовалась, и сообщает. Остановили вы или по плану — ничего делать не нужно; иначе проверьте в " + '<a href="' + esc(L.adsManager) + '" target="_blank" rel="noopener">Ads Manager</a>.', "Meta");
+    }
+
+    /* кампания исчерпала лимит / потолок аккаунта */
+    /* Лимит кампании: в тесте — против «нужно до конца» (как Г1 у агента); вне теста при работающей рекламе — порог campaignCapLeft.
+       Потолок аккаунта: против «нужно» И против порога accountCapLeft (как Г2 у сторожа: меньше $45 — вопрос). */
+    if (M.capLeft != null) {
+      var ccl = th.campaignCapLeft;
+      if (M.capLeft <= 0.01) add("red", "CAP_DONE", "Лимит кампании " + usdS(M.camp.cap) + " исчерпан — Meta остановила показы", "", "Поднять лимит — только вашим словом: агент задаст вопрос с суммой.", "Meta");
+      else if (M.testOn && M.capLeft < M.need) add(M.capLeft < ccl.red ? "red" : "yellow", "G1", "Лимит кампании кончится раньше " + dm(c.test.end), "Осталось " + usd(M.capLeft) + ", до конца теста нужно " + usd(M.need) + ".", "Вопрос «поднять лимит?» появится наверху с суммой. Без вашего «да» агент лимит не трогает.", "расчёт");
+      else if (!M.testOn && M.running.length && M.capLeft < ccl.yellow) add(M.capLeft < ccl.red ? "red" : "yellow", "G1", "Лимит кампании почти выбран: осталось " + usd(M.capLeft), "Тест по плану закончен, а группа работает.", "Решаете вы: остановить или поднять лимит.", "расчёт");
+    }
+    if (M.acctLeft != null) {
+      var acl = th.accountCapLeft, isShort = M.acctLeft < M.need, low = M.acctLeft < acl.yellow;
+      if (M.acctLeft <= 0.01) add("red", "G2_DONE", "Потолок аккаунта " + usdS(M.accountCap) + " исчерпан", "Meta не покажет рекламу, пока потолок не поднят.", 'Поднять: <a href="' + esc(L.billing) + '" target="_blank" rel="noopener">Payment settings</a> → Account spending limit → Change.', "Meta");
+      else if (isShort || low) add(M.acctLeft < acl.red ? "red" : "yellow", "G2", isShort ? "Потолок аккаунта кончится раньше " + dm(c.test.end) : "Потолок аккаунта почти выбран", "Осталось " + usd(M.acctLeft) + " из " + usdS(M.accountCap) + (isShort ? ", до конца теста нужно " + usd(M.need) : ", порог — " + usdS(acl.yellow)) + ".", 'Поднять можете только вы: <a href="' + esc(L.billing) + '" target="_blank" rel="noopener">Payment settings</a> → Account spending limit → Change (вводится нарастающая сумма).', "расчёт");
+    }
+    var pp = M.st.money && M.st.money.prepaid;
+    if (pp && val(pp.estimate) != null) {
+      var e = val(pp.estimate);
+      if (e < th.prepaidLeft.yellow) add(e < th.prepaidLeft.red ? "red" : "yellow", "PREPAID", "Предоплата почти кончилась: " + usd(e) + " (оценка агента)", "", "Агент спросит «пополнить?» с суммой.", "агент");
+    }
+
+    /* Б. кампания и темп */
+    if (M.running.length >= 2) add("red", "B3", "Работают " + M.running.length + " группы одновременно", "Это " + usdS(c.money.daily * M.running.length) + " в день вместо " + usdS(c.money.daily) + ": " + M.running.map(function(s){ return s.name; }).join(", ") + ".", "Агент ставит лишнюю группу на паузу сам (снижение трат) и сообщает. Если вторую включил человек — это ваше решение о деньгах.", "Meta");
+    if (M.todaySpend != null) {
+      var p100 = M.todaySpend / c.money.daily * 100;
+      if (p100 > th.todaySpend.redPct) add("red", "B4", "Перерасход сегодня: " + usd(M.todaySpend) + " (" + nf0.format(p100) + "% дневного)", "Порог Meta на день — " + usd(c.money.daily * th.todaySpend.redPct / 100) + ".", "Агент ищет причину (две группы, бюджет менял не он). Бюджет без вашего слова не трогает.", "Meta");
+      else if (p100 > th.todaySpend.yellowPct) add("yellow", "B4_Y", "Сегодня потрачено " + usd(M.todaySpend) + " — " + nf0.format(p100) + "% дневного", "Meta может взять до " + th.todaySpend.redPct + "% в отдельный день; неделя всё равно в норме.", "", "Meta");
+    }
+    if (M.week) {
+      if (M.week.sum > M.week.max) add("red", "B5", "Неделя Meta выше нормы: " + usd(M.week.sum) + " из " + usdS(M.week.max), dm(M.week.from) + "–" + dm(M.week.to) + ".", "Вопрос к вам: остановить до воскресенья или пусть идёт.", "расчёт");
+      else if (!M.week.last && M.week.sum >= M.week.max * th.week.yellowShare) add("yellow", "B5_Y", "Неделя Meta почти выбрана: " + usd(M.week.sum) + " из " + usdS(M.week.max), "До конца недели " + dm(M.week.to) + ".", "", "расчёт");
+    }
+    if (M.plan != null && M.plan > c.money.daily && M.camp && (M.plan - M.camp.spent) / M.plan > th.planLag.yellowShare) add("yellow", "PLAN", "Недопоказ: потрачено " + usd(M.camp.spent) + " при плане " + usd(M.plan), "Отставание " + nf0.format((M.plan - M.camp.spent) / M.plan * 100) + "%. Это сигнал, а не цель «освоить».", "Агент ищет причину недопоказа.", "расчёт");
+    if (M.endAt && (M.endAt - Date.now()) / 3600000 < th.endSoonH && M.endAt > Date.now()) {
+      var ext = (S.decisions || []).some(function(d){ return /extend|продл/i.test(String(d.kind || "") + " " + String(d.title || "")); });
+      if (!ext) add("yellow", "G3", "Тест кончается " + tDM(M.endAt) + ", решения о продлении нет", "", "Агент готовит итоги и спросит «продлить?» с суммой.", "расчёт");
+    }
+    [M.camp].concat(M.sets.filter(function(s){ return s.status === "ACTIVE"; })).forEach(function(o){
+      if (!o) return;
+      if (o !== M.camp && (o.eff === "DISAPPROVED" || o.eff === "WITH_ISSUES")) add("red", "SET_ISSUE", "Группа " + o.name + ": " + (ST[o.eff] || o.eff), o.del ? subTxt(o.del.sub) : "", "Агент разбирает причину и чинит технику сам; обжалование — ваш клик.", "Meta");
+      if (!o.del) return;
+      var born = o.created || o.start;
+      if (o.del.status === "error") add("red", "DEL_ERR", "Ошибка показа: " + (o.name || o.id), "Meta: " + subTxt(o.del.sub), "Агент чинит технику сам и сообщает.", "Meta");
+      else if (o.del.status === "pending" && born && hrs(born) > th.deliveryPendingH) add("yellow", "DEL_PEND", (o.name || o.id) + " больше суток «готовится к показу»", subTxt(o.del.sub), "Агент проверяет причину.", "Meta");
+    });
+    M.drafts.forEach(function(d){
+      if (d.errors && d.errors.length) add("red", "B2", "Черновик с ошибкой Meta: " + nameOf(M, d.id), d.errors.map(function(x){ return typeof x === "string" ? x : (x.message || x.error_message || x.title || JSON.stringify(x)); }).join("; ").slice(0, 300), "Агент чинит публикацию сам.", "Meta");
+      else if (!d.known && d.t && hrs(d.t) > th.draftYellowH) add("yellow", "B2_Y", "Правка висит черновиком " + nf0.format(hrs(d.t)) + " ч: " + nameOf(M, d.id), "Изменение: " + draftText(d) + ". В живой рекламе его нет.", "Агент публикует или заменяет сам.", "Meta");
+    });
+    if (M.errors.length) add("red", "ERR", "Meta сообщает об ошибках показа (" + M.errors.length + ")", M.errors.slice(0, 3).map(function(x){ return typeof x === "string" ? x : (x.error_summary || x.message || x.title || x.description || JSON.stringify(x)); }).join("; ").slice(0, 300), "Агент разбирает и чинит технику.", "Meta");
+    var humans = M.changes.filter(function(e){ return whoOf(e) === "human"; });
+    if (humans.length) add("yellow", "B9", "Правки не через агента: " + humans.length + " за 72 ч", "Последняя: " + tDM(humans[0].t) + " · " + (humans[0].actor || "?") + " · " + (EVT[humans[0].type] || humans[0].type) + " · " + humans[0].obj, "Агент сверяет с планом и правки человека не откатывает.", "Meta");
+    if (M.enh.length) {
+      var en = M.enh[0];
+      add("red", "B9_ENH", (whoOf(en.e) === "meta" ? "Meta включила " : "Включено не агентом: ") + en.what, tDM(en.e.t) + " · " + (en.e.actor || "?") + " · " + (EVT[en.e.type] || en.e.type) + ": " + en.e.obj,
+        /аудитор/.test(en.what) ? "Агент пересоберёт группу с выключенной Advantage+ аудиторией (наше правило: только NY+LA и русский язык)." : "Агент пересоберёт объявление с выключенными улучшениями. Настройку аккаунта выключаете вы: Advertising settings → Creative features → Test new creative features → Off.", "Meta");
+    }
+
+    /* В. объявления */
+    var ta = th.ads;
+    M.work.forEach(function(a){
+      if (a.eff === "DISAPPROVED" || a.eff === "WITH_ISSUES") add("red", "B1", "Объявление " + a.name + ": " + (ST[a.eff] || a.eff), "", "Агент заменит его тем же текстом с исправленной причиной и сообщит. Обжаловать может только человек (Business Support Home → Request review).", "Meta");
+      else if ((a.eff === "PENDING_REVIEW" || a.eff === "IN_PROCESS") && a.created && hrs(a.created) > th.pendingReviewH) add("yellow", "B1_Y", a.name + " больше суток на проверке Meta", "", "", "Meta");
+      if (!a.serving) return;
+      var rule = (M.st.rules || {})[a.id];
+      if (a.c20 === 0 && a.spend >= ta.stopSpend) {
+        var wait = rule && val(rule.spendAtFire) != null ? a.spend - val(rule.spendAtFire) : a.spend - ta.stopSpend;
+        var lv = (wait > ta.waitRed || pulseLevel(M) !== "good") ? "red" : "yellow";
+        add(lv, "A2:" + a.id, "Сработало правило «" + usdS(ta.stopSpend) + " без звонков 20+»: " + a.name, "Потрачено " + usd(a.spend) + ", звонков 20+ ноль. Стоимость ожидания ≈ " + usd(Math.max(0, wait)) + (rule && rule.firedAt ? " (сработало " + tDM(pt(rule.firedAt)) + ")" : "") + ".", "Агент убирает объявление сам (пересборка группы без него) на ближайшем прогоне и сообщает.", "расчёт");
+      } else if (a.c20 === 0 && a.spend >= ta.stopWarnSpend) add("yellow", "A2_Y:" + a.id, a.name + " подходит к правилу: " + usd(a.spend) + " без звонков 20+", "Порог — " + usdS(ta.stopSpend) + ".", "", "расчёт");
+      if (a.c20 != null && a.c20 >= ta.costMinCalls && a.spend / a.c20 > ta.costPerCallYellow) {
+        var cc = a.spend / a.c20;
+        add(cc > ta.costPerCallRed ? "red" : "yellow", "A3:" + a.id, "Звонок 20+ у " + a.name + " стоит " + usd(cc), "Порог остановки — дороже " + usdS(ta.costPerCallRed) + " при " + ta.costMinCalls + "+ звонках." + (a.c20est ? " Звонки по объявлениям — оценка агента." : ""), cc > ta.costPerCallRed ? "Агент убирает объявление сам и сообщает." : "", "расчёт");
+      }
+      if (a.freq7 != null && a.freq7 > ta.frequencyYellow) add("yellow", "FREQ:" + a.id, "Частота " + nf1.format(a.freq7) + " за 7 дней у " + a.name, "Эвристика, не доказательство выгорания; доказательство — рост цены звонка.", "Агент проверяет креатив; это не пауза.", "Meta");
+      if (M.c20 > 0 && a.c20 === 0 && a.share != null && a.share >= ta.spendShareYellow) add("yellow", "SHARE:" + a.id, a.name + " берёт " + nf0.format(a.share * 100) + "% трат без звонков 20+", "", "Агент действует только правилами остановки, бюджет не перекидывает.", "расчёт");
+    });
+
+    /* Г. линия */
+    var tl = th.line, line = M.line;
+    if (M.camp && M.c20 === 0) {
+      if (M.camp.spent >= th.test.noCallsStop) add("red", "A4", "Тест: " + usd(M.camp.spent) + " и ни одного звонка 20+", "Правило «" + usdS(th.test.noCallsStop) + " без звонков» сработало.", "Агент останавливает кампанию сам и приносит итоги: хук, оффер, куда ведём. Что дальше — решаете вы.", "расчёт");
+      else if (M.camp.spent >= th.test.noCallsYellow) add("yellow", "A4_Y", "Тест: " + usd(M.camp.spent) + " и ни одного звонка 20+", "При " + usdS(th.test.noCallsStop) + " агент остановит кампанию.", "", "расчёт");
+    }
+    var today = line.today || {}, callsToday = val(today.total != null ? today.total : M.st.callsToday);
+    if (callsToday != null && callsToday > tl.callsDayYellow) add(callsToday > tl.callsDayRed ? "red" : "yellow", "B10", "Звонков сегодня: " + callsToday, "Предел линии — 20 в сутки.", "Решаете вы: линия и лиды.", "агент");
+    var mails = val(M.st.mailToOwnerToday != null ? M.st.mailToOwnerToday : line.mailsToday);
+    if (mails != null && mails > tl.mailsYellow) add(mails >= tl.mailsRed ? "red" : "yellow", "B11_MAIL", "Писем владельцу сегодня: " + mails, "С 60-го Meta молчит — владелец не узнаёт о звонках.", "Главный агент проверяет письма.", "агент");
+    var li = line.lastInbound || null;
+    if (M.camp && li) {
+      /* Считаем нажатия «Позвонить» (callClicks). Переходы по ссылке (linkClick) с 30.09 включают заходы на сайт — по ним максимум жёлтое. */
+      var byCall = val(li.callClicks) != null, base0 = byCall ? val(li.callClicks) : val(li.linkClick), now0 = byCall ? M.camp.calls : M.camp.link;
+      if (base0 != null) {
+        var dn = now0 - base0;
+        if (dn >= tl.clicksNoCallYellow) add(byCall && dn >= tl.clicksNoCallRed ? "red" : "yellow", "B11",
+          byCall ? "Линия, похоже, не отвечает: " + dn + " нажатий «Позвонить» после последнего входящего" : "Возможно, линия не отвечает: " + dn + " переходов по ссылке после последнего входящего",
+          "Последний входящий — " + (li.t || tDM(pt(li.at))) + ". Эвристика" + (byCall ? "" : ": переходы включают заходы на сайт, поэтому только жёлтое. Точнее — когда агент пишет нажатия «Позвонить» (callClicks)") + ".", "Главный агент делает проверочный звонок дозвонщиком.", "расчёт");
+      }
+    }
+    (M.st.unanswered || []).forEach(function(u){
+      var h = hrs(pt(u.since) || Date.now());
+      if (h > tl.unansweredYellowH) add(h > tl.unansweredRedH ? "red" : "yellow", "UNANS", "Контакт без ответа " + nf0.format(h) + " ч: " + (u.who || "?"), "", "Ответить человеку — ваша часть.", "агент");
+    });
+
+    /* Д. агент */
+    var pl = pulseLevel(M);
+    if (pl === "bad" || pl === "warn") add(pl === "bad" ? "red" : "yellow", "PULSE", "Агент давно не писал на пульт: " + ago(M.pulseAt), "Цифры Meta пульт читает сам и тревоги выше видны без агента. Не приходят звонки линии, причины действий и вопросы.", "Откройте главное окно Claude («ГЛАВНЫЙ АГЕНТ»): данные на пульт пишет оно по уведомлению сторожа.", "пульт");
+    else if (pl === "grey" && S.db && Date.now() - S.started > 15000) add("yellow", "PULSE", "Агент ещё ни разу не писал на пульт v2", "", "Главное окно пишет panel/state по уведомлению сторожа.", "пульт");
+    /* Проверка упала или не проходит, а главное окно живо (иначе причина одна — PULSE выше) */
+    if (pl === "good") {
+      var lr = M.agent.lastRun, wt = M.agent.watch;
+      if (lr && lr.ok === false) add("yellow", "CHECK_FAIL", "Полная проверка " + tDM(pt(lr.at)) + " не прошла", String(lr.summary || "").slice(0, 200), "Главный агент разбирает, почему упал запуск.", "агент");
+      var lh = lr && pt(lr.at) ? hrs(pt(lr.at)) : null;
+      if (lh != null && lh > th.fullCheck.yellowH) add(lh > th.fullCheck.redH ? "red" : "yellow", "CHECK_STALE", "Полная проверка не проходила " + nf0.format(lh) + " ч", "По расписанию — 8:30 и 18:30. Запуск мог зависнуть на разрешении (как 29.09).", "Главный агент смотрит задачу reklama-vera-proverka.", "агент");
+      var wh = wt && pt(wt.at) ? hrs(pt(wt.at)) : null;
+      if (dayMode(M) && wh != null && wh > th.watch.yellowH) add(wh > th.watch.redH ? "red" : "yellow", "WATCH_STALE", "Сторож не отрабатывал " + nf0.format(wh) + " ч", "По расписанию — каждый час днём.", "Главный агент смотрит задачу reklama-vera-storozh.", "агент");
+      else if (wt && wt.ok === false) add("yellow", "WATCH_FAIL", "Прогон сторожа " + tDM(pt(wt.at)) + " не прошёл", "", "Главный агент разбирает.", "агент");
+    }
+    (S.decisions || []).forEach(function(d){
+      if (d.status === "failed") add("red", "DEC_FAIL", "Не выполнилось: " + d.title, (d.result && d.result.error) || "", "Карточка вопроса ниже — можно повторить.", "пульт");
+      else if (d.status === "pending" && pt(d.createdAt) && hrs(pt(d.createdAt)) > th.decisionPendingYellowH) add("yellow", "DEC_WAIT", "Вопрос ждёт вашего слова " + nf0.format(hrs(pt(d.createdAt))) + " ч: " + d.title, "", "", "агент");
+      if ((d.status === "pending" || d.status === "failed") && isPageExec(d)) { var vd = checkDecision(d, M); if (!vd.ok && !vd.wait) add("yellow", "DEC_BAD", "Вопрос составлен с ошибкой — пульт его не выполнит: " + d.title, vd.why, "Главный агент переписывает вопрос.", "пульт"); }
+    });
+    (S.inbox || []).forEach(function(x){ if (x.status === "new" && pt(x.at) && hrs(pt(x.at)) > th.inboxNewYellowH) add("yellow", "INBOX", "Агент не прочитал ваше сообщение " + nf0.format(hrs(pt(x.at))) + " ч", "«" + String(x.text || "").slice(0, 90) + "»", "", "пульт"); });
+
+    /* тревоги агента из db */
+    (S.alertsDb || []).forEach(function(x){ if (x.status === "open") add(x.level === "red" ? "red" : "yellow", String(x.code || "AG"), x.text || x.code, x.at ? "С " + tDM(pt(x.at)) : "", esc(x.whatToDo || ""), "агент", { raw: true }); });
+
+    /* Нет данных: без них пульт не вправе сказать «всё в порядке» по оплате, тратам и журналу */
+    var nd = noData(M);
+    if (nd.length) add("yellow", "NODATA", "Нет данных: " + nd.map(function(x){ return x.label; }).join(" / "), "Пока эти данные не читаются, пульт не может сказать «в порядке» по ним. " + nd.map(function(x){ return x.label + " — " + x.why; }).join("; ") + ".", "Если держится дольше 15 минут — проверьте коннектор Meta Ads в claude.ai → Settings → Connectors.", "пульт", { nodata: nd });
+
+    var rank = { red: 0, yellow: 1, info: 2 };
+    A.sort(function(x, y){ return rank[x.level] - rank[y.level]; });
+    return A;
+  }
+  var CRIT = [["account", "оплата и статус аккаунта", "fast"], ["hourly", "траты по часам", "fast"], ["logs", "журнал Meta", "fast"], ["camp", "кампания", "slow"], ["adsets", "группы", "slow"], ["ads", "объявления", "slow"]];
+  function noData(M){
+    if (!S.mcp || S.mcpNull) return [];
+    var out = [], nd = TH().noData, now = Date.now();
+    CRIT.forEach(function(k){
+      var key = k[0], ivMin = k[2] === "fast" ? +CFG.poll.fastMin || 5 : +CFG.poll.slowMin || 15, have = S.meta[key] != null, e = S.err[key];
+      if (!have && (e || (S.mcpAt && now - S.mcpAt > nd.waitSec * 1000))) out.push({ key: key, label: k[1], why: e ? metaErrText(e).replace(/[.\s]+$/, "") : "ответа ещё нет" });
+      else if (have && S.at[key] && now - S.at[key] > (ivMin * nd.staleMult + 5) * 60000 && now - (S.visibleSince || S.started) > nd.waitSec * 1000) out.push({ key: key, label: k[1], why: "данные на " + tHM(S.at[key]) + (e ? ", " + metaErrText(e).replace(/[.\s]+$/, "").toLowerCase() : "") });
+    });
+    return out;
+  }
+  function nameOf(M, id){
+    var s = M.setById[id]; if (s) return "группа " + s.name;
+    var a = M.ads.filter(function(x){ return x.id === id; })[0]; if (a) return "объявление " + a.name;
+    if (id === String(CFG.campaign)) return "кампания";
+    return id;
+  }
+  function draftText(d){
+    var v = d.values || {}, out = [];
+    Object.keys(v).forEach(function(k){ var x = v[k]; out.push(k + ": " + (isObj(x) ? (x.old == null ? "—" : x.old) + " → " + x.new : String(x))); });
+    return out.join(", ") || (d.action || "правка");
+  }
+
+  /* ================= отрисовка ================= */
+  function render(){
+    var M = model(), A = alertsOf(M);
+    renderTop(M, A); renderAlerts(M, A); renderDecisions(M); renderMoney(M); renderCampaign(M); renderChart(M);
+    renderAds(M); renderChanges(M); renderAgent(M); renderLine(M); renderLog(M); renderInbox(M); renderRules(); renderStop(M); renderFoot(M);
+  }
+  function freshOf(keys){
+    var t = null, e = null;
+    keys.forEach(function(k){ if (S.at[k] && (!t || S.at[k] < t)) t = S.at[k]; if (S.err[k] && !e) e = S.err[k]; });
+    if (e) return '<span class="warn-t">' + esc(metaErrText(e)) + "</span>" + (t ? " · данные на " + tHM(t) : "");
+    return t ? "Meta · " + tHM(t) : (S.mcp ? "Meta · загружаю…" : "");
+  }
+
+  function renderTop(M, A){
+    var reds = A.filter(function(a){ return a.level === "red"; }).length, ys = A.filter(function(a){ return a.level === "yellow"; }).length, o = el("overall");
+    var noMeta = !S.meta.camp && !S.meta.account, nd = A.filter(function(a){ return a.code === "NODATA"; })[0], mine = A.filter(function(a){ return a.code === "STOPPED_BY_YOU"; })[0];
+    var cls, txt;
+    if (reds) { cls = "bad"; txt = "Авария: " + reds + (ys ? " · внимание: " + ys : ""); }
+    else if (nd) { cls = "warn"; txt = "Нет данных: " + nd.nodata.map(function(x){ return x.label; }).join(" / ") + (ys > 1 ? " · внимание: " + (ys - 1) : ""); }
+    else if (ys) { cls = "warn"; txt = "Внимание: " + ys; }
+    else if (noMeta) { cls = "muted"; txt = S.mcpNull ? "Нет доступа к Meta" : "Жду данные Meta…"; }
+    else if (mine) { cls = "info"; txt = "Реклама остановлена вами"; }
+    else { cls = "good"; txt = "Всё в порядке"; }
+    o.className = "pill big " + cls; o.textContent = txt;
+    /* Честно: сигнал на телефон идёт только через главное окно; пульт сам уведомлять не умеет */
+    var pl = pulseLevel(M), sig;
+    if (!M.day && pl !== "bad") sig = '<span class="dot grey"></span><span>Ночью (' + z(TH().dayHours.to) + ":00–07:05) сторож спит — сигналов на телефон до утра нет. Днём их пересылает окно <b>«ГЛАВНЫЙ АГЕНТ»</b>.</span>";
+    else if (pl === "good") sig = '<span class="dot good"></span><span>Сигнал на телефон приходит через окно <b>«ГЛАВНЫЙ АГЕНТ»</b> (пересылает итоги сторожа и проверки). Пульс зелёный — сигналы идут.</span>';
+    else sig = '<span class="dot ' + (pl === "bad" ? "bad" : "warn") + '"></span><span>Сигнал на телефон приходит только через окно <b>«ГЛАВНЫЙ АГЕНТ»</b>. Пульс ' + (pl === "bad" ? "красный" : pl === "warn" ? "жёлтый" : "не пришёл") + " — сигналов сейчас нет, смотрите пульт сами.</span>";
+    put("signal", sig);
+    el("subline").innerHTML = "«Вера звонком» · Нью-Йорк и Лос-Анджелес · русский язык · линия <span class=\"mono\">" + esc(CFG.phone) + "</span>";
+    var sm = [];
+    if (M.camp) sm.push("Кампания: <b>" + esc(ST[M.camp.eff] || M.camp.eff) + "</b>" + (M.camp.del ? " (" + esc(DL[M.camp.del.status] || M.camp.del.status) + ")" : ""));
+    if (M.todaySpend != null) sm.push("Сегодня: <b>" + usd(M.todaySpend) + "</b> из " + usdS(CFG.money.daily));
+    if (M.camp) sm.push("С начала: <b>" + usd(M.camp.spent) + "</b> из " + usdS(M.camp.cap || CFG.money.campaignCap));
+    if (M.c20 != null) sm.push("Звонки 20+: <b>" + int(M.c20) + "</b>");
+    sm.push("Агент: <b>" + (M.pulseAt ? ago(M.pulseAt) : "ещё не писал") + "</b>");
+    put("summary", sm.map(function(x){ return "<span>" + x + "</span>"; }).join(""));
+    var keys = Object.keys(S.err).filter(function(k){ return S.err[k]; }), b = "";
+    var allSame = keys.length >= 3 && keys.every(function(k){ return S.err[k].code === S.err[keys[0]].code; }) && !Object.keys(S.meta).some(function(k){ return S.meta[k] && !S.err[k]; });
+    if (S.mcpNull) b += '<div class="banner note"><span>Живые цифры Meta и кнопки работают только на claude.ai. Здесь пульт показывает то, что записал агент.</span></div>';
+    else if (allSame) b += '<div class="banner err"><span>' + esc(metaErrText(S.err[keys[0]])) + ' Если не поможет — остановить рекламу можно в <a href="' + esc(CFG.links.adsManager) + '" target="_blank" rel="noopener">Ads Manager</a>.</span></div>';
+    if (S.dbErr) b += '<div class="banner err"><span>Хранилище пульта не отвечает (' + esc(S.dbErr.code || "ошибка") + "): записи агента, вопросы по деньгам и сообщения могут быть устаревшими. Обновите страницу.</span></div>";
+    put("pageBanner", b);
+    var am = el("stopAm"); if (am) am.href = CFG.links.adsManager;
+  }
+
+  function renderAlerts(M, A){
+    var reds = A.filter(function(a){ return a.level === "red"; }), ys = A.filter(function(a){ return a.level === "yellow"; }), inf = A.filter(function(a){ return a.level === "info"; });
+    function one(a){
+      var todo = a.todo || "";
+      var btn = a.btn === "recheckPay" ? '<button class="btn small" data-act="recheckPay"' + (S.mcp ? "" : " disabled") + ">Я оплатил — проверить</button>" : "";
+      var payMsg = a.btn === "recheckPay" && S.payUi ? '<span class="' + (S.payUi.ok ? "ok-t" : "muted-t") + '">' + esc(S.payUi.msg) + "</span>" : "";
+      return '<div class="al ' + a.level + '"><span class="ic" aria-hidden="true">' + (a.level === "red" ? "!" : a.level === "info" ? "i" : "?") + '</span><span class="t">' + esc(a.title) + '</span><span class="src">' + esc(a.src) + "</span>" +
+        (a.text ? '<span class="x">' + esc(a.text) + "</span>" : "") + ((todo || btn || payMsg) ? '<span class="todo"><span>' + todo + "</span>" + btn + payMsg + "</span>" : "") + "</div>";
+    }
+    var h = "";
+    if (!A.length) {
+      var ready = S.meta.account || S.meta.camp;
+      h = ready ? '<div class="allgood">Тревог нет: оплата, траты, статусы, объявления и агент в норме.</div>' : "";
+    } else {
+      h = reds.map(one).join("") + inf.map(one).join("");
+      /* раскрыт ли список предупреждений — помним выбор Андрея, перерисовка его не сбрасывает */
+      var open = S.ui.warnsOpen != null ? S.ui.warnsOpen : !reds.length;
+      if (ys.length) h += '<details class="warns" data-ui="warnsOpen"' + (open ? " open" : "") + '><summary>Предупреждения: ' + ys.length + (open ? "" : " — показать") + '</summary><div class="stack">' + ys.map(one).join("") + "</div></details>";
+    }
+    put("alerts", h);
+  }
+
+  /* ---------- вопросы по деньгам ---------- */
+  var KIND = { payment: "оплата", topup: "пополнение", budget: "дневной бюджет", cap: "лимит кампании", account_cap: "потолок аккаунта", extend: "продление", second_group: "вторая группа", new_campaign: "новая кампания", bid: "ставки", results: "итоги теста", money: "деньги" };
+  function renderDecisions(M){
+    var list = (S.decisions || []).filter(function(d){ return d.status === "pending" || d.status === "executing" || d.status === "failed" || (S.dUi[d.id] && S.dUi[d.id].phase !== "idle"); });
+    if (!list.length) { put("decisions", S.db ? '<div class="quiet">Вопросов по деньгам нет — агент справляется сам.</div>' : ""); return; }
+    put("decisions", list.map(function(d){
+      var ui = S.dUi[d.id] || { phase: "idle" };
+      var chips = [];
+      if (d.perDay != null) chips.push(usdS(val(d.perDay)) + " в день");
+      if (d.total != null) chips.push(usdS(val(d.total)) + " всего");
+      if (d.until) chips.push("до " + (pt(d.until) ? tDM(pt(d.until)).slice(0, 5) : d.until));
+      (d.chips || []).forEach(function(c){ chips.push(c); });
+      var waitH = pt(d.createdAt) ? hrs(pt(d.createdAt)) : null;
+      var meta = [];
+      if (d.deadline) meta.push('<span class="chip warn">ответ нужен до ' + esc(pt(d.deadline) ? tDM(pt(d.deadline)) : d.deadline) + "</span>");
+      if (waitH != null) meta.push('<span class="chip ' + (waitH > TH().decisionPendingYellowH ? "warn" : "grey") + '">ждёт ' + (waitH < 1 ? nf0.format(waitH * 60) + " мин" : nf0.format(waitH) + " ч") + "</span>");
+      var failed = d.status === "failed";
+      var body = '<div><div class="eyebrow">' + (failed ? "Сбой исполнения" : d.status === "executing" ? "Выполняется" : "Нужно ваше слово") + " · " + esc(KIND[d.kind] || "деньги") + "</div><h3>" + esc(d.title) + "</h3>" +
+        (d.detail ? "<p>" + esc(d.detail) + "</p>" : "") + (d.why ? "<p><b>Почему:</b> " + esc(d.why) + "</p>" : "") + (d.ifNo ? "<p><b>Если «нет»:</b> " + esc(d.ifNo) + "</p>" : "") +
+        '<div class="money">' + chips.map(function(c){ return '<span class="chip num">' + esc(c) + "</span>"; }).join("") + meta.join("") + "</div>" +
+        (failed && d.result ? '<div class="res bad-t">Meta: ' + esc(d.result.error || "не подтвердила") + (d.result.at ? " · " + tDM(pt(d.result.at)) : "") + "</div>" : "") +
+        (ui.msg ? '<div class="res ' + (ui.phase === "fail" ? "bad-t" : ui.phase === "ok" ? "ok-t" : "muted-t") + '">' + esc(ui.msg) + "</div>" : "") + "</div>";
+      var dis = (!S.canAct || !S.db) ? " disabled" : "";
+      var pageExec = isPageExec(d), chk = pageExec ? checkDecision(d, M) : { ok: true, lines: [] };
+      var act;
+      if (ui.phase === "run") act = '<span class="hint">Выполняю…</span>';
+      else if (ui.phase === "confirm") {
+        /* В окне подтверждения — то, что реально уйдёт в Meta (посчитано из шагов), а не подписи вопроса */
+        var what = pageExec ? "В Meta уйдёт: " + chk.lines.join("; ") : "Записать «да» — выполнит агент коннектором и проверит";
+        act = '<span class="hint">' + esc(what) + '. Точно?</span><button class="btn" data-d="' + esc(d.id) + '" data-a="cancel">Отмена</button><button class="btn yes" data-d="' + esc(d.id) + '" data-a="go"' + (M.stopRunning ? " disabled" : "") + ">Да, подтверждаю</button>";
+      }
+      else if (d.kind === "payment") act = '<a class="btn" href="' + esc(d.link || CFG.links.billing) + '" target="_blank" rel="noopener">Открыть оплату в Meta</a><button class="btn yes" data-d="' + esc(d.id) + '" data-a="paid"' + dis + ">Я оплатил</button>";
+      else if (chk.wait) act = '<span class="hint">' + esc(chk.why) + '…</span><button class="btn" data-d="' + esc(d.id) + '" data-a="no"' + dis + '>Нет</button><button class="btn yes" disabled>Да</button>';
+      else if (!chk.ok) act = '<span class="hint bad-t">Пульт это не выполнит: ' + esc(chk.why) + '</span><button class="btn" data-d="' + esc(d.id) + '" data-a="no"' + dis + ">Нет</button>";
+      else act = '<button class="btn" data-d="' + esc(d.id) + '" data-a="no"' + dis + '>Нет</button><button class="btn yes" data-d="' + esc(d.id) + '" data-a="yes"' + dis + (M.stopRunning ? " disabled" : "") + ">" + (failed ? "Повторить" : "Да") + "</button>";
+      if (M.stopRunning && ui.phase !== "run") act += '<span class="hint">Идёт остановка рекламы — «Да» подождёт.</span>';
+      if (!S.canAct && S.who !== "loading") act += '<span class="hint">Отвечать может только владелец пульта.</span>';
+      return '<div class="decision' + (failed ? " failed" : "") + '">' + body + '<div class="actions">' + act + "</div></div>";
+    }).join(""));
+  }
+  function onDecisionClick(b){
+    var d = (S.decisions || []).filter(function(x){ return x.id === b.getAttribute("data-d"); })[0]; if (!d) return;
+    var a = b.getAttribute("data-a");
+    if (a === "cancel") { S.dUi[d.id] = { phase: "idle" }; render(); }
+    else if (a === "yes") { S.dUi[d.id] = { phase: "confirm" }; render(); }
+    else if (a === "go") runDecision(d);
+    else if (a === "no") declineDecision(d);
+    else if (a === "paid") recheckPay(d);
+  }
+
+  /* ---------- деньги и аккаунт ---------- */
+  function tile(dotCls, label, src, v, s, extra){
+    return '<div class="tile"><div class="hd"><span class="label"><span class="dot ' + dotCls + '"></span>' + esc(label) + '</span><span class="src">' + esc(src) + "</span></div>" +
+      '<div class="v num">' + v + "</div>" + (extra || "") + (s ? '<div class="s">' + s + "</div>" : "") + "</div>";
+  }
+  function barH(p, cls, mark){ return '<div class="bar"><i class="' + (cls || "") + '" style="width:' + Math.max(0, Math.min(100, p)).toFixed(1) + '%"></i>' + (mark != null ? '<b style="left:' + Math.max(0, Math.min(100, mark)).toFixed(1) + '%"></b>' : "") + "</div>"; }
+  function renderMoney(M){
+    var c = CFG, th = TH(), t = [];
+    /* аккаунт */
+    if (M.acc && !M.acc.missing) {
+      var okA = M.acc.status === "ACTIVE" && M.acc.pay !== false;
+      var lastB = M.pay.filter(function(e){ return /billed/i.test(e.type); })[0];
+      t.push(tile(okA ? "good" : "bad", "Аккаунт и оплата", "Meta", okA ? "Активен" : esc(ACC[M.acc.status] || M.acc.status || "?"),
+        "Способ оплаты: <b>" + (M.acc.pay === true ? "есть" : M.acc.pay === false ? "нет" : "нет данных") + "</b>" + (lastB ? " · последнее списание " + tDM(lastB.t) + " — " + usd((val(lastB.x.new_value) || 0) / 100) : "") +
+        (okA ? "" : ' · <a href="' + esc(c.links.billing) + '" target="_blank" rel="noopener">оплатить</a>')));
+    } else if (M.acc && M.acc.missing) t.push(tile("bad", "Аккаунт и оплата", "Meta", "не найден", "Коннектор не видит аккаунт " + esc(CFG.account) + "."));
+    else t.push(tile("grey", "Аккаунт и оплата", "Meta", "—", S.err.account ? esc(metaErrText(S.err.account)) : "Жду ответ Meta…"));
+    /* журнал оплат */
+    if (!M.logsOk) t.push(tile("grey", "Оплаты за 72 часа", "Meta", "нет данных", "Журнал Meta не прочитан" + (S.err.logs ? ": " + esc(metaErrText(S.err.logs)) : " — жду ответ") + ". Пока его нет, пульт не знает о списаниях и сменах статуса."));
+    else {
+      var ev = M.pay.slice(0, 4).map(function(e){
+        var v = changeTxt(e);
+        return '<li><span class="when">' + tDM(e.t) + "</span>" + esc(EVT[e.type] || e.type) + (v ? " · <b>" + esc(v) + "</b>" : "") + "</li>";
+      }).join("");
+      var badPay = M.pay.filter(function(e){ return /Account status/i.test(e.type); })[0];
+      t.push(tile(badPay && String(badPay.x.new_value) !== "Active" ? "bad" : (M.pay.length ? "good" : "grey"), "Оплаты за 72 часа", "Meta", int(M.pay.length) + " <small>событий</small>",
+        "", ev ? '<ul class="events">' + ev + "</ul>" : '<div class="s">По журналу Meta смен статуса и списаний не было.</div>'));
+    }
+    /* деньги сегодня */
+    if (M.todaySpend != null) {
+      var sp = M.hourly, mx = Math.max(0.5, Math.max.apply(null, sp)), svg = '<svg viewBox="0 0 240 40" preserveAspectRatio="none" role="img" aria-label="Траты по часам сегодня">';
+      svg += '<rect x="' + (th.dayHours.from * 10) + '" y="0" width="' + ((th.dayHours.to - th.dayHours.from) * 10) + '" height="40" fill="var(--raised)"/>';
+      for (var h = 0; h < 24; h++) {
+        var hh = sp[h] > 0 ? Math.max(2, sp[h] / mx * 34) : 1.5, cur = h === M.hour;
+        svg += '<rect x="' + (h * 10 + 1.5) + '" y="' + (38 - hh) + '" width="7" height="' + hh + '" rx="1.5" fill="' + (cur ? "var(--gold)" : sp[h] > 0 ? "var(--bar)" : "var(--line)") + '"/>';
+      }
+      svg += "</svg>";
+      var lastH = -1; for (var k = 23; k >= 0; k--) { if (sp[k] > 0) { lastH = k; break; } }
+      var p100 = M.todaySpend / c.money.daily * 100;
+      var dCls = p100 > th.todaySpend.redPct ? "bad" : p100 > th.todaySpend.yellowPct ? "warn" : "good";
+      t.push(tile(dCls, "Деньги сегодня", "Meta", usd(M.todaySpend) + " <small>из " + usdS(c.money.daily) + "</small>",
+        (lastH >= 0 ? "Последние траты — в час <b>" + z(lastH) + ":00</b>" : "Сегодня трат ещё не было") + " · порог дня " + usd(c.money.daily * th.todaySpend.redPct / 100), '<div class="spark">' + svg + "</div>"));
+    } else t.push(tile("grey", "Деньги сегодня", "Meta", "—", S.err.hourly ? esc(metaErrText(S.err.hourly)) : "Жду траты по часам…"));
+    /* лимит кампании */
+    if (M.camp && M.camp.cap != null) {
+      var capCls = M.capLeft <= 0.01 ? "bad" : (M.testOn ? M.capLeft < M.need : (M.running.length && M.capLeft < th.campaignCapLeft.yellow)) ? (M.capLeft < th.campaignCapLeft.red ? "bad" : "warn") : "good";
+      t.push(tile(capCls, "Лимит кампании", "Meta", usd(M.camp.spent) + " <small>из " + usdS(M.camp.cap) + "</small>",
+        "Осталось <b>" + usd(M.capLeft) + "</b> · до " + dm(c.test.end) + " нужно " + usd(M.need) + (M.capLeft >= M.need ? " — хватает" : " — не хватает"), barH(M.camp.spent / M.camp.cap * 100, capCls === "good" ? "" : capCls, M.plan != null ? M.plan / M.camp.cap * 100 : null)));
+    } else t.push(tile("grey", "Лимит кампании", "Meta", "—", S.err.camp ? esc(metaErrText(S.err.camp)) : "Жду данные кампании…"));
+    /* потолок аккаунта */
+    if (M.acctSpent != null) {
+      var aCls = M.acctLeft <= 0.01 ? "bad" : (M.acctLeft < M.need || M.acctLeft < th.accountCapLeft.yellow) ? (M.acctLeft < th.accountCapLeft.red ? "bad" : "warn") : "good";
+      t.push(tile(aCls, "Потолок аккаунта", M.capFromLog ? "Meta" : M.st.money && M.st.money.accountCapFromLog ? "Meta + агент" : "Meta + настройки", usd(M.acctSpent) + " <small>из " + usdS(M.accountCap) + "</small>",
+        "Осталось <b>" + usd(M.acctLeft) + "</b> · жёлтое ниже " + usdS(th.accountCapLeft.yellow) + " · поднимаете только вы (Payment settings)", barH(M.acctSpent / M.accountCap * 100, aCls === "good" ? "" : aCls)));
+    } else t.push(tile("grey", "Потолок аккаунта", "Meta", "—", "Жду траты аккаунта…"));
+    /* неделя */
+    if (M.week) {
+      var wCls = M.week.sum > M.week.max ? "bad" : (!M.week.last && M.week.sum >= M.week.max * th.week.yellowShare) ? "warn" : "good";
+      t.push(tile(wCls, "Неделя Meta (вс–сб)", "расчёт", usd(M.week.sum) + " <small>из " + usdS(M.week.max) + "</small>", dm(M.week.from) + "–" + dm(M.week.to) + " · норма из медиаплана", barH(M.week.sum / M.week.max * 100, wCls === "good" ? "" : wCls)));
+    }
+    /* предоплата и долг */
+    /* Предоплата — только если агент её считает: у нас автосписание с карты, и без его оценки плитка была бы вечным «—» */
+    var mo = M.st.money || {}, pp = mo.prepaid || null;
+    var ppV = pp ? val(pp.estimate) : null;
+    if (ppV != null) t.push(tile(ppV < th.prepaidLeft.red ? "bad" : ppV < th.prepaidLeft.yellow ? "warn" : "good", "Предоплата", "агент", usd(ppV) + " <small>оценка</small>",
+      "Внесено " + usd(val(pp["in"])) + " · списано " + usd(val(pp.billed)) + (pp.at ? " · на " + tDM(pt(pp.at)) : "") + ". Баланс коннектор не отдаёт." +
+      (mo.notBilled != null ? " Не списано Meta (долг): <b>" + usd(val(mo.notBilled)) + "</b>." : "")));
+    put("money", t.join(""));
+    put("freshMoney", freshOf(["account", "logs", "hourly", "camp", "acct"]));
+  }
+
+  /* ---------- кампания и группы ---------- */
+  function renderCampaign(M){
+    var c = CFG, h = "";
+    if (M.camp) {
+      h += '<div class="actions" style="justify-content:flex-start">' + stPill(M.camp.eff, M.camp.del ? DL[M.camp.del.status] || M.camp.del.status : "") + '<span class="chip">' + esc(M.camp.name) + '</span><span class="chip num">лимит ' + usdS(M.camp.cap) + "</span>" + (M.camp.stop ? '<span class="chip">конец ' + tDM(M.camp.stop) + "</span>" : "") + "</div>";
+    } else h += '<div class="empty">' + (S.err.camp ? esc(metaErrText(S.err.camp)) : "Жду данные кампании…") + "</div>";
+    var rows = [];
+    if (M.plan != null && M.camp) {
+      var lag = M.plan > 0 ? (M.plan - M.camp.spent) / M.plan : 0;
+      rows.push(["План и факт", "День <b>" + M.dayN + "</b> из " + M.days + " · план к этому часу " + usd(M.plan) + " · факт " + usd(M.camp.spent) + (lag > TH().planLag.yellowShare && M.plan > c.money.daily ? ' <span class="warn-t">· отставание ' + nf0.format(lag * 100) + "% (недопоказ)</span>" : "")]);
+    }
+    if (M.endAt) {
+      var left = (M.endAt - Date.now()) / 3600000;
+      rows.push(["Сроки", "Конец теста " + tDM(M.endAt) + (left > 0 ? " · осталось " + (left > 48 ? nf0.format(left / 24) + " дн" : nf0.format(left) + " ч") : " · закончился") + " · лучшее объявление — не раньше " + dm(c.test.leaderFrom)]);
+    }
+    if (M.quietUntil) rows.push(["Покой", M.quietUntil > Date.now() ? '<span class="warn-t">Не трогаем до ' + tDM(M.quietUntil) + "</span> · " + esc(M.quiet.why || "") + " (кроме аварий и правил остановки)" : "Покой закончился " + tDM(M.quietUntil)]);
+    rows.push(["Всплески и провалы", M.st.anomaly ? esc(M.st.anomaly.text || M.st.anomaly) + (M.st.anomaly.at ? " · " + tDM(pt(M.st.anomaly.at)) : "") : '<span class="muted-t">не отслеживается — агент не пишет</span>']);
+    rows.push(["Ориентир Meta", M.st.bench ? "CPM " + usd(val(M.st.bench.cpm)) + " · CTR " + pct(val(M.st.bench.ctr)) + (M.st.bench.at ? " · на " + tDM(pt(M.st.bench.at)) : "") : '<span class="muted-t">не отслеживается — «хорошо/плохо» на карточках не считается</span>']);
+    if (rows.length) h += '<dl class="kv" style="margin-top:12px">' + rows.map(function(r){ return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>"; }).join("") + "</dl>";
+
+    h += '<div class="sub-h">Группы кампании — из Meta, не из списка</div>';
+    if (M.sets.length) {
+      h += '<div class="tw"><table class="t"><thead><tr><th>Группа</th><th>Статус</th><th>Показ</th><th class="r">В день</th><th class="r">Сегодня</th><th>Конец</th></tr></thead><tbody>' +
+        M.sets.map(function(s){
+          var dnt = (c.doNotEnable || []).indexOf(s.id) >= 0, au = M.aud[s.id];
+          /* аудитория — из журнала Meta (последняя правка или создание группы); старше окна журнала — не видна */
+          var audH = au ? '<div class="aud">Аудитория (журнал Meta ' + tDM(au.t) + "): " + esc(au.items.join(" · ")) + "</div>" : (s.status === "ACTIVE" ? '<div class="aud">Аудитория: правок за 3–4 дня нет — в журнале агента и specs/</div>' : "");
+          return "<tr><td><b>" + esc(s.name) + '</b><div class="mono muted-t" style="font-size:11px">' + esc(s.id) + (String(c.workingAdset) === s.id ? " · рабочая" : "") + (dnt ? " · не включать" : "") + "</div>" + audH + "</td><td>" + stPill(s.eff) + "</td><td>" + esc(s.del ? (DL[s.del.status] || s.del.status) + (subTxt(s.del.sub.filter(function(x){ return x !== s.del.status; })) ? " (" + subTxt(s.del.sub.filter(function(x){ return x !== s.del.status; })) + ")" : "") : "—") +
+            '</td><td class="r">' + usdS(s.budget) + '</td><td class="r">' + usd(s.today) + "</td><td>" + (s.end ? tDM(s.end) : "—") + "</td></tr>";
+        }).join("") + "</tbody></table></div>";
+      if (M.running.length >= 2) h += '<div class="sec-err bad-t">Работают ' + M.running.length + " группы одновременно — это " + usdS(c.money.daily * M.running.length) + " в день.</div>";
+    } else h += '<div class="empty">' + (S.err.adsets ? esc(metaErrText(S.err.adsets)) : "Жду группы…") + "</div>";
+
+    h += '<div class="sub-h">Черновики в Meta</div>';
+    if (S.meta.drafts) {
+      if (!M.drafts.length) h += '<div class="empty">Черновиков нет — всё, что правили, опубликовано.</div>';
+      else h += '<div class="rows">' + M.drafts.map(function(d){
+        var cls = d.errors.length ? "bad" : (!d.known && d.t && hrs(d.t) > TH().draftYellowH) ? "warn" : "grey";
+        return '<div><span class="dot ' + cls + '"></span><span>' + esc(nameOf(M, d.id)) + ": " + esc(draftText(d)) + (d.known ? ' <span class="muted-t">· известен: ' + esc(d.known) + "</span>" : "") + (d.errors.length ? ' <span class="bad-t">· ошибка Meta</span>' : "") + '</span><span class="r muted-t">' + (d.t ? ago(d.t) : "") + "</span></div>";
+      }).join("") + "</div>";
+    } else h += '<div class="empty">' + (S.err.drafts ? esc(metaErrText(S.err.drafts)) : "Жду черновики…") + "</div>";
+
+    h += '<div class="sub-h">Ошибки показа (Meta)</div>';
+    if (S.meta.errors) h += M.errors.length ? '<div class="rows">' + M.errors.slice(0, 6).map(function(x){ return '<div><span class="dot bad"></span><span>' + esc(typeof x === "string" ? x : (x.error_summary || x.message || x.title || JSON.stringify(x)).slice(0, 240)) + "</span><span></span></div>"; }).join("") + "</div>" : '<div class="empty">Ошибок, которые мешают показу, нет.</div>';
+    else h += '<div class="empty">' + (S.err.errors ? esc(metaErrText(S.err.errors)) : "Жду проверку ошибок…") + "</div>";
+    put("campaign", h);
+    put("freshCamp", freshOf(["camp", "adsets", "drafts"]));
+  }
+
+  /* ---------- график ---------- */
+  function renderChart(M){
+    var c = CFG, th = TH(), W = 640, H = 230, L = 40, R = 12, T = 18, B = 34, n = M.days;
+    var byDay = {}; M.daily.forEach(function(r){ byDay[r.d] = r; });
+    var maxSp = Math.max.apply(null, [0].concat(M.daily.map(function(r){ return r.spend; })));
+    var maxY = Math.max(30, Math.ceil(maxSp * 1.1 / 10) * 10);
+    var iw = W - L - R, ih = H - T - B, bw = iw / n;
+    var y = function(d){ return T + ih - (Math.min(d, maxY) / maxY) * ih; };
+    var todayIdx = dayDiff(c.test.start, M.today), ld = M.st.lineDaily || {};
+    var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Траты и звонки по дням теста">';
+    var step = maxY <= 30 ? 10 : maxY <= 60 ? 20 : 25;
+    for (var g = 0; g <= maxY; g += step) {
+      s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(g) + '" y2="' + y(g) + '" stroke="var(--line-soft)" stroke-width="1"/>';
+      s += '<text x="' + (L - 8) + '" y="' + (y(g) + 4) + '" text-anchor="end" font-size="11" fill="var(--faint)" font-family="JetBrains Mono, monospace">$' + g + "</text>";
+    }
+    for (var i = 0; i < n; i++) {
+      var iso = addDay(c.test.start, i), r = byDay[iso], x = L + i * bw, cx = x + bw / 2;
+      if (r && r.spend > 0) {
+        var top = y(r.spend), hh = Math.max(1, T + ih - top);
+        s += '<rect x="' + (x + bw * 0.2) + '" y="' + top + '" width="' + (bw * 0.6) + '" height="' + hh + '" rx="4" fill="var(--bar)"/>';
+        s += '<rect x="' + (x + bw * 0.2) + '" y="' + top + '" width="' + (bw * 0.6) + '" height="3" rx="1.5" fill="var(--bar-top)"/>';
+        s += '<text x="' + cx + '" y="' + (top - 6) + '" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace">' + nf1.format(r.spend) + "</text>";
+      } else if (i <= todayIdx) s += '<rect x="' + (x + bw * 0.2) + '" y="' + (y(0) - 2) + '" width="' + (bw * 0.6) + '" height="2" rx="1" fill="var(--line)"/>';
+      var calls = ld[iso];
+      if (calls != null && calls > 0) {
+        var b0 = r && r.spend > 0 ? y(r.spend) - 22 : y(0) - 10;
+        for (var k = 0; k < Math.min(calls, 6); k++) s += '<circle cx="' + cx + '" cy="' + (b0 - k * 9) + '" r="3.5" fill="var(--info)"/>';
+      }
+      s += '<text x="' + cx + '" y="' + (H - 12) + '" text-anchor="middle" font-size="11" fill="' + (i === todayIdx ? "var(--text)" : "var(--faint)") + '" font-weight="' + (i === todayIdx ? 700 : 400) + '" font-family="Golos Text, sans-serif">' + dm(iso) + "</text>";
+      if (i === todayIdx) s += '<line x1="' + (x + 2) + '" x2="' + (x + bw - 2) + '" y1="' + (H - 4) + '" y2="' + (H - 4) + '" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>';
+    }
+    var maxDay = c.money.daily * th.todaySpend.redPct / 100;
+    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(c.money.daily) + '" y2="' + y(c.money.daily) + '" stroke="var(--gold)" stroke-width="1.5"/>';
+    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(maxDay) + '" y2="' + y(maxDay) + '" stroke="var(--faint)" stroke-width="1.2" stroke-dasharray="5 5"/>';
+    s += "</svg>";
+    put("chart", s);
+    put("legend", '<span><i class="sw bar"></i>потрачено за день</span><span><i class="sw"></i>бюджет ' + usdS(c.money.daily) + ' в день</span><span><i class="sw dash"></i>потолок дня у Meta ' + usd(maxDay) + '</span><span><i class="sw dot"></i>звонки 20+ с по журналу линии</span>');
+    put("freshChart", freshOf(["daily"]));
+  }
+
+  /* ---------- объявления ---------- */
+  function benchWord(v, b, higherBetter){
+    if (v == null || !b) return "";
+    var r = v / b, ta = TH().ads, good = higherBetter ? r > ta.benchHigh : r < ta.benchLow, bad = higherBetter ? r < ta.benchLow : r > ta.benchHigh;
+    return good ? ' <span class="ok-t">хорошо</span>' : bad ? ' <span class="bad-t">плохо</span>' : ' <span class="muted-t">норма</span>';
+  }
+  function renderAds(M){
+    var th = TH(), ta = th.ads, st = M.st, bench = st.bench || null, box = el("ads");
+    if (!S.meta.ads) { putAds('<div class="empty">' + (S.err.ads ? esc(metaErrText(S.err.ads)) : "Жду объявления кампании…") + "</div>"); put("freshAds", freshOf(["ads"])); return; }
+    var best = null;
+    if (M.today >= CFG.test.leaderFrom) M.work.forEach(function(a){ if (a.c20 != null && a.c20 >= ta.leaderMinCalls) { var cc = a.spend / a.c20; if (!best || cc < best.c) best = { id: a.id, c: cc }; } });
+    var h = "";
+    if (!M.work.length) h += '<div class="empty">В кампании нет работающих объявлений.</div>';
+    else h += '<div class="ads">' + M.work.map(function(a){
+      var cover = a.tag && COVERS[a.tag], vid = a.tag && VIDEOS[a.tag];
+      var pill = a.serving ? stPill("ACTIVE", a.del && a.del.status !== "active" ? DL[a.del.status] || a.del.status : "") : stPill(a.eff || a.status, "");
+      var callCost = a.calls ? usd(a.spend / a.calls) : "—";
+      var hook = a.impr ? (a.thru || 0) / a.impr * 100 : null;
+      var note = (st.adNotes || {})[a.id] || (st.adNotes || {})[a.name] || (a.tag ? (st.adNotes || {})[a.tag] : null);
+      var rule = "";
+      if (a.c20 === 0) {
+        var p = a.spend / ta.stopSpend * 100, cls = a.spend >= ta.stopSpend ? "bad" : a.spend >= ta.stopWarnSpend ? "warn" : "";
+        rule = '<div class="rule"><span>Правило «' + usdS(ta.stopSpend) + ' без звонков 20+»: <b>' + usd(a.spend) + "</b> из " + usdS(ta.stopSpend) + (a.spend >= ta.stopSpend ? ' <span class="bad-t">— сработало, ожидание ≈ ' + usd(a.spend - ta.stopSpend) + "</span>" : "") + "</span>" + barH(p, cls) + "</div>";
+      } else if (a.c20 != null && a.c20 > 0) {
+        var cc = a.spend / a.c20;
+        rule = '<div class="rule"><span>Звонок 20+ стоит <b class="' + (cc > ta.costPerCallRed && a.c20 >= ta.costMinCalls ? "bad-t" : cc > ta.costPerCallYellow ? "warn-t" : "ok-t") + '">' + usd(cc) + "</b> (порог " + usdS(ta.costPerCallRed) + " при " + ta.costMinCalls + "+)</span></div>";
+      } else rule = '<div class="rule muted-t">Звонки 20+ по объявлениям делит агент — ещё не поделил.</div>';
+      return '<article class="ad' + (a.serving ? "" : " off") + '">' +
+        '<button class="thumb" data-tag="' + esc(a.tag || "") + '" aria-label="Смотреть ролик «' + esc(a.title) + '»">' +
+        (cover ? '<img src="' + cover + '" alt="Обложка ролика «' + esc(a.title) + '»" loading="lazy">' : "") +
+        '<span class="flag">' + (best && best.id === a.id ? '<span class="leader">Лидер</span>' : "") + (a.early ? '<span class="early">рано судить</span>' : "") + "</span>" +
+        (vid ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="var(--gold)"/></svg></span>' : "") + "</button>" +
+        '<div class="body"><div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap"><span class="t">' + esc(a.title) + "</span>" + pill + "</div>" +
+        '<span class="nm">' + esc(a.name) + " · " + esc(a.id) + "</span>" +
+        (a.hook ? '<div class="hook">' + esc(a.hook) + "</div>" : a.hook == null ? '<div class="hook muted-t">Текст этого объявления — в журнале агента и push (в настройках пульта его ещё нет).</div>' : "") +
+        "<dl><dt>Потрачено</dt><dd>" + usd(a.spend) + (a.share != null ? ' <span class="muted-t">(' + nf0.format(a.share * 100) + "%)</span>" : "") + "</dd>" +
+        "<dt>Показы</dt><dd>" + int(a.impr) + "</dd>" +
+        "<dt>За 1000 показов</dt><dd>" + usd(a.cpm) + benchWord(a.cpm, bench && val(bench.cpm), false) + "</dd>" +
+        "<dt>Переходы по ссылке</dt><dd>" + int(a.link) + "</dd>" +
+        "<dt>CTR по ссылке</dt><dd>" + pct(a.ctr) + benchWord(a.ctr, bench && val(bench.ctr), true) + "</dd>" +
+        "<dt>Нажали «Позвонить» ≈</dt><dd>" + int(a.calls) + "</dd>" +
+        "<dt>Цена нажатия</dt><dd>" + callCost + "</dd>" +
+        "<dt>Звонки 20+ (линия)</dt><dd>" + (a.c20 == null ? "—" : int(a.c20) + (a.c20est ? " ≈" : "")) + "</dd>" +
+        "<dt>Частота, 7 дн</dt><dd" + (a.freq7 != null && a.freq7 > ta.frequencyYellow ? ' class="warn-t"' : "") + ">" + (a.freq7 == null ? "—" : nf1.format(a.freq7)) + "</dd>" +
+        "<dt>Досмотр 15 с</dt><dd>" + (hook == null ? "—" : pct(hook)) + "</dd>" +
+        "<dt>Смотрят в среднем</dt><dd>" + (a.avgT == null ? "—" : int(a.avgT) + " с") + "</dd></dl>" +
+        rule + (note ? '<div class="note">' + esc(note) + "</div>" : "") + "</div></article>";
+    }).join("") + "</div>";
+    if (M.old.length) h += '<details class="old" data-ui="oldOpen"' + (S.ui.oldOpen ? " open" : "") + '><summary>Остальные объявления кампании — на паузе или в выключенной группе: ' + M.old.length + '</summary><div class="tw"><table class="t"><thead><tr><th>Объявление</th><th>Статус</th><th class="r">Потрачено</th><th class="r">Показы</th><th class="r">Переходы</th></tr></thead><tbody>' +
+      M.old.map(function(a){ return "<tr><td>" + esc(a.name) + '<div class="mono muted-t" style="font-size:11px">' + esc(a.id) + "</div></td><td>" + stPill(a.eff) + '</td><td class="r">' + usd(a.spend) + '</td><td class="r">' + int(a.impr) + '</td><td class="r">' + int(a.link) + "</td></tr>"; }).join("") + "</tbody></table></div></details>";
+    h += '<p class="hint" style="margin:12px 0 0">Номер у всех объявлений один (' + esc(CFG.phone) + '), журнал линии не знает, с какого объявления звонок. Ноль звонков 20+ на линии — ноль у каждого объявления. Когда звонки появятся, агент делит их по нажатиям «Позвонить» и времени и помечает «≈».</p>';
+    putAds(h);
+    put("freshAds", freshOf(["ads", "ads7"]));
+  }
+  /* Пока в карточке играет ролик, карточки не перерисовываем (иначе он обрывается); отложенное дорисуем на паузе/конце ролика */
+  function putAds(h){
+    var box = el("ads"), v = box && box.querySelector("video");
+    if (v && !v.paused && !v.ended) { S.adsPending = h; return; }
+    S.adsPending = null; put("ads", h);
+  }
+  /* ролик ставим на место кнопки (не внутрь неё): иначе клик по кнопкам плеера снова «нажимает» обложку и ролик начинается заново */
+  function playThumb(b){
+    var src = VIDEOS[b.getAttribute("data-tag")]; if (!src) return;
+    var box = document.createElement("div"); box.className = "thumb";
+    box.innerHTML = '<video src="' + src + '" controls autoplay muted playsinline></video>';
+    b.replaceWith(box);
+  }
+
+  /* ---------- кто что менял ---------- */
+  function renderChanges(M){
+    if (!S.meta.logs) { put("changes", '<div class="empty">' + (S.err.logs ? esc(metaErrText(S.err.logs)) : "Жду журнал Meta…") + "</div>"); put("freshChanges", freshOf(["logs"])); return; }
+    var list = M.changes.slice(0, 14);
+    var WHO = { agent: "коннектор (агент или пульт)", meta: "Meta", human: "человек в Ads Manager" };
+    var nAgent = M.changes.filter(function(e){ return whoOf(e) === "agent"; }).length, nHuman = M.changes.filter(function(e){ return whoOf(e) === "human"; }).length;
+    var h = '<div class="sumline"><span class="chip">через коннектор: ' + nAgent + '</span><span class="chip ' + (nHuman ? "warn" : "") + '">руками: ' + nHuman + "</span></div>";
+    if (!list.length) h += '<div class="empty">Правок за 72 часа не было.</div>';
+    else h += '<ul class="log">' + list.map(function(e){
+      var w = whoOf(e), v = changeTxt(e);
+      return '<li><span class="dot ' + (w === "agent" ? "agent" : w === "human" ? "human" : "meta") + '"></span><div><div class="when">' + tDM(e.t) + " · " + esc(WHO[w]) + (w === "human" && e.actor ? " (" + esc(e.actor) + ")" : "") + '</div><div class="txt">' + esc(EVT[e.type] || e.type) + ": " + esc(e.obj) + (v ? " · " + esc(v) : "") + "</div></div></li>";
+    }).join("") + "</ul>";
+    put("changes", h);
+    put("freshChanges", freshOf(["logs"]));
+  }
+
+  /* ---------- агент ---------- */
+  function renderAgent(M){
+    var th = TH(), ag = M.agent || {}, pl = pulseLevel(M), h = "";
+    var pt0 = M.pulseAt;
+    h += '<div class="pulse"><span class="beat ' + (pl === "grey" ? "" : pl) + '"></span><div><div class="big">' + (pt0 ? ago(pt0) : "нет данных") + '</div><div class="hint">' +
+      (pt0 ? "Агент писал на пульт " + tDM(pt0) + ". " : "") + (M.day ? "Днём жёлтый после " + th.pulse.dayYellowMin + " мин, красный после " + (th.pulse.dayRedMin / 60) + " ч." : "Ночь: сторож спит до " + z(th.dayHours.from) + ":00, пороги мягче.") + "</div></div></div>";
+    var rows = [];
+    var lr = ag.lastRun, wt = ag.watch, nr = ag.nextRun;
+    if (lr) { var lh = pt(lr.at) ? hrs(pt(lr.at)) : null, lc = lh == null ? "grey" : lh > th.fullCheck.redH ? "bad" : lh > th.fullCheck.yellowH ? "warn" : "good";
+      rows.push('<div><span class="dot ' + (lr.ok === false ? "bad" : lc) + '"></span><span>Полная проверка: ' + tDM(pt(lr.at)) + (lr.ok === false ? ' <span class="bad-t">упала</span>' : " прошла") + (lr.summary ? " · " + esc(lr.summary) : "") + (lr.report ? '<br><span class="mono muted-t" style="font-size:11.5px">' + esc(lr.report) + "</span>" : "") + '</span><span class="r muted-t">' + ago(pt(lr.at)) + "</span></div>"); }
+    else rows.push('<div><span class="dot grey"></span><span>Полная проверка (8:30 и 18:30): агент ещё не записал.</span><span></span></div>');
+    if (wt) { var wh = pt(wt.at) ? hrs(pt(wt.at)) : null, wc = wh == null ? "grey" : (M.day && wh > th.watch.redH) ? "bad" : (M.day && wh > th.watch.yellowH) ? "warn" : "good";
+      rows.push('<div><span class="dot ' + (wt.ok === false ? "bad" : wc) + '"></span><span>Сторож (каждый час днём): ' + tDM(pt(wt.at)) + ((wt.codes && wt.codes.length) ? " · события: " + esc(wt.codes.join(", ")) : " · без событий") + '</span><span class="r muted-t">' + ago(pt(wt.at)) + "</span></div>"); }
+    else rows.push('<div><span class="dot grey"></span><span>Сторож: агент ещё не записал прогон.</span><span></span></div>');
+    if (nr) rows.push('<div><span class="dot info"></span><span>Следующий запуск: ' + esc(nr.kind || "") + " " + (pt(nr.at) ? tDM(pt(nr.at)) : esc(nr.at || "")) + "</span><span></span></div>");
+    var ds = S.decisions || [], cnt = function(s){ return ds.filter(function(d){ return d.status === s; }).length; };
+    rows.push('<div><span class="dot ' + (cnt("failed") ? "bad" : cnt("pending") ? "warn" : "good") + '"></span><span>Решения по деньгам: ждут ' + cnt("pending") + " · выполнено " + cnt("executed") + " · отказ " + cnt("declined") + " · сбой " + cnt("failed") + (cnt("approved") ? " · одобрено, делает агент " + cnt("approved") : "") + "</span><span></span></div>");
+    h += '<div class="rows" style="margin-top:14px">' + rows.join("") + "</div>";
+    function listOf(title, arr0){ if (!arr0 || !arr0.length) return ""; return '<div class="sub-h">' + title + '</div><ul class="worry">' + arr0.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>"; }
+    /* Точки контроля, которые должен заполнять агент, а сейчас не заполняет никто — честно серым, а не зелёным «нет» */
+    var st = M.st, li = (st.line || {}).lastInbound, miss = [];
+    if (S.state) {
+      if (st.mailToOwnerToday == null && (st.line || {}).mailsToday == null) miss.push("письма владельцу за сутки (потолок 60)");
+      if (!Array.isArray(st.unanswered)) miss.push("контакты без ответа");
+      if (!li) miss.push("нажатия после последнего входящего");
+      else if (val(li.callClicks) == null) miss.push("нажатия «Позвонить» на момент последнего входящего (сейчас считаем переходы по ссылке)");
+      if (!st.bench) miss.push("ориентир Meta (CPM, CTR)");
+      if (!st.anomaly) miss.push("всплески и провалы");
+      if (M.c20 > 0 && !st.callsByAd) miss.push("звонки 20+ по объявлениям");
+    }
+    if (miss.length) h += '<div class="sub-h">Не отслеживается (агент не пишет)</div><ul class="worry muted-t">' + miss.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>";
+    h += listOf("Что меня смущает", ag.worries) + listOf("О чём вы можете не подозревать", ag.unknown);
+    if (ag.selfScore) h += '<div class="sub-h">Самооценка агента</div><div style="font-size:13.5px">' + esc(ag.selfScore) + "</div>";
+    put("agent", h);
+    put("freshAgent", pt0 ? "агент · " + tHM(pt0) : "");
+  }
+
+  /* ---------- линия ---------- */
+  function renderLine(M){
+    var th = TH(), tl = th.line, line = M.line, box = el("line"), st = M.st;
+    if (!S.state || !st.line) { put("line", '<div class="empty">' + (S.db ? "Агент ещё не выложил журнал линии. Появится после ближайшей проверки." : "Журнал линии недоступен в этом окне.") + "</div>"); put("freshLine", ""); return; }
+    var metaCalls = M.camp ? M.camp.calls : null, spent = M.camp ? M.camp.spent : null, c20 = line.c20, total = val(line.total);
+    var h = '<div class="sumline"><span class="chip num">всего ' + int(line.total) + '</span><span class="chip num">20+ с — ' + int(line.c20) + '</span><span class="chip num">60+ с — ' + int(line.c60) + "</span></div>";
+    var rows = [];
+    /* Нажатие «Позвонить» в Meta — звонок любой длины, поэтому сравниваем со ВСЕМИ не нашими звонками линии, а не с 20+ */
+    var diff = (metaCalls != null && total != null) ? Math.abs(metaCalls - total) : null;
+    rows.push(['<span class="dot ' + (diff != null && diff >= tl.metaVsLineYellow ? "warn" : "grey") + '"></span>', "Звонки: Meta «Позвонить» ≈ / линия, все не наши", int(metaCalls) + " / " + int(total)]);
+    var cost = (c20 && spent) ? spent / c20 : null;
+    rows.push(['<span class="dot ' + (cost == null ? "grey" : cost > tl.costRed && c20 >= 2 ? "bad" : cost > tl.targetCost ? "warn" : "good") + '"></span>', "Цена звонка 20+ (цель ~" + usdS(tl.targetCost) + ")", cost == null ? "—" : usd(cost)]);
+    if (spent != null && c20 === 0) rows.push(['<span class="dot ' + (spent >= th.test.noCallsStop ? "bad" : spent >= th.test.noCallsYellow ? "warn" : "grey") + '"></span>', "Тест без звонков 20+: стоп при " + usdS(th.test.noCallsStop), usd(spent)]);
+    var today = line.today || {}, ct = val(today.total != null ? today.total : st.callsToday);
+    rows.push(['<span class="dot ' + lvl(ct, tl.callsDayYellow, tl.callsDayRed) + '"></span>', "Звонков сегодня (предел линии 20)", ct == null ? "—" : int(ct)]);
+    var NT = '<span class="muted-t" style="font-weight:400">не отслеживается</span>';
+    var mails = val(st.mailToOwnerToday != null ? st.mailToOwnerToday : line.mailsToday);
+    rows.push(['<span class="dot ' + (mails == null ? "grey" : mails >= tl.mailsRed ? "bad" : mails > tl.mailsYellow ? "warn" : "good") + '"></span>', "Писем владельцу сегодня (потолок 60)", mails == null ? NT : int(mails)]);
+    var li = line.lastInbound;
+    if (li && M.camp) {
+      var byCall = val(li.callClicks) != null, b0 = byCall ? val(li.callClicks) : val(li.linkClick), n0 = byCall ? M.camp.calls : M.camp.link;
+      var dn = b0 != null ? n0 - b0 : null;
+      rows.push(['<span class="dot ' + (dn == null ? "grey" : byCall && dn >= tl.clicksNoCallRed ? "bad" : dn >= tl.clicksNoCallYellow ? "warn" : "good") + '"></span>',
+        (byCall ? "Нажатий «Позвонить»" : "Переходов по ссылке (вкл. сайт)") + " после последнего входящего (" + esc(li.t || tDM(pt(li.at))) + ")", dn == null ? "—" : int(dn)]);
+    } else rows.push(['<span class="dot grey"></span>', "Нажатий после последнего входящего", NT]);
+    var un = st.unanswered;
+    if (!Array.isArray(un)) rows.push(['<span class="dot grey"></span>', "Контакты без ответа", NT]);
+    else rows.push(['<span class="dot ' + (un.length ? (un.some(function(u){ return hrs(pt(u.since) || Date.now()) > tl.unansweredRedH; }) ? "bad" : "warn") : "good") + '"></span>', "Контакты без ответа", un.length ? un.map(function(u){ return esc(u.who) + " · " + nf0.format(hrs(pt(u.since) || Date.now())) + " ч"; }).join("; ") : "нет"]);
+    h += '<div class="rows">' + rows.map(function(r){ return "<div>" + r[0] + "<span>" + r[1] + '</span><span class="r">' + r[2] + "</span></div>"; }).join("") + "</div>";
+    var calls = line.calls || [];
+    h += '<div class="sub-h">Последние звонки · наши проверочные не считаются</div>';
+    if (!calls.length) h += '<div class="empty">Звонков по рекламе пока нет.</div>';
+    else {
+      var MAX = 180;
+      h += '<div class="calls">' + calls.slice(0, 8).map(function(cl){
+        var d = val(cl.dur) || 0, p = Math.min(100, d / MAX * 100), cls = d >= 60 ? "ok" : d >= 20 ? "" : "short", mm = Math.floor(d / 60), ss = d % 60;
+        return '<div class="call"><span class="when">' + esc(cl.t) + '</span><span class="what">' + esc(cl.text) + '</span><div class="dur"><div class="durbar"><i class="' + cls + '" style="width:' + p.toFixed(1) + '%"></i><span class="tick" style="left:' + (20 / MAX * 100).toFixed(1) + '%"></span><span class="tick" style="left:' + (60 / MAX * 100).toFixed(1) + '%"></span></div><span class="s">' + mm + ":" + z(ss) + "</span></div></div>";
+      }).join("") + "</div>";
+    }
+    put("line", h);
+    put("freshLine", st.updatedAt ? "агент · " + tHM(pt(st.updatedAt)) : "");
+  }
+
+  /* ---------- журнал ---------- */
+  function renderLog(M){
+    var merged = (S.log || []).map(function(x){ return { t: x.t || tDM(pt(x.at)), who: x.who || "agent", text: x.text, sort: pt(x.at) || 0 }; })
+      .concat((S.andrey || []).map(function(x){ return { t: x.t || tDM(pt(x.at)), who: "andrey", text: x.text, sort: pt(x.at) || 0 }; }))
+      .concat((S.stops || []).map(function(x){ return { t: tDM(pt(x.at)), who: x.result === "stopped" || x.result === "resumed" || x.result === "running" ? "andrey" : "alert", text: x.text || ("Кнопка «" + (x.kind === "resume" ? "Включить" : "Стоп") + "»: " + (x.result === "running" ? "выполняется" : x.result)), sort: pt(x.at) || 0 }; }));
+    merged.sort(function(a, b){ return b.sort - a.sort; });
+    if (!merged.length) { put("log", '<li><span class="dot"></span><span class="empty">' + (S.db ? "Записей пока нет." : "Журнал агента недоступен в этом окне.") + "</span></li>"); return; }
+    put("log", merged.slice(0, 12).map(function(x){ return '<li><span class="dot ' + esc(x.who) + '"></span><div><div class="when">' + esc(x.t) + '</div><div class="txt">' + esc(x.text) + "</div></div></li>"; }).join(""));
+  }
+
+  /* ---------- сообщения агенту ---------- */
+  function renderInbox(M){
+    var pl = pulseLevel(M), hint = el("msgHint");
+    el("msgSend").disabled = !S.db || !S.canAct;
+    if (!S.db) hint.textContent = S.dbNull ? "Хранилище пульта недоступно в этом окне." : "Хранилище пульта подключается…";
+    else if (!S.canAct && S.who !== "loading") hint.textContent = "Писать агенту может только владелец пульта.";
+    else if (!hint.getAttribute("data-sent")) hint.textContent = pl === "good" ? (M.day ? "Главное окно заберёт сообщение по ближайшему уведомлению сторожа (днём — в течение часа); ответ — под сообщением." : "Ночью сторож спит: главное окно заберёт сообщение утром, после 07:05; ответ — под сообщением.") : "Главное окно сейчас не отвечает (писало на пульт " + (M.pulseAt ? ago(M.pulseAt) : "давно") + "): сообщение прочитают, когда его откроют.";
+    var list = (S.inbox || []).slice(0, 5);
+    put("msgs", list.map(function(x){
+      var st = x.status === "new" ? '<span class="chip ' + (pt(x.at) && hrs(pt(x.at)) > TH().inboxNewYellowH ? "warn" : "grey") + '">новое</span>' : '<span class="chip good">прочитано</span>';
+      return '<li><span class="when mono muted-t" style="font-size:11.5px">' + esc(x.t || tDM(pt(x.at))) + " " + st + "</span><span>" + esc(x.text) + "</span>" + (x.reply ? '<span class="muted-t">Ответ: ' + esc(x.reply) + "</span>" : "") + "</li>";
+    }).join(""));
+  }
+
+  /* ---------- правила ---------- */
+  function renderRules(){
+    var c = CFG, th = TH(), m = c.money, ta = th.ads;
+    var wk = (m.weekly || []).map(function(w){ return dm(w.from) + "–" + dm(w.to) + " не больше " + usdS(w.max); }).join("; ");
+    var g = c.guard || {}, gEnd = pt(g.maxEnd);
+    put("rules",
+      '<div class="card"><h3>Агент делает сам и сообщает после (с 30.09)</h3><ul>' +
+        "<li>Сторож каждый час, 07:05–22:05: оплата, траты, статусы, отклонения, черновики. В 8:30 и 18:30 — полная проверка с отчётом.</li>" +
+        "<li>Снимает объявление, если оно потратило " + usdS(ta.stopSpend) + " без звонков 20+ с, или звонок 20+ с дороже " + usdS(ta.costPerCallRed) + " при " + ta.costMinCalls + "+ звонках. Поштучную паузу Meta не публикует, поэтому агент пересобирает группу без него: те же " + usdS(m.daily) + " в день и даты. Последнее объявление в группе — пауза группы.</li>" +
+        "<li>На место снятого ставит новый текст на том же ролике, если до стопа " + usdS(th.test.noCallsStop) + " хватает денег на оценку. Отклонённое Meta заменяет, при нужде — исправленным текстом. Сам текст приходит в push.</li>" +
+        "<li>Новая аудитория — только внутри Нью-Йорка, Лос-Анджелеса и русского языка, после 72 часов покоя: при недоборе, дорогом показе или срезе без нажатий.</li>" +
+        "<li>Вторую одновременно работающую группу ставит на паузу сразу. Весь тест " + usdS(th.test.noCallsStop) + " без звонков 20+ — останавливает кампанию и приносит итоги.</li>" +
+        "<li>Сообщает через окно «ГЛАВНЫЙ АГЕНТ»: оно пересылает итоги на телефон. Окно закрыто — агент всё равно действует и пишет журнал, но сигналов нет.</li></ul></div>" +
+      '<div class="card"><h3>Только вашим словом — деньги</h3><ul>' +
+        "<li>Оплата и пополнение (кликаете вы, в Billing &amp; payments).</li>" +
+        "<li>Рост дневного бюджета, лимита кампании " + usdS(m.campaignCap) + " или потолка аккаунта " + usdS(m.accountCap) + ".</li>" +
+        "<li>Продление дат, новая кампания, вторая группа одновременно, смена ставок.</li>" +
+        "<li>Вопрос появляется наверху карточкой: сумма в день, всего, до какой даты, что будет при «нет». В окне «Точно?» — ровно то, что уйдёт в Meta. «Выполнено» — только после перечитывания Meta.</li>" +
+        "<li>Новые ролики, обложки и надписи в кадре агент только предлагает — решаете вы.</li></ul></div>" +
+      '<div class="card"><h3>Страховки</h3><ul>' +
+        "<li>Лимит кампании — <b>" + usdS(m.campaignCap) + "</b>, потолок аккаунта — <b>" + usdS(m.accountCap) + "</b>.</li>" +
+        "<li>" + usdS(m.daily) + " в день; в отдельный день Meta может взять до " + usd(m.daily * th.todaySpend.redPct / 100) + ".</li>" +
+        "<li>Неделя Meta: " + esc(wk) + ".</li>" +
+        "<li>Кнопка «Да» не отправит в Meta больше " + usdS(g.maxDaily) + " в день, лимит кампании выше " + (g.maxCampaignCap ? usdS(g.maxCampaignCap) : "потолка аккаунта") + (gEnd ? " и даты позже " + tDM(gEnd).slice(0, 5) : "") + ", чужой объект или другое поле.</li>" +
+        "<li>Тест " + dm(c.test.start) + " – " + dm(c.test.end) + ". Лучшее объявление — не раньше " + dm(c.test.leaderFrom) + " и при " + ta.leaderMinCalls + "+ звонках. 72 часа после значимой правки не трогаем.</li></ul></div>");
+  }
+
+  /* ---------- стоп и включение ---------- */
+  function renderStop(M){
+    var box = el("stopBox"), u = S.stopUi, L = CFG.links;
+    var am = '<a href="' + esc(L.adsManager) + '" target="_blank" rel="noopener">Ads Manager</a>';
+    var off = M.camp && (M.camp.status === "PAUSED" || (M.sets.length && !M.sets.some(function(s){ return s.status === "ACTIVE" && !OFF[s.eff]; })));
+    var h = "";
+    if (!S.mcp) h = '<span class="hint">' + (S.mcpNull ? "Кнопка работает только на claude.ai. Остановить сейчас можно в " + am + "." : "Подключаю Meta…") + "</span>";
+    else if (!S.canAct) h = '<span class="hint">' + (S.who === "loading" ? "Проверяю, кто смотрит пульт…" : "Останавливать рекламу может только владелец пульта. Или в " + am + ".") + "</span>";
+    else if (u.phase === "confirm") h = '<span class="hint">Остановить рекламу Веры сейчас?</span><button class="btn" data-s="cancel">Отмена</button><button class="btn danger" data-s="go">Да, остановить</button>';
+    else if (u.phase === "rconfirm") h = '<span class="hint">' + esc(u.msg) + '</span><button class="btn" data-s="cancel">Отмена</button><button class="btn yes" data-s="rgo">Да, включить</button>';
+    else if (u.phase === "run") h = '<div class="stopres run">' + esc(u.msg) + "</div>";
+    else {
+      var other = M.stopRunning && S.stopUi.phase !== "run";
+      if (other) h += '<div class="stopres run">Остановка уже идёт (нажата ' + tHM(pt(M.lastStop && M.lastStop.at)) + ", возможно, с другого устройства). Итог появится здесь.</div>";
+      if (u.phase === "ok") h += '<div class="stopres ok">' + esc(u.msg) + "</div>";
+      if (u.phase === "fail") h += '<div class="stopres bad"><b class="bad-t">' + esc(u.msg) + "</b> Остановите в " + am + " (ваш браузер) — агент доведёт на ближайшем прогоне и сообщит.</div>";
+      h += '<button class="btn danger" data-s="stop">Остановить рекламу Веры</button>';
+      if (off && !other) h += '<button class="btn" data-s="resume">Включить обратно</button>';
+    }
+    put("stopBox", h);
+  }
+  function onStopClick(b){
+    var a = b.getAttribute("data-s");
+    if (a === "stop") { S.stopUi = { phase: "confirm" }; render(); }
+    else if (a === "cancel") { S.stopUi = { phase: "idle" }; render(); }
+    else if (a === "go") doStop();
+    else if (a === "resume") askResume(model());
+    else if (a === "rgo") doResume();
+  }
+
+  function renderFoot(M){
+    var parts = [];
+    if (S.at.camp) parts.push("Meta: кампания на " + tHM(S.at.camp));
+    if (S.at.hourly) parts.push("траты по часам на " + tHM(S.at.hourly));
+    if (M.pulseAt) parts.push("агент: " + tDM(M.pulseAt));
+    if (S.cfgDb) parts.push("настройки пульта: " + (S.cfgDb.updatedAt ? tDM(pt(S.cfgDb.updatedAt)) : "есть")); else if (S.db) parts.push("настройки пульта: по умолчанию (panel/config пуст)");
+    el("footMeta").textContent = parts.join(" · ");
+  }
+
+  /* ================= действия ================= */
+  function mcpIn(input, req){ return Object.assign({}, input, { client_conversation_id: CCID, advertiser_request: req }); }
+  function errText(e){ if (!e) return "ошибка"; if (e.code === "tool_error") return String(e.message || "Meta отказала").slice(0, 300); if (e.code === "shape") return "ответ Meta не разобран"; return metaErrText(e); }
+  function isFatal(e){ return !!e && AUTHZ.indexOf(e.code) >= 0; }
+  async function call(tool, input, req){ return S.mcp.callTool(CFG.server, tool, mcpIn(input, req), { cache: false }); }
+  async function safeInvalidate(){ try { await S.mcp.invalidate(CFG.server); } catch (e) {} }
+  var LVL = { ad_set: "adset", adset: "adset", campaign: "campaign", ad: "ad" };
+  var RF = { campaign: ["id", "name", "status", "effective_status", "delivery", "daily_budget", "spend_cap", "stop_time"], adset: ["id", "name", "status", "effective_status", "delivery", "daily_budget", "end_time", "stop_time"], ad: ["id", "name", "status", "effective_status", "delivery"] };
+  /* Неразобранный ответ — ошибка, а не пустой список (иначе «групп нет» = ложное «Остановлено») */
+  function rowsOrThrow(r, key){ var a = arr(payload(r), key); if (!a) throw { code: "shape", message: "ответ Meta не разобран" }; return a; }
+  async function readObjs(list, req){
+    var by = {}, out = {};
+    list.forEach(function(o){ var l = LVL[o.type] || "adset"; (by[l] = by[l] || []).push(String(o.id)); });
+    for (var l in by) {
+      var r = await call("ads_get_ad_entities", { ad_account_id: String(CFG.account), level: l, object_ids: by[l], fields: RF[l], include_additional_context: false }, req);
+      rowsOrThrow(r, "ad_entities").forEach(function(x){ out[String(x.id)] = x; });
+    }
+    return out;
+  }
+  async function readSets(req){
+    var r = await call("ads_get_ad_entities", { ad_account_id: String(CFG.account), level: "adset", date_preset: "today", filtering: campFilter("adset"), fields: ["id", "name", "status", "effective_status", "delivery", "daily_budget", "end_time", "created_time"], limit: 200, include_additional_context: false }, req);
+    return rowsOrThrow(r, "ad_entities");
+  }
+  async function readDrafts(req){
+    var r = await call("ads_get_ad_entities", { ad_account_id: String(CFG.account), object_state: "draft", object_ids: [String(CFG.campaign)] }, req);
+    return rowsOrThrow(r, "ad_drafts");
+  }
+  function draftNew(v){ return isObj(v) && "new" in v ? v.new : v; }
+  /* Черновик публикуем, только если в нём ровно наша правка: allow(values, target) → null (можно) или причина отказа.
+     Чужие правки того же объекта (бюджет, даты, ACTIVE) кнопкой не публикуются никогда. */
+  async function publishDrafts(targets, req, allow, notes, errs){
+    var drafts = await readDrafts(req), done = [];
+    for (var i = 0; i < targets.length; i++) {
+      var t = targets[i], d = drafts.filter(function(x){ return String(x.ad_object_id) === String(t.id); })[0];
+      if (!d) continue;
+      var why = allow(d.values || {}, t);
+      if (why) { errs.push((t.name || t.id) + ": черновик не опубликован — " + why); continue; }
+      await call("ads_activate_entity", { ad_account_id: String(CFG.account), entity_id: String(t.id), entity_type: t.type, object_ids: [String(t.id)] }, req);
+      done.push(String(t.id));
+    }
+    return done;
+  }
+  function onlyStatus(want){
+    return function(v){
+      var ks = Object.keys(v), extra = ks.filter(function(k){ return k !== "status" && k !== "name"; });
+      if (extra.length) return "в нём есть другие правки: " + extra.join(", ");
+      if (!("status" in v)) return "в нём нет смены статуса";
+      if (String(draftNew(v.status)).toUpperCase() !== want) return "статус в черновике " + draftNew(v.status) + ", а не " + want;
+      return null;
+    };
+  }
+  function sameVal(k, a, b){
+    if (k === "status" || k === "name") return String(a) === String(b);
+    if (k === "end_time" || k === "stop_time" || k === "start_time") { var x = pt(a), y = pt(b); return x != null && y != null && Math.abs(x - y) <= 60000; }
+    var n = Number(val(a)), m = Number(b);
+    return isFinite(n) && isFinite(m) && (Math.abs(n - m) < 0.5 || Math.abs(n * 100 - m) < 1);
+  }
+  /* для «Да»: в черновике только ожидаемые поля с ожидаемыми значениями (+ имя и пауза, которую Meta навязывает ACTIVE-объекту) */
+  function onlyExpected(v, t){
+    var exp = t.expect || {}, bad = [];
+    Object.keys(v).forEach(function(k){
+      var nv = draftNew(v[k]);
+      if (k === "name") return;
+      if (k === "status") { if (nv !== "PAUSED" && !(exp.status && nv === exp.status)) bad.push("статус " + nv); return; }
+      if (!(k in exp)) bad.push("лишнее поле " + k);
+      else if (!sameVal(k, nv, exp[k])) bad.push(k + " " + nv + " вместо " + exp[k]);
+    });
+    return bad.length ? bad.join(", ") : null;
+  }
+  async function verifyLoop(check, tick, waits0){
+    var waits = waits0 || [8, 15, 25, 35, 45, 60], last = null;
+    for (var i = 0; i < waits.length; i++) {
+      tick(i + 1, waits.length, waits[i]);
+      await sleep(waits[i] * 1000);
+      try { await safeInvalidate(); last = await check(); if (last.ok) return last; } catch (e) { last = { ok: false, error: e }; }
+    }
+    return last || { ok: false };
+  }
+  async function logAndrey(text){ if (!S.db) return; try { await S.db.collection("andrey").add({ at: nowIso(), t: stamp(), text: text }); } catch (e) {} }
+  function stDesc(x){ if (!x) return "нет данных"; var d = deliv(x); return (x.name || x.id) + ": " + (x.status || "?") + " / " + (x.effective_status || "?") + (d ? " / " + (DL[d.status] || d.status) : ""); }
+  async function setStopDoc(at, data){ if (!S.db) return; try { await S.db.doc("stop/" + at).set(data); } catch (e) {} }
+
+  /* ---- «Остановить рекламу Веры» ---- */
+  async function doStop(){
+    if (S.stopUi.phase === "run" && S.stopUi.kind === "stop") return;
+    S.stopEpoch++; S.stopRunAt = Date.now();
+    var at = nowIso(), errs = [], notes = [], fatal = null, M0 = model();
+    function ui(msg){ S.stopUi = { phase: "run", kind: "stop", msg: msg }; render(); }
+    ui("Отмечаю остановку…");
+    /* метка «идёт остановка» — сразу, чтобы «Да» на другом устройстве её увидел */
+    await setStopDoc(at, { at: at, by: "andrey", kind: "stop", result: "running", text: "Остановка идёт…" });
+    var sets = null, camp = null, targets = [], pub = [];
+    ui("Читаю группы кампании в Meta…");
+    try { sets = await readSets(REQ_STOP); } catch (e) { errs.push("группы не прочитаны: " + errText(e)); if (isFatal(e)) fatal = e; }
+    if (!fatal) { try { camp = (await readObjs([{ id: CFG.campaign, type: "campaign" }], REQ_STOP))[String(CFG.campaign)] || null; } catch (e) { errs.push("кампания не прочитана: " + errText(e)); if (isFatal(e)) fatal = e; } }
+    if (!fatal) {
+      /* группы не прочитались — берём те, что пульт видел работающими в последнем ответе Meta; кампанию ставим на паузу в любом случае */
+      var list = sets ? sets.map(function(s){ return { id: String(s.id), name: s.name, status: s.status }; }) : M0.sets.map(function(s){ return { id: s.id, name: s.name, status: s.status }; });
+      targets = list.filter(function(s){ return s.status === "ACTIVE"; }).map(function(s){ return { id: s.id, type: "ad_set", name: s.name }; });
+      if (!camp || camp.status !== "PAUSED") targets.push({ id: String(CFG.campaign), type: "campaign", name: "кампания" });
+      for (var i = 0; i < targets.length && !fatal; i++) {
+        ui("Ставлю на паузу: " + targets[i].name + " (" + (i + 1) + " из " + targets.length + ")…");
+        try {
+          var r = await call("ads_update_entity", { ad_account_id: String(CFG.account), entity_id: targets[i].id, entity_type: targets[i].type, fields: JSON.stringify({ status: "PAUSED" }) }, REQ_STOP);
+          if (deepFind(payload(r), "is_draft") !== false) pub.push(targets[i]);
+        } catch (e) { errs.push(targets[i].name + ": " + errText(e)); if (isFatal(e)) fatal = e; }
+      }
+      if (!fatal && pub.length) {
+        ui("Публикую паузу из черновика Meta (только паузу)…");
+        try { await publishDrafts(pub, REQ_STOP, onlyStatus("PAUSED"), notes, errs); } catch (e) { errs.push("публикация: " + errText(e)); }
+      }
+    }
+    var res = fatal ? { ok: false, error: fatal } : await verifyLoop(async function(){
+      var s2 = null, c2 = null, re = [];
+      try { s2 = await readSets(REQ_STOP); } catch (e) { re.push("группы: " + errText(e)); }
+      try { c2 = (await readObjs([{ id: CFG.campaign, type: "campaign" }], REQ_STOP))[String(CFG.campaign)] || null; } catch (e) { re.push("кампания: " + errText(e)); }
+      var campOff = !!c2 && c2.status === "PAUSED";
+      var setsOff = !!s2 && !s2.some(function(s){ return s.status === "ACTIVE" && !OFF[s.effective_status]; });
+      /* «Остановлено» — только по прочитанным статусам: хотя бы один замок встал и прочитан */
+      return { ok: campOff || setsOff, campOff: campOff, setsOff: setsOff, camp: c2, sets: s2 || [], readErr: re };
+    }, function(i, n){ ui("Проверяю в Meta, что пауза встала… (" + i + " из " + n + ")"); });
+    var verified = { camp: res.camp ? { status: res.camp.status, effective_status: res.camp.effective_status, delivery: deliv(res.camp) } : null,
+      sets: (res.sets || []).map(function(s){ return { id: String(s.id), name: s.name, status: s.status, effective_status: s.effective_status, delivery: deliv(s) }; }) };
+    var text;
+    if (res.ok) {
+      text = "Остановлено в " + tHM(Date.now()) + ": " + (res.camp ? stDesc(res.camp) : "кампания не прочитана") + "; группы — " + ((res.sets || []).map(function(s){ return s.name + " " + s.status; }).join(", ") || "не прочитаны") + "." +
+        (!(res.campOff && res.setsOff) ? " Второй замок не подтвердился (" + (res.campOff ? "группы" : "кампания") + "), но деньги не тратятся." : "") +
+        (errs.length ? " Были ошибки: " + errs.join("; ") + "." : "") + (notes.length ? " " + notes.join("; ") + "." : "");
+      S.stopUi = { phase: "ok", msg: text };
+    } else {
+      text = fatal ? "НЕ остановилось: Meta не подключена к пульту (" + metaErrText(fatal) + ")" : "НЕ остановилось: " + (res.camp ? stDesc(res.camp) : "статус кампании не прочитан") + (errs.length ? ". Ошибки: " + errs.join("; ") : "") + (res.readErr && res.readErr.length ? ". Чтение: " + res.readErr.join("; ") : "") + (res.error ? ". " + errText(res.error) : "") + ".";
+      S.stopUi = { phase: "fail", msg: text };
+    }
+    render();
+    await setStopDoc(at, { at: at, by: "andrey", kind: "stop", result: res.ok ? "stopped" : "failed", verified: verified, errors: errs, notes: notes, text: text });
+    if (S.db && !res.ok) { try { await S.db.doc("alerts/STOP_FAILED-" + laDate(Date.now())).set({ at: at, level: "red", code: "STOP_FAILED", text: text, whatToDo: "Остановить в Ads Manager; агент доводит остановку на ближайшем прогоне и сообщает.", status: "open", by: "pult" }); } catch (e) {} }
+    await logAndrey(res.ok ? "Андрей остановил рекламу Веры кнопкой на пульте — пауза проверена в Meta." : "Андрей нажал «Остановить», но Meta не подтвердила паузу: " + text);
+  }
+
+  /* ---- «Включить обратно»: сначала пауза прочих групп (иначе $30 в день), потом кампания и ОДНА группа ---- */
+  function resumeTarget(M){
+    var c = CFG, dn = (c.doNotEnable || []).map(String), now = Date.now();
+    var cand = M.sets.filter(function(s){ return dn.indexOf(s.id) < 0 && (!s.end || s.end > now) && !/DELETED|ARCHIVED/.test(s.eff || ""); });
+    var w = cand.filter(function(s){ return s.id === String(c.workingAdset); })[0];
+    return w || cand.sort(function(a, b){ return (b.created || 0) - (a.created || 0); })[0] || null;
+  }
+  function askResume(M){
+    if (M.stopRunning) { S.stopUi = { phase: "fail", msg: "Идёт остановка — включать сейчас нельзя. Дождитесь её итога." }; render(); return; }
+    var t = resumeTarget(M);
+    if (!t) { S.stopUi = { phase: "fail", msg: "Не нашёл группу, которую можно включить (рабочая не задана или её срок вышел)." }; render(); return; }
+    var others = M.sets.filter(function(s){ return s.id !== t.id && s.status === "ACTIVE"; });
+    var a4 = M.c20 === 0 && M.camp && M.camp.spent >= TH().test.noCallsStop;
+    S.stopUi = { phase: "rconfirm", target: t, msg: "Включить кампанию и одну группу «" + t.name + "» — " + usdS(t.budget) + " в день, до " + (t.end ? tDM(t.end) : "конца теста") + "?" +
+      (others.length ? " Сначала поставлю на паузу: " + others.map(function(s){ return s.name; }).join(", ") + " — иначе работали бы две группы." : "") +
+      (a4 ? " Внимание: тест уже потратил " + usd(M.camp.spent) + " без звонков 20+ — включение значит новые траты." : "") };
+    render();
+  }
+  async function doResume(){
+    var t = S.stopUi.target; if (!t) return;
+    var errs = [], notes = [], at = nowIso(), text = null;
+    function ui(msg){ S.stopUi = { phase: "run", kind: "resume", msg: msg, target: t }; render(); }
+    async function finish(ok, txt, extra){
+      S.stopUi = { phase: ok ? "ok" : "fail", msg: txt }; render();
+      await setStopDoc(at, Object.assign({ at: at, by: "andrey", kind: "resume", result: ok ? "resumed" : "failed", errors: errs, notes: notes, text: txt }, extra || {}));
+      await logAndrey(ok ? "Андрей включил рекламу кнопкой на пульте — статус проверен в Meta." : "Андрей нажал «Включить», но не вышло: " + txt);
+    }
+    if (model().stopRunning) return finish(false, "Идёт остановка — не включаю.");
+    var sets;
+    ui("Читаю группы кампании…");
+    try { sets = await readSets(REQ_RESUME); } catch (e) { return finish(false, "НЕ включилось: группы не прочитаны (" + errText(e) + "), включать вслепую не буду."); }
+    var others = sets.filter(function(s){ return String(s.id) !== t.id && s.status === "ACTIVE"; }).map(function(s){ return { id: String(s.id), type: "ad_set", name: s.name }; });
+    if (others.length) {
+      var pub = [];
+      for (var i = 0; i < others.length; i++) {
+        ui("Сначала пауза: " + others[i].name + "…");
+        try { var r = await call("ads_update_entity", { ad_account_id: String(CFG.account), entity_id: others[i].id, entity_type: "ad_set", fields: JSON.stringify({ status: "PAUSED" }) }, REQ_RESUME); if (deepFind(payload(r), "is_draft") !== false) pub.push(others[i]); }
+        catch (e) { errs.push(others[i].name + ": " + errText(e)); }
+      }
+      if (pub.length) { try { await publishDrafts(pub, REQ_RESUME, onlyStatus("PAUSED"), notes, errs); } catch (e) { errs.push("публикация паузы: " + errText(e)); } }
+      var po = await verifyLoop(async function(){
+        var s2 = await readSets(REQ_RESUME), still = s2.filter(function(s){ return others.some(function(o){ return o.id === String(s.id); }) && s.status === "ACTIVE"; });
+        return { ok: !still.length, still: still };
+      }, function(i, n){ ui("Проверяю, что прочие группы на паузе… (" + i + " из " + n + ")"); }, [8, 15, 25, 35]);
+      if (!po.ok) return finish(false, "НЕ включаю: " + ((po.still || []).map(function(s){ return s.name; }).join(", ") || "прочие группы") + " не встали на паузу — вместе было бы две группы." + (errs.length ? " Ошибки: " + errs.join("; ") + "." : ""));
+    }
+    var targets = [{ id: String(CFG.campaign), type: "campaign", name: "кампания" }, { id: t.id, type: "ad_set", name: t.name }];
+    try {
+      var cur = await readObjs(targets, REQ_RESUME);
+      for (var j = 0; j < targets.length; j++) {
+        var x = cur[targets[j].id];
+        if (x && x.status === "ACTIVE") continue;
+        ui("Включаю: " + targets[j].name + "…");
+        try { await call("ads_activate_entity", { ad_account_id: String(CFG.account), entity_id: targets[j].id, entity_type: targets[j].type }, REQ_RESUME); }
+        catch (e) { errs.push(targets[j].name + ": " + errText(e)); }
+      }
+      ui("Проверяю черновики Meta…");
+      try { await publishDrafts(targets, REQ_RESUME, onlyStatus("ACTIVE"), notes, errs); } catch (e) { errs.push("публикация: " + errText(e)); }
+    } catch (e) { errs.push(errText(e)); }
+    var res = await verifyLoop(async function(){
+      var o = await readObjs(targets, REQ_RESUME), s3 = await readSets(REQ_RESUME);
+      var ok = targets.every(function(tt){ return o[tt.id] && o[tt.id].status === "ACTIVE"; });
+      var n = s3.filter(function(s){ return s.status === "ACTIVE"; }).length;
+      return { ok: ok && n <= 1, objs: o, two: n >= 2 };
+    }, function(i, n){ ui("Проверяю в Meta, что включилось… (" + i + " из " + n + ")"); });
+    text = res.ok ? "Включено в " + tHM(Date.now()) + ": " + targets.map(function(tt){ return stDesc(res.objs[tt.id]); }).join("; ") + "." + (errs.length ? " Были ошибки: " + errs.join("; ") + "." : "")
+      : "НЕ включилось как надо: " + (res.objs ? targets.map(function(tt){ return stDesc(res.objs[tt.id]); }).join("; ") : "статус не прочитан") + (res.two ? ". Работают две группы — поставьте лишнюю на паузу кнопкой «Остановить» или ждите агента" : "") + (errs.length ? ". Ошибки: " + errs.join("; ") : "") + ".";
+    return finish(res.ok, text);
+  }
+
+  /* ---- вопросы по деньгам: «Да» = проверка шагов → правка → публикация ровно этой правки → перечитать ---- */
+  function stepsOf(d){ return Array.isArray(d.steps) ? d.steps : (d.action ? [d.action] : []); }
+  function isPageExec(d){ return stepsOf(d).length > 0 && d.executor !== "agent"; }
+  function fieldsOf(inp){ var f = inp && inp.fields; if (typeof f === "string") f = pj(f); return isObj(f) ? f : null; }
+  /* Предохранитель: хук meta_money_guard на пульт не действует (пульт ходит коннектором Андрея), поэтому проверяем здесь */
+  function checkDecision(d, M){
+    var steps = stepsOf(d), g = CFG.guard || {}, allowF = g.fields || ["status", "daily_budget", "spend_cap", "end_time", "stop_time"];
+    var maxDaily = +g.maxDaily || 30, capMax = +g.maxCampaignCap || M.accountCap, endMax = pt(g.maxEnd), lines = [], why = null, hasUpd = false;
+    function bad(s){ if (!why) why = s; }
+    /* группы кампании ещё не прочитаны — не «ошибка вопроса», а ожидание */
+    if (!S.meta.adsets) return { ok: false, wait: true, why: "жду группы кампании из Meta", lines: [] };
+    steps.forEach(function(s, i){
+      var n = "шаг " + (i + 1);
+      if (!s || PAGE_EXEC.indexOf(s.tool) < 0) return bad(n + ": инструмент «" + (s && s.tool) + "» пульту не разрешён");
+      var inp = s.input || {};
+      if (inp.ad_account_id != null && String(inp.ad_account_id) !== String(CFG.account)) return bad(n + ": чужой рекламный аккаунт " + inp.ad_account_id);
+      var type = inp.entity_type, id = String(inp.entity_id || "");
+      if (type !== "campaign" && type !== "ad_set") return bad(n + ": можно менять только кампанию или группу, а тут «" + type + "»");
+      if (type === "campaign" && id !== String(CFG.campaign)) return bad(n + ": кампания " + id + " — не кампания Веры");
+      if (type === "ad_set" && !M.setById[id]) return bad(n + ": группа " + id + " не из кампании Веры");
+      if (inp.ignore_validation_errors) return bad(n + ": публикация с пропуском ошибок Meta запрещена");
+      (Array.isArray(inp.object_ids) ? inp.object_ids : []).forEach(function(o){ if (String(o) !== String(CFG.campaign) && !M.setById[String(o)]) bad(n + ": объект " + o + " не из кампании Веры"); });
+      var nm = type === "campaign" ? "кампания" : "группа " + M.setById[id].name;
+      if (s.tool === "ads_activate_entity") { lines.push(nm + " — включить"); return; }
+      hasUpd = true;
+      var f = fieldsOf(inp);
+      if (!f || !Object.keys(f).length) return bad(n + ": поля правки пустые или не разобраны");
+      Object.keys(f).forEach(function(k){
+        var v = f[k];
+        if (allowF.indexOf(k) < 0) return bad(n + ": поле «" + k + "» пульту менять нельзя");
+        if (k === "status") { if (v !== "ACTIVE" && v !== "PAUSED") bad(n + ": статус «" + v + "»"); else lines.push(nm + " — " + (v === "ACTIVE" ? "включить" : "пауза")); return; }
+        if (k === "daily_budget" || k === "spend_cap") {
+          var cents = Number(v);
+          if (!isFinite(cents) || cents !== Math.round(cents) || cents < 100) return bad(n + ": сумма «" + v + "» — нужны целые центы (1500 = $15)");
+          if (k === "daily_budget") {
+            if (cents > maxDaily * 100) return bad(n + ": " + usd(cents / 100) + " в день выше предела пульта " + usdS(maxDaily) + " (опечатка в центах?)");
+            if (d.perDay != null && Math.abs(cents / 100 - val(d.perDay)) > 0.01) return bad(n + ": в шаге " + usd(cents / 100) + " в день, а в вопросе " + usd(val(d.perDay)));
+            lines.push(nm + " — " + usd(cents / 100) + " в день");
+          } else {
+            if (type !== "campaign") return bad(n + ": лимит трат ставится только кампании");
+            if (cents / 100 > capMax) return bad(n + ": лимит " + usd(cents / 100) + " выше " + (g.maxCampaignCap ? "предела пульта " : "потолка аккаунта ") + usdS(capMax));
+            if (M.camp && cents / 100 < M.camp.spent) return bad(n + ": лимит " + usd(cents / 100) + " меньше уже потраченного " + usd(M.camp.spent));
+            lines.push(nm + " — лимит трат " + usd(cents / 100));
+          }
+          return;
+        }
+        if (k === "end_time" || k === "stop_time") {
+          var tm = pt(v);
+          if (!tm) return bad(n + ": дата «" + v + "» не разобрана");
+          if (tm < Date.now()) return bad(n + ": дата в прошлом");
+          if (endMax && tm > endMax) return bad(n + ": дата " + tDM(tm) + " позже предела пульта " + tDM(endMax));
+          if (d.until && pt(d.until) && Math.abs(pt(d.until) - tm) > 60000) return bad(n + ": в шаге " + tDM(tm) + ", а в вопросе " + tDM(pt(d.until)));
+          lines.push(nm + " — до " + tDM(tm));
+        }
+      });
+    });
+    var vf = Array.isArray(d.verify) ? d.verify : [];
+    if (!hasUpd && !vf.length) bad("только публикация без verify — пульту нечего сверить");
+    vf.forEach(function(v){ var id = String(v.id); if (id !== String(CFG.campaign) && !M.setById[id]) bad("verify: объект " + id + " не из кампании Веры"); });
+    return { ok: !why, wait: false, why: why || "", lines: lines };
+  }
+  function normInput(inp){
+    var o = Object.assign({}, inp || {});
+    o.ad_account_id = String(CFG.account);
+    if (isObj(o.fields)) o.fields = JSON.stringify(o.fields);
+    delete o.client_conversation_id; delete o.advertiser_request; delete o.ignore_validation_errors;
+    return o;
+  }
+  function matches(expect, x){
+    var bad = [];
+    Object.keys(expect).forEach(function(k){
+      var e = expect[k], v = x ? x[k] : undefined;
+      if (k === "status") { if (!x || x.status !== e) bad.push("статус " + (x ? x.status : "?") + " вместо " + e); }
+      else if (k === "daily_budget" || k === "lifetime_budget" || k === "spend_cap") { var n = val(v); if (n == null || (Math.abs(n * 100 - Number(e)) > 1 && Math.abs(n - Number(e)) > 0.01)) bad.push(k + " " + (n == null ? "?" : n) + " вместо " + (Number(e) / 100)); }
+      else if (k === "end_time" || k === "stop_time" || k === "start_time") { var a = pt(v), b = pt(e); if (a == null || b == null || Math.abs(a - b) > 60000) bad.push(k + " не совпало"); }
+      else if (k === "name") { if (!x || x.name !== e) bad.push("имя не совпало"); }
+    });
+    return bad;
+  }
+  async function runDecision(d){
+    if (!S.db || !S.canAct) return;
+    if (S.dUi[d.id] && S.dUi[d.id].phase === "run") return;
+    /* отметки берём В НАЧАЛЕ: «Стоп», нажатый во время «Да» (здесь или на другом устройстве), отменяет повторное включение */
+    var M0 = model(), dStart = Date.now(), epoch0 = S.stopEpoch;
+    function ui(phase, msg){ S.dUi[d.id] = { phase: phase, msg: msg }; render(); if (phase === "ok") setTimeout(function(){ if (S.dUi[d.id] && S.dUi[d.id].phase === "ok") { S.dUi[d.id] = { phase: "idle" }; render(); } }, 20000); }
+    function stopPressed(){ return S.stopEpoch !== epoch0 || (S.stops || []).some(function(s){ return s.kind !== "resume" && (pt(s.at) || 0) >= dStart - 1000; }); }
+    if (M0.stopRunning) { ui("fail", "Идёт остановка рекламы — «да» не выполнено. Повторите после неё."); return; }
+    var steps = stepsOf(d), req = "да: " + String(d.title || "").slice(0, 200);
+    if (!isPageExec(d)) {
+      ui("run", "Записываю ваше «да»…");
+      try {
+        await S.db.doc("decisions/" + d.id).update({ status: "approved", answeredAt: nowIso(), answer: "yes" });
+        await logAndrey("Андрей: «да» — " + d.title + " (выполнит агент на ближайшем прогоне)");
+        ui("ok", "Записано. Агент выполнит на ближайшем прогоне и проверит статус в Meta.");
+      } catch (e) { ui("fail", "Не записалось (" + (e && e.code || "ошибка") + "). Попробуйте ещё раз."); }
+      return;
+    }
+    var chk = checkDecision(d, M0);
+    if (!chk.ok) { ui("fail", "Пульт не выполнит: " + chk.why); return; }
+    if (!S.mcp) { ui("fail", "Нет доступа к Meta в этом окне — «да» не выполнено."); return; }
+    ui("run", "Начинаю…");
+    try { await S.db.doc("decisions/" + d.id).update({ status: "executing", answeredAt: nowIso(), answer: "yes" }); } catch (e) {}
+    var touched = [], errs = [], notes = [], pub = [];
+    steps.forEach(function(s){ if (s.tool === "ads_update_entity") { var i0 = s.input || {}; touched.push({ id: String(i0.entity_id), type: i0.entity_type, name: s.label || String(i0.entity_id), expect: fieldsOf(i0) || {} }); } });
+    (Array.isArray(d.verify) ? d.verify : []).forEach(function(v){ touched.push({ id: String(v.id), type: v.entity_type || v.type || "ad_set", name: String(v.id), expect: v.expect || {} }); });
+    var pre = {};
+    try { if (touched.length) pre = await readObjs(touched, req); } catch (e) {}
+    for (var i = 0; i < steps.length; i++) {
+      if (stopPressed()) { errs.push("нажата «Остановить» — остальные шаги не выполнены"); break; }
+      ui("run", "Шаг " + (i + 1) + " из " + steps.length + ": " + (steps[i].label || steps[i].tool) + "…");
+      try {
+        var r = await call(steps[i].tool, normInput(steps[i].input), req);
+        if (steps[i].tool === "ads_update_entity" && deepFind(payload(r), "is_draft") !== false) { var tid = String(steps[i].input.entity_id); pub = pub.concat(touched.filter(function(t){ return t.id === tid && pub.indexOf(t) < 0; }).slice(0, 1)); }
+        var forced = deepFind(payload(r), "status_forced_to_paused");
+        if (forced === true) notes.push("Meta поставила " + (steps[i].label || "объект") + " на паузу после правки");
+      } catch (e) { errs.push((steps[i].label || steps[i].tool) + ": " + errText(e)); break; }
+    }
+    if (!errs.length && pub.length) {
+      ui("run", "Публикую ровно эту правку из черновика Meta…");
+      try { await publishDrafts(pub, req, onlyExpected, notes, errs); } catch (e) { errs.push("публикация: " + errText(e)); }
+    }
+    var reactivated = {};
+    var res = touched.length ? await verifyLoop(async function(){
+      var o = await readObjs(touched, req), bad = [];
+      for (var j = 0; j < touched.length; j++) {
+        var t = touched[j], x = o[t.id], exp = Object.assign({}, t.expect);
+        /* объект работал до правки, а Meta после правки бюджета поставила его на паузу — включаем один раз, но не после «Стоп» и не при ошибках */
+        if (exp.status == null && pre[t.id] && pre[t.id].status === "ACTIVE" && !stopPressed()) {
+          exp.status = "ACTIVE";
+          if (x && x.status === "PAUSED" && !reactivated[t.id] && !errs.length) {
+            reactivated[t.id] = true;
+            if (!stopPressed()) {
+              notes.push("Meta сама поставила " + (x.name || t.id) + " на паузу после правки — включил обратно");
+              try { await call("ads_activate_entity", { ad_account_id: String(CFG.account), entity_id: t.id, entity_type: t.type }, req); } catch (e) { errs.push("включение после правки: " + errText(e)); }
+            }
+          }
+        }
+        matches(exp, x).forEach(function(b){ bad.push((x && x.name || t.id) + ": " + b); });
+      }
+      return { ok: bad.length === 0, bad: bad, objs: o };
+    }, function(i, n){ ui("run", "Проверяю в Meta, что правка встала… (" + i + " из " + n + ")"); }, errs.length ? [5, 20] : null) : { ok: false, objs: {}, bad: ["нечего сверить"] };
+    var verified = {};
+    Object.keys(res.objs || {}).forEach(function(id){ var x = res.objs[id]; verified[id] = { name: x.name, status: x.status, effective_status: x.effective_status, daily_budget: val(x.daily_budget), spend_cap: val(x.spend_cap), end_time: x.end_time || null, stop_time: x.stop_time || null }; });
+    /* «Выполнено» — только без единой ошибки И со сверкой живых статусов */
+    var ok = res.ok && !errs.length;
+    var errMsg = ok ? null : (errs.concat(res.bad || []).join("; ") || (res.error ? errText(res.error) : "Meta не подтвердила"));
+    try {
+      await S.db.doc("decisions/" + d.id).update({ status: ok ? "executed" : "failed", answeredAt: nowIso(), executed: ok, result: { at: nowIso(), verified: verified, error: errMsg, notes: notes } });
+      await logAndrey((ok ? "Андрей: «да» — выполнено и проверено в Meta: " : "Андрей: «да», но не выполнилось: ") + d.title + (ok ? "" : " — " + errMsg));
+    } catch (e) {}
+    ui(ok ? "ok" : "fail", ok ? "Выполнено и проверено в Meta." + (notes.length ? " " + notes.join("; ") + "." : "") : "Сбой: " + errMsg);
+  }
+  async function declineDecision(d){
+    if (!S.db || !S.canAct) return;
+    S.dUi[d.id] = { phase: "run", msg: "Записываю «нет»…" }; render();
+    try {
+      await S.db.doc("decisions/" + d.id).update({ status: "declined", answeredAt: nowIso(), answer: "no" });
+      await logAndrey("Андрей: «нет» — " + d.title);
+      S.dUi[d.id] = { phase: "idle" };
+    } catch (e) { S.dUi[d.id] = { phase: "fail", msg: "Не записалось (" + (e && e.code || "ошибка") + ")." }; }
+    render();
+  }
+
+  /* ---- «Я оплатил» ---- */
+  async function recheckPay(d){
+    if (!S.mcp || S.payBusy) return;
+    S.payBusy = true;
+    try { await recheckPay0(d); } finally { S.payBusy = false; }
+  }
+  async function recheckPay0(d){
+    var tries = [0, 60, 120, 120];
+    function show(msg, ok){ if (d) S.dUi[d.id] = { phase: ok ? "ok" : "run", msg: msg }; else S.payUi = { msg: msg, ok: ok }; render(); }
+    for (var i = 0; i < tries.length; i++) {
+      if (tries[i]) { show("Meta ещё не сменила статус. Проверю снова через " + (tries[i] / 60) + " мин (" + (i + 1) + " из " + tries.length + ")…", false); await sleep(tries[i] * 1000); }
+      else show("Перечитываю статус аккаунта…", false);
+      try {
+        await safeInvalidate();
+        var r = await S.mcp.callTool(CFG.server, "ads_get_ad_accounts", { client_conversation_id: CCID, advertiser_request: REQ_PAID }, { cache: false });
+        var a = PARSE.account(payload(r));
+        if (a && !a.missing) { S.meta.account = a; S.at.account = Date.now(); }
+        if (a && a.account_status === "ACTIVE" && a.has_payment_method !== false) {
+          show("Meta: аккаунт Active — оплата прошла.", true);
+          if (d && S.db) { try { await S.db.doc("decisions/" + d.id).update({ status: "executed", answeredAt: nowIso(), executed: true, result: { at: nowIso(), verified: { account_status: a.account_status } } }); } catch (e) {} }
+          await logAndrey("Андрей оплатил — пульт проверил: аккаунт Active.");
+          return;
+        }
+      } catch (e) { show("Не смог прочитать статус: " + errText(e), false); }
+    }
+    show("Статус не сменился за 5 минут. Проверьте Billing & payments; агент увидит на ближайшем прогоне.", false);
+    await logAndrey("Андрей нажал «Я оплатил», но за 5 минут Meta не показала Active.");
+  }
+
+  /* ---- сообщение агенту ---- */
+  el("msgSend").addEventListener("click", async function(){
+    var t = el("msg").value.trim(), hint = el("msgHint");
+    if (!t || !S.db) return;
+    el("msgSend").disabled = true;
+    try {
+      await S.db.collection("inbox").add({ at: nowIso(), t: stamp(), text: t, status: "new" });
+      await logAndrey("Андрей написал агенту: «" + t.slice(0, 140) + "»");
+      el("msg").value = ""; hint.setAttribute("data-sent", "1"); hint.textContent = "Отправлено. Статус и ответ — ниже, под сообщением.";
+      setTimeout(function(){ hint.removeAttribute("data-sent"); render(); }, 20000);
+    } catch (e) {
+      hint.setAttribute("data-sent", "1");
+      hint.textContent = e && e.code === "quota_exceeded" ? "Хранилище пульта заполнено — скажите агенту почистить." : "Не отправилось (" + (e && e.code || "ошибка") + "). Попробуйте ещё раз.";
+    }
+    el("msgSend").disabled = false;
+  });
+
+  /* ================= запуск ================= */
+  /* Один обработчик на всю страницу: секции перерисовываются, а кнопки не теряют обработчики */
+  document.addEventListener("click", function(ev){
+    var b = ev.target && ev.target.closest ? ev.target.closest("[data-act],[data-d],[data-s],button.thumb") : null;
+    if (!b || b.disabled) return;
+    if (b.hasAttribute("data-act")) { if (b.getAttribute("data-act") === "recheckPay") recheckPay(null); }
+    else if (b.hasAttribute("data-d")) onDecisionClick(b);
+    else if (b.hasAttribute("data-s")) onStopClick(b);
+    else if (b.classList.contains("thumb")) playThumb(b);
+  });
+  /* раскрыт/свёрнут список — помним выбор (toggle не всплывает, ловим на захвате) */
+  document.addEventListener("toggle", function(ev){
+    var d = ev.target, k = d && d.getAttribute && d.getAttribute("data-ui");
+    if (!k || S.ui[k] === d.open) return;
+    S.ui[k] = d.open; render();
+  }, true);
+  /* ролик поставили на паузу или он кончился — дорисовать отложенные карточки */
+  ["pause", "ended"].forEach(function(t){ document.addEventListener(t, function(){ if (S.adsPending != null) { var h = S.adsPending; S.adsPending = null; put("ads", h); } }, true); });
+  /* вкладка была скрыта — watch стоял на паузе; «устаревшие данные» не показываем, пока догоняющее обновление не пришло */
+  S.visibleSince = Date.now();
+  document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "visible") S.visibleSince = Date.now(); });
+  render();
+  setInterval(function(){ render(); if (S.mcp) wireMeta(); }, 60000);
+
+  (async function(){
+    var c = window.claude;
+    if (!c || !c.use) { S.mcpNull = true; S.dbNull = true; S.who = "none"; render(); return; }
+    c.use("user").then(async function(u){
+      if (!u) { S.who = "none"; S.canAct = false; render(); return; }
+      try { S.canAct = !!(await u.isOwner()); } catch (e) { S.canAct = false; }
+      S.who = "known"; render();
+    }, function(){ S.who = "none"; render(); });
+    try {
+      var db = await c.use("db");
+      if (db) {
+        S.db = db;
+        var fail = function(e){ S.dbErr = e; render(); };
+        db.doc("panel/config").onSnapshot(function(s){ S.cfgDb = s.exists ? s.data() : null; recomputeCfg(); render(); if (S.mcp) wireMeta(); }, fail);
+        db.doc("panel/state").onSnapshot(function(s){ S.state = s.exists ? s.data() : null; render(); }, fail);
+        db.doc("panel/log").onSnapshot(function(s){ S.log = (s.exists && s.data().items) || []; render(); }, fail);
+        db.collection("andrey").orderBy("at", "desc").limit(15).onSnapshot(function(q){ S.andrey = q.docs.map(function(x){ return x.data(); }); render(); }, fail);
+        db.collection("decisions").orderBy("createdAt", "desc").limit(20).onSnapshot(function(q){ S.decisions = q.docs.map(function(x){ var o = Object.assign({}, x.data()); o.id = x.id; return o; }); render(); }, fail);
+        db.collection("alerts").orderBy("at", "desc").limit(30).onSnapshot(function(q){ S.alertsDb = q.docs.map(function(x){ var o = Object.assign({}, x.data()); o.id = x.id; return o; }); render(); }, fail);
+        db.collection("inbox").orderBy("at", "desc").limit(10).onSnapshot(function(q){ S.inbox = q.docs.map(function(x){ var o = Object.assign({}, x.data()); o.id = x.id; return o; }); render(); }, fail);
+        db.collection("stop").orderBy("at", "desc").limit(5).onSnapshot(function(q){ S.stops = q.docs.map(function(x){ return x.data(); }); render(); }, fail);
+      } else S.dbNull = true;
+    } catch (e) { S.dbNull = true; }
+    render();
+    try {
+      var mcp = await c.use("mcp");
+      if (!mcp) { S.mcpNull = true; render(); return; }
+      S.mcp = mcp; S.mcpAt = Date.now();
+      /* Первое открытие: пока Андрей подтверждает доступ к Meta Ads, 11 чтений разом получили бы «повторите позже».
+         Поэтому сначала одно чтение (оно и спрашивает согласие), потом остальные. Согласие уже есть — сразу все. */
+      var st0 = "unknown";
+      try { var perm = await c.use("permissions"); if (perm) st0 = await perm.state("mcp:" + CFG.server).catch(function(){ return "unknown"; }); } catch (e) {}
+      if (st0 !== "granted") {
+        render();
+        try { var r0 = await mcp.callTool(CFG.server, "ads_get_ad_accounts", { client_conversation_id: CCID, advertiser_request: REQ_READ }); onData("account", r0); }
+        catch (e) { onErr("account", e); }
+        S.mcpAt = Date.now();
+      }
+      wireMeta();
+      render();
+    } catch (e) { S.mcpNull = true; render(); }
+  })();
+})();
+</script>

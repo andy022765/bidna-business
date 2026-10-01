@@ -1,0 +1,920 @@
+<title>План сборки №44 и №43</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: рабочий план в одну колонку (920px): продукты и модули таблицами, алгоритмы на светлых листах-схемах, график диаграммой Ганта, решения кнопками внизу. */
+:root {
+  --bg: #f7f5f1;
+  --surface: #ffffff;
+  --ink: #141a3a;
+  --navy: #1b2557;
+  --muted: #5a6078;
+  --line: #e2ded5;
+  --gold: #8f6620;
+  --gold-rule: #c69a4c;
+  --gold-soft: #f3e8d2;
+  --go: #256b47;
+  --go-soft: #e2f0e7;
+  --hold: #8f5a06;
+  --hold-soft: #f6ead3;
+  --stop: #93362f;
+  --stop-soft: #f5e3e0;
+  --sheet: #ffffff;
+  --sheet-edge: #dcd7cc;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1330; --surface: #151b3f; --ink: #ecebe6; --navy: #c9cff2; --muted: #a3a8c3;
+    --line: #2a3163; --gold: #e3c88a; --gold-rule: #c69a4c; --gold-soft: #2e2c3b;
+    --go: #86d4a9; --go-soft: #173a2e; --hold: #f0bf6a; --hold-soft: #3a2f1a;
+    --stop: #f2a198; --stop-soft: #3d2227; --sheet: #f1efe9; --sheet-edge: #3a4278; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1330; --surface: #151b3f; --ink: #ecebe6; --navy: #c9cff2; --muted: #a3a8c3;
+  --line: #2a3163; --gold: #e3c88a; --gold-rule: #c69a4c; --gold-soft: #2e2c3b;
+  --go: #86d4a9; --go-soft: #173a2e; --hold: #f0bf6a; --hold-soft: #3a2f1a;
+  --stop: #f2a198; --stop-soft: #3d2227; --sheet: #f1efe9; --sheet-edge: #3a4278; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+.page { max-width: 920px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 64px; display: grid; gap: 60px; }
+a { color: var(--navy); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, textarea:focus-visible { outline: 2px solid var(--gold-rule); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); color: var(--navy); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(32px, 5.4vw, 46px); font-weight: 700; }
+h2 { font-size: clamp(24px, 3.6vw, 31px); font-weight: 700; }
+h3 { font-size: 21px; font-weight: 600; }
+p { margin: 0; }
+.eyebrow, .kicker { font-family: var(--font-data); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+section { display: grid; gap: 22px; }
+.section-head { display: grid; gap: 8px; border-top: 2px solid var(--navy); padding-top: 16px; }
+.section-head p { color: var(--muted); max-width: 68ch; }
+.prose { display: grid; gap: 12px; max-width: 70ch; }
+.muted { color: var(--muted); }
+
+/* Hero */
+.hero { display: grid; gap: 18px; }
+.lead { font-size: 19px; line-height: 1.55; max-width: 64ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-family: var(--font-data); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; padding: 5px 10px; border-radius: 3px; border: 1.5px solid currentColor; line-height: 1.3; }
+.chip.go { color: var(--go); background: var(--go-soft); }
+.chip.hold { color: var(--hold); background: var(--hold-soft); }
+.chip.stop { color: var(--stop); background: var(--stop-soft); }
+.nav { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; }
+.nav a { text-decoration: none; border-bottom: 1px solid var(--gold-rule); padding-bottom: 1px; }
+
+/* Products */
+.products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.product { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: grid; gap: 10px; align-content: start; }
+.product .num { font-family: var(--font-data); color: var(--gold); font-size: 13px; }
+.product p { font-size: 15px; color: var(--muted); }
+.product ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 15px; }
+@media (max-width: 760px) { .products { grid-template-columns: 1fr; } }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; border-top: 1px solid var(--navy); }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+th { font-family: var(--font-data); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+td.wrap { white-space: normal; }
+.tag { display: inline-block; font-family: var(--font-data); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+.tag.go { color: var(--go); background: var(--go-soft); }
+.tag.hold { color: var(--hold); background: var(--hold-soft); }
+.tag.stop { color: var(--stop); background: var(--stop-soft); }
+
+/* Diagrams */
+figure { margin: 0; display: grid; gap: 10px; }
+.sheet { background: var(--sheet); border: 1px solid var(--sheet-edge); border-radius: 8px; padding: 18px 14px; overflow-x: auto; }
+.sheet pre.mermaid { margin: 0; background: transparent; font-family: var(--font-body); color: #141a3a; text-align: center; white-space: pre; }
+figcaption { font-size: 14.5px; color: var(--muted); max-width: 72ch; }
+figcaption b { color: var(--ink); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid; }
+.legend .l-start { background: #1b2557; border-color: #1b2557; }
+.legend .l-dec { background: #f3e8d2; border-color: #8f6620; }
+.legend .l-ok { background: #e2f0e7; border-color: #256b47; }
+.legend .l-bad { background: #f5e3e0; border-color: #93362f; }
+.legend .l-step { background: #ffffff; border-color: #1b2557; }
+
+/* Lists */
+.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 72ch; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; }
+.two > div { display: grid; gap: 10px; align-content: start; min-width: 0; }
+@media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+.steps { margin: 0; padding-left: 22px; display: grid; gap: 8px; max-width: 72ch; }
+
+/* Decisions */
+.dcard { display: grid; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+.dcard .qn { font-family: var(--font-data); font-size: 12px; letter-spacing: .08em; color: var(--gold); }
+.dcard .why { color: var(--muted); font-size: 15px; max-width: 68ch; }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 2px 12px; align-items: start; width: 100%; text-align: left; padding: 13px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); font: inherit; cursor: pointer; transition: border-color .15s ease; }
+.opt:hover { border-color: var(--navy); }
+.opt .letter { font-family: var(--font-data); font-size: 14px; color: var(--navy); padding-top: 1px; }
+.opt .ot { font-weight: 600; }
+.opt .od { grid-column: 2 / 3; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.opt .flag { font-family: var(--font-data); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); background: var(--gold-soft); border-radius: 3px; padding: 3px 7px; white-space: nowrap; }
+.opt .picked { display: none; font-family: var(--font-data); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--go); }
+.opt.is-on { border-color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); background: var(--surface); }
+.opt.is-on .picked { display: inline; }
+.dcard.is-busy .opt, .dcard.is-readonly .opt { cursor: default; }
+.dcard.is-readonly .opt:hover { border-color: var(--line); }
+.rec { font-size: 15px; border-top: 1px solid var(--line); padding-top: 12px; }
+.rec b { color: var(--navy); }
+.note { display: grid; gap: 8px; }
+.note label { font-size: 14px; color: var(--muted); }
+.note textarea { width: 100%; min-height: 72px; resize: vertical; font: inherit; font-size: 15px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
+.note-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.save-note { font: inherit; font-size: 14px; font-weight: 600; color: var(--surface); background: var(--navy); border: 0; border-radius: 6px; padding: 9px 16px; cursor: pointer; }
+.dcard.is-readonly .save-note, .dcard.is-readonly .note textarea { opacity: .55; cursor: not-allowed; }
+.q-status { font-size: 13.5px; color: var(--muted); }
+
+.foot { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 6px; }
+.foot code, code.path { font-family: var(--font-data); font-size: 12.5px; overflow-wrap: anywhere; color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (max-width: 480px) { .page { padding-inline: 16px; padding-block: 28px 48px; gap: 48px; } .lead { font-size: 17px; } .dcard, .product { padding: 16px; } .sheet { padding: 12px 8px; } }
+</style>
+
+<div class="page" lang="ru">
+
+  <header class="hero">
+    <span class="eyebrow">План сборки · №44 и №43 · 30.09.2026</span>
+    <h1>Две линии на одной платформе: сначала агентства ухода, потом управляющие</h1>
+    <p class="lead">Строим два продаваемых продукта на нашей голосовой платформе. Первым идёт №44 для агентств ухода на дому: линия найма сиделок, звонки семей, ночные отказы от смен с подбором замены и проверка визитов перед счётом. За ним №43 для управляющих компаний: ночная аварийная линия, лизинг с защитой от нарушений fair housing и утренняя сводка. Всё собираем на демо-данных и доводим до состояния, в котором прототип можно показывать и продавать.</p>
+    <div class="chips">
+      <span class="chip go">Критерий «двое без опыта» снят</span>
+      <span class="chip hold">Нужен отраслевой опыт — берём подрядчика</span>
+      <span class="chip stop">Деньги и выкладки — по твоему «да»</span>
+    </div>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#chto">Что строим</a>
+      <a href="#hod">Ход сборки</a>
+      <a href="#platforma">Платформа</a>
+      <a href="#n44">№44</a>
+      <a href="#n43">№43</a>
+      <a href="#proverka">Проверка</a>
+      <a href="#grafik">График</a>
+      <a href="#otkuda">Откуда берём</a>
+      <a href="#podryad">Подрядчики и деньги</a>
+      <a href="#riski">Риски</a>
+      <a href="#resheniya">Решения</a>
+    </nav>
+  </header>
+
+  <section id="chto" aria-labelledby="chto-h">
+    <div class="section-head">
+      <h2 id="chto-h">Что строим</h2>
+      <p>Два продукта, одна платформа. Названия рабочие, окончательные выберешь в решениях внизу.</p>
+    </div>
+    <div class="products">
+      <div class="product">
+        <span class="num">№44 · CareLine</span>
+        <h3>Линия агентства ухода на дому</h3>
+        <p>Агентство на 30–200 сиделок. Главная боль — найм без остановки (текучесть около 75%) и ночные дыры в сменах.</p>
+        <ul>
+          <li>A1 · Линия найма 24/7</li>
+          <li>A2 · Звонки семей о новом клиенте</li>
+          <li>A3 · Ночные отказы от смен и подбор замены</li>
+          <li>A4 · Проверка визитов EVV перед счётом</li>
+          <li>A5 · Пульт и утренняя сводка</li>
+          <li>A6 · Слой соответствия</li>
+        </ul>
+      </div>
+      <div class="product">
+        <span class="num">№43 · NightDesk</span>
+        <h3>Ночная линия управляющей компании</h3>
+        <p>Управляющая компания на 100–1 000 квартир. Главная боль — ночные аварии, пропущенные лиды и юридический риск в разговорах о жилье.</p>
+        <ul>
+          <li>Б1 · Аварийные заявки и перевод дежурному</li>
+          <li>Б2 · Лизинг: вопросы, показы, заявка</li>
+          <li>Б3 · Вопросы жильцов</li>
+          <li>Б4 · Пульт и утренняя сводка</li>
+          <li>Б5 · Защита fair housing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Модуль</th><th>Что делает</th><th>Медданные или данные жильцов</th><th>Что покажем на демо</th></tr></thead>
+        <tbody>
+          <tr><td>A1 Найм</td><td class="wrap">Отвечает кандидатам по объявлению о вакансии на английском, испанском и русском, отбирает по требованиям агентства, записывает на собеседование, напоминает, возвращает пропавших по согласию.</td><td class="wrap"><span class="tag go">Нет</span></td><td class="wrap">Живой звонок на демо-номер, событие в календаре, письмо кандидату, карточка в пульте.</td></tr>
+          <tr><td>A2 Семьи</td><td class="wrap">Принимает обращения о новом клиенте: район, часы, тип оплаты, срочность. Записывает на оценку на дому.</td><td class="wrap"><span class="tag stop">Да, нужна BAA</span></td><td class="wrap">Звонок на вымышленных данных, запись на оценку.</td></tr>
+          <tr><td>A3 Отказы от смен</td><td class="wrap">Принимает отказ голосом или SMS, подбирает замену по правилам, рассылает предложения волнами, закрепляет первого согласного, будит дежурного, если смена не закрыта.</td><td class="wrap"><span class="tag stop">Да, нужна BAA</span></td><td class="wrap">Отказ в 5 утра на демо-расписании, замена закрыта, дежурный разбужен в сценарии без ответа.</td></tr>
+          <tr><td>A4 EVV</td><td class="wrap">Сверяет выгрузку визитов с авторизациями и расписанием по правилам штата и выдаёт список исправлений до подачи счёта.</td><td class="wrap"><span class="tag stop">Да, нужна BAA</span></td><td class="wrap">Выгрузка с 30 подложенными ошибками, найдены все 30.</td></tr>
+          <tr><td>A5 Пульт</td><td class="wrap">Воронка найма, отказы и замены, исключения EVV, звонки; сводка письмом в 7:00.</td><td class="wrap">По модулям</td><td class="wrap">Пульт в браузере по ссылке с ключом.</td></tr>
+          <tr><td>A6 Соответствие</td><td class="wrap">Раскрытие ИИ, согласие на запись, учёт согласий на SMS и звонки, журнал действий, сроки хранения.</td><td class="wrap">Везде</td><td class="wrap">Журнал согласий по каждому звонку.</td></tr>
+          <tr><td>Б1 Аварии</td><td class="wrap">Ночью сортирует звонки жильцов: угроза жизни — 911 и сигнал дежурному; авария — инструкция и перевод по цепочке; не срочно — заявка управляющему.</td><td class="wrap"><span class="tag hold">Данные жильцов</span></td><td class="wrap">Звонок «течёт с потолка» с переводом на телефон «дежурного».</td></tr>
+          <tr><td>Б2 Лизинг</td><td class="wrap">Отвечает только по утверждённому листу объекта, записывает на показ, даёт ссылку на заявку. Скрининг не ведёт.</td><td class="wrap"><span class="tag hold">Данные лидов</span></td><td class="wrap">Звонок по объявлению, запись на показ, провокационные вопросы с правильными ответами.</td></tr>
+          <tr><td>Б3 Жильцы</td><td class="wrap">Оплата, вывоз мусора, парковка, правила дома, контакты.</td><td class="wrap"><span class="tag hold">Данные жильцов</span></td><td class="wrap">Вопросы жильца по листу дома.</td></tr>
+          <tr><td>Б4 Пульт</td><td class="wrap">Аварии, заявки, лиды, показы, пропуски; сводка в 7:00.</td><td class="wrap">По модулям</td><td class="wrap">Пульт в браузере.</td></tr>
+          <tr><td>Б5 Fair housing</td><td class="wrap">Запретные темы, одинаковые ответы всем, проверка текстов классификатором, журнал.</td><td class="wrap">—</td><td class="wrap">60 провокаций без нарушений.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hod" aria-labelledby="hod-h">
+    <div class="section-head">
+      <h2 id="hod-h">Как идёт сборка</h2>
+      <p>Два витка: сначала №44, потом №43. На каждом витке сборка, проверка, починка и ворота. Выкладки вечером одним окном.</p>
+    </div>
+    <figure>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  S(["Старт: план и твоё «да» на деньги и стенд"]) --> B44["Сборка №44 на демо-данных<br/>найм, семьи, отказы от смен, EVV, пульт"]
+  B44 --> T44["Проверка: текстовые прогоны,<br/>потом звонки дозвонщиком"]
+  T44 --> Q44{"Критерии приёмки<br/>№44 выполнены?"}
+  Q44 -->|нет| F44["Чиним, копим правки,<br/>выкладка вечером одним окном"]
+  F44 --> T44
+  Q44 -->|да| D44["Демо тебе и владельцам агентств"]
+  D44 --> P44{"Есть готовые<br/>на платный пилот?"}
+  P44 -->|да| PL44["Пилот по скиллу zapusk-very<br/>плюс регистрация SMS на агентство"]
+  P44 -->|нет| R44["Разбор возражений,<br/>правим предложение"]
+  D44 --> B43["Сборка №43 на демо-данных<br/>аварии, лизинг, fair housing, пульт"]
+  B43 --> T43["Проверка: аварии, лизинг,<br/>60 провокаций fair housing"]
+  T43 --> Q43{"Критерии приёмки<br/>№43 выполнены?"}
+  Q43 -->|нет| F43["Чиним, выкладка вечером"]
+  F43 --> T43
+  Q43 -->|да| D43["Демо тебе и управляющим"]
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef decision fill:#f3e8d2,stroke:#8f6620,color:#141a3a;
+  classDef fix fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  class S start;
+  class Q44,P44,Q43 decision;
+  class F44,F43,R44 fix;
+  class D44,D43,PL44 ok;
+</pre>
+      </div>
+      <div class="legend"><span><i class="l-start"></i>старт</span><span><i class="l-step"></i>шаг</span><span><i class="l-dec"></i>решение</span><span><i class="l-ok"></i>результат</span><span><i class="l-bad"></i>починка</span></div>
+      <figcaption><b>Ворота.</b> Дальше идём только когда выполнены все критерии приёмки (раздел «Проверка»). №43 начинаем сразу после демо №44, не дожидаясь пилотов.</figcaption>
+    </figure>
+  </section>
+
+  <section id="platforma" aria-labelledby="platforma-h">
+    <div class="section-head">
+      <h2 id="platforma-h">Платформа: откуда что приходит и куда уходит</h2>
+      <p>Одна платформа на оба продукта. Основа уже работает у Веры: вход звонка, календарь, перевод на человека, письма, итог звонка. Добавляем карту клиентов, новые инструменты, движки и пульт.</p>
+    </div>
+    <figure>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  WHO(["Кто обращается<br/>кандидат в сиделки, семья клиента,<br/>сиделка с отказом от смены,<br/>жилец с аварией или заявкой,<br/>желающий снять жильё"]) --> TW["Номер Twilio линии клиента<br/>голос и SMS"]
+  TW --> VH["Функция входа на стенде<br/>проверка подписи Twilio<br/>карта: номер, линия, клиент"]
+  VH -->|стенд не отвечает| FB["Запасной путь:<br/>звонок уходит на телефон владельца"]
+  VH --> EL["Голосовой агент ElevenLabs<br/>промпт линии, язык, раскрытие ИИ"]
+  EL <-->|инструменты в разговоре| TOOLS["Инструменты на стенде<br/>окна и запись, карточки, заявки,<br/>подбор замены, перевод на человека"]
+  TOOLS --> ST[("Хранилище клиента<br/>кандидаты, смены, заявки,<br/>лиды, согласия, журнал")]
+  TOOLS --> CAL["Календарь клиента<br/>Google через служебный аккаунт"]
+  TOOLS --> OUT["Письма Resend<br/>SMS Twilio с брендом 10DLC клиента"]
+  TOOLS --> HUM["Перевод на человека<br/>ширма «нажмите 1», 20 секунд,<br/>цепочка дежурных"]
+  EL -->|итог звонка с подписью HMAC| PC["Функция итога звонка<br/>расшифровка, карточка, журнал"]
+  PC --> ST
+  ST --> ENG["Движки без модели<br/>подбор замены, правила EVV"]
+  ENG --> TOOLS
+  ST --> PULT["Пульт клиента в браузере<br/>и утренняя сводка письмом"]
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef bad fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  class WHO,TW,EL start;
+  class FB bad;
+  class PULT ok;
+</pre>
+      </div>
+      <figcaption><b>Как течёт звонок.</b> Звонок приходит на номер Twilio. Функция входа проверяет подпись и по номеру находит линию и клиента. ElevenLabs отдаёт голосового агента этой линии. В разговоре агент вызывает инструменты: они пишут в хранилище клиента и календарь, шлют письма и SMS, переводят на человека. После звонка ElevenLabs присылает итог с подписью, из него собирается карточка. Решения о сменах и проверку EVV принимают движки без модели. Если стенд лежит, номер сам уходит на телефон владельца. Отдельная команда-рубильник переводит линию на владельца за минуту.</figcaption>
+    </figure>
+    <div class="two">
+      <div>
+        <span class="kicker">Что добавляем к платформе Веры</span>
+        <ul class="plain">
+          <li>Карта «номер → линия → клиент» во входной функции: сейчас она знает одну линию.</li>
+          <li>Отдельное хранилище и счётчики на каждого клиента, без общих с нашими линиями.</li>
+          <li>Новые инструменты ElevenLabs под каждую линию; наши боевые не трогаем.</li>
+          <li>Движки подбора замены и правил EVV, итог звонка в карточку, пульт.</li>
+          <li>Мультиязычность: английский, испанский, русский.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="kicker">Стенд прототипов</span>
+        <ul class="plain">
+          <li>Отдельный сайт Netlify, закрыт от поиска, живые линии Веры под рекламой не задевает.</li>
+          <li>Демо-клиенты: агентство «Brightside Home Care (DEMO)» и компания «Harbor Row Property Management (DEMO)».</li>
+          <li>Все данные вымышленные и помечены. Медданных настоящих людей нет до цепочки BAA.</li>
+          <li>Код и данные: <code class="path">Pivot/produkty/linii-44-43/</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="n44" aria-labelledby="n44-h">
+    <div class="section-head">
+      <h2 id="n44-h">№44 CareLine: алгоритмы</h2>
+      <p>Три главных процесса: звонок кандидата, отказ от смены, проверка визитов перед счётом. Звонок семьи (A2) идёт по той же схеме, что найм: приветствие, раскрытие ИИ, вопросы по листу агентства, запись на оценку на дому.</p>
+    </div>
+
+    <figure>
+      <h3>A1. Звонок кандидата в сиделки</h3>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  A(["Звонок или SMS на номер<br/>из объявления о вакансии"]) --> B["Приветствие от имени агентства<br/>«Я ИИ-ассистент, разговор записывается»<br/>язык звонящего: EN, ES, RU"]
+  B --> C{"Согласен<br/>продолжить?"}
+  C -->|нет| C1["Предлагает перезвон координатора<br/>записывает номер и удобное время"]
+  C -->|да| D{"Зачем звонит?"}
+  D -->|ищет работу| E["Отбор по листу агентства<br/>сертификат HHA, PCA или CNA<br/>район и транспорт, график и часы<br/>языки, опыт, право на работу в США"]
+  D -->|семья ищет уход| A2["Модуль A2: звонок семьи"]
+  D -->|не выйду на смену| A3["Модуль A3: отказ от смены"]
+  D -->|другое| M["Сообщение координатору"]
+  E --> F{"Проходит минимальные<br/>требования агентства?"}
+  F -->|нет| G["Вежливый отказ по правилам агентства<br/>где получить сертификат HHA<br/>лист ожидания"]
+  F -->|да| H["Инструмент: свободные окна собеседований"]
+  H --> I{"Подходит<br/>одно из окон?"}
+  I -->|нет| J["Удобное время кандидата<br/>координатор перезвонит"]
+  I -->|да| K["Инструмент: записать на собеседование<br/>событие в календаре агентства"]
+  K --> L["Имя, телефон и время повторяет по буквам<br/>подтверждение письмом, SMS при согласии"]
+  L --> N["Карточка кандидата координатору и в пульт"]
+  N --> O["Напоминания за 24 и за 2 часа"]
+  O --> P{"Кандидат<br/>пришёл?"}
+  P -->|да| Q["Статус «собеседование прошло»<br/>дальше решает агентство"]
+  P -->|нет| R["Одно повторное приглашение<br/>только при согласии на SMS"]
+  B -. просит живого человека .-> T["В рабочие часы перевод координатору<br/>вне часов сообщение и перезвон"]
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef decision fill:#f3e8d2,stroke:#8f6620,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  classDef bad fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  class A start;
+  class C,D,F,I,P decision;
+  class K,N,Q ok;
+  class G,R bad;
+</pre>
+      </div>
+      <figcaption><b>Решения в звонке</b> принимаются по листу агентства: минимальные требования, окна собеседований, правила отказа задаёт агентство, агент их только применяет. Имена, телефоны и даты агент повторяет и подтверждает: без этого голосовые агенты записывают их точно лишь в 14–41% случаев (τ-Elicitation, 2026). Вопросы о праве на работу — только в разрешённой формулировке, без вопросов о гражданстве и происхождении.</figcaption>
+    </figure>
+
+    <figure>
+      <h3>A3. Отказ от смены и подбор замены</h3>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  A(["Сиделка звонит или пишет<br/>«не выйду на смену»"]) --> B["Узнаём сиделку по номеру телефона<br/>находим её ближайшие смены"]
+  B --> C{"Смена найдена<br/>однозначно?"}
+  C -->|нет| C1["Уточняет дату и клиента<br/>или передаёт координатору"]
+  C -->|да| D["Фиксирует отказ, причину<br/>и время до начала смены"]
+  D --> E["Движок подбора без модели<br/>фильтр: навыки, язык клиента, район,<br/>свободное время, лимит сверхурочных<br/>ранжирование: расстояние, знакомство<br/>с клиентом, надёжность"]
+  E --> F["Предложения волнами по 3 человека<br/>SMS «Смена в 18:00, район X. Ответьте ДА»"]
+  F --> G{"Кто-то<br/>ответил ДА?"}
+  G -->|да| H["Закрепляем первого ответившего<br/>остальным: «смена занята»"]
+  H --> I["Уведомление координатору<br/>отметка в расписании"]
+  G -->|нет ответа 15 минут| J{"До начала смены<br/>больше 2 часов?"}
+  J -->|да| F
+  J -->|нет| K["Будим дежурного координатора звонком<br/>ширма «нажмите 1», цепочка номеров"]
+  K --> L["В пульте смена с пометкой «не закрыта»"]
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef decision fill:#f3e8d2,stroke:#8f6620,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  classDef bad fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  class A start;
+  class C,G,J decision;
+  class H,I ok;
+  class K,L bad;
+</pre>
+      </div>
+      <figcaption><b>Кто решает, кому отдать смену.</b> Движок по правилам, а не модель: в тесте SCHEDBench модели составляют допустимое расписание в лучшем случае в 56% случаев. Размер волны, 15 минут ожидания и порог в 2 часа — настройки агентства. Закрепление защищено от двойного «ДА»: второй согласный получает «смена занята». Полный пересчёт расписания решателем OR-Tools или Timefold — следующий шаг после прототипа.</figcaption>
+    </figure>
+
+    <figure>
+      <h3>A4. Проверка визитов перед счётом</h3>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  A(["Выгрузка визитов из системы EVV<br/>CSV из HHAeXchange, Sandata и др."]) --> N["Приводим к одному формату"]
+  A2(["Авторизации и расписание"]) --> N
+  N --> R["Правила штата без модели<br/>шесть обязательных полей EVV<br/>отметки прихода и ухода<br/>место визита против адреса клиента<br/>длительность против авторизации<br/>пересечения визитов одной сиделки<br/>даты и коды услуг авторизации"]
+  R --> Q{"Есть<br/>нарушения?"}
+  Q -->|нет| OK["Визит готов к счёту"]
+  Q -->|да| X["Список исправлений<br/>что не так, почему откажут, как исправить"]
+  X --> EXP["Модель пересказывает причину простыми словами<br/>решений не принимает"]
+  EXP --> C["Координатор исправляет в системе EVV"]
+  C --> A
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef decision fill:#f3e8d2,stroke:#8f6620,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  classDef bad fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  class A,A2 start;
+  class Q decision;
+  class OK ok;
+  class X bad;
+</pre>
+      </div>
+      <figcaption><b>Зачем это продаётся.</b> Северная Каролина с 01.10.2025 и Миссури с 27.05.2026 отклоняют счета без совпадающей записи EVV, а уже выплаченное забирают. Отклонённый визит — это вся его выручка. Правила штатов в прототипе: Нью-Йорк и Северная Каролина; остальные добавляет консультант по биллингу.</figcaption>
+    </figure>
+
+    <div class="two">
+      <div>
+        <span class="kicker">Что делает агентство при подключении</span>
+        <ol class="steps">
+          <li>Заполняет лист правды за 15 минут: требования к кандидатам, районы, ставки, окна собеседований, правила отказа.</li>
+          <li>Даёт доступ к календарю собеседований: одно действие, 2 минуты.</li>
+          <li>Ставит наш номер в объявления о вакансии.</li>
+          <li>Для A3 и A4: выгрузка расписания и визитов в CSV раз в день, позже через интеграцию.</li>
+        </ol>
+        <p class="muted">В пилоте агентство платит $0. Всё остальное делаем мы.</p>
+      </div>
+      <div>
+        <span class="kicker">Что увидит покупатель на демо</span>
+        <ul class="plain">
+          <li>Звонит на демо-номер как кандидат, на своём языке.</li>
+          <li>Через минуту видит событие в календаре и карточку в пульте.</li>
+          <li>Пишет «не выйду завтра» и смотрит, как замена закрывается за один ответ.</li>
+          <li>Загружает выгрузку EVV с ошибками и получает список исправлений.</li>
+          <li>Получает утреннюю сводку письмом.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="n43" aria-labelledby="n43-h">
+    <div class="section-head">
+      <h2 id="n43-h">№43 NightDesk: алгоритмы</h2>
+      <p>Два главных процесса: ночная аварийная заявка и лизинг. Вопросы жильцов (Б3) идут по короткой схеме: ответ по листу дома или заявка управляющему.</p>
+    </div>
+
+    <figure>
+      <h3>Б1. Ночной звонок жильца</h3>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  A(["Звонок жильца ночью или в выходной"]) --> B["Приветствие от имени управляющей компании<br/>«Я ИИ-ассистент, разговор записывается»"]
+  B --> C["Кто и где: адрес и квартира<br/>по номеру звонящего, если он в списке жильцов"]
+  C --> D["Что случилось: рассказ жильца"]
+  D --> E{"Угроза жизни?<br/>газ, пожар, дым, угарный газ,<br/>человек застрял в лифте"}
+  E -->|да| F["«Выйдите и звоните 911<br/>или в газовую службу»<br/>сразу сигнал дежурному"]
+  E -->|нет| G{"Авария по списку управляющего?<br/>течёт вода, нет тепла в мороз,<br/>канализация, нет воды или света,<br/>не закрывается входная дверь"}
+  G -->|да| H["Инструкция по безопасности<br/>например, где перекрыть воду"]
+  H --> I["Перевод дежурному<br/>ширма «нажмите 1», 20 секунд"]
+  I --> J{"Дежурный взял<br/>и нажал 1?"}
+  J -->|да| K["Соединяем жильца с дежурным"]
+  J -->|нет| L["Следующий в цепочке<br/>второй дежурный, аварийный подрядчик"]
+  L --> M{"Кто-то<br/>принял?"}
+  M -->|да| K
+  M -->|нет| N["Жильцу: когда перезвонят<br/>SMS и звонок всем в цепочке<br/>в пульте «авария не принята»"]
+  G -->|нет| O["Заявка на ремонт<br/>описание, доступ в квартиру, фото по ссылке"]
+  O --> P["Заявка в ящик управляющего<br/>или в Rent Manager через API"]
+  P --> Q["Подтверждение жильцу с номером заявки"]
+  F & K & N & Q --> R["Итог в утренней сводке управляющему"]
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef decision fill:#f3e8d2,stroke:#8f6620,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  classDef bad fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  class A start;
+  class E,G,J,M decision;
+  class K,Q ok;
+  class F,N bad;
+</pre>
+      </div>
+      <figcaption><b>Перевод без автоответчика.</b> Ширма «нажмите 1» отсекает голосовую почту дежурного: без нажатия звонок идёт следующему в цепочке. Эта схема уже проверена на русской линии Веры 28.09 во всех четырёх исходах. Список аварий и цепочку дежурных задаёт управляющий.</figcaption>
+    </figure>
+
+    <figure>
+      <h3>Б2. Лизинг и защита fair housing</h3>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  A(["Звонок или SMS по объявлению"]) --> B["Раскрытие ИИ и запись разговора"]
+  B --> C["Какой объект интересует"]
+  C --> G{"Вопрос из запретных тем?<br/>безопасен ли район, кто соседи,<br/>семья, дети, религия, происхождение,<br/>судимость, доход до одобрения"}
+  G -->|да| H["Нейтральный ответ по шаблону<br/>и ссылка на опубликованные критерии"]
+  G -->|нет| D{"Ответ есть в утверждённом<br/>листе объекта?<br/>цена, даты, животные, парковка,<br/>коммуналка, сборы, ваучеры"}
+  D -->|да| E["Ответ только словами листа"]
+  D -->|нет| F["«Уточню у управляющего»<br/>вопрос уходит в карточку лида"]
+  H & E & F --> I{"Хочет посмотреть объект?"}
+  I -->|да| J["Окна показов из календаря<br/>или ссылка на самостоятельный показ"]
+  J --> K["Запись на показ и подтверждение"]
+  I -->|нет| L["Ссылка на объявление<br/>и заявку управляющего"]
+  K & L --> M["Карточка лида в пульт"]
+  M --> N["Тексты ответов проверяет классификатор fair housing<br/>в тестах всегда, в SMS перед отправкой"]
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef decision fill:#f3e8d2,stroke:#8f6620,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  classDef bad fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  class A start;
+  class G,D,I decision;
+  class K,M ok;
+  class H bad;
+</pre>
+      </div>
+      <figcaption><b>Почему так строго.</b> В деле Harbor Group и PERQ ИИ-чатбот отвечал держателям ваучеров «не принимаем», итог — мировое соглашение и два года мониторинга. В Нью-Йорке нельзя спрашивать о судимости до условного одобрения, штраф до $250 тыс. Поэтому скрининг ведёт только управляющий, а агент отвечает строго по листу. Классификатор берём открытый (zillow/fair-housing-guardrail, обученный на данных FairHome, F1 0,91).</figcaption>
+    </figure>
+
+    <div class="two">
+      <div>
+        <span class="kicker">Что делает управляющий при подключении</span>
+        <ol class="steps">
+          <li>Лист правды по домам и объектам: адреса, правила, список аварий, цепочка дежурных, критерии аренды.</li>
+          <li>Доступ к календарю показов или ссылка на самостоятельные показы.</li>
+          <li>Переадресация ночного номера или наш номер в объявлениях.</li>
+          <li>Ящик для заявок или ключ Rent Manager.</li>
+        </ol>
+        <p class="muted">В пилоте управляющий платит $0.</p>
+      </div>
+      <div>
+        <span class="kicker">Что увидит покупатель на демо</span>
+        <ul class="plain">
+          <li>Звонит ночью «течёт с потолка», его телефон «дежурного» звонит с ширмой.</li>
+          <li>Звонит по объявлению, записывается на показ.</li>
+          <li>Задаёт провокационные вопросы и слышит правильные ответы.</li>
+          <li>Утром получает сводку: аварии, заявки, лиды, показы.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="proverka" aria-labelledby="proverka-h">
+    <div class="section-head">
+      <h2 id="proverka-h">Проверка качества и приёмка</h2>
+      <p>Прототип считается готовым только по записи самого агента и по числам ниже, а не по ощущению от пары звонков.</p>
+    </div>
+    <figure>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"14px","primaryColor":"#ffffff","primaryTextColor":"#141a3a","primaryBorderColor":"#1b2557","lineColor":"#5a6078","tertiaryColor":"#f7f5f1","clusterBkg":"#f7f5f1","clusterBorder":"#c9c4b8","edgeLabelBackground":"#ffffff","titleColor":"#1b2557"},"flowchart":{"curve":"basis","htmlLabels":true,"useMaxWidth":true}}}%%
+flowchart TD
+  S(["Лист правды демо-клиента"]) --> SC["Сценарии: 40 на №44, 50 на №43<br/>плюс 60 провокаций fair housing"]
+  SC --> TX["Текстовые прогоны без телефона<br/>каждый критичный сценарий 3 раза подряд"]
+  TX --> J1{"Все критичные<br/>прошли 3 из 3?"}
+  J1 -->|нет| FIX["Правим промпт, инструменты, правила"]
+  FIX --> TX
+  J1 -->|да| PH["Звонки дозвонщиком на демо-номер<br/>утро, день, вечер, ночь, выходной"]
+  PH --> V["Вердикт по записи агента,<br/>не по слуху проверяльщика"]
+  V --> J2{"Критерии приёмки<br/>выполнены?"}
+  J2 -->|нет| FIX
+  J2 -->|да| DONE(["Прототип готов к демо"])
+  classDef start fill:#1b2557,stroke:#1b2557,color:#ffffff;
+  classDef decision fill:#f3e8d2,stroke:#8f6620,color:#141a3a;
+  classDef ok fill:#e2f0e7,stroke:#256b47,color:#141a3a;
+  classDef bad fill:#f5e3e0,stroke:#93362f,color:#141a3a;
+  class S start;
+  class J1,J2 decision;
+  class DONE ok;
+  class FIX bad;
+</pre>
+      </div>
+      <figcaption>Прогон «3 из 3 подряд» взят из подхода tau2-bench: один удачный прогон ничего не доказывает, у голосовых агентов стабильность на повторах падает резко.</figcaption>
+    </figure>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Продукт</th><th>Критерий приёмки</th><th>Порог</th></tr></thead>
+        <tbody>
+          <tr><td>№44</td><td class="wrap">Раскрытие ИИ и предупреждение о записи в каждом звонке</td><td class="wrap">100% звонков</td></tr>
+          <tr><td>№44</td><td class="wrap">Линия найма, 40 сценариев: запись, отказ по требованиям, «дайте человека», другой язык</td><td class="wrap">Критичные 3 из 3, остальные не меньше 90%</td></tr>
+          <tr><td>№44</td><td class="wrap">Запись на собеседование: событие, письмо кандидату, карточка</td><td class="wrap">100% удачных записей, без дублей</td></tr>
+          <tr><td>№44</td><td class="wrap">Ошибки в именах, телефонах, датах в карточках</td><td class="wrap">0 на 40 сценариях</td></tr>
+          <tr><td>№44</td><td class="wrap">Отказы от смен на демо-расписании, 20 случаев</td><td class="wrap">20 из 20 без двойного закрепления; незакрытая смена будит дежурного в 100%</td></tr>
+          <tr><td>№44</td><td class="wrap">EVV: выгрузка с 30 подложенными ошибками и чистая выгрузка</td><td class="wrap">30 из 30 найдено; 0 ложных срабатываний</td></tr>
+          <tr><td>№44</td><td class="wrap">Пульт и сводка в 7:00 по времени агентства</td><td class="wrap">Каждый день демо-недели</td></tr>
+          <tr><td>Оба</td><td class="wrap">Рубильник: линия уходит на телефон владельца</td><td class="wrap">За минуту, проверено звонком</td></tr>
+          <tr><td>№43</td><td class="wrap">Угрозы жизни: 911 и сигнал дежурному</td><td class="wrap">100% сценариев</td></tr>
+          <tr><td>№43</td><td class="wrap">Перевод по цепочке: взял и нажал 1, взял без нажатия, не взял, сбросил</td><td class="wrap">4 из 4, как план Б 28.09</td></tr>
+          <tr><td>№43</td><td class="wrap">Заявка управляющему: адрес, квартира, описание, доступ</td><td class="wrap">100% без потерь</td></tr>
+          <tr><td>№43</td><td class="wrap">30 вопросов вне листа объекта</td><td class="wrap">0 выдуманных фактов</td></tr>
+          <tr><td>№43</td><td class="wrap">60 провокаций fair housing</td><td class="wrap">0 нарушений по классификатору и ручной проверке; ответ про ваучеры одинаковый везде</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="grafik" aria-labelledby="grafik-h">
+    <div class="section-head">
+      <h2 id="grafik-h">График</h2>
+      <p>Даты ориентировочные: сдвигаются от твоих «да» и от окон выкладки. Выкладки стенда — вечером, в одно окно с остальными работами дня.</p>
+    </div>
+    <figure>
+      <div class="sheet">
+<pre class="mermaid">
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Inter, system-ui, sans-serif","fontSize":"13px","primaryTextColor":"#141a3a","taskBkgColor":"#1b2557","taskBorderColor":"#1b2557","taskTextColor":"#ffffff","taskTextOutsideColor":"#141a3a","taskTextLightColor":"#141a3a","activeTaskBkgColor":"#8f6620","activeTaskBorderColor":"#8f6620","doneTaskBkgColor":"#9aa0bd","doneTaskBorderColor":"#9aa0bd","critBkgColor":"#93362f","critBorderColor":"#93362f","sectionBkgColor":"#f3f1ec","altSectionBkgColor":"#ffffff","sectionBkgColor2":"#f3f1ec","gridColor":"#e2ded5","titleColor":"#1b2557"},"gantt":{"barHeight":22,"barGap":6,"fontSize":12,"sectionFontSize":13,"leftPadding":210,"useMaxWidth":true}}}%%
+gantt
+  dateFormat YYYY-MM-DD
+  axisFormat %d.%m
+  todayMarker off
+  section №44 сборка
+  План и решения                           :done, g0, 2026-09-30, 1d
+  Линия найма, агент, инструменты          :active, g1, 2026-10-01, 3d
+  Движки замены и правил EVV               :g2, 2026-10-01, 4d
+  Выкладка стенда 1                        :milestone, m1, 2026-10-03, 0d
+  Пульт и утренняя сводка                  :g3, 2026-10-03, 3d
+  Звонки семей, испанский и русский        :g4, 2026-10-04, 3d
+  Прогоны и звонки дозвонщиком             :g5, 2026-10-04, 4d
+  Выкладка стенда 2                        :milestone, m2, 2026-10-05, 0d
+  Пакет продаж №44                         :g6, 2026-10-06, 3d
+  Выкладка стенда 3                        :milestone, m3, 2026-10-07, 0d
+  Приёмка №44                              :crit, g7, 2026-10-08, 2d
+  Ворота и демо №44                        :milestone, m4, 2026-10-09, 0d
+  section №43 сборка
+  Аварийная линия и цепочка дежурных       :h1, 2026-10-10, 4d
+  Лизинг и защита fair housing             :h2, 2026-10-10, 5d
+  Выкладка стенда 4                        :milestone, m5, 2026-10-12, 0d
+  Вопросы жильцов, пульт, сводка           :h3, 2026-10-13, 3d
+  Прогоны, звонки, 60 провокаций           :h4, 2026-10-14, 5d
+  Пакет продаж №43                         :h5, 2026-10-16, 3d
+  Приёмка №43                              :crit, h6, 2026-10-19, 2d
+  Ворота и демо №43                        :milestone, m6, 2026-10-20, 0d
+  section Ограничения
+  Окна выкладки заняты продуктами 1 и 2     :crit, k1, 2026-09-30, 3d
+  Маша в поездке                           :crit, k2, 2026-10-12, 10d
+</pre>
+      </div>
+      <figcaption><b>Два ограничения.</b> 30.09–02.10 вечерние окна заняты продуктами 1 и 2, поэтому первая выкладка стенда — 03.10. Маша в поездке с 12 по 21.10: её тексты для №43 готовим до 12.10 или отдаём агенту на черновик.</figcaption>
+    </figure>
+  </section>
+
+  <section id="otkuda" aria-labelledby="otkuda-h">
+    <div class="section-head">
+      <h2 id="otkuda-h">Откуда берём: скиллы, университет, GitHub, базы знаний</h2>
+      <p>Ничего не строим с пустого места, если рабочая вещь уже есть у нас или в открытом коде.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Источник</th><th>Что берём</th><th>Куда</th></tr></thead>
+        <tbody>
+          <tr><td>Скилл zapusk-very</td><td class="wrap">Цепочка запуска линии: агент, номер, календарь, перевод, обкатка, рубильник, стоп-точки</td><td class="wrap">Стенд и пилоты</td></tr>
+          <tr><td>Скилл sms-registraciya</td><td class="wrap">Регистрация SMS 10DLC на клиента, страница согласия</td><td class="wrap">A1, A3, Б1</td></tr>
+          <tr><td>Скилл vykladka-sayta</td><td class="wrap">Выкладка с двумя проверяющими и откатом</td><td class="wrap">Стенд прототипов</td></tr>
+          <tr><td>Функции Веры</td><td class="wrap">Вход звонка, окна и запись в календарь, перевод с ширмой, письма, итог звонка</td><td class="wrap">Платформа</td></tr>
+          <tr><td>Дозвонщик и проверки Веры</td><td class="wrap">Звонки-проверки, разбор по записи агента</td><td class="wrap">Приёмка</td></tr>
+          <tr><td>Университет</td><td class="wrap">FCC 24-17: ИИ-голос — «искусственный голос» по TCPA; письменное согласие для продажных звонков; запись разговоров в Калифорнии (CIPA, $5 000); раскрытие ИИ (Мэн); 10DLC на каждый бренд; отписка; CAN-SPAM; FTC про обещания заработка; HIPAA и BAA</td><td class="wrap">Слой соответствия A6 и Б5, тексты продаж</td></tr>
+          <tr><td>Досье 30.09</td><td class="wrap">Экономика ниш, цены конкурентов, тесты спроса, юридика</td><td class="wrap">Предложение и цены</td></tr>
+          <tr><td>GitHub: tau2-bench</td><td class="wrap">Прогоны надёжности «3 из 3»</td><td class="wrap">Проверка</td></tr>
+          <tr><td>GitHub: OR-Tools, Timefold</td><td class="wrap">Решатель расписаний</td><td class="wrap">A3, следующий шаг</td></tr>
+          <tr><td>GitHub: zillow/fair-housing-guardrail</td><td class="wrap">Классификатор нарушений fair housing</td><td class="wrap">Б5</td></tr>
+          <tr><td>GitHub: open-condo</td><td class="wrap">Модель данных заявок, жильцов, домов</td><td class="wrap">Б1</td></tr>
+          <tr><td>GitHub: pipecat, livekit/agents</td><td class="wrap">Свой голосовой контур на своём сервере</td><td class="wrap">Путь с BAA для A2–A4</td></tr>
+          <tr><td>GitHub: docling</td><td class="wrap">Чтение PDF авторизаций</td><td class="wrap">A4</td></tr>
+          <tr><td>arXiv: τ-Voice, APEX-Voice, τ-Elicitation</td><td class="wrap">Короткие сценарии, повтор данных, передача человеку</td><td class="wrap">Промпты</td></tr>
+          <tr><td>arXiv: SCHEDBench</td><td class="wrap">Решения о сменах — решатель, не модель</td><td class="wrap">A3</td></tr>
+          <tr><td>arXiv: FairHome, география суждений</td><td class="wrap">Классификатор и проверка по городам</td><td class="wrap">Б5</td></tr>
+          <tr><td>Скиллы продаж</td><td class="wrap">dna-klienta, offer-sharpener, pricing-strategy, sales-enablement, cold-email, email-sequence, copywriting, page-cro, competitor-alternatives: портрет владельца, предложение, цены, одностраничник, письма, лендинг, сравнение с Zingage, LetHub, AppFolio</td><td class="wrap">Пакеты продаж</td></tr>
+          <tr><td>Скиллы сборки</td><td class="wrap">web-artifacts-builder, design-taste-frontend, claude-api, skill-creator, call-analysis</td><td class="wrap">Пульт, служебные вызовы модели, скиллы запуска линий, разбор звонков</td></tr>
+          <tr><td>baza-znaniy/prodazhi-b2b</td><td class="wrap">SPIN и Challenger для разговора с владельцем</td><td class="wrap">Продажи</td></tr>
+          <tr><td>Открытые реестры</td><td class="wrap">Реестр агентств ухода Нью-Йорка, открытые данные штатов</td><td class="wrap">Списки для продаж №44</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="podryad" aria-labelledby="podryad-h">
+    <div class="section-head">
+      <h2 id="podryad-h">Подрядчики и деньги</h2>
+      <p>Где не хватает отраслевого опыта, берём подрядчика. Суммы подрядчиков — по сметам, сейчас их нет.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Подрядчик</th><th>Зачем</th><th>Когда</th></tr></thead>
+        <tbody>
+          <tr><td>Юрист по HIPAA</td><td class="wrap">Цепочка BAA, политика хранения, договор с агентством для A2–A4</td><td class="wrap">Смета сейчас, найм до продажи A2–A4</td></tr>
+          <tr><td>Консультант по EVV и биллингу</td><td class="wrap">Правила проверки по штатам, коды услуг</td><td class="wrap">После первого интереса агентства</td></tr>
+          <tr><td>Интегратор HHAeXchange или Sandata</td><td class="wrap">Обмен расписанием и визитами вместо CSV</td><td class="wrap">После первого пилота</td></tr>
+          <tr><td>Юрист по fair housing</td><td class="wrap">Проверка шаблонов Б2 и списка запретных тем в NY, CA, CO</td><td class="wrap">До продажи Б2</td></tr>
+          <tr><td>Интегратор PMS</td><td class="wrap">Заявки и лиды в Rent Manager, AppFolio, Buildium</td><td class="wrap">После первого пилота</td></tr>
+          <tr><td>Живые тестировщики звонков</td><td class="wrap">Звонки с акцентами на испанском, русском, креольском для приёмки</td><td class="wrap">До ворот №44</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Трата</th><th>Сколько</th><th>Статус</th></tr></thead>
+        <tbody>
+          <tr><td>Два номера Twilio для демо-линий</td><td class="wrap">$2,30 в месяц</td><td class="wrap"><span class="tag hold">Ждёт «да»</span></td></tr>
+          <tr><td>Минуты на обкатку</td><td class="wrap">Около 540 минут: ~$51 голоса и ~$10–15 связи</td><td class="wrap"><span class="tag hold">Ждёт «да»</span></td></tr>
+          <tr><td>Ключ Anthropic для служебных задач</td><td class="wrap">Отдельный воркспейс, лимит $15 в месяц</td><td class="wrap"><span class="tag hold">Ждёт «да»</span></td></tr>
+          <tr><td>Итого на октябрь</td><td class="wrap">До $80</td><td class="wrap"><span class="tag hold">Ждёт «да»</span></td></tr>
+          <tr><td>Тарифы с BAA для медданных</td><td class="wrap">ElevenLabs Enterprise и Twilio Security Edition — цены по запросу</td><td class="wrap"><span class="tag stop">Позже, до продажи A2–A4</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="two">
+      <div>
+        <span class="kicker">Делаю сразу, без твоего слова</span>
+        <ul class="plain">
+          <li>Папка проекта и код: функции стенда, промпты, листы правды демо-клиентов, движки, демо-данные, сценарии, пульт.</li>
+          <li>Новые агенты ElevenLabs с новыми инструментами, в пределах оплаченного тарифа; боевые линии не трогаю.</li>
+          <li>Текстовые прогоны и проверки движков.</li>
+          <li>Черновики пакета продаж, без отправки.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="kicker">Ждёт твоего «да»</span>
+        <ul class="plain">
+          <li>Покупка номеров, минуты сверх текстовых прогонов, новый ключ.</li>
+          <li>Создание стенда и каждая выкладка.</li>
+          <li>Любые письма и звонки живым людям.</li>
+          <li>Наём подрядчиков.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="riski" aria-labelledby="riski-h">
+    <div class="section-head">
+      <h2 id="riski-h">Риски и как закрываем</h2>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Риск</th><th>Как закрываем</th></tr></thead>
+        <tbody>
+          <tr><td>Агент путает данные</td><td class="wrap">Повтор по буквам, подтверждение, человек подтверждает важное</td></tr>
+          <tr><td>Перевод уходит в автоответчик</td><td class="wrap">Ширма «нажмите 1», 20 секунд, цепочка номеров</td></tr>
+          <tr><td>Потолок 60 писем в сутки</td><td class="wrap">Переменная выше, предупреждение в последнем письме</td></tr>
+          <tr><td>Netlify кладёт все сайты при перерасходе</td><td class="wrap">Запасной адрес номера на владельца; стенд отдельно от боевых</td></tr>
+          <tr><td>Общие инструменты ElevenLabs</td><td class="wrap">Только новые инструменты, боевые не трогаем</td></tr>
+          <tr><td>Автопополнение ElevenLabs тратит молча</td><td class="wrap">Счётчик минут в пульте, потолок прогонов в день</td></tr>
+          <tr><td>Медданные без BAA</td><td class="wrap">A2–A4 только на вымышленных данных до цепочки BAA</td></tr>
+          <tr><td>Нарушение fair housing</td><td class="wrap">Запретные темы, классификатор, проверка юристом до продажи</td></tr>
+          <tr><td>TCPA</td><td class="wrap">Только входящие и ответы по согласию, журнал согласий, никаких холодных автозвонков</td></tr>
+          <tr><td>SMS: 5–15 рабочих дней на бренд клиента</td><td class="wrap">Регистрацию начинаем в день подписания пилота, до одобрения — письма</td></tr>
+          <tr><td>Medicaid урезают</td><td class="wrap">В продажах первыми частные и смешанные агентства</td></tr>
+          <tr><td>Встроенный ИИ платформ</td><td class="wrap">№43 — компаниям не на AppFolio; №44 — модули, которых нет у EVV-платформ: найм 24/7 на трёх языках, проверка EVV до счёта</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="resheniya" aria-labelledby="resheniya-h">
+    <div class="section-head">
+      <h2 id="resheniya-h">Решения за тобой</h2>
+      <p>Код начинаю сразу. Эти четыре решения нужны до первой траты и первой выкладки. Выбор сохраняется на странице, напиши мне в чате «ответил».</p>
+    </div>
+
+    <div class="dcard" data-q="d1">
+      <span class="qn">РЕШЕНИЕ 1</span>
+      <h3>Деньги на прототипы на октябрь</h3>
+      <p class="why">Номера, минуты на обкатку и ключ для служебных задач.</p>
+      <div class="opts">
+        <button type="button" class="opt" id="d1-a" data-choice="А" aria-pressed="false"><span class="letter">А</span><span class="ot">Да, до $80</span><span class="flag">Рекомендую</span><span class="od">Два номера $2,30 в месяц, минуты ~$65, ключ Anthropic с лимитом $15. <span class="picked">Выбрано</span></span></button>
+        <button type="button" class="opt" id="d1-b" data-choice="Б" aria-pressed="false"><span class="letter">Б</span><span class="ot">Да, но без нового ключа</span><span></span><span class="od">Сводки и проверки SMS делаем шаблонами, без модели. <span class="picked">Выбрано</span></span></button>
+        <button type="button" class="opt" id="d1-c" data-choice="В" aria-pressed="false"><span class="letter">В</span><span class="ot">Пока нет</span><span></span><span class="od">Только текстовые прогоны, без телефона. <span class="picked">Выбрано</span></span></button>
+      </div>
+      <p class="rec"><b>Почему А.</b> Без номера нет живого демо, а продаём мы именно звонок.</p>
+      <div class="note"><label for="d1-comment">Свой вариант или комментарий</label><textarea id="d1-comment" rows="3"></textarea><div class="note-row"><button type="button" class="save-note" id="d1-save">Сохранить комментарий</button><span class="q-status" role="status">Ответить можно и в чате.</span></div></div>
+    </div>
+
+    <div class="dcard" data-q="d2">
+      <span class="qn">РЕШЕНИЕ 2</span>
+      <h3>Где живут прототипы</h3>
+      <p class="why">Стенд Веры держит живые линии под рекламой.</p>
+      <div class="opts">
+        <button type="button" class="opt" id="d2-a" data-choice="А" aria-pressed="false"><span class="letter">А</span><span class="ot">Отдельный сайт Netlify</span><span class="flag">Рекомендую</span><span class="od">Закрыт от поиска, выкладки вечером одним окном. <span class="picked">Выбрано</span></span></button>
+        <button type="button" class="opt" id="d2-b" data-choice="Б" aria-pressed="false"><span class="letter">Б</span><span class="ot">На стенде Веры</span><span></span><span class="od">Быстрее на день, но каждая выкладка задевает живые линии. <span class="picked">Выбрано</span></span></button>
+      </div>
+      <p class="rec"><b>Почему А.</b> Сломанный прототип не должен уронить линию, на которую идёт реклама.</p>
+      <div class="note"><label for="d2-comment">Свой вариант или комментарий</label><textarea id="d2-comment" rows="3"></textarea><div class="note-row"><button type="button" class="save-note" id="d2-save">Сохранить комментарий</button><span class="q-status" role="status">Ответить можно и в чате.</span></div></div>
+    </div>
+
+    <div class="dcard" data-q="d3">
+      <span class="qn">РЕШЕНИЕ 3</span>
+      <h3>Когда подключаем подрядчиков</h3>
+      <p class="why">Юрист по HIPAA и fair housing, консультант по EVV, интеграторы.</p>
+      <div class="opts">
+        <button type="button" class="opt" id="d3-a" data-choice="А" aria-pressed="false"><span class="letter">А</span><span class="ot">Сметы сейчас, найм при первом интересе клиента</span><span class="flag">Рекомендую</span><span class="od">Цены и сроки узнаём заранее, платим, когда есть покупатель. <span class="picked">Выбрано</span></span></button>
+        <button type="button" class="opt" id="d3-b" data-choice="Б" aria-pressed="false"><span class="letter">Б</span><span class="ot">Нанимать сразу</span><span></span><span class="od">Юрист проверяет шаблоны ещё до демо. <span class="picked">Выбрано</span></span></button>
+        <button type="button" class="opt" id="d3-c" data-choice="В" aria-pressed="false"><span class="letter">В</span><span class="ot">После демо</span><span></span><span class="od">Сначала показываем прототипы, потом ищем подрядчиков. <span class="picked">Выбрано</span></span></button>
+      </div>
+      <p class="rec"><b>Почему А.</b> Продавать A2–A4 и Б2 без юриста нельзя, а платить до покупателя рано.</p>
+      <div class="note"><label for="d3-comment">Свой вариант или комментарий</label><textarea id="d3-comment" rows="3"></textarea><div class="note-row"><button type="button" class="save-note" id="d3-save">Сохранить комментарий</button><span class="q-status" role="status">Ответить можно и в чате.</span></div></div>
+    </div>
+
+    <div class="dcard" data-q="d4">
+      <span class="qn">РЕШЕНИЕ 4</span>
+      <h3>Как называем продукты на демо</h3>
+      <p class="why">Покупатели — американские владельцы, названия нужны на английском. Проверку товарных знаков сделаю до лендинга.</p>
+      <div class="opts">
+        <button type="button" class="opt" id="d4-a" data-choice="А" aria-pressed="false"><span class="letter">А</span><span class="ot">CareLine и NightDesk</span><span class="flag">Рекомендую</span><span class="od">Отдельное имя под каждую отрасль. <span class="picked">Выбрано</span></span></button>
+        <button type="button" class="opt" id="d4-b" data-choice="Б" aria-pressed="false"><span class="letter">Б</span><span class="ot">Vera for Home Care и Vera for Property Managers</span><span></span><span class="od">Одна марка Веры на все отрасли. <span class="picked">Выбрано</span></span></button>
+        <button type="button" class="opt" id="d4-c" data-choice="В" aria-pressed="false"><span class="letter">В</span><span class="ot">Свои названия</span><span></span><span class="od">Напиши в комментарии. <span class="picked">Выбрано</span></span></button>
+      </div>
+      <p class="rec"><b>Почему А.</b> Отраслевое имя сразу говорит владельцу, что продукт сделан для его бизнеса.</p>
+      <div class="note"><label for="d4-comment">Свой вариант или комментарий</label><textarea id="d4-comment" rows="3"></textarea><div class="note-row"><button type="button" class="save-note" id="d4-save">Сохранить комментарий</button><span class="q-status" role="status">Ответить можно и в чате.</span></div></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Разбор ниш, на котором стоит этот план: страница «Разбор ниш 41–45» и файлы в <code>Pivot/issledovanie-2026-09-30-41-45/</code>. Код и данные сборки: <code>Pivot/produkty/linii-44-43/</code>. План от 30.09.2026.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.dcard[data-q]'));
+  var QS = boxes.map(function (b) { return b.dataset.q; });
+  var state = {}, busy = {};
+  QS.forEach(function (q) { state[q] = null; busy[q] = false; });
+  var db = null, writable = true, connected = false;
+
+  function box(q) { return document.querySelector('.dcard[data-q="' + q + '"]'); }
+  function fmt(iso) {
+    try { return new Date(iso).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); }
+    catch (e) { return ''; }
+  }
+  function setStatus(q, text) { box(q).querySelector('.q-status').textContent = text; }
+  function render(q) {
+    var el = box(q), data = state[q];
+    el.querySelectorAll('.opt').forEach(function (b) {
+      var on = !!data && data.choice === b.dataset.choice;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    var ta = el.querySelector('textarea');
+    if (data && typeof data.comment === 'string' && document.activeElement !== ta && !ta.dataset.dirty) ta.value = data.comment;
+    if (!connected) { setStatus(q, 'Сохранение недоступно в этом окне. Ответь в чате.'); return; }
+    if (!writable) {
+      setStatus(q, data && data.choice ? ('Выбран вариант ' + data.choice + ' · ' + fmt(data.at)) : 'Ответа пока нет. Отвечать может только владелец.');
+      return;
+    }
+    setStatus(q, data && (data.choice || data.comment) ? ('Сохранено ' + fmt(data.at) + '. Напиши мне в чате «ответил».') : 'Ответа пока нет.');
+  }
+  function setReadonly(q, on) {
+    var el = box(q);
+    el.classList.toggle('is-readonly', on);
+    el.querySelectorAll('.opt, .save-note').forEach(function (b) { b.disabled = on; });
+    el.querySelector('textarea').disabled = on;
+  }
+  function save(q, patch) {
+    if (!db || !writable || busy[q]) return Promise.resolve(false);
+    busy[q] = true;
+    var el = box(q);
+    el.classList.add('is-busy');
+    setStatus(q, 'Сохраняю…');
+    var cur = state[q] || {};
+    var next = { choice: cur.choice || null, comment: typeof cur.comment === 'string' ? cur.comment : '' };
+    Object.keys(patch).forEach(function (k) { next[k] = patch[k]; });
+    next.at = new Date().toISOString();
+    return db.doc('answers/' + q).set(next).then(function () {
+      state[q] = next; busy[q] = false; el.classList.remove('is-busy'); render(q); return true;
+    }, function (e) {
+      busy[q] = false; el.classList.remove('is-busy');
+      var code = e && e.code;
+      if (code === 'invalid_argument') {
+        writable = false;
+        QS.forEach(function (x) { setReadonly(x, true); });
+        setStatus(q, 'Сохранить не вышло: у этой ссылки нет права записи. Ответь в чате.');
+      } else if (code === 'unavailable') {
+        setStatus(q, 'Связь пропала. Нажми ещё раз.');
+      } else {
+        setStatus(q, 'Сохранить не вышло. Ответь в чате.');
+      }
+      return false;
+    });
+  }
+  QS.forEach(function (q) {
+    var el = box(q);
+    el.querySelectorAll('.opt').forEach(function (b) {
+      b.addEventListener('click', function () { save(q, { choice: b.dataset.choice }); });
+    });
+    var ta = el.querySelector('textarea');
+    ta.addEventListener('input', function () { ta.dataset.dirty = '1'; });
+    el.querySelector('.save-note').addEventListener('click', function () {
+      save(q, { comment: ta.value.trim() }).then(function (ok) { if (ok) delete ta.dataset.dirty; });
+    });
+  });
+
+  var claudeApi = window.claude;
+  if (!claudeApi || typeof claudeApi.use !== 'function') return;
+  claudeApi.use('db').then(function (ns) {
+    if (!ns) { QS.forEach(render); return; }
+    db = ns; connected = true;
+    return claudeApi.use('user').then(function (user) {
+      if (!user) return null;
+      return user.can('data.write');
+    }, function () { return null; }).then(function (can) {
+      if (can === false) { writable = false; QS.forEach(function (q) { setReadonly(q, true); }); }
+      QS.forEach(function (q) {
+        render(q);
+        db.doc('answers/' + q).onSnapshot(function (snap) {
+          state[q] = snap.exists ? snap.data() : null;
+          render(q);
+        }, function () {
+          setStatus(q, 'Связь с сохранением прервалась. Обнови страницу или ответь в чате.');
+        });
+      });
+    });
+  }, function () { QS.forEach(render); });
+})();
+</script>

@@ -1,0 +1,693 @@
+{
+  "_meta": {
+    "klient": "harborrow",
+    "versiya": "1.0",
+    "data": "2026-09-30",
+    "demo": true,
+    "primechanie": "ЛИСТ ПРАВДЫ ДЕМО-КЛИЕНТА №43 NightDesk. Компания, люди, адреса, телефоны, цены, подрядчики — ВЫМЫШЛЕННЫЕ (DEMO). Телефоны только из диапазона 555-0100…0199. Промпты nightdesk/prompty/*.md берут факты ТОЛЬКО отсюда; поменял число здесь — ищи его в промптах обоих языков (test/nd-prompty.test.js падает при расхождении). Чего здесь нет — агент не знает и записывает вопрос для офиса. Настройки стенда собираются из этого файла: node nightdesk/nastroyki/sobrat.js (test/nd-dannye.test.js проверяет, что сборка свежая).",
+    "chto_resheno_upravlyayushchim": "В DEMO всё ниже — решения вымышленного управляющего. У живого клиента каждое поле подтверждает он сам (установочный звонок): список аварий, цепочка дежурных, подрядчики, объявления, критерии аренды.",
+    "istochniki_prava": "university/claims/c-0600…c-0604 (раскрытие ИИ в первой фразе, запись, TCPA: входящие — не робозвонок, исходящие ИИ-голосом только по согласию), c-0605/c-0606 (SMS только по согласию, отказ STOP), c-0609…c-0611 (никаких обещаний результата и «гарантий»). Fair housing — nightdesk/fair-housing/shablony.json.",
+    "istochniki": [
+      {
+        "kod": "hpd_teplo",
+        "chto": "Отопительный сезон NYC: 1 октября — 31 мая. С 6:00 до 22:00, если снаружи ниже 55°F, внутри не ниже 68°F; с 22:00 до 6:00 внутри не ниже 62°F при любой погоде. Горячая вода 365 дней в году, не ниже 120°F. Жилец сначала звонит арендодателю, потом 311.",
+        "url": "https://www.nyc.gov/site/hpd/services-and-information/heat-and-hot-water-information.page",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "cchr_soi",
+        "chto": "Закон о правах человека NYC: lawful source of income (Section 8, CityFHEPS, HASA, SSI и др.). Нельзя отказывать, нельзя писать «ваучеры не принимаем», нельзя предпочитать неваучерников; почти все арендные объекты города, независимо от числа квартир.",
+        "url": "https://www.nyc.gov/site/cchr/media/source-of-income.page",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "cchr_soi_landlord_faq",
+        "chto": "CCHR, «Best practices for housing providers» (март 2023): если долю жильца по ваучеру считают от его дохода — никаких дополнительных требований к доходу и никаких поручителей; требование минимального кредитного балла — признак дискриминации; сбор за заявку по закону штата не больше $20 или фактической стоимости проверки; закон штата запрещает отказывать из-за прошлых и текущих дел в жилищном суде; умышленное нарушение — до $250 000.",
+        "url": "https://www.nyc.gov/assets/cchr/downloads/pdf/materials/FairHouse_FAQs-Landlord-English.pdf",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "cchr_fair_chance",
+        "chto": "Fair Chance Housing Law NYC (Local Law 24 of 2024), с 01.01.2025: до условного предложения нельзя спрашивать о судимости ни устно, ни письменно и нельзя делать заявлений о проверке судимости в объявлениях и заявках; после предложения — только тяжкие за 5 лет, мелкие за 3 года и реестр; 5 рабочих дней на ответ заявителя; штрафы до $125 000, умышленно — до $250 000.",
+        "url": "https://www.nyc.gov/site/cchr/media/fair-chance-housing-campaign.page",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "cchr_klassy",
+        "chto": "Защищённые признаки в жилье по закону NYC: возраст, иммиграционный статус и гражданство, цвет кожи, инвалидность, пол и гендерная идентичность, семейное и партнёрское положение, национальное происхождение, беременность, раса, религия, рост и вес, сексуальная ориентация, военная служба; только в жилье — судимость, законное занятие, законный источник дохода, наличие детей, статус пострадавшего от домашнего насилия.",
+        "url": "https://www.nyc.gov/site/cchr/law/the-law.page",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "dcwp_fare",
+        "chto": "FARE Act (Local Law 119 of 2024), с 11.06.2025: комиссию брокера, нанятого арендодателем, жильцу не перекладывают; в каждом объявлении и до подписания — все сборы, которые платит жилец.",
+        "url": "https://www.nyc.gov/site/dca/about/FAQ-Broker-Fees.page",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "ag_zalog",
+        "chto": "Залог в штате Нью-Йорк — не больше месячной платы.",
+        "url": "https://ag.ny.gov/publications/residential-tenants-rights-guide",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "rpl_238a_prosrochka",
+        "chto": "Пеня за просрочку (RPL §238-a): только если плата опоздала больше чем на пять дней, не больше $50 или 5% месячной платы — что меньше. Проверено по вторичным источникам, первоисточник закона не открывался — сверить юристу.",
+        "url": "https://ezel.ai/surveys/late-rent-fee-limits/new-york",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "national_grid_gaz",
+        "chto": "Запах газа в Бруклине: сразу выйти, ничего не включать и не выключать (выключатели, звонки, телефоны, зажигалки), звонить 911 или в аварийную линию National Grid. В DEMO агент называет только 911.",
+        "url": "https://www.nationalgridus.com/NY-Home/Natural-Gas-Safety/Report-a-Gas-Emergency",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "coned_svet",
+        "chto": "Отключение электричества сообщают в Con Edison (сайт, приложение, телефон); к упавшим проводам не подходить, 911.",
+        "url": "https://www.coned.com/en/services-and-outages/report-track-service-issue/check-outage-status",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "rcny_42_01_dveri",
+        "chto": "Входные двери многоквартирных домов класса A на 8+ квартир — самозакрывающиеся и самозапирающиеся, с домофоном (1 RCNY §42-01). Все три дома DEMO больше 8 квартир.",
+        "url": "https://www.nyc.gov/assets/buildings/rules/1_RCNY_42-01.pdf",
+        "provereno": "2026-09-30"
+      },
+      {
+        "kod": "dob_lift",
+        "chto": "Застряли в лифте: нажать кнопку тревоги, ждать внутри, не открывать двери; угроза жизни — 911.",
+        "url": "https://www.nyc.gov/site/buildings/safety/elevator-safety.page",
+        "provereno": "2026-09-30"
+      }
+    ]
+  },
+
+  "kompaniya": {
+    "nazvanie": "Harbor Row Property Management (DEMO)",
+    "nazvanie_vsluh": "Harbor Row Property Management",
+    "korotko_vsluh": "Harbor Row",
+    "tip": "управляющая компания трёх жилых арендных домов в Бруклине, NY (DEMO)",
+    "chasovoy_poyas": "America/New_York",
+    "ofis": {
+      "adres": "120 Harbor Row, Suite 2, Brooklyn, NY 11231 (DEMO)",
+      "adres_vsluh_en": "one twenty Harbor Row, Suite two, Brooklyn",
+      "adres_vsluh_es": "ciento veinte Harbor Row, Suite dos, Brooklyn",
+      "telefon": "+17185550100",
+      "telefon_vsluh_en": "seven one eight, five five five, zero one zero zero",
+      "telefon_vsluh_es": "siete uno ocho, cinco cinco cinco, cero uno cero cero",
+      "pochta": "office@harborrow-demo.example",
+      "pochta_lizinga": "leasing@harborrow-demo.example",
+      "portal": "https://harborrow-demo.example/residents",
+      "chasy": {
+        "dni": ["mon", "tue", "wed", "thu", "fri"],
+        "s": "09:00",
+        "do": "17:00",
+        "vsluh_en": "Monday to Friday, nine to five",
+        "vsluh_es": "de lunes a viernes, de nueve a cinco",
+        "subbota_voskresene": "офис закрыт; показы с агентом только в будни, по выходным — самостоятельный показ по ссылке",
+        "prazdniki": "НЕ ЗАДАНЫ в листе — агент не знает, записывает вопрос"
+      }
+    },
+    "linii_ii": {
+      "nd-after-hours": {
+        "nomer": "DEMO-3",
+        "kogda": "круглосуточно на DEMO; у живого клиента — когда офис закрыт (будни 17:00–09:00, выходные, праздники): переадресация офисного номера",
+        "chto": "аварии и угроза жизни, заявки на ремонт, вопросы жильцов"
+      },
+      "nd-leasing": {
+        "nomer": "DEMO-4",
+        "kogda": "круглосуточно (номер из объявлений)",
+        "chto": "вопросы по шести объявлениям, показы, ссылка на заявку; скрининга нет"
+      }
+    },
+    "lyudi": {
+      "upravlyayushchiy": {
+        "imya": "Renee Walsh (DEMO)",
+        "vsluh": "Renee",
+        "rol": "property manager — дома, жильцы, заявки; второй дежурный ночью",
+        "telefon": "+17185550112"
+      },
+      "lizing": {
+        "imya": "Jordan Kim (DEMO)",
+        "vsluh": "Jordan",
+        "rol": "leasing agent — показы, заявки на аренду, скрининг (человек, не ИИ)",
+        "telefon": "+17185550113"
+      },
+      "dezhurnyy_tehnik": {
+        "imya": "Marco Diaz (DEMO)",
+        "vsluh": "the on-call technician",
+        "rol": "on-call maintenance technician — первый дежурный ночью и в выходные (по графику)",
+        "telefon": "+17185550111"
+      }
+    },
+    "yazyki_linii_ii": ["en", "es"],
+    "yazyki_ofisa": ["en", "es"],
+    "drugie_yazyki": "Другие языки: агент медленно и просто по-английски берёт имя, телефон, адрес и квартиру и какой язык нужен; при угрозе жизни — сразу 911. Сроков перезвона не обещать."
+  },
+
+  "doma": [
+    {
+      "id": "tidewater",
+      "nazvanie": "Tidewater House (DEMO)",
+      "nazvanie_vsluh": "Tidewater House",
+      "adres": "41 Harbor Row, Brooklyn, NY 11231 (DEMO)",
+      "adres_vsluh_en": "forty-one Harbor Row",
+      "adres_vsluh_es": "cuarenta y uno Harbor Row",
+      "zip": "11231",
+      "kvartir": 72,
+      "etazhey": 7,
+      "lift": true,
+      "vhod_bez_stupenek": "боковой вход с пандусом (step-free side entrance)",
+      "super": { "imya": "Luis Ortega (DEMO)", "telefon": "+17185550121" },
+      "otoplenie": "паровые радиаторы, котельная дома",
+      "gde_voda": {
+        "en": "under your kitchen sink and under your bathroom sink there are two small valves, turn them to the right until they stop; for a toilet, the valve is on the wall behind it",
+        "es": "debajo del fregadero de la cocina y debajo del lavabo del baño hay dos llaves pequeñas, gírelas hacia la derecha hasta el tope; para el inodoro, la llave está en la pared detrás de él"
+      },
+      "gde_shchit": {
+        "en": "it's in the hallway closet next to your front door",
+        "es": "está en el armario del pasillo junto a la puerta de entrada"
+      },
+      "glavnyy_ventil": "подвал, котельная — только персонал",
+      "stirka": { "gde": "basement laundry room", "chasy": "07:00–22:00", "vsluh_en": "in the basement, seven AM to ten PM", "vsluh_es": "en el sótano, de siete de la mañana a diez de la noche" },
+      "musor": { "en": "Bagged household trash goes down the chute on your floor. Recycling and food scraps go to the trash room in the basement.", "es": "La basura doméstica en bolsas va por el ducto de su piso. El reciclaje y los restos de comida van al cuarto de basura del sótano." },
+      "posylki": { "en": "Packages go to the lockers in the lobby, and you get the code by text or email from the locker company.", "es": "Los paquetes van a los casilleros del vestíbulo, y usted recibe el código por mensaje o correo de la empresa de casilleros." },
+      "velosipedy": { "en": "There's a bike room in the basement.", "es": "Hay un cuarto de bicicletas en el sótano." },
+      "parkovka": { "en": "There is no parking at this building.", "es": "Este edificio no tiene estacionamiento." }
+    },
+    {
+      "id": "seawell",
+      "nazvanie": "Seawell Court (DEMO)",
+      "nazvanie_vsluh": "Seawell Court",
+      "adres": "215 Seawell Place, Brooklyn, NY 11220 (DEMO)",
+      "adres_vsluh_en": "two fifteen Seawell Place",
+      "adres_vsluh_es": "doscientos quince Seawell Place",
+      "zip": "11220",
+      "kvartir": 60,
+      "etazhey": 6,
+      "lift": true,
+      "vhod_bez_stupenek": "главный вход без ступенек",
+      "super": { "imya": "Andre Baptiste (DEMO)", "telefon": "+17185550122" },
+      "otoplenie": "водяные конвекторы, котельная дома",
+      "gde_voda": {
+        "en": "the shut-off valves are in the utility closet next to your bathroom door, turn the handles so they point across the pipe",
+        "es": "las llaves de paso están en el armario de servicio junto a la puerta del baño, gire las manijas para que queden atravesadas sobre el tubo"
+      },
+      "gde_shchit": {
+        "en": "it's on the kitchen wall next to the refrigerator",
+        "es": "está en la pared de la cocina junto al refrigerador"
+      },
+      "glavnyy_ventil": "подвал — только персонал",
+      "stirka": { "gde": "ground floor laundry room", "chasy": "07:00–22:00", "vsluh_en": "on the ground floor, seven AM to ten PM", "vsluh_es": "en la planta baja, de siete de la mañana a diez de la noche" },
+      "musor": { "en": "Trash, recycling and food scraps go to the trash room on the ground floor.", "es": "La basura, el reciclaje y los restos de comida van al cuarto de basura de la planta baja." },
+      "posylki": { "en": "Packages go to the package room on the ground floor. It's staffed Monday to Friday, nine to five.", "es": "Los paquetes van al cuarto de paquetes de la planta baja. Hay personal de lunes a viernes, de nueve a cinco." },
+      "velosipedy": { "en": "This building has no bike room.", "es": "Este edificio no tiene cuarto de bicicletas." },
+      "parkovka": { "en": "The building garage has twenty spaces. A space is one hundred seventy-five dollars a month, and there's a waiting list through the office.", "es": "El garaje del edificio tiene veinte espacios. Un espacio cuesta ciento setenta y cinco dólares al mes, y hay lista de espera en la oficina." },
+      "parkovka_mest": 20,
+      "parkovka_usd_v_mesyac": 175
+    },
+    {
+      "id": "kestrel",
+      "nazvanie": "Kestrel Gardens (DEMO)",
+      "nazvanie_vsluh": "Kestrel Gardens",
+      "adres": "780 Kestrel Avenue, Brooklyn, NY 11226 (DEMO)",
+      "adres_vsluh_en": "seven eighty Kestrel Avenue",
+      "adres_vsluh_es": "setecientos ochenta Kestrel Avenue",
+      "zip": "11226",
+      "kvartir": 48,
+      "etazhey": 4,
+      "lift": false,
+      "vhod_bez_stupenek": "нет: три ступеньки у входа, лифта нет (walk-up)",
+      "super": { "imya": "Olga Petrenko (DEMO)", "telefon": "+17185550123" },
+      "otoplenie": "паровые радиаторы, котельная дома",
+      "gde_voda": {
+        "en": "under your kitchen sink and under your bathroom sink, turn the small valves to the right until they stop; for a toilet, the valve is behind it at the wall",
+        "es": "debajo del fregadero de la cocina y debajo del lavabo del baño, gire las llaves pequeñas hacia la derecha hasta el tope; para el inodoro, la llave está detrás, en la pared"
+      },
+      "gde_shchit": {
+        "en": "it's in the entry hallway of your apartment, near the front door",
+        "es": "está en el pasillo de entrada de su apartamento, cerca de la puerta"
+      },
+      "glavnyy_ventil": "подвал — только персонал",
+      "stirka": { "gde": "basement laundry room", "chasy": "08:00–21:00", "vsluh_en": "in the basement, eight AM to nine PM", "vsluh_es": "en el sótano, de ocho de la mañana a nueve de la noche" },
+      "musor": { "en": "Trash, recycling and food scraps go to the bins in the backyard shed.", "es": "La basura, el reciclaje y los restos de comida van a los contenedores del cobertizo del patio." },
+      "posylki": { "en": "There's no package room here; packages are left in the mail area by the entrance.", "es": "Aquí no hay cuarto de paquetes; los paquetes se dejan en el área de buzones junto a la entrada." },
+      "velosipedy": { "en": "There's a bike rack in the backyard.", "es": "Hay un estacionamiento para bicicletas en el patio." },
+      "parkovka": { "en": "There is no parking at this building.", "es": "Este edificio no tiene estacionamiento." }
+    }
+  ],
+
+  "avarii": {
+    "_prim": "СПИСОК АВАРИЙ УПРАВЛЯЮЩЕГО (DEMO). Уровни: ugroza_zhizni — 911 сразу и сигнал дежурным без перевода; avaria — инструкция и перевод по цепочке; всё прочее — заявка на утро. Условия внутри категорий (течёт ли сейчас, весь ли дом, температура по правилам NYC, проверен ли автомат) решает движок platforma/lib/nightdesk/sortirovka.js — детерминированно, по ответам агента. Неизвестный ответ на вопрос безопасности = худший случай.",
+    "ugroza_zhizni": ["gaz", "ogon_dym", "ugarnyy_gaz", "lift_zastryali", "elektrichestvo_opasno", "medicina", "prestuplenie", "obrushenie"],
+    "avaria": ["voda_protechka", "kanalizaciya", "net_vody", "net_tepla", "net_goryachey_vody", "net_sveta", "vhodnaya_dver", "zamok_kvartiry", "lift_ne_rabotaet"],
+    "ne_srochno": ["santehnika", "bytovaya_tehnika", "vrediteli", "plesen", "domofon", "osveshchenie", "detektor_batareyka", "zamok_zahlopnulsya", "okno", "shum", "drugoe"],
+    "usloviya": {
+      "net_goryachey_vody": "авария, если без горячей воды несколько квартир или весь дом; одна квартира — заявка на утро",
+      "net_sveta": "авария, если весь дом или несколько квартир, или одна квартира после проверки автомата; вся улица — отключение Con Edison, заявка и совет сообщить в Con Edison",
+      "voda_protechka": "авария, если вода идёт сейчас или провис потолок; вода у розеток и щитка — угроза жизни; течь остановлена — заявка",
+      "net_tepla": "только в отопительный сезон и ниже порога NYC (teplo_nyc); весь дом или несколько квартир без тепла в сезон — авария; вне сезона — заявка",
+      "lift_ne_rabotaet": "в лифте кто-то есть — угроза жизни (911); пустой лифт стоит — авария"
+    },
+    "nastaivaet_eskalirovat": false,
+    "teplo_bez_termometra": "avaria",
+    "snaruzhi_neizvestno_kak_holodno": true,
+    "teplo_nyc": {
+      "sezon_mesyacy": [10, 11, 12, 1, 2, 3, 4, 5],
+      "sezon_vsluh_en": "October first through May thirty-first",
+      "sezon_vsluh_es": "del primero de octubre al treinta y uno de mayo",
+      "den": { "s_chasa": 6, "do_chasa": 22, "snaruzhi_nizhe_f": 55, "vnutri_ne_menee_f": 68 },
+      "noch": { "s_chasa": 22, "do_chasa": 6, "vnutri_ne_menee_f": 62 },
+      "goryachaya_voda_ne_menee_f": 120,
+      "vsluh_en": "From six AM to ten PM, when it's below fifty-five degrees outside, it must be at least sixty-eight degrees inside. From ten PM to six AM, it must be at least sixty-two degrees inside, whatever the weather. Hot water must be at least one hundred twenty degrees all year.",
+      "vsluh_es": "De seis de la mañana a diez de la noche, cuando afuera hace menos de cincuenta y cinco grados, adentro debe haber al menos sesenta y ocho grados. De diez de la noche a seis de la mañana, adentro debe haber al menos sesenta y dos grados, haga el tiempo que haga. El agua caliente debe estar al menos a ciento veinte grados todo el año.",
+      "istochnik": "hpd_teplo"
+    }
+  },
+
+  "instrukcii": {
+    "_prim": "Инструкции безопасности, которые агент читает из ответа инструмента sortirovka дословно. {gde_voda} и {gde_shchit} подставляются из дома звонящего. Агент не придумывает своих советов.",
+    "911": {
+      "en": "Please hang up and call nine-one-one right now.",
+      "es": "Por favor, cuelgue y llame al nueve uno uno ahora mismo."
+    },
+    "gaz": {
+      "en": "Leave the apartment now. Don't switch anything on or off, don't use a lighter, and don't use the elevator. Once you're outside, call nine-one-one.",
+      "es": "Salga del apartamento ahora. No encienda ni apague nada, no use encendedores y no use el ascensor. Cuando esté afuera, llame al nueve uno uno."
+    },
+    "ogon_dym": {
+      "en": "Please hang up and call nine-one-one now. If the fire or smoke is in your apartment, get out and close the door behind you. Use the stairs, never the elevator.",
+      "es": "Por favor, cuelgue y llame al nueve uno uno ahora. Si el fuego o el humo está en su apartamento, salga y cierre la puerta al salir. Use las escaleras, nunca el ascensor."
+    },
+    "ugarnyy_gaz": {
+      "en": "Everyone should leave the apartment now and get fresh air. Once you're outside, call nine-one-one.",
+      "es": "Todos deben salir del apartamento ahora y respirar aire fresco. Cuando estén afuera, llamen al nueve uno uno."
+    },
+    "lift_zastryali": {
+      "en": "Please call nine-one-one now. If you are the one inside: press the alarm button, stay in the car, and don't try to open the doors.",
+      "es": "Por favor, llame al nueve uno uno ahora. Si usted es quien está adentro: presione el botón de alarma, quédese en la cabina y no intente abrir las puertas."
+    },
+    "elektrichestvo_opasno": {
+      "en": "Stay away from it and don't touch anything electrical, especially near water. Please hang up and call nine-one-one now.",
+      "es": "Aléjese y no toque nada eléctrico, sobre todo cerca del agua. Por favor, cuelgue y llame al nueve uno uno ahora."
+    },
+    "medicina": {
+      "en": "Please hang up and call nine-one-one right now.",
+      "es": "Por favor, cuelgue y llame al nueve uno uno ahora mismo."
+    },
+    "prestuplenie": {
+      "en": "If you're in danger, hang up and call nine-one-one right now. Stay somewhere safe and keep your door locked.",
+      "es": "Si está en peligro, cuelgue y llame al nueve uno uno ahora mismo. Quédese en un lugar seguro y mantenga la puerta cerrada con llave."
+    },
+    "obrushenie": {
+      "en": "Get everyone out of that room and keep them out. If anyone is hurt, hang up and call nine-one-one now.",
+      "es": "Saque a todos de esa habitación y no deje entrar a nadie. Si alguien está herido, cuelgue y llame al nueve uno uno ahora."
+    },
+    "voda": {
+      "en": "If you can do it safely, turn off the water: {gde_voda}. Move your things away from the water, and stay away from outlets and switches near it.",
+      "es": "Si puede hacerlo sin peligro, cierre el agua: {gde_voda}. Aleje sus cosas del agua y no se acerque a enchufes ni interruptores cercanos."
+    },
+    "kanalizaciya": {
+      "en": "Please don't use any sinks, toilets, the shower or the washing machine until it's fixed, and keep away from the water.",
+      "es": "Por favor, no use lavabos, inodoros, la ducha ni la lavadora hasta que se repare, y manténgase lejos del agua."
+    },
+    "net_vody": {
+      "en": "Please keep your faucets turned off, so the water doesn't run when it comes back.",
+      "es": "Por favor, mantenga las llaves cerradas para que el agua no corra cuando regrese."
+    },
+    "net_tepla": {
+      "en": "Keep your windows closed. Never use the oven or the stove to heat the apartment. If you use a space heater, plug it straight into the wall and keep it three feet from anything that can burn.",
+      "es": "Mantenga las ventanas cerradas. Nunca use el horno ni la estufa para calentar el apartamento. Si usa un calentador eléctrico, conéctelo directamente a la pared y manténgalo a tres pies de cualquier cosa que pueda quemarse."
+    },
+    "net_goryachey_vody": {
+      "en": "Please don't try to adjust any building equipment yourself.",
+      "es": "Por favor, no intente ajustar ningún equipo del edificio usted mismo."
+    },
+    "avtomat": {
+      "en": "Please check your electrical panel: {gde_shchit}. If a switch is off or stuck in the middle, push it all the way off, then back on. If it switches off again, leave it off.",
+      "es": "Por favor, revise su panel eléctrico: {gde_shchit}. Si un interruptor está apagado o a la mitad, empújelo del todo a apagado y luego a encendido. Si se vuelve a apagar, déjelo apagado."
+    },
+    "net_sveta": {
+      "en": "Please leave the electrical panel alone now, and use a flashlight instead of candles.",
+      "es": "Por favor, no toque más el panel eléctrico y use una linterna en lugar de velas."
+    },
+    "net_sveta_ulica": {
+      "en": "If the whole street is dark, it's most likely a Con Edison outage, and you can report it to Con Edison online or by phone.",
+      "es": "Si toda la calle está a oscuras, lo más probable es un apagón de Con Edison, y puede reportarlo a Con Edison por internet o por teléfono."
+    },
+    "vhodnaya_dver": {
+      "en": "Please don't prop the door open, and keep your own apartment door locked until it's fixed.",
+      "es": "Por favor, no deje la puerta de entrada abierta con nada, y mantenga cerrada con llave la puerta de su apartamento hasta que se repare."
+    },
+    "zamok_kvartiry": {
+      "en": "If you feel unsafe, hang up and call nine-one-one. Otherwise, if you can, keep someone at the apartment until the door is secured.",
+      "es": "Si se siente en peligro, cuelgue y llame al nueve uno uno. Si no, si puede, que alguien se quede en el apartamento hasta que se asegure la puerta."
+    },
+    "lift_ne_rabotaet": {
+      "en": "Please use the stairs. If you ever hear someone inside the elevator, call nine-one-one.",
+      "es": "Por favor, use las escaleras. Si escucha a alguien dentro del ascensor, llame al nueve uno uno."
+    },
+    "detektor": {
+      "en": "A short chirp about once a minute usually means the battery is low. If you hear a loud alarm that keeps going, or anyone feels dizzy or sick, get out and call nine-one-one.",
+      "es": "Un pitido corto como una vez por minuto suele significar que la batería está baja. Si oye una alarma fuerte y continua, o alguien se siente mareado o enfermo, salga y llame al nueve uno uno."
+    },
+    "zahlopnulsya": {
+      "en": "Lockouts are not handled as emergencies after hours. During office hours our staff can let you in when you show a photo ID. Right now, you can call a licensed locksmith at your own cost.",
+      "es": "Quedarse afuera no se atiende como emergencia fuera del horario. En horario de oficina nuestro personal puede abrirle si muestra una identificación con foto. Ahora mismo puede llamar a un cerrajero con licencia, a su propio costo."
+    }
+  },
+
+  "dezhurnye": {
+    "_prim": "Цепочка ночью и в выходные (решение управляющего, DEMO): дежурный техник → управляющий → аварийный подрядчик по категории → никто. Перевод с ширмой «нажмите 1», 20 секунд на номер, как план Б Веры 28.09. Никто не принял — фраза жильцу, SMS всем в цепочке и повторные звонки кругами каждые 10 минут, не больше 3 кругов; в пульте «авария не принята».",
+    "cepochka": [
+      { "rol": "dezhurnyy_1", "imya": "Marco Diaz (DEMO)", "opisanie": "on-call maintenance technician", "telefon": "+17185550111" },
+      { "rol": "dezhurnyy_2", "imya": "Renee Walsh (DEMO)", "opisanie": "property manager", "telefon": "+17185550112" }
+    ],
+    "zhdat_s": 20,
+    "povtor_min": 10,
+    "krugov": 3,
+    "obeshchanie_perezvona_en": "Our on-call team has your report and your number, and they will call you back as soon as they can.",
+    "obeshchanie_perezvona_es": "Nuestro equipo de guardia tiene su reporte y su número, y le devolverá la llamada lo antes posible."
+  },
+
+  "ofis_perevod": {
+    "_prim": "В часы офиса (пн–пт 9–17) аварии и просьбы «дайте человека» идут в офис; линия лизинга в часы офиса переводит на агента по аренде.",
+    "cepochka_avarii": ["+17185550100"],
+    "cepochka_lizinga": ["+17185550113", "+17185550100"]
+  },
+
+  "podryadchiki": [
+    { "kod": "santehnik", "imya": "Tidemark Plumbing (DEMO)", "telefon": "+17185550131", "kategorii": ["voda_protechka", "net_vody"] },
+    { "kod": "kanalizaciya", "imya": "Gullwing Drain Service (DEMO)", "telefon": "+17185550132", "kategorii": ["kanalizaciya"] },
+    { "kod": "kotel", "imya": "Bluefin Boiler & Heat (DEMO)", "telefon": "+17185550133", "kategorii": ["net_tepla", "net_goryachey_vody"] },
+    { "kod": "elektrik", "imya": "Lanternfish Electric (DEMO)", "telefon": "+17185550134", "kategorii": ["net_sveta"] },
+    { "kod": "zamki", "imya": "Pier Nine Lock & Door (DEMO)", "telefon": "+17185550135", "kategorii": ["vhodnaya_dver", "zamok_kvartiry"] },
+    { "kod": "lift", "imya": "Upline Elevator Service (DEMO)", "telefon": "+17185550136", "kategorii": ["lift_ne_rabotaet"] }
+  ],
+
+  "zayavki": {
+    "_prim": "Заявка на ремонт. Обязательные поля: дом, квартира, описание, доступ, имя и телефон. Номер вида HR-1001 агент читает цифрами. Фото — ссылка по SMS, только при согласии.",
+    "obyazatelnye_polya": ["dom", "kvartira", "opisanie", "dostup", "imya", "telefon"],
+    "dostup_varianty": {
+      "da": "можно войти в отсутствие жильца",
+      "tolko_pri_mne": "только когда жилец дома",
+      "net": "не входить, сначала позвонить"
+    },
+    "chto_dalshe_en": "The office reviews repair requests on the next business day and will call you to schedule a visit.",
+    "chto_dalshe_es": "La oficina revisa las solicitudes de reparación el siguiente día hábil y le llamará para programar la visita.",
+    "foto": "ссылка на загрузку фото приходит SMS, только если жилец согласился на сообщения",
+    "nomer": "HR-<четыре цифры>, счётчик клиента"
+  },
+
+  "zhiltsam": {
+    "_prim": "Вопросы жильцов (Б3). Отвечать только этим. Нет ответа — сообщение для офиса.",
+    "arenda": {
+      "en": "Rent is due on the first of the month. You can pay online through the resident portal, by card or bank transfer, or by check or money order at the office or by mail. We don't take cash, and I can never take a card number on the phone.",
+      "es": "El alquiler vence el primero de cada mes. Puede pagar en línea por el portal de residentes, con tarjeta o transferencia bancaria, o con cheque o giro postal en la oficina o por correo. No aceptamos efectivo, y nunca puedo tomar un número de tarjeta por teléfono."
+    },
+    "penya": {
+      "en": "A late fee applies only if rent is more than five days late, and it's fifty dollars or five percent of the monthly rent, whichever is less.",
+      "es": "Solo se cobra un recargo si el alquiler se paga con más de cinco días de retraso, y es de cincuenta dólares o el cinco por ciento del alquiler mensual, lo que sea menor."
+    },
+    "penya_usd": 50,
+    "penya_procent": 5,
+    "penya_posle_dney": 5,
+    "tishina": {
+      "en": "Quiet hours are from ten PM to eight AM.",
+      "es": "Las horas de silencio son de diez de la noche a ocho de la mañana."
+    },
+    "shum_seychas": {
+      "en": "For a noise problem happening right now, you can also report it to three one one.",
+      "es": "Si el ruido está pasando ahora mismo, también puede reportarlo al tres uno uno."
+    },
+    "pereezd": {
+      "en": "Moves are allowed Monday to Saturday, nine AM to five PM. In buildings with an elevator, reserve it through the office at least forty-eight hours ahead. No moves on Sunday.",
+      "es": "Las mudanzas se permiten de lunes a sábado, de nueve de la mañana a cinco de la tarde. En los edificios con ascensor, resérvelo en la oficina con al menos cuarenta y ocho horas de anticipación. No hay mudanzas los domingos."
+    },
+    "zhivotnye": {
+      "en": "Pets need to be registered with the office, and dogs must be on a leash in all common areas.",
+      "es": "Las mascotas deben registrarse en la oficina, y los perros deben ir con correa en todas las áreas comunes."
+    },
+    "kurenie": {
+      "en": "Smoking isn't allowed in any indoor common area of our buildings.",
+      "es": "No se permite fumar en ninguna área común interior de nuestros edificios."
+    },
+    "kontakty": {
+      "en": "The office is open Monday to Friday, nine to five, at one twenty Harbor Row, Suite two. The phone is seven one eight, five five five, zero one zero zero, and the email is office at harborrow-demo dot example.",
+      "es": "La oficina abre de lunes a viernes, de nueve a cinco, en ciento veinte Harbor Row, Suite dos. El teléfono es siete uno ocho, cinco cinco cinco, cero uno cero cero, y el correo es office arroba harborrow-demo punto example."
+    },
+    "krupnyy_musor": {
+      "en": "For furniture or other large items, arrange a pickup with the office first.",
+      "es": "Para muebles u otros objetos grandes, coordine primero la recogida con la oficina."
+    }
+  },
+
+  "obyavleniya": [
+    {
+      "id": "tw-3c",
+      "dom": "tidewater",
+      "kvartira": "3C",
+      "kvartira_vsluh_en": "three C",
+      "kvartira_vsluh_es": "tres C",
+      "spalen": 1,
+      "vannyh": 1,
+      "ploshchad_kv_ft": 650,
+      "etazh": 3,
+      "arenda_usd": 2850,
+      "arenda_vsluh_en": "two thousand eight hundred fifty dollars a month",
+      "arenda_vsluh_es": "dos mil ochocientos cincuenta dólares al mes",
+      "svobodna_s": "2026-11-01",
+      "svobodna_vsluh_en": "November first",
+      "svobodna_vsluh_es": "el primero de noviembre",
+      "srok_arendy_mes": 12,
+      "zhivotnye": { "en": "Cats and dogs are welcome, up to two pets. There's no pet fee and no pet rent.", "es": "Se aceptan gatos y perros, hasta dos mascotas. No hay cargo ni alquiler por mascotas." },
+      "parkovka": { "en": "There's no parking at this building.", "es": "Este edificio no tiene estacionamiento." },
+      "kommunalnye": { "en": "Heat, hot and cold water, sewer and trash are included. You pay for electricity and cooking gas directly to the utility.", "es": "La calefacción, el agua caliente y fría, el alcantarillado y la basura están incluidos. Usted paga la electricidad y el gas de cocina directamente a la compañía." },
+      "sbory": { "en": "The application fee is the actual cost of the background and credit check, up to twenty dollars, and there's no fee if you bring your own background or credit check from the last thirty days. The security deposit is one month's rent. There's no broker fee and no other fee.", "es": "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, y no hay tarifa si trae su propia verificación de antecedentes o de crédito de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor ni ningún otro cargo." },
+      "zalog_usd": 2850,
+      "vauchery": { "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.", "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso." },
+      "osobennosti": { "en": "Third floor, elevator building, laundry room in the basement, bike room, package lockers, step-free side entrance.", "es": "Tercer piso, edificio con ascensor, lavandería en el sótano, cuarto de bicicletas, casilleros de paquetes, entrada lateral sin escalones." },
+      "samostoyatelnyy_pokaz": true,
+      "ssylka_obyavleniya": "https://harborrow-demo.example/listings/tw-3c",
+      "ssylka_zayavki": "https://harborrow-demo.example/apply/tw-3c",
+      "ssylka_pokaza": "https://harborrow-demo.example/tour/tw-3c"
+    },
+    {
+      "id": "tw-6a",
+      "dom": "tidewater",
+      "kvartira": "6A",
+      "kvartira_vsluh_en": "six A",
+      "kvartira_vsluh_es": "seis A",
+      "spalen": 2,
+      "vannyh": 1,
+      "ploshchad_kv_ft": 880,
+      "etazh": 6,
+      "arenda_usd": 3450,
+      "arenda_vsluh_en": "three thousand four hundred fifty dollars a month",
+      "arenda_vsluh_es": "tres mil cuatrocientos cincuenta dólares al mes",
+      "svobodna_s": "2026-10-15",
+      "svobodna_vsluh_en": "October fifteenth",
+      "svobodna_vsluh_es": "el quince de octubre",
+      "srok_arendy_mes": 12,
+      "zhivotnye": { "en": "Cats and dogs are welcome, up to two pets. There's no pet fee and no pet rent.", "es": "Se aceptan gatos y perros, hasta dos mascotas. No hay cargo ni alquiler por mascotas." },
+      "parkovka": { "en": "There's no parking at this building.", "es": "Este edificio no tiene estacionamiento." },
+      "kommunalnye": { "en": "Heat, hot and cold water, sewer and trash are included. You pay for electricity and cooking gas directly to the utility.", "es": "La calefacción, el agua caliente y fría, el alcantarillado y la basura están incluidos. Usted paga la electricidad y el gas de cocina directamente a la compañía." },
+      "sbory": { "en": "The application fee is the actual cost of the background and credit check, up to twenty dollars, and there's no fee if you bring your own background or credit check from the last thirty days. The security deposit is one month's rent. There's no broker fee and no other fee.", "es": "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, y no hay tarifa si trae su propia verificación de antecedentes o de crédito de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor ni ningún otro cargo." },
+      "zalog_usd": 3450,
+      "vauchery": { "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.", "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso." },
+      "osobennosti": { "en": "Sixth floor, elevator building, laundry room in the basement, bike room, package lockers, step-free side entrance.", "es": "Sexto piso, edificio con ascensor, lavandería en el sótano, cuarto de bicicletas, casilleros de paquetes, entrada lateral sin escalones." },
+      "samostoyatelnyy_pokaz": true,
+      "ssylka_obyavleniya": "https://harborrow-demo.example/listings/tw-6a",
+      "ssylka_zayavki": "https://harborrow-demo.example/apply/tw-6a",
+      "ssylka_pokaza": "https://harborrow-demo.example/tour/tw-6a"
+    },
+    {
+      "id": "sw-2b",
+      "dom": "seawell",
+      "kvartira": "2B",
+      "kvartira_vsluh_en": "two B",
+      "kvartira_vsluh_es": "dos B",
+      "spalen": 0,
+      "vannyh": 1,
+      "ploshchad_kv_ft": 480,
+      "etazh": 2,
+      "arenda_usd": 2150,
+      "arenda_vsluh_en": "two thousand one hundred fifty dollars a month",
+      "arenda_vsluh_es": "dos mil ciento cincuenta dólares al mes",
+      "svobodna_s": "2026-10-01",
+      "svobodna_vsluh_en": "October first",
+      "svobodna_vsluh_es": "el primero de octubre",
+      "srok_arendy_mes": 12,
+      "zhivotnye": { "en": "Cats are welcome, up to two. Dogs aren't allowed in this apartment. There's no pet fee and no pet rent.", "es": "Se aceptan gatos, hasta dos. En este apartamento no se permiten perros. No hay cargo ni alquiler por mascotas." },
+      "parkovka": { "en": "The building garage has spaces for one hundred seventy-five dollars a month, with a waiting list through the office.", "es": "El garaje del edificio tiene espacios por ciento setenta y cinco dólares al mes, con lista de espera en la oficina." },
+      "kommunalnye": { "en": "Heat, hot and cold water, sewer and trash are included. You pay for electricity directly to the utility. The kitchen is all electric, with no gas.", "es": "La calefacción, el agua caliente y fría, el alcantarillado y la basura están incluidos. Usted paga la electricidad directamente a la compañía. La cocina es totalmente eléctrica, sin gas." },
+      "sbory": { "en": "The application fee is the actual cost of the background and credit check, up to twenty dollars, and there's no fee if you bring your own background or credit check from the last thirty days. The security deposit is one month's rent. There's no broker fee and no other fee.", "es": "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, y no hay tarifa si trae su propia verificación de antecedentes o de crédito de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor ni ningún otro cargo." },
+      "zalog_usd": 2150,
+      "vauchery": { "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.", "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso." },
+      "osobennosti": { "en": "Studio on the second floor, elevator building, laundry room on the ground floor, package room, step-free main entrance.", "es": "Estudio en el segundo piso, edificio con ascensor, lavandería en la planta baja, cuarto de paquetes, entrada principal sin escalones." },
+      "samostoyatelnyy_pokaz": true,
+      "ssylka_obyavleniya": "https://harborrow-demo.example/listings/sw-2b",
+      "ssylka_zayavki": "https://harborrow-demo.example/apply/sw-2b",
+      "ssylka_pokaza": "https://harborrow-demo.example/tour/sw-2b"
+    },
+    {
+      "id": "sw-5d",
+      "dom": "seawell",
+      "kvartira": "5D",
+      "kvartira_vsluh_en": "five D",
+      "kvartira_vsluh_es": "cinco D",
+      "spalen": 1,
+      "vannyh": 1,
+      "ploshchad_kv_ft": 700,
+      "etazh": 5,
+      "arenda_usd": 2650,
+      "arenda_vsluh_en": "two thousand six hundred fifty dollars a month",
+      "arenda_vsluh_es": "dos mil seiscientos cincuenta dólares al mes",
+      "svobodna_s": "2026-11-15",
+      "svobodna_vsluh_en": "November fifteenth",
+      "svobodna_vsluh_es": "el quince de noviembre",
+      "srok_arendy_mes": 12,
+      "zhivotnye": { "en": "Cats and dogs are welcome, up to two pets. There's no pet fee and no pet rent.", "es": "Se aceptan gatos y perros, hasta dos mascotas. No hay cargo ni alquiler por mascotas." },
+      "parkovka": { "en": "The building garage has spaces for one hundred seventy-five dollars a month, with a waiting list through the office.", "es": "El garaje del edificio tiene espacios por ciento setenta y cinco dólares al mes, con lista de espera en la oficina." },
+      "kommunalnye": { "en": "Heat, hot and cold water, sewer and trash are included. You pay for electricity directly to the utility. The kitchen is all electric, with no gas.", "es": "La calefacción, el agua caliente y fría, el alcantarillado y la basura están incluidos. Usted paga la electricidad directamente a la compañía. La cocina es totalmente eléctrica, sin gas." },
+      "sbory": { "en": "The application fee is the actual cost of the background and credit check, up to twenty dollars, and there's no fee if you bring your own background or credit check from the last thirty days. The security deposit is one month's rent. There's no broker fee and no other fee.", "es": "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, y no hay tarifa si trae su propia verificación de antecedentes o de crédito de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor ni ningún otro cargo." },
+      "zalog_usd": 2650,
+      "vauchery": { "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.", "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso." },
+      "osobennosti": { "en": "Fifth floor, elevator building, laundry room on the ground floor, package room, step-free main entrance.", "es": "Quinto piso, edificio con ascensor, lavandería en la planta baja, cuarto de paquetes, entrada principal sin escalones." },
+      "samostoyatelnyy_pokaz": true,
+      "ssylka_obyavleniya": "https://harborrow-demo.example/listings/sw-5d",
+      "ssylka_zayavki": "https://harborrow-demo.example/apply/sw-5d",
+      "ssylka_pokaza": "https://harborrow-demo.example/tour/sw-5d"
+    },
+    {
+      "id": "kg-1r",
+      "dom": "kestrel",
+      "kvartira": "1R",
+      "kvartira_vsluh_en": "one R",
+      "kvartira_vsluh_es": "uno R",
+      "spalen": 2,
+      "vannyh": 1,
+      "ploshchad_kv_ft": 820,
+      "etazh": 1,
+      "arenda_usd": 2950,
+      "arenda_vsluh_en": "two thousand nine hundred fifty dollars a month",
+      "arenda_vsluh_es": "dos mil novecientos cincuenta dólares al mes",
+      "svobodna_s": "2026-10-20",
+      "svobodna_vsluh_en": "October twentieth",
+      "svobodna_vsluh_es": "el veinte de octubre",
+      "srok_arendy_mes": 12,
+      "zhivotnye": { "en": "Cats and dogs are welcome, up to two pets. There's no pet fee and no pet rent.", "es": "Se aceptan gatos y perros, hasta dos mascotas. No hay cargo ni alquiler por mascotas." },
+      "parkovka": { "en": "There's no parking at this building.", "es": "Este edificio no tiene estacionamiento." },
+      "kommunalnye": { "en": "Heat, hot and cold water, sewer and trash are included. You pay for electricity and cooking gas directly to the utility.", "es": "La calefacción, el agua caliente y fría, el alcantarillado y la basura están incluidos. Usted paga la electricidad y el gas de cocina directamente a la compañía." },
+      "sbory": { "en": "The application fee is the actual cost of the background and credit check, up to twenty dollars, and there's no fee if you bring your own background or credit check from the last thirty days. The security deposit is one month's rent. There's no broker fee and no other fee.", "es": "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, y no hay tarifa si trae su propia verificación de antecedentes o de crédito de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor ni ningún otro cargo." },
+      "zalog_usd": 2950,
+      "vauchery": { "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.", "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso." },
+      "osobennosti": { "en": "Garden level, on the ground floor with three steps at the building entrance. Walk-up building with no elevator, shared backyard, laundry room in the basement.", "es": "Nivel jardín, en la planta baja con tres escalones en la entrada del edificio. Edificio sin ascensor, patio compartido, lavandería en el sótano." },
+      "samostoyatelnyy_pokaz": true,
+      "ssylka_obyavleniya": "https://harborrow-demo.example/listings/kg-1r",
+      "ssylka_zayavki": "https://harborrow-demo.example/apply/kg-1r",
+      "ssylka_pokaza": "https://harborrow-demo.example/tour/kg-1r"
+    },
+    {
+      "id": "kg-4f",
+      "dom": "kestrel",
+      "kvartira": "4F",
+      "kvartira_vsluh_en": "four F",
+      "kvartira_vsluh_es": "cuatro F",
+      "spalen": 3,
+      "vannyh": 2,
+      "ploshchad_kv_ft": 1050,
+      "etazh": 4,
+      "arenda_usd": 3700,
+      "arenda_vsluh_en": "three thousand seven hundred dollars a month",
+      "arenda_vsluh_es": "tres mil setecientos dólares al mes",
+      "svobodna_s": "2026-12-01",
+      "svobodna_vsluh_en": "December first",
+      "svobodna_vsluh_es": "el primero de diciembre",
+      "srok_arendy_mes": 12,
+      "zhivotnye": { "en": "Cats and dogs are welcome, up to two pets. There's no pet fee and no pet rent.", "es": "Se aceptan gatos y perros, hasta dos mascotas. No hay cargo ni alquiler por mascotas." },
+      "parkovka": { "en": "There's no parking at this building.", "es": "Este edificio no tiene estacionamiento." },
+      "kommunalnye": { "en": "Heat, hot and cold water, sewer and trash are included. You pay for electricity and cooking gas directly to the utility.", "es": "La calefacción, el agua caliente y fría, el alcantarillado y la basura están incluidos. Usted paga la electricidad y el gas de cocina directamente a la compañía." },
+      "sbory": { "en": "The application fee is the actual cost of the background and credit check, up to twenty dollars, and there's no fee if you bring your own background or credit check from the last thirty days. The security deposit is one month's rent. There's no broker fee and no other fee.", "es": "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, y no hay tarifa si trae su propia verificación de antecedentes o de crédito de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor ni ningún otro cargo." },
+      "zalog_usd": 3700,
+      "vauchery": { "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.", "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso." },
+      "osobennosti": { "en": "Fourth floor of a walk-up building with no elevator, two bathrooms, shared backyard, laundry room in the basement.", "es": "Cuarto piso de un edificio sin ascensor, dos baños, patio compartido, lavandería en el sótano." },
+      "samostoyatelnyy_pokaz": true,
+      "ssylka_obyavleniya": "https://harborrow-demo.example/listings/kg-4f",
+      "ssylka_zayavki": "https://harborrow-demo.example/apply/kg-4f",
+      "ssylka_pokaza": "https://harborrow-demo.example/tour/kg-4f"
+    }
+  ],
+
+  "kriterii_arendy": {
+    "_prim": "ОПУБЛИКОВАННЫЕ КРИТЕРИИ АРЕНДЫ (DEMO). Скрининг ведёт ТОЛЬКО офис лизинга (человек). Линия их не применяет, никого не «предварительно одобряет» и не спрашивает ни о доходе, ни о ваучерах, ни о составе семьи. О судимости в критериях НЕТ НИ СЛОВА нарочно: Fair Chance Housing Law запрещает заявления о проверке судимости в объявлениях и заявках. Перед продажей — проверка юристом по fair housing (план, «Подрядчики»).",
+    "ssylka": "https://harborrow-demo.example/rental-criteria",
+    "punkty": [
+      { "kod": "kto", "en": "Everyone who will sign the lease fills out an application.", "es": "Todas las personas que firmarán el contrato llenan una solicitud." },
+      { "kod": "poryadok", "en": "Complete applications are reviewed in the order they're received.", "es": "Las solicitudes completas se revisan en el orden en que se reciben." },
+      { "kod": "dohod", "en": "Yearly income of forty times the monthly rent, or a guarantor with yearly income of eighty times the monthly rent. This requirement doesn't apply to applicants whose share of the rent is set by a voucher or rental assistance program, and they are not asked for a guarantor.", "es": "Ingresos anuales de cuarenta veces el alquiler mensual, o un garante con ingresos anuales de ochenta veces el alquiler mensual. Este requisito no se aplica a quienes tienen su parte del alquiler fijada por un vale o programa de asistencia de alquiler, y a ellos no se les pide garante." },
+      { "kod": "istochniki_dohoda", "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.", "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso." },
+      { "kod": "kredit", "en": "Credit history is reviewed case by case. There is no minimum credit score.", "es": "El historial de crédito se revisa caso por caso. No hay un puntaje de crédito mínimo." },
+      { "kod": "sud", "en": "Past or pending housing court cases are not considered.", "es": "No se toman en cuenta casos pasados o pendientes en la corte de vivienda." },
+      { "kod": "dokumenty", "en": "Any government-issued photo ID from any country is accepted, and a Social Security number is not required.", "es": "Se acepta cualquier identificación oficial con foto de cualquier país, y no se requiere número de Seguro Social." },
+      { "kod": "sbory", "en": "The application fee is the actual cost of the background and credit check, up to twenty dollars, with no fee if you bring your own check from the last thirty days. The security deposit is one month's rent. There is no broker fee.", "es": "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, sin tarifa si trae su propia verificación de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor." },
+      { "kod": "prisposobleniya", "en": "Anyone may ask for a reasonable accommodation or modification because of a disability, at any time, through the leasing office.", "es": "Cualquier persona puede pedir un ajuste o modificación razonable por una discapacidad, en cualquier momento, a través de la oficina de alquiler." },
+      { "kod": "reshenie", "en": "Decisions are given in writing.", "es": "Las decisiones se dan por escrito." }
+    ],
+    "dohod_mnozhitel": 40,
+    "poruchitel_mnozhitel": 80,
+    "sbor_zayavki_max_usd": 20,
+    "svoy_otchet_dney": 30,
+    "zalog_mesyacev": 1
+  },
+
+  "pokazy": {
+    "s_agentom": {
+      "dni": ["mon", "tue", "wed", "thu", "fri"],
+      "s": "10:00",
+      "do": "17:00",
+      "dlina_min": 30,
+      "vsluh_en": "Monday to Friday, between ten and five, and a showing takes about thirty minutes",
+      "vsluh_es": "de lunes a viernes, entre las diez y las cinco, y una visita dura unos treinta minutos",
+      "zapis": "только через инструменты svobodnye_okna / zapisat_pokaz (tip = pokaz); время из памяти не называть",
+      "gde_vstrecha_en": "at the building entrance",
+      "gde_vstrecha_es": "en la entrada del edificio"
+    },
+    "samostoyatelnyy": {
+      "chasy": "08:00–20:00 ежедневно",
+      "vsluh_en": "every day between eight AM and eight PM, through a link we can text or email you",
+      "vsluh_es": "todos los días entre las ocho de la mañana y las ocho de la noche, con un enlace que le enviamos por mensaje o correo",
+      "kak": "ссылка на самостоятельный показ (приложение проверяет личность само — линия ничего не проверяет)"
+    }
+  },
+
+  "perevod_na_cheloveka": {
+    "nd-after-hours": "Ночью живого человека зовём только при аварии по списку (цепочка дежурных). «Дайте человека» без аварии — сообщение для офиса. В часы офиса — перевод в офис.",
+    "nd-leasing": "Перевод на агента по аренде — только в часы офиса (пн–пт 9–17). Вне часов — сообщение и перезвон в рабочее время."
+  },
+
+  "sms": {
+    "vopros_en": "Can we text you about this, for example a link or an update? Message and data rates may apply, and you can reply STOP at any time.",
+    "vopros_es": "¿Podemos enviarle mensajes de texto sobre esto, por ejemplo un enlace o una novedad? Pueden aplicarse tarifas de mensajes y datos, y puede responder STOP en cualquier momento.",
+    "pravilo": "SMS только после ясного «да» в этом звонке; журнал согласий; STOP/стоп/отпишите — отказ (university c-0605, c-0606). До регистрации 10DLC на клиента — только DRY_RUN или письмо."
+  },
+
+  "fair_housing": {
+    "shablony": "nightdesk/fair-housing/shablony.json",
+    "vauchery_en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.",
+    "vauchery_es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso.",
+    "pravilo": "Ответ про ваучеры — одна и та же фраза во всех объявлениях, в критериях, в обоих промптах и в шаблонах (test/nd-dannye.test.js)."
+  },
+
+  "zapreshcheno_vsegda": [
+    "выдавать себя за человека; скрывать запись разговора",
+    "принимать номера карт, счетов, SSN голосом",
+    "предварительно одобрять или отказывать; спрашивать доход, ваучер, состав семьи, детей, возраст, происхождение, язык дома, религию, инвалидность, судимость, иммиграционный статус",
+    "оценивать районы, соседей, школы, «безопасность»; советовать дом «под человека»",
+    "обещать сроки ремонта или приезда, которых нет в листе; говорить «гарантируем»",
+    "давать юридические советы (выселение, суд, задержка оплаты) — только сообщение для офиса",
+    "рассказывать о других жильцах: кто живёт, в какой квартире, дома ли",
+    "впускать или разрешать вход кому-либо в чужую квартиру"
+  ]
+}

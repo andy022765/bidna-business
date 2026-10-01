@@ -1,0 +1,558 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Плавающий градиент</title>
+<style>
+:root{
+  --navy:#0F1022; --ink:#0F1022; --gold:#C69749; --gold-deep:#A3762B;
+  --white:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,Roboto,Arial,sans-serif;
+  background:#1b3a8f;color:var(--ink);overflow-x:hidden}
+
+/* full-screen gradient background */
+#bg{position:fixed;inset:0;z-index:0;overflow:hidden;
+  background:linear-gradient(135deg,#1b3a8f,#4b7bE5,#eaf1ff)} /* CSS fallback if WebGL fails */
+#bg canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block}
+
+/* foreground */
+#page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:40px 22px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:.01em;margin-bottom:28px;
+  color:var(--fg-strong)}
+.brand .bars{display:flex;align-items:flex-end;gap:3px;height:19px}
+.brand .bars i{width:4px;border-radius:1px;background:var(--gold);display:block}
+.brand .bars i:nth-child(1){height:7px;opacity:.55}
+.brand .bars i:nth-child(2){height:12px;opacity:.75}
+.brand .bars i:nth-child(3){height:16px;opacity:.9}
+.brand .bars i:nth-child(4){height:19px}
+.brand b{color:var(--gold-deep)}
+h1{font-size:clamp(34px,8vw,74px);font-weight:800;letter-spacing:-.02em;line-height:1.02;margin:0 0 18px;
+  text-wrap:balance;color:var(--fg-strong)}
+.sub{font-size:clamp(15px,2.4vw,19px);max-width:44ch;margin:0 auto 34px;color:var(--fg);font-weight:500}
+
+/* glass card demo */
+.card{background:var(--card-bg);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);
+  border:1px solid var(--card-br);border-radius:20px;padding:24px 26px;max-width:460px;margin:0 auto;
+  box-shadow:0 20px 60px rgba(10,20,60,.22);text-align:left}
+.card .k{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:9px}
+.card p{margin:0;font-size:15.5px;color:var(--fg);font-weight:500}
+.btn{display:inline-block;margin-top:18px;text-decoration:none;font-weight:800;font-size:15px;
+  padding:13px 24px;border-radius:12px;color:#22160a;
+  background:linear-gradient(180deg,#e9c67c,var(--gold) 48%,var(--gold-deep));
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),0 5px 0 #86611c,0 12px 22px rgba(160,120,40,.35);
+  transition:transform .09s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(3px)}
+
+/* palette switcher */
+#palette{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;z-index:3;
+  display:flex;gap:9px;flex-wrap:wrap;justify-content:center;
+  background:rgba(255,255,255,.16);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.28);
+  padding:8px;border-radius:999px;box-shadow:0 10px 30px rgba(10,20,60,.2)}
+.pbtn{border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;
+  padding:9px 16px;border-radius:999px;color:var(--fg-strong);background:transparent;transition:all .15s ease;white-space:nowrap}
+.pbtn:hover{background:rgba(255,255,255,.2)}
+.pbtn.on{background:var(--gold);color:#22160a;box-shadow:0 2px 10px rgba(198,151,73,.5)}
+.hint{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:3;font-size:12px;font-weight:700;
+  color:var(--fg);opacity:.7;background:rgba(255,255,255,.14);padding:6px 14px;border-radius:999px;backdrop-filter:blur(6px)}
+</style>
+
+<div id="bg"></div>
+
+<div class="hint" id="hint">Плавающий WebGL-градиент · переключай палитру внизу</div>
+
+<div id="page">
+  <div class="brand"><span class="bars"><i></i><i></i><i></i><i></i></span>Business Intelligence <b>DNA</b></div>
+  <h1>Ваш бизнес лучше,<br>чем о нём знает рынок</h1>
+  <p class="sub">Тот самый плавающий градиент — в наших цветах. Живой фон, который дышит, но не отвлекает от смысла.</p>
+  <div class="card">
+    <div class="k">Как это читается</div>
+    <p>Контент сидит поверх стеклянной карточки — текст остаётся читаемым на любой фазе движения градиента. Так может выглядеть герой лендинга, квиза или презентации.</p>
+    <a class="btn" href="#" onclick="return false">Пройти диагностику →</a>
+  </div>
+</div>
+
+<div id="palette">
+  <button class="pbtn on" onclick="setPalette(0,this)">Сине-белый + золото</button>
+  <button class="pbtn" onclick="setPalette(1,this)">Чистый сине-белый</button>
+  <button class="pbtn" onclick="setPalette(2,this)">Наш navy + золото</button>
+</div>
+
+<script>
+/* ===== Palettes (base + 3 wave layers = 4 colors; keeps u_active_colors in-bounds) ===== */
+var PALETTES = [
+  { name:'blue-gold',  colors:['#25379E','#4E7BE8','#EAF1FF','#C69749'], theme:'light' },
+  { name:'blue-white', colors:['#1E3A8A','#3B82F6','#93C5FD','#FFFFFF'], theme:'light' },
+  { name:'navy-gold',  colors:['#0F1022','#1E2A6E','#3B5BD9','#C69749'], theme:'dark'  }
+];
+
+/* ===================== WebGL mini gradient (ported to vanilla) ===================== */
+function normalizeColor(hexCode){
+  return [((hexCode>>16)&255)/255, ((hexCode>>8)&255)/255, (255&hexCode)/255];
+}
+
+class MiniGl{
+  constructor(canvas){
+    this.canvas = canvas;
+    this.meshes = [];
+    var gl = canvas.getContext("webgl", {antialias:true});
+    if(!gl) throw new Error("WebGL not supported");
+    this.gl = gl;
+    var context = this.gl;
+    var _miniGl = this;
+
+    this.Uniform = class{
+      constructor(e){
+        this.type = "float";
+        Object.assign(this, e);
+        var typeMap = {float:"1f",int:"1i",vec2:"2fv",vec3:"3fv",vec4:"4fv",mat4:"Matrix4fv"};
+        this.typeFn = typeMap[this.type] || "1f";
+      }
+      update(location){
+        if(this.value===undefined || location===null) return;
+        var isMatrix = this.typeFn.indexOf("Matrix")===0;
+        var fn = "uniform"+this.typeFn;
+        if(isMatrix) context[fn](location, this.transpose||false, this.value);
+        else context[fn](location, this.value);
+      }
+      getDeclaration(name, type, length){
+        if(this.excludeFrom===type) return "";
+        if(this.type==="array"){
+          return this.value[0].getDeclaration(name, type, this.value.length)
+            + "\nconst int "+name+"_length = "+this.value.length+";";
+        }
+        if(this.type==="struct"){
+          var nameNoPrefix = name.replace("u_","");
+          nameNoPrefix = nameNoPrefix.charAt(0).toUpperCase()+nameNoPrefix.slice(1);
+          var fields = Object.entries(this.value).map(function(kv){
+            return kv[1].getDeclaration(kv[0], type).replace(/^uniform/,"");
+          }).join("");
+          return "uniform struct "+nameNoPrefix+" \n{\n"+fields+"\n} "+name+(length?"["+length+"]":"")+";";
+        }
+        return "uniform "+this.type+" "+name+(length?"["+length+"]":"")+";";
+      }
+    };
+
+    this.Attribute = class{
+      constructor(e){
+        this.type = context.FLOAT;
+        this.normalized = false;
+        this.buffer = context.createBuffer();
+        Object.assign(this, e);
+      }
+      update(){
+        if(this.values){
+          context.bindBuffer(this.target, this.buffer);
+          context.bufferData(this.target, this.values, context.STATIC_DRAW);
+        }
+      }
+      attach(e, program){
+        var n = context.getAttribLocation(program, e);
+        if(this.target===context.ARRAY_BUFFER){
+          context.bindBuffer(this.target, this.buffer);
+          context.enableVertexAttribArray(n);
+          context.vertexAttribPointer(n, this.size, this.type, this.normalized, 0, 0);
+        }
+        return n;
+      }
+      use(e){
+        context.bindBuffer(this.target, this.buffer);
+        if(this.target===context.ARRAY_BUFFER){
+          context.enableVertexAttribArray(e);
+          context.vertexAttribPointer(e, this.size, this.type, this.normalized, 0, 0);
+        }
+      }
+    };
+
+    this.Material = class{
+      constructor(vertexShaders, fragments, uniforms){
+        uniforms = uniforms || {};
+        var material = this;
+        this.uniformInstances = [];
+
+        function getShader(type, source){
+          var shader = context.createShader(type);
+          context.shaderSource(shader, source);
+          context.compileShader(shader);
+          if(!context.getShaderParameter(shader, context.COMPILE_STATUS)){
+            console.error(context.getShaderInfoLog(shader));
+            throw new Error("Shader compilation error");
+          }
+          return shader;
+        }
+        function getUniformDeclarations(uniforms, type){
+          return Object.entries(uniforms).map(function(kv){
+            return kv[1].getDeclaration(kv[0], type);
+          }).join("\n");
+        }
+
+        material.uniforms = uniforms;
+        var prefix = "precision highp float;";
+        var vertexSource = prefix + "\n"
+          + "attribute vec4 position;\nattribute vec2 uv;\nattribute vec2 uvNorm;\n"
+          + getUniformDeclarations(_miniGl.commonUniforms, "vertex") + "\n"
+          + getUniformDeclarations(uniforms, "vertex") + "\n"
+          + vertexShaders;
+        var fragmentSource = prefix + "\n"
+          + getUniformDeclarations(_miniGl.commonUniforms, "fragment") + "\n"
+          + getUniformDeclarations(uniforms, "fragment") + "\n"
+          + fragments;
+
+        material.program = context.createProgram();
+        context.attachShader(material.program, getShader(context.VERTEX_SHADER, vertexSource));
+        context.attachShader(material.program, getShader(context.FRAGMENT_SHADER, fragmentSource));
+        context.linkProgram(material.program);
+        if(!context.getProgramParameter(material.program, context.LINK_STATUS)){
+          console.error(context.getProgramInfoLog(material.program));
+          throw new Error("Program linking error");
+        }
+        context.useProgram(material.program);
+        material.attachUniforms(undefined, _miniGl.commonUniforms);
+        material.attachUniforms(undefined, material.uniforms);
+      }
+      attachUniforms(name, uniforms){
+        var self = this;
+        if(name===undefined){
+          Object.entries(uniforms).forEach(function(kv){ self.attachUniforms(kv[0], kv[1]); });
+        } else if(uniforms.type==="array"){
+          uniforms.value.forEach(function(u,i){ self.attachUniforms(name+"["+i+"]", u); });
+        } else if(uniforms.type==="struct"){
+          Object.entries(uniforms.value).forEach(function(kv){ self.attachUniforms(name+"."+kv[0], kv[1]); });
+        } else {
+          self.uniformInstances.push({
+            uniform: uniforms,
+            location: context.getUniformLocation(this.program, name)
+          });
+        }
+      }
+    };
+
+    this.PlaneGeometry = class{
+      constructor(){
+        this.width = 1; this.height = 1;
+        this.vertexCount = 0; this.xSegCount = 0; this.ySegCount = 0;
+        this.attributes = {
+          position: new _miniGl.Attribute({target:context.ARRAY_BUFFER, size:3}),
+          uv:       new _miniGl.Attribute({target:context.ARRAY_BUFFER, size:2}),
+          uvNorm:   new _miniGl.Attribute({target:context.ARRAY_BUFFER, size:2}),
+          index:    new _miniGl.Attribute({target:context.ELEMENT_ARRAY_BUFFER, size:3, type:context.UNSIGNED_SHORT})
+        };
+      }
+      setTopology(xSegs, ySegs){
+        xSegs = xSegs||1; ySegs = ySegs||1;
+        this.xSegCount = xSegs; this.ySegCount = ySegs;
+        this.vertexCount = (this.xSegCount+1)*(this.ySegCount+1);
+        var quadCount = this.xSegCount*this.ySegCount*2;
+        this.attributes.uv.values = new Float32Array(2*this.vertexCount);
+        this.attributes.uvNorm.values = new Float32Array(2*this.vertexCount);
+        this.attributes.index.values = new Uint16Array(3*quadCount);
+        for(var y=0;y<=this.ySegCount;y++){
+          for(var x=0;x<=this.xSegCount;x++){
+            var i = y*(this.xSegCount+1)+x;
+            this.attributes.uv.values[2*i] = x/this.xSegCount;
+            this.attributes.uv.values[2*i+1] = 1 - y/this.ySegCount;
+            this.attributes.uvNorm.values[2*i] = (x/this.xSegCount)*2 - 1;
+            this.attributes.uvNorm.values[2*i+1] = 1 - (y/this.ySegCount)*2;
+            if(x<this.xSegCount && y<this.ySegCount){
+              var s = y*this.xSegCount+x;
+              this.attributes.index.values[6*s]   = i;
+              this.attributes.index.values[6*s+1] = i+1+this.xSegCount;
+              this.attributes.index.values[6*s+2] = i+1;
+              this.attributes.index.values[6*s+3] = i+1;
+              this.attributes.index.values[6*s+4] = i+1+this.xSegCount;
+              this.attributes.index.values[6*s+5] = i+2+this.xSegCount;
+            }
+          }
+        }
+        this.attributes.uv.update();
+        this.attributes.uvNorm.update();
+        this.attributes.index.update();
+      }
+      setSize(width, height){
+        width = width||1; height = height||1;
+        this.width = width; this.height = height;
+        this.attributes.position.values = new Float32Array(3*this.vertexCount);
+        var offsetX = width/-2, offsetY = height/-2;
+        var segWidth = width/this.xSegCount, segHeight = height/this.ySegCount;
+        for(var y=0;y<=this.ySegCount;y++){
+          var posY = offsetY + y*segHeight;
+          for(var x=0;x<=this.xSegCount;x++){
+            var posX = offsetX + x*segWidth;
+            var idx = y*(this.xSegCount+1)+x;
+            this.attributes.position.values[3*idx]   = posX;
+            this.attributes.position.values[3*idx+1] = -posY;
+            this.attributes.position.values[3*idx+2] = 0;
+          }
+        }
+        this.attributes.position.update();
+      }
+    };
+
+    this.Mesh = class{
+      constructor(geometry, material){
+        this.geometry = geometry;
+        this.material = material;
+        this.attributeInstances = [];
+        var self = this;
+        Object.entries(this.geometry.attributes).forEach(function(kv){
+          self.attributeInstances.push({
+            attribute: kv[1],
+            location: kv[1].attach(kv[0], self.material.program)
+          });
+        });
+        _miniGl.meshes.push(this);
+      }
+      draw(){
+        context.useProgram(this.material.program);
+        this.material.uniformInstances.forEach(function(o){ o.uniform.update(o.location); });
+        this.attributeInstances.forEach(function(o){ o.attribute.use(o.location); });
+        context.drawElements(context.TRIANGLES, this.geometry.attributes.index.values.length, context.UNSIGNED_SHORT, 0);
+      }
+    };
+
+    var identityMatrix = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1];
+    this.commonUniforms = {
+      projectionMatrix: new this.Uniform({type:"mat4", value:identityMatrix}),
+      modelViewMatrix:  new this.Uniform({type:"mat4", value:identityMatrix}),
+      resolution:       new this.Uniform({type:"vec2", value:[1,1]}),
+      aspectRatio:      new this.Uniform({type:"float", value:1})
+    };
+  }
+  setSize(w, h){
+    w = w||640; h = h||480;
+    this.width = w; this.height = h;
+    this.canvas.width = w; this.canvas.height = h;
+    this.gl.viewport(0,0,w,h);
+    this.commonUniforms.resolution.value = [w,h];
+    this.commonUniforms.aspectRatio.value = w/h;
+  }
+  setOrthographicCamera(){
+    this.commonUniforms.projectionMatrix.value = [
+      2/this.width,0,0,0, 0,2/this.height,0,0, 0,0,-0.001,0, 0,0,0,1
+    ];
+  }
+  render(){
+    this.gl.clearColor(0,0,0,0);
+    this.gl.clearDepth(1);
+    this.meshes.forEach(function(m){ m.draw(); });
+  }
+}
+
+class Gradient{
+  constructor(canvas, colors){
+    this.canvas = canvas;
+    this.colors = colors;
+    this.time = 0; this.last = 0; this.isPlaying = false;
+    this.minigl = new MiniGl(canvas);
+    this.init();
+  }
+  init(){
+    var _this = this;
+    var sectionColors = this.colors.map(function(hex){
+      return normalizeColor(parseInt(hex.replace("#","0x"), 16));
+    });
+    var U = function(o){ return new _this.minigl.Uniform(o); };
+
+    var uniforms = {
+      u_time: U({value:0}),
+      u_shadow_power: U({value:5}),
+      u_darken_top: U({value:0}),
+      u_active_colors: U({value:[1,1,1,1], type:"vec4"}),
+      u_global: U({ type:"struct", value:{
+        noiseFreq: U({value:[0.00014,0.00029], type:"vec2"}),
+        noiseSpeed: U({value:0.000005})
+      }}),
+      u_vertDeform: U({ type:"struct", excludeFrom:"fragment", value:{
+        incline: U({value:0}),
+        offsetTop: U({value:-0.5}),
+        offsetBottom: U({value:-0.5}),
+        noiseFreq: U({value:[3,4], type:"vec2"}),
+        noiseAmp: U({value:320}),
+        noiseSpeed: U({value:10}),
+        noiseFlow: U({value:3}),
+        noiseSeed: U({value:5})
+      }}),
+      u_baseColor: U({value:sectionColors[0], type:"vec3", excludeFrom:"fragment"}),
+      u_waveLayers: U({value:[], excludeFrom:"fragment", type:"array"})
+    };
+
+    for(var i=1;i<sectionColors.length;i++){
+      uniforms.u_waveLayers.value.push(U({ type:"struct", value:{
+        color: U({value:sectionColors[i], type:"vec3"}),
+        noiseFreq: U({value:[2+i/sectionColors.length, 3+i/sectionColors.length], type:"vec2"}),
+        noiseSpeed: U({value:11+0.3*i}),
+        noiseFlow: U({value:6.5+0.3*i}),
+        noiseSeed: U({value:5+10*i}),
+        noiseFloor: U({value:0.1}),
+        noiseCeil: U({value:0.63+0.07*i})
+      }}));
+    }
+
+    var vertexShader =
+"vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}\n"+
+"vec4 mod289(vec4 x){return x-floor(x*(1.0/289.0))*289.0;}\n"+
+"vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);}\n"+
+"vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-0.85373472095314*r;}\n"+
+"float snoise(vec3 v){\n"+
+"  const vec2 C=vec2(1.0/6.0,1.0/3.0);\n"+
+"  const vec4 D=vec4(0.0,0.5,1.0,2.0);\n"+
+"  vec3 i=floor(v+dot(v,C.yyy));\n"+
+"  vec3 x0=v-i+dot(i,C.xxx);\n"+
+"  vec3 g=step(x0.yzx,x0.xyz);\n"+
+"  vec3 l=1.0-g;\n"+
+"  vec3 i1=min(g.xyz,l.zxy);\n"+
+"  vec3 i2=max(g.xyz,l.zxy);\n"+
+"  vec3 x1=x0-i1+C.xxx;\n"+
+"  vec3 x2=x0-i2+C.yyy;\n"+
+"  vec3 x3=x0-D.yyy;\n"+
+"  i=mod289(i);\n"+
+"  vec4 p=permute(permute(permute(i.z+vec4(0.0,i1.z,i2.z,1.0))+i.y+vec4(0.0,i1.y,i2.y,1.0))+i.x+vec4(0.0,i1.x,i2.x,1.0));\n"+
+"  float n_=0.142857142857;\n"+
+"  vec3 ns=n_*D.wyz-D.xzx;\n"+
+"  vec4 j=p-49.0*floor(p*ns.z*ns.z);\n"+
+"  vec4 x_=floor(j*ns.z);\n"+
+"  vec4 y_=floor(j-7.0*x_);\n"+
+"  vec4 x=x_*ns.x+ns.yyyy;\n"+
+"  vec4 y=y_*ns.x+ns.yyyy;\n"+
+"  vec4 h=1.0-abs(x)-abs(y);\n"+
+"  vec4 b0=vec4(x.xy,y.xy);\n"+
+"  vec4 b1=vec4(x.zw,y.zw);\n"+
+"  vec4 s0=floor(b0)*2.0+1.0;\n"+
+"  vec4 s1=floor(b1)*2.0+1.0;\n"+
+"  vec4 sh=-step(h,vec4(0.0));\n"+
+"  vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;\n"+
+"  vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;\n"+
+"  vec3 p0=vec3(a0.xy,h.x);\n"+
+"  vec3 p1=vec3(a0.zw,h.y);\n"+
+"  vec3 p2=vec3(a1.xy,h.z);\n"+
+"  vec3 p3=vec3(a1.zw,h.w);\n"+
+"  vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));\n"+
+"  p0*=norm.x;p1*=norm.y;p2*=norm.z;p3*=norm.w;\n"+
+"  vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0);\n"+
+"  m=m*m;\n"+
+"  return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));\n"+
+"}\n"+
+"vec3 blendNormal(vec3 base,vec3 blend){return blend;}\n"+
+"vec3 blendNormal(vec3 base,vec3 blend,float opacity){return (blend*opacity+base*(1.0-opacity));}\n"+
+"varying vec3 v_color;\n"+
+"void main(){\n"+
+"  float time=u_time*u_global.noiseSpeed;\n"+
+"  vec2 noiseCoord=resolution*uvNorm*u_global.noiseFreq;\n"+
+"  float tilt=resolution.y/2.0*uvNorm.y;\n"+
+"  float incline=resolution.x*uvNorm.x/2.0*u_vertDeform.incline;\n"+
+"  float offset=resolution.x/2.0*u_vertDeform.incline*mix(u_vertDeform.offsetBottom,u_vertDeform.offsetTop,uv.y);\n"+
+"  float noise=snoise(vec3(\n"+
+"    noiseCoord.x*u_vertDeform.noiseFreq.x+time*u_vertDeform.noiseFlow,\n"+
+"    noiseCoord.y*u_vertDeform.noiseFreq.y,\n"+
+"    time*u_vertDeform.noiseSpeed+u_vertDeform.noiseSeed\n"+
+"  ))*u_vertDeform.noiseAmp;\n"+
+"  noise*=1.0-pow(abs(uvNorm.y),2.0);\n"+
+"  noise=max(0.0,noise);\n"+
+"  vec3 pos=vec3(position.x,position.y+tilt+incline+noise-offset,position.z);\n"+
+"  v_color=u_baseColor;\n"+
+"  for(int i=0;i<u_waveLayers_length;i++){\n"+
+"    if(u_active_colors[i+1]==1.){\n"+
+"      WaveLayers layer=u_waveLayers[i];\n"+
+"      float layerNoise=smoothstep(layer.noiseFloor,layer.noiseCeil,\n"+
+"        snoise(vec3(\n"+
+"          noiseCoord.x*layer.noiseFreq.x+time*layer.noiseFlow,\n"+
+"          noiseCoord.y*layer.noiseFreq.y,\n"+
+"          time*layer.noiseSpeed+layer.noiseSeed\n"+
+"        ))/2.0+0.5);\n"+
+"      v_color=blendNormal(v_color,layer.color,pow(layerNoise,4.));\n"+
+"    }\n"+
+"  }\n"+
+"  gl_Position=projectionMatrix*modelViewMatrix*vec4(pos,1.0);\n"+
+"}";
+
+    var fragmentShader =
+"varying vec3 v_color;\n"+
+"void main(){\n"+
+"  vec3 color=v_color;\n"+
+"  if(u_darken_top==1.0){\n"+
+"    vec2 st=gl_FragCoord.xy/resolution.xy;\n"+
+"    color.g-=pow(st.y+sin(-12.0)*st.x,u_shadow_power)*0.4;\n"+
+"  }\n"+
+"  gl_FragColor=vec4(color,1.0);\n"+
+"}";
+
+    var material = new this.minigl.Material(vertexShader, fragmentShader, uniforms);
+    var geometry = new this.minigl.PlaneGeometry();
+    this.mesh = new this.minigl.Mesh(geometry, material);
+    this.resize();
+    this._onResize = function(){ _this.resize(); };
+    window.addEventListener("resize", this._onResize);
+  }
+  resize(){
+    var width = window.innerWidth, height = window.innerHeight;
+    this.minigl.setSize(width, height);
+    this.minigl.setOrthographicCamera();
+    var xSegCount = Math.ceil(width*0.02);
+    var ySegCount = Math.ceil(height*0.05);
+    this.mesh.geometry.setTopology(xSegCount, ySegCount);
+    this.mesh.geometry.setSize(width, height);
+    this.mesh.material.uniforms.u_shadow_power.value = width<600?5:6;
+  }
+  animate(timestamp){
+    if(!this.isPlaying) return;
+    this.time += Math.min(timestamp - this.last, 1000/15);
+    this.last = timestamp;
+    this.mesh.material.uniforms.u_time.value = this.time;
+    this.minigl.render();
+    var _this = this;
+    this.animationId = requestAnimationFrame(function(t){ _this.animate(t); });
+  }
+  renderStatic(){ this.mesh.material.uniforms.u_time.value = 4200; this.minigl.render(); }
+  start(){
+    this.isPlaying = true;
+    var _this = this;
+    this.animationId = requestAnimationFrame(function(t){ _this.animate(t); });
+  }
+  stop(){ this.isPlaying=false; if(this.animationId) cancelAnimationFrame(this.animationId); }
+  destroy(){ this.stop(); if(this._onResize) window.removeEventListener("resize", this._onResize); }
+}
+
+/* ===================== boot + palette switching ===================== */
+var bg = document.getElementById('bg');
+var current = null, currentCanvas = null;
+var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function applyTheme(theme){
+  var strong = theme==='dark' ? '#ffffff' : '#0F1022';
+  var fg      = theme==='dark' ? 'rgba(255,255,255,.86)' : 'rgba(15,16,34,.78)';
+  var cardBg  = theme==='dark' ? 'rgba(20,22,45,.42)' : 'rgba(255,255,255,.5)';
+  var cardBr  = theme==='dark' ? 'rgba(255,255,255,.18)' : 'rgba(255,255,255,.6)';
+  var r = document.documentElement.style;
+  r.setProperty('--fg-strong', strong);
+  r.setProperty('--fg', fg);
+  r.setProperty('--card-bg', cardBg);
+  r.setProperty('--card-br', cardBr);
+}
+
+function setPalette(idx, btn){
+  var p = PALETTES[idx];
+  if(btn){ document.querySelectorAll('.pbtn').forEach(function(b){ b.classList.remove('on'); }); btn.classList.add('on'); }
+  applyTheme(p.theme);
+  // CSS fallback gradient in case WebGL fails
+  bg.style.background = 'linear-gradient(135deg,'+p.colors[0]+','+p.colors[1]+','+p.colors[p.colors.length-1]+')';
+  // rebuild gradient
+  if(current){ current.destroy(); }
+  if(currentCanvas && currentCanvas.parentNode){ currentCanvas.parentNode.removeChild(currentCanvas); }
+  try{
+    var canvas = document.createElement('canvas');
+    bg.appendChild(canvas);
+    currentCanvas = canvas;
+    var g = new Gradient(canvas, p.colors);
+    current = g;
+    if(reduce){ g.renderStatic(); } else { g.start(); }
+  }catch(err){
+    console.error('Gradient init failed, using CSS fallback:', err);
+    current = null;
+    document.getElementById('hint').textContent = 'WebGL недоступен — показан статичный градиент';
+  }
+}
+
+setPalette(0, null);
+</script>

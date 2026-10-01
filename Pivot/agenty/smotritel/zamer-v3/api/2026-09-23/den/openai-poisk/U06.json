@@ -1,0 +1,636 @@
+{
+ "vopros_id": "U06",
+ "vopros": "Кто в США ставит малому бизнесу голосового робота на телефон вместо живого администратора?",
+ "versiya_spiska": "v3-ssha-kto",
+ "otpechatok": "544efbb9ec75",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-09-23",
+ "vne_okna": false,
+ "zapusk_id": "20260923-135128-2693",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-23T13:51:54-07:00",
+   "zapusk_id": "20260923-135128-2693",
+   "cena": 0.03064,
+   "ishod": "ok",
+   "sekund": 8.5,
+   "meta": {
+    "date": "Wed, 23 Sep 2026 20:52:03 GMT",
+    "x-request-id": "req_2b1b231e1b0f4f008999757f551f2c65",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "8296"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. В США это уже отдельная категория услуг — AI receptionist / AI phone agent: голосовой робот берет входящий звонок вместо администратора, разговаривает обычным голосом, отвечает на вопросы, квалифицирует клиента, записывает его и при необходимости переводит на человека.\n\nИз заметных вариантов для малого бизнеса сейчас:\n\n- Smith.ai — AI-рецепционист плюс возможность подключить живого оператора. Особенно ориентируются на small business, юристов, home services и т. п. ([smith.ai](https://smith.ai/?utm_source=openai))\n- RingCentral AI Receptionist — робот прямо внутри бизнес-телефонии: отвечает на звонки, маршрутизирует их, работает с расписанием/сотрудниками. Есть и standalone-вариант, то есть необязательно полностью менять телефонию. ([ringcentral.com](https://www.ringcentral.com/solutions/small-business?utm_source=openai))\n- Goodcall — более простой AI receptionist для небольших компаний: типовые вопросы, лиды, запись и маршрутизация. Его часто позиционируют для салонов, ремонтных мастерских и другого локального SMB. ([workflowstackai.com](https://workflowstackai.com/blog/ai-receptionist-comparison-2026?utm_source=openai))\n- Quo / Sona — бизнес-телефон с AI-агентом Sona, который круглосуточно принимает звонки и собирает информацию. ([techradar.com](https://www.techradar.com/pro/phone-communications/quo-review?utm_source=openai))\n- Плюс существует много небольших интеграторов, которые собирают такого «администратора» конкретно под бизнес: подключают существующий номер, календарь/CRM, делают сценарии и transfer на владельца. Например, Voxgard предлагает именно такую схему без замены существующей телефонной системы. ([voxgard.com](https://voxgard.com/?utm_source=openai))\n\nДля малого бизнеса особенно понятный сценарий выглядит так: клиент звонит в dental office / HVAC / plumbing / beauty salon / auto shop → AI берет трубку → «How can I help you?» → выясняет услугу и ZIP code → смотрит свободное время → записывает → отправляет SMS → заносит lead в CRM → только сложный звонок переводит владельцу.\n\nПричем это уже не старое «Press 1 for sales». Современные системы ведут свободный диалог и могут выполнять действия во время разговора. RingCentral, например, коммерчески запустил свой AI Receptionist в 2025 году и продолжал расширять его в 2026-м. ([ringcentral.com](https://www.ringcentral.com/us/en/blog/ringcentral-ai-receptionist-now-generally-available/?utm_source=openai))\n\nЕсли вы спрашиваете с точки зрения «кто это продает и устанавливает американским SMB», а не «какой сервис купить», могу разобрать рынок интереснее: кто именно продает такие решения малому бизнесу в США, сколько берут ($/month + setup), на каких вертикалях зарабатывают и на чем технически собирают (Retell/Vapi/ElevenLabs/Twilio и т.д.).",
+  "poiskovye_zaprosy": [
+   "AI voice receptionist small business US phone calls appointment booking",
+   "AI receptionist small business voice agent US Smith.ai Goodcall My AI Front Desk",
+   "RingCentral AI receptionist small business phone 2026"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://www.ringcentral.com/solutions/small-business",
+    "domen": "ringcentral.com",
+    "title": "Small Business Phone Systems [2026]"
+   },
+   {
+    "url": "https://www.ringcentral.com/us/en/blog/ringcentral-ai-receptionist-now-generally-available",
+    "domen": "ringcentral.com",
+    "title": "RingCentral AI Receptionist now generally available"
+   },
+   {
+    "url": "https://smith.ai",
+    "domen": "smith.ai",
+    "title": "Smith.ai 24/7 AI Receptionists & Live Human Agents"
+   },
+   {
+    "url": "https://smith.ai/ai-receptionist",
+    "domen": "smith.ai",
+    "title": null
+   },
+   {
+    "url": "https://www.ringcentral.com/whyringcentral/company/pressreleases/ringcentral-brings-always-on-ai-to-the-front-lines-of-customer-engagement.html",
+    "domen": "ringcentral.com",
+    "title": null
+   },
+   {
+    "url": "https://www.ringcentral.com/us/en/blog/ai-receptionist-easier-setup-smarter-conversations",
+    "domen": "ringcentral.com",
+    "title": null
+   },
+   {
+    "url": "https://workflowstackai.com/blog/ai-receptionist-comparison-2026",
+    "domen": "workflowstackai.com",
+    "title": "AI Receptionist Comparison 2026: Goodcall vs Rosie vs Smith.ai | WorkflowStack AI"
+   },
+   {
+    "url": "https://aiplacers.com/us",
+    "domen": "aiplacers.com",
+    "title": null
+   },
+   {
+    "url": "https://aitechrankings.com/rankings/2026-08-26-the-best-ai-phone-receptionists-for-small-businesses-of-2026",
+    "domen": "aitechrankings.com",
+    "title": null
+   },
+   {
+    "url": "https://michaelheredia.com/blog/goodcall-vs-smith-ai",
+    "domen": "michaelheredia.com",
+    "title": null
+   },
+   {
+    "url": "https://gmware.com/blog/best-ai-receptionist-for-small-business",
+    "domen": "gmware.com",
+    "title": null
+   },
+   {
+    "url": "https://voxgard.com",
+    "domen": "voxgard.com",
+    "title": "AI Receptionist That Answers Every Call 24/7 | Voxgard"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=snlmv0xhBlc",
+    "domen": "youtube.com",
+    "title": null
+   },
+   {
+    "url": "https://assets.ringcentral.com/us/datasheet/ai-receptionist-datasheet-8703321369.pdf",
+    "domen": "assets.ringcentral.com",
+    "title": null
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=qj9doONpRvY",
+    "domen": "youtube.com",
+    "title": null
+   },
+   {
+    "url": "https://ai-answering-review.com/reports/Industry-Report-Q1-2026-AI-Answering-Services-USA.pdf",
+    "domen": "ai-answering-review.com",
+    "title": null
+   },
+   {
+    "url": "https://assets.ringcentral.com/us/report/agentic-ai-trends-2026.pdf",
+    "domen": "assets.ringcentral.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/smallbusiness/comments/1md74gu/ai_receptionist_that_handles_booking_appointments",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://media.trustradius.com/product-downloadables/ZE/SC/B00TRG3FOZFQ.pdf",
+    "domen": "media.trustradius.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AIReceptionists/comments/1r5d765/anyone_using_an_ai_receptionist_for_their_business",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://static2.finnhub.io/file/privatedatany/slides/4649f750d13c4ae503fb4dc4537b06861248c128ddaa1ff653f03fdf894e45e6.pdf?Authorization=3_20260623123243_a0dafb02935000ba59583595_29e464892ccd958abadd634dbc433bddb151d4e9_002_20260624123243_0007_dnld",
+    "domen": "static2.finnhub.io",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SaaS/comments/1v1n1rc/i_built_an_ai_voice_receptionist_for_small",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://s24.q4cdn.com/639777509/files/doc_presentations/2025/RingCentral-Product-Briefing-11-5-25.pdf",
+    "domen": "s24.q4cdn.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/smallbusinessUS/comments/1uldxd4/would_you_trust_an_ai_receptionist_to_answer_your",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/VoiceAutomationAI/comments/1tz5l2p/ive_built_ai_receptionists_for_dozens_of",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1q7h9gi/best_ai_receptionist_to_integrate_with_my_custom",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AiForSmallBusiness/comments/1s6v45h/are_ai_receptionists_actually_worth_it_for_small",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/RingCentral/comments/1u6r6th/ai_receptionist_success_stories",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AIReceptionists/comments/1w4jzaj/what_are_the_best_ai_voice_agents_for_small",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_hello22-ai/comments/1uxtkur/ive_been_looking_into_ai_voice_receptionists_for",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/workforcemanagement/comments/1vq0ycr/human_receptionist_or_ai_receptionist",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/Entrepreneur/comments/1wcfp2e/has_anyone_used_an_ai_receptionist_for_a_small",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Automated_attendant",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Virtual_assistant",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/RingCentral",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://www.tomsguide.com/ai/i-built-an-ai-assistant-with-its-own-phone-number-in-10-minutes-heres-how",
+    "domen": "tomsguide.com",
+    "title": null
+   },
+   {
+    "url": "https://www.techradar.com/pro/phone-communications/quo-review",
+    "domen": "techradar.com",
+    "title": "Quo review: A modern, AI-powered business phone platform for small businesses"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Microsoft_Bookings",
+    "domen": "en.wikipedia.org",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://smith.ai",
+    "domen": "smith.ai",
+    "title": "Smith.ai 24/7 AI Receptionists & Live Human Agents"
+   },
+   {
+    "url": "https://www.ringcentral.com/solutions/small-business",
+    "domen": "ringcentral.com",
+    "title": "Small Business Phone Systems [2026]"
+   },
+   {
+    "url": "https://workflowstackai.com/blog/ai-receptionist-comparison-2026",
+    "domen": "workflowstackai.com",
+    "title": "AI Receptionist Comparison 2026: Goodcall vs Rosie vs Smith.ai | WorkflowStack AI"
+   },
+   {
+    "url": "https://www.techradar.com/pro/phone-communications/quo-review",
+    "domen": "techradar.com",
+    "title": "Quo review: A modern, AI-powered business phone platform for small businesses"
+   },
+   {
+    "url": "https://voxgard.com",
+    "domen": "voxgard.com",
+    "title": "AI Receptionist That Answers Every Call 24/7 | Voxgard"
+   },
+   {
+    "url": "https://www.ringcentral.com/us/en/blog/ringcentral-ai-receptionist-now-generally-available",
+    "domen": "ringcentral.com",
+    "title": "RingCentral AI Receptionist now generally available"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10840,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 709,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11549
+  },
+  "cena": 0.03064,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_05c2e2cad62833e8006ab43beae13087d08478efa3470c9b16",
+  "object": "response",
+  "created_at": 1790196714,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790196722,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_05c2e2cad62833e8006ab43beb9e0887d094682b2b43978f9c",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "AI voice receptionist small business US phone calls appointment booking",
+      "AI receptionist small business voice agent US Smith.ai Goodcall My AI Front Desk",
+      "RingCentral AI receptionist small business phone 2026"
+     ],
+     "query": "AI voice receptionist small business US phone calls appointment booking",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://www.ringcentral.com/solutions/small-business"
+      },
+      {
+       "type": "url",
+       "url": "https://www.ringcentral.com/us/en/blog/ringcentral-ai-receptionist-now-generally-available/"
+      },
+      {
+       "type": "url",
+       "url": "https://smith.ai/"
+      },
+      {
+       "type": "url",
+       "url": "https://smith.ai/ai-receptionist"
+      },
+      {
+       "type": "url",
+       "url": "https://www.ringcentral.com/whyringcentral/company/pressreleases/ringcentral-brings-always-on-ai-to-the-front-lines-of-customer-engagement.html"
+      },
+      {
+       "type": "url",
+       "url": "https://www.ringcentral.com/us/en/blog/ai-receptionist-easier-setup-smarter-conversations/"
+      },
+      {
+       "type": "url",
+       "url": "https://workflowstackai.com/blog/ai-receptionist-comparison-2026"
+      },
+      {
+       "type": "url",
+       "url": "https://aiplacers.com/us"
+      },
+      {
+       "type": "url",
+       "url": "https://aitechrankings.com/rankings/2026-08-26-the-best-ai-phone-receptionists-for-small-businesses-of-2026/"
+      },
+      {
+       "type": "url",
+       "url": "https://michaelheredia.com/blog/goodcall-vs-smith-ai/"
+      },
+      {
+       "type": "url",
+       "url": "https://gmware.com/blog/best-ai-receptionist-for-small-business/"
+      },
+      {
+       "type": "url",
+       "url": "https://voxgard.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.youtube.com/watch?v=snlmv0xhBlc"
+      },
+      {
+       "type": "url",
+       "url": "https://assets.ringcentral.com/us/datasheet/ai-receptionist-datasheet-8703321369.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.youtube.com/watch?v=qj9doONpRvY"
+      },
+      {
+       "type": "url",
+       "url": "https://ai-answering-review.com/reports/Industry-Report-Q1-2026-AI-Answering-Services-USA.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://assets.ringcentral.com/us/report/agentic-ai-trends-2026.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/smallbusiness/comments/1md74gu/ai_receptionist_that_handles_booking_appointments/"
+      },
+      {
+       "type": "url",
+       "url": "https://media.trustradius.com/product-downloadables/ZE/SC/B00TRG3FOZFQ.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AIReceptionists/comments/1r5d765/anyone_using_an_ai_receptionist_for_their_business/"
+      },
+      {
+       "type": "url",
+       "url": "https://static2.finnhub.io/file/privatedatany/slides/4649f750d13c4ae503fb4dc4537b06861248c128ddaa1ff653f03fdf894e45e6.pdf?Authorization=3_20260623123243_a0dafb02935000ba59583595_29e464892ccd958abadd634dbc433bddb151d4e9_002_20260624123243_0007_dnld"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SaaS/comments/1v1n1rc/i_built_an_ai_voice_receptionist_for_small/"
+      },
+      {
+       "type": "url",
+       "url": "https://s24.q4cdn.com/639777509/files/doc_presentations/2025/RingCentral-Product-Briefing-11-5-25.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/smallbusinessUS/comments/1uldxd4/would_you_trust_an_ai_receptionist_to_answer_your/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/VoiceAutomationAI/comments/1tz5l2p/ive_built_ai_receptionists_for_dozens_of/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AI_Agents/comments/1q7h9gi/best_ai_receptionist_to_integrate_with_my_custom/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AiForSmallBusiness/comments/1s6v45h/are_ai_receptionists_actually_worth_it_for_small/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/RingCentral/comments/1u6r6th/ai_receptionist_success_stories/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AIReceptionists/comments/1w4jzaj/what_are_the_best_ai_voice_agents_for_small/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_hello22-ai/comments/1uxtkur/ive_been_looking_into_ai_voice_receptionists_for/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/workforcemanagement/comments/1vq0ycr/human_receptionist_or_ai_receptionist/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/Entrepreneur/comments/1wcfp2e/has_anyone_used_an_ai_receptionist_for_a_small/"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Automated_attendant"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Virtual_assistant"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/RingCentral"
+      },
+      {
+       "type": "url",
+       "url": "https://www.tomsguide.com/ai/i-built-an-ai-assistant-with-its-own-phone-number-in-10-minutes-heres-how"
+      },
+      {
+       "type": "url",
+       "url": "https://www.techradar.com/pro/phone-communications/quo-review"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Microsoft_Bookings"
+      },
+      {
+       "type": "url",
+       "url": "https://smith.ai/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://www.ringcentral.com/solutions/small-business?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://workflowstackai.com/blog/ai-receptionist-comparison-2026?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://www.techradar.com/pro/phone-communications/quo-review?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://voxgard.com/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://www.ringcentral.com/us/en/blog/ringcentral-ai-receptionist-now-generally-available/?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_05c2e2cad62833e8006ab43bf0c2bc87d0abdecc320eba24a3",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 522,
+        "start_index": 473,
+        "title": "Smith.ai 24/7 AI Receptionists & Live Human Agents",
+        "url": "https://smith.ai/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 836,
+        "start_index": 745,
+        "title": "Small Business Phone Systems [2026]",
+        "url": "https://www.ringcentral.com/solutions/small-business?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1142,
+        "start_index": 1035,
+        "title": "AI Receptionist Comparison 2026: Goodcall vs Rosie vs Smith.ai | WorkflowStack AI",
+        "url": "https://workflowstackai.com/blog/ai-receptionist-comparison-2026?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1352,
+        "start_index": 1254,
+        "title": "Quo review: A modern, AI-powered business phone platform for small businesses",
+        "url": "https://www.techradar.com/pro/phone-communications/quo-review?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1698,
+        "start_index": 1643,
+        "title": "AI Receptionist That Answers Every Call 24/7 | Voxgard",
+        "url": "https://voxgard.com/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2408,
+        "start_index": 2278,
+        "title": "RingCentral AI Receptionist now generally available",
+        "url": "https://www.ringcentral.com/us/en/blog/ringcentral-ai-receptionist-now-generally-available/?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да. В США это уже отдельная категория услуг — AI receptionist / AI phone agent: голосовой робот берет входящий звонок вместо администратора, разговаривает обычным голосом, отвечает на вопросы, квалифицирует клиента, записывает его и при необходимости переводит на человека.\n\nИз заметных вариантов для малого бизнеса сейчас:\n\n- Smith.ai — AI-рецепционист плюс возможность подключить живого оператора. Особенно ориентируются на small business, юристов, home services и т. п. ([smith.ai](https://smith.ai/?utm_source=openai))\n- RingCentral AI Receptionist — робот прямо внутри бизнес-телефонии: отвечает на звонки, маршрутизирует их, работает с расписанием/сотрудниками. Есть и standalone-вариант, то есть необязательно полностью менять телефонию. ([ringcentral.com](https://www.ringcentral.com/solutions/small-business?utm_source=openai))\n- Goodcall — более простой AI receptionist для небольших компаний: типовые вопросы, лиды, запись и маршрутизация. Его часто позиционируют для салонов, ремонтных мастерских и другого локального SMB. ([workflowstackai.com](https://workflowstackai.com/blog/ai-receptionist-comparison-2026?utm_source=openai))\n- Quo / Sona — бизнес-телефон с AI-агентом Sona, который круглосуточно принимает звонки и собирает информацию. ([techradar.com](https://www.techradar.com/pro/phone-communications/quo-review?utm_source=openai))\n- Плюс существует много небольших интеграторов, которые собирают такого «администратора» конкретно под бизнес: подключают существующий номер, календарь/CRM, делают сценарии и transfer на владельца. Например, Voxgard предлагает именно такую схему без замены существующей телефонной системы. ([voxgard.com](https://voxgard.com/?utm_source=openai))\n\nДля малого бизнеса особенно понятный сценарий выглядит так: клиент звонит в dental office / HVAC / plumbing / beauty salon / auto shop → AI берет трубку → «How can I help you?» → выясняет услугу и ZIP code → смотрит свободное время → записывает → отправляет SMS → заносит lead в CRM → только сложный звонок переводит владельцу.\n\nПричем это уже не старое «Press 1 for sales». Современные системы ведут свободный диалог и могут выполнять действия во время разговора. RingCentral, например, коммерчески запустил свой AI Receptionist в 2025 году и продолжал расширять его в 2026-м. ([ringcentral.com](https://www.ringcentral.com/us/en/blog/ringcentral-ai-receptionist-now-generally-available/?utm_source=openai))\n\nЕсли вы спрашиваете с точки зрения «кто это продает и устанавливает американским SMB», а не «какой сервис купить», могу разобрать рынок интереснее: кто именно продает такие решения малому бизнесу в США, сколько берут ($/month + setup), на каких вертикалях зарабатывают и на чем технически собирают (Retell/Vapi/ElevenLabs/Twilio и т.д.)."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10840,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 709,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11549
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

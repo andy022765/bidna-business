@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сборка из кубиков — прототип</title>
+<style>
+  html,body{margin:0;height:100%;background:#0f1430;overflow:hidden}
+  #c{display:block;width:100vw;height:100vh}
+  .hint{position:fixed;left:16px;bottom:14px;font:13px/1.4 -apple-system,Inter,sans-serif;color:#8a90ad;z-index:2}
+  .hint b{color:#cdd3ec}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="hint"><b>Прототип:</b> основатели собираются из кубиков (~8.5с) → держат → рассыпаются → повтор. Цвет кромки/поворот настраиваются.</div>
+<script>
+const cv=document.getElementById('c'), ctx=cv.getContext('2d');
+const img=new Image();
+img.src='img/founders-clean.png';
+let W,H,dpr, tiles=[], imgReady=false;
+
+// --- timeline (ms) ---
+const ASSEMBLE=8500, HOLD=2200, DISPERSE=1400, GAP=500;
+const CYCLE=ASSEMBLE+HOLD+DISPERSE+GAP;
+
+const COLS=24;                      // grid resolution (cube count across) - chunkier cubes read better
+const EDGE='rgba(224,236,255,';    // contrasting cool-white cube edge (not gold)
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;   // smooth in/out
+
+function layout(){
+  const rect=cv.getBoundingClientRect();
+  dpr=Math.min(2,window.devicePixelRatio||1);
+  W=rect.width; H=rect.height;
+  cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  if(!imgReady) return;
+  // contain-fit the (square) image into a centered box ~62% of min side
+  const box=Math.min(W,H)*0.62;
+  const dw=box, dh=box*(img.height/img.width);
+  const ox=(W-dw)/2, oy=(H-dh)/2 - H*0.02;
+  const rows=Math.round(COLS*(img.height/img.width));
+  const tw=dw/COLS, th=dh/rows;
+  const stw=img.width/COLS, sth=img.height/rows;
+  const cx=ox+dw/2, cy=oy+dh/2, maxR=Math.hypot(dw,dh)/2;
+  tiles=[];
+  for(let r=0;r<rows;r++)for(let cc=0;cc<COLS;cc++){
+    const dx=ox+cc*tw, dy=oy+r*th;          // target (dest) position
+    const tcx=dx+tw/2, tcy=dy+th/2;
+    const dist=Math.hypot(tcx-cx,tcy-cy)/maxR;   // 0 center .. 1 edge
+    // scattered origin: fly in from a random direction, far out, with depth+spin
+    const ang=Math.random()*6.283, rad=Math.max(W,H)*(0.12+Math.random()*0.32);
+    tiles.push({
+      sx:cc*stw, sy:r*sth, sw:stw, sh:sth,     // source rect
+      dx,dy,tw,th, tcx,tcy,
+      ox0:tcx+Math.cos(ang)*rad, oy0:tcy+Math.sin(ang)*rad,   // start point (near cloud)
+      rot0:(Math.random()-0.5)*1.5,             // start rotation (radians)
+      sc0:0.6+Math.random()*0.3,                // start scale (visible cubes in flight)
+      // staggered arrival: center-first ripple, generous overlap = dense cloud
+      delay: dist*ASSEMBLE*0.35 + Math.random()*ASSEMBLE*0.4,
+      dur: ASSEMBLE*0.45
+    });
+  }
+}
+
+function drawTile(t,p){                 // p: 0 scattered .. 1 assembled
+  const e=ease(p);
+  const x=t.ox0+(t.tcx-t.ox0)*e;
+  const y=t.oy0+(t.tcy-t.oy0)*e;
+  const sc=t.sc0+(1-t.sc0)*e;
+  const rot=t.rot0*(1-e);
+  const a=Math.min(1,0.4+p*0.9);   // cubes visible during flight
+  ctx.save();
+  ctx.translate(x,y); ctx.rotate(rot); ctx.scale(sc,sc);
+  ctx.globalAlpha=a;
+  ctx.drawImage(img, t.sx,t.sy,t.sw,t.sh, -t.tw/2,-t.th/2, t.tw+0.6, t.th+0.6);
+  // contrasting cube edge while in flight, fades as it settles
+  const edge=(1-e)*0.85;
+  if(edge>0.02){ ctx.globalAlpha=a*edge; ctx.lineWidth=1.2/sc; ctx.strokeStyle=EDGE+'1)';
+    ctx.strokeRect(-t.tw/2,-t.th/2,t.tw,t.th); }
+  ctx.restore();
+}
+
+let t0=null;
+function frame(ts){
+  if(t0==null)t0=ts;
+  const tm=(ts-t0)%CYCLE;
+  ctx.clearRect(0,0,W,H);
+  // subtle navy vignette
+  const g=ctx.createRadialGradient(W/2,H*0.46,10,W/2,H*0.46,Math.max(W,H)*0.75);
+  g.addColorStop(0,'#1a2350'); g.addColorStop(1,'#0d1128');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  if(imgReady){
+    for(const t of tiles){
+      let p;
+      if(tm<ASSEMBLE){ p=Math.max(0,Math.min(1,(tm-t.delay)/t.dur)); }
+      else if(tm<ASSEMBLE+HOLD){ p=1; }
+      else if(tm<ASSEMBLE+HOLD+DISPERSE){ const d=(tm-ASSEMBLE-HOLD)/DISPERSE; p=1-ease(d); }
+      else { p=0; }
+      if(p>0) drawTile(t,p);
+    }
+  }
+  requestAnimationFrame(frame);
+}
+
+img.onload=()=>{ imgReady=true; layout(); };
+window.addEventListener('resize',layout);
+layout(); requestAnimationFrame(frame);
+</script>
+</body>
+</html>

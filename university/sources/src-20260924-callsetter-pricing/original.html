@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | CallSetter AI - AI Appointment Setting Plans</title>
+  <meta name="description" content="CallSetter AI pricing: Starter at $497/mo, Growth at $997/mo, Enterprise at $1,997/mo. Done-for-you AI appointment setting with minutes-based pricing. No contracts, cancel anytime.">
+  <meta property="og:image" content="https://callsetter.ai/images/callsetter-og-default.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://callsetter.ai/images/callsetter-og-default.jpeg">
+  <meta property="og:title" content="Pricing | CallSetter AI - AI Appointment Setting Plans">
+  <meta property="og:description" content="Transparent pricing for AI-powered appointment setting. Starter $497/mo, Growth $997/mo, Enterprise $1,997/mo. Minutes-based pricing with no contracts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://callsetter.ai/pricing">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://callsetter.ai/pricing">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9V5J5SE9G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B9V5J5SE9G');
+  </script>
+
+  <style>
+    /* ---- FONTS ---- */
+    @font-face{font-family:Aeonik;src:url(/_next/static/media/Aeonik_Regular-s.p.62bbd4fd.ttf) format("truetype");font-weight:400;font-display:swap}
+    @font-face{font-family:Aeonik;src:url(/_next/static/media/Aeonik_Medium-s.p.b8adfcde.ttf) format("truetype");font-weight:500;font-display:swap}
+    @font-face{font-family:Aeonik;src:url(/_next/static/media/Aeonik_Bold-s.p.895166fa.ttf) format("truetype");font-weight:700;font-display:swap}
+
+    /* ---- RESET ---- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-white: #ffffff;
+      --bg-alt: #f9f9fb;
+      --accent: #593ff8;
+      --accent-light: #7c63fa;
+      --accent-glow: rgba(89, 63, 248, 0.15);
+      --accent-border: rgba(89, 63, 248, 0.06);
+      --text-primary: #17114e;
+      --text-secondary: #4a4270;
+      --text-muted: #7b7494;
+      --success: #10b981;
+      --error: #ef4444;
+      --footer-bg: #10043e;
+      --gradient-accent: linear-gradient(135deg, #593ff8 0%, #7c63fa 100%);
+    }
+
+    body {
+      font-family: 'Aeonik', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-white);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-light); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---- SCROLL REVEAL ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- NAV ---- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(89, 63, 248, 0.06);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo img { height: 40px; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important; padding: 10px 24px;
+      border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 12px rgba(89, 63, 248, 0.2);
+    }
+    .nav-cta:hover {
+      background: #4a2fe0; color: #fff !important;
+      box-shadow: 0 4px 20px rgba(89, 63, 248, 0.35);
+    }
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .nav-toggle svg { stroke: var(--text-primary); }
+
+    /* ---- HERO ---- */
+    .hero {
+      padding: 160px 24px 80px; text-align: center; position: relative; overflow: hidden;
+      background: radial-gradient(ellipse at 50% 0%, rgba(89, 63, 248, 0.06) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(89, 63, 248, 0.08); border: 1px solid rgba(89, 63, 248, 0.18);
+      padding: 8px 20px; border-radius: 100px; font-size: 0.85rem;
+      color: var(--accent); font-weight: 600; margin-bottom: 24px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .hero-badge svg { flex-shrink: 0; }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.15;
+      max-width: 900px; margin: 0 auto 24px; letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, #593ff8 0%, #8b6cfa 40%, #593ff8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem; color: var(--text-secondary);
+      max-width: 720px; margin: 0 auto 40px; line-height: 1.8;
+    }
+
+    .btn-primary {
+      background: var(--gradient-accent); color: #fff; padding: 14px 32px;
+      border-radius: 10px; font-weight: 700; font-size: 1rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(89, 63, 248, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(89, 63, 248, 0.4); color: #fff; }
+    .btn-secondary {
+      background: transparent; color: var(--text-primary);
+      padding: 14px 32px; border-radius: 10px; font-weight: 600; font-size: 1rem;
+      border: 1px solid rgba(89, 63, 248, 0.2); transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); background: rgba(89, 63, 248, 0.04); }
+
+    /* ---- SECTIONS ---- */
+    section { padding: 80px 24px; }
+    section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700;
+      text-align: center; margin-bottom: 16px; letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .section-subtitle {
+      text-align: center; color: var(--text-secondary); max-width: 680px;
+      margin: 0 auto 56px; font-size: 1.05rem; line-height: 1.7;
+    }
+    .section-alt { background: var(--bg-alt); }
+
+    /* ---- PRICING CARDS ---- */
+    .addon-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .addon-card {
+      background: var(--bg-white); border: 1px solid var(--accent-border);
+      border-radius: 20px; padding: 36px 32px; text-align: left;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .addon-card:hover {
+      border-color: rgba(89, 63, 248, 0.15); transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(89, 63, 248, 0.12);
+    }
+    .addon-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: rgba(89, 63, 248, 0.08);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .addon-icon svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .addon-name { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); }
+    .addon-price { font-size: 1.6rem; font-weight: 800; color: var(--accent); margin: 10px 0 4px; }
+    .addon-price span { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+    .addon-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-top: 8px; }
+    .addon-list { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 9px; }
+    .addon-list li { position: relative; padding-left: 24px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; }
+    .addon-list li::before { content: ''; position: absolute; left: 2px; top: 7px; width: 12px; height: 12px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23593ff8' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center / contain; }
+    .addon-list strong { color: var(--text-primary); }
+    .addon-note { text-align: center; margin-top: 28px; font-size: 0.95rem; color: var(--text-muted); }
+    @media (max-width: 860px) { .addon-grid { grid-template-columns: 1fr; max-width: 480px; } }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--bg-white); border: 1px solid var(--accent-border);
+      border-radius: 20px; padding: 40px 32px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .pricing-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--gradient-accent); opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .pricing-card:hover {
+      border-color: rgba(89, 63, 248, 0.15); transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(89, 63, 248, 0.12);
+    }
+    .pricing-card:hover::before { opacity: 1; }
+    .pricing-card.popular {
+      border: 2px solid rgba(89, 63, 248, 0.3);
+      box-shadow: 0 8px 40px rgba(89, 63, 248, 0.1);
+    }
+    .pricing-card.popular::before { opacity: 1; }
+    .popular-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(89, 63, 248, 0.08); color: var(--accent);
+      padding: 6px 14px; border-radius: 100px; font-size: 0.78rem;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 16px; width: fit-content;
+    }
+    .pricing-card-name {
+      font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .pricing-card-desc {
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .pricing-price {
+      display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;
+    }
+    .pricing-price .amount {
+      font-size: 2.8rem; font-weight: 700; color: var(--text-primary);
+      letter-spacing: -0.03em; line-height: 1;
+    }
+    .pricing-price .period {
+      font-size: 1rem; color: var(--text-muted); font-weight: 500;
+    }
+    .pricing-note {
+      font-size: 0.82rem; color: var(--text-muted); margin-bottom: 28px;
+    }
+    .pricing-features {
+      list-style: none; display: flex; flex-direction: column; gap: 14px;
+      margin-bottom: 32px; flex: 1;
+    }
+    .pricing-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.92rem; color: var(--text-secondary); line-height: 1.5;
+    }
+    .pricing-features li svg { flex-shrink: 0; margin-top: 2px; }
+    .pricing-card .btn-primary,
+    .pricing-card .btn-secondary {
+      width: 100%; justify-content: center; text-align: center;
+    }
+
+    /* ---- FEATURE COMPARISON GRID ---- */
+    .compare-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      max-width: 1100px; margin: 48px auto 0;
+    }
+    .compare-card {
+      background: var(--bg-white); border: 1px solid var(--accent-border);
+      border-radius: 20px; padding: 32px 28px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .compare-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient-accent); opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .compare-card:hover {
+      border-color: rgba(89, 63, 248, 0.15); transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(89, 63, 248, 0.12);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .compare-card:hover::before { opacity: 1; }
+    .compare-card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--gradient-accent); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(89, 63, 248, 0.25);
+    }
+    .compare-card-icon svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .compare-card h3 {
+      font-size: 1.1rem; font-weight: 700; margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+    .compare-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid rgba(89, 63, 248, 0.04);
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row svg { flex-shrink: 0; margin-top: 2px; }
+    .compare-row-label {
+      font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em; margin-bottom: 2px;
+    }
+    .compare-row-label.starter { color: var(--text-muted); }
+    .compare-row-label.growth { color: var(--accent); }
+    .compare-row-label.enterprise { color: var(--success); }
+    .compare-row-text {
+      font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;
+    }
+
+    /* ---- GUARANTEE ---- */
+    .guarantee-section { max-width: 800px; margin: 0 auto; }
+    .guarantee-box {
+      background: var(--bg-white); border: 2px solid rgba(16, 185, 129, 0.2);
+      border-radius: 20px; padding: 48px 40px; margin-top: 48px;
+      box-shadow: 0 8px 40px rgba(16, 185, 129, 0.06);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .guarantee-box::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    }
+    .guarantee-icon {
+      width: 72px; height: 72px; border-radius: 18px;
+      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+    }
+    .guarantee-icon svg { width: 36px; height: 36px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .guarantee-box h3 {
+      font-size: 1.6rem; font-weight: 700; color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .guarantee-box p {
+      font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;
+      max-width: 600px; margin: 0 auto;
+    }
+    .guarantee-box p strong { color: var(--success); }
+
+    /* ---- FAQ ACCORDION ---- */
+    .faq-list { max-width: 800px; margin: 48px auto 0; }
+    .faq-item {
+      background: var(--bg-white); border: 1px solid var(--accent-border);
+      border-radius: 16px; margin-bottom: 16px; overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .faq-item:hover {
+      border-color: rgba(89, 63, 248, 0.15);
+      box-shadow: 0 8px 30px rgba(89, 63, 248, 0.06);
+    }
+    .faq-item.active {
+      border-color: rgba(89, 63, 248, 0.2);
+      box-shadow: 0 8px 30px rgba(89, 63, 248, 0.08);
+    }
+    .faq-trigger {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 28px; text-align: left; gap: 16px;
+      font-family: inherit;
+    }
+    .faq-trigger h3 {
+      font-size: 1.05rem; font-weight: 700; color: var(--text-primary);
+      line-height: 1.4; flex: 1;
+    }
+    .faq-icon {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(89, 63, 248, 0.06); display: flex;
+      align-items: center; justify-content: center;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: rgba(89, 63, 248, 0.12);
+    }
+    .faq-icon svg { width: 16px; height: 16px; stroke: var(--accent); stroke-width: 2; }
+    .faq-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .faq-body-inner { padding: 0 28px 24px; }
+    .faq-body-inner p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      text-align: center; padding: 100px 24px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(89, 63, 248, 0.06) 0%, transparent 60%);
+    }
+    .cta-section h2 { margin-bottom: 16px; }
+    .cta-section p {
+      color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px;
+      font-size: 1.05rem; line-height: 1.7;
+    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ---- FOOTER ---- */
+    .footer { background: var(--footer-bg); padding: 60px 24px 40px; }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    }
+    .footer-brand-logo { height: 36px; display: block; margin-bottom: 12px;  }
+    .footer-brand p { color: rgba(255, 255, 255, 0.5); font-size: 0.88rem; line-height: 1.6; }
+    .footer h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255, 255, 255, 0.4); margin-bottom: 16px; }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 10px; }
+    .footer li a { color: rgba(255, 255, 255, 0.65); font-size: 0.9rem; }
+    .footer li a:hover { color: #fff; }
+    .footer-social { display: flex; gap: 16px; margin-top: 20px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 8px; background: rgba(255, 255, 255, 0.06); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: rgba(255, 255, 255, 0.12); }
+    .footer-social svg { width: 18px; height: 18px; fill: rgba(255, 255, 255, 0.6); }
+    .footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { color: rgba(255, 255, 255, 0.35); font-size: 0.82rem; }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { color: rgba(255, 255, 255, 0.35); font-size: 0.82rem; }
+    .footer-bottom-links a:hover { color: rgba(255, 255, 255, 0.7); }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .compare-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .hero { padding: 130px 20px 50px; }
+      .hero h1 { font-size: 2rem; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .guarantee-box { padding: 28px 20px; }
+      .faq-trigger { padding: 20px 20px; }
+      .faq-body-inner { padding: 0 20px 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  
+    /* ported from cost-of-missed-calls */
+
+
+    /* ===== icon chip system: 40px rounded square, flat fill, accent stroke ===== */
+    .icon-chip{width:40px;height:40px;border-radius:10px;background:rgba(89,63,248,0.08);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+
+    .icon-chip svg{display:block;width:22px;height:22px}
+
+    .stat-callout .icon-chip{margin-bottom:14px}
+
+    .calc-field .icon-chip{margin-bottom:10px}
+
+    .faq-item h3 .icon-chip{margin-top:-4px}
+
+    /* ported from cost-of-missed-calls */
+
+
+    .toc-rail{display:none;position:fixed;top:120px;left:calc(50% - 390px - 250px);width:210px;z-index:10;transition:opacity 0.25s ease}
+
+    .toc-rail.toc-hidden{opacity:0;pointer-events:none}
+
+    .toc-rail-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:12px}
+
+    .toc-rail ol{list-style:none;padding:0;margin:0;border-left:2px solid rgba(89,63,248,0.1)}
+
+    .toc-rail li a{display:block;padding:6px 0 6px 14px;font-size:0.82rem;line-height:1.4;color:var(--text-muted);border-left:2px solid transparent;margin-left:-2px;transition:color 0.2s,border-color 0.2s}
+
+    .toc-rail li a:hover{color:var(--text-primary)}
+
+    .toc-rail li a.active{color:var(--accent);border-left-color:var(--accent);font-weight:600}
+
+    /* ported from cost-of-missed-calls */
+
+    .toc-rail-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:12px}
+
+    /* ported from cost-of-missed-calls */
+
+    .toc-rail.toc-hidden{opacity:0;pointer-events:none}
+
+    /* ported from cost-of-missed-calls */
+
+
+    .toc-box{background:var(--bg-alt);border:1px solid var(--accent-border);border-radius:20px;padding:28px 32px;margin:40px 0}
+
+    .toc-box h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-primary);margin:0 0 16px}
+
+    .toc-box ol{list-style:none;padding:0;margin:0;columns:2;column-gap:32px;font-size:0.95rem}
+
+    .toc-box li{margin-bottom:10px;break-inside:avoid}
+
+    .toc-box a{color:var(--text-secondary);font-weight:500}
+.toc-box a:hover{color:var(--accent)}
+
+    /* ported from cost-of-missed-calls */
+
+
+    .methodology-box{background:var(--bg-alt);border:1px solid var(--accent-border);border-radius:20px;padding:32px;margin:40px 0}
+
+    .methodology-box ul{font-size:0.92rem;line-height:1.7;margin-bottom:0}
+
+    .methodology-box li{margin-bottom:10px}
+
+    .methodology-box p{font-size:0.95rem}
+
+    /* ported from cost-of-missed-calls */
+
+
+    .cite-box{border:1px solid rgba(89,63,248,0.15);border-left:4px solid var(--accent);border-radius:0 16px 16px 0;padding:28px 32px;margin:40px 0;background:rgba(89,63,248,0.03)}
+
+    .cite-box h3{margin:0 0 12px}
+
+    .cite-box textarea{width:100%;height:96px;background:var(--bg-white);color:var(--text-secondary);border:1px solid rgba(89,63,248,0.15);border-radius:10px;padding:12px;font-size:0.85rem;font-family:inherit;line-height:1.6;resize:vertical}
+
+    /* ported from cost-of-missed-calls */
+
+    .reveal-l{opacity:0;transform:translateX(-24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal-l.vis{opacity:1;transform:translateX(0)}
+
+    /* ported from cost-of-missed-calls */
+
+    .cell-flex{display:flex;align-items:center;gap:12px}
+
+    /* ported from cost-of-missed-calls */
+
+    .h3-flex{display:flex;align-items:center;gap:12px}
+
+    /* ported from cost-of-missed-calls */
+
+    .article-image{width:100%;max-height:440px;object-fit:cover;border-radius:20px;margin:40px 0;box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Pricing | CallSetter AI","description":"CallSetter AI pricing. Under $500/month per AI agent. No contracts. 14-day money-back guarantee.","url":"https://callsetter.ai/pricing"}</script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://callsetter.ai"},{"@type":"ListItem","position":2,"name":"Pricing"}]}</script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CallSetter AI","url":"https://callsetter.ai","applicationCategory":"BusinessApplication","operatingSystem":"Web-based","description":"AI-powered appointment setting and phone answering platform for service businesses. Answers inbound calls in under 2 seconds, qualifies leads, and books appointments 24/7.","offers":{"@type":"AggregateOffer","priceCurrency":"USD","lowPrice":"497","highPrice":"1997","offerCount":"3","offers":[{"@type":"Offer","name":"Starter","price":"497","priceCurrency":"USD","description":"1,000 included minutes (about 330 calls), 1 AI agent, CRM integration"},{"@type":"Offer","name":"Growth","price":"997","priceCurrency":"USD","description":"2,200 included minutes (about 730 calls), 2 AI agents, priority support"},{"@type":"Offer","name":"Enterprise","price":"1997","priceCurrency":"USD","description":"5,000 included minutes (about 1,665 calls), 3 AI agents, dedicated account manager"}]},"featureList":["24/7 AI phone answering","Sub-2-second call pickup","Automatic appointment booking","CRM integration (GoHighLevel, HubSpot, Salesforce)","40+ industry-specific call scripts","Lead qualification and routing","After-hours call handling","Call recordings and transcripts","TCPA compliance workflows"],"author":{"@type":"Organization","name":"CallSetter AI","url":"https://callsetter.ai"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the one-time setup fee cover?","acceptedAnswer":{"@type":"Answer","text":"Setup includes your full custom build: AI agent scripting, voice configuration, CRM integration, call routing, phone number provisioning, and testing. Starter is $997, Growth is $1,497, and Enterprise is $1,997. We build and launch everything for you."}},{"@type":"Question","name":"Am I locked into a long-term contract?","acceptedAnswer":{"@type":"Answer","text":"No contracts. Every plan is month-to-month. Cancel anytime with 30 days notice. We believe in earning your business every month, not locking you in. Most clients stay because the ROI makes cancellation a non-option."}},{"@type":"Question","name":"What happens if I exceed my included minutes?","acceptedAnswer":{"@type":"Answer","text":"We never cut off your calls mid-month. Minutes beyond your included amount are billed at the overage rate for your plan: $0.55/min on Starter, $0.50/min on Growth, and $0.45/min on Enterprise. You can track usage in real time from your reporting dashboard."}},{"@type":"Question","name":"How long does onboarding take?","acceptedAnswer":{"@type":"Answer","text":"We handle everything: script writing, voice configuration, CRM integration, call routing setup, and testing. Your involvement is one 30 to 60 minute call to tell us about your business. We handle the rest. See the full onboarding process ."}},{"@type":"Question","name":"How does the Triple Guarantee work?","acceptedAnswer":{"@type":"Answer","text":"Three layers of protection. First, cancel within 14 days for a full refund, no questions asked. Second, if your booked appointments from your existing lead flow do not increase within your first 30 days live, you do not pay. Measured against your prior month, straight from the call logs. Third, every plan is month-to-month with no contracts. Cancel anytime with no penalties or fees."}},{"@type":"Question","name":"Can I add SMS and email follow-up to my plan?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each channel is a $499 one-time setup plus $149/mo, and works with any plan. Setup covers the full build, including A2P registration and verification, done for you. SMS includes 11 custom-written texts across 3 automated flows (speed-to-lead, no-show prevention, reschedule recovery). Email includes 9 custom-written emails across 3 automated flows (recap plus 14-day nurture, benefit-driven confirmations, no-show recovery). Message and carrier costs run at cost through your CRM. Add one or both, month to month, cancel anytime."}},{"@type":"Question","name":"Can I switch plans later?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upgrade or downgrade at any time. If you upgrade mid-cycle, we prorate the difference. If you downgrade, the change takes effect at the start of your next billing period. No penalties, no fees. Your AI agent configuration and call history carry over between plans."}}]}</script>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-phone-missed" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><line x1="17.2" y1="3.2" x2="21.8" y2="7.8"/><line x1="21.8" y1="3.2" x2="17.2" y2="7.8"/></symbol>
+    <symbol id="i-calendar-percent" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="18" x2="15" y2="12"/><path d="M9.4 12.6h.01"/><path d="M14.6 17.4h.01"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></symbol>
+    <symbol id="i-voicemail" viewBox="0 0 24 24"><circle cx="6" cy="11.5" r="3.5"/><circle cx="18" cy="11.5" r="3.5"/><line x1="6" y1="15" x2="18" y2="15"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h7a2.5 2.5 0 1 1-2.5 2.5"/></symbol>
+    <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M12 5.3C10 3.4 6.6 2.8 5.1 5.8c-1.2 2.4.2 4.9 1.1 7 .8 1.9 1.2 7.4 2.9 7.4 1.5 0 .9-4.2 2.9-4.2s1.4 4.2 2.9 4.2c1.7 0 2.1-5.5 2.9-7.4.9-2.1 2.3-4.6 1.1-7-1.5-3-4.9-2.4-6.9-.5z"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><line x1="12" y1="3.5" x2="12" y2="20"/><line x1="8.5" y1="20" x2="15.5" y2="20"/><line x1="5" y1="6" x2="19" y2="6"/><path d="M7.6 12.2L5 6l-2.6 6.2a3.2 3.2 0 0 0 5.2 0z"/><path d="M21.6 12.2L19 6l-2.6 6.2a3.2 3.2 0 0 0 5.2 0z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5L4.8 13.2h5.5L11 21.5l8.2-10.7h-5.5z"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11.2L12 3.5l9 7.7"/><path d="M5.5 9.5V20.5h13V9.5"/><path d="M10 20.5v-5.5h4v5.5"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 11l18-5.5v13L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+    <symbol id="i-thumbs-down" viewBox="0 0 24 24"><path d="M17 13.5V2.5"/><path d="M9 18.1L10 14H4.2a2 2 0 0 1-1.9-2.6l2.3-7.9A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2h-2.8a2 2 0 0 0-1.8 1.1L12 21.5a3.1 3.1 0 0 1-3-3.4z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="5.5" r="2.6"/><circle cx="18" cy="18.5" r="2.6"/><line x1="8.4" y1="10.7" x2="15.6" y2="6.8"/><line x1="8.4" y1="13.3" x2="15.6" y2="17.2"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2.5" y="14" width="4" height="5.5" rx="1.8"/><rect x="17.5" y="14" width="4" height="5.5" rx="1.8"/><path d="M20 19.5v.5a2.5 2.5 0 0 1-2.5 2.5H13"/></symbol>
+    <symbol id="i-machine" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="8.5" cy="11.5" r="1.8"/><circle cx="15.5" cy="11.5" r="1.8"/><line x1="8.5" y1="14.8" x2="15.5" y2="14.8"/></symbol>
+    <symbol id="i-waveform" viewBox="0 0 24 24"><line x1="3" y1="10" x2="3" y2="14"/><line x1="7.5" y1="7" x2="7.5" y2="17"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="16.5" y1="7" x2="16.5" y2="17"/><line x1="21" y1="10" x2="21" y2="14"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 6.5v11"/><path d="M14.8 8.8c-.5-.9-1.6-1.3-2.8-1.3-1.7 0-3 .8-3 2.2s1.3 1.9 3 2.3 3 .9 3 2.3-1.3 2.2-3 2.2c-1.2 0-2.3-.4-2.8-1.3"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/></symbol>
+    <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9.4 9.2a2.7 2.7 0 0 1 5.3.6c0 1.8-2.7 2.2-2.7 3.7"/><path d="M12 17h.01"/></symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="/images/logo-white.png" alt="CallSetter AI" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="/how-it-works">How It Works</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/demo" class="nav-cta">Book a Demo</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge reveal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Pricing
+      </div>
+      <h1 class="reveal">Simple Pricing. <span class="gradient-text">No Surprises.</span></h1>
+      <p class="hero-subtitle reveal">No contracts. Cancel anytime. Pick the plan that matches your call volume. Setup includes full custom build, done for you.</p>
+      <figure class="reveal" style="margin:36px 0 20px"><img src="/images/unique-20260812/pricing-hero.jpeg" alt="Three pricing tiers with the middle one lit" width="1400" height="781" loading="lazy" style="width:100%;height:auto;border-radius:16px"></figure>
+
+    </div>
+  </section>
+
+  <!-- PRICING TIERS -->
+  <section>
+    <div class="container">
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <div class="pricing-card reveal">
+          <div class="pricing-card-name">Starter</div>
+          <p class="pricing-card-desc">For businesses getting started with AI voice agents. 1 agent, 1,000 minutes (about 330 calls) included.</p>
+          <div class="pricing-price">
+            <span class="amount">$497</span>
+            <span class="period">/mo</span>
+          </div>
+          <p class="pricing-note">$0.50/min &middot; $997 one-time setup &middot; Overage: $0.55/min</p>
+          <ul class="pricing-features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              1,000 minutes included &middot; about 330 calls/mo
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              1 AI agent (any type)
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Call recordings + transcripts
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Real-time reporting dashboard
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              1 script optimization / month
+            </li>
+          </ul>
+          <a href="/demo" class="btn-secondary">Get Started</a>
+        </div>
+
+        <!-- Growth (Recommended) -->
+        <div class="pricing-card popular reveal">
+          <div class="popular-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Recommended
+          </div>
+          <div class="pricing-card-name">Growth</div>
+          <p class="pricing-card-desc">For growing companies that need multiple agents and outbound calling. 2 agents, 2,200 minutes (about 730 calls) included.</p>
+          <div class="pricing-price">
+            <span class="amount">$997</span>
+            <span class="period">/mo</span>
+          </div>
+          <p class="pricing-note">$0.45/min &middot; $1,497 one-time setup &middot; Overage: $0.50/min</p>
+          <ul class="pricing-features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              2,200 minutes included &middot; about 730 calls/mo
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              2 AI agents (inbound + outbound)
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Everything in Starter, plus:
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Speed-to-lead outbound calling
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              3 phone numbers with local presence
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              3 script optimizations / month
+            </li>
+          </ul>
+          <a href="/demo" class="btn-primary">Get Started</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card reveal">
+          <div class="pricing-card-name">Enterprise</div>
+          <p class="pricing-card-desc">For high-volume operations that need the full stack. 3 agents, 5,000 minutes (about 1,665 calls) included.</p>
+          <div class="pricing-price">
+            <span class="amount">$1,997</span>
+            <span class="period">/mo</span>
+          </div>
+          <p class="pricing-note">$0.40/min &middot; $1,997 one-time setup &middot; Overage: $0.45/min</p>
+          <ul class="pricing-features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              5,000 minutes included &middot; about 1,665 calls/mo
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              3 AI agents (full stack)
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Everything in Growth, plus:
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Multi-campaign reactivation at scale
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              4 script optimizations / month
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority support + quarterly strategy reviews
+            </li>
+          </ul>
+          <a href="/demo" class="btn-secondary">Get Started</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OMNICHANNEL ADD-ONS -->
+  <section>
+    <div class="container">
+      <h2 class="reveal">SMS + Email Follow-Up Add-Ons</h2>
+      <p class="section-subtitle reveal">Voice books the appointment. SMS and email make sure it happens. Add either channel to any plan.</p>
+      <div class="addon-grid">
+        <div class="addon-card reveal">
+          <div class="addon-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="addon-name">SMS Follow-Up Engine</div>
+          <div class="addon-price">$499 <span>one-time setup</span> + $149 <span>/mo</span></div>
+          <p class="addon-desc"><strong>11 custom-written texts across 3 automated flows</strong>, every message written from our conversion framework: the owner's voice with your real name on it, proof from your own jobs, a concrete time offered, a one-tap booking link.</p>
+          <ul class="addon-list">
+            <li><strong>Speed-to-lead flow (4 texts):</strong> missed-call text-back in under 2 minutes, booking link after every call attempt, day-2 nudge, day-4 final nudge</li>
+            <li><strong>No-show prevention flow (4 texts):</strong> benefit-driven confirmation, 24-hour and 2-hour reminders, one-tap reschedule. Cuts no-shows 38%</li>
+            <li><strong>Reschedule recovery flow (3 texts):</strong> instant rebook link, next-day follow-up, 7-day win-back</li>
+            <li>A2P registration and verification handled for you, texts send from your own number</li>
+          </ul>
+        </div>
+        <div class="addon-card reveal">
+          <div class="addon-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div class="addon-name">Email Follow-Up Engine</div>
+          <div class="addon-price">$499 <span>one-time setup</span> + $149 <span>/mo</span></div>
+          <p class="addon-desc"><strong>9 custom-written emails across 3 automated flows</strong>, benefit-first and synced to the call cadence. Works your list around the clock, wired into the same dashboard as your calls.</p>
+          <ul class="addon-list">
+            <li><strong>Recap + nurture flow (5 emails):</strong> recap with calendar link in the first hour, then a 14-day nurture until they book or opt out</li>
+            <li><strong>Confirmation flow (2 emails):</strong> benefit-driven confirmation plus a what-to-expect email that sells the visit, not just the slot</li>
+            <li><strong>No-show recovery flow (2 emails):</strong> same-day rebook link, 3-day win-back</li>
+            <li>Written from our conversion framework in your brand voice, tracked in the same dashboard as your calls</li>
+          </ul>
+        </div>
+      </div>
+      <p class="addon-note reveal">Voice + SMS + email together run a 16-touch cadence across the first 14 days, then reminders through the visit. Setup includes A2P registration and verification, done for you. Message and carrier costs run at cost through your CRM, typically $20 to $50/mo. Add one channel or both to any plan. Month to month, cancel anytime.</p>
+    </div>
+  </section>
+
+  <!-- FEATURE COMPARISON -->
+  <section class="section-alt">
+    <div class="container">
+      <h2 class="reveal">What Every Plan Includes</h2>
+      <p class="section-subtitle reveal">Every CallSetter AI plan comes with the core features that make AI appointment setting work. The tier you choose determines capacity and depth of customization.</p>
+      <div class="compare-grid">
+
+        <div class="compare-card reveal">
+          <div class="compare-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 00-3 3v1a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 9a7 7 0 00-14 0v0a2 2 0 002 2h10a2 2 0 002-2z"/><path d="M12 13v8"/><path d="M8 21h8"/></svg>
+          </div>
+          <h3>Custom AI calling agent</h3>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label starter">Starter</div>
+              <div class="compare-row-text">One custom-scripted AI agent trained on your services and scheduling.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label growth">Growth</div>
+              <div class="compare-row-text">Advanced multi-path scripting with emergency dispatch, triage, and follow-up flows.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label enterprise">Enterprise</div>
+              <div class="compare-row-text">Multiple agents for different locations, departments, or service lines.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-card reveal">
+          <div class="compare-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3>CRM and Calendar Integration</h3>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label starter">Starter</div>
+              <div class="compare-row-text">Single CRM or calendar integration. Appointments sync directly.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label growth">Growth</div>
+              <div class="compare-row-text">Multi-platform: ServiceTitan, Housecall Pro, Jobber, HubSpot, Salesforce, and more.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label enterprise">Enterprise</div>
+              <div class="compare-row-text">Custom API integrations, webhooks, and data pipelines to internal systems.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-card reveal">
+          <div class="compare-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3>Support and Optimization</h3>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label starter">Starter</div>
+              <div class="compare-row-text">Email support with 24-hour response time. Monthly script optimization.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label growth">Growth</div>
+              <div class="compare-row-text">Dedicated account manager. Weekly performance reviews. Priority support.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label enterprise">Enterprise</div>
+              <div class="compare-row-text">Dedicated success team. Real-time monitoring. Quarterly business reviews.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-card reveal">
+          <div class="compare-card-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3>Reporting and Analytics</h3>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label starter">Starter</div>
+              <div class="compare-row-text">Monthly summary with call volume, booking rates, and lead quality.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label growth">Growth</div>
+              <div class="compare-row-text">Weekly reports with conversion funnels, call dispositions, and revenue attribution.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label enterprise">Enterprise</div>
+              <div class="compare-row-text">Real-time dashboard. Custom KPI tracking. Multi-location comparison.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-card reveal">
+          <div class="compare-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Compliance and Security</h3>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label starter">Starter</div>
+              <div class="compare-row-text">TCPA compliance, DNC scrubbing, and call recording disclosures included.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label growth">Growth</div>
+              <div class="compare-row-text">All Starter compliance, plus state-level regulation handling and consent management.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label enterprise">Enterprise</div>
+              <div class="compare-row-text">Custom compliance workflows. SOC 2 documentation. HIPAA-ready for healthcare.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-card reveal">
+          <div class="compare-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Onboarding Speed</h3>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label starter">Starter</div>
+              <div class="compare-row-text">30-minute onboarding call. We build everything and launch for you.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#593ff8" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label growth">Growth</div>
+              <div class="compare-row-text">60-minute deep-dive onboarding. Full integration setup and testing before go-live.</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <div class="compare-row-label enterprise">Enterprise</div>
+              <div class="compare-row-text">Multi-session onboarding with your operations team. Parallel setup across locations.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIPLE GUARANTEE -->
+  <section>
+    <div class="container">
+      <h2 class="reveal">The Triple Guarantee</h2>
+      <p class="section-subtitle reveal">We take on the risk so you do not have to. Three layers of protection on every plan.</p>
+      <div class="guarantee-section">
+        <div class="guarantee-box reveal">
+          <div class="guarantee-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>14 Days No Questions Asked</h3>
+          <p>Cancel within the first 14 days for a full refund. No hoops, no justification needed.</p>
+        </div>
+        <div class="guarantee-box reveal" style="margin-top: 24px;">
+          <div class="guarantee-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Book More in 30 Days or You Do Not Pay</h3>
+          <p>If your booked appointments from your existing lead flow do not increase within your first 30 days live, you do not pay. Measured against your prior month, straight from the call logs.</p>
+        </div>
+        <div class="guarantee-box reveal" style="margin-top: 24px;">
+          <div class="guarantee-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>No Contracts. Cancel Anytime.</h3>
+          <p>Every plan is month-to-month. No long-term commitments, no cancellation fees. We earn your business every single month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-alt">
+    <div class="container">
+      <h2 class="reveal">Frequently Asked Questions</h2>
+      <div class="faq-list">
+
+        <div class="faq-item active reveal">
+          <button class="faq-trigger" aria-expanded="true">
+            <h3><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-question"/></svg></span><span>What does the one-time setup fee cover?</span></h3>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-body" style="max-height: 400px;">
+            <div class="faq-body-inner">
+              <p>Setup includes your full custom build: AI agent scripting, voice configuration, CRM integration, call routing, phone number provisioning, and testing. Starter is $997, Growth is $1,497, and Enterprise is $1,997. We build and launch everything for you.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-trigger" aria-expanded="false">
+            <h3><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-question"/></svg></span><span>Am I locked into a long-term contract?</span></h3>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p>No contracts. Every plan is month-to-month. Cancel anytime with 30 days notice. We believe in earning your business every month, not locking you in. Most clients stay because the ROI makes cancellation a non-option.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-trigger" aria-expanded="false">
+            <h3><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-question"/></svg></span><span>What happens if I exceed my included minutes?</span></h3>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p>We never cut off your calls mid-month. Minutes beyond your included amount are billed at the overage rate for your plan: $0.55/min on Starter, $0.50/min on Growth, and $0.45/min on Enterprise. You can track usage in real time from your reporting dashboard.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-trigger" aria-expanded="false">
+            <h3><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-question"/></svg></span><span>How long does onboarding take?</span></h3>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p>We handle everything: script writing, voice configuration, CRM integration, call routing setup, and testing. Your involvement is one 30 to 60 minute call to tell us about your business. We handle the rest. <a href="/how-it-works">See the full onboarding process</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-trigger" aria-expanded="false">
+            <h3><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-question"/></svg></span><span>How does the Triple Guarantee work?</span></h3>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p>Three layers of protection. First, cancel within 14 days for a full refund, no questions asked. Second, if your booked appointments from your existing lead flow do not increase within your first 30 days live, you do not pay. Measured against your prior month, straight from the call logs. Third, every plan is month-to-month with no contracts. Cancel anytime with no penalties or fees.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-trigger" aria-expanded="false">
+            <h3><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-question"/></svg></span><span>Can I add SMS and email follow-up to my plan?</span></h3>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p>Yes. Each channel is a $499 one-time setup plus $149/mo, and works with any plan. Setup covers the full build, including A2P registration and verification, done for you. SMS includes 11 custom-written texts across 3 automated flows (speed-to-lead, no-show prevention, reschedule recovery). Email includes 9 custom-written emails across 3 automated flows (recap plus 14-day nurture, benefit-driven confirmations, no-show recovery). Message and carrier costs run at cost through your CRM. Add one or both, month to month, cancel anytime.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-trigger" aria-expanded="false">
+            <h3><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-question"/></svg></span><span>Can I switch plans later?</span></h3>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p>Yes. Upgrade or downgrade at any time. If you upgrade mid-cycle, we prorate the difference. If you downgrade, the change takes effect at the start of your next billing period. No penalties, no fees. Your AI agent configuration and call history carry over between plans.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="reveal">Ready to Stop Losing Leads to Voicemail?</h2>
+    <p class="reveal">Every missed call is lost revenue. CallSetter AI answers, qualifies, and books. 24/7/365. No contracts. Cancel anytime. Setup includes full custom build.</p>
+    <div class="cta-buttons reveal">
+      <a href="/demo" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Book a Demo
+      </a>
+      <a href="/how-it-works" class="btn-secondary">See How It Works</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/images/logo-footer-white.png" alt="CallSetter AI" class="footer-brand-logo" />
+        <p>AI-powered appointment setting that answers every lead in under 60 seconds. Built for home service companies that refuse to lose another call.</p>
+        <div class="footer-social">
+          <a href="https://twitter.com/callsetterai" aria-label="X / Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.instagram.com/callsetterai" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://linkedin.com/company/call-setter-ai" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://facebook.com/profile.php?id=61584777972498" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/demo">Book a Demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/hvac">HVAC</a></li>
+          <li><a href="/plumbing">Plumbing</a></li>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/solar">Solar</a></li>
+          <li><a href="/home-services">Home Services</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CallSetter AI. All rights reserved.</p><p style="color:rgba(255,255,255,0.35);font-size:.82rem;margin:0">Website Design by <a href="https://tested.media" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.6)">Tested Media</a></p>
+      <div class="footer-bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-conditions">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    (function() {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function(el) { el.classList.add('vis'); }); return; }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('vis'); observer.unobserve(entry.target); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function(el) {
+        var parent = el.closest('.pricing-grid, .compare-grid, .faq-list');
+        if (parent) { var siblings = parent.querySelectorAll('.reveal'); var idx = Array.prototype.indexOf.call(siblings, el); el.style.transitionDelay = (idx * 80) + 'ms'; }
+        observer.observe(el);
+      });
+    })();
+
+    (function() {
+      var items = document.querySelectorAll('.faq-item');
+      items.forEach(function(item) {
+        var trigger = item.querySelector('.faq-trigger');
+        var body = item.querySelector('.faq-body');
+        var inner = item.querySelector('.faq-body-inner');
+        trigger.addEventListener('click', function() {
+          var isOpen = item.classList.contains('active');
+          items.forEach(function(other) { if (other !== item) { other.classList.remove('active'); other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false'); other.querySelector('.faq-body').style.maxHeight = '0'; } });
+          if (isOpen) { item.classList.remove('active'); trigger.setAttribute('aria-expanded', 'false'); body.style.maxHeight = '0'; }
+          else { item.classList.add('active'); trigger.setAttribute('aria-expanded', 'true'); body.style.maxHeight = inner.scrollHeight + 24 + 'px'; }
+        });
+        if (item.classList.contains('active') && inner) { body.style.maxHeight = inner.scrollHeight + 24 + 'px'; }
+      });
+    })();
+  </script>
+  <script src="/affiliates/js/attribution.js" defer></script>
+
+</body>
+</html>

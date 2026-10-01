@@ -1,0 +1,324 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>«Карточка» — экраны клиента</title><style>
+:root{--ink:#1b2557;--gold:#c69a4c;--goldd:#b0812f;--soft:#e3c88a;--cream:#f7f5f1;--line:#e5e1d9;--mut:#7b8194;--ok:#1d7a4d;--warn:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;background:#eeece7;color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.page{max-width:1120px;margin:0 auto;padding:30px 20px 90px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.4px}
+.sub{color:var(--mut);margin:0 0 4px;font-size:15px}
+.nav{position:sticky;top:0;z-index:30;background:#eeece7;padding:15px 0 13px;margin:18px 0 6px;border-bottom:1px solid var(--line)}
+.nav button{padding:9px 17px;margin-right:7px;border-radius:22px;background:#fff;border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+.nav button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab{display:none}.tab.on{display:block}
+.who{background:var(--ink);color:#fff;border-radius:14px;padding:18px 22px;margin:24px 0 18px}
+.who .seg{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
+.who h2{margin:3px 0 4px;font-size:22px}.who p{margin:0;color:#c9cee0;font-size:14.5px}
+.dev{background:#fff;border-radius:20px;box-shadow:0 10px 34px rgba(27,37,87,.13);overflow:hidden;margin:0 0 24px;border:1px solid #dcd8d0}
+.bar{background:#f2f0ec;border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:#d6d2ca}
+.url{flex:1;background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 14px;font-size:12.5px;color:var(--mut);text-align:center}
+.scr{padding:30px 36px 34px}
+.step{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--goldd);font-weight:700;margin-bottom:12px}
+.scr h3{font-size:26px;line-height:1.22;margin:0 0 14px;letter-spacing:-.3px}
+.scr h4{font-size:18px;margin:26px 0 10px}
+.scr p{margin:0 0 13px;font-size:16.5px}
+.lead{color:var(--mut);font-size:15.5px}
+.prog{display:flex;gap:6px;margin:0 0 18px}
+.prog i{height:4px;flex:1;background:#e4e1da;border-radius:3px}.prog i.on{background:var(--gold)}
+.prev{max-width:430px;border:1px solid #d9dde6;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.prev .img{height:110px;background:linear-gradient(135deg,#dfe3ec,#eef0f5);display:flex;align-items:center;justify-content:center;color:#a8aec0;font-size:12px}
+.prev .img img{width:100%;height:100%;object-fit:cover;display:block}
+.prev .body{padding:11px 14px}
+.prev .t{font-weight:700;font-size:15px;line-height:1.3;margin-bottom:4px}
+.prev .d{font-size:13.5px;color:#5c6478;line-height:1.4}
+.prev .d.empty{color:#b9bece;font-style:italic}
+.prev .u{font-size:11.5px;color:#9aa0b2;text-transform:uppercase;letter-spacing:.05em;margin-top:6px}
+.bubble{background:#dcf8c6;border-radius:12px;padding:8px;max-width:452px;margin:16px 0}
+.bubble.dead{background:#f3d9d6}
+.typo{background:#ffe8e6;border-bottom:2px solid var(--warn);padding:0 2px;border-radius:2px}
+.err{max-width:430px;border:1px solid #e6bfbb;border-radius:12px;background:#fff6f5;padding:16px 18px;margin:16px 0;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8a2a22}
+.err b{display:block;font-family:inherit;font-size:14.5px;margin-bottom:6px;color:var(--warn)}
+.serp{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0}
+.serp .row{padding:13px 17px;border-bottom:1px solid #f0eee9;font-size:14.5px}
+.serp .row:last-child{border-bottom:0}
+.serp .row.me{background:#fff7ea}.serp .row.gone{background:#fdf3f2}
+.serp .n{color:var(--mut);font-size:12px;margin-right:8px}
+.serp b{color:#1a3fa0}.serp .sn{color:var(--mut);font-size:13.5px;display:block;margin-top:3px}
+.ai{background:#f6f7fb;border:1px solid #dfe3ee;border-radius:12px;padding:18px 20px;margin:16px 0;font-size:15px}
+.ai .q{font-weight:700;margin-bottom:12px}
+.ai .e{margin:9px 0;padding-left:14px;border-left:3px solid #cfd6e6}
+.ai .e.me{border-left-color:var(--warn);background:#fff3f2;padding:8px 12px;border-radius:0 8px 8px 0}
+.qs{border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0;background:#fcfbf9}
+.qs .q{margin:0 0 18px}.qs .q:last-child{margin-bottom:0}
+.qs .lb{font-weight:700;font-size:15.5px;margin-bottom:7px}
+.opts{font-size:15px;color:var(--mut);line-height:1.9}.opts .sel{color:var(--ink);font-weight:700}
+.inp{background:#fff;border:1px solid #d9d5cc;border-radius:8px;padding:11px 14px;font-size:15.5px;margin-top:8px;color:#333}
+.mark{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:#fff;margin:16px 0}
+.mark .it{padding:11px 0;border-bottom:1px solid #f2f0ec;font-size:16.5px;display:flex;gap:12px;align-items:flex-start}
+.mark .it:last-child{border-bottom:0}
+.mark .bx{width:22px;height:22px;border:2px solid #c9cdd8;border-radius:5px;flex:none;margin-top:2px;text-align:center;line-height:19px;font-size:14px;font-weight:700;color:#fff}
+.mark .it.on .bx{background:var(--warn);border-color:var(--warn)}.mark .it.on{color:var(--warn)}
+.mark .it.off .bx{border-color:var(--ok)}
+.art{border:2px solid var(--gold);border-radius:14px;background:linear-gradient(180deg,#fffdf8,#fff);padding:25px 27px;margin:18px 0;line-height:1.7;box-shadow:0 4px 16px rgba(198,154,76,.13)}
+.art .ttl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--goldd);font-weight:700;margin-bottom:14px}
+.art p{margin:0 0 13px;font-size:16.5px}.art p:last-child{margin:0}
+.btns{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 0}
+.btn{background:var(--ink);color:#fff;border-radius:9px;padding:11px 20px;font-size:14.5px;font-weight:600}
+.btn.g{background:#fff;color:var(--ink);border:1px solid #d3cfc6}
+.dont{background:#fdf6ec;border:1px solid #eddcc0;border-radius:12px;padding:18px 20px;margin:16px 0}
+.dont .d{margin:0 0 11px;font-size:15.5px}.dont .d:last-child{margin:0}.dont b{color:var(--goldd)}
+.src{background:#f4f5f8;border-radius:10px;padding:14px 17px;font-size:14.5px;color:#4b5162;margin:14px 0}
+.src b{color:var(--ink)}
+.cliff{background:var(--ink);color:#fff;border-radius:14px;padding:24px 26px;margin:20px 0 0}
+.cliff h4{color:#fff;margin:0 0 12px;font-size:19px}
+.cliff p{color:#ced3e3;font-size:15.5px;margin:0 0 12px}.cliff b{color:#fff}
+.cta{display:inline-block;background:var(--gold);color:#20263f;border-radius:9px;padding:13px 24px;font-weight:700;font-size:15.5px;margin-top:6px}
+.sig{color:#8f96ab;font-size:13.5px;font-style:italic;margin-top:16px}
+.note{background:#fff;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;margin:22px 0;font-size:15px}
+.note b{color:var(--goldd)}
+.badge{display:inline-block;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:14px;font-weight:700;margin-left:9px;vertical-align:2px}
+.b-real{background:#e6f4ec;color:#146c3f;border:1px solid #bcdfca}
+.b-rec{background:#fdf0e2;color:#8a5a12;border:1px solid #efd4aa}
+@media(max-width:640px){.scr{padding:22px 18px 26px}.scr h3{font-size:22px}}
+</style></head><body><div class="page">
+<h1>«Карточка» — что видит человек</h1>
+<p class="sub">Экраны продукта на трёх реальных людях из обкатки. <span class="badge b-real">реально</span> снято живьём 05.09.2026 &nbsp; <span class="badge b-rec">реконструкция</span> их ответов у нас нет</p>
+<div class="nav">
+<button data-t="k" class="on">Кристина · эксперт</button>
+<button data-t="a">Калугин · бизнес локальный</button>
+<button data-t="m">Малена · бизнес B2B</button>
+</div>
+<div class="tab on" id="t-k">
+<div class="who"><div class="seg">эксперт · личный бренд · её пересылают</div><h2>Кристина Шадрина</h2>
+<p>Финансовый консультант, курс по личным финансам. Лос-Анджелес. Instagram 141K, сайт krishadrina.com</p></div>
+<div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i></i><i></i><i></i></div>
+<div class="step">Шаг 1 · 6 секунд · бесплатно, без модели</div>
+<h3>Вот что уезжает вместе с вашей ссылкой<span class="badge b-real">реально</span></h3>
+<p class="lead">Когда вас рекомендуют, человеку уходит не страница. Уходит карточка. Мы попросили её у вашего сайта ровно так, как её просит WhatsApp:</p>
+<div class="bubble"><div class="prev"><div class="img">обложка сайта</div><div class="body">
+<div class="t">Learn how to <span class="typo">opperate</span> your <span class="typo">fininance</span></div>
+<div class="d empty">описания нет</div><div class="u">krishadrina.com</div></div></div></div>
+<p>Четыре слова, две опечатки. Блок описания под заголовком пустой.</p>
+<p>Это не про качество вашей работы. Это про то, что уезжает вместо вас человеку, который вас ещё не знает и прямо сейчас решает, писать вам или нет.</p>
+<div class="src"><b>Проверьте за десять секунд:</b> отправьте свою ссылку самой себе в WhatsApp. Мы получили ровно это.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+<div class="step">Шаг 3 · галочки ставите вы, не мы<span class="badge b-rec">ответы — реконструкция</span></div>
+<h3>Отметьте, что из этого может слово в слово повторить тот, кто работает вдвое хуже вас</h3>
+<p class="lead">Вы написали: «Четырнадцать лет в финансах, работала с корпорациями в США и СНГ. Индивидуальный подход. Я сама прошла путь с нуля в другой стране.»</p>
+<div class="mark">
+<div class="it on"><span class="bx">&#10003;</span><span>четырнадцать лет в финансах</span></div>
+<div class="it on"><span class="bx">&#10003;</span><span>работала с корпорациями в США и СНГ</span></div>
+<div class="it on"><span class="bx">&#10003;</span><span>индивидуальный подход</span></div>
+<div class="it off"><span class="bx"></span><span>сама прошла путь с нуля в другой стране</span></div></div>
+<div class="src">Три из четырёх отметили вы сами. Когда обе стороны говорят одно и то же, у клиента остаётся одна различающаяся цифра. Цена.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+<div class="step">Готово · 2 минуты</div>
+<h3>Вот что должно уезжать вместо вас</h3>
+<div class="art"><div class="ttl">ваша карточка</div>
+<p>Работаю с русскоязычными в США, у которых доход уже есть, а денег почему-то нет: всё уходит, подушки не появляется, и непонятно, где течёт.</p>
+<p>Я не продаю курс тому, кому он сейчас не поможет. Одной клиентке я сказала сначала закрыть кредитные карты и вернуться через полгода — она вернулась. Мне важнее, чтобы вы дошли до результата, чем чтобы вы оплатили сейчас.</p>
+<p>Что можно посмотреть, не спрашивая меня: отдельный аккаунт с отзывами клиентов.</p>
+<p>Кому не подойдёт: если нужен инвестиционный совет под конкретную сделку — скажу об этом сразу.</p></div>
+<div class="btns"><span class="btn">Скопировать</span><span class="btn g">PDF</span><span class="btn g">Ссылка</span><span class="btn g">Письмом</span></div>
+<h4>Что не надо делать на этой неделе</h4>
+<div class="dont">
+<p class="d"><b>Не снимать больше контента</b>, пока карточка сайта не починена. Контент увеличит число тех, кто вас пересылает, а уезжать будет то же самое.</p>
+<p class="d"><b>Не запускать рекламу на этот адрес.</b> Она приводит людей на карточку с опечаткой в слове «финансы».</p>
+<p class="d"><b>Не приглашать проверять ваши регалии.</b> Мы их не проверяли, а у финансового консультанта в США это отдельная тема.</p></div>
+<div class="cliff"><h4>Мы не проверили ни одного вашего утверждения</h4>
+<p>А каждая строка в этой карточке — то, что будет проверять ваш покупатель.</p>
+<p><b>Что находится, когда проверяют.</b> В другой работе Маша, наш экс-CFO, нашла расхождение в собственном капитале на сто семьдесят четыре тысячи долларов — в цифрах, которые клиент считал сведёнными.</p>
+<span class="cta">Двадцать минут с Андреем — проверим при вас одно ваше утверждение</span>
+<div class="sig">Эту карточку собрал не человек. Мы открыли вашу ссылку и написали это, пока вы отвечали на четыре вопроса.</div></div>
+</div></div></div>
+<div class="tab" id="t-a">
+<div class="who"><div class="seg">бизнес · локальная студия · его ищут</div><h2>Андрей Калугин · Kids Acting Workshop</h2>
+<p>Детская студия музыкального театра, Шерман-Оукс, Лос-Анджелес. Семь преподавателей, три семестра в год. kidsactingworkshop.com</p></div>
+<div class="note"><b>Другой заход, и вот почему.</b> У Калугина карточка сайта <b>в порядке</b> — заголовок, описание, обложка на месте. Приём Кристины здесь не срабатывает, и это правильный результат: у бизнеса покупатель ссылку не получает, он <b>ищет</b>. Вопрос звучит иначе: <b>что происходит, когда о вас спрашивают.</b></div>
+<div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i></i><i></i><i></i></div>
+<div class="step">Шаг 1 · 9 секунд · бесплатно</div>
+<h3>Начнём с хорошего: ваша карточка в порядке<span class="badge b-real">реально</span></h3>
+<div class="bubble"><div class="prev"><div class="img">обложка сайта</div><div class="body">
+<div class="t">Los Angeles Kids Acting | Kids Acting Workshop &ndash; Sherman Oaks</div>
+<div class="d">High quality acting classes for kids in Los Angeles. Become a part of Kids Acting Workshop today</div>
+<div class="u">kidsactingworkshop.com</div></div></div></div>
+<p>Заголовок, описание, обложка — всё есть. Здесь чинить нечего.</p>
+<h4 style="margin-top:28px">Но родитель не получает вашу ссылку. Он ищет.</h4>
+<p class="lead">Мы задали вопрос его словами: <b>&laquo;kids acting classes Los Angeles children's musical theater&raquo;</b></p>
+<div class="serp">
+<div class="row"><span class="n">1</span><b>Michelle Danner Acting Studio</b><span class="sn">Children &amp; Teen Program, музыкальный театр, телефон на странице</span></div>
+<div class="row gone"><span class="n">2</span><b>momsla.com &mdash; Best Acting Classes for Kids Around Los Angeles</b><span class="sn">подборка для родителей &mdash; вас в ней нет</span></div>
+<div class="row gone"><span class="n">3</span><b>mommypoppins.com &mdash; Best Acting Classes for Kids in LA</b><span class="sn">подборка для родителей &mdash; вас в ней нет</span></div>
+<div class="row"><span class="n">4</span><b>YADA &mdash; Young Actors of Dramatic Arts</b><span class="sn">программа TOTS 3&ndash;5 лет, показ через 10 недель</span></div>
+<div class="row"><span class="n">5</span><b>Tiny Spotlight Children's Theatre Academy</b><span class="sn">San Fernando Valley, 3&ndash;11 лет</span></div>
+<div class="row me"><span class="n">8</span><b>Kids Acting Workshop &ndash; Sherman Oaks</b><span class="sn">это вы</span></div></div>
+<p>Вы в выдаче есть. А в двух подборках, которые стоят <b>выше</b> вас и которые родитель откроет раньше вашего сайта, вас нет. Мы открыли обе и искали по названию, по домену и по фамилии.</p>
+<div class="src">Обе подборки упоминают <b>Шерман-Оукс</b>. Ваш район в них есть. Вы &mdash; нет.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="step">Тот же шаг &middot; и вот это уже про завтра<span class="badge b-real">реально</span></div>
+<h3>А теперь то же самое спросили у ассистента</h3>
+<p class="lead">Всё больше родителей не листают выдачу, а спрашивают. Ответ записан дословно:</p>
+<div class="ai"><div class="q">&laquo;Куда отдать ребёнка на актёрское и музыкальный театр в Лос-Анджелесе?&raquo;</div>
+<div class="e"><b>Michelle Danner Acting Studio.</b> Комплексная подготовка в Children &amp; Teen Program&hellip; класс музыкального театра: вокал, танец, актёрское, разбор сцен. Телефон 310-392-0815.</div>
+<div class="e"><b>Kids On Stage.</b> Основана в 1987, дети от 3,5 до 17. Музыкальный театр, creative dramatics, rockstar dramatics.</div>
+<div class="e"><b>Tiny Spotlight.</b> Музыкальный театр, импровизация, творческое письмо, 3&ndash;11 лет, Сан-Фернандо-Валли.</div>
+<div class="e"><b>YADA.</b> TOTS для 3&ndash;5 лет: песни, танцы, финальный показ через 10 недель.</div>
+<div class="e me"><b>Kids Acting Workshop.</b> Находится в Шерман-Оукс, есть бесплатное пробное занятие.</div></div>
+<p>Четверым по абзацу: возраст, программа, чем занимаются, как связаться. Вам &mdash; <b>одна строка, последним</b>.</p>
+<p>Ассистент не выбирал. Он пересказал то, что каждый написал о себе. У соседей было что пересказать.</p>
+<div class="src"><b>А между тем вот что написано на вашей же странице</b>, ниже первого экрана: <i>&laquo;combines Russian traditional acting and American contemporary techniques&raquo;</i>. Русская театральная школа плюс американская &mdash; этого нет ни у кого из пятерых. Наружу уезжает &laquo;High quality acting classes&raquo;.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+<div class="step">Шаг 2 · у бизнеса два вопроса из четырёх — не про интернет<span class="badge b-rec">реконструкция</span></div>
+<h3>Четыре вопроса</h3>
+<div class="qs">
+<div class="q"><div class="lb">1. Откуда приходит родитель, который дошёл до пробного?</div>
+<div class="opts"><span class="sel">&#9679; Привёл знакомый</span> &nbsp; &#9675; Нашёл в поиске &nbsp; &#9675; Инстаграм &nbsp; &#9675; Не спрашиваем</div></div>
+<div class="q"><div class="lb">2. Из десяти, кто пришёл на бесплатное пробное, сколько остаётся на семестр?</div>
+<div class="opts">&#9675; 8&ndash;10 &nbsp; <span class="sel">&#9679; 4&ndash;6</span> &nbsp; &#9675; 1&ndash;3 &nbsp; &#9675; Не считаем</div></div>
+<div class="q"><div class="lb">3. Что вы отвечаете родителю, который спрашивает «а чем вы лучше студии через дорогу»?</div>
+<div class="inp">У нас русская актёрская школа плюс американская подача. Мы не про «поиграть» — раз в год ставим полноценный мюзикл и снимаем кино с показом на красной дорожке. Дети выходят на сцену перед сотнями людей.</div></div>
+<div class="q"><div class="lb">4. Что в вашей студии умеете объяснить только вы?</div>
+<div class="opts" style="font-size:14px">То, что не получается делегировать — вот узкое горло</div>
+<div class="inp">Почему мы берём именно этот материал и почему ребёнку сейчас нужна не главная роль. Администратор так не объяснит, я всегда выхожу сам.</div></div></div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+<div class="step">Шаг 3 · галочки ставите вы</div>
+<h3>Что из вашего ответа может слово в слово повторить студия через дорогу?</h3>
+<div class="mark">
+<div class="it on"><span class="bx">&#10003;</span><span>американская подача</span></div>
+<div class="it on"><span class="bx">&#10003;</span><span>мы не про «поиграть»</span></div>
+<div class="it off"><span class="bx"></span><span>русская актёрская школа</span></div>
+<div class="it off"><span class="bx"></span><span>раз в год полноценный мюзикл и кино с показом на красной дорожке</span></div></div>
+<div class="src">Два из четырёх остались. И оба — <b>не про вас, а про то, что сделает ребёнок</b>. Их невозможно повторить, не сделав. Именно этих двух нет ни в вашей карточке, ни в ответе ассистента, ни в подборках.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+<div class="step">Готово · 2 минуты</div>
+<h3>Вот что должно уезжать вместо вас</h3>
+<div class="art"><div class="ttl">карточка студии</div>
+<p>Детская актёрская студия в Шерман-Оукс, от 4 до 17 лет. Русская театральная школа плюс американская подача — ни та, ни другая по отдельности.</p>
+<p>Раз в год мы ставим полноценный мюзикл: дети выходят на сцену перед сотнями зрителей. И раз в год снимаем короткометражку, написанную под наших студентов, с показом и красной дорожкой. Не отчётный концерт, а работа, которую ребёнок потом покажет.</p>
+<p>Актёрское, вокал, танец и импровизация в одном месте, семь преподавателей. Три семестра: январь–июнь, июль–август, сентябрь–декабрь.</p>
+<p>Первое занятие бесплатно. Кому не подойдёт: если нужен агент и пробы на съёмки уже завтра — это не к нам, скажем сразу.</p></div>
+<div class="btns"><span class="btn">Скопировать</span><span class="btn g">PDF</span><span class="btn g">Ссылка</span><span class="btn g">Письмом</span></div>
+<div class="src"><b>Откуда что взялось.</b> Второй абзац — ваши слова из третьего вопроса плюс то, что уже написано на вашей странице. «От 4 до 17» и «семь преподавателей» взяты с сайта — проверьте, актуально ли. «Американская подача» и «мы не про поиграть» не взяли: вы сами отметили, что это скажет любой.</div>
+<h4>Что не надо делать на этой неделе</h4>
+<div class="dont">
+<p class="d"><b>Не запускать рекламу на пробное занятие.</b> Из десяти пришедших у вас остаются четыре-шесть. Реклама увеличит число тех, кто попробует и уйдёт, и вы заплатите за каждого.</p>
+<p class="d"><b>Не снимать больше контента в Инстаграм.</b> Родитель всё равно пойдёт проверять в поиск, а там вас пересказывают одной строкой.</p>
+<p class="d"><b>Не переписывать сайт целиком.</b> Отличие у вас уже написано, оно лежит в середине страницы. Проблема не в тексте, а в том, где он стоит.</p></div>
+<h4>Один шаг — сегодня</h4>
+<p>Обе подборки для родителей — momsla и mommypoppins — публикуют студии. Напишите им и вложите эту карточку. Это бесплатно и ставит вас туда, где родитель уже читает.</p>
+<div class="src"><b>Чем этот шаг платит.</b> В подборке вы окажетесь рядом с теми, кто дешевле. Часть родителей будет сравнивать по цене — раньше они до вас просто не доходили.</div>
+<div class="cliff"><h4>Мы посмотрели снаружи. Внутри мы не были</h4>
+<p>Вы сказали: из десяти на пробном остаются четыре-шесть, и что объяснить выбор материала умеете только вы. <b>Это два разных узких горла, и мы не знаем, какое стоит вам дороже.</b> Одно чинится текстом, второе — нет.</p>
+<p><b>Что находится, когда смотрят внутрь.</b> В одной работе Маша, наш экс-CFO, нашла расхождение в собственном капитале на сто семьдесят четыре тысячи долларов — в цифрах, которые владелец считал сведёнными. В другой «смета фиксированная» и «материалы по факту» стояли в одном документе и исключали друг друга.</p>
+<p>Доступ к счетам, CRM и базе клиентов для этого не нужен, и мы его не просим.</p>
+<span class="cta">Двадцать минут с Андреем — разберём, какое из двух горл первое</span>
+<div class="sig">Эту карточку собрал не человек. Мы открыли вашу страницу, две подборки и спросили ассистента то же, что спрашивает родитель.</div></div>
+</div></div></div>
+<div class="tab" id="t-m">
+<div class="who"><div class="seg">бизнес · B2B · её покупатель — отель</div><h2>Малена Мельникова · Академия чая</h2>
+<p>Чайные церемонии для отелей, SPA и площадок Лас-Вегаса. Международная франшиза. Майами. Instagram 73K, сайт tea-academy.ru</p></div>
+<div class="note"><b>Третий тип захода.</b> У Кристины бьёт сломанная карточка. У Калугина — асимметрия пересказа. У Малены — <b>инфраструктура имени и язык покупателя</b>. Это самый сильный из трёх ударов: он бесплатный, детерминированный и прямо про деньги.</div>
+<div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i></i><i></i><i></i></div>
+<div class="step">Шаг 1 · 7 секунд · бесплатно, без модели</div>
+<h3>Мы проверили оба адреса вашего имени<span class="badge b-real">реально</span></h3>
+<p class="lead">Первый — тот, что вы даёте:</p>
+<div class="bubble"><div class="prev"><div class="img">обложка сайта</div><div class="body">
+<div class="t">Академия чая</div><div class="d">by Малена Мельникова</div><div class="u">tea-academy.ru</div></div></div></div>
+<p class="lead">Второй — тот, который наберёт американский закупщик, потому что он всегда пробует <b>.com</b>:</p>
+<div class="err"><b>tea-academy.com</b>
+DNS: 89.31.143.90 &mdash; адрес существует<br>
+HTTPS: <b>ошибка</b> &mdash; tlsv1 unrecognized name<br>
+&nbsp;&nbsp;&nbsp;(сертификат сервера не покрывает этот домен &rarr; браузер покажет красный экран)<br>
+HTTP: 301 &rarr; <b>https://www.ronnefeldt.com/</b></div>
+<p>Мы пошли дальше и посмотрели, кто это. <b>Ronnefeldt</b> — немецкий чайный дом, «Qualität seit über 200 Jahren». И у них с 2003 года работает <b>Ronnefeldt Tea Academy</b>: обучение персонала отелей и ресторанов, сертификация TeaMaster Silver и Gold, около <b>20 000 сотрудников в год</b>.</p>
+<div class="src"><b>Что это значит на практике.</b> Имя вашего бренда в зоне .com занято действующим лидером вашей же категории, работающим ровно с вашим покупателем — отелями и ресторанами. Это не поломка вашего сайта. Это факт про рынок, на который вы выходите.<br><br>
+<b>Мы проверили, не ваш ли это франчайзер:</b> регистратор домена немецкий (united-domains GmbH), на вашем сайте Ronnefeldt не упоминается ни разу. Связи нет.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="step">Тот же шаг · и вот главное<span class="badge b-real">реально</span></div>
+<h3>Ваш покупатель ищет по-английски</h3>
+<p class="lead">Вы работаете с отелями, SPA и площадками в Лас-Вегасе и Майами. Мы задали вопрос так, как задаёт event-менеджер отеля: <b>&laquo;tea ceremony experience vendor Las Vegas hotel spa corporate event&raquo;</b></p>
+<div class="serp">
+<div class="row"><span class="n">1</span><b>Catalyst Tea Company</b><span class="sn">отдельные страницы «Tea Experiences for Private Events in Las Vegas» и «Corporate Tea Experience Las Vegas»: тимбилдинг, wellness-дни, конференции, клиентские мероприятия</span></div>
+<div class="row"><span class="n">2</span><b>Resorts World Las Vegas — «The Royal Pour»</b><span class="sn">собственная чайная программа отеля в Crockfords</span></div>
+<div class="row"><span class="n">3</span><b>Four Seasons Las Vegas</b><span class="sn">Afternoon Tea по субботам, <b>$45 с человека, $65 с шампанским</b> — цена опубликована</span></div>
+<div class="row"><span class="n">4</span><b>Tea and Whisk</b><span class="sn">частные чайные церемонии, своя чайная комната</span></div>
+<div class="row"><span class="n">5</span><b>Mojave House of Tea · Queen of Hearts</b><span class="sn">церемонии и высокий чай, Хендерсон</span></div>
+<div class="row gone"><span class="n">&mdash;</span><b>Академия чая / Малена Мельникова</b><span class="sn">в англоязычной выдаче не найдены: ни по имени, ни по нише</span></div></div>
+<p>Отдельно мы искали вас по имени на английском. Нашлись однофамильцы — гимнастка, актрисы. Вас нет.</p>
+<div class="src"><b>Разрыв не в том, что вас плохо видно.</b> Вас хорошо видно — 73 тысячи человек в Instagram. Разрыв в том, что <b>вы существуете по-русски, а платит вам тот, кто ищет по-английски.</b> Ваш сайт на .ru, целиком на русском, и продаёт обучение чайной церемонии: базовый, мастерский и международный факультеты. Про отели, SPA и корпоративные мероприятия там не сказано ничего.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+<div class="step">Шаг 2 · вопросы<span class="badge b-rec">реконструкция</span></div>
+<h3>Четыре вопроса</h3>
+<div class="qs">
+<div class="q"><div class="lb">1. Откуда пришёл последний отель, который у вас купил?</div>
+<div class="opts"><span class="sel">&#9679; Через знакомых</span> &nbsp; &#9675; Написали сами &nbsp; &#9675; Инстаграм &nbsp; &#9675; Выставка</div></div>
+<div class="q"><div class="lb">2. Из десяти площадок, с которыми вы говорили, сколько дошло до договора?</div>
+<div class="opts">&#9675; 8&ndash;10 &nbsp; &#9675; 4&ndash;6 &nbsp; <span class="sel">&#9679; 1&ndash;3</span> &nbsp; &#9675; Не считаем</div></div>
+<div class="q"><div class="lb">3. Что вы отвечаете отелю, который спрашивает «а чем это лучше, чем нанять чайного сомелье»?</div>
+<div class="inp">Я психолог. Мы не про дегустацию и не про сервировку — мы про состояние гостя. Церемония на сорок минут переключает человека, и он это запоминает, а не чай. Отель продаёт не напиток, а то, каким гость уехал.</div></div>
+<div class="q"><div class="lb">4. Что в вашем деле умеете объяснить только вы?</div>
+<div class="inp">Почему церемония идёт именно в таком темпе и что делать, когда гость сопротивляется. Мастера франшизы это повторяют, но объяснить не могут — я езжу сама.</div></div></div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+<div class="step">Шаг 3 · галочки ставите вы</div>
+<h3>Что из этого может слово в слово повторить Catalyst Tea Company?</h3>
+<div class="mark">
+<div class="it on"><span class="bx">&#10003;</span><span>мы не про дегустацию</span></div>
+<div class="it on"><span class="bx">&#10003;</span><span>про состояние гостя</span></div>
+<div class="it off"><span class="bx"></span><span>я психолог</span></div>
+<div class="it off"><span class="bx"></span><span>что делать, когда гость сопротивляется</span></div></div>
+<div class="src">Два остались. И оба — <b>про квалификацию, которой у чайной компании нет</b>. «Про состояние гостя» скажет любой; «я психолог, и вот что делаю, когда гость сопротивляется» — не скажет никто. Именно этого нет ни на вашем сайте, ни в вашей карточке.</div>
+</div></div><div class="dev"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">businessinteldna.com/kartochka</span></div><div class="scr">
+<div class="prog"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+<div class="step">Готово · 2 минуты</div>
+<h3>Вот что должно уезжать вместо вас — и по-английски</h3>
+<div class="art"><div class="ttl">карточка для отеля · русская версия</div>
+<p>Мы проводим чайные церемонии для гостей отелей, SPA и частных мероприятий в Майами и Лас-Вегасе. Основатель — практикующий психолог, и это не деталь биографии, а суть услуги.</p>
+<p>Мы не про дегустацию и не про сервировку. Церемония на сорок минут меняет состояние человека: он замедляется и уезжает другим. Отель продаёт не напиток — он продаёт то, каким гость запомнил вечер.</p>
+<p>Работаем как приглашённая команда: свой мастер, своя посуда, свой сценарий под площадку. Есть международная франшиза — можем поставить это как постоянный формат, а не разовое событие.</p>
+<p>Кому не подойдёт: если нужен чайный бар на двести человек с очередью — это не к нам, скажем сразу.</p></div>
+<div class="btns"><span class="btn">Скопировать</span><span class="btn g">English version</span><span class="btn g">PDF</span><span class="btn g">Письмом</span></div>
+<div class="src"><b>Откуда что взялось.</b> Второй и третий абзацы — ваши слова из третьего вопроса. «Свой мастер, своя посуда, свой сценарий» — наша формулировка, поправьте. «Не про дегустацию» и «про состояние гостя» вы сами отметили как повторяемое — они остались только как связка, а несущей стала строка про психолога.</div>
+<h4>Что не надо делать на этой неделе</h4>
+<div class="dont">
+<p class="d"><b>Не покупать tea-academy.com.</b> Он занят Ronnefeldt и не продаётся. Спорить за это имя на американском рынке — заведомо проигранная позиция; вам нужно другое имя для англоязычного слоя, а не это.</p>
+<p class="d"><b>Не переводить сайт целиком.</b> Ваш русский сайт продаёт обучение, и он для другой аудитории. Отелю нужна одна страница на английском, а не перевод факультетов.</p>
+<p class="d"><b>Не вкладываться в контент в Инстаграм под B2B.</b> Event-менеджер отеля не листает ленту — он ищет вендора и смотрит, что можно приложить к заявке на согласование.</p></div>
+<h4>Один шаг — сегодня</h4>
+<p>Отправьте английскую версию этой карточки следующей площадке. Не в директ, а письмом — её нужно приложить к внутреннему согласованию, а скриншот сторис туда не приложишь.</p>
+<div class="cliff"><h4>Мы посмотрели снаружи. Внутри мы не были</h4>
+<p>Вы сказали: из десяти площадок доходят одна-три, и что объяснить темп церемонии умеете только вы, поэтому ездите сами. <b>Для франшизы это и есть потолок</b> — и мы не знаем, где он стоит: в том, что вас не находят по-английски, или в том, что вы не выходите из процесса.</p>
+<p><b>Что находится, когда смотрят внутрь.</b> В одной работе Маша, наш экс-CFO, нашла расхождение в собственном капитале на сто семьдесят четыре тысячи долларов. В другой два условия договора исключали друг друга и стояли в одном документе.</p>
+<p>Три рабочих дня. Доступ к счетам, CRM и базе клиентов не нужен, и мы его не просим.</p>
+<span class="cta">Двадцать минут с Андреем и Машей — разберём, где стоит потолок франшизы</span>
+<div class="sig">Эту карточку собрал не человек. Мы проверили два ваших домена, сертификат, владельца имени и спросили поиск то же, что спрашивает менеджер отеля.</div></div>
+</div></div></div>
+
+<div class="note" style="margin-top:34px">
+<b>Что здесь настоящее.</b> Все карточки ссылок, выдача, отсутствие Калугина в обеих подборках, ответ ассистента дословно, фраза про русскую школу с его сайта, опечатки у Кристины, сломанный сертификат и редирект на Ronnefeldt, отсутствие Малены в англоязычной выдаче — снято живьём 05.09.2026. Ответы на четыре вопроса — реконструкция: их анкет у нас нет.<br><br>
+<b>Три типа вау, по силе.</b> <b>1. Инфраструктура</b> (Малена): имя в .com занято лидером её категории. Неоспоримо, бесплатно, прямо про деньги. <b>2. Асимметрия пересказа</b> (Калугин): соседям абзац, ему строка. Работает почти всегда. <b>3. Сломанная карточка</b> (Кристина): опечатки, пустое описание. Работает у эксперта.<br><br>
+<b>Правило, которое стоило проверки.</b> Первая формулировка по Малене была «домен уводит к конкуренту». Андрей возразил: у неё франшиза, может это сайт франчайзера. Проверили WHOIS, её сайт и что такое Ronnefeldt — гипотеза не подтвердилась, но вскрылось сильнее. <b>Инфраструктурную находку нельзя показывать до объяснения причины</b> — иначе это ошибка класса «Грант Кардон», только дороже.
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.nav button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.nav button').forEach(function(x){x.classList.remove('on')});
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    document.getElementById('t-'+b.dataset.t).classList.add('on');
+    window.scrollTo(0,0);
+  });
+});
+</script></body></html>

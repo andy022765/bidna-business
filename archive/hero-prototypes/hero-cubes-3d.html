@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D сборка из кубиков — прототип</title>
+<style>
+  html,body{margin:0;height:100%;background:#0f1430;overflow:hidden}
+  #gl{display:block;width:100vw;height:100vh}
+  .hint{position:fixed;left:16px;bottom:14px;font:13px/1.4 -apple-system,Inter,sans-serif;color:#8a90ad;z-index:2}
+  .hint b{color:#cdd3ec}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div class="hint"><b>3D-прототип:</b> серебристые кубики слетаются и складываются в вас (~10с) и держат. Фронт-грань = кусочек фото.</div>
+<script>
+const IMG_SRC='img/founders-clean.png';
+const COLS=40;
+const ASSEMBLE=10.0;            // seconds to assemble
+const cv=document.getElementById('gl');
+const gl=cv.getContext('webgl2',{antialias:true});
+if(!gl){ document.body.innerHTML='<p style="color:#fff;font-family:sans-serif;padding:20px">WebGL2 не поддерживается в этом браузере.</p>'; }
+
+// ---------- cube geometry (per-vertex: pos3, normal3, isFront1, uv2) ----------
+function buildCube(){
+  const v=[];
+  function quad(a,b,c,d,n,isFront,uvs){
+    // two triangles a,b,c and a,c,d
+    const P=[a,b,c,a,c,d]; const U=[uvs[0],uvs[1],uvs[2],uvs[0],uvs[2],uvs[3]];
+    for(let i=0;i<6;i++){ v.push(P[i][0],P[i][1],P[i][2], n[0],n[1],n[2], isFront, U[i][0],U[i][1]); }
+  }
+  const s=0.5;
+  // +Z front (textured)
+  quad([-s,-s, s],[ s,-s, s],[ s, s, s],[-s, s, s],[0,0,1],1,[[0,0],[1,0],[1,1],[0,1]]);
+  // -Z back
+  quad([ s,-s,-s],[-s,-s,-s],[-s, s,-s],[ s, s,-s],[0,0,-1],0,[[0,0],[1,0],[1,1],[0,1]]);
+  // +X
+  quad([ s,-s, s],[ s,-s,-s],[ s, s,-s],[ s, s, s],[1,0,0],0,[[0,0],[1,0],[1,1],[0,1]]);
+  // -X
+  quad([-s,-s,-s],[-s,-s, s],[-s, s, s],[-s, s,-s],[-1,0,0],0,[[0,0],[1,0],[1,1],[0,1]]);
+  // +Y
+  quad([-s, s, s],[ s, s, s],[ s, s,-s],[-s, s,-s],[0,1,0],0,[[0,0],[1,0],[1,1],[0,1]]);
+  // -Y
+  quad([-s,-s,-s],[ s,-s,-s],[ s,-s, s],[-s,-s, s],[0,-1,0],0,[[0,0],[1,0],[1,1],[0,1]]);
+  return new Float32Array(v);
+}
+
+const VS=`#version 300 es
+precision highp float;
+layout(location=0) in vec3 aPos;
+layout(location=1) in vec3 aNorm;
+layout(location=2) in float aIsFront;
+layout(location=3) in vec2 aFaceUV;
+layout(location=4) in vec3 aTarget;
+layout(location=5) in vec3 aStart;
+layout(location=6) in vec3 aAxis;
+layout(location=7) in float aSpin;
+layout(location=8) in float aDelay;
+layout(location=9) in vec2 aUV;      // tile origin in atlas
+uniform mat4 uProj, uView;
+uniform float uTime, uDur, uTileU, uTileV, uTile, uDepth;
+out vec3 vNorm; out vec2 vTexUV; out float vIsFront; out float vE;
+mat3 axisRot(vec3 ax, float ang){
+  ax=normalize(ax); float c=cos(ang), s=sin(ang), t=1.0-c;
+  return mat3(
+    t*ax.x*ax.x+c,      t*ax.x*ax.y+s*ax.z, t*ax.x*ax.z-s*ax.y,
+    t*ax.x*ax.y-s*ax.z, t*ax.y*ax.y+c,      t*ax.y*ax.z+s*ax.x,
+    t*ax.x*ax.z+s*ax.y, t*ax.y*ax.z-s*ax.x, t*ax.z*ax.z+c);
+}
+float ease(float x){ return x<0.5 ? 4.0*x*x*x : 1.0-pow(-2.0*x+2.0,3.0)/2.0; }
+void main(){
+  float p = clamp((uTime - aDelay)/uDur, 0.0, 1.0);
+  float e = ease(p);
+  vE = e;
+  float scl = mix(0.75, 1.0, e);
+  vec3 local = vec3(aPos.xy*uTile*scl, aPos.z*uDepth*scl);
+  mat3 R = axisRot(aAxis, aSpin*(1.0-e));
+  vec3 world = R*local + mix(aStart, aTarget, e);
+  vNorm = normalize(R*aNorm);
+  vIsFront = aIsFront;
+  vTexUV = aUV + aFaceUV*vec2(uTileU,uTileV);
+  gl_Position = uProj*uView*vec4(world,1.0);
+}`;
+
+const FS=`#version 300 es
+precision highp float;
+in vec3 vNorm; in vec2 vTexUV; in float vIsFront; in float vE;
+uniform sampler2D uPhoto;
+out vec4 frag;
+const vec3 SILVER=vec3(0.80,0.83,0.88);
+void main(){
+  vec3 L=normalize(vec3(0.35,0.55,0.75));
+  float diff=max(dot(normalize(vNorm),L),0.0)*0.6+0.4;
+  vec3 base = vIsFront>0.5 ? texture(uPhoto,vTexUV).rgb : SILVER;
+  vec3 col = base*diff;
+  float rim = pow(1.0-abs(normalize(vNorm).z),3.0);   // silver edge on grazing faces
+  col = mix(col, SILVER*1.1, rim*0.55);
+  col = mix(col, SILVER*0.95, (1.0-vE)*0.30);         // more silver while in flight
+  frag=vec4(col,1.0);
+}`;
+
+function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
+  if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));return s;}
+const prog=gl.createProgram();
+gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));
+gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));
+gl.linkProgram(prog);
+if(!gl.getProgramParameter(prog,gl.LINK_STATUS))console.error(gl.getProgramInfoLog(prog));
+gl.useProgram(prog);
+
+// ---------- buffers ----------
+const cube=buildCube();
+const vao=gl.createVertexArray(); gl.bindVertexArray(vao);
+const vbo=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,vbo); gl.bufferData(gl.ARRAY_BUFFER,cube,gl.STATIC_DRAW);
+const STRIDE=9*4;
+gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0,3,gl.FLOAT,false,STRIDE,0);
+gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1,3,gl.FLOAT,false,STRIDE,3*4);
+gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2,1,gl.FLOAT,false,STRIDE,6*4);
+gl.enableVertexAttribArray(3); gl.vertexAttribPointer(3,2,gl.FLOAT,false,STRIDE,7*4);
+
+let ROWS=COLS, COUNT=0, uni={};
+function buildInstances(imgW,imgH){
+  ROWS=Math.round(COLS*(imgH/imgW));
+  COUNT=COLS*ROWS;
+  const PW=2.0, tile=PW/COLS, PH=tile*ROWS;
+  const tgt=new Float32Array(COUNT*3), st=new Float32Array(COUNT*3), ax=new Float32Array(COUNT*3);
+  const sp=new Float32Array(COUNT), dl=new Float32Array(COUNT), uv=new Float32Array(COUNT*2);
+  let i=0;
+  for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){
+    const tx=-PW/2+(c+0.5)*tile, ty=PH/2-(r+0.5)*tile;
+    tgt[i*3]=tx; tgt[i*3+1]=ty; tgt[i*3+2]=0;
+    const ang=Math.random()*6.283, rad=PW*(0.35+Math.random()*0.7), zoff=(Math.random()-0.5)*PW*1.2;
+    st[i*3]=tx+Math.cos(ang)*rad; st[i*3+1]=ty+Math.sin(ang)*rad; st[i*3+2]=zoff;
+    ax[i*3]=Math.random()*2-1; ax[i*3+1]=Math.random()*2-1; ax[i*3+2]=Math.random()*2-1;
+    sp[i]=(Math.random()*2-1)*3.0;
+    const dist=Math.hypot(tx,ty)/Math.hypot(PW/2,PH/2);
+    dl[i]=dist*ASSEMBLE*0.35 + Math.random()*ASSEMBLE*0.4;
+    uv[i*2]=c/COLS; uv[i*2+1]=(ROWS-1-r)/ROWS;   // flipY texture -> bottom-up
+    i++;
+  }
+  function inst(loc,arr,size){const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);
+    gl.bufferData(gl.ARRAY_BUFFER,arr,gl.STATIC_DRAW);gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0);gl.vertexAttribDivisor(loc,1);}
+  inst(4,tgt,3); inst(5,st,3); inst(6,ax,3); inst(7,sp,1); inst(8,dl,1); inst(9,uv,2);
+  uni.tile=tile; uni.tileU=1/COLS; uni.tileV=1/ROWS; uni.depth=tile*0.55; uni.PH=PH;
+}
+
+// ---------- texture ----------
+const tex=gl.createTexture();
+const img=new Image();
+img.onload=()=>{
+  gl.bindTexture(gl.TEXTURE_2D,tex);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,img);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  buildInstances(img.naturalWidth,img.naturalHeight);
+  ready=true;
+};
+img.src=IMG_SRC;
+
+// ---------- matrices ----------
+function perspective(fovy,asp,n,f){const t=1/Math.tan(fovy/2);return new Float32Array([
+  t/asp,0,0,0, 0,t,0,0, 0,0,(f+n)/(n-f),-1, 0,0,(2*f*n)/(n-f),0]);}
+function lookZ(camZ){return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,-camZ,1]);}
+
+let ready=false,t0=null,W,H,camZ=3.4;
+const locProj=gl.getUniformLocation(prog,'uProj'), locView=gl.getUniformLocation(prog,'uView'),
+      locTime=gl.getUniformLocation(prog,'uTime'), locDur=gl.getUniformLocation(prog,'uDur'),
+      locTU=gl.getUniformLocation(prog,'uTileU'),locTV=gl.getUniformLocation(prog,'uTileV'),
+      locTile=gl.getUniformLocation(prog,'uTile'),locDepth=gl.getUniformLocation(prog,'uDepth'),
+      locPhoto=gl.getUniformLocation(prog,'uPhoto');
+function resize(){const dpr=Math.min(2,window.devicePixelRatio||1);const r=cv.getBoundingClientRect();
+  W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;gl.viewport(0,0,cv.width,cv.height);}
+window.addEventListener('resize',resize); resize();
+gl.enable(gl.DEPTH_TEST);
+gl.clearColor(0.055,0.075,0.16,1);
+
+function frame(ts){
+  if(t0==null)t0=ts;
+  const time=(ts-t0)/1000;
+  gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+  if(ready){
+    const asp=cv.width/cv.height;
+    // fit: ensure PH fits vertically; bump camZ for tall/narrow
+    const need=(uni.PH/2)/Math.tan(0.61/2)*1.08;
+    const cz=Math.max(3.0, need/Math.min(1,asp));
+    gl.useProgram(prog);
+    gl.uniformMatrix4fv(locProj,false,perspective(0.61,asp,0.1,50));
+    gl.uniformMatrix4fv(locView,false,lookZ(cz));
+    gl.uniform1f(locTime,time); gl.uniform1f(locDur,ASSEMBLE*0.4);
+    gl.uniform1f(locTU,uni.tileU); gl.uniform1f(locTV,uni.tileV);
+    gl.uniform1f(locTile,uni.tile); gl.uniform1f(locDepth,uni.depth);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,tex); gl.uniform1i(locPhoto,0);
+    gl.bindVertexArray(vao);
+    gl.drawArraysInstanced(gl.TRIANGLES,0,36,COUNT);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

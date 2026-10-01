@@ -1,0 +1,132 @@
+{
+ "versiya": "v5-vidimost-dva-yazyka",
+ "status": "ЗАМОРОЖЕН",
+ "voprosy": [
+  {
+   "id": "V1R",
+   "opornyy": true,
+   "text": "Кто в США берётся сделать так, чтобы ChatGPT называл мою компанию?",
+   "lang": "ru",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V1"
+  },
+  {
+   "id": "V1E",
+   "opornyy": true,
+   "text": "Who in the US can get ChatGPT to name my company?",
+   "lang": "en",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V1"
+  },
+  {
+   "id": "V2R",
+   "opornyy": true,
+   "text": "Как сделать, чтобы нейросеть советовала мою компанию клиентам в США?",
+   "lang": "ru",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V2"
+  },
+  {
+   "id": "V2E",
+   "opornyy": true,
+   "text": "How do I get AI assistants to recommend my company to customers in the US?",
+   "lang": "en",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V2"
+  },
+  {
+   "id": "V3R",
+   "opornyy": true,
+   "text": "Кто в США проверит, что нейросети говорят о моей компании?",
+   "lang": "ru",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V3"
+  },
+  {
+   "id": "V3E",
+   "opornyy": true,
+   "text": "Who in the US can check what AI assistants say about my company?",
+   "lang": "en",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V3"
+  },
+  {
+   "id": "V4R",
+   "opornyy": true,
+   "text": "Есть ли в США услуга исправить неверные данные о компании в ответах нейросетей?",
+   "lang": "ru",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V4"
+  },
+  {
+   "id": "V4E",
+   "opornyy": true,
+   "text": "Is there a service in the US that fixes wrong information about a business in AI answers?",
+   "lang": "en",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V4"
+  },
+  {
+   "id": "V5R",
+   "opornyy": true,
+   "text": "Кто в США занимается продвижением в AI-поиске для малого бизнеса и сколько это стоит?",
+   "lang": "ru",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V5"
+  },
+  {
+   "id": "V5E",
+   "opornyy": true,
+   "text": "Who does AI search optimization for small businesses in the US, and what does it cost?",
+   "lang": "en",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V5"
+  },
+  {
+   "id": "V6R",
+   "opornyy": true,
+   "text": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+   "lang": "ru",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V6"
+  },
+  {
+   "id": "V6E",
+   "opornyy": true,
+   "text": "My site blocks AI crawlers. Who can check it and open it up so AI assistants can see my business?",
+   "lang": "en",
+   "gruppa": "vidimost",
+   "s_imenem": false,
+   "rukami": true,
+   "para": "V6"
+  }
+ ],
+ "zamorozheno": "2026-09-25",
+ "utverdil": "Андрей, 25.09.2026, через ШТАБ",
+ "ne_menyat_do": "2026-12-22",
+ "hesh_voprosov": "26144da94b1ce070ee8aabeff2f6310cabbfd52c51b597231ab84c526f7cecf0",
+ "kak_proverit_hesh": "sha256 от json-списка пар [id, text] в порядке файла, ensure_ascii=False. Пересчитать: python3 -c \"import json,hashlib;d=json.load(open('voprosy.json'));print(hashlib.sha256(json.dumps([[q['id'],q['text']] for q in d['voprosy']],ensure_ascii=False).encode()).hexdigest())\"",
+ "protokol": "v2 — 7 повторов, два языка, устойчивый критерий 4 из 7"
+}

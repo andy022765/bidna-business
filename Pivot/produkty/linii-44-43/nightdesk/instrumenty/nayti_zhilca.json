@@ -1,0 +1,56 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "nayti_zhilca_nightdesk_demo",
+    "description": "Looks up the caller's own phone number in the resident list and returns their building and apartment, so you can confirm them. Call it once per call, after you know it is not a danger call. The result has nayden: true with adres_vsluh and kvartira_vsluh to read back as a question, or false — then ask for the building and apartment. Never read out anything else from it.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/nd-zhilec",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "ZAPOLNIT_secret_id_nightdesk_demo_x_liniya_klyuch"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "NightDesk DEMO → nd-zhilec",
+        "required": [
+          "caller_id",
+          "conversation_id",
+          "yazyk"
+        ],
+        "properties": {
+          "caller_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__caller_id"
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          },
+          "agent_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__current_agent_id"
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

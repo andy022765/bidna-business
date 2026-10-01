@@ -1,0 +1,1261 @@
+{
+ "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+ "agent_name": "Покупатель · приёмка",
+ "conversation_product": "agent",
+ "status": "done",
+ "user_id": "+14247811913",
+ "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+ "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2",
+ "metadata": {
+  "start_time_unix_secs": 1790566538,
+  "accepted_time_unix_secs": 1790566538,
+  "call_duration_secs": 77,
+  "queue_wait_secs": null,
+  "cost": 464,
+  "deletion_settings": {
+   "deletion_time_unix_secs": null,
+   "deleted_logs_at_time_unix_secs": null,
+   "deleted_audio_at_time_unix_secs": null,
+   "deleted_transcript_at_time_unix_secs": null,
+   "delete_transcript_and_pii": false,
+   "delete_audio": false
+  },
+  "feedback": {
+   "type": null,
+   "overall_score": null,
+   "likes": 0,
+   "dislikes": 0,
+   "rating": null,
+   "comment": null
+  },
+  "authorization_method": "signed_url",
+  "charging": {
+   "dev_discount": false,
+   "is_burst": false,
+   "tier": "creator",
+   "llm_usage": {
+    "irreversible_generation": {
+     "model_usage": {
+      "gemini-2.5-flash": {
+       "input": {
+        "tokens": 2691,
+        "price": 0.0004036500000000001
+       },
+       "input_cache_read": {
+        "tokens": 6512,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 75,
+        "price": 4.4999999999999996e-05
+       }
+      }
+     },
+     "detailed_model_usage": [
+      {
+       "config": {
+        "model": "gemini-2.5-flash",
+        "service_tier": "standard"
+       },
+       "usage": {
+        "input": {
+         "tokens": 2691,
+         "price": 0.0004036500000000001
+        },
+        "input_cache_read": {
+         "tokens": 6512,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 75,
+         "price": 4.4999999999999996e-05
+        }
+       }
+      }
+     ]
+    },
+    "initiated_generation": {
+     "model_usage": {
+      "gemini-2.5-flash": {
+       "input": {
+        "tokens": 7222,
+        "price": 0.0010833
+       },
+       "input_cache_read": {
+        "tokens": 8116,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 125,
+        "price": 7.5e-05
+       }
+      }
+     },
+     "detailed_model_usage": [
+      {
+       "config": {
+        "model": "gemini-2.5-flash",
+        "service_tier": "standard"
+       },
+       "usage": {
+        "input": {
+         "tokens": 7222,
+         "price": 0.0010833
+        },
+        "input_cache_read": {
+         "tokens": 8116,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 125,
+         "price": 7.5e-05
+        }
+       }
+      }
+     ]
+    }
+   },
+   "llm_price": 0.0011583,
+   "llm_charge": 6,
+   "call_charge": 458,
+   "platform_charge": 458,
+   "platform_usage": {
+    "category_usage": {
+     "voice": {
+      "credits": 453,
+      "price": 0.08179115254708537,
+      "quantity": 1.0269348613840217
+     },
+     "silence": {
+      "credits": 5,
+      "price": 0.0008221760292396403,
+      "quantity": 0.2509985527644555
+     }
+    }
+   },
+   "platform_price": 0.08261332857632502,
+   "free_minutes_consumed": 0.0,
+   "free_llm_dollars_consumed": 0.0,
+   "tts_usage": {
+    "primary_tts_model": "eleven_flash_v2",
+    "total_audio_output_seconds": 11.263875,
+    "total_characters": 156,
+    "per_voice_usage": [
+     {
+      "voice_id": "cjVigY5qzO86Huf0OWal",
+      "audio_output_seconds": 11.263875
+     }
+    ]
+   },
+   "asr_usage": {
+    "asr_model": "scribe_realtime",
+    "total_transcription_calls": 183,
+    "total_audio_input_seconds": 30.43200000000002
+   },
+   "analysis": null
+  },
+  "phone_call": {
+   "direction": "outbound",
+   "phone_number_id": "preregistered_+14242756121_+14247811913",
+   "agent_number": "+14242756121",
+   "external_number": "+14247811913",
+   "type": "twilio",
+   "stream_sid": "MZ1a1349977389b579a181b0e5f384ac61",
+   "call_sid": "CA75105b0c0baf889e6045e69f3d7daf24"
+  },
+  "batch_call": null,
+  "termination_reason": "end_call tool was called.",
+  "error": null,
+  "warnings": [],
+  "main_language": "en",
+  "rag_usage": null,
+  "text_only": false,
+  "features_usage": {
+   "language_detection": {
+    "enabled": false,
+    "used": false
+   },
+   "transfer_to_agent": {
+    "enabled": false,
+    "used": false
+   },
+   "transfer_to_number": {
+    "enabled": false,
+    "used": false
+   },
+   "multivoice": {
+    "enabled": false,
+    "used": false
+   },
+   "dtmf_tones": {
+    "enabled": false,
+    "used": false
+   },
+   "external_mcp_servers": {
+    "enabled": false,
+    "used": false
+   },
+   "pii_zrm_workspace": false,
+   "pii_zrm_agent": false,
+   "tool_dynamic_variable_updates": {
+    "enabled": false,
+    "used": false
+   },
+   "is_livekit": false,
+   "voicemail_detection": {
+    "enabled": false,
+    "used": false
+   },
+   "dtmf_input": {
+    "enabled": false,
+    "used": false
+   },
+   "workflow": {
+    "enabled": false,
+    "tool_node": {
+     "enabled": false,
+     "used": false
+    },
+    "standalone_agent_node": {
+     "enabled": false,
+     "used": false
+    },
+    "phone_number_node": {
+     "enabled": false,
+     "used": false
+    },
+    "end_node": {
+     "enabled": false,
+     "used": false
+    }
+   },
+   "agent_testing": {
+    "enabled": false,
+    "tests_ran_after_last_modification": false,
+    "tests_ran_in_last_7_days": false
+   },
+   "versioning": {
+    "enabled": true,
+    "used": false
+   },
+   "file_input": {
+    "enabled": true,
+    "used": false
+   },
+   "freeform_procedure": {
+    "enabled": false,
+    "used": false
+   },
+   "structured_procedure": {
+    "enabled": false,
+    "used": false
+   }
+  },
+  "eleven_assistant": {
+   "is_eleven_assistant": false
+  },
+  "initiator_id": null,
+  "conversation_initiation_source": "twilio",
+  "conversation_initiation_source_version": null,
+  "timezone": null,
+  "async_metadata": null,
+  "whatsapp": null,
+  "sms": null,
+  "agent_created_from": "api",
+  "agent_last_updated_from": "api",
+  "voice_rewards": [],
+  "cost_fiat": 0.08377162857632502
+ },
+ "analysis": {
+  "evaluation_criteria_results": {},
+  "data_collection_results": {},
+  "evaluation_criteria_results_list": [],
+  "data_collection_results_list": [],
+  "call_successful": "success",
+  "call_success_score": null,
+  "transcript_summary": "The conversation begins with a virtual assistant introducing itself and its function. The agent requests to speak with Andrey, stating they have already completed a diagnosis. The virtual assistant explains Andrey's process, mentioning he speaks after a diagnosis and offers to send information. After a period of silence from the virtual assistant, the agent attempts to re-engage, but the virtual assistant switches to an answering machine message. The agent then acknowledges this and ends the call.",
+  "call_summary_title": "Оставить сообщение Андрею",
+  "scoped": [],
+  "sentiment_analysis": {
+   "overall_label": "neutral",
+   "overall_sentiment_score": 0.0,
+   "overall_frustration_score": 0.0,
+   "min_user_sentiment_score": 0.0,
+   "max_user_frustration_score": 0.0,
+   "num_scored_user_turns": 0
+  }
+ },
+ "visited_agents": [
+  {
+   "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+   "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec"
+  }
+ ],
+ "conversation_initiation_client_data": {
+  "conversation_config_override": {
+   "asr": null,
+   "turn": null,
+   "tts": null,
+   "conversation": null,
+   "agent": null
+  },
+  "custom_llm_extra_body": {},
+  "user_id": null,
+  "source_info": {
+   "source": null,
+   "version": null
+  },
+  "branch_id": null,
+  "environment": null,
+  "starting_workflow_node_id": null,
+  "experiments": [],
+  "procedure_ids": null,
+  "dynamic_variables": {
+   "scenariy": "Здравствуйте, соедините меня с Андреем, пожалуйста.",
+   "nomer_scenariya": "perevod-ru-03",
+   "ukazaniya": "Говори только по-русски. СЕБЯ НЕ НАЗЫВАЙ НИ РАЗУ: имени не сообщай, даже если спросят — скажи «это неважно» и вернись к делу. Ты уже клиент: диагностику прошёл, Андрей просил с тобой связаться — скажи это своими словами и попроси соединить. Предложат бесплатный разбор — повтори, что ты не новичок.\n\nКОГДА СКАЖУТ, ЧТО СОЕДИНЯЮТ: молчи и НЕ клади трубку. Что бы ты ни слышал — гудки, тишину, чей-то голос, автоответчик — не клади трубку минимум СОРОК СЕКУНД. Положить раньше значит испортить всю проверку, это важнее всего остального. Только после того, как услышишь целую фразу о том, что никто не поднял, или после сорока секунд, скажи «Хорошо, спасибо» и положи трубку.",
+   "system__agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+   "system__agent_turns": 5,
+   "system__current_agent_turns": 5,
+   "system__current_subagent_turns": 5,
+   "system__current_agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+   "system__conversation_id": "conv_8701m3k1a6kpfrzrvztsy4xg35j4",
+   "system__call_duration_secs": 76,
+   "system__time_utc": "2026-09-28T03:36:55.458923+00:00",
+   "system__timezone": null,
+   "system__time": "Monday, 03:36 28 September 2026",
+   "system__time_hour": 3,
+   "system__time_minute": 36,
+   "system__time_second": 55,
+   "system__is_text_only": false,
+   "system__channel": "twilio",
+   "system__caller_id": "+14242756121",
+   "system__called_number": "+14247811913",
+   "system__call_sid": "CA75105b0c0baf889e6045e69f3d7daf24",
+   "system__call_id": null,
+   "system__conversation_history": "{\"x-elevenlabs-history\": true, \"entries\": [{\"role\": \"user\", \"message\": \"\\u0414\\u043e\\u0431\\u0440\\u044b\\u0439 \\u0434\\u0435\\u043d\\u044c, \\u043c\\u0435\\u043d\\u044f \\u0437\\u043e\\u0432\\u0443\\u0442 \\u0412\\u0435\\u0440\\u0430. \\u042f \\u0432\\u0438\\u0440\\u0442\\u0443\\u0430\\u043b\\u044c\\u043d\\u044b\\u0439 \\u0430\\u0441\\u0441\\u0438\\u0441\\u0442\\u0435\\u043d\\u0442. \\u0420\\u0430\\u0437\\u0433\\u043e\\u0432\\u043e\\u0440 \\u0441\\u043e\\u0445\\u0440\\u0430\\u043d\\u044f\\u0435\\u0442\\u0441\\u044f \\u0432 \\u0432\\u0438\\u0434\\u0435 \\u0442\\u0435\\u043a\\u0441\\u0442\\u0430. \\u042f \\u043e\\u0442\\u0432\\u0435\\u0447\\u0430\\u044e \\u043d\\u0430 \\u0437\\u0432\\u043e\\u043d\\u043a\\u0438 \\u0432\\u043c\\u0435\\u0441\\u0442\\u043e \\u0432\\u043b\\u0430\\u0434\\u0435\\u043b\\u044c\\u0446\\u0430, \\u0447\\u0442\\u043e\\u0431\\u044b \\u043d\\u0438\\u043a\\u0442\\u043e \\u043d\\u0435 \\u043f\\u043e\\u043f\\u0430\\u0434\\u0430\\u043b \\u043d\\u0430 \\u0430\\u0432\\u0442\\u043e\\u043e\\u0442\\u0432\\u0435\\u0442\\u0447\\u0438\\u043a. \\u0421\\u043f\\u0440\\u0430\\u0448\\u0438\\u0432\\u0430\\u0439\\u0442\\u0435 \\u0447\\u0442\\u043e \\u0443\\u0433\\u043e\\u0434\\u043d\\u043e \\u0438\\u043b\\u0438 \\u0440\\u0430\\u0441\\u0441\\u043a\\u0430\\u0436\\u0438\\u0442\\u0435, \\u0447\\u0435\\u043c \\u0437\\u0430\\u043d\\u0438\\u043c\\u0430\\u0435\\u0442\\u0435\\u0441\\u044c, \\u0438 \\u044f \\u043f\\u043e\\u043a\\u0430\\u0436\\u0443, \\u043a\\u0430\\u043a \\u043e\\u0442\\u0432\\u0435\\u0447\\u0430\\u043b\\u0430 \\u0431\\u044b \\u0432\\u0430\\u0448\\u0438\\u043c \\u043a\\u043b\\u0438\\u0435\\u043d\\u0442\\u0430\\u043c.\"}, {\"role\": \"agent\", \"message\": \"\\u0417\\u0434\\u0440\\u0430\\u0432\\u0441\\u0442\\u0432\\u0443\\u0439\\u0442\\u0435, \\u0441\\u043e\\u0435\\u0434\\u0438\\u043d\\u0438\\u0442\\u0435 \\u043c\\u0435\\u043d\\u044f \\u0441 \\u0410\\u043d\\u0434\\u0440\\u0435\\u0435\\u043c, \\u043f\\u043e\\u0436\\u0430\\u043b\\u0443\\u0439\\u0441\\u0442\\u0430.\"}, {\"role\": \"user\", \"message\": \"\\u0410\\u043d\\u0434\\u0440\\u0435\\u0439 \\u0432\\u044b\\u0445\\u043e\\u0434\\u0438\\u0442 \\u043d\\u0430 \\u0440\\u0430\\u0437\\u0433\\u043e\\u0432\\u043e\\u0440 \\u043f\\u043e\\u0441\\u043b\\u0435 \\u0434\\u0438\\u0430\\u0433\\u043d\\u043e\\u0441\\u0442\\u0438\\u043a\\u0438. \\u041e\\u043d \\u043f\\u0440\\u0438\\u0445\\u043e\\u0434\\u0438\\u0442, \\u0443\\u0436\\u0435 \\u0440\\u0430\\u0437\\u043e\\u0431\\u0440\\u0430\\u0432\\u0448\\u0438\\u0441\\u044c \\u0432 \\u0432\\u0430\\u0448\\u0435\\u043c \\u0434\\u0435\\u043b\\u0435. \\u041f\\u0440\\u0438\\u0448\\u043b\\u044e \\u043d\\u0430 \\u043f\\u043e\\u0447\\u0442\\u0443, \\u0441 \\u0447\\u0435\\u0433\\u043e \\u043d\\u0430\\u0447\\u0438\\u043d\\u0430\\u044e\\u0442.\"}, {\"role\": \"agent\", \"message\": \"\\u042f \\u0443\\u0436\\u0435 \\u043f\\u0440\\u043e\\u0445\\u043e\\u0434\\u0438\\u043b \\u0434\\u0438\\u0430\\u0433\\u043d\\u043e\\u0441\\u0442\\u0438\\u043a\\u0443. \\u0410\\u043d\\u0434\\u0440\\u0435\\u0439 \\u043f\\u0440\\u043e\\u0441\\u0438\\u043b \\u0441 \\u043d\\u0438\\u043c \\u0441\\u0432\\u044f\\u0437\\u0430\\u0442\\u044c\\u0441\\u044f.\"}, {\"role\": \"user\", \"message\": \"...\"}, {\"role\": \"agent\", \"message\": \"\\u0412\\u044b \\u043c\\u0435\\u043d\\u044f \\u0441\\u043b\\u044b\\u0448\\u0438\\u0442\\u0435?\"}, {\"role\": \"user\", \"message\": \"...\"}, {\"role\": \"agent\", \"message\": \"\\u0410\\u043b\\u043b\\u043e? \\u0412\\u044b \\u0437\\u0434\\u0435\\u0441\\u044c?\"}, {\"role\": \"user\", \"message\": \"Leave your message. When you have finished recording, you may hang up.\"}, {\"role\": \"agent\", \"message\": \"\\u0425\\u043e\\u0440\\u043e\\u0448\\u043e, \\u0441\\u043f\\u0430\\u0441\\u0438\\u0431\\u043e.\"}, {\"role\": \"agent\", \"tool_requests\": [{\"tool_name\": \"end_call\", \"params_as_json\": {\"reason\": \"The user asked me to leave a message, so I will end the call after leaving a message.\", \"system__message_to_speak\": \"\\u0425\\u043e\\u0440\\u043e\\u0448\\u043e, \\u0441\\u043f\\u0430\\u0441\\u0438\\u0431\\u043e.\"}}]}, {\"role\": \"agent\", \"tool_results\": [{\"tool_name\": \"end_call\", \"result_value\": \"{\\\"result_type\\\":\\\"end_call_success\\\",\\\"status\\\":\\\"success\\\",\\\"reason\\\":\\\"The user asked me to leave a message, so I will end the call after leaving a message.\\\",\\\"message\\\":null}\"}]}]}",
+   "system__user_id": "+14247811913",
+   "system__initiator_id": null
+  },
+  "tool_mock_config": {
+   "mocking_strategy": "none",
+   "fallback_strategy": "raise_error",
+   "mocked_tool_names": []
+  },
+  "tool_mock_overrides": {}
+ },
+ "environment": "production",
+ "experiment_assignments": null,
+ "hiding_reason": null,
+ "smb_metadata": null,
+ "conversation_id": "conv_8701m3k1a6kpfrzrvztsy4xg35j4",
+ "has_audio": true,
+ "has_user_audio": true,
+ "has_response_audio": true,
+ "has_auxiliary_audio": false,
+ "transcript": [
+  {
+   "role": "user",
+   "agent_metadata": null,
+   "message": "Добрый день, меня зовут Вера. Я виртуальный ассистент. Разговор сохраняется в виде текста. Я отвечаю на звонки вместо владельца, чтобы никто не попадал на автоответчик. Спрашивайте что угодно или расскажите, чем занимаетесь, и я покажу, как отвечала бы вашим клиентам.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 0,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.06464378908276558
+     }
+    },
+    "convai_asr_provider": "Scribe v2 Realtime",
+    "convai_tts_model": null,
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": "audio",
+   "source_event_id": 107,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+    "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2"
+   },
+   "message": "Здравствуйте, соедините меня с Андреем, пожалуйста.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 17,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttf_sentence": {
+      "elapsed_time": 0.3255674750544131
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.25414732610806823
+     },
+     "convai_llm_service_tt_last_sentence": {
+      "elapsed_time": 0.33671644516289234
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.11432607797905803
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 0.9347142309732734
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 0.416
+     },
+     "convai_turn_asr_latency": {
+      "elapsed_time": 0.06464378908276558
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": {
+    "model_usage": {
+     "gemini-2.5-flash": {
+      "input": {
+       "tokens": 1790,
+       "price": 0.0002685
+      },
+      "input_cache_read": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "input_cache_write": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "output_total": {
+       "tokens": 12,
+       "price": 7.2e-06
+      }
+     }
+    },
+    "detailed_model_usage": [
+     {
+      "config": {
+       "model": "gemini-2.5-flash",
+       "service_tier": "standard"
+      },
+      "usage": {
+       "input": {
+        "tokens": 1790,
+        "price": 0.0002685
+       },
+       "input_cache_read": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 12,
+        "price": 7.2e-06
+       }
+      }
+     }
+    ]
+   },
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 107,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "user",
+   "agent_metadata": null,
+   "message": "Андрей выходит на разговор после диагностики. Он приходит, уже разобравшись в вашем деле. Пришлю на почту, с чего начинают.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 23,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.026533700060099363
+     }
+    },
+    "convai_asr_provider": "Scribe v2 Realtime",
+    "convai_tts_model": null,
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": "audio",
+   "source_event_id": 192,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+    "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2"
+   },
+   "message": "Я уже проходил диагностику. Андрей просил с ним связаться.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 31,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttf_sentence": {
+      "elapsed_time": 0.46589761204086244
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.36029057390987873
+     },
+     "convai_llm_service_tt_last_sentence": {
+      "elapsed_time": 0.4815457419026643
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14074552804231644
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 0.9677831089869142
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 0.32
+     },
+     "convai_turn_asr_latency": {
+      "elapsed_time": 0.026533700060099363
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": {
+    "model_usage": {
+     "gemini-2.5-flash": {
+      "input": {
+       "tokens": 136,
+       "price": 2.0399999999999998e-05
+      },
+      "input_cache_read": {
+       "tokens": 1697,
+       "price": 0.0
+      },
+      "input_cache_write": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "output_total": {
+       "tokens": 15,
+       "price": 9e-06
+      }
+     }
+    },
+    "detailed_model_usage": [
+     {
+      "config": {
+       "model": "gemini-2.5-flash",
+       "service_tier": "standard"
+      },
+      "usage": {
+       "input": {
+        "tokens": 136,
+        "price": 2.0399999999999998e-05
+       },
+       "input_cache_read": {
+        "tokens": 1697,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 15,
+        "price": 9e-06
+       }
+      }
+     }
+    ]
+   },
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 192,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "user",
+   "agent_metadata": null,
+   "message": "...",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 47,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.025775448884814978
+     }
+    },
+    "convai_asr_provider": "Scribe v2 Realtime",
+    "convai_tts_model": null,
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": "audio",
+   "source_event_id": 298,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+    "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2"
+   },
+   "message": "Вы меня слышите?",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 48,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttf_sentence": {
+      "elapsed_time": 0.4447578121908009
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.33268337417393923
+     },
+     "convai_llm_service_tt_last_sentence": {
+      "elapsed_time": 0.4447488021105528
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.09972228901460767
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 17.03810048081912
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 16.48
+     },
+     "convai_turn_asr_latency": {
+      "elapsed_time": 0.025775448884814978
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": {
+    "model_usage": {
+     "gemini-2.5-flash": {
+      "input": {
+       "tokens": 239,
+       "price": 3.5850000000000004e-05
+      },
+      "input_cache_read": {
+       "tokens": 1610,
+       "price": 0.0
+      },
+      "input_cache_write": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "output_total": {
+       "tokens": 5,
+       "price": 3e-06
+      }
+     }
+    },
+    "detailed_model_usage": [
+     {
+      "config": {
+       "model": "gemini-2.5-flash",
+       "service_tier": "standard"
+      },
+      "usage": {
+       "input": {
+        "tokens": 239,
+        "price": 3.5850000000000004e-05
+       },
+       "input_cache_read": {
+        "tokens": 1610,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 5,
+        "price": 3e-06
+       }
+      }
+     }
+    ]
+   },
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 298,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "user",
+   "agent_metadata": null,
+   "message": "...",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 61,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.025775448884814978
+     }
+    },
+    "convai_asr_provider": "Scribe v2 Realtime",
+    "convai_tts_model": null,
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": "audio",
+   "source_event_id": 385,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+    "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2"
+   },
+   "message": "Алло? Вы здесь?",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 62,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttf_sentence": {
+      "elapsed_time": 0.450889112893492
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.3068907849956304
+     },
+     "convai_llm_service_tt_last_sentence": {
+      "elapsed_time": 0.4508801428601146
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.10735706798732281
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 14.01350244000554
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 13.44
+     },
+     "convai_turn_asr_latency": {
+      "elapsed_time": 0.025775448884814978
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": {
+    "model_usage": {
+     "gemini-2.5-flash": {
+      "input": {
+       "tokens": 251,
+       "price": 3.765e-05
+      },
+      "input_cache_read": {
+       "tokens": 1604,
+       "price": 0.0
+      },
+      "input_cache_write": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "output_total": {
+       "tokens": 6,
+       "price": 3.6e-06
+      }
+     }
+    },
+    "detailed_model_usage": [
+     {
+      "config": {
+       "model": "gemini-2.5-flash",
+       "service_tier": "standard"
+      },
+      "usage": {
+       "input": {
+        "tokens": 251,
+        "price": 3.765e-05
+       },
+       "input_cache_read": {
+        "tokens": 1604,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 6,
+        "price": 3.6e-06
+       }
+      }
+     }
+    ]
+   },
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 385,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "user",
+   "agent_metadata": null,
+   "message": "Leave your message. When you have finished recording, you may hang up.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 71,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.018962440080940723
+     }
+    },
+    "convai_asr_provider": "Scribe v2 Realtime",
+    "convai_tts_model": null,
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": "audio",
+   "source_event_id": 463,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+    "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2"
+   },
+   "message": "Хорошо, спасибо.",
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 74,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.5484532311093062
+     },
+     "convai_llm_tool_request_generation_latency": {
+      "elapsed_time": 0.5488574509508908
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.09583643800579011
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 0.8714370890129357
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 0.192
+     },
+     "convai_turn_asr_latency": {
+      "elapsed_time": 0.018962440080940723
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 463,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+    "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2"
+   },
+   "message": null,
+   "multivoice_message": null,
+   "tool_calls": [
+    {
+     "type": "system",
+     "request_id": "end_call_3bc4c9371b014462a99cbb938739225a",
+     "tool_name": "end_call",
+     "params_as_json": "{\"reason\": \"The user asked me to leave a message, so I will end the call after leaving a message.\", \"system__message_to_speak\": \"\\u0425\\u043e\\u0440\\u043e\\u0448\\u043e, \\u0441\\u043f\\u0430\\u0441\\u0438\\u0431\\u043e.\"}",
+     "tool_has_been_called": true,
+     "tool_details": null
+    }
+   ],
+   "tool_results": [],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": "gemini-2.5-flash",
+   "time_in_call_secs": 74,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.5484532311093062
+     },
+     "convai_llm_tool_request_generation_latency": {
+      "elapsed_time": 0.5488574509508908
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.09583643800579011
+     },
+     "convai_ttf_audio_since_silence": {
+      "elapsed_time": 0.8714370890129357
+     },
+     "convai_turn_silence_before_initiation": {
+      "elapsed_time": 0.192
+     },
+     "convai_turn_asr_latency": {
+      "elapsed_time": 0.018962440080940723
+     }
+    },
+    "convai_asr_provider": null,
+    "convai_tts_model": "eleven_flash_v2",
+    "convai_tts_cascade": null
+   },
+   "rag_retrieval_info": null,
+   "llm_usage": {
+    "model_usage": {
+     "gemini-2.5-flash": {
+      "input": {
+       "tokens": 275,
+       "price": 4.125e-05
+      },
+      "input_cache_read": {
+       "tokens": 1601,
+       "price": 0.0
+      },
+      "input_cache_write": {
+       "tokens": 0,
+       "price": 0.0
+      },
+      "output_total": {
+       "tokens": 37,
+       "price": 2.22e-05
+      }
+     }
+    },
+    "detailed_model_usage": [
+     {
+      "config": {
+       "model": "gemini-2.5-flash",
+       "service_tier": "standard"
+      },
+      "usage": {
+       "input": {
+        "tokens": 275,
+        "price": 4.125e-05
+       },
+       "input_cache_read": {
+        "tokens": 1601,
+        "price": 0.0
+       },
+       "input_cache_write": {
+        "tokens": 0,
+        "price": 0.0
+       },
+       "output_total": {
+        "tokens": 37,
+        "price": 2.22e-05
+       }
+      }
+     }
+    ]
+   },
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 463,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  },
+  {
+   "role": "agent",
+   "agent_metadata": {
+    "agent_id": "agent_4701m34zngp2e9cb2w5wcrd171zr",
+    "branch_id": "agtbrch_7501m34znjtnev8r3h0w7qph8wec",
+    "workflow_node_id": null,
+    "version_id": "agtvrsn_4601m3g96bw3errsdgtcjccdmte2"
+   },
+   "message": null,
+   "multivoice_message": null,
+   "tool_calls": [],
+   "tool_results": [
+    {
+     "request_id": "end_call_3bc4c9371b014462a99cbb938739225a",
+     "tool_name": "end_call",
+     "result_value": "{\"result_type\":\"end_call_success\",\"status\":\"success\",\"reason\":\"The user asked me to leave a message, so I will end the call after leaving a message.\",\"message\":null}",
+     "is_error": false,
+     "is_blocked": false,
+     "tool_has_been_called": true,
+     "tool_latency_secs": 0.5012912419624627,
+     "error_type": "",
+     "raw_error_message": "",
+     "dynamic_variable_updates": [],
+     "type": "system",
+     "result": {
+      "result_type": "end_call_success",
+      "status": "success",
+      "reason": "The user asked me to leave a message, so I will end the call after leaving a message.",
+      "message": null
+     }
+    }
+   ],
+   "feedback": null,
+   "llm_override": null,
+   "producing_llm": null,
+   "time_in_call_secs": 76,
+   "conversation_turn_metrics": null,
+   "rag_retrieval_info": null,
+   "llm_usage": null,
+   "interrupted": false,
+   "ignored_as_backchannel": false,
+   "original_message": null,
+   "reasoning": [],
+   "source_medium": null,
+   "source_event_id": 463,
+   "used_static_kb_document_ids": [],
+   "analysis": null,
+   "user_identifier": null,
+   "id": null,
+   "compaction": null,
+   "triggered_guardrails": [],
+   "file_input": null,
+   "file_inputs": [],
+   "contextual_update_info": null,
+   "config_snapshot_id": null,
+   "reasoned": false
+  }
+ ],
+ "tag_ids": [],
+ "realtime_config_snapshots": null,
+ "otlp_traces": null
+}

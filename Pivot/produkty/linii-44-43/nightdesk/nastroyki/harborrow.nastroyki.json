@@ -1,0 +1,527 @@
+{
+  "harborrow": {
+    "_prim": "СОБРАНО nightdesk/nastroyki/sobrat.js из nightdesk/list-pravdy/harborrow.json — руками не править. Без секретов. null/пусто = решения Андрея нет (номера реальных дежурных, отправитель писем, адресаты сводки). Блок nightdesk читают функции nd-* (KONTRAKT-ND.md).",
+    "nazvanie": "Harbor Row Property Management (DEMO)",
+    "opisanie": "3 buildings, 180 apartments, Brooklyn, NY",
+    "demo": true,
+    "shtat": "NY",
+    "poyas": "America/New_York",
+    "yazyk_vladelca": "en",
+    "yazyki": [
+      "en",
+      "es"
+    ],
+    "kalendari": {
+      "pokaz": {
+        "kalendar": "",
+        "zanyatost": [],
+        "chas_ot": 10,
+        "chas_do": 17,
+        "dni": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "dlina_min": 30,
+        "zapas_min": 0,
+        "ne_ranshe_chasov": 2,
+        "vpered_dney": 10,
+        "okon_v_otvete": 3,
+        "po_obyavleniyu": true
+      }
+    },
+    "perevod": {
+      "_prim": "Часы офиса: линия лизинга в часы офиса переводит на cepochka (агент по аренде → ресепшн). Ночная линия зовёт людей через nd-perevod по цепочке nightdesk.dezhurnye.",
+      "chasy": {
+        "chas_ot": 9,
+        "chas_do": 17,
+        "dni": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "cepochka": [
+        "+17185550113",
+        "+17185550100"
+      ],
+      "imya": {
+        "en": "our leasing office",
+        "es": "nuestra oficina de alquiler"
+      },
+      "zhdat_s": 20,
+      "zvuk": {}
+    },
+    "dezhurnye": {
+      "cepochka": [
+        "+17185550111",
+        "+17185550112"
+      ],
+      "zhdat_s": 20
+    },
+    "pisma": {
+      "ot": null,
+      "otvet": null,
+      "upravlyayushchemu": [],
+      "lizingu": [],
+      "svodka_komu": []
+    },
+    "sms": {
+      "ot": null
+    },
+    "limity": {
+      "pisem_v_sutki": 60,
+      "sms_v_sutki": 200,
+      "zvonkov_v_sutki": 60,
+      "zayavok_v_sutki": 100
+    },
+    "svodka": {
+      "vklyuchena": true,
+      "chas": 7
+    },
+    "pult_klyuch_env": "PULT_KLYUCH_HARBORROW",
+    "rezerv_nomer": null,
+    "nightdesk": {
+      "avarii": {
+        "_prim": "СПИСОК АВАРИЙ УПРАВЛЯЮЩЕГО (DEMO). Уровни: ugroza_zhizni — 911 сразу и сигнал дежурным без перевода; avaria — инструкция и перевод по цепочке; всё прочее — заявка на утро. Условия внутри категорий (течёт ли сейчас, весь ли дом, температура по правилам NYC, проверен ли автомат) решает движок platforma/lib/nightdesk/sortirovka.js — детерминированно, по ответам агента. Неизвестный ответ на вопрос безопасности = худший случай.",
+        "ugroza_zhizni": [
+          "gaz",
+          "ogon_dym",
+          "ugarnyy_gaz",
+          "lift_zastryali",
+          "elektrichestvo_opasno",
+          "medicina",
+          "prestuplenie",
+          "obrushenie"
+        ],
+        "avaria": [
+          "voda_protechka",
+          "kanalizaciya",
+          "net_vody",
+          "net_tepla",
+          "net_goryachey_vody",
+          "net_sveta",
+          "vhodnaya_dver",
+          "zamok_kvartiry",
+          "lift_ne_rabotaet"
+        ],
+        "ne_srochno": [
+          "santehnika",
+          "bytovaya_tehnika",
+          "vrediteli",
+          "plesen",
+          "domofon",
+          "osveshchenie",
+          "detektor_batareyka",
+          "zamok_zahlopnulsya",
+          "okno",
+          "shum",
+          "drugoe"
+        ],
+        "usloviya": {
+          "net_goryachey_vody": "авария, если без горячей воды несколько квартир или весь дом; одна квартира — заявка на утро",
+          "net_sveta": "авария, если весь дом или несколько квартир, или одна квартира после проверки автомата; вся улица — отключение Con Edison, заявка и совет сообщить в Con Edison",
+          "voda_protechka": "авария, если вода идёт сейчас или провис потолок; вода у розеток и щитка — угроза жизни; течь остановлена — заявка",
+          "net_tepla": "только в отопительный сезон и ниже порога NYC (teplo_nyc); весь дом или несколько квартир без тепла в сезон — авария; вне сезона — заявка",
+          "lift_ne_rabotaet": "в лифте кто-то есть — угроза жизни (911); пустой лифт стоит — авария"
+        },
+        "nastaivaet_eskalirovat": false,
+        "teplo_bez_termometra": "avaria",
+        "snaruzhi_neizvestno_kak_holodno": true,
+        "teplo_nyc": {
+          "sezon_mesyacy": [
+            10,
+            11,
+            12,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "sezon_vsluh_en": "October first through May thirty-first",
+          "sezon_vsluh_es": "del primero de octubre al treinta y uno de mayo",
+          "den": {
+            "s_chasa": 6,
+            "do_chasa": 22,
+            "snaruzhi_nizhe_f": 55,
+            "vnutri_ne_menee_f": 68
+          },
+          "noch": {
+            "s_chasa": 22,
+            "do_chasa": 6,
+            "vnutri_ne_menee_f": 62
+          },
+          "goryachaya_voda_ne_menee_f": 120,
+          "vsluh_en": "From six AM to ten PM, when it's below fifty-five degrees outside, it must be at least sixty-eight degrees inside. From ten PM to six AM, it must be at least sixty-two degrees inside, whatever the weather. Hot water must be at least one hundred twenty degrees all year.",
+          "vsluh_es": "De seis de la mañana a diez de la noche, cuando afuera hace menos de cincuenta y cinco grados, adentro debe haber al menos sesenta y ocho grados. De diez de la noche a seis de la mañana, adentro debe haber al menos sesenta y dos grados, haga el tiempo que haga. El agua caliente debe estar al menos a ciento veinte grados todo el año.",
+          "istochnik": "hpd_teplo"
+        }
+      },
+      "instrukcii": {
+        "911": {
+          "en": "Please hang up and call nine-one-one right now.",
+          "es": "Por favor, cuelgue y llame al nueve uno uno ahora mismo."
+        },
+        "gaz": {
+          "en": "Leave the apartment now. Don't switch anything on or off, don't use a lighter, and don't use the elevator. Once you're outside, call nine-one-one.",
+          "es": "Salga del apartamento ahora. No encienda ni apague nada, no use encendedores y no use el ascensor. Cuando esté afuera, llame al nueve uno uno."
+        },
+        "ogon_dym": {
+          "en": "Please hang up and call nine-one-one now. If the fire or smoke is in your apartment, get out and close the door behind you. Use the stairs, never the elevator.",
+          "es": "Por favor, cuelgue y llame al nueve uno uno ahora. Si el fuego o el humo está en su apartamento, salga y cierre la puerta al salir. Use las escaleras, nunca el ascensor."
+        },
+        "ugarnyy_gaz": {
+          "en": "Everyone should leave the apartment now and get fresh air. Once you're outside, call nine-one-one.",
+          "es": "Todos deben salir del apartamento ahora y respirar aire fresco. Cuando estén afuera, llamen al nueve uno uno."
+        },
+        "lift_zastryali": {
+          "en": "Please call nine-one-one now. If you are the one inside: press the alarm button, stay in the car, and don't try to open the doors.",
+          "es": "Por favor, llame al nueve uno uno ahora. Si usted es quien está adentro: presione el botón de alarma, quédese en la cabina y no intente abrir las puertas."
+        },
+        "elektrichestvo_opasno": {
+          "en": "Stay away from it and don't touch anything electrical, especially near water. Please hang up and call nine-one-one now.",
+          "es": "Aléjese y no toque nada eléctrico, sobre todo cerca del agua. Por favor, cuelgue y llame al nueve uno uno ahora."
+        },
+        "medicina": {
+          "en": "Please hang up and call nine-one-one right now.",
+          "es": "Por favor, cuelgue y llame al nueve uno uno ahora mismo."
+        },
+        "prestuplenie": {
+          "en": "If you're in danger, hang up and call nine-one-one right now. Stay somewhere safe and keep your door locked.",
+          "es": "Si está en peligro, cuelgue y llame al nueve uno uno ahora mismo. Quédese en un lugar seguro y mantenga la puerta cerrada con llave."
+        },
+        "obrushenie": {
+          "en": "Get everyone out of that room and keep them out. If anyone is hurt, hang up and call nine-one-one now.",
+          "es": "Saque a todos de esa habitación y no deje entrar a nadie. Si alguien está herido, cuelgue y llame al nueve uno uno ahora."
+        },
+        "voda": {
+          "en": "If you can do it safely, turn off the water: {gde_voda}. Move your things away from the water, and stay away from outlets and switches near it.",
+          "es": "Si puede hacerlo sin peligro, cierre el agua: {gde_voda}. Aleje sus cosas del agua y no se acerque a enchufes ni interruptores cercanos."
+        },
+        "kanalizaciya": {
+          "en": "Please don't use any sinks, toilets, the shower or the washing machine until it's fixed, and keep away from the water.",
+          "es": "Por favor, no use lavabos, inodoros, la ducha ni la lavadora hasta que se repare, y manténgase lejos del agua."
+        },
+        "net_vody": {
+          "en": "Please keep your faucets turned off, so the water doesn't run when it comes back.",
+          "es": "Por favor, mantenga las llaves cerradas para que el agua no corra cuando regrese."
+        },
+        "net_tepla": {
+          "en": "Keep your windows closed. Never use the oven or the stove to heat the apartment. If you use a space heater, plug it straight into the wall and keep it three feet from anything that can burn.",
+          "es": "Mantenga las ventanas cerradas. Nunca use el horno ni la estufa para calentar el apartamento. Si usa un calentador eléctrico, conéctelo directamente a la pared y manténgalo a tres pies de cualquier cosa que pueda quemarse."
+        },
+        "net_goryachey_vody": {
+          "en": "Please don't try to adjust any building equipment yourself.",
+          "es": "Por favor, no intente ajustar ningún equipo del edificio usted mismo."
+        },
+        "avtomat": {
+          "en": "Please check your electrical panel: {gde_shchit}. If a switch is off or stuck in the middle, push it all the way off, then back on. If it switches off again, leave it off.",
+          "es": "Por favor, revise su panel eléctrico: {gde_shchit}. Si un interruptor está apagado o a la mitad, empújelo del todo a apagado y luego a encendido. Si se vuelve a apagar, déjelo apagado."
+        },
+        "net_sveta": {
+          "en": "Please leave the electrical panel alone now, and use a flashlight instead of candles.",
+          "es": "Por favor, no toque más el panel eléctrico y use una linterna en lugar de velas."
+        },
+        "net_sveta_ulica": {
+          "en": "If the whole street is dark, it's most likely a Con Edison outage, and you can report it to Con Edison online or by phone.",
+          "es": "Si toda la calle está a oscuras, lo más probable es un apagón de Con Edison, y puede reportarlo a Con Edison por internet o por teléfono."
+        },
+        "vhodnaya_dver": {
+          "en": "Please don't prop the door open, and keep your own apartment door locked until it's fixed.",
+          "es": "Por favor, no deje la puerta de entrada abierta con nada, y mantenga cerrada con llave la puerta de su apartamento hasta que se repare."
+        },
+        "zamok_kvartiry": {
+          "en": "If you feel unsafe, hang up and call nine-one-one. Otherwise, if you can, keep someone at the apartment until the door is secured.",
+          "es": "Si se siente en peligro, cuelgue y llame al nueve uno uno. Si no, si puede, que alguien se quede en el apartamento hasta que se asegure la puerta."
+        },
+        "lift_ne_rabotaet": {
+          "en": "Please use the stairs. If you ever hear someone inside the elevator, call nine-one-one.",
+          "es": "Por favor, use las escaleras. Si escucha a alguien dentro del ascensor, llame al nueve uno uno."
+        },
+        "detektor": {
+          "en": "A short chirp about once a minute usually means the battery is low. If you hear a loud alarm that keeps going, or anyone feels dizzy or sick, get out and call nine-one-one.",
+          "es": "Un pitido corto como una vez por minuto suele significar que la batería está baja. Si oye una alarma fuerte y continua, o alguien se siente mareado o enfermo, salga y llame al nueve uno uno."
+        },
+        "zahlopnulsya": {
+          "en": "Lockouts are not handled as emergencies after hours. During office hours our staff can let you in when you show a photo ID. Right now, you can call a licensed locksmith at your own cost.",
+          "es": "Quedarse afuera no se atiende como emergencia fuera del horario. En horario de oficina nuestro personal puede abrirle si muestra una identificación con foto. Ahora mismo puede llamar a un cerrajero con licencia, a su propio costo."
+        }
+      },
+      "doma": [
+        {
+          "id": "tidewater",
+          "nazvanie": "Tidewater House (DEMO)",
+          "adres": "41 Harbor Row, Brooklyn, NY 11231 (DEMO)",
+          "adres_vsluh_en": "forty-one Harbor Row",
+          "adres_vsluh_es": "cuarenta y uno Harbor Row",
+          "lift": true,
+          "gde_voda": {
+            "en": "under your kitchen sink and under your bathroom sink there are two small valves, turn them to the right until they stop; for a toilet, the valve is on the wall behind it",
+            "es": "debajo del fregadero de la cocina y debajo del lavabo del baño hay dos llaves pequeñas, gírelas hacia la derecha hasta el tope; para el inodoro, la llave está en la pared detrás de él"
+          },
+          "gde_shchit": {
+            "en": "it's in the hallway closet next to your front door",
+            "es": "está en el armario del pasillo junto a la puerta de entrada"
+          }
+        },
+        {
+          "id": "seawell",
+          "nazvanie": "Seawell Court (DEMO)",
+          "adres": "215 Seawell Place, Brooklyn, NY 11220 (DEMO)",
+          "adres_vsluh_en": "two fifteen Seawell Place",
+          "adres_vsluh_es": "doscientos quince Seawell Place",
+          "lift": true,
+          "gde_voda": {
+            "en": "the shut-off valves are in the utility closet next to your bathroom door, turn the handles so they point across the pipe",
+            "es": "las llaves de paso están en el armario de servicio junto a la puerta del baño, gire las manijas para que queden atravesadas sobre el tubo"
+          },
+          "gde_shchit": {
+            "en": "it's on the kitchen wall next to the refrigerator",
+            "es": "está en la pared de la cocina junto al refrigerador"
+          }
+        },
+        {
+          "id": "kestrel",
+          "nazvanie": "Kestrel Gardens (DEMO)",
+          "adres": "780 Kestrel Avenue, Brooklyn, NY 11226 (DEMO)",
+          "adres_vsluh_en": "seven eighty Kestrel Avenue",
+          "adres_vsluh_es": "setecientos ochenta Kestrel Avenue",
+          "lift": false,
+          "gde_voda": {
+            "en": "under your kitchen sink and under your bathroom sink, turn the small valves to the right until they stop; for a toilet, the valve is behind it at the wall",
+            "es": "debajo del fregadero de la cocina y debajo del lavabo del baño, gire las llaves pequeñas hacia la derecha hasta el tope; para el inodoro, la llave está detrás, en la pared"
+          },
+          "gde_shchit": {
+            "en": "it's in the entry hallway of your apartment, near the front door",
+            "es": "está en el pasillo de entrada de su apartamento, cerca de la puerta"
+          }
+        }
+      ],
+      "dezhurnye": {
+        "cepochka": [
+          {
+            "rol": "dezhurnyy_1",
+            "imya": "Marco Diaz (DEMO)",
+            "telefon": "+17185550111"
+          },
+          {
+            "rol": "dezhurnyy_2",
+            "imya": "Renee Walsh (DEMO)",
+            "telefon": "+17185550112"
+          }
+        ]
+      },
+      "ofis_perevod": {
+        "cepochka_avarii": [
+          "+17185550100"
+        ],
+        "cepochka_lizinga": [
+          "+17185550113",
+          "+17185550100"
+        ]
+      },
+      "podryadchiki": [
+        {
+          "kod": "santehnik",
+          "imya": "Tidemark Plumbing (DEMO)",
+          "telefon": "+17185550131",
+          "kategorii": [
+            "voda_protechka",
+            "net_vody"
+          ]
+        },
+        {
+          "kod": "kanalizaciya",
+          "imya": "Gullwing Drain Service (DEMO)",
+          "telefon": "+17185550132",
+          "kategorii": [
+            "kanalizaciya"
+          ]
+        },
+        {
+          "kod": "kotel",
+          "imya": "Bluefin Boiler & Heat (DEMO)",
+          "telefon": "+17185550133",
+          "kategorii": [
+            "net_tepla",
+            "net_goryachey_vody"
+          ]
+        },
+        {
+          "kod": "elektrik",
+          "imya": "Lanternfish Electric (DEMO)",
+          "telefon": "+17185550134",
+          "kategorii": [
+            "net_sveta"
+          ]
+        },
+        {
+          "kod": "zamki",
+          "imya": "Pier Nine Lock & Door (DEMO)",
+          "telefon": "+17185550135",
+          "kategorii": [
+            "vhodnaya_dver",
+            "zamok_kvartiry"
+          ]
+        },
+        {
+          "kod": "lift",
+          "imya": "Upline Elevator Service (DEMO)",
+          "telefon": "+17185550136",
+          "kategorii": [
+            "lift_ne_rabotaet"
+          ]
+        }
+      ],
+      "eskalaciya": {
+        "zhdat_s": 20,
+        "povtor_min": 10,
+        "krugov": 3
+      },
+      "obeshchanie_perezvona": {
+        "en": "Our on-call team has your report and your number, and they will call you back as soon as they can.",
+        "es": "Nuestro equipo de guardia tiene su reporte y su número, y le devolverá la llamada lo antes posible."
+      },
+      "zayavki": {
+        "prefiks": "HR",
+        "obyazatelnye_polya": [
+          "dom",
+          "kvartira",
+          "opisanie",
+          "dostup",
+          "imya",
+          "telefon"
+        ],
+        "chto_dalshe": {
+          "en": "The office reviews repair requests on the next business day and will call you to schedule a visit.",
+          "es": "La oficina revisa las solicitudes de reparación el siguiente día hábil y le llamará para programar la visita."
+        }
+      },
+      "obyavleniya": [
+        {
+          "id": "tw-3c",
+          "dom": "tidewater",
+          "kvartira": "3C",
+          "samostoyatelnyy_pokaz": true,
+          "ssylka_obyavleniya": "https://harborrow-demo.example/listings/tw-3c",
+          "ssylka_zayavki": "https://harborrow-demo.example/apply/tw-3c",
+          "ssylka_pokaza": "https://harborrow-demo.example/tour/tw-3c"
+        },
+        {
+          "id": "tw-6a",
+          "dom": "tidewater",
+          "kvartira": "6A",
+          "samostoyatelnyy_pokaz": true,
+          "ssylka_obyavleniya": "https://harborrow-demo.example/listings/tw-6a",
+          "ssylka_zayavki": "https://harborrow-demo.example/apply/tw-6a",
+          "ssylka_pokaza": "https://harborrow-demo.example/tour/tw-6a"
+        },
+        {
+          "id": "sw-2b",
+          "dom": "seawell",
+          "kvartira": "2B",
+          "samostoyatelnyy_pokaz": true,
+          "ssylka_obyavleniya": "https://harborrow-demo.example/listings/sw-2b",
+          "ssylka_zayavki": "https://harborrow-demo.example/apply/sw-2b",
+          "ssylka_pokaza": "https://harborrow-demo.example/tour/sw-2b"
+        },
+        {
+          "id": "sw-5d",
+          "dom": "seawell",
+          "kvartira": "5D",
+          "samostoyatelnyy_pokaz": true,
+          "ssylka_obyavleniya": "https://harborrow-demo.example/listings/sw-5d",
+          "ssylka_zayavki": "https://harborrow-demo.example/apply/sw-5d",
+          "ssylka_pokaza": "https://harborrow-demo.example/tour/sw-5d"
+        },
+        {
+          "id": "kg-1r",
+          "dom": "kestrel",
+          "kvartira": "1R",
+          "samostoyatelnyy_pokaz": true,
+          "ssylka_obyavleniya": "https://harborrow-demo.example/listings/kg-1r",
+          "ssylka_zayavki": "https://harborrow-demo.example/apply/kg-1r",
+          "ssylka_pokaza": "https://harborrow-demo.example/tour/kg-1r"
+        },
+        {
+          "id": "kg-4f",
+          "dom": "kestrel",
+          "kvartira": "4F",
+          "samostoyatelnyy_pokaz": true,
+          "ssylka_obyavleniya": "https://harborrow-demo.example/listings/kg-4f",
+          "ssylka_zayavki": "https://harborrow-demo.example/apply/kg-4f",
+          "ssylka_pokaza": "https://harborrow-demo.example/tour/kg-4f"
+        }
+      ],
+      "kriterii_ssylka": "https://harborrow-demo.example/rental-criteria",
+      "kompaniya_vsluh": "Harbor Row",
+      "fair_housing_odobrennye": [
+        "I can't describe neighborhoods or say whether an area is safe. We give everyone the same facts about the apartment. The NYPD publishes official crime statistics online, and you're welcome to visit the area yourself.",
+        "No puedo describir barrios ni decir si una zona es segura. Damos a todos la misma información sobre el apartamento. El NYPD publica estadísticas oficiales de delitos en internet, y puede visitar la zona usted mismo.",
+        "I can't share anything about who lives in our buildings or in the area. I can tell you about the apartment itself: the rent, the dates and the building's features.",
+        "No puedo compartir nada sobre quién vive en nuestros edificios o en la zona. Puedo hablarle del apartamento: el alquiler, las fechas y las características del edificio.",
+        "Everyone is welcome to apply, and I don't ask about who's in your household. The number of people who can live in an apartment follows New York City's housing rules, and the leasing office can answer that for a specific apartment.",
+        "Todos pueden solicitar, y no pregunto quién forma parte de su hogar. El número de personas que pueden vivir en un apartamento sigue las normas de vivienda de la Ciudad de Nueva York, y la oficina de alquiler puede responder eso para un apartamento específico.",
+        "I can't comment on religion or places of worship. I can give you the building's address so you can look at the area yourself.",
+        "No puedo comentar sobre religión ni sobre lugares de culto. Puedo darle la dirección del edificio para que usted mismo conozca la zona.",
+        "I can't comment on anyone's background, in our buildings or in the neighborhood. Everyone gets the same information and goes through the same process.",
+        "No puedo comentar sobre el origen de nadie, ni en nuestros edificios ni en el barrio. Todos reciben la misma información y pasan por el mismo proceso.",
+        "You don't need to speak English to rent with us. This line and our office can help you in English or Spanish.",
+        "No necesita hablar inglés para alquilar con nosotros. Esta línea y nuestra oficina pueden atenderle en inglés o en español.",
+        "Anyone can ask for a reasonable accommodation or modification because of a disability, at any time, through the leasing office. I don't need any details about it on this call. I can tell you the building's features, like whether it has an elevator.",
+        "Cualquier persona puede pedir un ajuste o modificación razonable por una discapacidad, en cualquier momento, a través de la oficina de alquiler. No necesito ningún detalle en esta llamada. Puedo decirle las características del edificio, por ejemplo si tiene ascensor.",
+        "Assistance animals, including service and support animals, are not pets under our policy, so pet limits and pet fees don't apply to them. To request one, contact the leasing office. You don't need to explain anything to me.",
+        "Los animales de asistencia, incluidos los de servicio y de apoyo, no son mascotas según nuestra política, así que los límites y cargos por mascotas no se aplican a ellos. Para solicitarlo, comuníquese con la oficina de alquiler. No tiene que explicarme nada.",
+        "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.",
+        "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso.",
+        "Our published rental criteria ask for yearly income of forty times the monthly rent, or a guarantor. That requirement doesn't apply to applicants whose share of the rent is set by a voucher or rental assistance program. I can't pre-qualify anyone on the phone. The leasing office reviews every complete application.",
+        "Nuestros criterios de alquiler publicados piden ingresos anuales de cuarenta veces el alquiler mensual, o un garante. Ese requisito no se aplica a quienes tienen su parte del alquiler fijada por un vale o un programa de asistencia de alquiler. No puedo precalificar a nadie por teléfono. La oficina de alquiler revisa cada solicitud completa.",
+        "I can't ask about or discuss criminal history. You're welcome to apply, and every application goes to our leasing office.",
+        "No puedo preguntar ni hablar sobre antecedentes penales. Puede presentar su solicitud, y todas las solicitudes van a nuestra oficina de alquiler.",
+        "Everyone is welcome to apply, and everyone goes through the same process. I don't ask about personal matters on this line.",
+        "Todos pueden solicitar, y todos pasan por el mismo proceso. En esta línea no pregunto sobre asuntos personales.",
+        "Our published criteria accept any government-issued photo ID from any country, and a Social Security number is not required. The leasing office can explain the documents.",
+        "Nuestros criterios publicados aceptan cualquier identificación oficial con foto de cualquier país, y no se requiere número de Seguro Social. La oficina de alquiler puede explicarle los documentos.",
+        "There's no minimum credit score in our published criteria. The leasing office looks at each complete application individually.",
+        "En nuestros criterios publicados no hay un puntaje de crédito mínimo. La oficina de alquiler revisa cada solicitud completa de forma individual.",
+        "Our published criteria don't consider past or pending housing court cases.",
+        "Nuestros criterios publicados no toman en cuenta casos pasados o pendientes en la corte de vivienda.",
+        "I can't give opinions about schools. The New York City Department of Education has school information online, where you can look up any address.",
+        "No puedo dar opiniones sobre escuelas. El Departamento de Educación de la Ciudad de Nueva York tiene información de escuelas en internet, donde puede buscar cualquier dirección.",
+        "I can't recommend an apartment based on who you are, but I can go through what's available: the size, the rent, the dates and the features, and you can choose.",
+        "No puedo recomendar un apartamento según quién es usted, pero puedo contarle lo que hay disponible: el tamaño, el alquiler, las fechas y las características, y usted elige.",
+        "I can't pre-qualify or promise approval on the phone. Every complete application is reviewed by our leasing office in the order it's received.",
+        "No puedo precalificar ni prometer una aprobación por teléfono. La oficina de alquiler revisa cada solicitud completa en el orden en que se recibe.",
+        "Thank you, I don't need that information.",
+        "Gracias, no necesito esa información.",
+        "I don't have that information, and I don't want to guess. I'll pass your question to the leasing office.",
+        "No tengo esa información y no quiero adivinar. Voy a pasar su pregunta a la oficina de alquiler.",
+        "Everyone who will sign the lease fills out an application.",
+        "Todas las personas que firmarán el contrato llenan una solicitud.",
+        "Complete applications are reviewed in the order they're received.",
+        "Las solicitudes completas se revisan en el orden en que se reciben.",
+        "Yearly income of forty times the monthly rent, or a guarantor with yearly income of eighty times the monthly rent. This requirement doesn't apply to applicants whose share of the rent is set by a voucher or rental assistance program, and they are not asked for a guarantor.",
+        "Ingresos anuales de cuarenta veces el alquiler mensual, o un garante con ingresos anuales de ochenta veces el alquiler mensual. Este requisito no se aplica a quienes tienen su parte del alquiler fijada por un vale o programa de asistencia de alquiler, y a ellos no se les pide garante.",
+        "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.",
+        "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso.",
+        "Credit history is reviewed case by case. There is no minimum credit score.",
+        "El historial de crédito se revisa caso por caso. No hay un puntaje de crédito mínimo.",
+        "Past or pending housing court cases are not considered.",
+        "No se toman en cuenta casos pasados o pendientes en la corte de vivienda.",
+        "Any government-issued photo ID from any country is accepted, and a Social Security number is not required.",
+        "Se acepta cualquier identificación oficial con foto de cualquier país, y no se requiere número de Seguro Social.",
+        "The application fee is the actual cost of the background and credit check, up to twenty dollars, with no fee if you bring your own check from the last thirty days. The security deposit is one month's rent. There is no broker fee.",
+        "La tarifa de solicitud es el costo real de la verificación de antecedentes y de crédito, hasta veinte dólares, sin tarifa si trae su propia verificación de los últimos treinta días. El depósito de seguridad es de un mes de alquiler. No hay comisión de corredor.",
+        "Anyone may ask for a reasonable accommodation or modification because of a disability, at any time, through the leasing office.",
+        "Cualquier persona puede pedir un ajuste o modificación razonable por una discapacidad, en cualquier momento, a través de la oficina de alquiler.",
+        "Decisions are given in writing.",
+        "Las decisiones se dan por escrito."
+      ]
+    }
+  }
+}

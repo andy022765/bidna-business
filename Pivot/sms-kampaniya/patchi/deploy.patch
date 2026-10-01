@@ -1,0 +1,28 @@
+--- deploy.sh	2026-09-29 20:47:26
++++ deploy.sh	2026-09-29 20:47:26
+@@ -23,6 +23,10 @@
+ python3 landings/_src/list.py
+ python3 shtab/sayty/sborka.py >/dev/null
+ python3 landings/_src/merge_site.py "$ST"
++# Страницы SMS-согласия /sms-consent/ и /sms-consent/ru/ (исходник — Pivot/sms-kampaniya/).
++# До кода партнёра, чтобы он встал и на них. Сборщик падает, если функция в netlify-functions/
++# разошлась с исходником или /sms ещё описывает старую программу «только устно в звонке».
++python3 Pivot/sms-kampaniya/sobrat.py "$ST"
+ # Код партнёра — последним шагом, по готовой папке: страницы делают четыре генератора,
+ # и вставлять в каждый значит однажды завести пятый и молча потерять партнёра.
+ python3 shtab/sayty/kod_partnera_vsyudu.py "$ST"
+@@ -49,10 +53,13 @@
+ fi
+ 
+ echo "→ проверяю"
+-for u in / /business/list /expert/list /business/oplata /terms /privacy /sms /contacts /nda; do
++for u in / /business/list /expert/list /business/oplata /terms /privacy /sms /contacts /nda /sms-consent/ /sms-consent/ru/; do
+   # -L: с 23.09 /business/oplata и /expert/oplata отдают 301 на новую диагностику.
+   # Без него проверка показывала бы 301 и мы бы каждый раз гадали, поломка это или так задумано.
+   printf '  %-22s %s\n' "$u" "$(curl -sL -o /dev/null -w '%{http_code}' "https://businessinteldna.com$u")"
+ done
+ printf '  %-22s %s\n' "функция list" \
+   "$(curl -s -o /dev/null -w '%{http_code}' -X POST https://businessinteldna.com/.netlify/functions/list -d '{}')"
++# Тело, а не код: 200 со словом false значит «хранилище не поднялось» (грабля 26.09).
++printf '  %-22s %s\n' "sms-soglasie" \
++  "$(curl -s 'https://businessinteldna.com/.netlify/functions/sms-soglasie?zdorovie=1' | head -c 160)"

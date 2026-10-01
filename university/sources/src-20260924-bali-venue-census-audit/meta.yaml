@@ -1,0 +1,40 @@
+id: src-20260924-bali-venue-census-audit
+url: https://arxiv.org/html/2608.07069
+canonical_url: https://arxiv.org/abs/2608.07069
+type: paper
+title: 'Invisible to the Machine: Auditing AI Restaurant, Café, and Bar Recommendation Against a Complete Market Census'
+authors:
+  - {name: 'Vladimir Pitenin', affiliation: 'Norly Research'}
+published: 2026-08-07
+fetched_at: 2026-09-24T00:00:00Z
+language: en
+fetch_method: curl  # сырой HTML через curl -sL (для OpenAI — markdown-версия страницы .md)
+storage:
+  original: original.html
+  bytes: 234055
+
+relevance: 5
+quality: 9
+quality_breakdown:
+  primary_source: true
+  author_credible: true
+  has_math: true
+  has_empirics: true
+  reproducible: true
+  recent: true
+  cited: false
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: false
+  notes: 'Финансировано и проведено Norly (продаёт управление отзывами и AI-visibility для заведений) — конфликт интересов раскрыт; протокол предрегистрирован, есть нулевые результаты против интересов спонсора. Не кейс вендора о своих клиентах.'
+
+extracted:
+  notes: [n-ai-recommends-closed-businesses, n-engines-cite-different-sources, n-foursquare-presence-no-effect-bali, n-local-answer-churn-is-sampling-noise, n-local-entry-driven-by-documentation, n-local-queries-fragmented-across-engines, n-most-local-venues-never-recommended, n-own-website-can-outcite-platforms, n-single-engine-not-the-market, n-star-rating-orders-not-admits]
+  claims: [c-0100, c-0101, c-0102, c-0105, c-0111, c-0112, c-0114, c-0115, c-0116]
+  contradictions: [contr-012, contr-013, contr-014]
+  outbound_links_tracked: 4
+
+status: processed
+reject_reason: null

@@ -1,0 +1,144 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "sozdat_zayavku_nightdesk_demo",
+    "description": "Saves a repair request for the office and returns its number (nomer_vsluh — read it digit by digit). Call it once per problem, only after the building and apartment were confirmed and you asked the name, the access question and the text-message question. Never for a message that is not a repair, never for a danger. Say the request is in ONLY if ok is true.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/nd-zayavka",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "ZAPOLNIT_secret_id_nightdesk_demo_x_liniya_klyuch"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "NightDesk DEMO → nd-zayavka",
+        "required": [
+          "dom",
+          "kvartira",
+          "kategoriya",
+          "opisanie",
+          "dostup",
+          "imya",
+          "telefon",
+          "sms_soglasie",
+          "yazyk",
+          "conversation_id"
+        ],
+        "properties": {
+          "dom": {
+            "type": "string",
+            "description": "The confirmed building: tidewater, seawell or kestrel.",
+            "enum": [
+              "tidewater",
+              "seawell",
+              "kestrel"
+            ]
+          },
+          "kvartira": {
+            "type": "string",
+            "description": "The confirmed apartment, e.g. 4B; COMMON for a common-area problem reported by a non-resident."
+          },
+          "kategoriya": {
+            "type": "string",
+            "description": "The same category you passed to sortirovka_nightdesk_demo.",
+            "enum": [
+              "gaz",
+              "ogon_dym",
+              "ugarnyy_gaz",
+              "lift_zastryali",
+              "elektrichestvo_opasno",
+              "medicina",
+              "prestuplenie",
+              "obrushenie",
+              "voda_protechka",
+              "kanalizaciya",
+              "net_vody",
+              "net_tepla",
+              "net_goryachey_vody",
+              "net_sveta",
+              "vhodnaya_dver",
+              "zamok_kvartiry",
+              "lift_ne_rabotaet",
+              "santehnika",
+              "bytovaya_tehnika",
+              "vrediteli",
+              "plesen",
+              "domofon",
+              "osveshchenie",
+              "detektor_batareyka",
+              "zamok_zahlopnulsya",
+              "okno",
+              "shum",
+              "drugoe"
+            ]
+          },
+          "opisanie": {
+            "type": "string",
+            "description": "One or two short sentences in the caller's words: what is wrong and where. No names of other people, no health details."
+          },
+          "dostup": {
+            "type": "string",
+            "description": "Answer to the access question: da (staff may enter when they are not home), tolko_pri_mne (only when they are home), net (call first, do not enter).",
+            "enum": [
+              "da",
+              "tolko_pri_mne",
+              "net"
+            ]
+          },
+          "zhivotnye": {
+            "type": "string",
+            "description": "Answer to \"Are there any pets we should know about?\" — only if asked.",
+            "enum": [
+              "da",
+              "net",
+              "ne_znayu"
+            ]
+          },
+          "imya": {
+            "type": "string",
+            "description": "First and last name as the caller said it and confirmed, in Latin letters. Never a placeholder such as \"Caller\"."
+          },
+          "telefon": {
+            "type": "string",
+            "description": "The callback number in E.164 format, e.g. +13475550141 — the caller's own number if it is a real phone number."
+          },
+          "sms_soglasie": {
+            "type": "boolean",
+            "description": "true ONLY if the caller clearly said yes to text messages in this call; otherwise false."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es"
+            ]
+          },
+          "caller_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__caller_id"
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          },
+          "agent_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__current_agent_id"
+          }
+        }
+      }
+    }
+  }
+}

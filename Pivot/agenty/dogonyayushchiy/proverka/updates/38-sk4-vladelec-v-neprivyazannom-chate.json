@@ -1,0 +1,111 @@
+{
+  "opisanie": "Скептик №4. Режим vse. Шаг 1: неопознанный пишет без кода (шаблон согласия). Шаг 2: Андрей отвечает сам — чат без привязки становится chelovek НАВСЕГДА, а не паузой. Шаг 3 (+25 ч): человек пишет снова — Вера не влезает.",
+  "env": {
+    "DOGON_REZHIM": "vse"
+  },
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    }
+  },
+  "updates": [
+    {
+      "now": "@now",
+      "update": {
+        "update_id": 1381,
+        "business_message": {
+          "message_id": 604,
+          "from": {
+            "id": 5003,
+            "is_bot": false,
+            "first_name": "Павел",
+            "username": "pavel_kofe",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5003,
+            "type": "private",
+            "first_name": "Павел",
+            "username": "pavel_kofe"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Добрый день, у меня кофейня, хочу спросить"
+        }
+      }
+    },
+    {
+      "now": "@now+10m",
+      "update": {
+        "update_id": 1382,
+        "business_message": {
+          "message_id": 605,
+          "from": {
+            "id": 7000,
+            "is_bot": false,
+            "first_name": "Business Intelligence DNA",
+            "username": "business_int_dna"
+          },
+          "chat": {
+            "id": 5003,
+            "type": "private",
+            "first_name": "Павел",
+            "username": "pavel_kofe"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Павел, здравствуйте, это Андрей. Спрашивайте."
+        }
+      }
+    },
+    {
+      "now": "@now+25h",
+      "update": {
+        "update_id": 1383,
+        "business_message": {
+          "message_id": 606,
+          "from": {
+            "id": 5003,
+            "is_bot": false,
+            "first_name": "Павел",
+            "username": "pavel_kofe",
+            "language_code": "ru"
+          },
+          "chat": {
+            "id": 5003,
+            "type": "private",
+            "first_name": "Павел",
+            "username": "pavel_kofe"
+          },
+          "date": "@unix",
+          "business_connection_id": "bc-test-1",
+          "text": "Андрей, я вернулся с вопросом"
+        }
+      }
+    }
+  ],
+  "ozhidaem": {
+    "meta_chat": 5003,
+    "meta_status": "chelovek",
+    "po_shagam": [
+      {
+        "shag": 2,
+        "klientu": 0,
+        "model_vyzovov": 0,
+        "meta_status": "chelovek"
+      },
+      {
+        "shag": 3,
+        "klientu": 0,
+        "model_vyzovov": 0
+      }
+    ]
+  }
+}

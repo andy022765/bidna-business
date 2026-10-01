@@ -1,0 +1,205 @@
+<title>Глубокая диагностика</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0a0e18; --panel:#0e1524; --card:#121a2c; --ink:#eef1f7; --dim:#97a1b8; --faint:#6b768f;
+    --line:#1e2940; --rule:#2a364f;
+    --gold:#d87f70; --gold2:#241a1c; --red:#c4675a; --red2:#241820;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;margin:0;padding:0;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:1120px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px;margin:0 auto}
+  section{padding-block:72px;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  h1{font-size:clamp(32px,5.6vw,58px);line-height:1.04;margin:0 0 20px;letter-spacing:-.03em;
+    font-weight:700;text-wrap:balance}
+  h2{font-size:clamp(25px,3.8vw,38px);line-height:1.12;margin:0 0 16px;letter-spacing:-.025em;
+    font-weight:700;text-wrap:balance}
+  h3{font-size:20px;font-weight:600;margin:30px 0 10px}
+  p{margin:0 0 16px;max-width:64ch}
+  .lede{font-size:20px;color:var(--dim);max-width:56ch}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+  b,strong{font-weight:600}
+  ul{margin:0 0 16px;padding-left:20px} li{margin-bottom:10px;max-width:60ch}
+  li::marker{color:var(--gold)}
+  .quote{font-size:24px;line-height:1.3;letter-spacing:-.02em;font-weight:600;
+    padding-left:20px;border-left:2px solid var(--gold);margin:28px 0;max-width:24ch}
+
+  figure{margin:28px 0}
+  img{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
+  video{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#000}
+
+  .btn{display:inline-block;background:var(--gold);color:#0a0e18;text-decoration:none;
+    font-weight:700;font-size:18px;padding:17px 32px;border-radius:7px;margin:8px 0 10px}
+  .btn:hover{background:#eed6a0}
+  .bsub{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);margin:0 0 8px;letter-spacing:.02em}
+  .cena-shapka{font-family:'JetBrains Mono',monospace;font-size:13px;margin:14px 0 0}
+  .cena-shapka a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent}
+  .cena-shapka a:hover{border-bottom-color:var(--gold)}
+  a.ssylka{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .bs{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+  .bs .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;margin-bottom:9px}
+  .bs.was{border-color:#3a2530} .bs.was .n{color:var(--red)}
+  .bs.now{border-color:#3b3524} .bs.now .n{color:var(--gold)}
+  .bs p{margin:0;font-size:16px;max-width:none}
+  .pair{margin-bottom:22px}
+  .pair h4{font-size:19px;font-weight:600;margin:0 0 12px}
+
+  .steps{margin:22px 0}
+  .st{display:grid;grid-template-columns:130px 1fr;gap:20px;padding-block:16px;border-top:1px solid var(--line)}
+  .st:first-child{border-top:0}
+  .st .k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);padding-top:3px}
+  .st p{margin:0;font-size:16.5px}
+  @media(max-width:640px){.st{grid-template-columns:1fr;gap:4px}}
+
+  .tw{overflow-x:auto;margin:22px 0}
+  table{border-collapse:collapse;width:100%;font-size:16px;min-width:520px}
+  td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.p{text-align:right;white-space:nowrap;font-family:'JetBrains Mono',monospace;color:var(--dim)}
+  td.n small{display:block;color:var(--faint);font-size:14px;margin-top:3px;font-weight:400}
+  td.n{font-weight:600}
+  tr.h td{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);background:var(--gold2);border-bottom:0}
+  tr.sum td{border-bottom:0;padding-top:18px;font-weight:700;font-size:19px}
+  tr.sum td.p{font-family:'Space Grotesk',-apple-system,sans-serif;font-size:28px;color:var(--gold)}
+  tr.was td{border-bottom:0;color:var(--faint);padding-top:16px}
+  tr.was td.p{text-decoration:line-through}
+
+  .g{background:var(--gold2);border:1px solid #3b3524;border-radius:10px;padding:24px 26px;margin:20px 0}
+  .g .t{font-size:20px;font-weight:700;color:var(--gold);margin-bottom:10px}
+  .g p{margin:0;font-size:16.5px}
+  .g + .g{margin-top:14px}
+
+  .obj{border-top:1px solid var(--line);padding-block:22px}
+  .obj:first-of-type{border-top:0}
+  .obj .q{font-size:18px;font-weight:600;margin:0 0 9px}
+  .obj p{font-size:16px;color:var(--dim)}
+  .obj p b{color:var(--ink)}
+
+  .form{background:var(--card);border:1px solid #3b3524;border-radius:12px;padding:28px 30px;margin:26px 0}
+  .form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  @media(max-width:600px){.form .row{grid-template-columns:1fr}}
+  .form label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .form input{width:100%;background:var(--bg);border:1px solid var(--rule);border-radius:7px;
+    color:var(--ink);font-family:'Space Grotesk',sans-serif;font-size:17px;padding:13px 15px}
+  .form input::placeholder{color:#4d566e}
+  .form input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+  .form button{width:100%;background:var(--gold);color:#0a0e18;border:0;border-radius:7px;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;padding:17px;cursor:pointer;margin-top:4px}
+  .form .note{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);
+    margin:12px 0 0;line-height:1.6}
+  .fine{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);line-height:1.6}
+  .cen{text-align:center}
+  .cen p,.cen .lede{margin-left:auto;margin-right:auto}
+  .hero{background:linear-gradient(180deg,#0b1220 0%,var(--bg) 100%);padding-block:56px 76px}
+  footer{border-top:1px solid var(--line);padding-block:40px 60px;color:var(--faint);font-size:14px}
+
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .w{padding:0 18px}
+    section{padding-block:48px}
+    .bsub{font-size:15px}
+    .note,.form .note{font-size:15px}
+    .fine{font-size:14px}
+    .eyebrow,.bs .n,.st .k,tr.h td,.form label{font-size:12.5px;letter-spacing:.13em}
+    td.n small{font-size:14px}
+    .btn{display:block;text-align:center;font-size:17px;padding:16px 20px}
+    .quote{font-size:20px;max-width:none}
+    figure{margin:20px -18px}
+    figure img,figure video{border-radius:0;border-left:0;border-right:0}
+    table{min-width:0;font-size:15px}
+    td{padding:11px 6px}
+    td.p{font-size:15px}
+    tr.sum td{font-size:17px}
+    tr.sum td.p{font-size:23px}
+    input[type=checkbox]{width:20px;height:20px;min-width:20px;margin-top:2px}
+  }
+</style>
+
+<section class="hero"><div class="w"><div class="narrow">
+  <h1>Вы знаете, что что-то не работает. Вы не знаете, что именно.</h1>
+  <p class="lede">Глубокая диагностика — разбор вашего дела по открытым источникам и вашим же ответам. На выходе документ: где вы теряете клиентов, по приоритету, и какой рычаг трогать первым.</p>
+  <p style="margin-top:26px"><a class="btn" href="https://buy.stripe.com/cNi3cn63e5Vw6vr3rBfrW06">Начать диагностику</a></p>
+  <p class="bsub">$500 · оплата картой · анкета открывается сразу после</p>
+  <p class="cena-shapka"><a href="#cena">$500 один раз. К Вере и к кварталу видимости — в подарок. Что входит →</a></p>
+</div></div></section>
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Кому не надо</p><h2>Знаете, что чинить — не платите за разбор.</h2>
+  <p>Кроме диагностики у нас две работы: <a class="ssylka" href="/vera/ru/">Вера</a> — ИИ-администратор и продавец на ваших звонках, и <a class="ssylka" href="/visibility/ru/">видимость в нейросетях</a> — делаем так, чтобы ChatGPT и другие нейросети называли ваш бизнес. Если вы уже знаете, где у вас дыра, берите одну из них и проходите мимо этой страницы. Диагностика к каждой из них идёт в подарок.</p>
+  <p>Диагностика для другого случая: когда болит везде сразу или непонятно где. Когда сайт переделали, рекламу включили, а выручка стоит, и непонятно, что из этого виновато.</p>
+</div></div></section>
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Что вы получаете</p><h2>Шесть вещей, и все шесть остаются у вас.</h2>
+  <div class="steps">
+    <div class="st"><span class="k">ДНК вашего бизнеса</span><p>Ваше отличие одним предложением, которое работает и на сайте, и в разговоре. Плюс несущая логика: из чего ваш продукт состоит и в каком порядке даёт результат.</p></div>
+    <div class="st"><span class="k">ДНК вашего клиента</span><p>Портрет покупателя его же словами: за что он платит на самом деле, чего боится, чем возражает. Этим языком потом пишутся тексты и ведутся продажи.</p></div>
+    <div class="st"><span class="k">Карта разрывов</span><p>Где именно вы теряете клиентов — по приоритету, а не списком. И какой рычаг трогать первым.</p></div>
+    <div class="st"><span class="k">Разбор конкурентов</span><p>Мы сами смотрим ваш рынок по открытым источникам, а не верим на слово. Что показывают они, чего не показываете вы, где ваше белое пятно.</p></div>
+    <div class="st"><span class="k">Три точки для AI</span><p>Ровно три места, где AI даёт вам деньги или время, привязанные к вашим потерям. Не «внедрите нейросети».</p></div>
+    <div class="st"><span class="k">Документ на руки</span><p>Всё перечисленное оформленным PDF. Останется у вас, даже если дальше вы с нами не пойдёте.</p></div>
+  </div>
+</div></div></section>
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Как это устроено</p><h2>Четыре шага, три рабочих дня работы.</h2>
+  <div class="steps">
+    <div class="st"><span class="k">Оплачиваете</span><p>Картой через Stripe. Анкета открывается сразу после оплаты.</p></div>
+    <div class="st"><span class="k">Открывается анкета</span><p>Шестьдесят восемь вопросов, сорок из них обязательные. Заполняете в своём темпе: ответы сохраняются в браузере, закрыли вкладку и вернулись.</p></div>
+    <div class="st"><span class="k">Мы уходим работать</span><p>Три рабочих дня. Изучаем ваш рынок, конкурентов и ваши ответы. Собираем ДНК, карту разрывов и точки для AI.</p></div>
+    <div class="st"><span class="k">Документ на почту</span><p>Через три рабочих дня PDF приходит на почту. Читаете сами и в своём темпе — он написан так, чтобы объяснять без нас.</p></div>
+  </div>
+</div></div></section>
+<section id="cena"><div class="w"><div class="narrow">
+  <p class="eyebrow">Цена</p><h2>Глубокая диагностика — $500. Один платёж.</h2>
+  <p><b>Покупаете <a class="ssylka" href="/vera/ru/">Веру</a> или квартал <a class="ssylka" href="/visibility/ru/">видимости</a> — глубокая диагностика в подарок.</b></p>
+  <p style="margin-top:26px"><a class="btn" href="https://buy.stripe.com/cNi3cn63e5Vw6vr3rBfrW06">Начать диагностику</a></p>
+</div></div></section>
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Честно, до оплаты</p><h2>Мы обещаем разбор, а не цифру.</h2>
+  <div class="g"><p class="t">Не увидим, где вам это выгодно — скажем прямо</p>
+  <p>Не будем натягивать выводы, чтобы продать следующий шаг. Такое случается, и тогда вы это прочитаете прямо в документе, а не узнаете через месяц.</p></div>
+  <div class="g"><p class="t">Документ ваш в любом случае</p>
+  <p>Не пойдёте на внедрение — PDF всё равно остаётся у вас. Это законченная вещь, а не приманка.</p></div>
+  <div class="g"><p class="t">Доступ к вашим деньгам нам не нужен</p>
+  <p>Работаем под NDA. Счета, CRM и база клиентов нам не нужны и мы их не просим — только ваши слова и открытые источники.</p></div>
+  <div class="g"><p class="t">Чего мы не обещаем</p>
+  <p>Ни процента роста, ни количества заявок, ни срока окупаемости. Это зависит от вашего рынка и от того, что вы сделаете с разбором.</p></div>
+
+</div></div></section>
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Кто это делает</p><h2>Работать будете с нами двумя.</h2>
+  <figure style="max-width:420px"><img src="img/foto.webp" alt="Андрей и Маша — двое, кто делает эту работу." width="820" height="850"></figure>
+  <p class="fine">Андрей и Маша. Wealthboosterpro LLC, Каспер, Вайоминг.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Честные вопросы</p><h2>Три, которые вы уже задали про себя.</h2>
+  <div class="obj"><p class="q">«Я и так знаю свой бизнес»</p>
+  <p>Знаете, и лучше нас. Мы приносим не знание о вашем деле, а взгляд снаружи: как вас читает покупатель, который вас впервые видит, и что про вас говорят открытые источники. Изнутри это место не видно ни у кого, включая нас самих.</p></div>
+  <div class="obj"><p class="q">«За те же деньги найму маркетолога»</p>
+  <p>Наймите, если знаете, что ему поручить. Маркетолог исполняет задачу, а диагностика её ставит. Пятьсот долларов за то, чтобы не платить пять тысяч за работу не в ту сторону.</p></div>
+  <div class="obj"><p class="q">«А если вы ничего не найдёте»</p>
+  <p>Тогда мы так и скажем, и вы это услышите первым. Документ вы всё равно получите — в нём будет написано, что мы смотрели и почему не нашли. Это тоже ответ, и он дешевле, чем узнать то же самое через полгода.</p></div>
+
+</div></div></section>
+<section><div class="w"><div class="narrow cen">
+  <h2>Сначала посмотрите, что получите. Потом решайте.</h2>
+  <p class="lede">Список из шести вещей выше — это ровно то, что придёт вам в PDF. Ни строкой больше.</p>
+  <p style="margin-top:28px"><a class="btn" href="https://buy.stripe.com/cNi3cn63e5Vw6vr3rBfrW06">Начать диагностику</a></p>
+  <p class="bsub">$500 · к Вере и к кварталу видимости — в подарок</p>
+</div></div></section>
+
+<footer><div class="w"><div class="narrow">
+  <p class="fine">Wealthboosterpro LLC, dba Business Intelligence DNA · 5830 E 2nd St Ste 7000, Casper, WY 82609 · Андрей и Маша</p>
+</div></div></footer>

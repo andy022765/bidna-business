@@ -1,0 +1,904 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Индекс видимости — для экспертов</title>
+<meta name="description" content="Насколько рынок понимает, чем вы лучше — диагностика за 2 минуты. Business Intelligence DNA.">
+<style>
+:root{
+  --navy:#0F1022; --navy2:#171833; --navy3:#20223f; --navy4:#2a2c4d;
+  --ink:#F2F0EA; --muted:#c9c8dc; --muted2:#9a99b6;
+  --gold:#C69749; --gold-deep:#A3762B; --gold-hi:#E2B872;
+  --sev-red:#c85a4f; --sev-orange:#cf8a3d; --sev-yellow:#d8b45a; --sev-green:#4fa87f;
+  --line:rgba(198,151,73,.22);
+  --card:rgba(255,255,255,.035);
+  --card-br:rgba(255,255,255,.09);
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+  --cta-ink:#22160a;
+  --tg:#2aa3e0;
+  --maxw:600px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(1100px 620px at 78% -6%, rgba(198,151,73,.14), transparent 60%),
+    radial-gradient(900px 640px at 8% 108%, rgba(122,110,220,.12), transparent 60%),
+    var(--navy);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,Roboto,Helvetica,Arial,sans-serif;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px 140px;position:relative;z-index:1}
+#gradbg{position:fixed;inset:0;z-index:0;overflow:hidden}
+#gradbg canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;opacity:.92}
+#gradbg::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(130% 100% at 50% -8%, transparent 38%, rgba(15,16,34,.55) 100%)}
+
+/* progress */
+#prog{position:fixed;left:0;top:0;height:4px;width:0%;z-index:40;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));
+  box-shadow:0 0 18px rgba(198,151,73,.5);transition:width .45s cubic-bezier(.4,0,.2,1)}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:30;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px 12px;
+  background:linear-gradient(180deg,rgba(15,16,34,.94),rgba(15,16,34,0));
+  backdrop-filter:blur(3px)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14px;letter-spacing:.01em}
+.brand .bars{display:flex;align-items:flex-end;gap:2.5px;height:16px}
+.brand .bars i{width:3.5px;border-radius:1px;background:var(--gold);display:block}
+.brand .bars i:nth-child(1){height:6px;opacity:.5}
+.brand .bars i:nth-child(2){height:10px;opacity:.72}
+.brand .bars i:nth-child(3){height:14px;opacity:.9}
+.brand .bars i:nth-child(4){height:16px}
+.brand b{color:var(--gold)}
+.brand span{color:var(--muted);font-weight:700}
+.stepcount{font-size:12.5px;color:var(--muted2);font-weight:700;letter-spacing:.03em;font-variant-numeric:tabular-nums}
+
+/* screen */
+#stage{padding-top:78px;min-height:100vh}
+.screen{animation:fade .42s cubic-bezier(.2,.7,.2,1)}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 14px;display:flex;align-items:center;gap:8px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+h1.q{font-size:clamp(23px,5.4vw,30px);font-weight:800;letter-spacing:-.01em;line-height:1.18;margin:0 0 8px;text-wrap:balance}
+.qsub{color:var(--muted2);font-size:13.5px;margin:0 0 22px;font-weight:600;letter-spacing:.02em}
+.lede{color:var(--muted);font-size:16px;margin:0 0 26px;max-width:52ch}
+
+/* chat bubble */
+.bubble{display:inline-block;background:var(--navy3);border:1px solid var(--card-br);
+  border-radius:16px 16px 16px 4px;padding:13px 17px;font-size:15px;color:var(--ink);
+  margin-bottom:20px;max-width:90%;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.bubble .who{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+
+/* options */
+.opts{display:flex;flex-direction:column;gap:11px;margin:4px 0 8px}
+.opt{position:relative;display:flex;align-items:center;gap:13px;width:100%;text-align:left;
+  background:var(--card);border:1.5px solid var(--card-br);border-radius:15px;
+  padding:16px 17px;color:var(--ink);font-size:15.5px;font-weight:600;cursor:pointer;
+  transition:transform .12s ease,border-color .15s ease,background .15s ease,box-shadow .15s ease;
+  box-shadow:0 2px 0 rgba(0,0,0,.25),0 8px 20px rgba(0,0,0,.16)}
+.opt:hover{transform:translateY(-2px);border-color:rgba(198,151,73,.5);background:rgba(255,255,255,.06)}
+.opt:active{transform:translateY(1px)}
+.opt .dot{flex:0 0 auto;width:13px;height:13px;border-radius:50%;box-shadow:0 0 0 4px rgba(255,255,255,.04)}
+.opt.sel{border-color:var(--gold);background:linear-gradient(180deg,rgba(198,151,73,.16),rgba(198,151,73,.06));
+  box-shadow:0 0 0 1px var(--gold),0 0 26px rgba(198,151,73,.28),0 8px 20px rgba(0,0,0,.2)}
+.opt .txt{flex:1}
+.opt .chk{flex:0 0 auto;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--card-br);
+  display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--navy);
+  background:transparent;transition:all .15s ease}
+.opt.sel .chk{background:var(--gold);border-color:var(--gold)}
+.opt .chk svg{width:12px;height:12px;opacity:0;transform:scale(.6);transition:all .15s ease}
+.opt.sel .chk svg{opacity:1;transform:scale(1)}
+.d-green{background:var(--sev-green)} .d-yellow{background:var(--sev-yellow)}
+.d-orange{background:var(--sev-orange)} .d-red{background:var(--sev-red)}
+.d-gold{background:var(--gold)}
+.multi-count{font-size:12.5px;color:var(--muted2);font-weight:700;margin:2px 2px 16px;letter-spacing:.02em}
+.multi-count b{color:var(--gold)}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  text-decoration:none;cursor:pointer;font-size:16px;font-weight:800;letter-spacing:.01em;
+  padding:15px 26px;border-radius:14px;border:1px solid rgba(120,84,20,.55);color:var(--cta-ink);
+  background:linear-gradient(180deg,#e9c67c 0%,var(--gold) 48%,var(--gold-deep) 100%);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),inset 0 -3px 6px rgba(120,84,20,.4),
+    0 5px 0 #86611c,0 12px 22px rgba(160,120,40,.4);
+  transform:translateY(0);transition:transform .09s ease,box-shadow .09s ease;
+  font-family:inherit;width:100%}
+.btn:hover{transform:translateY(-2px);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),inset 0 -3px 6px rgba(120,84,20,.4),0 7px 0 #86611c,0 16px 26px rgba(160,120,40,.45)}
+.btn:active{transform:translateY(4px);box-shadow:inset 0 2px 5px rgba(120,84,20,.5),0 1px 0 #86611c,0 4px 10px rgba(160,120,40,.3)}
+.btn.tg{color:#fff;border-color:rgba(20,80,120,.6);
+  background:linear-gradient(180deg,#4fb8ee 0%,var(--tg) 48%,#1c85bd 100%);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5),inset 0 -3px 6px rgba(15,70,110,.45),0 5px 0 #14608e,0 12px 22px rgba(30,120,180,.4)}
+.btn.tg:hover{transform:translateY(-2px)}
+.btn.tg:active{transform:translateY(4px);box-shadow:inset 0 2px 5px rgba(15,70,110,.5),0 1px 0 #14608e,0 4px 10px rgba(30,120,180,.3)}
+.btn.ghost{background:transparent;color:var(--muted);border:1.5px solid var(--card-br);
+  box-shadow:none;font-weight:700;font-size:14.5px;width:auto;padding:11px 18px}
+.btn.ghost:hover{transform:translateY(-1px);border-color:rgba(198,151,73,.4);color:var(--ink);box-shadow:none}
+.btn.ghost:active{transform:translateY(0)}
+.btnrow{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.backline{margin-top:18px}
+.back{background:none;border:none;color:var(--muted2);font-size:14px;font-weight:700;cursor:pointer;
+  font-family:inherit;padding:8px 2px;display:inline-flex;align-items:center;gap:6px;transition:color .15s}
+.back:hover{color:var(--gold)}
+.hint{color:var(--muted2);font-size:12.5px;text-align:center;margin-top:12px;font-weight:600}
+
+/* insight / empathy card */
+.icard{background:linear-gradient(180deg,rgba(198,151,73,.13),rgba(198,151,73,.05));
+  border:1px solid var(--line);border-radius:18px;padding:22px 22px;margin:6px 0 6px;box-shadow:var(--shadow)}
+.icard .k{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.icard p{margin:0;font-size:16px;color:var(--ink)}
+.icard p+p{margin-top:10px;color:var(--muted)}
+
+/* processing */
+.proc{text-align:center;padding:70px 0 40px}
+.ring{width:96px;height:96px;margin:0 auto 26px;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+.proclist{max-width:300px;margin:0 auto;text-align:left}
+.procitem{display:flex;align-items:center;gap:11px;padding:9px 0;color:var(--muted2);font-size:14.5px;font-weight:600;opacity:.4;transition:opacity .4s,color .4s}
+.procitem.on{opacity:1;color:var(--ink)}
+.procitem .tick{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--card-br);flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:11px}
+.procitem.on .tick{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+
+/* RESULTS */
+.res-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:16px}
+.gauge-wrap{text-align:center;margin:6px 0 8px}
+.gauge{width:100%;max-width:340px;margin:0 auto;display:block}
+.score-big{font-size:56px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.score-of{font-size:20px;color:var(--muted2);font-weight:700}
+.res-title{font-size:clamp(22px,5vw,27px);font-weight:800;text-align:center;margin:10px 0 6px;text-wrap:balance}
+.res-verdict{color:var(--muted);font-size:16px;text-align:center;max-width:46ch;margin:0 auto 26px}
+.metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin:8px 0 30px}
+.metric{background:var(--card);border:1px solid var(--card-br);border-radius:14px;padding:14px 12px;text-align:center}
+.metric .mv{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.metric .ml{font-size:11.5px;color:var(--muted2);font-weight:700;margin-top:6px;letter-spacing:.02em;line-height:1.3}
+.metric .bar{height:5px;border-radius:3px;background:rgba(255,255,255,.08);margin-top:10px;overflow:hidden}
+.metric .bar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));width:0;transition:width 1s cubic-bezier(.3,.7,.3,1)}
+.sec{margin:34px 0}
+.sec-h{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 14px;display:flex;align-items:center;gap:8px}
+.sec-h .ln{flex:1;height:1px;background:var(--line)}
+.costs{display:flex;flex-direction:column;gap:12px}
+.cost{display:flex;gap:13px;align-items:flex-start;background:var(--card);border:1px solid var(--card-br);border-radius:14px;padding:15px 16px}
+.cost .ic{flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:rgba(200,90,79,.16);color:var(--sev-red);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800}
+.cost p{margin:0;font-size:15px;color:var(--ink)}
+.arts{display:flex;flex-direction:column;gap:11px}
+.art{position:relative;display:flex;gap:13px;align-items:flex-start;background:var(--card);border:1px solid var(--card-br);border-radius:14px;padding:15px 16px}
+.art.key{border-color:var(--gold);background:linear-gradient(180deg,rgba(198,151,73,.12),rgba(198,151,73,.04));box-shadow:0 0 22px rgba(198,151,73,.14)}
+.art .ai{flex:0 0 auto;font-size:20px;width:26px;text-align:center}
+.art .atx b{display:block;font-size:15px;font-weight:800;margin-bottom:3px}
+.art .atx span{font-size:13.5px;color:var(--muted)}
+.art .flag{position:absolute;top:-9px;right:12px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--cta-ink);background:var(--gold);padding:3px 9px;border-radius:999px}
+.anti{background:linear-gradient(180deg,rgba(198,151,73,.14),rgba(198,151,73,.05));border:1px solid var(--line);border-radius:18px;padding:22px;margin:30px 0;box-shadow:var(--shadow)}
+.anti .k{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.anti p{margin:0;font-size:15.5px;color:var(--ink)}
+.anti .big{font-weight:800}
+.ctaSec{background:var(--navy2);border:1px solid var(--card-br);border-radius:20px;padding:26px 22px;margin:30px 0 8px;text-align:center;box-shadow:var(--shadow)}
+.ctaSec h2{font-size:23px;font-weight:800;margin:0 0 8px}
+.ctaSec .lead2{color:var(--muted);font-size:15px;margin:0 auto 18px;max-width:40ch}
+.slots{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px 0 4px;font-size:13px;font-weight:700;color:var(--muted)}
+.pips{display:inline-flex;gap:5px}
+.pips i{width:10px;height:10px;border-radius:50%;display:block}
+.pips i.on{background:var(--gold);box-shadow:0 0 8px rgba(198,151,73,.5)}
+.pips i.off{background:rgba(255,255,255,.14)}
+.legal{font-size:12px;color:var(--muted2);text-align:center;margin-top:18px;font-weight:600}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* sticky CTA */
+#sticky{position:fixed;left:0;right:0;bottom:0;z-index:35;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(15,16,34,0),rgba(15,16,34,.95) 32%);
+  transform:translateY(120%);transition:transform .4s cubic-bezier(.3,.7,.3,1);pointer-events:none}
+#sticky.show{transform:none;pointer-events:auto}
+#sticky .inner{max-width:var(--maxw);margin:0 auto}
+.foot{text-align:center;color:var(--muted2);font-size:12px;padding:10px 0 0;font-weight:600}
+@media(max-width:400px){ .metrics{gap:8px} .metric .mv{font-size:22px} }
+</style>
+
+<div id="gradbg"></div>
+<div id="prog"></div>
+<div id="topbar">
+  <div class="brand"><span class="bars"><i></i><i></i><i></i><i></i></span>Business Intelligence <b>DNA</b></div>
+  <div class="stepcount" id="stepcount"></div>
+</div>
+
+<div class="wrap">
+  <div id="stage"></div>
+</div>
+
+<div id="sticky"><div class="inner">
+  <a class="btn" id="stickyBtn" href="#book">Записаться на разговор →</a>
+</div></div>
+
+<script>
+/* ============================ CONFIG ============================ */
+var CAL = "https://calendly.com/andywar777/30min";
+var TG  = "https://t.me/business_int_dna";
+var SLOTS_FREE = 3, SLOTS_TOTAL = 5;
+var CHK = '<svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#22160a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+/* ============================ STATE ============================ */
+var S = { avatar:'expert', ans:{}, sym:[], lead:null, step:0 };
+try{ var saved = JSON.parse(localStorage.getItem('bidna_quiz_ekspert')||'null'); if(saved) S=Object.assign(S,saved); }catch(e){} S.avatar='expert';
+function persist(){ try{ localStorage.setItem('bidna_quiz_ekspert', JSON.stringify(S)); }catch(e){} }
+
+function av(o){ return (S.avatar==='business') ? o.business : o.expert; }
+
+/* ============================ CONTENT ============================ */
+// Scored single-select questions. weight dot: green3 yellow2 orange1 red0
+function O(dot,v,expert,business){ return {dot:dot,v:v,expert:expert,business:business}; }
+
+var Q_DIFF = {
+  id:'diff', metric:'clarity', proc:'Анализ ясности отличия…',
+  title:{expert:'Клиент спрашивает: «чем вы отличаетесь?» Что происходит?',
+         business:'Клиент спрашивает: «чем вы лучше соседей?» Что происходит?'},
+  opts:[
+    O('d-green',3,'Отвечаю одним чётким предложением — и это работает','Отвечаем одним чётким предложением — и это работает'),
+    O('d-yellow',2,'Отвечу, но длинно и не всегда убедительно','Ответим, но длинно и не всегда убедительно'),
+    O('d-orange',1,'Начинаю объяснять общими словами, как все','Объясняем общими словами, как все на рынке'),
+    O('d-red',0,'Честно — зависаю, сам не сформулирую коротко','Честно — сводится к цене, отличие не назвать')
+  ]
+};
+var Q_FLOW = {
+  id:'flow', metric:'system', proc:'Оценка предсказуемости потока…',
+  title:{expert:'Откуда сейчас приходят клиенты?',
+         business:'Насколько предсказуем у вас поток клиентов?'},
+  opts:[
+    O('d-green',3,'Есть система — поток ровный и предсказуемый','Есть система — поток ровный и предсказуемый'),
+    O('d-yellow',2,'В основном рекомендации, но идут стабильно','Повторные и рекомендации — держимся ровно'),
+    O('d-orange',1,'Сарафан волнами: то густо, то пусто','Зависим от сезона и рекламы — то густо, то пусто'),
+    O('d-red',0,'Как повезёт — планировать нельзя','Нестабильно, каждый месяц как заново')
+  ]
+};
+var Q_LOST = {
+  id:'lost', metric:'clarity', proc:'Сверка причин упущенных сделок…',
+  title:{expert:'Клиент в последний раз выбрал не вас — вы знаете почему?',
+         business:'Клиент в последний раз ушёл к конкуренту — знаете почему?'},
+  opts:[
+    O('d-green',3,'Да, знаю причину — и она не про упаковку','Да, знаю причину — и она не про упаковку'),
+    O('d-yellow',2,'Примерно догадываюсь','Примерно догадываемся'),
+    O('d-orange',1,'Думаю, было «непонятно, чем я лучше»','Думаю, было «непонятно, чем мы лучше»'),
+    O('d-red',0,'Выбрали, у кого понятнее — и это повторяется','Ушёл по цене — и это повторяется')
+  ]
+};
+var Q_VALUE = {
+  id:'value', metric:'perception', proc:'Оценка восприятия рынком…',
+  title:{expert:'Что с вашей ценой?',
+         business:'Что с вашей маржой?'},
+  opts:[
+    O('d-green',3,'Называю цену, что заслужил — и её принимают','Держим цену выше рынка — и её принимают'),
+    O('d-yellow',2,'Цена нормальная, но поднять — страшновато','Маржа ок, но поднять цену — страшновато'),
+    O('d-orange',1,'Беру меньше, чем стою, и знаю это','Приходится давать скидки, чтобы не терять'),
+    O('d-red',0,'Занижаю, чтобы вообще выбрали','Демпингуем — маржа тает')
+  ]
+};
+
+var SYMPTOMS = {
+  expert:[
+    'Сайт/профиль стыдно прислать в ответ на «покажите портфолио»',
+    'Рекомендуют, но пересказывают меня на треть',
+    'Пустой месяц уже повторялся — и не из-за качества',
+    'Конкурент слабее, а выглядит и берёт больше',
+    'Обжёгся на рекламе/SMM — не верю этому слову',
+    'Не хочу вести блог и сторис, чтобы меня заметили',
+    'Не могу объяснить своё отличие даже дома',
+    'Доход упёрся в круг, который меня уже знает'
+  ],
+  business:[
+    'Клиент звонит и спрашивает только цену',
+    'Сайт выглядит «как у всех» на рынке',
+    'Я — узкое горло: отойду, и всё проседает',
+    'Сливал бюджеты на маркетинг — «обещали поток, получил слив»',
+    'Конкурент «упаковался» и обошёл, хотя слабее',
+    'Решаю про клиента и цену «на глаз», вслепую',
+    'Оборот растёт, а прибыль — нет',
+    'В нашей нише «все демпингуют» — так привыкли думать'
+  ]
+};
+
+var LEAD = [
+  {e:'🔥',key:'hot', expert:'Готов разбираться — сейчас',                 business:'Готов разбираться — сейчас'},
+  {e:'⚡',key:'warm',expert:'Интересно — покажите, как это устроено',      business:'Интересно — покажите, как это устроено'},
+  {e:'🌊',key:'need',expert:'Проблему вижу, решения — нет',                business:'Проблему вижу, решения — нет'},
+  {e:'🤔',key:'cold',expert:'Пока просто смотрю',                          business:'Пока просто смотрю'}
+];
+
+/* ---- flow definition ---- */
+var FLOW = ['intro','empathy','diff','flow','lost','insight','symptoms','value','ready','processing','results'];
+var SCORED = ['diff','flow','lost','value'];
+var QOBJ = {diff:Q_DIFF, flow:Q_FLOW, lost:Q_LOST, value:Q_VALUE};
+// question screens counted for progress
+var QSTEPS = ['diff','flow','lost','symptoms','value','ready'];
+
+/* ============================ ENGINE ============================ */
+var stage = document.getElementById('stage');
+var prog  = document.getElementById('prog');
+var stepc = document.getElementById('stepcount');
+var sticky= document.getElementById('sticky');
+
+function go(name){ S.step = FLOW.indexOf(name); persist(); render(); window.scrollTo(0,0); }
+function next(){ if(S.step<FLOW.length-1){ S.step++; persist(); render(); window.scrollTo(0,0);} }
+function prev(){ if(S.step>0){ S.step--; persist(); render(); window.scrollTo(0,0);} }
+
+function updateProg(){
+  var cur = FLOW[S.step];
+  var qi = QSTEPS.indexOf(cur);
+  if(cur==='intro'){ prog.style.width='0%'; stepc.textContent=''; }
+  else if(cur==='processing'||cur==='results'||cur==='empathy'||cur==='insight'){
+    if(cur==='results'){ prog.style.width='100%'; stepc.textContent=''; }
+    else { /* keep last */ stepc.textContent=''; }
+  }
+  else if(qi>=0){ prog.style.width = Math.round((qi+1)/QSTEPS.length*92)+'%'; stepc.textContent='Вопрос '+(qi+1)+' / '+QSTEPS.length; }
+}
+
+function render(){
+  var cur = FLOW[S.step];
+  sticky.classList.remove('show');
+  updateProg();
+  if(cur==='intro') return renderIntro();
+  if(cur==='router') return renderRouter();
+  if(cur==='empathy') return renderEmpathy();
+  if(cur==='insight') return renderInsight();
+  if(cur==='processing') return renderProcessing();
+  if(cur==='results') return renderResults();
+  if(cur==='symptoms') return renderMulti();
+  if(QOBJ[cur]) return renderSingle(QOBJ[cur]);
+}
+
+function el(html){ stage.innerHTML = html; }
+function backBtn(){ return S.step>1 && FLOW[S.step]!=='processing' && FLOW[S.step]!=='results'
+  ? '<div class="backline"><button class="back" onclick="prev()">← Назад</button></div>' : ''; }
+
+/* ---- intro ---- */
+function renderIntro(){
+  el(
+   '<div class="screen">'
+   +'<p class="eyebrow"><span class="dot"></span>Диагностика · 2 минуты</p>'
+   +'<h1 class="q" style="font-size:clamp(26px,6.4vw,36px)">Насколько рынок понимает, чем вы&nbsp;лучше?</h1>'
+   +'<p class="lede">7 коротких вопросов — и вы увидите свой <b style="color:var(--gold)">Индекс видимости</b>: где именно рынок вас недооценивает и что это меняет. В конце — персональный разбор, без обещаний «потока клиентов».</p>'
+   +'<div class="icard" style="margin-bottom:24px"><div class="k">Как это устроено</div>'
+     +'<p style="font-size:15px;color:var(--muted)">Отвечайте первым, что приходит в голову — так точнее. Никакой регистрации, чтобы начать. Результат сразу на экране.</p></div>'
+   +'<div class="btnrow"><button class="btn" onclick="startOver()">Пройти диагностику →</button></div>'
+   +'<p class="hint">Бесплатно · анонимно · 7 вопросов</p>'
+   +'</div>'
+  );
+}
+function startOver(){ S.ans={}; S.sym=[]; S.lead=null; S.avatar='expert'; persist(); go('empathy'); }
+
+/* ---- router ---- */
+function renderRouter(){
+  el(
+   '<div class="screen">'
+   +'<div class="bubble"><span class="who">Andrey & Masha</span>Привет. Один вопрос — и подстроим разбор под вас.</div>'
+   +'<h1 class="q">Что ближе описывает вас?</h1>'
+   +'<p class="qsub">ИНИЦИАЛИЗАЦИЯ · калибровка под ваш случай</p>'
+   +'<div class="opts">'
+     +optBtn('setAvatar(\'expert\')','d-gold','<b class="txt">Я эксперт-практик</b>','Продаю личное мастерство: консультирую, лечу, проектирую, веду клиентов сам')
+     +optBtn('setAvatar(\'business\')','d-gold','<b class="txt">У меня бизнес с командой</b>','Продаём продукт или услугу компанией — за мной люди, а не только я')
+   +'</div>'
+   + backBtn()
+   +'</div>'
+  );
+}
+function optBtn(onclick,dotcls,txt,sub){
+  return '<button class="opt" onclick="'+onclick+'"><span class="dot '+dotcls+'"></span>'
+    +'<span class="txt"><b>'+txt.replace(/<[^>]+>/g,'')+'</b>'+(sub?'<span style="display:block;font-weight:600;font-size:13px;color:var(--muted2);margin-top:3px">'+sub+'</span>':'')+'</span>'
+    +'<span class="chk">'+CHK+'</span></button>';
+}
+function setAvatar(a){ S.avatar=a; persist(); next(); }
+
+/* ---- empathy ---- */
+function renderEmpathy(){
+  var t = av({
+    expert:'Знакомо. Вы отличный мастер — просто об этом знают в основном те, кто уже был у вас. Это не про то, что вы «не умеете себя продавать». Это про то, что вас не&nbsp;видно.',
+    business:'Знакомо. Бизнес хороший — но клиент видит строку в списке и спрашивает только цену. Это не приговор бизнесу. Это значит, что рынку не объяснили ваше&nbsp;отличие.'
+  });
+  el(
+   '<div class="screen">'
+   +'<div class="bubble"><span class="who">Andrey & Masha</span>Спасибо. Тогда так.</div>'
+   +'<div class="icard"><div class="k">Прежде чем считать</div><p>'+t+'</p><p>Давайте измерим, насколько — и что именно это меняет.</p></div>'
+   +'<div class="btnrow"><button class="btn" onclick="next()">Понятно, поехали →</button></div>'
+   + backBtn()
+   +'</div>'
+  );
+}
+
+/* ---- single-select scored ---- */
+function renderSingle(Q){
+  var sel = S.ans[Q.id];
+  var rows='';
+  Q.opts.forEach(function(o,i){
+    var txt = av(o);
+    var on = (sel===i)?' sel':'';
+    rows += '<button class="opt'+on+'" onclick="pick(\''+Q.id+'\','+i+')">'
+      +'<span class="dot '+o.dot+'"></span><span class="txt">'+txt+'</span>'
+      +'<span class="chk">'+CHK+'</span></button>';
+  });
+  el(
+   '<div class="screen">'
+   +'<h1 class="q">'+av(Q.title)+'</h1>'
+   +'<p class="qsub">'+Q.proc+'</p>'
+   +'<div class="opts">'+rows+'</div>'
+   + backBtn()
+   +'</div>'
+  );
+}
+function pick(id,i){
+  S.ans[id]=i; persist();
+  var btns = stage.querySelectorAll('.opt');
+  btns.forEach(function(b,k){ b.classList.toggle('sel', k===i); });
+  setTimeout(next, 260);
+}
+
+/* ---- multi symptoms ---- */
+function renderMulti(){
+  var list = av({expert:SYMPTOMS.expert, business:SYMPTOMS.business});
+  var rows='';
+  list.forEach(function(t,i){
+    var on = (S.sym.indexOf(i)>=0)?' sel':'';
+    rows += '<button class="opt'+on+'" onclick="toggleSym('+i+')">'
+      +'<span class="txt">'+t+'</span><span class="chk">'+CHK+'</span></button>';
+  });
+  el(
+   '<div class="screen">'
+   +'<h1 class="q">Что из этого — про вас?</h1>'
+   +'<p class="qsub">ИНВЕНТАРИЗАЦИЯ · отметьте всё, что узнаёте</p>'
+   +'<div class="multi-count">Отмечено: <b id="symc">'+S.sym.length+'</b> — чем честнее, тем точнее разбор</div>'
+   +'<div class="opts">'+rows+'</div>'
+   +'<div class="btnrow"><button class="btn" onclick="next()">'+(S.sym.length?'Дальше →':'Ничего из этого / дальше →')+'</button></div>'
+   + backBtn()
+   +'</div>'
+  );
+}
+function toggleSym(i){
+  var k=S.sym.indexOf(i);
+  if(k>=0) S.sym.splice(k,1); else S.sym.push(i);
+  persist();
+  var btns=stage.querySelectorAll('.opts .opt');
+  btns[i].classList.toggle('sel');
+  document.getElementById('symc').textContent=S.sym.length;
+  var b=stage.querySelector('.btnrow .btn'); if(b) b.textContent = S.sym.length?'Дальше →':'Ничего из этого / дальше →';
+}
+
+/* ---- insight ---- */
+function renderInsight(){
+  el(
+   '<div class="screen">'
+   +'<div class="bubble"><span class="who">Andrey & Masha</span>Хорошая осознанность. Одна важная мысль на середине.</div>'
+   +'<div class="icard"><div class="k">Почему это важно</div>'
+     +'<p>Почти все, кто застрял, думают, что дело в них самих — в характере, в возрасте, в «не мой это талант — продавать».</p>'
+     +'<p style="color:var(--ink)">Чаще всего дело в другом: <b style="color:var(--gold)">рынку просто не объяснили ваше отличие</b>. А это чинится не характером — системой. Именно её мы и собираем.</p></div>'
+   +'<div class="btnrow"><button class="btn" onclick="next()">Продолжить →</button></div>'
+   +'</div>'
+  );
+}
+
+/* ---- ready (lead temp) ---- */
+function renderReady(){}
+function renderReadyScreen(){
+  var rows='';
+  LEAD.forEach(function(o,i){
+    var on = (S.lead===o.key)?' sel':'';
+    rows += '<button class="opt'+on+'" onclick="pickLead(\''+o.key+'\')">'
+      +'<span class="dot d-gold" style="background:transparent;box-shadow:none;font-size:18px;width:auto;height:auto">'+o.e+'</span>'
+      +'<span class="txt">'+av(o)+'</span><span class="chk">'+CHK+'</span></button>';
+  });
+  el(
+   '<div class="screen">'
+   +'<h1 class="q">Последнее. Если решение есть — с чего хотите начать?</h1>'
+   +'<p class="qsub">КАЛИБРОВКА · это не влияет на ваш индекс</p>'
+   +'<div class="opts">'+rows+'</div>'
+   + backBtn()
+   +'</div>'
+  );
+}
+function pickLead(k){
+  S.lead=k; persist();
+  var btns=stage.querySelectorAll('.opt');
+  var idx=LEAD.map(function(o){return o.key;}).indexOf(k);
+  btns.forEach(function(b,i){ b.classList.toggle('sel', i===idx); });
+  setTimeout(next,260);
+}
+
+/* patch: 'ready' screen routed here */
+var _render = render;
+render = function(){
+  if(FLOW[S.step]==='ready'){ sticky.classList.remove('show'); updateProg(); return renderReadyScreen(); }
+  return _render();
+};
+
+/* ============================ SCORING ============================ */
+function compute(){
+  function gv(id){ var i=S.ans[id]; return QOBJ[id].opts[(i==null?3:i)].v; }
+  var diff=gv('diff'), flow=gv('flow'), lost=gv('lost'), val=gv('value');
+  var symN=S.sym.length;
+  var base=(diff+flow+lost+val)/12*10;              // 0..10
+  var score=Math.max(0, base - Math.min(2, symN*0.25));
+  score=Math.round(score*10)/10;
+  var clarity=Math.round((diff+lost)/6*100);
+  var system=Math.round(flow/3*100);
+  var perception=Math.max(0, Math.round(val/3*100 - symN*7));
+  // band
+  var band; // 0 red,1 orange,2 yellow,3 green
+  if(score<3) band=0; else if(score<5) band=1; else if(score<8) band=2; else band=3;
+  return {score:score,clarity:clarity,system:system,perception:perception,band:band,symN:symN,
+          diff:diff,flow:flow,lost:lost,val:val};
+}
+
+var BAND_LABEL = {
+  expert:['Лучше хранимый секрет','Видно, но размыто','Хороши, но недооценены','Понятны и выбираемы'],
+  business:['Один из десяти','Заметны, но не отличают','Сравнивают по цене','Очевидный выбор']
+};
+var BAND_COLOR = ['--sev-red','--sev-orange','--sev-yellow','--sev-green'];
+var BAND_EMOJI = ['🔴','🟠','🟡','🟢'];
+var VERDICT = {
+  expert:[
+    'Вы — лучше хранимый секрет своей ниши. Мастерство есть, но рынок о нём почти не знает, и доход упёрся в круг, который вас уже знает.',
+    'Вас уже видно, но размыто. Клиент не считывает за 10 секунд, чем вы сильнее, — и выбирает того, у кого понятнее.',
+    'Вы сильны, но недооценены. Вас выбирают те, кто дошёл, — а могли бы выбирать чаще и дороже, если бы отличие читалось сразу.',
+    'Вас понимают и выбирают. Ядро в порядке — дальше вопрос в том, чтобы это перестало зависеть от везения и стало системой.'
+  ],
+  business:[
+    'Для рынка вы пока — один из десяти. Бизнес хороший, но клиент видит строку в списке и звонит спросить только цену.',
+    'Вас замечают, но не отличают. Рынку не объяснили, чем вы лучше соседа, — поэтому решает цена.',
+    'Вас видят, но сравнивают по цене. Отличие есть, но оно не показано так, чтобы за него платили без торга.',
+    'Вы — очевидный выбор. Позиционирование работает; дальше вопрос в том, чтобы удержать это и масштабировать, не скатываясь в ручной режим.'
+  ]
+};
+var COSTS = {
+  expert:[
+    'Каждый пустой месяц — это не невезение, а отсутствие системы. Он повторится.',
+    'Каждый недооценённый чек — разница между тем, сколько вы стоите как мастер, и сколько берёте.',
+    'Каждый клиент, выбравший более понятного (не более сильного), уходит к тому, у кого было что прислать.'
+  ],
+  business:[
+    'Каждый месяц демпинга — это прибыль, отданная за то, что бизнес неотличим.',
+    'Каждый клиент, ушедший «по цене», — это не «рынок такой», а отличие, которое вы не показали.',
+    'Пока вы — узкое горло, стратегия ждёт, а конкурент, который «упаковался», уходит дальше.'
+  ]
+};
+// artifacts from the offer; keyed relevance
+function artifacts(r){
+  var biz = S.avatar==='business';
+  var list = [
+    {ic:'🧬',b:'Company DNA',s:'Ваше отличие — в одном предложении, которое работает и на сайте, и вживую.',w:(3-r.diff)+(3-r.lost)},
+    {ic:'🎯',b:'Customer Intelligence',s:'Портрет вашего клиента его же словами — тексты начинают попадать.',w:(3-r.diff)+ (r.symN>3?2:0)},
+    {ic:'🔍',b:'Competitor Intelligence',s:'Разбор 3–5 конкурентов: где ваше белое пятно и чем реально отстроиться.',w:(3-r.val)+(3-r.lost)},
+    biz
+      ? {ic:'🎁',b:'Сильный оффер',s:'Предложение, при котором вас выбирают не по цене — можно поднять цену без потери потока.',w:(3-r.val)+2}
+      : {ic:'📄',b:'Страница для рекомендателя',s:'Документ, который тот, кто вас советует, пересылает без пояснений — и он переживает пересказ.',w:(3-r.flow)+1},
+    {ic:'🖥',b: biz?'Сайт, который отражает уровень':'Сайт, которым не стыдно поделиться', s:'Продающая структура, а не просто картинка. То, что отправляют вместо неловкой паузы.',w:(3-r.flow)+ (r.symN>2?1:0)},
+    {ic:'🤖',b:'Ask Your Business',s:'Живая система: спросить «стоит ли поднять цену?», «что делают конкуренты?» — и получить ответ на базе вашей DNA.',w:1}
+  ];
+  list.sort(function(a,b){return b.w-a.w;});
+  list.forEach(function(x,i){ x.key = i<2; });
+  // keep original display order but mark top-2 as key
+  var keyset = {}; list.slice(0,2).forEach(function(x){keyset[x.b]=1;});
+  return {items:list, keyset:keyset};
+}
+var ANTI = {
+  expert:'Мы <b class="big">не обещаем вам поток клиентов</b>. Кто обещает — либо не понимает вашу работу, либо врёт. Мы гарантируем другое: вы перестанете быть невидимым. Будет чем ответить на «чем вы лучше» и что прислать вместо неловкой паузы.',
+  business:'Мы <b class="big">не обещаем рост выручки</b>. Кто обещает — либо не понимает ваш бизнес, либо врёт. Мы гарантируем другое: вас перестанут сравнивать только по цене. Будет ясное отличие, оффер и система.'
+};
+var CTA_LEAD = {
+  hot:{h:'Разберём ваш случай предметно',p:'Вы готовы — отлично. 20 минут голосом, не анкета: смотрим, где ваш главный рычаг.'},
+  warm:{h:'Покажем, как это устроено — на вашем примере',p:'20 минут голосом. Никакой презентации ради презентации — сразу по вашей ситуации.'},
+  need:{h:'Проблему видите, решение — нет. Это и разберём',p:'Именно для этого разговор и нужен. 20 минут, без давления и без «купите сейчас».'},
+  cold:{h:'20 минут ни к чему не обязывают',p:'Пока просто смотрите — ок. Разговор даст картину, а решение останется за вами.'}
+};
+
+/* ---- processing ---- */
+function renderProcessing(){
+  var steps=[QOBJ.diff.proc, QOBJ.flow.proc, QOBJ.value.proc, 'Считаем ваш Индекс видимости…'];
+  var items = steps.map(function(t,i){ return '<div class="procitem" id="pi'+i+'"><span class="tick">'+(i+1)+'</span>'+t+'</div>'; }).join('');
+  el(
+   '<div class="screen proc">'
+   +'<div class="ring"><svg width="96" height="96" viewBox="0 0 96 96">'
+     +'<circle cx="48" cy="48" r="42" stroke="rgba(255,255,255,.08)" stroke-width="6" fill="none"/>'
+     +'<circle id="ringp" cx="48" cy="48" r="42" stroke="url(#gg)" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264"/>'
+     +'<defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A3762B"/><stop offset="1" stop-color="#E2B872"/></linearGradient></defs>'
+     +'</svg><div class="val" id="ringv">0%</div></div>'
+   +'<div class="proclist">'+items+'</div>'
+   +'</div>'
+  );
+  var t0=null, DUR=1900;
+  function step(ts){ if(t0==null)t0=ts; var p=Math.min(1,(ts-t0)/DUR);
+    var pct=Math.round(p*100);
+    document.getElementById('ringv').textContent=pct+'%';
+    document.getElementById('ringp').setAttribute('stroke-dashoffset', 264*(1-p));
+    var on=Math.floor(p*4.0001);
+    for(var i=0;i<4;i++){ var e=document.getElementById('pi'+i); if(e) e.classList.toggle('on', i<on || (p>=1)); }
+    if(p<1) requestAnimationFrame(step); else advance();
+  }
+  var advanced=false;
+  function advance(){ if(advanced) return; advanced=true; if(FLOW[S.step]==='processing') next(); }
+  requestAnimationFrame(step);
+  // guarantee we leave the loader even if rAF is throttled (backgrounded tab)
+  setTimeout(advance, DUR+700);
+}
+
+/* ---- results ---- */
+function renderResults(){
+  var r=compute();
+  var biz=S.avatar==='business';
+  var bandLbl = (biz?BAND_LABEL.business:BAND_LABEL.expert)[r.band];
+  var col = 'var('+BAND_COLOR[r.band]+')';
+  var verdict = (biz?VERDICT.business:VERDICT.expert)[r.band];
+  var costs = (biz?COSTS.business:COSTS.expert);
+  var arts = artifacts(r);
+  var lead = CTA_LEAD[S.lead||'warm'];
+  var anti = biz?ANTI.business:ANTI.expert;
+
+  var costRows = costs.map(function(c){ return '<div class="cost"><span class="ic">!</span><p>'+c+'</p></div>'; }).join('');
+  var artRows = arts.items.map(function(a){
+    var k = arts.keyset[a.b];
+    return '<div class="art'+(k?' key':'')+'">'+(k?'<span class="flag">ваш рычаг</span>':'')
+      +'<span class="ai">'+a.ic+'</span><span class="atx"><b>'+a.b+'</b><span>'+a.s+'</span></span></div>';
+  }).join('');
+
+  var pips=''; for(var i=0;i<SLOTS_TOTAL;i++){ pips+='<i class="'+(i<SLOTS_FREE?'on':'off')+'"></i>'; }
+
+  el(
+   '<div class="screen">'
+   +'<div style="text-align:center">'
+     +'<span class="res-badge" style="color:'+col+';background:color-mix(in srgb,'+col+' 16%,transparent);border:1px solid color-mix(in srgb,'+col+' 40%,transparent)">'+BAND_EMOJI[r.band]+' '+bandLbl+'</span>'
+   +'</div>'
+   + gaugeSVG(r.score, r.band)
+   +'<h2 class="res-title">Ваш Индекс видимости — <span style="color:'+col+'">'+r.score.toFixed(1)+'</span> из 10</h2>'
+   +'<p class="res-verdict">'+verdict+'</p>'
+
+   +'<div class="metrics">'
+     + metricCard('Ясность отличия', r.clarity)
+     + metricCard('Система потока', r.system)
+     + metricCard('Восприятие рынком', r.perception)
+   +'</div>'
+
+   +'<div class="sec reveal"><div class="sec-h">Что это значит на практике<span class="ln"></span></div>'
+     +'<div class="costs">'+costRows+'</div></div>'
+
+   +'<div class="sec reveal"><div class="sec-h">Что закрывает ваш разрыв<span class="ln"></span></div>'
+     +'<p style="color:var(--muted);font-size:14.5px;margin:0 0 14px">Из системы Business Intelligence DNA — отмечены два ваших главных рычага по ответам:</p>'
+     +'<div class="arts">'+artRows+'</div></div>'
+
+   +'<div class="anti reveal"><div class="k">🚫 Честно, до разговора</div><p>'+anti+'</p></div>'
+
+   +'<div class="ctaSec reveal" id="book">'
+     +'<h2>'+lead.h+'</h2>'
+     +'<p class="lead2">'+lead.p+'</p>'
+     +'<div class="btnrow" style="margin-top:6px">'
+       +'<a class="btn" href="'+CAL+'" rel="noopener">Выбрать время (20 мин) →</a>'
+       +'<a class="btn tg" href="'+TG+'" rel="noopener">Написать в Telegram</a>'
+     +'</div>'
+     +'<div class="slots"><span class="pips">'+pips+'</span> в работе одновременно не более '+SLOTS_TOTAL+' сборок · свободно '+SLOTS_FREE+'</div>'
+     +'<p class="legal">Вход — через недорогой Audit. Решите продолжить — его оплата засчитывается в ядро. Не решите — уносите готовый диагноз.</p>'
+   +'</div>'
+
+   +'<div class="btnrow" style="margin-top:10px"><button class="btn ghost" style="width:auto;margin:0 auto" onclick="startOver()">↺ Пройти заново</button></div>'
+   +'<div class="foot">Business Intelligence DNA · мы не гоним трафик и не делаем из вас блогера</div>'
+   +'</div>'
+  );
+
+  // animate metric bars + gauge needle
+  requestAnimationFrame(function(){
+    stage.querySelectorAll('.metric .bar i').forEach(function(b){ b.style.width=b.dataset.v+'%'; });
+    animGauge(r.score);
+  });
+  // sticky + reveal observer
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('in'); }); },{threshold:.12});
+  stage.querySelectorAll('.reveal').forEach(function(x){ io.observe(x); });
+  // sticky CTA when gauge scrolled past
+  // sticky CTA: show after scrolling down, hide when the booking block is on screen
+  window.onscroll=function(){
+    var b=document.getElementById('book'); if(!b){return;}
+    var rect=b.getBoundingClientRect();
+    var show = window.scrollY>380 && rect.top>window.innerHeight;
+    sticky.classList.toggle('show', show);
+  };
+  document.getElementById('stickyBtn').onclick=function(e){ e.preventDefault(); document.getElementById('book').scrollIntoView({behavior:'smooth'}); };
+}
+
+function metricCard(label,v){
+  var col = v>=66?'var(--sev-green)': v>=40?'var(--sev-yellow)':'var(--sev-orange)';
+  return '<div class="metric"><div class="mv" style="color:'+col+'">'+v+'<span style="font-size:14px;color:var(--muted2)">%</span></div>'
+    +'<div class="ml">'+label+'</div><div class="bar"><i data-v="'+v+'"></i></div></div>';
+}
+
+/* gauge — semicircle with 4 zones + animated needle */
+function polar(cx,cy,r,deg){ var a=(deg-180)*Math.PI/180; return [cx+r*Math.cos(a), cy+r*Math.sin(a)]; }
+function arcPath(cx,cy,r,d0,d1){
+  var p0=polar(cx,cy,r,d0), p1=polar(cx,cy,r,d1);
+  var large=(d1-d0)>180?1:0;
+  return 'M'+p0[0].toFixed(1)+' '+p0[1].toFixed(1)+' A'+r+' '+r+' 0 '+large+' 1 '+p1[0].toFixed(1)+' '+p1[1].toFixed(1);
+}
+function gaugeSVG(score,band){
+  var cx=130,cy=132,r=104, w=17;
+  var zones=[[0,54,'#c85a4f'],[54,90,'#cf8a3d'],[90,144,'#d8b45a'],[144,180,'#4fa87f']];
+  var z=zones.map(function(zz){ return '<path d="'+arcPath(cx,cy,r,zz[0],zz[1])+'" stroke="'+zz[2]+'" stroke-width="'+w+'" fill="none" stroke-linecap="butt" opacity=".9"/>'; }).join('');
+  return '<div class="gauge-wrap"><svg class="gauge" viewBox="0 0 260 150">'
+    + z
+    + '<g id="needle" transform="rotate(-90 '+cx+' '+cy+')">'
+      + '<line x1="'+cx+'" y1="'+cy+'" x2="'+cx+'" y2="'+(cy-r+6)+'" stroke="#F2F0EA" stroke-width="3.5" stroke-linecap="round"/>'
+      + '<circle cx="'+cx+'" cy="'+cy+'" r="8" fill="#F2F0EA"/><circle cx="'+cx+'" cy="'+cy+'" r="3.5" fill="#0F1022"/>'
+    + '</g>'
+    + '<text id="gscore" x="'+cx+'" y="'+(cy-28)+'" text-anchor="middle" font-size="40" font-weight="800" fill="#F2F0EA" font-family="inherit">0.0</text>'
+    + '<text x="40" y="146" font-size="11" fill="#9a99b6" font-weight="700">0</text>'
+    + '<text x="212" y="146" font-size="11" fill="#9a99b6" font-weight="700">10</text>'
+    + '</svg></div>';
+};
+function animGauge(score){
+  var needle=document.getElementById('needle');
+  var gtext=document.getElementById('gscore');
+  if(!needle) return;
+  var target=score/10*180-90; // -90..+90
+  var t0=null,DUR=1100;
+  function fr(ts){ if(t0==null)t0=ts; var p=Math.min(1,(ts-t0)/DUR); var e=1-Math.pow(1-p,3);
+    var ang=-90 + (target+90)*e;
+    needle.setAttribute('transform','rotate('+ang.toFixed(1)+' 130 132)');
+    if(gtext) gtext.textContent=(score*e).toFixed(1);
+    if(p<1) requestAnimationFrame(fr); else if(gtext) gtext.textContent=score.toFixed(1);
+  }
+  requestAnimationFrame(fr);
+}
+
+/* ============================ INIT ============================ */
+// resume: if mid-quiz, jump back to intro for cleanliness unless deep in
+if(FLOW[S.step]==null || FLOW[S.step]==='processing'){ S.step=0; }
+render();
+</script>
+
+<script>
+/* ===== Floating WebGL gradient background (ported Stripe-gradient, brand navy+gold) ===== */
+(function(){
+function normalizeColor(hexCode){ return [((hexCode>>16)&255)/255,((hexCode>>8)&255)/255,(255&hexCode)/255]; }
+class MiniGl{
+  constructor(canvas){
+    this.canvas=canvas; this.meshes=[];
+    var gl=canvas.getContext("webgl",{antialias:true}); if(!gl) throw new Error("WebGL not supported");
+    this.gl=gl; var context=this.gl; var _miniGl=this;
+    this.Uniform=class{
+      constructor(e){ this.type="float"; Object.assign(this,e);
+        var m={float:"1f",int:"1i",vec2:"2fv",vec3:"3fv",vec4:"4fv",mat4:"Matrix4fv"}; this.typeFn=m[this.type]||"1f"; }
+      update(location){ if(this.value===undefined||location===null) return;
+        var isM=this.typeFn.indexOf("Matrix")===0, fn="uniform"+this.typeFn;
+        if(isM) context[fn](location,this.transpose||false,this.value); else context[fn](location,this.value); }
+      getDeclaration(name,type,length){ if(this.excludeFrom===type) return "";
+        if(this.type==="array"){ return this.value[0].getDeclaration(name,type,this.value.length)+"\nconst int "+name+"_length = "+this.value.length+";"; }
+        if(this.type==="struct"){ var np=name.replace("u_",""); np=np.charAt(0).toUpperCase()+np.slice(1);
+          var f=Object.entries(this.value).map(function(kv){return kv[1].getDeclaration(kv[0],type).replace(/^uniform/,"");}).join("");
+          return "uniform struct "+np+" \n{\n"+f+"\n} "+name+(length?"["+length+"]":"")+";"; }
+        return "uniform "+this.type+" "+name+(length?"["+length+"]":"")+";"; }
+    };
+    this.Attribute=class{
+      constructor(e){ this.type=context.FLOAT; this.normalized=false; this.buffer=context.createBuffer(); Object.assign(this,e); }
+      update(){ if(this.values){ context.bindBuffer(this.target,this.buffer); context.bufferData(this.target,this.values,context.STATIC_DRAW); } }
+      attach(e,program){ var n=context.getAttribLocation(program,e);
+        if(this.target===context.ARRAY_BUFFER){ context.bindBuffer(this.target,this.buffer); context.enableVertexAttribArray(n);
+          context.vertexAttribPointer(n,this.size,this.type,this.normalized,0,0); } return n; }
+      use(e){ context.bindBuffer(this.target,this.buffer);
+        if(this.target===context.ARRAY_BUFFER){ context.enableVertexAttribArray(e); context.vertexAttribPointer(e,this.size,this.type,this.normalized,0,0); } }
+    };
+    this.Material=class{
+      constructor(vertexShaders,fragments,uniforms){ uniforms=uniforms||{}; var material=this; this.uniformInstances=[];
+        function getShader(t,s){ var sh=context.createShader(t); context.shaderSource(sh,s); context.compileShader(sh);
+          if(!context.getShaderParameter(sh,context.COMPILE_STATUS)){ console.error(context.getShaderInfoLog(sh)); throw new Error("Shader compile error"); } return sh; }
+        function decls(u,type){ return Object.entries(u).map(function(kv){return kv[1].getDeclaration(kv[0],type);}).join("\n"); }
+        material.uniforms=uniforms; var p="precision highp float;";
+        var vs=p+"\nattribute vec4 position;\nattribute vec2 uv;\nattribute vec2 uvNorm;\n"+decls(_miniGl.commonUniforms,"vertex")+"\n"+decls(uniforms,"vertex")+"\n"+vertexShaders;
+        var fs=p+"\n"+decls(_miniGl.commonUniforms,"fragment")+"\n"+decls(uniforms,"fragment")+"\n"+fragments;
+        material.program=context.createProgram();
+        context.attachShader(material.program,getShader(context.VERTEX_SHADER,vs));
+        context.attachShader(material.program,getShader(context.FRAGMENT_SHADER,fs));
+        context.linkProgram(material.program);
+        if(!context.getProgramParameter(material.program,context.LINK_STATUS)){ console.error(context.getProgramInfoLog(material.program)); throw new Error("Program link error"); }
+        context.useProgram(material.program); material.attachUniforms(undefined,_miniGl.commonUniforms); material.attachUniforms(undefined,material.uniforms); }
+      attachUniforms(name,uniforms){ var self=this;
+        if(name===undefined){ Object.entries(uniforms).forEach(function(kv){self.attachUniforms(kv[0],kv[1]);}); }
+        else if(uniforms.type==="array"){ uniforms.value.forEach(function(u,i){self.attachUniforms(name+"["+i+"]",u);}); }
+        else if(uniforms.type==="struct"){ Object.entries(uniforms.value).forEach(function(kv){self.attachUniforms(name+"."+kv[0],kv[1]);}); }
+        else { self.uniformInstances.push({uniform:uniforms,location:context.getUniformLocation(this.program,name)}); } }
+    };
+    this.PlaneGeometry=class{
+      constructor(){ this.width=1;this.height=1;this.vertexCount=0;this.xSegCount=0;this.ySegCount=0;
+        this.attributes={ position:new _miniGl.Attribute({target:context.ARRAY_BUFFER,size:3}),
+          uv:new _miniGl.Attribute({target:context.ARRAY_BUFFER,size:2}),
+          uvNorm:new _miniGl.Attribute({target:context.ARRAY_BUFFER,size:2}),
+          index:new _miniGl.Attribute({target:context.ELEMENT_ARRAY_BUFFER,size:3,type:context.UNSIGNED_SHORT}) }; }
+      setTopology(xSegs,ySegs){ xSegs=xSegs||1;ySegs=ySegs||1; this.xSegCount=xSegs;this.ySegCount=ySegs;
+        this.vertexCount=(this.xSegCount+1)*(this.ySegCount+1); var q=this.xSegCount*this.ySegCount*2;
+        this.attributes.uv.values=new Float32Array(2*this.vertexCount);
+        this.attributes.uvNorm.values=new Float32Array(2*this.vertexCount);
+        this.attributes.index.values=new Uint16Array(3*q);
+        for(var y=0;y<=this.ySegCount;y++){ for(var x=0;x<=this.xSegCount;x++){ var i=y*(this.xSegCount+1)+x;
+          this.attributes.uv.values[2*i]=x/this.xSegCount; this.attributes.uv.values[2*i+1]=1-y/this.ySegCount;
+          this.attributes.uvNorm.values[2*i]=(x/this.xSegCount)*2-1; this.attributes.uvNorm.values[2*i+1]=1-(y/this.ySegCount)*2;
+          if(x<this.xSegCount&&y<this.ySegCount){ var s=y*this.xSegCount+x;
+            this.attributes.index.values[6*s]=i; this.attributes.index.values[6*s+1]=i+1+this.xSegCount; this.attributes.index.values[6*s+2]=i+1;
+            this.attributes.index.values[6*s+3]=i+1; this.attributes.index.values[6*s+4]=i+1+this.xSegCount; this.attributes.index.values[6*s+5]=i+2+this.xSegCount; } } }
+        this.attributes.uv.update(); this.attributes.uvNorm.update(); this.attributes.index.update(); }
+      setSize(width,height){ width=width||1;height=height||1; this.width=width;this.height=height;
+        this.attributes.position.values=new Float32Array(3*this.vertexCount);
+        var ox=width/-2,oy=height/-2,sw=width/this.xSegCount,sh=height/this.ySegCount;
+        for(var y=0;y<=this.ySegCount;y++){ var py=oy+y*sh; for(var x=0;x<=this.xSegCount;x++){ var px=ox+x*sw; var idx=y*(this.xSegCount+1)+x;
+          this.attributes.position.values[3*idx]=px; this.attributes.position.values[3*idx+1]=-py; this.attributes.position.values[3*idx+2]=0; } }
+        this.attributes.position.update(); }
+    };
+    this.Mesh=class{
+      constructor(geometry,material){ this.geometry=geometry;this.material=material;this.attributeInstances=[]; var self=this;
+        Object.entries(this.geometry.attributes).forEach(function(kv){ self.attributeInstances.push({attribute:kv[1],location:kv[1].attach(kv[0],self.material.program)}); });
+        _miniGl.meshes.push(this); }
+      draw(){ context.useProgram(this.material.program);
+        this.material.uniformInstances.forEach(function(o){o.uniform.update(o.location);});
+        this.attributeInstances.forEach(function(o){o.attribute.use(o.location);});
+        context.drawElements(context.TRIANGLES,this.geometry.attributes.index.values.length,context.UNSIGNED_SHORT,0); }
+    };
+    var I=[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1];
+    this.commonUniforms={ projectionMatrix:new this.Uniform({type:"mat4",value:I}), modelViewMatrix:new this.Uniform({type:"mat4",value:I}),
+      resolution:new this.Uniform({type:"vec2",value:[1,1]}), aspectRatio:new this.Uniform({type:"float",value:1}) };
+  }
+  setSize(w,h){ w=w||640;h=h||480; this.width=w;this.height=h; this.canvas.width=w;this.canvas.height=h; this.gl.viewport(0,0,w,h);
+    this.commonUniforms.resolution.value=[w,h]; this.commonUniforms.aspectRatio.value=w/h; }
+  setOrthographicCamera(){ this.commonUniforms.projectionMatrix.value=[2/this.width,0,0,0,0,2/this.height,0,0,0,0,-0.001,0,0,0,0,1]; }
+  render(){ this.gl.clearColor(0,0,0,0); this.gl.clearDepth(1); this.meshes.forEach(function(m){m.draw();}); }
+}
+class Gradient{
+  constructor(canvas,colors){ this.canvas=canvas;this.colors=colors;this.time=0;this.last=0;this.isPlaying=false; this.minigl=new MiniGl(canvas); this.init(); }
+  init(){ var _this=this;
+    var sc=this.colors.map(function(hex){return normalizeColor(parseInt(hex.replace("#","0x"),16));});
+    var U=function(o){return new _this.minigl.Uniform(o);};
+    var uniforms={ u_time:U({value:0}), u_shadow_power:U({value:5}), u_darken_top:U({value:0}), u_active_colors:U({value:[1,1,1,1],type:"vec4"}),
+      u_global:U({type:"struct",value:{ noiseFreq:U({value:[0.00014,0.00029],type:"vec2"}), noiseSpeed:U({value:0.000005}) }}),
+      u_vertDeform:U({type:"struct",excludeFrom:"fragment",value:{ incline:U({value:0}), offsetTop:U({value:-0.5}), offsetBottom:U({value:-0.5}),
+        noiseFreq:U({value:[3,4],type:"vec2"}), noiseAmp:U({value:320}), noiseSpeed:U({value:10}), noiseFlow:U({value:3}), noiseSeed:U({value:5}) }}),
+      u_baseColor:U({value:sc[0],type:"vec3",excludeFrom:"fragment"}), u_waveLayers:U({value:[],excludeFrom:"fragment",type:"array"}) };
+    for(var i=1;i<sc.length;i++){ uniforms.u_waveLayers.value.push(U({type:"struct",value:{ color:U({value:sc[i],type:"vec3"}),
+      noiseFreq:U({value:[2+i/sc.length,3+i/sc.length],type:"vec2"}), noiseSpeed:U({value:11+0.3*i}), noiseFlow:U({value:6.5+0.3*i}),
+      noiseSeed:U({value:5+10*i}), noiseFloor:U({value:0.1}), noiseCeil:U({value:0.63+0.07*i}) }})); }
+    var VS=
+"vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}\nvec4 mod289(vec4 x){return x-floor(x*(1.0/289.0))*289.0;}\n"+
+"vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);}\nvec4 taylorInvSqrt(vec4 r){return 1.79284291400159-0.85373472095314*r;}\n"+
+"float snoise(vec3 v){ const vec2 C=vec2(1.0/6.0,1.0/3.0); const vec4 D=vec4(0.0,0.5,1.0,2.0);\n"+
+"  vec3 i=floor(v+dot(v,C.yyy)); vec3 x0=v-i+dot(i,C.xxx); vec3 g=step(x0.yzx,x0.xyz); vec3 l=1.0-g;\n"+
+"  vec3 i1=min(g.xyz,l.zxy); vec3 i2=max(g.xyz,l.zxy); vec3 x1=x0-i1+C.xxx; vec3 x2=x0-i2+C.yyy; vec3 x3=x0-D.yyy; i=mod289(i);\n"+
+"  vec4 p=permute(permute(permute(i.z+vec4(0.0,i1.z,i2.z,1.0))+i.y+vec4(0.0,i1.y,i2.y,1.0))+i.x+vec4(0.0,i1.x,i2.x,1.0));\n"+
+"  float n_=0.142857142857; vec3 ns=n_*D.wyz-D.xzx; vec4 j=p-49.0*floor(p*ns.z*ns.z); vec4 x_=floor(j*ns.z); vec4 y_=floor(j-7.0*x_);\n"+
+"  vec4 x=x_*ns.x+ns.yyyy; vec4 y=y_*ns.x+ns.yyyy; vec4 h=1.0-abs(x)-abs(y); vec4 b0=vec4(x.xy,y.xy); vec4 b1=vec4(x.zw,y.zw);\n"+
+"  vec4 s0=floor(b0)*2.0+1.0; vec4 s1=floor(b1)*2.0+1.0; vec4 sh=-step(h,vec4(0.0));\n"+
+"  vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy; vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;\n"+
+"  vec3 p0=vec3(a0.xy,h.x); vec3 p1=vec3(a0.zw,h.y); vec3 p2=vec3(a1.xy,h.z); vec3 p3=vec3(a1.zw,h.w);\n"+
+"  vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3))); p0*=norm.x;p1*=norm.y;p2*=norm.z;p3*=norm.w;\n"+
+"  vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0); m=m*m;\n"+
+"  return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3))); }\n"+
+"vec3 blendNormal(vec3 base,vec3 blend){return blend;}\nvec3 blendNormal(vec3 base,vec3 blend,float opacity){return (blend*opacity+base*(1.0-opacity));}\n"+
+"varying vec3 v_color;\nvoid main(){ float time=u_time*u_global.noiseSpeed; vec2 noiseCoord=resolution*uvNorm*u_global.noiseFreq;\n"+
+"  float tilt=resolution.y/2.0*uvNorm.y; float incline=resolution.x*uvNorm.x/2.0*u_vertDeform.incline;\n"+
+"  float offset=resolution.x/2.0*u_vertDeform.incline*mix(u_vertDeform.offsetBottom,u_vertDeform.offsetTop,uv.y);\n"+
+"  float noise=snoise(vec3(noiseCoord.x*u_vertDeform.noiseFreq.x+time*u_vertDeform.noiseFlow,noiseCoord.y*u_vertDeform.noiseFreq.y,time*u_vertDeform.noiseSpeed+u_vertDeform.noiseSeed))*u_vertDeform.noiseAmp;\n"+
+"  noise*=1.0-pow(abs(uvNorm.y),2.0); noise=max(0.0,noise);\n"+
+"  vec3 pos=vec3(position.x,position.y+tilt+incline+noise-offset,position.z); v_color=u_baseColor;\n"+
+"  for(int i=0;i<u_waveLayers_length;i++){ if(u_active_colors[i+1]==1.){ WaveLayers layer=u_waveLayers[i];\n"+
+"    float layerNoise=smoothstep(layer.noiseFloor,layer.noiseCeil,snoise(vec3(noiseCoord.x*layer.noiseFreq.x+time*layer.noiseFlow,noiseCoord.y*layer.noiseFreq.y,time*layer.noiseSpeed+layer.noiseSeed))/2.0+0.5);\n"+
+"    v_color=blendNormal(v_color,layer.color,pow(layerNoise,4.)); } }\n"+
+"  gl_Position=projectionMatrix*modelViewMatrix*vec4(pos,1.0); }";
+    var FS="varying vec3 v_color;\nvoid main(){ vec3 color=v_color; if(u_darken_top==1.0){ vec2 st=gl_FragCoord.xy/resolution.xy; color.g-=pow(st.y+sin(-12.0)*st.x,u_shadow_power)*0.4; } gl_FragColor=vec4(color,1.0); }";
+    var material=new this.minigl.Material(VS,FS,uniforms); var geometry=new this.minigl.PlaneGeometry();
+    this.mesh=new this.minigl.Mesh(geometry,material); this.resize();
+    this._onResize=function(){_this.resize();}; window.addEventListener("resize",this._onResize); }
+  resize(){ var w=window.innerWidth,h=window.innerHeight; this.minigl.setSize(w,h); this.minigl.setOrthographicCamera();
+    this.mesh.geometry.setTopology(Math.ceil(w*0.02),Math.ceil(h*0.05)); this.mesh.geometry.setSize(w,h);
+    this.mesh.material.uniforms.u_shadow_power.value=w<600?5:6; }
+  animate(ts){ if(!this.isPlaying) return; this.time+=Math.min(ts-this.last,1000/15); this.last=ts;
+    this.mesh.material.uniforms.u_time.value=this.time; this.minigl.render(); var _this=this;
+    this.animationId=requestAnimationFrame(function(t){_this.animate(t);}); }
+  renderStatic(){ this.mesh.material.uniforms.u_time.value=4200; this.minigl.render(); }
+  start(){ this.isPlaying=true; var _this=this; this.animationId=requestAnimationFrame(function(t){_this.animate(t);}); }
+}
+try{
+  var host=document.getElementById('gradbg');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var c=document.createElement('canvas'); host.appendChild(c);
+  var g=new Gradient(c,['#0F1022','#1B2557','#2E3F94','#B0812F']);
+  if(reduce) g.renderStatic(); else g.start();
+}catch(err){ console.warn('gradient bg unavailable, using CSS fallback', err); }
+})();
+</script>

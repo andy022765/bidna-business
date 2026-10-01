@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero-визуалы 2A и 2B — код</title>
+<style>
+  :root{
+    --bg:#f7f5f1; --ink:#17172b; --muted:#616175;
+    --dark:#0f1022; --dark2:#171833;
+    --gold:#c69749; --gold-deep:#a3762b; --gold-hi:#f4dfa0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:38px 20px 70px}
+  h1{font-family:Georgia,serif;font-size:clamp(21px,2.8vw,28px);margin:0 0 6px}
+  h2{font-family:Georgia,serif;font-size:clamp(19px,2.4vw,24px);margin:0 0 4px}
+  .muted{color:var(--muted);max-width:68ch}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold-deep);font-weight:800;margin-bottom:10px}
+  section{margin-top:44px}
+
+  /* ===== общая сцена ===== */
+  .stage{position:relative;width:100%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
+    background:radial-gradient(1100px 620px at 70% 8%, #22234a 0%, var(--dark) 62%);
+    margin-top:16px}
+  .fill{position:absolute;inset:0}
+  /* затемнение слева — там ляжет заголовок */
+  .textzone{position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(90deg, rgba(15,16,34,.97) 0%, rgba(15,16,34,.9) 26%, rgba(15,16,34,.45) 44%, rgba(15,16,34,0) 62%)}
+  .vign{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(78% 78% at 62% 46%, transparent 42%, rgba(0,0,0,.55) 100%)}
+  /* демонстрационный текст поверх — показать, что место читаемое */
+  .demo{position:absolute;left:5.5%;top:50%;transform:translateY(-50%);max-width:38%;color:#f2f0ea;z-index:9}
+  .demo h3{font-family:Georgia,serif;font-size:clamp(17px,2.5vw,31px);line-height:1.15;margin:0 0 10px}
+  .demo p{color:#c9c8dc;font-size:clamp(12px,1.25vw,15px);margin:0 0 16px}
+  .demo .btn{display:inline-block;background:var(--gold);color:#14142b;font-weight:800;
+    padding:9px 18px;border-radius:9px;font-size:clamp(11px,1.1vw,14px)}
+
+  /* ===== 2B: сферы ===== */
+  .sph{position:absolute;border-radius:50%}
+  .shadow{position:absolute;border-radius:50%;background:radial-gradient(closest-side, rgba(0,0,0,.62), transparent 72%)}
+  .refl{position:absolute;border-radius:50%;filter:blur(6px);opacity:.22}
+
+  /* ===== 2A: толпа ===== */
+  .fig{position:absolute}
+  .fig .head{position:absolute;left:50%;transform:translateX(-50%);border-radius:50%}
+  .fig .body{position:absolute;left:50%;transform:translateX(-50%);
+    border-radius:46% 46% 14% 14% / 34% 34% 8% 8%}
+  .beam{position:absolute;pointer-events:none;mix-blend-mode:screen;filter:blur(9px)}
+  .haze{position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(50% 60% at 66% 40%, rgba(198,151,73,.13), transparent 70%)}
+
+  .note{margin-top:14px;background:#faf5ea;border:1px solid #ecdcbb;border-radius:12px;
+    padding:14px 16px;font-size:14px;color:#6b5a33;max-width:68ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow">Hero-визуалы · собраны кодом, без ИИ-генерации</span>
+  <h1>«Один заметный среди одинаковых»</h1>
+  <p class="muted">Обе сцены — чистый CSS в нашей палитре. Ничего не весит, масштабируется без потери качества, уникально (такого нет ни у кого). Слева оставлено чистое поле под заголовок — для наглядности набросал демо-текст поверх.</p>
+
+  <!-- ===================== 2B ===================== -->
+  <section>
+    <h2>2B — золотая сфера среди серых</h2>
+    <p class="muted">Люкс-абстракция. Рифмуется с золотой монетой из hero-анимации: тот же материал, та же идея «один среди одинаковых».</p>
+    <div class="stage" id="stageB">
+      <div class="fill" id="spheres"></div>
+      <div class="textzone"></div>
+      <div class="vign"></div>
+      <div class="demo">
+        <h3>Ваш бизнес лучше,<br>чем о нём знает рынок.</h3>
+        <p>Мы делаем ваше мастерство видимым.</p>
+        <span class="btn">Начать с Audit →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2A ===================== -->
+  <section>
+    <h2>2A — один освещённый в серой толпе</h2>
+    <p class="muted">Прямое попадание в боль: «дело не в том, что вы плохой специалист — дело в том, что вас не видно». Фигуры стилизованные, силуэтные: так честнее и премиальнее, чем псевдо-фотореализм.</p>
+    <div class="stage" id="stageA">
+      <div class="fill" id="crowd"></div>
+      <div class="haze"></div>
+      <div class="textzone"></div>
+      <div class="vign"></div>
+      <div class="demo">
+        <h3>Дело не в том,<br>что вас не выбрали.<br>Вас не увидели.</h3>
+        <p>Из «как у всех» — в понятного и заметного.</p>
+        <span class="btn">Пройти тест видимости →</span>
+      </div>
+    </div>
+    <div class="note">Обе сцены можно оживить: сфера — мягкое дыхание блика, толпа — медленное движение луча. Скажи, если нужно, — добавлю.</div>
+  </section>
+</div>
+
+<script>
+/* виртуальный холст 1200×675, координаты переводим в проценты */
+var CW=1200, CH=675;
+function pctX(v){return (v/CW*100)+'%';}
+function pctY(v){return (v/CH*100)+'%';}
+
+/* ============ 2B: сетка сфер в перспективе ============ */
+(function(){
+  var host=document.getElementById('spheres');
+  var ROWS=5, COLS=8;
+  var GOLD_R=3, GOLD_C=5;          // положение золотой: ближний-средний ряд, правее центра
+
+  for(var r=0;r<ROWS;r++){
+    var t=r/(ROWS-1);                       // 0 — дальний ряд, 1 — ближний
+    var scale=0.40+0.60*Math.pow(t,1.45);   // ближе — крупнее
+    var y=190+430*Math.pow(t,1.32);         // ближе — ниже
+    var d=104*scale;                        // диаметр
+    var gap=d*1.62;
+    var rowW=(COLS-1)*gap;
+    var x0=650-rowW/2;                      // сетка смещена вправо: слева место под текст
+
+    for(var c=0;c<COLS;c++){
+      var x=x0+c*gap;
+      var isGold=(r===GOLD_R && c===GOLD_C);
+      var dim=0.30+0.70*Math.pow(t,0.9);    // дальние — глуше
+
+      /* контактная тень */
+      var sh=document.createElement('div');
+      sh.className='shadow';
+      sh.style.width=(d*1.25)+'px'; sh.style.height=(d*0.34)+'px';
+      sh.style.left=pctX(x-d*0.625); sh.style.top=pctY(y+d*0.40);
+      sh.style.opacity=(isGold?0.85:0.5*dim);
+      host.appendChild(sh);
+
+      /* отражение на полированном полу */
+      var rf=document.createElement('div');
+      rf.className='refl';
+      rf.style.width=d+'px'; rf.style.height=(d*0.62)+'px';
+      rf.style.left=pctX(x-d/2); rf.style.top=pctY(y+d*0.46);
+      rf.style.background=isGold
+        ? 'radial-gradient(ellipse at 50% 0%, rgba(226,189,114,.75), transparent 72%)'
+        : 'radial-gradient(ellipse at 50% 0%, rgba(150,152,175,'+(0.30*dim)+'), transparent 72%)';
+      host.appendChild(rf);
+
+      /* сама сфера */
+      var s=document.createElement('div');
+      s.className='sph';
+      s.style.width=d+'px'; s.style.height=d+'px';
+      s.style.left=pctX(x-d/2); s.style.top=pctY(y-d/2);
+
+      if(isGold){
+        s.style.background=
+          'radial-gradient(circle at 30% 23%, rgba(255,255,255,.92) 0%, rgba(255,255,255,0) 26%),'+
+          'radial-gradient(circle at 37% 30%, #fff4d2 0%, #ecd08c 26%, #c69749 52%, #8a6220 78%, #4e3610 100%)';
+        s.style.boxShadow=
+          'inset -'+(d*0.10)+'px -'+(d*0.13)+'px '+(d*0.26)+'px rgba(60,35,0,.62),'+
+          'inset '+(d*0.05)+'px '+(d*0.07)+'px '+(d*0.18)+'px rgba(255,225,160,.30),'+
+          '0 0 '+(d*0.95)+'px rgba(198,151,73,.55),'+
+          '0 '+(d*0.14)+'px '+(d*0.24)+'px rgba(0,0,0,.55)';
+        s.style.zIndex=5;
+      }else{
+        s.style.opacity=(0.42+0.58*dim).toFixed(2);
+        s.style.background=
+          'radial-gradient(circle at 31% 24%, rgba(255,255,255,'+(0.32*dim)+') 0%, rgba(255,255,255,0) 34%),'+
+          'radial-gradient(circle at 38% 31%, #6d6f81 0%, #4c4e5e 44%, #2e3040 74%, #1e202c 100%)';
+        s.style.boxShadow=
+          'inset -'+(d*0.09)+'px -'+(d*0.12)+'px '+(d*0.24)+'px rgba(0,0,0,.62),'+
+          '0 '+(d*0.10)+'px '+(d*0.18)+'px rgba(0,0,0,.45)';
+        if(t<0.55) s.style.filter='blur('+((0.55-t)*3.6).toFixed(2)+'px)';
+      }
+      host.appendChild(s);
+    }
+  }
+})();
+
+/* ============ 2A: толпа силуэтов, один освещён ============ */
+(function(){
+  var host=document.getElementById('crowd');
+  var ROWS=6, PER=[7,7,6,6,5,4];
+  var HERO_R=4, HERO_I=2;          // освещённая фигура — ближний ряд, правее центра
+
+  /* световой конус сверху */
+  var beam=document.createElement('div');
+  beam.className='beam';
+  beam.style.left=pctX(560); beam.style.top='0';
+  beam.style.width=pctX(430); beam.style.height=pctY(600);
+  beam.style.background='linear-gradient(180deg, rgba(232,186,96,.62) 0%, rgba(214,164,72,.40) 38%, rgba(198,151,73,.18) 72%, transparent)';
+  beam.style.clipPath='polygon(41% 0%, 59% 0%, 84% 100%, 16% 100%)';
+  host.appendChild(beam);
+
+  for(var r=0;r<ROWS;r++){
+    var t=r/(ROWS-1);
+    var scale=0.36+0.64*Math.pow(t,1.4);
+    var y=210+400*Math.pow(t,1.25);
+    var hh=150*scale;                       // высота фигуры
+    var hw=hh*0.40;                         // ширина корпуса
+    var n=PER[r];
+    var gap=hw*2.15;
+    var rowW=(n-1)*gap;
+    var x0=690-rowW/2 + (r%2? gap*0.42 : -gap*0.18);   // смещение рядов — плотнее выглядит
+    var dim=0.26+0.74*Math.pow(t,0.85);
+
+    for(var i=0;i<n;i++){
+      var x=x0+i*gap;
+      var isHero=(r===HERO_R && i===HERO_I);
+
+      var f=document.createElement('div');
+      f.className='fig';
+      f.style.left=pctX(x-hw); f.style.top=pctY(y-hh);
+      f.style.width=(hw*2)+'px'; f.style.height=hh+'px';
+      f.style.zIndex=isHero?6:r;
+
+      var headD=hh*0.26;
+      var head=document.createElement('div');
+      head.className='head';
+      head.style.width=headD+'px'; head.style.height=headD+'px'; head.style.top='0';
+
+      var body=document.createElement('div');
+      body.className='body';
+      body.style.width=(hw*1.75)+'px'; body.style.height=(hh*0.80)+'px';
+      body.style.top=(headD*0.86)+'px';
+
+      if(isHero){
+        var g='linear-gradient(168deg, #fff3cf 0%, #e6c37a 34%, #c69749 62%, #7d5a20 100%)';
+        head.style.background=g; body.style.background=g;
+        head.style.boxShadow='0 0 '+(hh*0.30)+'px rgba(226,184,114,.75)';
+        body.style.boxShadow='0 0 '+(hh*0.34)+'px rgba(198,151,73,.55)';
+      }else{
+        var grey='linear-gradient(170deg, rgba(150,153,178,'+(0.85*dim)+') 0%, rgba(84,87,110,'+(0.85*dim)+') 55%, rgba(46,48,66,'+(0.9*dim)+') 100%)';
+        head.style.background=grey; body.style.background=grey;
+        f.style.filter='blur('+(1.1+(1-t)*5.2).toFixed(2)+'px)';
+        f.style.opacity=(0.30+0.62*dim).toFixed(2);
+      }
+      f.appendChild(head); f.appendChild(body);
+      host.appendChild(f);
+
+      /* тень под ближними фигурами */
+      if(t>0.45){
+        var sh=document.createElement('div');
+        sh.className='shadow';
+        sh.style.width=(hw*2.4)+'px'; sh.style.height=(hh*0.11)+'px';
+        sh.style.left=pctX(x-hw*1.2); sh.style.top=pctY(y-hh*0.02);
+        sh.style.opacity=isHero?0.8:0.42*dim;
+        host.appendChild(sh);
+      }
+    }
+  }
+})();
+</script>
+</body>
+</html>

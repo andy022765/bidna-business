@@ -1,0 +1,129 @@
+{
+  "_zachem": "Паспорт клиента для ответа на заявки. Пилот — наш собственный бизнес. Цены пересказаны сокращённо по снимкам страниц shtab/sayty/istochniki/*.html (снимки 26.09.2026, не живой сайт); строка Веры про подписку — по решению Андрея 27.09 (на живой /vera/ru/ она есть, на снимке 26.09 её нет). Тест test_kartochka.js сверяет со снимками только суммы: пропущенную или другую формулировку он не ловит. После каждой выкладки основного сайта снимки обновить и паспорт сверить глазами. Цену правим здесь, а не в коде.",
+  "klient": "bid",
+  "versiya": "2026-09-29",
+
+  "biznes": {
+    "imya": "Business Intelligence DNA",
+    "podpis_ru": "Андрей и Маша · Business Intelligence DNA",
+    "podpis_en": "Andrii & Masha · Business Intelligence DNA"
+  },
+
+  "pochta": {
+    "ot": "Business Intelligence DNA <support@businessinteldna.com>",
+    "otvet_na": "support@businessinteldna.com",
+    "vladelcu": ["support@businessinteldna.com"],
+    "vladelcu_v_sutki": 60,
+    "lidu_na_adres_v_sutki": 2,
+    "lidam_v_sutki": 100
+  },
+
+  "_ssylka_zapisi": "Запись на звонок — в Calendly клиента (решение Андрея 29.09 ~18:05: «сразу приходит календарь календли»). Та же ссылка стоит на основном сайте (netlify-functions/hochet-zvonok.js). Своих окон и своей записи в выкладке нет: код лежит в na-potom/ для клиентов без своей системы записи, его настройки — na-potom/kartochka/bid-zapis.json.",
+  "ssylka_zapisi": "https://calendly.com/bizzinteldna/1hr",
+
+  "formy": {
+    "_kak": "Имя формы с основного сайта → продукт. «po_stranice» — продукт определяется по адресу страницы (stranicy ниже). Формы, которых здесь нет, НЕ получают ответа: основной сайт может пересылать что угодно, отвечаем только на перечисленное.",
+    "hochet-zvonok": "po_stranice",
+    "vopros": "po_stranice"
+  },
+
+  "stranicy": [
+    { "nachalo": "/vera", "produkt": "vera" },
+    { "nachalo": "/dezhurny", "produkt": "vera" },
+    { "nachalo": "/visibility", "produkt": "vidimost" },
+    { "nachalo": "/diagnostic", "produkt": "diagnostika" }
+  ],
+
+  "yazyk_po_umolchaniyu": "ru",
+  "anglijskie_stranicy": ["/vera", "/visibility", "/diagnostic"],
+
+  "produkty": {
+    "vera": {
+      "istochniki": ["vera-ru.html", "vera-en.html"],
+      "zagolovok_ru": "Вера — голосовой администратор",
+      "zagolovok_en": "Vera, the voice receptionist",
+      "ceny_ru": [
+        "Этап 1, администратор — отвечает и записывает в календарь: запуск $1 000, дальше $199 в месяц, 1 000 минут включено, сверх — $0,25 за минуту.",
+        "Этап 2, менеджер по продажам — продаёт и доводит до оплаты: запуск +$1 500, итого $2 500, дальше $399 в месяц, 1 500 минут включено. Включается, когда вы сами скажете.",
+        "В стоимость запуска входят 30 проверочных звонков. Глубокая диагностика — в подарок.",
+        "В день оплаты — $1 000 + $199 за первый месяц. $199 в месяц — подписка, продлевается автоматически, отменить можно в любой момент."
+      ],
+      "ceny_en": [
+        "Stage 1, receptionist — answers and books into your calendar: setup $1,000, then $199 a month, 1,000 minutes included, $0.25 a minute over that.",
+        "Stage 2, sales manager — sells and takes the customer to payment: setup +$1,500, $2,500 in total, then $399 a month, 1,500 minutes included. It starts when you say so.",
+        "Setup includes thirty test calls. The deep diagnostic comes free.",
+        "On the day you pay: $1,000 + $199 for the first month. $199 a month. The subscription renews automatically. Cancel anytime."
+      ],
+      "stranica_ru": "https://businessinteldna.com/vera/ru/",
+      "stranica_en": "https://businessinteldna.com/vera/"
+    },
+    "vidimost": {
+      "istochniki": ["visibility-ru.html", "visibility-en.html"],
+      "zagolovok_ru": "Видимость в нейросетях",
+      "zagolovok_en": "Visibility in AI answers",
+      "ceny_ru": [
+        "Квартал работы — $1 500, один платёж вперёд.",
+        "Если устойчиво названным вы не оказались ни в одном сочетании — возвращаем все $1 500.",
+        "Глубокая диагностика к кварталу — в подарок."
+      ],
+      "ceny_en": [
+        "A quarter of work — $1,500, one payment, quarter up front.",
+        "If you were not stably named in a single combination, we return the full $1,500.",
+        "The deep diagnostic comes free with the quarter."
+      ],
+      "stranica_ru": "https://businessinteldna.com/visibility/ru/",
+      "stranica_en": "https://businessinteldna.com/visibility/"
+    },
+    "diagnostika": {
+      "istochniki": ["diagnostic-ru.html", "diagnostic-en.html"],
+      "zagolovok_ru": "Глубокая диагностика",
+      "zagolovok_en": "The deep diagnostic",
+      "ceny_ru": [
+        "Глубокая диагностика — $500. Один платёж.",
+        "Засчитывается в случае внедрения на сумму от $2 000.",
+        "После оплаты — анкета, документ приходит в течение трёх рабочих дней."
+      ],
+      "ceny_en": [
+        "The deep diagnostic is $500. One payment.",
+        "It is credited against implementation from $2,000 up.",
+        "After payment you fill in the questionnaire; the document arrives within three working days."
+      ],
+      "stranica_ru": "https://businessinteldna.com/diagnostic/ru/",
+      "stranica_en": "https://businessinteldna.com/diagnostic/"
+    },
+    "obshchiy": {
+      "istochniki": ["vera-ru.html", "vera-en.html", "visibility-ru.html", "visibility-en.html", "diagnostic-ru.html", "diagnostic-en.html"],
+      "zagolovok_ru": "Наши цены",
+      "zagolovok_en": "Our prices",
+      "ceny_ru": [
+        "Вера, голосовой администратор: запуск $1 000, дальше $199 в месяц, 1 000 минут включено.",
+        "Видимость в нейросетях: квартал работы — $1 500, один платёж вперёд.",
+        "Глубокая диагностика: $500, один платёж."
+      ],
+      "ceny_en": [
+        "Vera, the voice receptionist: setup $1,000, then $199 a month, 1,000 minutes included.",
+        "Visibility in AI answers: a quarter of work — $1,500, one payment up front.",
+        "The deep diagnostic: $500, one payment."
+      ],
+      "stranica_ru": "https://businessinteldna.com/",
+      "stranica_en": "https://businessinteldna.com/"
+    }
+  },
+
+  "teksty": {
+    "tema_otveta_ru": "Цены и запись на звонок — Business Intelligence DNA",
+    "tema_otveta_en": "Prices and booking a call — Business Intelligence DNA",
+    "vstuplenie_ru": "Получили вашу заявку. Ниже — наши цены и ссылка, по которой можно выбрать время звонка.",
+    "vstuplenie_en": "We have your request. Below are our prices and a link to pick a time for a call.",
+    "est_vopros_ru": "Ваш вопрос у нас. Быстрее всего ответим на звонке.",
+    "est_vopros_en": "We have your question. The call is the fastest way to answer it.",
+    "podrobnee_ru": "Подробнее",
+    "podrobnee_en": "More",
+    "zapis_ru": "Если вы уже записались на странице, ничего делать не нужно. Если нет — выберите удобное время звонка, календарь покажет свободные часы в вашем часовом поясе:",
+    "zapis_en": "If you already booked on the page, there is nothing else to do. If not, pick a time for the call that suits you — the calendar shows open slots in your own time zone:",
+    "knopka_zapisi_ru": "Выбрать время",
+    "knopka_zapisi_en": "Pick a time",
+    "raskrytie_ru": "Это письмо собрано автоматически через минуту после вашей заявки. Ваш ответ на него прочитают люди — Андрей и Маша.",
+    "raskrytie_en": "This email was put together automatically a minute after your request. Your reply will be read by people — Andrii and Masha."
+  }
+}

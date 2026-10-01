@@ -1,0 +1,213 @@
+<title>Что продаём и что делаем</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#f6f7f8; --card:#fff; --ink:#15181b; --dim:#565d64; --faint:#858c93;
+    --line:#e1e4e7; --rule:#c7ccd1; --acc:#0d5f70; --acc2:#e6f0f3;
+    --go:#1b6a46; --hot:#a2540c; --hot2:#fbefe1;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#101214; --card:#181b1e; --ink:#e8eaec; --dim:#99a1a7; --faint:#7c848b;
+    --line:#282c31; --rule:#3a4046; --acc:#6ec3d5; --acc2:#13252b;
+    --go:#67c69a; --hot:#dfa25e; --hot2:#292013;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#101214; --card:#181b1e; --ink:#e8eaec; --dim:#99a1a7; --faint:#7c848b;
+    --line:#282c31; --rule:#3a4046; --acc:#6ec3d5; --acc2:#13252b;
+    --go:#67c69a; --hot:#dfa25e; --hot2:#292013;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;padding:0 18px;padding-block:0 80px;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:820px;margin:0 auto}
+  header{padding-block:44px 20px}
+  .kick{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--acc);font-weight:700;margin:0 0 12px}
+  h1{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:clamp(27px,5.2vw,37px);
+    line-height:1.13;margin:0 0 15px;letter-spacing:-.02em}
+  .one{background:var(--acc2);border-left:4px solid var(--acc);border-radius:0 4px 4px 0;padding:16px 19px;margin:0}
+  .one p{margin:0 0 9px;font-size:16.5px} .one p:last-child{margin-bottom:0}
+  h2{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--acc);margin:0 0 6px}
+  .sec{padding-block:32px;border-top:2px solid var(--rule)}
+  .sec>h3{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:24px;line-height:1.2;
+    margin:0 0 8px;letter-spacing:-.01em}
+  .lead{color:var(--dim);margin:0 0 18px;font-size:15.5px;max-width:74ch}
+  p{margin:0 0 12px;max-width:74ch} p:last-child{margin-bottom:0}
+  b{font-weight:600}
+  .tw{overflow-x:auto;margin-bottom:10px}
+  table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:620px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700}
+  td.nm{font-weight:700;white-space:nowrap}
+  td.pr{font-weight:700;color:var(--go);white-space:nowrap;text-align:right}
+  td.pr small{display:block;font-weight:500;color:var(--faint);font-size:12.5px}
+  tbody tr:last-child td{border-bottom:0}
+  .sub{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);
+    font-weight:700;margin:26px 0 8px}
+
+  .step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding-block:20px;border-top:1px solid var(--line)}
+  .step:first-of-type{border-top:0}
+  .sn{font-family:'Roboto Slab',serif;font-size:32px;font-weight:700;color:var(--acc);line-height:.95}
+  .step h4{margin:0 0 6px;font-size:19px;font-weight:700}
+  .step p{margin:0 0 8px;font-size:16px}
+  .step .who{font-size:13.5px;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+  .res{background:var(--acc2);border-radius:4px;padding:11px 14px;font-size:15.5px;margin-top:10px}
+  .res b{color:var(--acc);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:3px}
+  @media(max-width:560px){.step{grid-template-columns:34px 1fr;gap:12px}.sn{font-size:26px}}
+
+  .dec{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:15px 18px;margin-bottom:10px}
+  .dec h4{margin:0 0 5px;font-size:16.5px;font-weight:700}
+  .dec p{margin:0;font-size:15px;color:var(--dim)}
+  .flag{background:var(--hot2);border-left:3px solid var(--hot);border-radius:0 3px 3px 0;
+    padding:13px 16px;margin:16px 0;font-size:15.5px}
+  .flag b{color:var(--hot)}
+</style>
+
+<div class="w">
+
+<header>
+  <p class="kick">Business Intelligence DNA · 20 сентября 2026</p>
+  <h1>Что продаём и что делаем</h1>
+  <div class="one">
+    <p>Мы приходим к человеку с фактом про него, которого он не знал, и берём деньги за то, чтобы разобраться до конца.</p>
+    <p>Роботы на телефоне — только одна из шести дверей. Остальные пять работают у любого бизнеса, даже если у него ничего не стоит.</p>
+  </div>
+</header>
+
+<section class="sec" style="border-top:0">
+  <h2>Первое</h2>
+  <h3>Что мы продаём</h3>
+  <p class="lead">Слева — что у человека происходит. Справа — что мы ставим и почём.</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th>Что у него</th><th>Что ставим</th><th style="text-align:right">Цена</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Телефон берёт робот, поставил кто-то другой</td>
+        <td class="nm">ПРИЁМКА<br><span style="font-weight:400;font-size:14px;color:var(--dim)">30 звонков и протокол</span></td>
+        <td class="pr">$450<small>один платёж</small></td>
+      </tr>
+      <tr>
+        <td>Звонки теряются, вечером и в выходные не берёт никто</td>
+        <td class="nm">ВЕРА<br><span style="font-weight:400;font-size:14px;color:var(--dim)">дежурный на входящие</span></td>
+        <td class="pr">$1 000<small>+ $199/мес</small></td>
+      </tr>
+      <tr>
+        <td>Трубку берут, но до записи и сделки не доводят</td>
+        <td class="nm">ВЕРА + ПРОДАВЕЦ</td>
+        <td class="pr">$2 500<small>+ $399/мес</small></td>
+      </tr>
+      <tr>
+        <td>Нейросети его не называют или врут про него</td>
+        <td class="nm">ВИДИМОСТЬ<br><span style="font-weight:400;font-size:14px;color:var(--dim)">квартал работы</span></td>
+        <td class="pr">$1 500<small>за квартал вперёд</small></td>
+      </tr>
+      <tr>
+        <td>Платит Google за звонки через Local Services</td>
+        <td class="nm">СЧЁТЧИК<br><span style="font-weight:400;font-size:14px;color:var(--dim)">разбор кабинета</span></td>
+        <td class="pr">$500<small>+ $149/мес</small></td>
+      </tr>
+      <tr>
+        <td>Перевозчик, за простой не платят</td>
+        <td class="nm">СЕКУНДАНТ</td>
+        <td class="pr">$199<small>+ $149–249/мес</small></td>
+      </tr>
+      <tr>
+        <td>Болит везде, сам не понимает где</td>
+        <td class="nm">ДИАГНОСТИКА</td>
+        <td class="pr">$500<small>внедрение = сумма продуктов</small></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="sub">Довески — продаются только вместе с чем-то</p>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Что делаем</th><th style="text-align:right">Цена</th></tr></thead>
+    <tbody>
+      <tr><td>Вера сама смотрит свободные окна и записывает клиента в его календарь</td><td class="pr">+$300<small>+ $50/мес</small></td></tr>
+      <tr><td>Переезд: вытащить номер, контакты и отзывы из-под вендора с годовым контрактом</td><td class="pr">$500</td></tr>
+      <tr><td>Ответы на отзывы: черновик уходит владельцу в телеграм, он жмёт «да»</td><td class="pr">$300<small>+ $99/мес</small></td></tr>
+      <tr><td>Повышение цены: считаем отставание, пишем его клиентам, меряем отвал</td><td class="pr">$1 500<small>$2 500 с Верой</small></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Второе</h2>
+  <h3>Каких сотрудников ставим</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th>Кто</th><th>Что делает</th></tr></thead>
+    <tbody>
+      <tr><td class="nm">ВЕРА</td><td>Берёт входящие звонки круглосуточно. Отвечает по прайсу клиента, называет цену, записывает, переводит на живого.</td></tr>
+      <tr><td class="nm">ПРОДАВЕЦ</td><td>Режим Веры на доведение. Задаёт вопросы, снимает возражения, закрывает на запись или встречу.</td></tr>
+      <tr><td class="nm">ДОВОДЧИК</td><td>Дожимает в переписке — почта и телеграм. Работает с теми, кто написал и пропал.</td></tr>
+      <tr><td class="nm">СМОТРИТЕЛЬ</td><td>Следит, что нейросети говорят про клиента, и находит, где врут. Живёт внутри ВИДИМОСТИ.</td></tr>
+      <tr><td class="nm">СЛИЧИТЕЛЬ</td><td>Сторож. Проверяет каждый ответ робота по подписанному листу правды. Ставится внутрь каждой установки.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:14px">РАССКАЗЧИКА и СБОРЩИКА как товар не продаём. Тексты пишем внутри работы, отзывы — довеском.</p>
+</section>
+
+<section class="sec">
+  <h2>Третье</h2>
+  <h3>Порядок действий</h3>
+  <p class="lead">Пять шагов. Первые три идут параллельно.</p>
+
+  <div class="step"><span class="sn">1</span><div>
+    <p class="who">Маша · вторник и среда · $0</p>
+    <h4>Двадцать звонков руками</h4>
+    <p>Берём двадцать компаний с сайта, где висит демо-номер робота, и звоним как покупатель. Три вопроса: сколько стоит типовая работа, «мне ваш коллега обещал бесплатный выезд», запишите меня на услугу, которой у вас нет.</p>
+    <div class="res"><b>Результат</b>Двенадцать записанных провалов из двадцати. Это доказательство, что находки есть, и материал для первых писем.</div>
+  </div></div>
+
+  <div class="step"><span class="sn">2</span><div>
+    <p class="who">я строю · три дня · $0</p>
+    <h4>Страница бесплатной проверки</h4>
+    <p>Человек вводит адрес своего сайта и через минуту видит три факта про себя: пускает ли его сервер роботов ChatGPT, что три нейросети отвечают на вопрос его покупателя и кого называют вместо него, что с его карточкой в Google. Проверка нам стоит двадцать центов.</p>
+    <p>Это дверь для всех, а не только для тех, у кого роботы. Сайт есть у каждого.</p>
+    <div class="res"><b>Результат</b>Работающая страница, на которую можно лить платный трафик.</div>
+  </div></div>
+
+  <div class="step"><span class="sn">3</span><div>
+    <p class="who">трафик · с четвёртого дня</p>
+    <h4>Платный трафик на эту страницу</h4>
+    <p>Начинаем с малого — $20–30 в день, поиск по запросам вида «почему меня не находит ChatGPT» и «AI receptionist отзывы». Человек получает проверку, оставляет почту, чтобы получить полный разбор. Дальше письмо и разговор.</p>
+    <div class="res"><b>Результат</b>Понимаем, сколько стоит одна заявка. Это число решает, строим мы дальше вокруг трафика или вокруг обзвона.</div>
+  </div></div>
+
+  <div class="step"><span class="sn">4</span><div>
+    <p class="who">Маша · вторая неделя</p>
+    <h4>Сто двадцать холодных писем</h4>
+    <p>По тем, кого нашли сами. В письме — один факт про него: его собственный робот согласился на выдуманное, или его сервер закрыт для нейросетей, или он платит Google за неотвеченные звонки. Ни рекламы, ни ссылки, ни вложения. Три касания и стоп.</p>
+    <div class="res"><b>Результат</b>Пять разговоров по двадцать минут и одна оплата $450.</div>
+  </div></div>
+
+  <div class="step"><span class="sn">5</span><div>
+    <p class="who">я строю · третья неделя</p>
+    <h4>Собрать приёмку как машину</h4>
+    <p>Первые две приёмки делаем руками. Потом автоматизируем: генератор проверок, очередь звонков, разбор расшифровок, сборка протокола. После этого одна приёмка занимает не три часа, а полчаса.</p>
+    <div class="res"><b>Результат</b>Можем брать шесть приёмок в месяц вместо двух, и каждый купивший переходит на дежурство $149 в месяц.</div>
+  </div></div>
+</section>
+
+<section class="sec">
+  <h2>Четвёртое</h2>
+  <h3>Твои решения записаны</h3>
+  <div class="dec"><h4>Ставка часа — $100</h4><p>Считаем по ней всё. Подтягиваемся под неё, а не подгоняем её под продукты.</p></div>
+  <div class="dec"><h4>Невада — единственный штат, где нужна лицензия</h4><p>Ассоциация тайных покупателей пишет прямо: только Невада. Калифорнию в своё время отбили. В список целей Неваду не берём, остальные сорок девять работаем спокойно.</p></div>
+  <div class="dec"><h4>Звонит и пишет Маша</h4><p>Английский нормальный. Шестьдесят звонков в неделю в американские часы — её.</p></div>
+  <div class="dec"><h4>Бюджет на трафик есть</h4><p>Значит страница проверки и реклама идут сразу, а не «когда-нибудь». Обзвон остаётся, но перестаёт быть единственным источником людей.</p></div>
+
+  <div class="flag">
+    <b>Одно следствие ставки $100, чтобы ты знал заранее.</b> При ней приёмка за $450 с тремя часами работы даёт $150 сверху, а до автоматизации это мало. Поэтому пятый шаг не «когда дойдут руки», а обязательный: он превращает три часа в полчаса. Пока он не сделан, больше двух приёмок в месяц не берём.
+  </div>
+</section>
+
+</div>

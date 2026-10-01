@@ -1,0 +1,1698 @@
+<title>Remote CFO &amp; Accounting Solutions</title>
+
+<style>
+/* ============================================================
+   TOKENS — single committed palette: the brand's navy world.
+   Deliberately theme-independent: the page looks the same
+   whatever the viewer's OS or app theme is set to.
+   ============================================================ */
+:root{
+  color-scheme:dark;
+  /* fixed brand tokens — identical in both themes */
+  --brand-navy:#0B1728;
+  --brand-navy-2:#122238;
+  --brand-navy-3:#1A2E48;
+  --brand-gold:#C6A052;
+  --brand-gold-lit:#E6CB8B;
+  --brand-gold-dim:#8A6A2A;
+  --brand-paper:#F3F5F8;
+  --brand-flag:#CF7A52;
+
+  /* surface palette */
+  --ground:#0B1728;
+  --surface:#101F34;
+  --surface-2:#16283F;
+  --line:#26394F;
+  --line-soft:#1C2E45;
+  --text:#E9EEF5;
+  --text-2:#A7B7CA;
+  --text-3:#7A8CA3;
+  --gold:#D9B466;
+  --gold-line:#B8934A;
+  --flag:#D07A52;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 34px -20px rgba(0,0,0,.7);
+
+  --font-display:"Hoefler Text","Big Caslon",Didot,"Iowan Old Style",Georgia,"Times New Roman",serif;
+  --font-body:"Avenir Next",Avenir,"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-mono:"SF Mono",ui-monospace,"IBM Plex Mono",Menlo,Consolas,monospace;
+
+  --fs-display:clamp(2rem,5.2vw,3.75rem);
+  --fs-h2:clamp(1.44rem,2.9vw,2.2rem);
+  --fs-h3:clamp(1.02rem,1.5vw,1.19rem);
+  --fs-body:clamp(1rem,.4vw + .92rem,1.08rem);
+  --fs-sm:.9rem;
+  --fs-mono:.72rem;
+
+  --shell:1160px;
+  --gut:clamp(1.15rem,4vw,3rem);
+  --sect:clamp(3.4rem,7vw,6rem);
+}
+/* ============================================================
+   LANGUAGE SWITCH
+   ============================================================ */
+html[data-lang="en"] [data-l="ru"]{display:none !important;}
+html[data-lang="ru"] [data-l="en"]{display:none !important;}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:var(--fs-body);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance;letter-spacing:-.01em;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:1px;}
+
+.shell{max-width:var(--shell);margin-inline:auto;padding-inline:var(--gut);}
+.skip{position:absolute;left:-9999px;top:0;background:var(--surface);color:var(--text);padding:.7rem 1rem;z-index:99;}
+.skip:focus{left:.6rem;top:.6rem;}
+
+/* eyebrow / mono label */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:var(--fs-mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex;align-items:center;gap:.65rem;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line);max-width:170px;}
+.eyebrow--plain::after{display:none;}
+
+.serif{font-family:var(--font-display);}
+.lede{font-size:clamp(1.04rem,.5vw + .95rem,1.2rem);color:var(--text-2);max-width:60ch;}
+.small{font-size:var(--fs-sm);color:var(--text-3);}
+.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;}
+
+/* section frame */
+section{padding-block:var(--sect);border-top:1px solid var(--line-soft);scroll-margin-top:70px;}
+.sect-head{display:flex;flex-direction:column;gap:1.15rem;max-width:34ch;}
+.sect-head.wide{max-width:none;}
+.sect-head h2{font-family:var(--font-display);font-size:var(--fs-h2);line-height:1.22;max-width:26ch;}
+.sect-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(2rem,4vw,3.6rem);}
+@media (min-width:900px){
+  .sect-grid{grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);}
+  .sect-head h2{max-width:22ch;}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(9px);transition:opacity .42s ease,transform .42s cubic-bezier(.2,.7,.3,1);}
+.rv.in{opacity:1;transform:none;}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.lock{display:flex;align-items:center;gap:.68rem;text-decoration:none;}
+.mark{width:38px;height:36px;flex:none;overflow:visible;}
+.mark .ring,.mark .bar{fill:none;stroke:none;}
+.mark .ring{stroke:var(--brand-gold);stroke-width:2;}
+.mark .bar{fill:var(--brand-gold);}
+.mark .r{font-family:var(--font-display);font-size:45px;}
+.lock-txt{display:flex;flex-direction:column;line-height:1;gap:.22rem;}
+.lock-1{font-family:var(--font-display);font-size:.99rem;letter-spacing:.13em;text-transform:uppercase;}
+.lock-2{font-family:var(--font-body);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brand-gold);}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header{
+  position:sticky;top:0;z-index:40;
+  background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line-soft);
+}
+.hdr{display:flex;align-items:center;gap:1.4rem;min-height:66px;}
+.hdr .mark .r{fill:var(--text);}
+.hdr .mark .ring{stroke:var(--gold);}
+.hdr .mark .bar{fill:var(--gold);}
+.hdr .lock-1{color:var(--text);}
+.hdr .lock-2{color:var(--gold);}
+nav{margin-left:auto;display:none;gap:1.5rem;}
+@media (min-width:1000px){nav{display:flex;}}
+nav a{
+  font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-2);text-decoration:none;padding-block:.3rem;
+  border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
+}
+nav a:hover{color:var(--text);border-bottom-color:var(--gold-line);}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:.7rem;}
+@media (min-width:1000px){.hdr-right{margin-left:0;}}
+
+.lang{display:flex;border:1px solid var(--line);}
+.lang button{
+  font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.1em;
+  background:none;border:0;color:var(--text-3);padding:.44rem .58rem;cursor:pointer;
+  transition:background .2s,color .2s;
+}
+.lang button[aria-pressed="true"]{background:var(--text);color:var(--ground);}
+.lang button:not([aria-pressed="true"]):hover{color:var(--text);}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.11em;text-transform:uppercase;
+  padding:.68rem 1.05rem;text-decoration:none;border:1px solid transparent;cursor:pointer;
+  background:var(--brand-gold);color:var(--brand-navy);
+  transition:background .2s,transform .2s,border-color .2s,color .2s;
+}
+.btn:hover{background:var(--brand-gold-lit);}
+.btn:active{transform:translateY(1px);}
+.btn--ghost{background:none;color:var(--text);border-color:var(--line);}
+.btn--ghost:hover{background:none;border-color:var(--gold-line);color:var(--gold);}
+.btn--onDark{color:var(--brand-navy);}
+.btn--ghostDark{background:none;color:var(--brand-paper);border-color:rgba(198,160,82,.5);}
+.btn--ghostDark:hover{background:none;border-color:var(--brand-gold);color:var(--brand-gold-lit);}
+.hdr .btn{display:none;}
+@media (min-width:640px){.hdr .btn{display:inline-flex;}}
+
+/* ============================================================
+   HERO — always the brand's dark world
+   ============================================================ */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(198,160,82,.14), transparent 58%),
+    radial-gradient(90% 70% at 4% 96%, rgba(26,46,72,.9), transparent 60%),
+    linear-gradient(168deg,var(--brand-navy-2) 0%,var(--brand-navy) 62%);
+  color:var(--brand-paper);
+  border-top:0;
+  padding-block:clamp(3rem,7vw,5.4rem) clamp(3rem,6vw,5rem);
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(198,160,82,.055) 1px,transparent 1px);
+  background-size:calc(100% / 13) 100%;
+  opacity:.85;
+}
+.hero > *{position:relative;z-index:1;}
+.hero .eyebrow{color:var(--brand-gold);}
+.hero .eyebrow::after{background:rgba(198,160,82,.34);}
+.hero-grid{display:grid;gap:clamp(2.4rem,5vw,4rem);align-items:start;}
+@media (min-width:1000px){.hero-grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);}}
+
+h1{
+  font-family:var(--font-display);
+  font-size:var(--fs-display);
+  line-height:1.08;
+  letter-spacing:-.018em;
+  margin-block:1.5rem .95rem;
+  max-width:22ch;
+}
+h1 .q{color:var(--brand-gold);}
+.hero-kick{color:var(--brand-gold-lit);font-size:clamp(1rem,.4vw + .93rem,1.1rem);max-width:44ch;}
+.hero-rule{height:1px;background:linear-gradient(to right,var(--brand-gold),rgba(198,160,82,0));margin-block:1.9rem;}
+.hero-lede{color:#B9C7D8;max-width:56ch;font-size:clamp(.98rem,.35vw + .92rem,1.06rem);}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-top:2rem;}
+.hero-note{font-size:var(--fs-sm);color:#8C9DB2;margin-top:.9rem;}
+
+/* chart panel */
+.panel{
+  border:1px solid rgba(198,160,82,.26);
+  background:rgba(9,20,36,.55);
+  padding:clamp(1.05rem,2.4vw,1.5rem);
+}
+.panel-hd{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.15rem;}
+.panel-hd .eyebrow::after{display:none;}
+.panel-hd h3{font-family:var(--font-display);font-size:var(--fs-h3);color:var(--brand-paper);line-height:1.3;}
+.chart{display:block;width:100%;height:auto;overflow:visible;}
+.chart .grid{stroke:rgba(185,199,216,.13);stroke-width:1;}
+.chart .zero{stroke:rgba(185,199,216,.42);stroke-width:1;stroke-dasharray:3 4;}
+.chart .band{fill:var(--brand-flag);opacity:0;transition:opacity .5s ease .9s;}
+.chart .line{fill:none;stroke:var(--brand-gold);stroke-width:2.1;stroke-linejoin:round;stroke-linecap:round;}
+.chart .area{fill:url(#gold-fade);opacity:0;transition:opacity .7s ease .5s;}
+.chart .dot{fill:var(--brand-navy);stroke:var(--brand-gold);stroke-width:1.6;}
+.chart .dot--flag{fill:var(--brand-flag);stroke:var(--brand-flag);}
+.chart text{font-family:var(--font-mono);font-size:19px;fill:#8C9DB2;letter-spacing:.04em;}
+.chart .lbl-flag{fill:var(--brand-flag);}
+.chart .lbl-gold{fill:var(--brand-gold-lit);}
+.chart .anno{stroke:rgba(207,122,82,.6);stroke-width:1.4;stroke-dasharray:3 4;}
+.chart .reveal{opacity:0;transition:opacity .45s ease 1.15s;}
+.chart.on .band,.chart.on .area,.chart.on .reveal{opacity:1;}
+.chart.on .band{opacity:.24;}
+.chart .line{stroke-dasharray:1400;stroke-dashoffset:1400;}
+.chart.on .line{transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1);stroke-dashoffset:0;}
+.panel-ft{margin-top:1.1rem;padding-top:.95rem;border-top:1px solid rgba(198,160,82,.2);font-size:.8rem;line-height:1.55;color:#8C9DB2;}
+
+/* ============================================================
+   COMPETENCY STRIP
+   ============================================================ */
+.strip{
+  background:var(--brand-navy);
+  border-top:1px solid rgba(198,160,82,.22);
+  color:var(--brand-paper);
+  padding-block:0;
+}
+.strip-grid{--cgap:clamp(1.4rem,2.8vw,2.6rem);display:grid;grid-template-columns:1fr;}
+.comp{padding-block:clamp(1.5rem,3vw,2.1rem);border-top:1px solid rgba(198,160,82,.14);}
+.comp:first-child{border-top:0;}
+@media (min-width:620px){
+  .strip-grid{grid-template-columns:1fr 1fr;column-gap:var(--cgap);}
+  .comp:nth-child(-n+2){border-top:0;}
+  .comp:nth-child(even){border-left:1px solid rgba(198,160,82,.14);padding-left:var(--cgap);}
+}
+@media (min-width:1000px){
+  .strip-grid{grid-template-columns:repeat(4,1fr);}
+  .comp{border-top:0;}
+  .comp + .comp{border-left:1px solid rgba(198,160,82,.14);padding-left:var(--cgap);}
+}
+.comp .n{font-family:var(--font-mono);font-size:var(--fs-mono);color:var(--brand-gold);letter-spacing:.14em;}
+.comp h3{font-family:var(--font-display);font-size:var(--fs-h3);margin-block:.6rem .5rem;line-height:1.28;}
+.comp p{font-size:.88rem;color:#93A4B9;line-height:1.6;}
+
+/* ============================================================
+   PROSE / PULLQUOTE
+   ============================================================ */
+.stack{display:flex;flex-direction:column;gap:1.5rem;}
+.stack p{max-width:64ch;color:var(--text-2);}
+.pull{
+  border-left:2px solid var(--gold-line);
+  padding:.15rem 0 .15rem 1.35rem;
+  font-family:var(--font-display);
+  font-size:clamp(1.2rem,1.9vw,1.6rem);
+  line-height:1.32;color:var(--text);max-width:34ch;
+}
+.pull.wide{max-width:48ch;}
+.note{
+  background:var(--surface-2);border:1px solid var(--line-soft);
+  padding:1.15rem 1.3rem;font-size:.92rem;color:var(--text-2);line-height:1.62;max-width:62ch;
+}
+.note strong{color:var(--text);font-weight:600;}
+
+/* two-card consequences */
+.cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (min-width:760px){.cards{grid-template-columns:1fr 1fr;}}
+.card{background:var(--surface);padding:clamp(1.35rem,2.6vw,1.9rem);display:flex;flex-direction:column;gap:.8rem;}
+.card .n{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.14em;color:var(--gold);}
+.card h3{font-family:var(--font-display);font-size:var(--fs-h3);line-height:1.3;}
+.card p{font-size:.94rem;color:var(--text-2);}
+
+/* ============================================================
+   SEQUENCE (interactive stages)
+   ============================================================ */
+.stages{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--surface);}
+.stage-btn{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;
+  width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line-soft);
+  padding:1.15rem clamp(1.1rem,2.4vw,1.6rem);cursor:pointer;color:var(--text);
+  font-family:inherit;font-size:1rem;transition:background .2s;
+}
+.stage-btn:hover{background:var(--surface-2);}
+.stage-btn .idx{font-family:var(--font-mono);font-size:var(--fs-mono);color:var(--gold);letter-spacing:.14em;}
+.stage-btn .ttl{font-family:var(--font-display);font-size:var(--fs-h3);letter-spacing:.06em;text-transform:uppercase;}
+.stage-btn .chev{width:11px;height:11px;border-right:1.5px solid var(--text-3);border-bottom:1.5px solid var(--text-3);transform:rotate(45deg);transition:transform .3s,border-color .2s;}
+.stage-btn[aria-expanded="true"]{background:var(--surface-2);}
+.stage-btn[aria-expanded="true"] .chev{transform:rotate(-135deg);border-color:var(--gold);}
+.stage-body{display:none;padding:0 clamp(1.1rem,2.4vw,1.6rem) 1.7rem;border-bottom:1px solid var(--line-soft);background:var(--surface-2);}
+.stage-body.open{display:block;}
+.stage-body > p{max-width:60ch;color:var(--text);font-size:1rem;margin-bottom:1.1rem;}
+.ticks{display:flex;flex-direction:column;gap:.7rem;}
+.ticks li{display:grid;grid-template-columns:auto 1fr;gap:.72rem;font-size:.93rem;color:var(--text-2);align-items:start;}
+.ticks li::before{content:"";width:6px;height:6px;margin-top:.55em;background:var(--gold-line);flex:none;}
+.stages > .stage-body:last-child,.stages > .stage-btn:last-child{border-bottom:0;}
+
+/* ============================================================
+   MECHANICS
+   ============================================================ */
+.mech{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (min-width:700px){.mech{grid-template-columns:1fr 1fr;}}
+@media (min-width:1080px){.mech{grid-template-columns:repeat(3,1fr);}}
+.mech-i{background:var(--surface);padding:clamp(1.3rem,2.4vw,1.7rem);display:flex;flex-direction:column;gap:.75rem;}
+.mech-i .tag{
+  font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold);border-bottom:1px solid var(--line-soft);padding-bottom:.7rem;
+}
+.mech-i p{font-size:.92rem;color:var(--text-2);line-height:1.66;}
+
+/* ============================================================
+   TIMELINE TABS
+   ============================================================ */
+.tabs{display:flex;gap:0;border:1px solid var(--line);border-bottom:0;overflow-x:auto;background:var(--surface);}
+.tabs button{
+  flex:1 0 auto;background:none;border:0;border-right:1px solid var(--line-soft);
+  padding:.95rem 1.15rem;cursor:pointer;color:var(--text-3);
+  font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.13em;text-transform:uppercase;
+  white-space:nowrap;transition:color .2s,background .2s,box-shadow .2s;
+}
+.tabs button:last-child{border-right:0;}
+.tabs button:hover{color:var(--text);}
+.tabs button[aria-selected="true"]{color:var(--text);background:var(--surface-2);box-shadow:inset 0 -2px 0 var(--brand-gold);}
+.tabpanels{border:1px solid var(--line);background:var(--surface-2);padding:clamp(1.4rem,3vw,2.1rem);}
+.tabpanel{display:none;}
+.tabpanel.open{display:flex;flex-direction:column;gap:1rem;}
+.tabpanel h3{font-family:var(--font-display);font-size:clamp(1.2rem,2vw,1.55rem);}
+.tabpanel > p{max-width:58ch;color:var(--text-2);}
+
+/* cadence */
+.cad{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.6rem;}
+@media (min-width:700px){.cad{grid-template-columns:1fr 1fr;}}
+.cad-col{background:var(--surface);padding:clamp(1.2rem,2.4vw,1.6rem);display:flex;flex-direction:column;gap:.9rem;}
+.cad-col .tag{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gold);}
+.cad-col li{font-size:.9rem;color:var(--text-2);padding-block:.4rem;border-bottom:1px dotted var(--line-soft);}
+.cad-col li:last-child{border-bottom:0;}
+
+/* ============================================================
+   FIT / BOUNDARIES / TERMS
+   ============================================================ */
+.fit{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (min-width:760px){.fit{grid-template-columns:1fr 1fr;}}
+.fit-col{background:var(--surface);padding:clamp(1.35rem,2.6vw,1.9rem);display:flex;flex-direction:column;gap:.85rem;}
+.fit-col .tag{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.15em;text-transform:uppercase;}
+.fit-yes .tag{color:var(--gold);}
+.fit-no .tag{color:var(--text-3);}
+.fit-col p{font-size:.96rem;color:var(--text-2);}
+
+.rows{border-top:1px solid var(--line);}
+.rows li{
+  display:grid;gap:.5rem 1.5rem;padding-block:1.2rem;border-bottom:1px solid var(--line-soft);
+}
+@media (min-width:800px){.rows li{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:1.5rem;}}
+.rows h3{font-family:var(--font-display);font-size:var(--fs-h3);line-height:1.3;}
+.rows p{font-size:.93rem;color:var(--text-2);max-width:62ch;}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.tiers{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (min-width:820px){.tiers{grid-template-columns:repeat(3,1fr);}}
+.tier{background:var(--surface);padding:clamp(1.35rem,2.6vw,1.85rem);display:flex;flex-direction:column;gap:.85rem;}
+.tier .step{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.15em;color:var(--gold);}
+.tier h3{font-family:var(--font-display);font-size:var(--fs-h3);line-height:1.3;}
+.tier p{font-size:.9rem;color:var(--text-2);flex:1;}
+.price{
+  font-family:var(--font-display);font-size:clamp(1.14rem,1.7vw,1.35rem);
+  color:var(--text);padding-top:.85rem;border-top:1px solid var(--line-soft);
+  font-variant-numeric:tabular-nums;
+}
+.anchors{display:grid;gap:1.6rem;margin-top:2.2rem;}
+@media (min-width:860px){.anchors{grid-template-columns:repeat(3,1fr);gap:2rem;}}
+.anchor{display:flex;flex-direction:column;gap:.6rem;padding-top:1.1rem;border-top:1px solid var(--gold-line);}
+.anchor h4{font-family:var(--font-display);font-size:1.02rem;line-height:1.34;}
+.anchor p{font-size:.88rem;color:var(--text-2);line-height:1.64;}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{display:grid;gap:clamp(1.8rem,4vw,3.2rem);align-items:start;}
+@media (min-width:860px){.about{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);}}
+.portrait{
+  aspect-ratio:4/5;border:1px solid var(--line);background:var(--surface-2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;
+  color:var(--text-3);text-align:center;padding:1.5rem;
+}
+.portrait .ph{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.14em;text-transform:uppercase;}
+.portrait svg{width:44px;height:44px;stroke:var(--line);stroke-width:1.2;fill:none;}
+.about-name{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.14;}
+.about-role{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.11em;text-transform:uppercase;color:var(--gold);margin-top:.7rem;}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.close{
+  background:
+    radial-gradient(110% 80% at 92% 8%, rgba(198,160,82,.16), transparent 56%),
+    linear-gradient(190deg,var(--brand-navy-2),var(--brand-navy) 70%);
+  color:var(--brand-paper);border-top:1px solid rgba(198,160,82,.24);
+}
+.close .eyebrow{color:var(--brand-gold);}
+.close .eyebrow::after{background:rgba(198,160,82,.32);}
+.close h2{font-family:var(--font-display);font-size:var(--fs-h2);line-height:1.2;max-width:26ch;margin-top:1.1rem;}
+.close-grid{display:grid;gap:clamp(2.2rem,4.5vw,3.6rem);}
+@media (min-width:900px){.close-grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);}}
+.qs{margin-top:1.8rem;display:flex;flex-direction:column;gap:1.05rem;counter-reset:q;}
+.qs li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start;color:#C3D0DE;font-size:.97rem;}
+.qs li::before{
+  counter-increment:q;content:counter(q);
+  font-family:var(--font-mono);font-size:.72rem;color:var(--brand-gold);
+  border:1px solid rgba(198,160,82,.45);width:1.5rem;height:1.5rem;
+  display:grid;place-items:center;flex:none;margin-top:.05rem;
+}
+form{border:1px solid rgba(198,160,82,.28);background:rgba(9,20,36,.5);padding:clamp(1.3rem,2.8vw,1.9rem);display:flex;flex-direction:column;gap:1.05rem;}
+.field{display:flex;flex-direction:column;gap:.45rem;}
+.field label{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.13em;text-transform:uppercase;color:var(--brand-gold);}
+.field input{
+  background:rgba(11,23,40,.75);border:1px solid rgba(185,199,216,.22);color:var(--brand-paper);
+  padding:.72rem .82rem;font-family:inherit;font-size:.98rem;
+}
+.field input::placeholder{color:#6E809A;}
+.field input:focus{outline:2px solid var(--brand-gold);outline-offset:1px;border-color:transparent;}
+form .small{color:#8C9DB2;}
+.formmsg{font-size:.88rem;color:var(--brand-gold-lit);border-left:2px solid var(--brand-gold);padding-left:.8rem;display:none;}
+.formmsg.on{display:block;}
+
+/* ============================================================
+   PAIN
+   ============================================================ */
+.pains{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (min-width:760px){.pains{grid-template-columns:repeat(3,1fr);}}
+.pain{background:var(--surface);padding:clamp(1.35rem,2.6vw,1.9rem);display:flex;flex-direction:column;gap:.9rem;}
+.pain-q{font-family:var(--font-display);font-size:clamp(1.06rem,1.7vw,1.26rem);line-height:1.34;color:var(--text);}
+.pain-q i{color:var(--gold);font-style:normal;}
+.pain p{font-size:.92rem;color:var(--text-2);}
+.pain .to{
+  font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.11em;text-transform:uppercase;
+  color:var(--text-3);padding-top:.85rem;border-top:1px solid var(--line-soft);margin-top:auto;line-height:1.7;
+}
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.steps{border-top:1px solid var(--line);}
+.step-row{display:grid;gap:.7rem 1.5rem;padding-block:1.4rem;border-bottom:1px solid var(--line-soft);align-items:start;}
+@media (min-width:820px){.step-row{grid-template-columns:auto minmax(0,1fr) minmax(160px,.32fr);}}
+.step-row .sn{
+  font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.1em;color:var(--gold);
+  border:1px solid var(--line);width:2.1rem;height:2.1rem;display:grid;place-items:center;flex:none;
+}
+.step-row h3{font-family:var(--font-display);font-size:var(--fs-h3);line-height:1.3;margin-bottom:.4rem;}
+.step-row p{font-size:.92rem;color:var(--text-2);max-width:58ch;}
+.yours{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);line-height:1.7;}
+.yours b{display:block;color:var(--gold);font-weight:400;}
+
+/* ============================================================
+   WHAT'S INCLUDED
+   ============================================================ */
+.incl{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);}
+@media (min-width:700px){.incl{grid-template-columns:1fr 1fr;}}
+.incl-i{background:var(--surface);padding:clamp(1.15rem,2.2vw,1.6rem);display:flex;flex-direction:column;gap:.55rem;}
+.incl-i h3{font-family:var(--font-display);font-size:1.05rem;line-height:1.32;}
+.incl-i p{font-size:.88rem;color:var(--text-2);line-height:1.62;}
+
+/* ============================================================
+   PROOF
+   ============================================================ */
+.proof{display:grid;gap:1.5rem;}
+@media (min-width:900px){.proof{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:2.4rem;}}
+.finding{border:1px solid var(--gold-line);background:var(--surface);padding:clamp(1.3rem,2.6vw,1.85rem);display:flex;flex-direction:column;gap:1rem;}
+.finding .tag{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.15em;text-transform:uppercase;color:var(--gold);}
+.finding blockquote{margin:0;font-family:var(--font-display);font-size:clamp(1.08rem,1.8vw,1.32rem);line-height:1.38;color:var(--text);}
+.finding p{font-size:.9rem;color:var(--text-2);}
+.slot{border:1px dashed var(--line);padding:clamp(1.2rem,2.4vw,1.6rem);display:flex;flex-direction:column;gap:.6rem;}
+.slot .ph{font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);}
+.slot p{font-size:.88rem;color:var(--text-3);line-height:1.62;}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{border-top:1px solid var(--line);}
+.faq details{border-bottom:1px solid var(--line-soft);}
+.faq summary{
+  display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:center;
+  padding-block:1.25rem;cursor:pointer;list-style:none;
+  font-family:var(--font-display);font-size:var(--fs-h3);line-height:1.34;
+  transition:color .2s;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary:hover{color:var(--gold);}
+.faq summary .pm{position:relative;width:13px;height:13px;flex:none;}
+.faq summary .pm::before,.faq summary .pm::after{content:"";position:absolute;background:var(--gold);transition:transform .25s ease;}
+.faq summary .pm::before{left:0;top:5.75px;width:13px;height:1.5px;}
+.faq summary .pm::after{left:5.75px;top:0;width:1.5px;height:13px;}
+.faq details[open] summary .pm::after{transform:scaleY(0);}
+.faq-a{padding-bottom:1.5rem;display:flex;flex-direction:column;gap:.85rem;}
+.faq-a p{font-size:.94rem;color:var(--text-2);max-width:66ch;}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--brand-navy);color:#8C9DB2;padding-block:clamp(2.4rem,5vw,3.6rem);border-top:1px solid rgba(198,160,82,.18);}
+footer .mark .r{fill:var(--brand-paper);}
+footer .lock-1{color:var(--brand-paper);}
+.foot-grid{display:grid;gap:2rem;}
+@media (min-width:820px){.foot-grid{grid-template-columns:minmax(0,.5fr) minmax(0,1.5fr);}}
+.disc{font-size:.78rem;line-height:1.68;max-width:78ch;}
+.foot-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;font-family:var(--font-mono);font-size:var(--fs-mono);letter-spacing:.1em;text-transform:uppercase;color:#6E809A;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(198,199,216,.1);}
+</style>
+
+<a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="ru">К содержанию</span></a>
+
+<header>
+  <div class="shell hdr">
+    <a class="lock" href="#top" aria-label="Remote CFO &amp; Accounting Solutions">
+      <svg class="mark" viewBox="0 0 70 64" aria-hidden="true">
+        <circle class="ring" cx="32" cy="32" r="26.5"/>
+        <rect class="bar" x="14" y="36" width="5.4" height="15"/>
+        <rect class="bar" x="21.8" y="29" width="5.4" height="22"/>
+        <rect class="bar" x="29.6" y="22" width="5.4" height="29"/>
+        <text class="r" x="33" y="51">R</text>
+      </svg>
+      <span class="lock-txt">
+        <span class="lock-1">Remote CFO</span>
+        <span class="lock-2">&amp; Accounting Solutions</span>
+      </span>
+    </a>
+
+    <nav aria-label="Sections">
+      <a href="#sequence"><span data-l="en">Approach</span><span data-l="ru">Подход</span></a>
+      <a href="#how"><span data-l="en">How it works</span><span data-l="ru">Как это идёт</span></a>
+      <a href="#deliverables"><span data-l="en">What you get</span><span data-l="ru">Что получаете</span></a>
+      <a href="#pricing"><span data-l="en">Pricing</span><span data-l="ru">Цены</span></a>
+      <a href="#faq">FAQ</a>
+      <a href="#about"><span data-l="en">About</span><span data-l="ru">Обо мне</span></a>
+    </nav>
+
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-setlang="en" aria-pressed="true">EN</button>
+        <button type="button" data-setlang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="btn" href="#call">
+        <span data-l="en">Schedule a call</span><span data-l="ru">Записаться</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div id="top"></div>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <p class="eyebrow">
+          <span data-l="en">Building financial infrastructure for growth &amp; control</span>
+          <span data-l="ru">Финансовая инфраструктура для роста и контроля</span>
+        </p>
+
+        <h1>
+          <span data-l="en"><span class="q">“</span>I’m not asking for everything to be fine. I’m asking to know how it actually is.<span class="q">”</span></span>
+          <span data-l="ru"><span class="q">«</span>Я не прошу, чтобы всё было хорошо. Я прошу, чтобы я знал, как есть.<span class="q">»</span></span>
+        </h1>
+
+        <p class="hero-kick">
+          <span data-l="en">If that is the sentence in your head on a Sunday night, the rest of this page was written for you.</span>
+          <span data-l="ru">Если это та фраза, что сидит у вас в голове в воскресенье вечером, — дальше написано для вас.</span>
+        </p>
+
+        <div class="hero-rule"></div>
+
+        <p class="hero-lede">
+          <span data-l="en">You have multiple projects running, money is moving between properties, you have a bookkeeper — or you don’t — and a CPA, yet you still can’t confidently answer what each project is costing, what it is expected to make, or how much cash you’ll need over the next 13 weeks.</span>
+          <span data-l="ru">У вас одновременно идёт несколько объектов, деньги перемещаются между ними, у вас есть бухгалтер — или нет — и есть CPA. И при этом вы не можете уверенно ответить, во сколько обходится каждый объект, сколько он должен принести и сколько денег понадобится в ближайшие 13 недель.</span>
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn--onDark" href="#call">
+            <span data-l="en">Schedule a call — 20 minutes</span><span data-l="ru">Записаться на разговор — 20 минут</span>
+          </a>
+          <a class="btn btn--ghostDark" href="#deliverables">
+            <span data-l="en">What lands on your desk</span><span data-l="ru">Что окажется у вас на столе</span>
+          </a>
+        </div>
+        <p class="hero-note">
+          <span data-l="en">Three fields. None of them asks you to admit a problem.</span>
+          <span data-l="ru">Три поля. Ни одно не требует признаваться в проблеме.</span>
+        </p>
+      </div>
+
+      <!-- 13-week cash instrument -->
+      <div class="panel">
+        <div class="panel-hd">
+          <p class="eyebrow eyebrow--plain">
+            <span data-l="en">13-week cash visibility</span><span data-l="ru">Видимость кэша на 13 недель</span>
+          </p>
+          <h3>
+            <span data-l="en">The dip you see in week one, not week eight.</span>
+            <span data-l="ru">Провал, который видно на первой неделе, а не на восьмой.</span>
+          </h3>
+        </div>
+
+        <svg class="chart" id="chart" viewBox="-6 24 752 258" role="img"
+             aria-label="Illustrative 13-week net cash position, showing a projected shortfall in weeks 8 and 9 ahead of an expected draw in week 10.">
+          <defs>
+            <linearGradient id="gold-fade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C6A052" stop-opacity=".26"/>
+              <stop offset="100%" stop-color="#C6A052" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <line class="grid" x1="40" y1="40"  x2="700" y2="40"/>
+          <line class="grid" x1="40" y1="100" x2="700" y2="100"/>
+          <line class="band-guide grid" x1="40" y1="200" x2="700" y2="200"/>
+
+          <rect class="band" x="399.7" y="160" width="99.2" height="40"/>
+          <line class="zero" x1="40" y1="160" x2="700" y2="160"/>
+          <text class="lbl" x="30" y="167" text-anchor="end">0</text>
+
+          <path class="area" d="M40,40 L95,57.5 L150,76 L205,62 L260,84 L315,111 L370,139.5 L425,177.5 L480,191 L535,101 L590,118 L645,137 L700,114 L700,200 L40,200 Z"/>
+          <path class="line" d="M40,40 L95,57.5 L150,76 L205,62 L260,84 L315,111 L370,139.5 L425,177.5 L480,191 L535,101 L590,118 L645,137 L700,114"/>
+
+          <g class="reveal">
+            <circle class="dot" cx="40"  cy="40"    r="3"/>
+            <circle class="dot" cx="205" cy="62"    r="3"/>
+            <circle class="dot dot--flag" cx="425" cy="177.5" r="3.6"/>
+            <circle class="dot dot--flag" cx="480" cy="191"   r="3.6"/>
+            <circle class="dot" cx="535" cy="101"   r="4.2"/>
+            <circle class="dot" cx="700" cy="114"   r="3"/>
+
+            <line class="anno" x1="452" y1="186" x2="452" y2="248"/>
+            <text class="lbl-flag" x="452" y="272" text-anchor="middle" data-l="en">Shortfall visible 7 weeks out</text>
+            <text class="lbl-flag" x="452" y="272" text-anchor="middle" data-l="ru">Разрыв виден за 7 недель</text>
+
+            <line class="anno" x1="535" y1="94" x2="535" y2="62"/>
+            <text class="lbl-gold" x="535" y="52" text-anchor="middle" data-l="en">Draw expected</text>
+            <text class="lbl-gold" x="535" y="52" text-anchor="middle" data-l="ru">Ожидается draw</text>
+          </g>
+
+          <g class="lbl">
+            <text x="40"  y="224" text-anchor="middle">W1</text>
+            <text x="205" y="224" text-anchor="middle">W4</text>
+            <text x="370" y="224" text-anchor="middle">W7</text>
+            <text x="535" y="224" text-anchor="middle">W10</text>
+            <text x="700" y="224" text-anchor="middle">W13</text>
+          </g>
+        </svg>
+
+        <p class="panel-ft">
+          <span data-l="en"><strong>Illustrative.</strong> Weekly you see actual cost against budget, committed cost, estimated cost to complete, projected project margins, upcoming cash obligations and expected draws.</span>
+          <span data-l="ru"><strong>Пример.</strong> Еженедельно вы видите факт против бюджета, законтрактованные затраты, оценку затрат до завершения, прогнозную маржу, предстоящие обязательства по кэшу и ожидаемые draws.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPETENCY STRIP ================= -->
+  <section class="strip">
+    <div class="shell">
+      <div class="strip-grid">
+        <div class="comp">
+          <span class="n">01</span>
+          <h3><span data-l="en">Financial reconstruction</span><span data-l="ru">Финансовая реконструкция</span></h3>
+          <p><span data-l="en">Rebuild what is already broken, historical periods included.</span><span data-l="ru">Восстановить и перестроить то, что уже сломано, включая исторические периоды.</span></p>
+        </div>
+        <div class="comp">
+          <span class="n">02</span>
+          <h3><span data-l="en">Project-level control</span><span data-l="ru">Контроль на уровне объектов</span></h3>
+          <p><span data-l="en">Month-end close, reconciliations, controls, data quality, accounting by property.</span><span data-l="ru">Закрытие месяца, сверки, контроли, качество данных, учёт по объектам.</span></p>
+        </div>
+        <div class="comp">
+          <span class="n">03</span>
+          <h3><span data-l="en">CFO-level decision support</span><span data-l="ru">Решения уровня CFO</span></h3>
+          <p><span data-l="en">Forecast, scenarios, and a seat at the decision itself.</span><span data-l="ru">Прогноз, сценарии, участие в управленческих решениях.</span></p>
+        </div>
+        <div class="comp">
+          <span class="n">04</span>
+          <h3><span data-l="en">Real operating experience</span><span data-l="ru">Реальный операционный опыт</span></h3>
+          <p><span data-l="en">I know this because I have built and run businesses — not because I studied it.</span><span data-l="ru">Я знаю это не потому, что выучила в университете, а потому, что сама построила бизнесы.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAIN ================= -->
+  <section id="pain">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.4rem;">
+        <p class="eyebrow"><span data-l="en">Three things you can’t say out loud</span><span data-l="ru">Три вещи, которые вы не можете сказать вслух</span></p>
+        <h2 style="max-width:32ch;">
+          <span data-l="en">Not because you are hiding anything. Because saying them costs more than living with them.</span>
+          <span data-l="ru">Не потому, что вы что-то скрываете. Потому что сказать это стоит дороже, чем с этим жить.</span>
+        </h2>
+      </div>
+
+      <div class="pains rv">
+        <div class="pain">
+          <p class="pain-q">
+            <span data-l="en"><i>“</i>I don’t know what I made on the last property.<i>”</i></span>
+            <span data-l="ru"><i>«</i>Я не знаю, сколько заработал на прошлом объекте.<i>»</i></span>
+          </p>
+          <p>
+            <span data-l="en">You find out at closing — and even then the figure is soft. Part of the cost went on a different card. Shared purchases were never split across the three houses. Interest was never allocated. Two similar properties produce two different results and you cannot say why.</span>
+            <span data-l="ru">Вы узнаёте на closing — и даже тогда цифра нетвёрдая. Часть расходов ушла с другой карты. Общая закупка на три дома никогда не разносилась. Проценты по кредиту нигде не распределены. Два похожих объекта дали разный результат, и объяснить почему вы не можете.</span>
+          </p>
+          <p class="to">
+            <span data-l="en">Can’t say it to<br>your partner · your investor</span>
+            <span data-l="ru">Нельзя сказать<br>партнёру · инвестору</span>
+          </p>
+        </div>
+
+        <div class="pain">
+          <p class="pain-q">
+            <span data-l="en"><i>“</i>I don’t know whether I’ll have enough cash in six weeks.<i>”</i></span>
+            <span data-l="ru"><i>«</i>Я не знаю, хватит ли мне денег через шесть недель.<i>»</i></span>
+          </p>
+          <p>
+            <span data-l="en">The P&amp;L shows a profit and on Friday there isn’t enough for the crew. Everything sits in WIP until closing; between two closings there is a trough, and it gets covered by a new draw or by the next property’s money. You have done it before. You will do it again next quarter.</span>
+            <span data-l="ru">В P&amp;L прибыль, а в пятницу не хватает на бригаду. Всё копится в WIP до closing; между двумя closing — провал, и он закрывается новым draw или деньгами следующего объекта. Вы так уже делали. И в следующем квартале сделаете снова.</span>
+          </p>
+          <p class="to">
+            <span data-l="en">Can’t say it to<br>your lender · your crews · your wife</span>
+            <span data-l="ru">Нельзя сказать<br>банку · прорабам · жене</span>
+          </p>
+        </div>
+
+        <div class="pain">
+          <p class="pain-q">
+            <span data-l="en"><i>“</i>I can’t explain to my partner where that number came from.<i>”</i></span>
+            <span data-l="ru"><i>«</i>Я не могу объяснить партнёру, откуда взялась эта цифра.<i>»</i></span>
+          </p>
+          <p>
+            <span data-l="en">Who contributed what, who took what, who paid out of pocket. For years nobody asked. Then your partner brings a printout, the gap doesn’t reconcile — and you are wrong by default. Not because you took anything. Because you cannot show that you didn’t.</span>
+            <span data-l="ru">Кто сколько внёс, кто сколько взял, кто платил из личного. Годами никто не спрашивал. Потом партнёр приносит распечатку, разница не сходится — и вы виноваты по умолчанию. Не потому, что что-то взяли. Потому что не можете показать, что не брали.</span>
+          </p>
+          <p class="to">
+            <span data-l="en">Can’t say it to<br>your partner · yourself</span>
+            <span data-l="ru">Нельзя сказать<br>партнёру · себе</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="note rv" style="margin-top:1.8rem;">
+        <span data-l="en">The blindness is not total — and that is exactly what makes it survivable. Total blindness you would have noticed and fixed years ago. Partial blindness lets the system look like it works: the cash is there, the properties move, the bank keeps funding. It looks like it works right up until it doesn’t.</span>
+        <span data-l="ru">Слепота не тотальная — именно поэтому с ней можно жить. Тотальную вы бы заметили и починили ещё годы назад. Частичная позволяет системе выглядеть работающей: деньги на счёте есть, объекты идут, банк даёт транши. Она выглядит работающей ровно до того момента, когда перестаёт.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= WHY ================= -->
+  <section id="why">
+    <div class="shell sect-grid">
+      <div class="sect-head rv">
+        <p class="eyebrow"><span data-l="en">Why the numbers stopped telling you anything</span><span data-l="ru">Почему цифры перестали что-либо говорить</span></p>
+        <h2>
+          <span data-l="en">This is not a defect in you. It is what happens to a system that was fine for two properties and stopped being fine for six.</span>
+          <span data-l="ru">Это не ваш дефект. Это то, что происходит с системой, которая была нормальной для двух объектов и перестала быть нормальной для шести.</span>
+        </h2>
+      </div>
+
+      <div class="stack rv">
+        <p>
+          <span data-l="en">Your balance sheet balances. Your returns were filed on time. Your bookkeeper records transactions correctly. All of that can be true at once — and none of it tells you the projected margin on the Oxford house, the cash deficit arriving in week eight, or the cost to complete on the job you are about to start.</span>
+          <span data-l="ru">Баланс сходится. Декларации поданы в срок. Бухгалтер корректно разносит операции. Всё это может быть верно одновременно — и ни одно из этого не говорит вам прогнозную маржу по объекту, кассовый провал на восьмой неделе и оценку затрат до завершения на том объекте, который вы вот-вот запускаете.</span>
+        </p>
+
+        <p class="pull">
+          <span data-l="en">Clean books are not the same as management visibility.</span>
+          <span data-l="ru">Порядок в книгах — не то же самое, что управленческая видимость.</span>
+        </p>
+
+        <p>
+          <span data-l="en">Tax accounting and management accounting answer different questions. Your bookkeeper is responsible for recording the past correctly. A CFO is responsible for making the present legible and the next decision defensible.</span>
+          <span data-l="ru">У налогового и управленческого учёта разные задачи. Бухгалтер отвечает за корректное отражение прошлого. Финансовый директор — за то, чтобы вы понимали настоящее и могли защитить следующее решение.</span>
+        </p>
+
+        <div class="note">
+          <span data-l="en">Most of this market sells the forecast and assumes the underlying data is already clean. In books that have grown through six properties, several LLCs and years of intercompany transfers, it usually isn’t — and a forecast built on top of that is a well-formatted guess.</span>
+          <span data-l="ru">Большая часть этого рынка продаёт прогноз, предполагая, что исходные данные уже чистые. В книгах, которые прошли через шесть объектов, несколько LLC и годы intercompany-переводов, это как правило не так — и прогноз поверх них становится хорошо оформленной догадкой.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TWO CONSEQUENCES ================= -->
+  <section id="surfaces">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.4rem;">
+        <p class="eyebrow"><span data-l="en">Where it surfaces</span><span data-l="ru">Где это выходит наружу</span></p>
+        <h2 style="max-width:32ch;">
+          <span data-l="en">Blindness stays quiet until something outside your company puts a date on it.</span>
+          <span data-l="ru">Слепота молчит, пока снаружи не появится событие с датой.</span>
+        </h2>
+      </div>
+
+      <div class="cards rv">
+        <div class="card">
+          <span class="n">A</span>
+          <h3><span data-l="en">A lender or an investor asks for reporting you cannot produce in a day</span><span data-l="ru">Банк или инвестор просит отчётность, которую нельзя собрать за день</span></h3>
+          <p>
+            <span data-l="en">The draw package doesn’t clear. The loan officer needs an updated WIP that reconciles with their percent complete. You say “by Monday” — and you already know there is nobody to assemble it.</span>
+            <span data-l="ru">Пакет на draw не проходит. Кредитному инспектору нужен обновлённый WIP, который бьётся с их расчётом завершённости. Вы говорите «сделаем к понедельнику» — и уже знаете, что собрать это некому.</span>
+          </p>
+        </div>
+        <div class="card">
+          <span class="n">B</span>
+          <h3><span data-l="en">Partners start disagreeing about capital, costs and distributions</span><span data-l="ru">Партнёры начинают спорить о капитале, расходах и распределении</span></h3>
+          <p>
+            <span data-l="en">Your partner brings his own printout. The numbers don’t match, and it is precisely the difference nobody can explain. He isn’t accusing you of anything. He is asking — and you can’t answer.</span>
+            <span data-l="ru">Партнёр приносит свою распечатку. Цифры не сходятся, и именно эта разница ничем не объясняется. Он вас ни в чём не обвиняет. Он спрашивает — а ответить нечем.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SEQUENCE ================= -->
+  <section id="sequence">
+    <div class="shell sect-grid">
+      <div class="sect-head rv">
+        <p class="eyebrow"><span data-l="en">The sequence</span><span data-l="ru">Последовательность</span></p>
+        <h2>
+          <span data-l="en">Reconstruct, then control, then advise. In that order and no other.</span>
+          <span data-l="ru">Сначала реконструкция, потом контроль, потом консультирование. В этом порядке и ни в каком другом.</span>
+        </h2>
+        <p class="pull wide" style="font-size:1.05rem;line-height:1.5;">
+          <span data-l="en">I don’t build forecasts on top of unreliable data. First I find why the numbers can’t be trusted, then I restore the financial truth, then I install control — and only after that do I move to CFO advisory.</span>
+          <span data-l="ru">Я не строю прогнозы поверх ненадёжных данных. Сначала я нахожу, почему цифрам нельзя доверять, восстанавливаю финансовую правду, затем устанавливаю контроль — и только после этого перехожу к CFO Advisory.</span>
+        </p>
+      </div>
+
+      <div class="stages rv">
+        <button class="stage-btn" type="button" aria-expanded="true" aria-controls="st1">
+          <span class="idx">01</span>
+          <span class="ttl">Reconstruct</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="stage-body open" id="st1">
+          <p>
+            <span data-l="en">Find why the numbers can’t be trusted. Restore the historical periods. Bring the data to a state a decision can stand on.</span>
+            <span data-l="ru">Найти, почему цифрам нельзя верить. Восстановить исторические периоды. Привести данные в состояние, на которое можно опереться в решении.</span>
+          </p>
+          <ul class="ticks">
+            <li><span data-l="en">Records diagnostic — where exactly the figures diverged and what has to be rebuilt</span><span data-l="ru">Диагностика записей — где именно разошлись цифры и что придётся восстанавливать</span></li>
+            <li><span data-l="en">Historical books reconciliation, including the years that were kept in Excel</span><span data-l="ru">Восстановление исторического учёта, включая годы, которые велись в Excel</span></li>
+            <li><span data-l="en">Equity reconciliation — contributions, distributions and capital per LLC and per partner, traced to transactions</span><span data-l="ru">Сведение капитала — вклады, распределения и equity по каждой LLC и каждому партнёру, с опорой на транзакции</span></li>
+            <li><span data-l="en">Intercompany transfers allocated to the property they actually belong to</span><span data-l="ru">Intercompany-переводы разнесены на тот объект, к которому они относятся</span></li>
+          </ul>
+        </div>
+
+        <button class="stage-btn" type="button" aria-expanded="false" aria-controls="st2">
+          <span class="idx">02</span>
+          <span class="ttl">Control</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="stage-body" id="st2">
+          <p>
+            <span data-l="en">Month-end close, reconciliations, internal controls, accounting by property, management reporting.</span>
+            <span data-l="ru">Закрытие месяца, сверки, внутренние контроли, учёт по объектам, управленческая отчётность.</span>
+          </p>
+          <ul class="ticks">
+            <li><span data-l="en">Chart of accounts and cost allocation designed around properties, not around tax lines</span><span data-l="ru">План счетов и разнесение затрат спроектированы под объекты, а не под налоговые строки</span></li>
+            <li><span data-l="en">A month-end close procedure your own bookkeeper runs — installed, with training</span><span data-l="ru">Регламент закрытия месяца, который ведёт ваш собственный бухгалтер — поставлен, с обучением</span></li>
+            <li><span data-l="en">Per property: actual against budget, committed cost, estimated cost to complete, projected margin</span><span data-l="ru">По каждому объекту: факт против бюджета, законтрактованные затраты, оценка затрат до завершения, прогнозная маржа</span></li>
+            <li><span data-l="en">Draw packages: documents, phase photographs, WIP confirmation, blended percent complete</span><span data-l="ru">Пакеты на draw: документы, фото по фазам, подтверждение WIP, сведённый процент завершённости</span></li>
+          </ul>
+        </div>
+
+        <button class="stage-btn" type="button" aria-expanded="false" aria-controls="st3">
+          <span class="idx">03</span>
+          <span class="ttl">Advise</span>
+          <span class="chev" aria-hidden="true"></span>
+        </button>
+        <div class="stage-body" id="st3">
+          <p>
+            <span data-l="en">Forecast, scenarios, and support for the decisions only you can make.</span>
+            <span data-l="ru">Прогноз, сценарии и поддержка решений, которые принимаете только вы.</span>
+          </p>
+          <ul class="ticks">
+            <li><span data-l="en">A 13-week cash model that updates without you</span><span data-l="ru">13-недельная модель кэша, которая обновляется без вас</span></li>
+            <li><span data-l="en">Whether you can safely start the next property — answered with numbers, not with a feeling</span><span data-l="ru">Можно ли безопасно запускать следующий объект — ответ цифрами, а не ощущением</span></li>
+            <li><span data-l="en">One page you can forward to a partner, your CPA or your lender with no covering explanation</span><span data-l="ru">Одна страница, которую вы перешлёте партнёру, CPA или банкиру без сопроводительных объяснений</span></li>
+            <li><span data-l="en">Two meetings a month. Findings in writing, and to you first.</span><span data-l="ru">Две встречи в месяц. Находки — письменно и вам первому.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MECHANICS ================= -->
+  <section id="mechanics">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.4rem;">
+        <p class="eyebrow"><span data-l="en">The part that can’t be faked</span><span data-l="ru">То, что нельзя изобразить</span></p>
+        <h2 style="max-width:34ch;">
+          <span data-l="en">You can’t evaluate a financial model. You can evaluate whether someone knows how your money actually moves.</span>
+          <span data-l="ru">Финансовую модель вы оценить не можете. А вот понимает ли человек, как реально ходят ваши деньги, — можете.</span>
+        </h2>
+      </div>
+
+      <div class="mech rv">
+        <div class="mech-i">
+          <span class="tag">Draws</span>
+          <p>
+            <span data-l="en">To pull a draw you send the lender a package: documents, photographs from the site tagged by phase, and confirmation of work in progress — how much is built, how much is left. You take those phase photos yourself. Thursday at 4:40 the loan officer calls, and the package has to already exist.</span>
+            <span data-l="ru">Чтобы взять draw, вы отправляете в банк пакет: документы, фотографии со стройки с указанием фазы и подтверждение work in progress — сколько построено, сколько осталось. Фото по фазам вы снимаете сами. В четверг в 16:40 звонит кредитный инспектор — и пакет должен уже существовать.</span>
+          </p>
+        </div>
+        <div class="mech-i">
+          <span class="tag">LLC / Intercompany</span>
+          <p>
+            <span data-l="en">An LLC per property, or per group of properties, or per set of contributors. Money moves between them because it has to. A single bank transaction can belong to three properties at once — somebody has to decide how it splits, and that decision is accounting policy, not data entry.</span>
+            <span data-l="ru">LLC под объект, под группу объектов или под состав вкладчиков. Деньги ходят между ними, потому что иначе нельзя. Одна банковская транзакция может относиться сразу к трём объектам — кто-то должен решить, как она делится, и это решение — учётная политика, а не разноска.</span>
+          </p>
+        </div>
+        <div class="mech-i">
+          <span class="tag">WIP до closing</span>
+          <p>
+            <span data-l="en">On spec work everything accumulates in WIP until closing. Between two closings there is a trough, covered by a new draw or by the next property’s money. That isn’t a moral failure — it is a cash structure, and it has to be visible before it arrives.</span>
+            <span data-l="ru">На spec-объектах всё копится в WIP до closing. Между двумя closing — провал, который закрывается новым draw или деньгами следующего объекта. Это не грех — это структура кэша, и её надо видеть до того, как она наступит.</span>
+          </p>
+        </div>
+        <div class="mech-i">
+          <span class="tag">Equity</span>
+          <p>
+            <span data-l="en">Who contributed what, who took what, who paid out of personal funds, who is owed what from the property that sold. Traced to transactions rather than to memory — so that when a partner brings his printout, you have something to put next to it.</span>
+            <span data-l="ru">Кто сколько внёс, кто сколько взял, кто платил из личного, кому сколько причитается с проданного объекта. С опорой на транзакции, а не на память — чтобы, когда партнёр приносит свою распечатку, вам было что положить рядом.</span>
+          </p>
+        </div>
+        <div class="mech-i">
+          <span class="tag">Your spreadsheet</span>
+          <p>
+            <span data-l="en">Your Excel file is not the enemy. It is the prototype of the system you actually need — it already shows more than QuickBooks does. We don’t throw it out. We make it durable, and remove the reason it goes stale in three weeks.</span>
+            <span data-l="ru">Ваш Excel — не враг. Это прототип нужной вам системы: он уже показывает больше, чем QuickBooks. Мы его не выбрасываем. Мы делаем его устойчивым и убираем причину, по которой он устаревает через три недели.</span>
+          </p>
+        </div>
+        <div class="mech-i">
+          <span class="tag">Automation</span>
+          <p>
+            <span data-l="en">Automation executes rules. Someone has to write them. I build the financial architecture, define what the numbers economically mean, investigate the errors, and take responsibility for whether the figures can carry a management decision.</span>
+            <span data-l="ru">Автоматизация исполняет правила. Правила задаёт человек. Я строю финансовую архитектуру, определяю экономический смысл операций, разбираюсь в ошибках и отвечаю за то, выдержат ли цифры управленческое решение.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section id="how">
+    <div class="shell sect-grid">
+      <div class="sect-head rv">
+        <p class="eyebrow"><span data-l="en">How it works</span><span data-l="ru">Как это происходит</span></p>
+        <h2>
+          <span data-l="en">Five steps. The right-hand column is the part that actually decides it — how much of this is your time.</span>
+          <span data-l="ru">Пять шагов. Решает на самом деле правая колонка — сколько из этого ваше личное время.</span>
+        </h2>
+        <p class="small">
+          <span data-l="en">You have bought help before, and it came back to you. So here is the arithmetic up front.</span>
+          <span data-l="ru">Вы уже покупали помощь, и она возвращалась к вам. Поэтому арифметика — сразу.</span>
+        </p>
+      </div>
+
+      <ul class="steps rv">
+        <li class="step-row">
+          <span class="sn">01</span>
+          <div>
+            <h3><span data-l="en">A call, twenty minutes</span><span data-l="ru">Разговор, двадцать минут</span></h3>
+            <p><span data-l="en">Three questions. Nothing to prepare, nothing to send, no questionnaire. If it turns out I am the wrong person for this, I say so on that call and tell you who isn’t.</span><span data-l="ru">Три вопроса. Ничего готовить, ничего присылать, никакой анкеты. Если окажется, что я здесь не тот человек, я скажу это в том же разговоре и подскажу, кто тот.</span></p>
+          </div>
+          <p class="yours"><span data-l="en">Your time<b>20 minutes</b></span><span data-l="ru">Ваше время<b>20 минут</b></span></p>
+        </li>
+
+        <li class="step-row">
+          <span class="sn">02</span>
+          <div>
+            <h3><span data-l="en">The document list</span><span data-l="ru">Список документов</span></h3>
+            <p><span data-l="en">You get an exact list: which reports, in which format, and step-by-step instructions for exporting each one. Plus the access list, in writing. You are not guessing what I need and you are not exporting twenty reports into folders.</span><span data-l="ru">Вы получаете точный список: какие отчёты, в каком формате, и пошаговую инструкцию по выгрузке каждого. Плюс перечень доступов, письменно. Вы не угадываете, что мне нужно, и не выгружаете двадцать отчётов по папкам.</span></p>
+          </div>
+          <p class="yours"><span data-l="en">Your time<b>About an hour, once</b></span><span data-l="ru">Ваше время<b>Около часа, один раз</b></span></p>
+        </li>
+
+        <li class="step-row">
+          <span class="sn">03</span>
+          <div>
+            <h3><span data-l="en">The diagnostic</span><span data-l="ru">Диагностика</span></h3>
+            <p><span data-l="en">A verdict within 72 hours of a complete package: whether the data can be trusted, where exactly it diverged, what has to be rebuilt. In writing, to you. Fixed price, known before it starts.</span><span data-l="ru">Вердикт в течение 72 часов после полного пакета: можно ли доверять данным, где именно разошлось, что придётся восстанавливать. Письменно, вам. Фиксированная цена, известная до начала.</span></p>
+          </div>
+          <p class="yours"><span data-l="en">Your time<b>None</b></span><span data-l="ru">Ваше время<b>Ноль</b></span></p>
+        </li>
+
+        <li class="step-row">
+          <span class="sn">04</span>
+          <div>
+            <h3><span data-l="en">You decide</span><span data-l="ru">Вы решаете</span></h3>
+            <p><span data-l="en">The reconstruction price is named here and then locked. You are not obliged to continue — no auto-renewal, no annual contract. If the verdict says the data holds up, we stop here and you keep the written conclusion.</span><span data-l="ru">Здесь называется цена реконструкции и дальше фиксируется. Продолжать вы не обязаны — никакого автопродления и годового контракта. Если вердикт говорит, что данным можно доверять, мы на этом останавливаемся, а письменное заключение остаётся у вас.</span></p>
+          </div>
+          <p class="yours"><span data-l="en">Your time<b>As long as you want</b></span><span data-l="ru">Ваше время<b>Столько, сколько нужно</b></span></p>
+        </li>
+
+        <li class="step-row">
+          <span class="sn">05</span>
+          <div>
+            <h3><span data-l="en">Reconstruction, then control</span><span data-l="ru">Реконструкция, затем контроль</span></h3>
+            <p><span data-l="en">The work runs through your bookkeeper and your CPA, not through you. Week one: access and current process map. Week two: diagnostic of data quality, reconciliations, project cost, WIP. Week three: reporting structure, KPIs, close procedure, who owns what. Week four: the first management package, explained to you out loud.</span><span data-l="ru">Работа идёт через вашего бухгалтера и вашего CPA, а не через вас. Неделя 1: доступы и карта текущих процессов. Неделя 2: диагностика качества данных, сверки, проектный учёт, WIP. Неделя 3: структура отчётности, KPI, порядок закрытия, распределение ответственности. Неделя 4: первый управленческий пакет — с объяснением цифр голосом.</span></p>
+          </div>
+          <p class="yours"><span data-l="en">Your time<b>Two meetings a month</b></span><span data-l="ru">Ваше время<b>Две встречи в месяц</b></span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= DELIVERABLES ================= -->
+  <section id="deliverables">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.2rem;">
+        <p class="eyebrow"><span data-l="en">What lands on your desk</span><span data-l="ru">Что оказывается у вас на столе</span></p>
+        <h2 style="max-width:30ch;">
+          <span data-l="en">Not a promise about your results. A list of what you receive, and when.</span>
+          <span data-l="ru">Не обещание результата. Список того, что вы получаете, и когда.</span>
+        </h2>
+      </div>
+
+      <div class="rv">
+        <div class="tabs" role="tablist" aria-label="Delivery timeline">
+          <button role="tab" aria-selected="true"  aria-controls="tp1" id="tb1">72 <span data-l="en">hours</span><span data-l="ru">часа</span></button>
+          <button role="tab" aria-selected="false" aria-controls="tp2" id="tb2">30 <span data-l="en">days</span><span data-l="ru">дней</span></button>
+          <button role="tab" aria-selected="false" aria-controls="tp3" id="tb3">60 <span data-l="en">days</span><span data-l="ru">дней</span></button>
+          <button role="tab" aria-selected="false" aria-controls="tp4" id="tb4">90 <span data-l="en">days</span><span data-l="ru">дней</span></button>
+        </div>
+
+        <div class="tabpanels">
+          <div class="tabpanel open" role="tabpanel" id="tp1" aria-labelledby="tb1">
+            <h3><span data-l="en">The diagnostic verdict</span><span data-l="ru">Вердикт диагностики</span></h3>
+            <p><span data-l="en">Whether your historical data can be trusted, where exactly the figures diverged, and what will have to be rebuilt.</span><span data-l="ru">Можно ли доверять вашим историческим данным, где именно разошлись цифры и что придётся восстанавливать.</span></p>
+            <div class="note">
+              <span data-l="en"><strong>The 72 hours begin when a complete, correctly formatted document package has been received</strong> — not when the engagement is signed. You get the list of documents, the required format, and instructions for exporting each report. If something arrives as a screenshot or a PDF pulled off a knee, the clock hasn’t started.</span>
+              <span data-l="ru"><strong>72 часа начинаются после получения полного пакета документов в правильном формате</strong> — а не с даты подписания. Вы получаете список документов, требуемый формат и инструкцию по выгрузке каждого отчёта. Если что-то приходит скриншотом или PDF, собранным с колена, отсчёт не пошёл.</span>
+            </div>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="tp2" aria-labelledby="tb2">
+            <h3><span data-l="en">The first management package</span><span data-l="ru">Первый управленческий пакет</span></h3>
+            <p><span data-l="en">Per property: actual against budget, committed cost, estimated cost to complete, projected margin. Plus a P&amp;L, a balance sheet and a cash-flow statement you can actually read — with the numbers explained to you, not handed over.</span><span data-l="ru">По каждому объекту: факт против бюджета, законтрактованные затраты, оценка затрат до завершения, прогнозная маржа. Плюс P&amp;L, баланс и отчёт о движении денежных средств, которые действительно можно читать — с объяснением цифр, а не просто передачей файла.</span></p>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="tp3" aria-labelledby="tb3">
+            <h3><span data-l="en">Capital reconciled</span><span data-l="ru">Капитал сведён</span></h3>
+            <p><span data-l="en">Contributions, distributions and equity per LLC and per partner, traced to transactions. Intercompany transfers allocated to the properties they belong to.</span><span data-l="ru">Вклады, распределения и equity по каждой LLC и каждому партнёру, с опорой на транзакции. Intercompany-переводы разнесены на те объекты, к которым относятся.</span></p>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="tp4" aria-labelledby="tb4">
+            <h3><span data-l="en">The system runs</span><span data-l="ru">Система работает</span></h3>
+            <p><span data-l="en">A 13-week cash model that updates without you. A month-end close procedure installed with your bookkeeper. A draw package that clears the first time.</span><span data-l="ru">13-недельная модель кэша, которая обновляется без вас. Регламент закрытия месяца, поставленный вашему бухгалтеру. Пакет на draw, который проходит с первого раза.</span></p>
+          </div>
+        </div>
+
+        <div class="cad">
+          <div class="cad-col">
+            <span class="tag"><span data-l="en">Honest weekly</span><span data-l="ru">Честно еженедельно</span></span>
+            <ul>
+              <li><span data-l="en">Actual cost against budget</span><span data-l="ru">Факт против бюджета</span></li>
+              <li><span data-l="en">Committed cost</span><span data-l="ru">Законтрактованные затраты</span></li>
+              <li><span data-l="en">Estimated cost to complete</span><span data-l="ru">Оценка затрат до завершения</span></li>
+              <li><span data-l="en">Projected project margins</span><span data-l="ru">Прогнозная маржа по объектам</span></li>
+              <li><span data-l="en">Upcoming cash obligations</span><span data-l="ru">Предстоящие обязательства по кэшу</span></li>
+              <li><span data-l="en">Expected draws</span><span data-l="ru">Ожидаемые draws</span></li>
+            </ul>
+          </div>
+          <div class="cad-col">
+            <span class="tag"><span data-l="en">Honest monthly only</span><span data-l="ru">Честно только раз в месяц</span></span>
+            <ul>
+              <li><span data-l="en">Net profit per property</span><span data-l="ru">Чистая прибыль по объекту</span></li>
+              <li><span data-l="en">Management package with commentary and period comparison</span><span data-l="ru">Управленческий пакет с комментариями и сравнением периодов</span></li>
+              <li><span data-l="en">Month-end close</span><span data-l="ru">Закрытие месяца</span></li>
+              <li><span data-l="en">Owner meeting — twice a month</span><span data-l="ru">Встреча с собственником — 2 раза в месяц</span></li>
+            </ul>
+            <p class="small" style="margin-top:.4rem;">
+              <span data-l="en">Net profit on a property physically forms after the period closes. Anyone offering it weekly is offering something that does not exist.</span>
+              <span data-l="ru">Чистая прибыль по объекту физически формируется после закрытия периода. Кто предлагает её еженедельно — предлагает то, чего не существует.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROOF ================= -->
+  <section id="proof">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.4rem;">
+        <p class="eyebrow"><span data-l="en">What there is to go on</span><span data-l="ru">На что здесь можно опереться</span></p>
+        <h2 style="max-width:34ch;">
+          <span data-l="en">The strongest proof in this business is a name from someone you already trust. Everything on a website only confirms it.</span>
+          <span data-l="ru">Самое сильное доказательство в этом деле — имя от человека, которому вы уже доверяете. Всё на сайте лишь подтверждает его.</span>
+        </h2>
+      </div>
+
+      <div class="proof rv">
+        <div class="finding">
+          <span class="tag"><span data-l="en">From a historical reconstruction</span><span data-l="ru">Из реконструкции исторических записей</span></span>
+          <blockquote>
+            <span data-l="en">In the course of reconstructing the historical records of a development company, a material discrepancy in the accounting of capital was identified — one that was not visible from statements that formally balanced.</span>
+            <span data-l="ru">В ходе реконструкции исторических записей девелоперской компании было выявлено существенное расхождение в учёте капитала, которое не было видно из формально сходящихся отчётов.</span>
+          </blockquote>
+          <p>
+            <span data-l="en">The books looked clean. The balance sheet balanced. The returns had been filed on time. The discrepancy surfaced on the first reconciliation, and tracing it meant going back through paper documents, bank statements, owner records and closings from years earlier — the earliest period had been kept in a spreadsheet.</span>
+            <span data-l="ru">Учёт выглядел чистым. Баланс сходился. Декларации были поданы в срок. Расхождение вскрылось на первой сверке, а чтобы проследить его, пришлось поднимать бумажные документы, банковские выписки, записи собственников и закрытия сделок многолетней давности — самый ранний период вёлся в таблице.</span>
+          </p>
+          <p style="border-top:1px solid var(--line-soft);padding-top:.9rem;">
+            <span data-l="en"><strong>This is not a story about somebody making a mistake.</strong> Tax accounting was answering a different question. Nobody was answering this one. No amounts, company names, owners or addresses appear here — and they won’t until the client gives written permission.</span>
+            <span data-l="ru"><strong>Это не история о том, что кто-то ошибся.</strong> Налоговый учёт отвечал на другой вопрос. На этот вопрос не отвечал никто. Ни сумм, ни названий, ни собственников, ни адресов здесь нет — и не будет, пока клиент не даст письменного разрешения.</span>
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div>
+            <h3 class="serif" style="font-size:var(--fs-h3);margin-bottom:.9rem;">
+              <span data-l="en">What is verifiable today</span><span data-l="ru">Что проверяемо сегодня</span>
+            </h3>
+            <ul class="ticks">
+              <li><span data-l="en">A 6,000 sq ft clinic built from nothing — imaging, its own lab, its own pharmacy, each line licensed separately — as the representative for an absent foreign investor</span><span data-l="ru">Клиника 6,000 sq ft, построенная с нуля — диагностика, собственная лаборатория, аптека, каждое направление лицензировалось отдельно — как представляющее лицо отсутствующего иностранного инвестора</span></li>
+              <li><span data-l="en">A dental practice built ground-up: construction supervision, contractor negotiations, equipment procurement, hiring, licensing</span><span data-l="ru">Стоматологический офис с нуля: надзор за строительством, переговоры с подрядчиками, закупка оборудования, найм, лицензии</span></li>
+              <li><span data-l="en">Fifteen years across bookkeeping, Director of Finance and CFO roles, including a regulated medical organisation</span><span data-l="ru">Пятнадцать лет через бухгалтерию, Director of Finance и CFO, включая регулируемую медицинскую организацию</span></li>
+              <li><span data-l="en">Sitting in your meetings with your CPA and speaking to them accountant-to-accountant, so you are not the translator between two professionals</span><span data-l="ru">Присутствие на ваших встречах с CPA и разговор с ним как бухгалтер с бухгалтером — чтобы вам не быть переводчиком между двумя специалистами</span></li>
+            </ul>
+          </div>
+
+          <div class="slot">
+            <span class="ph"><span data-l="en">Reserved — client testimonial</span><span data-l="ru">Зарезервировано — отзыв клиента</span></span>
+            <p>
+              <span data-l="en">Testimonials are being collected. Nothing invented goes here: until a client gives written permission, this space stays empty on purpose.</span>
+              <span data-l="ru">Отзывы собираются. Ничего выдуманного здесь не появится: пока клиент не дал письменного разрешения, место осознанно остаётся пустым.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FIT ================= -->
+  <section id="fit">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.2rem;">
+        <p class="eyebrow"><span data-l="en">Fit</span><span data-l="ru">Кому подходит</span></p>
+        <h2 style="max-width:28ch;">
+          <span data-l="en">The threshold here is complexity, not revenue.</span>
+          <span data-l="ru">Порог здесь — сложность, а не выручка.</span>
+        </h2>
+      </div>
+
+      <div class="fit rv">
+        <div class="fit-col fit-yes">
+          <span class="tag"><span data-l="en">This is for you if</span><span data-l="ru">Это для вас, если</span></span>
+          <p><span data-l="en">Three to ten active properties. Several LLCs. Construction loans. Investors or equity partners. A bookkeeper or a CPA — but no strong controller. And a quiet suspicion that you could not defend your own project-level numbers if someone asked you to.</span><span data-l="ru">От трёх до десяти активных объектов. Несколько LLC. Construction loans. Инвесторы или партнёры с долями. Есть бухгалтер или CPA — но нет сильного контроллера. И тихое подозрение, что свои цифры по объектам вы не защитите, если попросят.</span></p>
+        </div>
+        <div class="fit-col fit-no">
+          <span class="tag"><span data-l="en">This is not for you if</span><span data-l="ru">Это не для вас, если</span></span>
+          <p><span data-l="en">One property, one account, and what you need is a bookkeeper for data entry. That is different work at a different price — I will say so, and point you to who does it well.</span><span data-l="ru">Один объект, один счёт, и нужен просто bookkeeper для разноски. Это другая работа и другие деньги — я так и скажу и подскажу, к кому.</span></p>
+        </div>
+      </div>
+
+      <p class="note rv" style="margin-top:1.6rem;">
+        <span data-l="en">A developer at $2M with several properties running, different investors and multiple loans is a better fit than a contractor at $7M with a simple structure. What makes the work hard is the number of moving parts, not the size of the top line.</span>
+        <span data-l="ru">Девелопер на $2M с несколькими объектами, разными инвесторами и займами подходит лучше подрядчика на $7M с простой структурой. Работу усложняет количество движущихся частей, а не размер выручки.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= BOUNDARIES ================= -->
+  <section id="boundaries">
+    <div class="shell sect-grid">
+      <div class="sect-head rv">
+        <p class="eyebrow"><span data-l="en">Boundaries</span><span data-l="ru">Границы</span></p>
+        <h2>
+          <span data-l="en">Someone who says “that one’s for your CPA” is more credible than someone who promises everything.</span>
+          <span data-l="ru">Тот, кто говорит «это к вашему CPA», достовернее того, кто обещает всё.</span>
+        </h2>
+      </div>
+
+      <ul class="rows rv">
+        <li>
+          <h3><span data-l="en">I don’t replace your bookkeeper</span><span data-l="ru">Я не заменяю вашего бухгалтера</span></h3>
+          <p><span data-l="en">Your current bookkeeper keeps running daily operations. I install the financial architecture, control the period close, and turn the data into management reporting. Nobody gets fired.</span><span data-l="ru">Ваш текущий bookkeeper продолжает вести ежедневные операции. Я устанавливаю финансовую архитектуру, контролирую закрытие периода и превращаю данные в управленческую отчётность. Никого не увольняют.</span></p>
+        </li>
+        <li>
+          <h3><span data-l="en">I don’t compete with your CPA</span><span data-l="ru">Я не конкурирую с вашим CPA</span></h3>
+          <p><span data-l="en">Tax returns and licensed assurance work stay with them. I hand them organised, reconciled data and I sit in on the meeting. If you need a stamp on a document, I send you to them.</span><span data-l="ru">Налоги, декларации и лицензируемые assurance-услуги остаются за ним. Я передаю ему организованные и согласованные данные и присутствую на встрече. Нужен штамп на документе — отправлю к нему.</span></p>
+        </li>
+        <li>
+          <h3><span data-l="en">I don’t value equipment or assets</span><span data-l="ru">Я не делаю оценку оборудования и активов</span></h3>
+          <p><span data-l="en">I compare what is on the asset list against what is actually there. That is a comparison, not a valuation, and the difference matters.</span><span data-l="ru">Я сверяю то, что заявлено в списке активов, с тем, что фактически на месте. Это сверка, а не оценка стоимости, и разница здесь принципиальна.</span></p>
+        </li>
+        <li>
+          <h3><span data-l="en">I don’t file returns, give legal advice, or represent you before the IRS</span><span data-l="ru">Я не подаю декларации, не даю юридических консультаций и не представляю вас перед IRS</span></h3>
+          <p><span data-l="en">When a regulated professional service is required, I coordinate with the licensed professional you retain — I don’t improvise around them.</span><span data-l="ru">Когда требуется лицензируемая профессиональная услуга, я координируюсь с тем специалистом, которого вы наняли, — а не импровизирую вместо него.</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= WHAT'S INCLUDED ================= -->
+  <section id="included">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.2rem;">
+        <p class="eyebrow"><span data-l="en">What is in the engagement</span><span data-l="ru">Что входит в работу</span></p>
+        <h2 style="max-width:32ch;">
+          <span data-l="en">No line-item price tags on each piece. Just what is in it, and what each piece exists for.</span>
+          <span data-l="ru">Без ценника на каждый пункт. Просто что входит и зачем каждое из этого существует.</span>
+        </h2>
+      </div>
+
+      <div class="incl rv">
+        <div class="incl-i">
+          <h3><span data-l="en">The lender package for a draw</span><span data-l="ru">Пакет для банка под draw</span></h3>
+          <p><span data-l="en">Documents, phase photographs, WIP confirmation, blended percent complete. So that the Thursday call from the loan officer doesn’t end in a promise of “by Monday” that you already know you can’t keep.</span><span data-l="ru">Документы, фото по фазам, подтверждение WIP, сведённый процент завершённости. Чтобы четверговый звонок кредитного инспектора не заканчивался обещанием «сделаем к понедельнику», которое вы заранее не сможете выполнить.</span></p>
+        </div>
+        <div class="incl-i">
+          <h3><span data-l="en">The 13-week cash model</span><span data-l="ru">13-недельная модель кэша</span></h3>
+          <p><span data-l="en">So that profit on paper stops turning into not enough money on Friday. Upcoming obligations and expected draws, visible before either becomes urgent.</span><span data-l="ru">Чтобы прибыль на бумаге перестала оборачиваться нехваткой денег в пятницу. Предстоящие обязательства и ожидаемые draws — видны до того, как любое из этого станет срочным.</span></p>
+        </div>
+        <div class="incl-i">
+          <h3><span data-l="en">Partner and LLC reconciliation</span><span data-l="ru">Сведение по партнёрам и LLC</span></h3>
+          <p><span data-l="en">So that when your partner brings his printout and the difference doesn’t explain itself, you have something to put down next to it. Traced to transactions, per entity and per person.</span><span data-l="ru">Чтобы, когда партнёр приносит свою распечатку и разница ничем не объясняется, вам было что положить рядом. С опорой на транзакции, по каждой LLC и по каждому человеку.</span></p>
+        </div>
+        <div class="incl-i">
+          <h3><span data-l="en">One page you can forward</span><span data-l="ru">Одна страница для пересылки</span></h3>
+          <p><span data-l="en">For a partner, your CPA or your banker — sent without a covering explanation, and it survives being retold by somebody else.</span><span data-l="ru">Партнёру, вашему CPA или банкиру — отправляется без сопроводительных объяснений и переживает пересказ другим человеком.</span></p>
+        </div>
+        <div class="incl-i">
+          <h3><span data-l="en">The order in which findings reach you</span><span data-l="ru">Порядок доставки находок</span></h3>
+          <p><span data-l="en">Whatever surfaces comes to you in writing, and to you first. Always. What happens after that is your decision, not mine.</span><span data-l="ru">Всё, что обнаружится, приходит вам письменно и вам первому. Всегда. Что происходит дальше — ваше решение, не моё.</span></p>
+        </div>
+        <div class="incl-i">
+          <h3><span data-l="en">Work with your existing bookkeeper</span><span data-l="ru">Работа с вашим текущим бухгалтером</span></h3>
+          <p><span data-l="en">Chart of accounts, cost allocation by property and the month-end close procedure are installed with them, with training. Nobody gets fired.</span><span data-l="ru">План счетов, разнесение затрат по объектам и регламент закрытия месяца ставятся ему, с обучением. Никого не увольняют.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section id="pricing">
+    <div class="shell">
+      <div class="sect-head wide rv" style="margin-bottom:2.2rem;">
+        <p class="eyebrow"><span data-l="en">Pricing</span><span data-l="ru">Цены</span></p>
+        <h2 style="max-width:26ch;">
+          <span data-l="en">Fixed at the entry. Priced by complexity after that.</span>
+          <span data-l="ru">Фиксировано на входе. Дальше — по сложности.</span>
+        </h2>
+      </div>
+
+      <div class="tiers rv">
+        <div class="tier">
+          <span class="step">01</span>
+          <h3><span data-l="en">Financial records diagnostic</span><span data-l="ru">Диагностика финансовых записей</span></h3>
+          <p><span data-l="en">Verdict within 72 hours of a complete document package: whether the data can be trusted, where it diverged, what has to be rebuilt.</span><span data-l="ru">Вердикт в течение 72 часов после получения полного пакета документов: можно ли доверять данным, где разошлось, что восстанавливать.</span></p>
+          <p class="price"><span data-l="en">Fixed, from $1,500</span><span data-l="ru">Фиксированно, от $1,500</span></p>
+        </div>
+        <div class="tier">
+          <span class="step">02</span>
+          <h3><span data-l="en">Historical reconstruction</span><span data-l="ru">Историческая реконструкция</span></h3>
+          <p><span data-l="en">Project price, named after the diagnostic and then locked. Not part of the monthly retainer.</span><span data-l="ru">Проектная стоимость, названная после диагностики и затем зафиксированная. В ежемесячный ретейнер не входит.</span></p>
+          <p class="price"><span data-l="en">Quoted after the diagnostic</span><span data-l="ru">По итогам диагностики</span></p>
+        </div>
+        <div class="tier">
+          <span class="step">03</span>
+          <h3><span data-l="en">Controller / CFO engagement</span><span data-l="ru">Controller / CFO</span></h3>
+          <p><span data-l="en">Monthly management package, two meetings a month, 13-week cash, draw packages, decision support.</span><span data-l="ru">Управленческий пакет ежемесячно, две встречи в месяц, 13 недель кэша, пакеты на draw, поддержка решений.</span></p>
+          <p class="price"><span data-l="en">Usually from $3,500/month</span><span data-l="ru">Обычно от $3,500/мес</span></p>
+        </div>
+      </div>
+
+      <p class="small rv" style="margin-top:1.1rem;max-width:70ch;">
+        <span data-l="en">The final figure depends on operational complexity: number of properties, LLCs, loans, investors and transactions, and the state of the records.</span>
+        <span data-l="ru">Итоговая цифра зависит от операционной сложности: количество объектов, LLC, займов, инвесторов и транзакций, а также состояние учёта.</span>
+      </p>
+
+      <p class="pull wide rv" style="margin-top:2rem;">
+        <span data-l="en">You pay a fixed amount to find out whether it is worth paying more. That is the only amount you are obliged to spend.</span>
+        <span data-l="ru">Вы платите фиксированную сумму за то, чтобы узнать, стоит ли платить дальше. Это единственная сумма, которую вы обязаны потратить.</span>
+      </p>
+
+      <div class="anchors rv">
+        <div class="anchor">
+          <h4><span data-l="en">What the same seniority costs in-house</span><span data-l="ru">Сколько тот же уровень стоит в штате</span></h4>
+          <p><span data-l="en">Hiring an experienced Controller or CFO in Florida can cost a company more than $150,000 a year once salary, payroll taxes, benefits and recruiting costs are counted — plus three to five months to find them. What you buy here is senior expertise and project-level control without the fixed cost and hiring risk of standing up a full in-house finance department.</span><span data-l="ru">Найм опытного Controller или CFO во Флориде может обходиться компании более чем в $150,000 в год с учётом зарплаты, payroll taxes, benefits и расходов на подбор — плюс 3–5 месяцев на поиск. Здесь вы покупаете senior-экспертизу и контроль на уровне объектов без фиксированной стоимости и риска найма полноценного финансового отдела.</span></p>
+        </div>
+        <div class="anchor">
+          <h4><span data-l="en">What you already buy without thinking</span><span data-l="ru">То, что вы уже покупаете не задумываясь</span></h4>
+          <p><span data-l="en">Before you buy a lot you pay a geotechnical engineer. Before closing, the title company. At each phase, the inspector. None of them builds anything. All of them exist for exactly one reason: so you don’t walk into a number many times larger than their fee. This sits in that row — not next to bookkeeping.</span><span data-l="ru">Перед покупкой участка вы платите инженеру-геологу. Перед closing — титульной компании. На этапах — инспектору. Никто из них не строит. Все существуют ровно для одного: чтобы вы не влетели на сумму, кратно большую их гонорара. Эта услуга стоит в том же ряду — не рядом с бухгалтерией.</span></p>
+        </div>
+        <div class="anchor">
+          <h4><span data-l="en">The cost of not knowing, in your case</span><span data-l="ru">Цена незнания в вашем случае</span></h4>
+          <p><span data-l="en">The honest answer is that I don’t know until I have looked at your books. Anyone naming a percentage before opening the documents is naming it out of thin air.</span><span data-l="ru">Честный ответ: я не знаю, пока не посмотрю ваши книги. Кто называет процент до того, как открыл документы, называет его из воздуха.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TERMS ================= -->
+  <section id="terms">
+    <div class="shell sect-grid">
+      <div class="sect-head rv">
+        <p class="eyebrow"><span data-l="en">The terms</span><span data-l="ru">Условия</span></p>
+        <h2>
+          <span data-l="en">Your real fear isn’t that it won’t work. It’s that you’ll pay, it will start, and it will all land back on you — and never end.</span>
+          <span data-l="ru">Ваш главный страх — не «не сработает». Ваш главный страх — «я заплачу, начнётся, и всё опять свалится на меня» и «это не кончится никогда».</span>
+        </h2>
+        <p class="small">
+          <span data-l="en">So the terms are written against exactly that, and nothing else.</span>
+          <span data-l="ru">Поэтому условия сняты именно с этого, и ни с чего другого.</span>
+        </p>
+      </div>
+
+      <div class="stack rv">
+        <ul class="rows" style="border-top:1px solid var(--line);">
+          <li>
+            <h3><span data-l="en">Fixed stays fixed</span><span data-l="ru">Фикс есть фикс</span></h3>
+            <p><span data-l="en">The price named after the diagnostic does not move, whatever surfaces. It will never cost you more than it did on that day.</span><span data-l="ru">Цена, названная после диагностики, не меняется — что бы там ни вскрылось. Дороже, чем в тот день, для вас уже не станет.</span></p>
+          </li>
+          <li>
+            <h3><span data-l="en">Permission to say no</span><span data-l="ru">Разрешение на «нет»</span></h3>
+            <p><span data-l="en">After the diagnostic you are not obliged to continue. No auto-renewal, no annual contract. Pay for the diagnostic, take the verdict, and walk with it — even if you walk to somebody else.</span><span data-l="ru">После диагностики вы не обязаны продолжать. Никакого автопродления и годового контракта. Платите за диагностику, получаете вердикт и уходите с ним — даже если уходите к другому человеку.</span></p>
+          </li>
+          <li>
+            <h3><span data-l="en">You may be fine</span><span data-l="ru">Возможно, у вас всё в порядке</span></h3>
+            <p><span data-l="en">If the diagnostic says the data can be trusted and no intervention is needed, you get that in writing and we stop there. I don’t manufacture work where there isn’t any.</span><span data-l="ru">Если по итогам диагностики данным можно доверять и вмешательство не нужно — вы получаете письменное заключение, и на этом мы останавливаемся. Я не создаю себе работу там, где её нет.</span></p>
+          </li>
+          <li>
+            <h3><span data-l="en">Findings come to you first</span><span data-l="ru">Находка приходит вам первому</span></h3>
+            <p><span data-l="en">In writing, as a separate memo, before anyone else knows. Not on a call with your partner in the room. That is a condition of the work, not an option — and what happens next is your decision.</span><span data-l="ru">Письменно, отдельным меморандумом, до того как об этом узнает кто-либо ещё. Не на встрече, где сидит партнёр. Это условие работы, а не опция — а что делать дальше, решаете вы.</span></p>
+          </li>
+        </ul>
+
+        <div class="note" style="border-left:2px solid var(--flag);">
+          <p style="color:var(--text);font-weight:600;margin-bottom:.6rem;">
+            <span data-l="en">What I won’t promise: that you’ll like the numbers.</span>
+            <span data-l="ru">Чего я не обещаю: что цифры вам понравятся.</span>
+          </p>
+          <p>
+            <span data-l="en">It may turn out that the property you are proudest of ate the margin of two others. I won’t soften that. What I will say is this — the numbers will be yours, they will be right, and you will be able to defend them: to a partner, to a lender, to an investor, and to yourself. If what you need is someone to tell you everything is fine, that isn’t me. You already have that person, and they cost less.</span>
+            <span data-l="ru">Может оказаться, что объект, которым вы гордитесь, съел маржу двух других. Я не буду это смягчать. Скажу другое: цифры будут ваши, они будут верны, и вы сможете их защитить — перед партнёром, банком, инвестором и перед собой. Если вам нужен человек, который скажет, что всё хорошо, — вам не ко мне. Такой человек у вас уже есть, и стоит он дешевле.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="shell">
+      <p class="eyebrow rv" style="margin-bottom:2rem;">
+        <span data-l="en">Who you would be working with</span><span data-l="ru">С кем вы будете работать</span>
+      </p>
+
+      <div class="about rv">
+        <div class="portrait">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="17" r="8"/>
+            <path d="M8 44c0-8.8 7.2-16 16-16s16 7.2 16 16"/>
+          </svg>
+          <span class="ph"><span data-l="en">Photograph slot</span><span data-l="ru">Место под фотографию</span></span>
+          <span class="small" style="font-size:.78rem;">
+            <span data-l="en">Professional photos exist — to be placed here.</span>
+            <span data-l="ru">Профессиональные фото есть — ставим сюда.</span>
+          </span>
+        </div>
+
+        <div>
+          <h2 class="about-name">Julia Dospehoff</h2>
+          <p class="about-role">
+            <span data-l="en">Financial &amp; operations leader · Tampa, Florida · clients across the United States, remotely</span>
+            <span data-l="ru">Финансовый и операционный руководитель · Тампа, Флорида · клиенты по всей территории США, удалённо</span>
+          </p>
+
+          <div class="stack" style="margin-top:1.6rem;gap:1.15rem;">
+            <p><span data-l="en">Fifteen years in finance and operations: bookkeeping, then Director of Finance, then CFO, now fractional. M.S. in Accounting with a concentration in Forensic Accounting. QuickBooks Online Advanced ProAdvisor.</span><span data-l="ru">Пятнадцать лет в финансах и операциях: бухгалтерия, затем Director of Finance, затем CFO, теперь fractional. M.S. Accounting со специализацией Forensic Accounting. QuickBooks Online Advanced ProAdvisor.</span></p>
+
+            <p><span data-l="en">I have also built businesses. A dental practice from the ground up. A 6,000 sq ft clinic with imaging, its own lab and its own pharmacy — each line licensed separately — as the representative for an absent foreign investor: construction supervision, contractor negotiations, equipment procurement, hiring, licensing. I know what a build looks like from the inside because I have run one, not because I read about it.</span><span data-l="ru">Я также строила бизнесы. Стоматологический офис с нуля. Клинику 6,000 sq ft с диагностикой, собственной лабораторией и аптекой, где каждое направление лицензировалось отдельно, — как представляющее лицо отсутствующего иностранного инвестора: надзор за строительством, переговоры с подрядчиками, закупка оборудования, найм, лицензии. Я знаю, как выглядит стройка изнутри, потому что вела её сама, а не потому, что читала об этом.</span></p>
+
+            <p class="pull wide">
+              <span data-l="en">I like tangled cases. I like messy clients. Mess is not an obstacle to the work — it is the work.</span>
+              <span data-l="ru">Я люблю запутанные дела. Я люблю messy-клиентов. Беспорядок — не препятствие для работы, а её предмет.</span>
+            </p>
+
+            <p><span data-l="en">English and Russian are both working languages for me, professional register included. In a partnership where one owner’s English is weaker, that isn’t a convenience — it is what lets the partners understand each other in the same room, looking at the same number.</span><span data-l="ru">Английский и русский — оба рабочие, включая профессиональный регистр. В партнёрстве, где у одного из владельцев английский слабее, это не удобство — это то, что позволяет партнёрам понимать друг друга в одной комнате, глядя на одну и ту же цифру.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq">
+    <div class="shell sect-grid">
+      <div class="sect-head rv">
+        <p class="eyebrow"><span data-l="en">The objections</span><span data-l="ru">Возражения</span></p>
+        <h2>
+          <span data-l="en">Six things you are thinking right now, answered without the sales voice.</span>
+          <span data-l="ru">Шесть вещей, о которых вы думаете прямо сейчас — без продающей интонации.</span>
+        </h2>
+      </div>
+
+      <div class="faq rv">
+        <details open>
+          <summary>
+            <span>
+              <span data-l="en">“We already have a bookkeeper and a CPA. Why another person?”</span>
+              <span data-l="ru">«У нас уже есть бухгалтер и CPA. Зачем ещё один человек?»</span>
+            </span>
+            <span class="pm" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-a">
+            <p><span data-l="en">Because they answer different questions, and neither question is being answered badly. Your bookkeeper is responsible for recording the past correctly. Your CPA is responsible for tax and for licensed work. Nobody in that arrangement is responsible for whether you can see project margin, cost to complete and the cash coming at you in eight weeks.</span><span data-l="ru">Потому что они отвечают на разные вопросы, и ни на один из них не отвечают плохо. Ваш бухгалтер отвечает за корректное отражение прошлого. Ваш CPA — за налоги и лицензируемую работу. Ни на кого в этой схеме не возложена ответственность за то, видите ли вы маржу по объекту, оценку затрат до завершения и кэш, который придёт к вам через восемь недель.</span></p>
+            <p><span data-l="en">Your current bookkeeper keeps running daily operations. I install the architecture, control the period close, and turn the data into management reporting. I hand your CPA organised, reconciled data — I don’t compete with them, and I don’t replace anyone.</span><span data-l="ru">Ваш текущий bookkeeper продолжает вести ежедневные операции. Я устанавливаю архитектуру, контролирую закрытие периода и превращаю данные в управленческую отчётность. Вашему CPA я передаю организованные и согласованные данные — я с ним не конкурирую и никого не заменяю.</span></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span>
+              <span data-l="en">“It’s expensive — and I don’t understand what I’m paying for in the first stage.”</span>
+              <span data-l="ru">«Дорого — и я не понимаю, за что первый этап.»</span>
+            </span>
+            <span class="pm" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-a">
+            <p><span data-l="en">That is the fairest objection on this page, because in your picture of the world the first stage shouldn’t be necessary. You want the forecast and the dashboard. The problem is that a forecast is built on opening balances — and if those can’t be trusted, what you get is a well-formatted guess.</span><span data-l="ru">Это самое справедливое возражение на этой странице, потому что в вашей картине мира первого этапа быть не должно. Вам нужен прогноз и дашборд. Проблема в том, что прогноз строится на входящих остатках — и если им нельзя доверять, вы получаете хорошо оформленную догадку.</span></p>
+            <p><span data-l="en">So the entry is small and fixed rather than open-ended. You pay a fixed amount to find out whether it is worth paying more. What you are actually afraid of is not the number — it is that there is no end to the numbers. A fixed price closes that better than a discount does.</span><span data-l="ru">Поэтому вход маленький и фиксированный, а не открытый. Вы платите фиксированную сумму за то, чтобы узнать, стоит ли платить дальше. На самом деле вы боитесь не суммы — вы боитесь, что суммам не будет конца. Фиксированная цена закрывает это лучше, чем скидка.</span></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span>
+              <span data-l="en">“I’ve tried this before. Six months later it was all back on me.”</span>
+              <span data-l="ru">«Я уже пробовал. Через полгода всё вернулось ко мне.»</span>
+            </span>
+            <span class="pm" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-a">
+            <p><span data-l="en">Probably because you hired hands when what was missing was an architect. A new bookkeeper sits down inside rules that were never written — nobody had decided how a property looks in the ledger, where shared costs go, how loan interest is split. So within a month they are asking you.</span><span data-l="ru">Скорее всего потому, что вы наняли руки, когда не хватало архитектора. Новый бухгалтер садится внутрь правил, которых никто не написал: никто не решил, как объект выглядит в учёте, куда идут общие расходы, как делятся проценты по кредиту. Через месяц он спрашивает у вас.</span></p>
+            <p><span data-l="en">I am not going to answer this with a promise, because a promise sounds exactly like the last one. The answer is the process and the arithmetic of your own time — the five steps above, with the right-hand column. If that column is wrong, the whole thing is wrong, and you will know within the first month rather than the sixth.</span><span data-l="ru">Я не буду отвечать на это обещанием, потому что обещание прозвучит ровно как предыдущее. Ответ — процесс и арифметика вашего времени: пять шагов выше, с правой колонкой. Если эта колонка неверна, неверно всё, и вы это увидите в первый месяц, а не в шестой.</span></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span>
+              <span data-l="en">“I’d have to let a stranger into every account and into my whole history.”</span>
+              <span data-l="ru">«Придётся пустить чужого человека во все счета и во всю мою историю.»</span>
+            </span>
+            <span class="pm" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-a">
+            <p><span data-l="en">Yes. And the part you actually mind is not the data leaking — it is somebody paging through ten years of your decisions and quietly forming an opinion about you.</span><span data-l="ru">Да. И на самом деле вас беспокоит не утечка данных — вас беспокоит, что кто-то будет листать десять лет ваших решений и молча составлять о вас мнение.</span></p>
+            <p><span data-l="en">Two things about that. First: everyone who has grown to six properties looks like this inside. Mess is not an obstacle to the work, it is the work — I like tangled cases and I don’t grade people. Second: the procedure is written down. Access is granted in writing, from an exact list, with a kick-off that includes your existing bookkeeper and your CPA, and with responsibilities assigned on paper.</span><span data-l="ru">Два замечания. Первое: у всех, кто дорос до шести объектов, внутри выглядит именно так. Беспорядок — не препятствие для работы, а её предмет; я люблю запутанные случаи и не оцениваю людей. Второе: процедура прописана. Доступы даются письменно, по точному списку, со стартовой встречей, где присутствуют ваш действующий бухгалтер и ваш CPA, и с распределением ответственности на бумаге.</span></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span>
+              <span data-l="en">“I don’t have time to implement this, and it won’t work without me.”</span>
+              <span data-l="ru">«У меня нет времени на внедрение, а без меня не получится.»</span>
+            </span>
+            <span class="pm" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-a">
+            <p><span data-l="en">The second half is the part worth examining. It is true that nobody knows your business the way you do. It is not true that this makes you the only possible source of the numbers — that arrangement is exactly what makes you the bottleneck, and it is why a broken ankle would stop the company.</span><span data-l="ru">Стоит разобрать вторую половину. Правда, что никто не знает ваш бизнес так, как вы. Неправда, что из этого следует, будто вы единственный возможный источник цифр — именно эта схема и делает вас узким горлышком, и именно поэтому сломанная нога остановила бы компанию.</span></p>
+            <p><span data-l="en">In hours: twenty minutes for the first call, about an hour once to send documents, then two meetings a month. The reporting cadence is monthly, not weekly — a week on a construction project rarely contains anything worth a meeting. It asks less of you than you are braced for.</span><span data-l="ru">В часах: двадцать минут на первый разговор, около часа один раз на отправку документов, дальше две встречи в месяц. Периодичность отчётности — месяц, а не неделя: за неделю на объекте редко происходит что-то, ради чего стоит собираться. От вас требуется меньше, чем вы приготовились отдать.</span></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span>
+              <span data-l="en">“And what if you find something I’ll have to explain to my partner, my lender or my CPA?”</span>
+              <span data-l="ru">«А если вы найдёте то, что придётся объяснять партнёру, банку или CPA?»</span>
+            </span>
+            <span class="pm" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-a">
+            <p><span data-l="en">This one gets asked least often and decides most often. The answer is the delivery order: anything that surfaces comes to you in writing, as a separate memo, before anyone else knows. Not raised on a call with your partner in the room. What you do with it next is your decision.</span><span data-l="ru">Этот вопрос задают реже всех и решает он чаще всех. Ответ — порядок доставки: всё, что обнаружится, приходит вам письменно, отдельным меморандумом, до того как узнает кто-либо ещё. Не поднимается на встрече, где сидит партнёр. Что делать с этим дальше — ваше решение.</span></p>
+            <p><span data-l="en">And when numbers get counted between partners, I am the arbiter for both sides, not an advocate for the one who hired me. I show what the numbers say and where the risk is. The decision stays yours.</span><span data-l="ru">А когда цифры считаются между партнёрами, я арбитр для обеих сторон, а не адвокат того, кто меня позвал. Я показываю, что говорят цифры и где риск. Решение остаётся за вами.</span></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALL ================= -->
+  <section id="call" class="close">
+    <div class="shell close-grid">
+      <div>
+        <p class="eyebrow"><span data-l="en">The first step</span><span data-l="ru">Первый шаг</span></p>
+        <h2>
+          <span data-l="en">Twenty minutes on the phone. Not a two-page questionnaire.</span>
+          <span data-l="ru">Двадцать минут голосом. Не анкета на две страницы.</span>
+        </h2>
+        <p style="color:#B9C7D8;margin-top:1.1rem;max-width:46ch;">
+          <span data-l="en">There will be three questions in that call.</span>
+          <span data-l="ru">В этом разговоре будет три вопроса.</span>
+        </p>
+
+        <ol class="qs">
+          <li><span data-l="en">The last time you pulled a draw — did you assemble the phase photographs and reconcile the percent complete yourself?</span><span data-l="ru">Когда вы в последний раз получали draw — вы сами собирали фото по фазам и сводили процент завершённости?</span></li>
+          <li><span data-l="en">Money moves between your LLCs. When did you last reconcile that?</span><span data-l="ru">У вас деньги ходят между LLC. Когда вы последний раз это сводили?</span></li>
+          <li><span data-l="en">And the third one, which I’ll give you right now: you may be fine. If you are, I’ll say so.</span><span data-l="ru">И третий, который скажу сразу: возможно, у вас всё в порядке. Тогда я так и скажу.</span></li>
+        </ol>
+      </div>
+
+      <form id="callform" novalidate>
+        <div class="field">
+          <label for="f-name"><span data-l="en">Name</span><span data-l="ru">Имя</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-contact"><span data-l="en">Email or phone</span><span data-l="ru">Email или телефон</span></label>
+          <input id="f-contact" name="contact" type="text" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-props"><span data-l="en">How many properties are running right now</span><span data-l="ru">Сколько объектов идёт сейчас</span></label>
+          <input id="f-props" name="properties" type="text" inputmode="numeric">
+        </div>
+        <button class="btn btn--onDark" type="submit" style="justify-content:center;">
+          <span data-l="en">Request the call</span><span data-l="ru">Запросить разговор</span>
+        </button>
+        <p class="formmsg" id="formmsg" role="status"></p>
+        <p class="small">
+          <span data-l="en">Three fields. None of them asks you to admit a problem.</span>
+          <span data-l="ru">Три поля. Ни одно не требует признаваться в проблеме.</span>
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="foot-grid">
+      <a class="lock" href="#top" aria-label="Remote CFO &amp; Accounting Solutions">
+        <svg class="mark" viewBox="0 0 70 64" aria-hidden="true">
+          <circle class="ring" cx="32" cy="32" r="26.5"/>
+          <rect class="bar" x="14" y="36" width="5.4" height="15"/>
+          <rect class="bar" x="21.8" y="29" width="5.4" height="22"/>
+          <rect class="bar" x="29.6" y="22" width="5.4" height="29"/>
+          <text class="r" x="33" y="51">R</text>
+        </svg>
+        <span class="lock-txt">
+          <span class="lock-1">Remote CFO</span>
+          <span class="lock-2">&amp; Accounting Solutions</span>
+        </span>
+      </a>
+
+      <div>
+        <p class="small" data-l="ru" style="color:#6E809A;font-size:.76rem;margin-bottom:.6rem;">
+          Юридический дисклеймер приводится в оригинальной редакции.
+        </p>
+        <p class="disc">
+          Remote CFO &amp; Accounting Solutions provides bookkeeping, accounting support, financial management,
+          fractional CFO, controller, consulting, and advisory services. The firm is not a CPA firm and does not
+          provide audits, review or compilation engagements, attestations, assurance services, legal advice,
+          investment advice, or independent opinions on financial statements. When a regulated professional
+          service is required, we coordinate with the client’s independently retained licensed professional.
+        </p>
+      </div>
+    </div>
+
+    <div class="foot-meta">
+      <span>Tampa, Florida</span>
+      <span><span data-l="en">Serving clients across the United States remotely</span><span data-l="ru">Работа с клиентами по всей территории США удалённо</span></span>
+      <span>EN · RU</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- language ---------- */
+  var root = document.documentElement;
+  function setLang(l){
+    root.setAttribute("data-lang", l);
+    root.setAttribute("lang", l);
+    document.querySelectorAll("[data-setlang]").forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-setlang") === l));
+    });
+    try { localStorage.setItem("rcfo-lang", l); } catch(e){}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("rcfo-lang"); } catch(e){}
+  setLang(saved === "ru" ? "ru" : "en");
+  document.querySelectorAll("[data-setlang]").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.getAttribute("data-setlang")); });
+  });
+
+  /* ---------- sequence stages (accordion) ---------- */
+  document.querySelectorAll(".stage-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var open = btn.getAttribute("aria-expanded") === "true";
+      document.querySelectorAll(".stage-btn").forEach(function(b){
+        b.setAttribute("aria-expanded","false");
+        var p = document.getElementById(b.getAttribute("aria-controls"));
+        if (p) p.classList.remove("open");
+      });
+      if (!open){
+        btn.setAttribute("aria-expanded","true");
+        var panel = document.getElementById(btn.getAttribute("aria-controls"));
+        if (panel) panel.classList.add("open");
+      }
+    });
+  });
+
+  /* ---------- timeline tabs ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function selectTab(tab){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute("aria-selected", String(on));
+      var p = document.getElementById(t.getAttribute("aria-controls"));
+      if (p) p.classList.toggle("open", on);
+    });
+  }
+  tabs.forEach(function(tab, i){
+    tab.addEventListener("click", function(){ selectTab(tab); });
+    tab.addEventListener("keydown", function(e){
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var next = tabs[(i + d + tabs.length) % tabs.length];
+      next.focus(); selectTab(next);
+    });
+  });
+
+  /* ---------- reveals + chart ---------- */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var chart = document.getElementById("chart");
+
+  if (reduce || !("IntersectionObserver" in window)){
+    document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); });
+    if (chart) chart.classList.add("on");
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        en.target.classList.add("in");
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: "320px 0px 320px 0px", threshold: 0 });
+    document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+    if (chart) requestAnimationFrame(function(){ setTimeout(function(){ chart.classList.add("on"); }, 260); });
+  }
+
+  /* ---------- form (not yet wired to a backend) ---------- */
+  var form = document.getElementById("callform");
+  var msg  = document.getElementById("formmsg");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var ru = root.getAttribute("data-lang") === "ru";
+    msg.textContent = ru
+      ? "Прототип: форма пока не подключена к получателю. Здесь встанет календарь или отправка на почту."
+      : "Prototype: this form is not connected to a recipient yet. A scheduler or email handoff goes here.";
+    msg.classList.add("on");
+  });
+})();
+</script>

@@ -1,0 +1,174 @@
+{
+ "vopros_id": "VK1",
+ "vopros": "Who are the best real estate agents in the San Fernando Valley?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "openai",
+ "rezhim": "auto",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "utro",
+ "den": "2026-09-17",
+ "vne_okna": false,
+ "zapusk_id": "20260917-090013-88676",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-17T09:15:15-07:00",
+   "zapusk_id": "20260917-090013-88676",
+   "cena": 0.00782,
+   "ishod": "ok",
+   "sekund": 3.3,
+   "meta": {
+    "date": "Thu, 17 Sep 2026 16:15:18 GMT",
+    "x-request-id": "req_7993499213304038b2876f7baefcbe5a",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "3068"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "For the San Fernando Valley, some frequently well-regarded agents/teams include:\n\n- Dennis Chernov / The Chernov Team — strong in Encino, Sherman Oaks, Studio City, Tarzana, and luxury homes.\n- Andrew Dinsky / The Dinsky Team — particularly active in Studio City, Sherman Oaks, Encino, and surrounding Valley neighborhoods.\n- Alan Taylor — longtime luxury-focused agent with significant experience in Encino and other higher-end Valley markets.\n- Craig Knizek / The Agency — established presence in Sherman Oaks, Studio City, Encino, and nearby areas.\n- Adi Livyatan — high-volume luxury agent with a substantial San Fernando Valley presence.\n\nThe “best” agent changes considerably depending on whether you're buying or selling, your neighborhood, and price range. If you tell me something like “selling a $1.8M house in Encino” or “buying under $1M in Woodland Hills,” I can research current 2025–2026 sales activity and give you a ranked shortlist of 5 agents based on actual recent performance rather than reputation alone.",
+  "poiskovye_zaprosy": [],
+  "poiskovyh_zaprosov": 0,
+  "poiskovyh_vyzovov": 0,
+  "istochniki": [],
+  "citaty_v_tekste": [],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 4455,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 225,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 4680
+  },
+  "cena": 0.00782,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0169b952fede71d2006aac1213948087d0abe303fe328afe2b",
+  "object": "response",
+  "created_at": 1789661715,
+  "status": "completed",
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1789661718,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "msg_0169b952fede71d2006aac12141fb087d0854a8483b74512c8",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [],
+      "logprobs": [],
+      "text": "For the San Fernando Valley, some frequently well-regarded agents/teams include:\n\n- Dennis Chernov / The Chernov Team — strong in Encino, Sherman Oaks, Studio City, Tarzana, and luxury homes.\n- Andrew Dinsky / The Dinsky Team — particularly active in Studio City, Sherman Oaks, Encino, and surrounding Valley neighborhoods.\n- Alan Taylor — longtime luxury-focused agent with significant experience in Encino and other higher-end Valley markets.\n- Craig Knizek / The Agency — established presence in Sherman Oaks, Studio City, Encino, and nearby areas.\n- Adi Livyatan — high-volume luxury agent with a substantial San Fernando Valley presence.\n\nThe “best” agent changes considerably depending on whether you're buying or selling, your neighborhood, and price range. If you tell me something like “selling a $1.8M house in Encino” or “buying under $1M in Woodland Hills,” I can research current 2025–2026 sales activity and give you a ranked shortlist of 5 agents based on actual recent performance rather than reputation alone."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 0
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 4455,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 225,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 4680
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

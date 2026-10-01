@@ -1,0 +1,482 @@
+{
+ "vopros_id": "N04",
+ "vopros": "пишут в директ, спрашивают сколько стоит, я отвечаю и тишина. есть какой-то AI, который сам дожмёт их до записи или оплаты?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "anthropic",
+ "rezhim": "auto",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "utro",
+ "den": "2026-09-17",
+ "vne_okna": false,
+ "zapusk_id": "20260917-090013-88676",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-17T09:12:42-07:00",
+   "zapusk_id": "20260917-090013-88676",
+   "cena": 0.07695,
+   "ishod": "ok",
+   "sekund": 25.7,
+   "meta": {
+    "request_id": "req_011Cf9JjTmsQF5uocn9GPMik"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "# Да, такие инструменты есть — это AI-агенты для Instagram Direct\n\nТвоя ситуация — классика: клиент спросил цену и пропал. Это называется \"воронка обрывается на этапе прайса\", и её реально закрывать автоматически. Вот что есть на рынке:\n\n## 1. AI-агенты именно для Instagram Direct (заточены под твою задачу)\n\n**ChatPlace** — к Instagram можно подключить AI-агента через официальный API Meta, который в отличие от кнопочного бота понимает живые вопросы, учитывает контекст, уточняет детали заказа и передаёт сложные вопросы менеджеру. Это уже не просто \"бот с кнопками\", а модель, которая может сама вести диалог и дожимать.\n\n**BotHelp** — чат-боты и AI-агенты отвечают на вопросы, презентуют продукты, принимают оплату, а AI-агент сам подключается в нужный момент: отвечает на вопросы, помогает выбрать продукт и доводит до оплаты. По их данным, количество продаж растёт на 20-50% без увеличения рекламного бюджета.\n\n**Papaisoft / аналогичные боты** — ИИ-бот для Instagram Direct отвечает на вопросы о товарах и услугах, квалифицирует входящие обращения, записывает клиентов и передаёт горячие лиды в CRM — без менеджера за экраном. Пример из их кейсов: магазин одежды подключил бот в Instagram Direct — время ответа сократилось с 4 часов до 30 секунд, конверсия в покупку выросла на 25%.\n\n**Salebot** — конструктор, где можно настроить отслеживание лидов, авто-заявки в CRM, оплату в боте, а также кнопки оплаты и функциональную воронку продаж.\n\n## 2. Как именно это \"дожимает\" клиента\n\nЛогика у всех примерно одна:\n- Клиент пишет \"сколько стоит\" → бот/AI отвечает мгновенно, даже ночью\n- Если клиент замолчал — **через N часов/дней** система сама отправляет follow-up (напоминание, доп.вопрос, \"актуально ли ещё?\", скидку/дедлайн)\n- Если клиент готов — бот принимает оплату прямо в переписке или ведёт к записи\n- Всё это фиксируется в CRM, чтобы менеджер видел, кто \"завис\" на каком этапе\n\n## 3. Что важно перед выбором\n\n- Для нормальной работы с Instagram нужен официальный **Meta Graph API**, иначе риск блокировки аккаунта — уточняй у сервиса, как они подключаются: многие работают через официальный Instagram Graph API, без риска блокировки аккаунта.\n- Такие AI-агенты не требуют программирования — обычно конструктор с готовыми сценариями плюс встроенная нейросеть для \"живых\" ответов.\n\n## Что делать прямо сейчас, если не хочешь внедрять систему целиком\n\nДаже без сложной автоматизации можно закрыть 80% проблемы вручную: настрой у себя простое правило — если клиент спросил цену и не ответил в течение 3-4 часов, отправляй короткое ненавязчивое сообщение (\"привет! ещё актуально?\", \"могу забронировать место на эту неделю\"). Это уже сильно поднимет конверсию, а дальше можно постепенно переходить на автоматизацию через один из сервисов выше.\n\nЕсли скажешь, какая у тебя ниша (услуги, товары, обучение) и объём переписок в день — подскажу, какой конкретно вариант будет разумнее по деньгам и сложности настройки.",
+  "poiskovye_zaprosy": [
+   "AI бот для директ Instagram дожим клиента до оплаты автоматически",
+   "AI sales assistant follow up DM leads automatically close sale"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://salebot.pro/instagram_bot",
+    "domen": "salebot.pro",
+    "title": "Чат-боты для Instagram | автоответы в директ и на комментарии"
+   },
+   {
+    "url": "https://botmother.ru/instagram",
+    "domen": "botmother.ru",
+    "title": "Конструктор чат-ботов Instagram* онлайн"
+   },
+   {
+    "url": "https://salebot.pro/instagram",
+    "domen": "salebot.pro",
+    "title": "Конструктор чат-ботов Instagram* — DM, комментарии, Reels*"
+   },
+   {
+    "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace",
+    "domen": "blog.chatplace.io",
+    "title": "ИИ-агенты для Instagram: умная автоматизация Директа"
+   },
+   {
+    "url": "https://bothelp.io/ru/dlya-blogerov",
+    "domen": "bothelp.io",
+    "title": "Чат-бот для блогеров и инфлюенсеров: автоворонки в Instagram и Telegram | BotHelp"
+   },
+   {
+    "url": "https://teletype.in/@alfiimova/tfYmMb4ncTz",
+    "domen": "teletype.in",
+    "title": "Чат-боты в Instagram Direct: что это такое и как использовать? 🎯"
+   },
+   {
+    "url": "https://ru.uaateam.agency/blog/kak-sozdat-chatbota-dlya-instagram",
+    "domen": "ru.uaateam.agency",
+    "title": "Как создать чат-бота для Instagram | UAATEAM"
+   },
+   {
+    "url": "https://papaisoft.com/chatbot-dlya-instagram",
+    "domen": "papaisoft.com",
+    "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов"
+   },
+   {
+    "url": "https://botseller.ai/docs/channels/instagram",
+    "domen": "botseller.ai",
+    "title": "Бот для Инстаграм — автоответы клиентам в Direct | Botseller – Документация Botseller AI"
+   },
+   {
+    "url": "https://monday.com/blog/crm-and-sales/automated-sales-follow-up",
+    "domen": "monday.com",
+    "title": "Automated sales follow-up: How to build a system reps actually use"
+   },
+   {
+    "url": "https://monday.com/blog/crm-and-sales/how-to-use-ai-in-sales",
+    "domen": "monday.com",
+    "title": "How to use AI in sales: 12 real-world use cases that close more deals"
+   },
+   {
+    "url": "https://www.artisan.co/blog/automated-lead-follow-up-system",
+    "domen": "artisan.co",
+    "title": "How to build an automated lead follow-up system - Artisan AI"
+   },
+   {
+    "url": "https://monday.com/blog/crm-and-sales/ai-lead-follow-up",
+    "domen": "monday.com",
+    "title": "AI lead follow up: how build a successful sales system for 2026"
+   },
+   {
+    "url": "https://www.outreach.ai/resources/blog/best-ai-tools-automate-sales-follow-ups",
+    "domen": "outreach.ai",
+    "title": "Best AI for Automating Sales Follow-ups: 9 Tools Reviewed 2026 | Outreach"
+   },
+   {
+    "url": "https://salescloser.ai/blog/ai-based-smart-follow-ups",
+    "domen": "salescloser.ai",
+    "title": "Recover 30% of Cold Leads with AI-Based Smart Follow-Ups"
+   },
+   {
+    "url": "https://www.useflai.com/blog/how-ai-follow-up-is-helping-dealerships-close-more-sales-leads",
+    "domen": "useflai.com",
+    "title": "AI Follow-Up Automation for Car Dealerships: Close More Leads"
+   },
+   {
+    "url": "https://www.petegabi.com/2026/05/26/how-to-automate-follow-ups-for-every-lead-using-ai-sales-agents",
+    "domen": "petegabi.com",
+    "title": "How to Automate Follow-Ups for Every Lead Using AI Sales Agents - Pete & Gabi | AI Powered Call Automation"
+   },
+   {
+    "url": "https://salescloser.ai/blog/best-post-call-ai-tools-for-follow-ups",
+    "domen": "salescloser.ai",
+    "title": "7 Post-Call AI Tools That Auto-Write Follow-Ups"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace",
+    "domen": "blog.chatplace.io",
+    "title": "ИИ-агенты для Instagram: умная автоматизация Директа"
+   },
+   {
+    "url": "https://bothelp.io/ru/dlya-blogerov",
+    "domen": "bothelp.io",
+    "title": "Чат-бот для блогеров и инфлюенсеров: автоворонки в Instagram и Telegram | BotHelp"
+   },
+   {
+    "url": "https://papaisoft.com/chatbot-dlya-instagram",
+    "domen": "papaisoft.com",
+    "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов"
+   },
+   {
+    "url": "https://salebot.pro/instagram_bot",
+    "domen": "salebot.pro",
+    "title": "Чат-боты для Instagram | автоответы в директ и на комментарии"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19385,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1818
+  },
+  "cena": 0.07695,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011Cf9JjUMMFfJfE4pkJmVKB",
+    "request_id": "req_011Cf9JjTmsQF5uocn9GPMik",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19385,
+     "output_tokens": 1818,
+     "output_tokens_details": {
+      "thinking_tokens": 285
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "srvtoolu_01CJjrQHW2FCMbXWnSFoujko",
+    "caller": null,
+    "input": {
+     "query": "AI бот для директ Instagram дожим клиента до оплаты автоматически"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01Hj5x9QzupKKCeVcWL2hUt4",
+    "caller": null,
+    "input": {
+     "query": "AI sales assistant follow up DM leads automatically close sale"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "Чат-боты для Instagram | автоответы в директ и на комментарии",
+      "type": "web_search_result",
+      "url": "https://salebot.pro/instagram_bot"
+     },
+     {
+      "page_age": null,
+      "title": "Конструктор чат-ботов Instagram* онлайн",
+      "type": "web_search_result",
+      "url": "https://botmother.ru/instagram"
+     },
+     {
+      "page_age": null,
+      "title": "Конструктор чат-ботов Instagram* — DM, комментарии, Reels*",
+      "type": "web_search_result",
+      "url": "https://salebot.pro/instagram"
+     },
+     {
+      "page_age": "May 27, 2026",
+      "title": "ИИ-агенты для Instagram: умная автоматизация Директа",
+      "type": "web_search_result",
+      "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace/"
+     },
+     {
+      "page_age": "May 13, 2026",
+      "title": "Чат-бот для блогеров и инфлюенсеров: автоворонки в Instagram и Telegram | BotHelp",
+      "type": "web_search_result",
+      "url": "https://bothelp.io/ru/dlya-blogerov"
+     },
+     {
+      "page_age": "August 17, 2023",
+      "title": "Чат-боты в Instagram Direct: что это такое и как использовать? 🎯",
+      "type": "web_search_result",
+      "url": "https://teletype.in/@alfiimova/tfYmMb4ncTz"
+     },
+     {
+      "page_age": "March 11, 2025",
+      "title": "Как создать чат-бота для Instagram | UAATEAM",
+      "type": "web_search_result",
+      "url": "https://ru.uaateam.agency/blog/kak-sozdat-chatbota-dlya-instagram/"
+     },
+     {
+      "page_age": "June 12, 2026",
+      "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов",
+      "type": "web_search_result",
+      "url": "https://papaisoft.com/chatbot-dlya-instagram/"
+     },
+     {
+      "page_age": "May 5, 2026",
+      "title": "Бот для Инстаграм — автоответы клиентам в Direct | Botseller – Документация Botseller AI",
+      "type": "web_search_result",
+      "url": "https://botseller.ai/docs/channels/instagram"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01CJjrQHW2FCMbXWnSFoujko",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "May 18, 2026",
+      "title": "Automated sales follow-up: How to build a system reps actually use",
+      "type": "web_search_result",
+      "url": "https://monday.com/blog/crm-and-sales/automated-sales-follow-up/"
+     },
+     {
+      "page_age": "July 21, 2025",
+      "title": "How to use AI in sales: 12 real-world use cases that close more deals",
+      "type": "web_search_result",
+      "url": "https://monday.com/blog/crm-and-sales/how-to-use-ai-in-sales/"
+     },
+     {
+      "page_age": "November 7, 2025",
+      "title": "How to build an automated lead follow-up system - Artisan AI",
+      "type": "web_search_result",
+      "url": "https://www.artisan.co/blog/automated-lead-follow-up-system"
+     },
+     {
+      "page_age": "April 26, 2026",
+      "title": "AI lead follow up: how build a successful sales system for 2026",
+      "type": "web_search_result",
+      "url": "https://monday.com/blog/crm-and-sales/ai-lead-follow-up/"
+     },
+     {
+      "page_age": null,
+      "title": "Best AI for Automating Sales Follow-ups: 9 Tools Reviewed 2026 | Outreach",
+      "type": "web_search_result",
+      "url": "https://www.outreach.ai/resources/blog/best-ai-tools-automate-sales-follow-ups"
+     },
+     {
+      "page_age": "July 2, 2026",
+      "title": "Recover 30% of Cold Leads with AI-Based Smart Follow-Ups",
+      "type": "web_search_result",
+      "url": "https://salescloser.ai/blog/ai-based-smart-follow-ups/"
+     },
+     {
+      "page_age": "May 15, 2026",
+      "title": "AI Follow-Up Automation for Car Dealerships: Close More Leads",
+      "type": "web_search_result",
+      "url": "https://www.useflai.com/blog/how-ai-follow-up-is-helping-dealerships-close-more-sales-leads"
+     },
+     {
+      "page_age": "May 26, 2026",
+      "title": "How to Automate Follow-Ups for Every Lead Using AI Sales Agents - Pete & Gabi | AI Powered Call Automation",
+      "type": "web_search_result",
+      "url": "https://www.petegabi.com/2026/05/26/how-to-automate-follow-ups-for-every-lead-using-ai-sales-agents/"
+     },
+     {
+      "page_age": "June 25, 2026",
+      "title": "7 Post-Call AI Tools That Auto-Write Follow-Ups",
+      "type": "web_search_result",
+      "url": "https://salescloser.ai/blog/best-post-call-ai-tools-for-follow-ups/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Hj5x9QzupKKCeVcWL2hUt4",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "# Да, такие инструменты есть — это AI-агенты для Instagram Direct\n\nТвоя ситуация — классика: клиент спросил цену и пропал. Это называется \"воронка обрывается на этапе прайса\", и её реально закрывать автоматически. Вот что есть на рынке:\n\n## 1. AI-агенты именно для Instagram Direct (заточены под твою задачу)\n\n**ChatPlace** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Сейчас к Instagram можно подключить AI-агента Chatplace через официальный API Meta. В отличие от кнопочного бота, он понимает живые вопросы, учитывает...",
+      "title": "ИИ-агенты для Instagram: умная автоматизация Директа",
+      "type": "web_search_result_location",
+      "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace/"
+     }
+    ],
+    "text": "к Instagram можно подключить AI-агента через официальный API Meta, который в отличие от кнопочного бота понимает живые вопросы, учитывает контекст, уточняет детали заказа и передаёт сложные вопросы менеджеру",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Это уже не просто \"бот с кнопками\", а модель, которая может сама вести диалог и дожимать.\n\n**BotHelp** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Результат: колич... рекламного бюджета · BotHelp автоматизирует регистрацию, напоминания, сегментацию аудитории и дожим после события....\n\nЧат-боты и ...",
+      "title": "Чат-бот для блогеров и инфлюенсеров: автоворонки в Instagram и Telegram | BotHelp",
+      "type": "web_search_result_location",
+      "url": "https://bothelp.io/ru/dlya-blogerov"
+     },
+     {
+      "cited_text": "AI-агент сам подключается в нужный момент: отвечает на вопросы, помогает выбрать продукт и доводит до оплаты. \n\n",
+      "title": "Чат-бот для блогеров и инфлюенсеров: автоворонки в Instagram и Telegram | BotHelp",
+      "type": "web_search_result_location",
+      "url": "https://bothelp.io/ru/dlya-blogerov"
+     }
+    ],
+    "text": "чат-боты и AI-агенты отвечают на вопросы, презентуют продукты, принимают оплату, а AI-агент сам подключается в нужный момент: отвечает на вопросы, помогает выбрать продукт и доводит до оплаты",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". По их данным, ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Результат: количество продаж растёт на 20-50% без увеличения рекламного бюджета · BotHelp автоматизирует регистрацию, напоминания, сегментацию аудитор...",
+      "title": "Чат-бот для блогеров и инфлюенсеров: автоворонки в Instagram и Telegram | BotHelp",
+      "type": "web_search_result_location",
+      "url": "https://bothelp.io/ru/dlya-blogerov"
+     }
+    ],
+    "text": "количество продаж растёт на 20-50% без увеличения рекламного бюджета",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**Papaisoft / аналогичные боты** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "ИИ-бот для Instagram Direct: отвечает на вопросы о товарах и услугах, квалифицирует входящие обращения, записывает клиентов и передаёт горячие лиды в ...",
+      "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов",
+      "type": "web_search_result_location",
+      "url": "https://papaisoft.com/chatbot-dlya-instagram/"
+     }
+    ],
+    "text": "ИИ-бот для Instagram Direct отвечает на вопросы о товарах и услугах, квалифицирует входящие обращения, записывает клиентов и передаёт горячие лиды в CRM — без менеджера за экраном",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Пример из их кейсов: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "... Чат-бот InstagramАвтоответы DirectInstagram автоматизацияЛиды из InstagramCRM интеграция · Магазин одежды подключил бот в Instagram Direct — время...",
+      "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов",
+      "type": "web_search_result_location",
+      "url": "https://papaisoft.com/chatbot-dlya-instagram/"
+     }
+    ],
+    "text": "магазин одежды подключил бот в Instagram Direct — время ответа сократилось с 4 часов до 30 секунд, конверсия в покупку выросла на 25%",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**Salebot** — конструктор, где можно настроить ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Отслеживание лидов, авто-заявки в CRM, оплата в боте.\n\nЯркие карусели товаров в Директе для клиентов · Опросы и реферальные программы в боте · Прием п...",
+      "title": "Чат-боты для Instagram | автоответы в директ и на комментарии",
+      "type": "web_search_result_location",
+      "url": "https://salebot.pro/instagram_bot"
+     }
+    ],
+    "text": "отслеживание лидов, авто-заявки в CRM, оплату в боте, а также кнопки оплаты и функциональную воронку продаж",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## 2. Как именно это \"дожимает\" клиента\n\nЛогика у всех примерно одна:\n- Клиент пишет \"сколько стоит\" → бот/AI отвечает мгновенно, даже ночью\n- Если клиент замолчал — **через N часов/дней** система сама отправляет follow-up (напоминание, доп.вопрос, \"актуально ли ещё?\", скидку/дедлайн)\n- Если клиент готов — бот принимает оплату прямо в переписке или ведёт к записи\n- Всё это фиксируется в CRM, чтобы менеджер видел, кто \"завис\" на каком этапе\n\n## 3. Что важно перед выбором\n\n- Для нормальной работы с Instagram нужен официальный **Meta Graph API**, иначе риск блокировки аккаунта — уточняй у сервиса, как они подключаются: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "... Да — работаем через официальный Instagram Graph API, без риска блокировки аккаунта. ",
+      "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов",
+      "type": "web_search_result_location",
+      "url": "https://papaisoft.com/chatbot-dlya-instagram/"
+     }
+    ],
+    "text": "многие работают через официальный Instagram Graph API, без риска блокировки аккаунта",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Такие AI-агенты не требуют программирования — обычно конструктор с готовыми сценариями плюс встроенная нейросеть для \"живых\" ответов.\n\n## Что делать прямо сейчас, если не хочешь внедрять систему целиком\n\nДаже без сложной автоматизации можно закрыть 80% проблемы вручную: настрой у себя простое правило — если клиент спросил цену и не ответил в течение 3-4 часов, отправляй короткое ненавязчивое сообщение (\"привет! ещё актуально?\", \"могу забронировать место на эту неделю\"). Это уже сильно поднимет конверсию, а дальше можно постепенно переходить на автоматизацию через один из сервисов выше.\n\nЕсли скажешь, какая у тебя ниша (услуги, товары, обучение) и объём переписок в день — подскажу, какой конкретно вариант будет разумнее по деньгам и сложности настройки.",
+    "type": "text"
+   }
+  ]
+ }
+}

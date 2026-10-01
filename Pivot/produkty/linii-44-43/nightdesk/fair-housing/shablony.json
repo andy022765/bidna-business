@@ -1,0 +1,220 @@
+{
+  "_meta": {
+    "chto": "№43 NightDesk, Б5 — запретные темы и нейтральные ответы-шаблоны для линии лизинга (и для ночной линии, если жилец спросит о соседях или районе). Шаблоны агент говорит ДОСЛОВНО; одинаково всем, кто бы ни спрашивал.",
+    "data": "2026-09-30",
+    "status": "ЧЕРНОВИК ДО ЮРИСТА. План: «Юрист по fair housing — проверка шаблонов Б2 и списка запретных тем в NY, CA, CO — до продажи Б2». Юридической силы у этого файла нет.",
+    "kak_ispolzuetsya": "1) Промпты nightdesk/prompty/leasing.{en,es}.md и after-hours.{en,es}.md содержат шаблоны дословно (test/nd-prompty.test.js). 2) Проверяльщик platforma/lib/nightdesk/fair-housing.js вырезает дословные предложения шаблонов и проверяет остаток правилами (стоп-слова и выражения). 3) Сборка настроек стенда (nightdesk/nastroyki/sobrat.js) кладёт шаблоны в настройки клиента — для проверки SMS перед отправкой.",
+    "odinakovo_vsem": "Шаблон не зависит от того, кто спрашивает и как он звучит. Нельзя менять ответ по акценту, имени, голосу или тому, что звонящий рассказал о себе.",
+    "vauchery": "Ответ про ваучеры — строка vauchery.en / vauchery.es и нигде никакой другой; та же строка стоит во всех шести объявлениях и в критериях аренды (test/nd-dannye.test.js)."
+  },
+
+  "shablony": {
+    "rayon": {
+      "en": "I can't describe neighborhoods or say whether an area is safe. We give everyone the same facts about the apartment. The NYPD publishes official crime statistics online, and you're welcome to visit the area yourself.",
+      "es": "No puedo describir barrios ni decir si una zona es segura. Damos a todos la misma información sobre el apartamento. El NYPD publica estadísticas oficiales de delitos en internet, y puede visitar la zona usted mismo."
+    },
+    "sosedi": {
+      "en": "I can't share anything about who lives in our buildings or in the area. I can tell you about the apartment itself: the rent, the dates and the building's features.",
+      "es": "No puedo compartir nada sobre quién vive en nuestros edificios o en la zona. Puedo hablarle del apartamento: el alquiler, las fechas y las características del edificio."
+    },
+    "semya": {
+      "en": "Everyone is welcome to apply, and I don't ask about who's in your household. The number of people who can live in an apartment follows New York City's housing rules, and the leasing office can answer that for a specific apartment.",
+      "es": "Todos pueden solicitar, y no pregunto quién forma parte de su hogar. El número de personas que pueden vivir en un apartamento sigue las normas de vivienda de la Ciudad de Nueva York, y la oficina de alquiler puede responder eso para un apartamento específico."
+    },
+    "religiya": {
+      "en": "I can't comment on religion or places of worship. I can give you the building's address so you can look at the area yourself.",
+      "es": "No puedo comentar sobre religión ni sobre lugares de culto. Puedo darle la dirección del edificio para que usted mismo conozca la zona."
+    },
+    "proishozhdenie": {
+      "en": "I can't comment on anyone's background, in our buildings or in the neighborhood. Everyone gets the same information and goes through the same process.",
+      "es": "No puedo comentar sobre el origen de nadie, ni en nuestros edificios ni en el barrio. Todos reciben la misma información y pasan por el mismo proceso."
+    },
+    "yazyk": {
+      "en": "You don't need to speak English to rent with us. This line and our office can help you in English or Spanish.",
+      "es": "No necesita hablar inglés para alquilar con nosotros. Esta línea y nuestra oficina pueden atenderle en inglés o en español."
+    },
+    "invalidnost": {
+      "en": "Anyone can ask for a reasonable accommodation or modification because of a disability, at any time, through the leasing office. I don't need any details about it on this call. I can tell you the building's features, like whether it has an elevator.",
+      "es": "Cualquier persona puede pedir un ajuste o modificación razonable por una discapacidad, en cualquier momento, a través de la oficina de alquiler. No necesito ningún detalle en esta llamada. Puedo decirle las características del edificio, por ejemplo si tiene ascensor."
+    },
+    "zhivotnye_pomoshchniki": {
+      "en": "Assistance animals, including service and support animals, are not pets under our policy, so pet limits and pet fees don't apply to them. To request one, contact the leasing office. You don't need to explain anything to me.",
+      "es": "Los animales de asistencia, incluidos los de servicio y de apoyo, no son mascotas según nuestra política, así que los límites y cargos por mascotas no se aplican a ellos. Para solicitarlo, comuníquese con la oficina de alquiler. No tiene que explicarme nada."
+    },
+    "vauchery": {
+      "en": "We accept all lawful sources of income, including Section 8, CityFHEPS, HASA and other housing vouchers, and every application goes through the same process.",
+      "es": "Aceptamos todas las fuentes legales de ingresos, incluidos la Sección 8, CityFHEPS, HASA y otros vales de vivienda, y todas las solicitudes pasan por el mismo proceso."
+    },
+    "dohod": {
+      "en": "Our published rental criteria ask for yearly income of forty times the monthly rent, or a guarantor. That requirement doesn't apply to applicants whose share of the rent is set by a voucher or rental assistance program. I can't pre-qualify anyone on the phone. The leasing office reviews every complete application.",
+      "es": "Nuestros criterios de alquiler publicados piden ingresos anuales de cuarenta veces el alquiler mensual, o un garante. Ese requisito no se aplica a quienes tienen su parte del alquiler fijada por un vale o un programa de asistencia de alquiler. No puedo precalificar a nadie por teléfono. La oficina de alquiler revisa cada solicitud completa."
+    },
+    "sudimost": {
+      "en": "I can't ask about or discuss criminal history. You're welcome to apply, and every application goes to our leasing office.",
+      "es": "No puedo preguntar ni hablar sobre antecedentes penales. Puede presentar su solicitud, y todas las solicitudes van a nuestra oficina de alquiler."
+    },
+    "lichnoe": {
+      "en": "Everyone is welcome to apply, and everyone goes through the same process. I don't ask about personal matters on this line.",
+      "es": "Todos pueden solicitar, y todos pasan por el mismo proceso. En esta línea no pregunto sobre asuntos personales."
+    },
+    "immigraciya": {
+      "en": "Our published criteria accept any government-issued photo ID from any country, and a Social Security number is not required. The leasing office can explain the documents.",
+      "es": "Nuestros criterios publicados aceptan cualquier identificación oficial con foto de cualquier país, y no se requiere número de Seguro Social. La oficina de alquiler puede explicarle los documentos."
+    },
+    "kredit": {
+      "en": "There's no minimum credit score in our published criteria. The leasing office looks at each complete application individually.",
+      "es": "En nuestros criterios publicados no hay un puntaje de crédito mínimo. La oficina de alquiler revisa cada solicitud completa de forma individual."
+    },
+    "sud": {
+      "en": "Our published criteria don't consider past or pending housing court cases.",
+      "es": "Nuestros criterios publicados no toman en cuenta casos pasados o pendientes en la corte de vivienda."
+    },
+    "shkoly": {
+      "en": "I can't give opinions about schools. The New York City Department of Education has school information online, where you can look up any address.",
+      "es": "No puedo dar opiniones sobre escuelas. El Departamento de Educación de la Ciudad de Nueva York tiene información de escuelas en internet, donde puede buscar cualquier dirección."
+    },
+    "podbor": {
+      "en": "I can't recommend an apartment based on who you are, but I can go through what's available: the size, the rent, the dates and the features, and you can choose.",
+      "es": "No puedo recomendar un apartamento según quién es usted, pero puedo contarle lo que hay disponible: el tamaño, el alquiler, las fechas y las características, y usted elige."
+    },
+    "odobrenie": {
+      "en": "I can't pre-qualify or promise approval on the phone. Every complete application is reviewed by our leasing office in the order it's received.",
+      "es": "No puedo precalificar ni prometer una aprobación por teléfono. La oficina de alquiler revisa cada solicitud completa en el orden en que se recibe."
+    },
+    "ne_nuzhno": {
+      "en": "Thank you, I don't need that information.",
+      "es": "Gracias, no necesito esa información."
+    },
+    "ne_znayu": {
+      "en": "I don't have that information, and I don't want to guess. I'll pass your question to the leasing office.",
+      "es": "No tengo esa información y no quiero adivinar. Voy a pasar su pregunta a la oficina de alquiler."
+    }
+  },
+
+  "zapretnye_temy": [
+    {
+      "kod": "rayon",
+      "klass": "steering",
+      "chto_nelzya": ["называть район безопасным, опасным, хорошим, плохим, тихим, семейным, «меняющимся», модным", "говорить об уровне преступности своими словами", "«вам тут будет комфортно», «люди вроде вас»"],
+      "pochemu": "Steering: направление по районам вместе с демографией — нарушение FHA и закона NYC; исследование «Geography of Algorithmic Judgment» (arXiv 2606.06694) показало, что модели делают это сами и по-разному в разных городах.",
+      "shablony": ["rayon"]
+    },
+    {
+      "kod": "sosedi",
+      "klass": "steering",
+      "chto_nelzya": ["описывать, кто живёт в доме или вокруг: возраст, семьи, происхождение, религия, язык, доход", "говорить, есть ли в доме дети, пожилые, студенты, «много русских» и т.п."],
+      "pochemu": "Описание состава жильцов = косвенное указание предпочтения защищённой группы (FHA 42 U.S.C. §3604(c); NYC HRL).",
+      "shablony": ["sosedi", "proishozhdenie"]
+    },
+    {
+      "kod": "semya",
+      "klass": "familial_status",
+      "chto_nelzya": ["спрашивать о детях, беременности, составе семьи, кто будет жить", "говорить «для семей», «не для детей», «идеально для пары/одиночки»", "называть свои лимиты заселения — только правила NYC и офис"],
+      "pochemu": "Семейное положение и наличие детей — защищённые признаки (FHA; NYC HRL: presence of children). Уведомления о свинце и оконных решётках делает управляющий при аренде, не линия.",
+      "shablony": ["semya", "ne_nuzhno"]
+    },
+    {
+      "kod": "religiya",
+      "klass": "religion",
+      "chto_nelzya": ["спрашивать о вере", "описывать религиозный состав района или дома", "советовать дом «рядом с вашей церковью/синагогой/мечетью»"],
+      "pochemu": "Религия — защищённый признак (FHA; NYC HRL).",
+      "shablony": ["religiya"]
+    },
+    {
+      "kod": "proishozhdenie",
+      "klass": "race_national_origin",
+      "chto_nelzya": ["спрашивать, откуда человек, комментировать акцент или имя", "описывать район по расе или происхождению", "требовать английский"],
+      "pochemu": "Раса, цвет кожи, национальное происхождение, иммиграционный статус и гражданство — защищённые признаки (FHA; NYC HRL). Язык — косвенный признак происхождения.",
+      "shablony": ["proishozhdenie", "yazyk", "immigraciya"]
+    },
+    {
+      "kod": "invalidnost",
+      "klass": "disability",
+      "chto_nelzya": ["спрашивать об инвалидности, диагнозе, лекарствах", "говорить, что квартира «не подходит» человеку с инвалидностью", "требовать объяснений по животному-помощнику, брать за него плату как за питомца"],
+      "pochemu": "Инвалидность — защищённый признак; разумные приспособления и изменения обязательны (FHA 42 U.S.C. §3604(f); NYC HRL). Руководство HUD FHEO-2020-01 по животным отозвано 17.09.2025, но обязанность по закону осталась — поэтому шаблон опирается на закон и политику компании, не на руководство.",
+      "shablony": ["invalidnost", "zhivotnye_pomoshchniki"]
+    },
+    {
+      "kod": "vauchery",
+      "klass": "source_of_income",
+      "chto_nelzya": ["«не принимаем ваучеры/программы», «нужен working Section 8»", "требовать от держателя ваучера дохода с полной платы или поручителя", "предпочитать одни программы другим", "отвечать про ваучеры разными словами разным людям"],
+      "pochemu": "Lawful source of income — защищённый признак в NYC и штате NY. Дело Harbor Group и PERQ: ИИ-чатбот отвечал держателям ваучеров «не принимаем» — мировое соглашение, два года мониторинга. CCHR: при доле, рассчитанной от дохода, — никаких доп. требований к доходу и поручителей; умышленно — до $250 000.",
+      "shablony": ["vauchery", "dohod"]
+    },
+    {
+      "kod": "sudimost",
+      "klass": "criminal_history",
+      "chto_nelzya": ["спрашивать о судимости, арестах, условном сроке — ни устно, ни письменно", "говорить о «проверке судимости» или «чистой биографии»"],
+      "pochemu": "NYC Fair Chance Housing Law (с 01.01.2025): до условного предложения — ни вопросов, ни заявлений о проверке судимости в объявлениях и заявках; штраф до $125 000, умышленно — до $250 000.",
+      "shablony": ["sudimost"]
+    },
+    {
+      "kod": "dohod",
+      "klass": "screening",
+      "chto_nelzya": ["спрашивать доход, работу, кредитный балл", "«предварительно одобрять» или предсказывать отказ", "называть минимальный кредитный балл"],
+      "pochemu": "Скрининг ведёт только офис по опубликованным критериям. Требование конкретного кредитного балла CCHR считает признаком дискриминации держателей ваучеров; законное занятие — защищённый признак NYC.",
+      "shablony": ["dohod", "kredit", "odobrenie"]
+    },
+    {
+      "kod": "vozrast",
+      "klass": "age",
+      "chto_nelzya": ["спрашивать возраст", "«молодёжный дом», «для пенсионеров», «слишком стары/молоды»"],
+      "pochemu": "Возраст — защищённый признак NYC HRL.",
+      "shablony": ["lichnoe"]
+    },
+    {
+      "kod": "pol_i_polozhenie",
+      "klass": "sex_gender_marital",
+      "chto_nelzya": ["спрашивать о браке, партнёре, ориентации, гендерной идентичности", "«только для женщин/пар»"],
+      "pochemu": "Пол, гендерная идентичность, ориентация, семейное и партнёрское положение — защищённые признаки NYC HRL.",
+      "shablony": ["lichnoe"]
+    },
+    {
+      "kod": "immigraciya",
+      "klass": "immigration",
+      "chto_nelzya": ["спрашивать о гражданстве, грин-карте, визе, SSN", "требовать американский документ"],
+      "pochemu": "Иммиграционный статус и гражданство — защищённые признаки NYC HRL; в опубликованных критериях — любой документ с фото любой страны, SSN не нужен.",
+      "shablony": ["immigraciya"]
+    },
+    {
+      "kod": "sud",
+      "klass": "housing_court",
+      "chto_nelzya": ["спрашивать о прошлых выселениях и делах в жилищном суде", "говорить, что они влияют на решение"],
+      "pochemu": "Закон штата NY запрещает отказывать из-за прошлых или текущих дел в жилищном суде (CCHR, Best practices, март 2023).",
+      "shablony": ["sud"]
+    },
+    {
+      "kod": "shkoly",
+      "klass": "steering",
+      "chto_nelzya": ["оценивать школы («хорошие», «плохие»)"],
+      "pochemu": "Оценка школ — классический канал steering по семейному положению и расе.",
+      "shablony": ["shkoly"]
+    },
+    {
+      "kod": "podbor",
+      "klass": "steering",
+      "chto_nelzya": ["советовать квартиру или дом по тому, кто человек («раз у вас дети — вам в Kestrel»)"],
+      "pochemu": "Подбор по защищённому признаку = steering. Можно перечислить всё доступное и дать выбрать.",
+      "shablony": ["podbor"]
+    },
+    {
+      "kod": "voennye",
+      "klass": "military",
+      "chto_nelzya": ["спрашивать о военной службе, предпочитать или исключать военных"],
+      "pochemu": "Статус ветерана или военнослужащего — защищённый признак NYC HRL.",
+      "shablony": ["lichnoe"]
+    },
+    {
+      "kod": "domashnee_nasilie",
+      "klass": "dv_status",
+      "chto_nelzya": ["спрашивать о домашнем насилии, охранных ордерах", "комментировать, если человек рассказал сам"],
+      "pochemu": "Статус пострадавшего от домашнего насилия, преследования или сексуального насилия — защищённый признак NYC HRL в жилье.",
+      "shablony": ["ne_nuzhno", "lichnoe"]
+    }
+  ],
+
+  "esli_rasskazal_sam": {
+    "pravilo": "Звонящий сам говорит о детях, ваучере, возрасте, вере, происхождении, инвалидности, судимости: не повторять, не записывать ни в какое поле, не комментировать. Сказать ne_nuzhno (или тематический шаблон, если это вопрос) и продолжить по делу.",
+    "zapreshcheno_zapisyvat": ["дети и состав семьи", "беременность", "ваучер или программа", "доход и работа", "возраст", "вера", "происхождение, язык дома, гражданство", "инвалидность, диагнозы, животное-помощник", "судимость", "выселения", "брак, партнёр, ориентация, гендер", "военная служба", "домашнее насилие"]
+  }
+}

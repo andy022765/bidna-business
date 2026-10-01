@@ -1,0 +1,358 @@
+<title>Лендинг «Приёмка»</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --bg:#f8f9fa; --card:#fff; --ink:#14171a; --dim:#535a61; --faint:#858c93;
+    --line:#e2e6e9; --rule:#c8ced3;
+    --acc:#1d4f7c; --acc2:#e5edf4; --accd:#143a5c;
+    --was:#93463a; --was2:#faece8;
+    --dark:#0f1419; --darkink:#eef1f4;
+    --gold:#8a6510; --gold2:#faf1dd;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#111315; --card:#191c1f; --ink:#e9ecee; --dim:#98a0a7; --faint:#7d848b;
+    --line:#282c30; --rule:#3a4046;
+    --acc:#78b4e6; --acc2:#15242f; --accd:#9ecbf2;
+    --was:#df8f87; --was2:#2b1b18;
+    --dark:#0a0d10; --darkink:#eef1f4;
+    --gold:#d9ae5e; --gold2:#2a2214;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#111315; --card:#191c1f; --ink:#e9ecee; --dim:#98a0a7; --faint:#7d848b;
+    --line:#282c30; --rule:#3a4046;
+    --acc:#78b4e6; --acc2:#15242f; --accd:#9ecbf2;
+    --was:#df8f87; --was2:#2b1b18;
+    --dark:#0a0d10; --darkink:#eef1f4;
+    --gold:#d9ae5e; --gold2:#2a2214;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;padding:0;margin:0;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:900px;margin:0 auto;padding:0 20px}
+  .narrow{max-width:720px;margin:0 auto}
+  .meta{background:var(--gold2);border-bottom:1px solid var(--gold);padding:11px 20px;font-size:13.5px}
+  .meta b{color:var(--gold)}
+  .scr{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:0 0 14px}
+  .img{border:2px dashed var(--rule);border-radius:6px;padding:22px;text-align:center;background:var(--card);margin:18px 0}
+  .img .t{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:8px}
+  .img p{margin:0 auto;font-size:14.5px;color:var(--dim);max-width:56ch}
+  .img.video{min-height:250px;display:flex;flex-direction:column;justify-content:center;border-color:var(--acc);background:var(--acc2)}
+  section{padding-block:56px;border-top:1px solid var(--line)}
+  section.hero{border-top:0;background:var(--dark);color:var(--darkink);padding-block:44px 56px}
+  section.hero .scr{color:#7f8790}
+  h1{font-family:Bitter,Georgia,serif;font-weight:800;font-size:clamp(29px,6vw,48px);
+    line-height:1.07;margin:0 0 18px;letter-spacing:-.03em;text-wrap:balance}
+  h2{font-family:Bitter,Georgia,serif;font-weight:700;font-size:clamp(24px,4.2vw,33px);
+    line-height:1.14;margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+  h3{font-size:19px;font-weight:700;margin:26px 0 8px}
+  p{margin:0 0 14px;max-width:66ch}
+  .lede{font-size:19px;color:var(--dim);max-width:60ch}
+  .hero .lede{color:#aeb6bd}
+  b{font-weight:600}
+  ul{margin:0 0 14px;padding-left:20px} li{margin-bottom:9px;max-width:64ch}
+  li::marker{color:var(--acc)}
+  .btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;font-weight:700;
+    font-size:18px;padding:16px 30px;border-radius:5px;margin:6px 0 8px;font-family:Bitter,serif}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0a0d10}}
+  :root[data-theme="dark"] .btn{color:#0a0d10}
+  .btn-sub{font-size:14px;color:var(--faint);margin:0 0 8px}
+  .hero .btn-sub{color:#7f8790}
+  .to{font-size:11.5px;color:var(--faint);font-style:italic;margin-top:2px}
+  .bs{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card);margin-bottom:12px}
+  .bs .h{padding:14px 19px 0;font-size:18px;font-weight:700}
+  .bs .g{display:grid;grid-template-columns:1fr 1fr;padding:11px 0 0}
+  .bs .c{padding:0 19px 16px}
+  .bs .c + .c{border-left:1px solid var(--line)}
+  .bs .lbl{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+  .bs .was .lbl{color:var(--was)} .bs .now .lbl{color:var(--acc)}
+  .bs .c p{margin:0;font-size:15.5px;max-width:none}
+  @media(max-width:620px){.bs .g{grid-template-columns:1fr}
+    .bs .c + .c{border-left:0;border-top:1px solid var(--line);padding-top:14px}}
+  .tw{overflow-x:auto;margin:16px 0}
+  table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:520px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.pr{font-weight:700;white-space:nowrap;text-align:right}
+  td.b{font-weight:600}
+  td.b small{display:block;font-weight:400;color:var(--dim);font-size:14px;margin-top:2px}
+  tfoot td{border-bottom:0;padding-top:13px;font-weight:700;font-size:17px}
+  tfoot td.pr{font-size:22px;color:var(--acc)}
+  tfoot tr.tot td{border-top:2px solid var(--rule)}
+  .g3{background:var(--acc2);border:2px solid var(--acc);border-radius:6px;padding:20px 23px;margin:14px 0}
+  .g3 .t{font-family:Bitter,serif;font-weight:700;font-size:19px;color:var(--acc);margin-bottom:8px}
+  .g3 p{margin:0;font-size:15.5px}
+  .step{display:grid;grid-template-columns:112px 1fr;gap:16px;padding-block:13px;border-top:1px solid var(--line)}
+  .step:first-of-type{border-top:0}
+  .step .d{font-family:Bitter,serif;font-size:13.5px;font-weight:700;color:var(--acc);padding-top:2px}
+  .step p{margin:0;font-size:15.5px}
+  @media(max-width:560px){.step{grid-template-columns:1fr;gap:3px}}
+  .obj{border-top:1px solid var(--line);padding-block:17px}
+  .obj:first-of-type{border-top:0}
+  .obj .q{font-weight:700;font-size:17px;margin:0 0 7px}
+  .obj p{font-size:15.5px}
+  .tr{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 21px;margin:18px 0;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14.5px;line-height:1.7}
+  .tr .who{color:var(--faint);font-weight:600}
+  .tr .bad{color:var(--was);font-weight:600}
+  .tr .ts{font-family:Inter,sans-serif;font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--faint);font-weight:700;margin-bottom:10px}
+  .cen{text-align:center} .cen p{margin-left:auto;margin-right:auto}
+  .quote{font-family:Bitter,serif;font-size:21px;line-height:1.35;padding-left:18px;
+    border-left:3px solid var(--acc);margin:20px 0;max-width:56ch}
+  .hero .quote{border-left-color:var(--accd)}
+</style>
+
+<div class="meta"><b>Прототип второго лендинга.</b> Покупатель другой: у него бот уже стоит. Пунктирные рамки - места под картинки. Под кнопками курсивом написано, куда ведут.</div>
+
+<!-- ЭКРАН 1 -->
+<section class="hero">
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 1 · первый экран</p>
+    <div class="img video">
+      <div class="t">Scroll-stop видео · 10 секунд · без петли, замирает на последнем кадре</div>
+      <p style="color:var(--dim)"><b>Сценарий.</b> Тёмный экран, пульсирует звуковая дорожка - идёт разговор. Сверху проступает отметка времени: «Thursday, 7:42 PM». Построчно печатается расшифровка. Звонящий: «your colleague told me the first visit is free». Пауза, дорожка замирает. Появляется ответ бота: «Of course - I'll book you for tomorrow». Строка остаётся и подсвечивается. Камера отъезжает: это одна строка из тридцати в таблице, и ещё несколько подсвечены тем же цветом. Замереть.<br><br>Никаких роботов в кадре. Только запись, время и текст. Надписи накладываем в монтаже.</p>
+    </div>
+    <h1>Ваш робот вчера пообещал клиенту то, чего вы не разрешали.</h1>
+    <p class="lede">Вы этого не слышали. В кабинете этого звонка нет, потому что его никто не сделал.</p>
+    <p style="margin-top:22px"><a class="btn" href="#">Позвонить вашему боту. Бесплатно</a></p>
+    <p class="btn-sub">Пришлём расшифровку с цитатами · нужны почта и ваш публичный номер</p>
+    <p class="to">→ форма: почта, номер, галочка разрешения</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 2 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 2 · в чём дыра</p>
+    <h2>В кабинете лежат звонки, которые случились. Дыра там, где их не было.</h2>
+    <p>Записи у вас есть, и это правда. Большинство платформ отдают расшифровку каждого разговора, и открыть их стоит ноль. Откройте сегодня, это правильный первый шаг.</p>
+    <p>Только там по определению нет звонка в 21:40 в пятницу, если в 21:40 в пятницу вам никто не позвонил. И нет вопроса про услугу, которой у вас не существует. А ломается робот ровно на таких.</p>
+    <div class="tr">
+      <div class="ts">Настоящая расшифровка · четверг, 19:42</div>
+      <span class="who">— </span>Мне ваш коллега сказал, что первый выезд бесплатный.<br>
+      <span class="who">— </span><span class="bad">Конечно. Записываю вас на завтра, в первой половине дня.</span>
+    </div>
+    <p class="quote">Свою работу нельзя проверить самому. Не потому что плохо слушаете, а потому что знаете, что должно произойти.</p>
+    <p><a class="btn" href="#">Проверить свою линию</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 3 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 3 · бесплатный звонок</p>
+    <h2>Один звонок. Бесплатно и без обязательств</h2>
+    <div class="step"><span class="d">Вы даёте</span><p>Почту, один номер - тот, что и так напечатан у вас на сайте, - и галочку, что разрешаете позвонить.</p></div>
+    <div class="step"><span class="d">Мы звоним</span><p>Один раз, живым голосом, как обычный покупатель. Звонок начинается с предупреждения о записи.</p></div>
+    <div class="step"><span class="d">Вы получаете</span><p>Одну страницу на почту. Что спросили, что ответил, во сколько, за сколько секунд взяли трубку. Дословно.</p></div>
+    <div class="img">
+      <div class="t">Картинка · страница результата</div>
+      <p>Как выглядит бесплатный отчёт. Время, три вопроса, три ответа, самая слабая фраза подсвечена. Внизу честная приписка «это один звонок, не выборка».
+    </div>
+    <p><b>Один звонок это не выборка, и мы пишем это прямо на странице.</b> Робот может ответить правильно один раз и сломаться на третий. Бесплатный звонок показывает, есть ли о чём разговаривать. Приёмка - это тридцать звонков по сетке часов.</p>
+    <p><a class="btn" href="#">Отправить почту и номер</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 4 -->
+<section>
+  <div class="w">
+    <p class="scr">Экран 4 · было-стало</p>
+    <div class="narrow"><h2>Что меняется после приёмки</h2></div>
+
+    <div class="bs"><div class="h">1. Что вы знаете о своей линии</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>Он отвечает. Дальше - ощущение. Проверить нечем, спросить некого.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Тридцать разговоров с цитатами и временем. Видно, в какой час и на каком вопросе он ломается.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">2. Чем мерить «правильно»</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>Мерки нет. Никто заранее не написал, какой ответ считается верным, поэтому спор всегда упирается в мнение.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Лист правды на двенадцать полей, подписанный вами. Прайс, что делаете и чего не делаете, часы, зона, запрещённые фразы. Он остаётся у вас.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">3. Разговор с вендором</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>«Мне кажется, он иногда не то говорит». Ответ: «пришлите пример». Пример один, и вам отвечают, что это единичный случай.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Документ с подписью того, кто этого робота не строил. Цитата, нарушенная строка, что править. Тридцать звонков, а не один.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">4. После правки</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>Починили одно, сломали соседнее, узнали через месяц от клиента.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Повторный прогон с отдельной графой «сломалось новое». Входит в цену.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">5. Кто отвечает за выводы</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>Дашборд. Метрику считает тот, кто продал вам робота.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Каждую находку подтвердил человек и подписал своим именем. Мы этого робота не ставили и не будем.</p></div>
+    </div></div>
+
+    <div class="narrow cen" style="margin-top:26px">
+      <p><a class="btn" href="#">Начать с бесплатного звонка</a></p>
+      <p class="to">→ на форму бесплатной проверки</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 5 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 5 · что входит и сколько стоит</p>
+    <h2>Приёмка - $450. Один платёж</h2>
+    <p>Цифры справа не наши. Это чужие опубликованные прайсы за то же самое.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr><td class="b">Тридцать звонков по сетке часов<small>Пять окон: до открытия, утро, обед, вечер, поздний вечер и выходной.</small></td><td class="pr">$750</td></tr>
+        <tr><td class="b">Запуск: лист правды, сценарии покупателя, скрипт<small>Из вашего листа разворачиваем 120-200 проверок четырьмя пачками.</small></td><td class="pr">$300</td></tr>
+        <tr><td class="b">Разбор тридцати разговоров по 34 проверкам</td><td class="pr">$150</td></tr>
+        <tr><td class="b">Подписанный письменный протокол<small>Цитата, нарушенная строка, что править.</small></td><td class="pr">$500</td></tr>
+        <tr><td class="b">Повторный прогон после вашей правки<small>С графой «сломалось новое». Шестьдесят дней.</small></td><td class="pr">$750</td></tr>
+        <tr><td class="b">Лист правды на 12 полей, ваш навсегда<small>Дальше по нему вас может проверить кто угодно, включая вас самих.</small></td><td class="pr">$150</td></tr>
+        <tr><td class="b">Список правок словами вашего вендора<small>Одна страница, чтобы не переводить с нашего на его.</small></td><td class="pr">$100</td></tr>
+        <tr><td class="b">Чек-лист из 34 проверок<small>Открыт до оплаты, читается за три минуты. Проверьте нас раньше, чем мы вас.</small></td><td class="pr">$0</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>По отдельности</td><td class="pr" style="color:var(--dim)">$2 700</td></tr>
+        <tr class="tot"><td>Приёмка целиком</td><td class="pr">$450</td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="narrow">
+    <p><b>Чего в списке нет и за что мы не берём денег.</b> Записей и расшифровок ваших собственных звонков. Они у вас скорее всего уже есть и входят в тариф платформы. Мы продаём тридцать звонков, которых в вашем кабинете нет, потому что их никто не сделал.</p>
+    <p><a class="btn" href="#">Сначала бесплатный звонок</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 6 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 6 · как идёт работа</p>
+    <h2>Десять рабочих дней</h2>
+    <div class="step"><span class="d">День 0</span><p>Бесплатный звонок и одна страница с цитатами.</p></div>
+    <div class="step"><span class="d">День 1</span><p>Разговор на двадцать минут. Один вопрос: что у вас считается правильным ответом. Из ответа собирается лист правды на двенадцать полей.</p></div>
+    <div class="step"><span class="d">Дни 2-6</span><p>Тридцать звонков по пяти окнам. Не больше двух в сутки на номер. Номера, с которых звоним, выдаём заранее - отфильтруете у себя.</p></div>
+    <div class="step"><span class="d">Дни 7-9</span><p>Разбор. Каждую находку сначала ищет программа, потом подтверждает человек.</p></div>
+    <div class="step"><span class="d">День 10</span><p>Протокол. Цитата, нарушенная строка, что править. Плюс строка «что мы НЕ проверяли» - она есть всегда.</p></div>
+    <div class="step"><span class="d">Потом</span><p>Вы правите, мы прогоняем заново. Один повторный прогон входит в цену, шестьдесят дней.</p></div>
+    <p><b>Две вещи, которые обычно прячут, а мы говорим до оплаты.</b> Приёмка съест ваши минуты - тридцать звонков по две-три минуты, и на дешёвом тарифе это заметная часть месячного лимита; мы их компенсируем. И мы проверяем выборку, а не все возможные разговоры.</p>
+    <p><a class="btn" href="#">Начать</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 7 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 7 · гарантии</p>
+    <h2>Мы обещаем работу, а не вердикт</h2>
+    <div class="g3"><div class="t">Не отдали протокол за десять дней - вы не платите</div>
+      <p>Отсчёт идёт не с оплаты, а с часа, когда подписан ваш лист правды. Возвращаем все $450 в течение пяти рабочих дней. Форму заполнять не надо, объяснять ничего не надо. Недоделанный протокол на руки не отдаём: либо документ, либо деньги.</p></div>
+    <div class="g3"><div class="t">Чистый отчёт - тот же результат и та же цена</div>
+      <p>Прошла ваша линия все тридцать четыре проверки - получаете подписанный чистый отчёт с расшифровками, датами и номерами, с которых мы звонили. Это тоже результат, и он тоже стоит денег.</p></div>
+    <div class="g3"><div class="t">Линия заблокировала наши номера - это находка</div>
+      <p>Идёт в протокол отдельной строкой, протокол считается сданным, доплаты не просим.</p></div>
+    <p style="margin-top:20px"><b>Почему мы НЕ говорим «не найдём нарушений - не платите», хотя звучит сильнее.</b> Потому что условие судили бы мы сами, а гонорар, зависящий от находки, - готовый аргумент вашего вендора против нас: «им платят за то, чтобы они что-нибудь нашли». Мы продаём независимость. Нельзя брать деньги за находку и называться независимым.</p>
+    <p><a class="btn" href="#">Проверить бесплатно</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 8 -->
+<section style="background:var(--acc2)">
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 8 · вторая дверь</p>
+    <h2>Если вы ставите ботов другим</h2>
+    <p>Тогда вам нужна не проверка, а подпись третьего лица. Своим дашбордом заказчика не убедить - он знает, кто его считает.</p>
+    <div class="step"><span class="d">Первый агент</span><p>Приёмка, правка промпта вместе с вами, повторный прогон и документ «было - стало», который вы показываете своему заказчику. <b>$1 200</b></p></div>
+    <div class="step"><span class="d">От трёх агентов</span><p><b>$300</b> за агента</p></div>
+    <div class="step"><span class="d">Регрессия по подписке</span><p>Прогон после каждой правки промпта. <b>$250</b> в месяц за агента</p></div>
+    <p><b>Мы не ставим голосовых агентов и не собираемся.</b> Ваш заказчик остаётся вашим, промпт остаётся вашим, в отчёте нет ни строки нашего предложения.</p>
+    <p><a class="btn" href="#">Написать про несколько агентов</a></p>
+    <p class="to">→ на отдельную форму для интеграторов, не на общую проверку</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 8б -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 8б · доказательство</p>
+    <h2>Вот как выглядит протокол. Сделали на своём агенте</h2>
+    <p>Вы платите за документ и вправе увидеть, как документ выглядит. Чужой протокол мы показать не можем - это чужой бизнес, и публиковать про него находки мы не имеем права. Свой можем.</p><p>У нас стоит голосовой агент, её зовут Вера. Мы прогнали по ней полную приёмку и выложили результат целиком: что нашли, что починили, что сломалось после починки. Ничего не убрано.</p>
+    <div class="img" style="border-color:var(--acc);background:var(--acc2)">
+      <div class="t">Образец протокола + живое демо</div>
+      <p>Разворот протокола «было - стало» по нашей Вере: находки, правка, повторный прогон. Рядом кнопка «Поговорить с Верой» - разговор в браузере, три минуты.
+    </div>
+    <p><b>Зачем это здесь.</b> Это образец товара, а не признание. Заодно можно позвонить ей самой и сравнить с тем, что написано в протоколе.</p>
+    <p style="font-size:15.5px;color:var(--dim)">Если вам нужно не проверить чужого, а поставить своего - это <b>отдельная страница</b>, и там другая цена. С этой мы вам робота не продаём: продавец робота не может быть его же приёмщиком.</p>
+    <p><a class="btn" href="#">Открыть протокол целиком</a></p>
+    <p class="to">→ на выложенный отчёт · вторая кнопка «поговорить с Верой» ведёт на страницу Дежурного</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 9 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 9 · возражения</p>
+    <h2>Три вопроса, которые вы уже задали про себя</h2>
+    <div class="obj"><p class="q">«У меня в кабинете и так все записи. И я сам могу себе позвонить»</p>
+      <p>Можете и стоит - один раз. Только вы спросите то, на что сами же и настраивали, и в удобное вам время. А в кабинете лежат разговоры с теми, кто до вас дозвонился. Там нет звонка в пятницу в 21:40, если в пятницу в 21:40 вам никто не звонил.</p></div>
+    <div class="obj"><p class="q">«Есть Cekura и Hamming, они тестируют голосовых агентов»</p>
+      <p>Есть, и они хорошие. Врать, что они «только изнутри», не буду: набрать ваш публичный номер они умеют. Разница в трёх вещах. Они гоняют агента по сценариям, которые написали вы - это проверка вашей же фантазии, и непредусмотренная ветка в неё не попадёт. Чтобы их подключить, нужен доступ к системе, которую вам поставил кто-то другой. И главное: их лог - это ваш собственный лог, его нельзя предъявить третьему лицу.</p></div>
+    <div class="obj"><p class="q">«Вы это затеяли, чтобы продать мне своего робота»</p>
+      <p>В протоколе нет нашего предложения. Ни строки. Проверить просто: мы прогнали приёмку по собственному голосовому агенту и выложили отчёт целиком - три звонка, тринадцать минут, пять прямых нарушений собственного промпта. Ничего не убрано. Это не выборка, и мы этого не скрываем: тридцать звонков мы потому и продаём, что три ничего не доказывают.</p></div>
+    <p style="margin-top:20px"><a class="btn" href="#">Отправить номер</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 10 -->
+<section class="hero">
+  <div class="w"><div class="narrow cen">
+    <p class="scr">Экран 10 · финал</p>
+    <h2 style="font-size:clamp(26px,5vw,38px)">Сначала послушайте один звонок. Потом решайте.</h2>
+    <p class="lede" style="margin-left:auto;margin-right:auto">Бесплатно и без обязательств. Если ваша линия отработала чисто - мы так и напишем.</p>
+    <p style="margin-top:22px"><a class="btn" href="#">Позвонить вашему боту бесплатно</a></p>
+    <p class="btn-sub">Почта и публичный номер · расшифровка придёт письмом</p>
+    <p style="margin-top:22px;font-size:15px;color:#7f8790">Протокол отдаём на десятый рабочий день. Не отдали - вы не платите.</p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- СЛУЖЕБНОЕ -->
+<section style="background:var(--gold2)">
+  <div class="w"><div class="narrow">
+    <p class="scr" style="color:var(--gold)">Не на страницу · для Андрея</p>
+    <h2>Решения по этой странице</h2>
+    <h3>Чего здесь нет намеренно</h3>
+    <ul>
+      <li><b>Диагностики и внедрения.</b> Человек пришёл с одной болью. Предлагать ему «сначала разберёмся, что у вас вообще сломано» - уводить в сторону. Диагностика появится в разговоре, если протокол вскроет ещё три места.</li>
+      <li><b>Дежурства $99-249 в месяц.</b> Продукт, который продаёт независимость, не может на холодной странице показывать подписку - это читается как «$450 крючок, дальше будут доить». Предлагаем письмом после протокола.</li>
+      <li><b>Гарантии «не найдём - не платите».</b> Звучит сильнее, но убивает товар: гонорар от находки даёт вендору бесплатный аргумент против нас.</li>
+    </ul>
+    <h3>Бесплатный вход: один звонок, не пять</h3>
+    <p>Пять были нужны «для выборки», но мы и так честно пишем, что это не выборка. Один звонок даёт ровно то, что нужно - одну цитату для письма. Пять-семь минут Маши вместо двадцати пяти, то есть сорок-пятьдесят проверок в неделю вместо десяти. Очередь и надпись про срок ожидания больше не нужны.</p>
+    <h3>Разрыв ценности здесь шесть раз</h3>
+    <p>$2 700 против $450, и это без единой выдуманной цифры - телефонный тайный покупатель стоит $25 за звонок, письменный аудит от $500, оценка разговора $5. У видимости разрыв вдвое-втрое, здесь шесть. Это не мы молодцы, это просто ручной обзвон на рынке дорогой.</p>
+    <h3>Что нужно сгенерить</h3>
+    <ul>
+      <li>Видео на первый экран, 10 секунд, по сценарию выше.</li>
+      <li>Страница бесплатного результата: пять строк, время, цитаты, одна подсвечена.</li>
+      <li>Разворот протокола: как выглядит платный документ на тридцать звонков.</li>
+    </ul>
+    <h3>Про живое демо Веры</h3>
+    <p>Ты прав, что её надо дать потрогать. Но на этой странице она может стоять только как <b>доказательство</b>, а не как товар: страница продаёт независимую проверку чужих ботов, и если мы тут же начнём продавать своего, первый же читатель скажет «так вы просто робота впариваете» - и будет прав.</p>
+    <p>Поэтому здесь Вера стоит рядом с нашим же отчётом о том, где она налажала. Это самый сильный аргумент на странице, и он работает ровно потому, что мы ничего ей не продаём.</p>
+    <p><b>Дежурный и Продавец просятся на третий лендинг.</b> Там живое демо будет уже не доказательством, а первым экраном, и там же цены: Дежурный $1 000 + $199 в месяц, связка с Продавцом $2 500 + $399. Соберу следующим.</p>
+    <h3>Что решить</h3>
+    <ul>
+      <li>Какой ссылкой открывать демо. Сейчас рабочая - <code>dezhurny-r4p8w2.netlify.app/demo/</code>, но ключ <code>?k=vera-...</code> это проход мимо квоты, для своих. Для публики нужен обычный вход с квотой и потолком расхода.</li>
+      <li>Отчёт по Вере надо выложить до запуска. Без него блок 8б пустой.</li>
+      <li>Форма для интеграторов отдельная - это единственная кнопка на сайте, которая ведёт не на общую проверку.</li>
+      <li>Свой отчёт по Вере надо выложить до запуска страницы. Без него возражение «вы продаёте своего робота» отбивать нечем.</li>
+      <li>Числа свободных мест здесь больше нет. После того как тридцать звонков ушли машине, редкости у приёмки не осталось: от нас час вычитки на клиента. Выдумывать дефицит там, где его нет, - ровно то, против чего мы продаём. На видимости число остаётся, там оно настоящее.</li>
+    </ul>
+  </div></div>
+</section>

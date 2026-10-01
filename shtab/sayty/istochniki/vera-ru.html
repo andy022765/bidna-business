@@ -1,0 +1,312 @@
+<title>Взяли на второй секунде</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0a0e18; --panel:#0e1524; --card:#121a2c; --ink:#eef1f7; --dim:#97a1b8; --faint:#6b768f;
+    --line:#1e2940; --rule:#2a364f;
+    --gold:#e3c88a; --gold2:#1b2133; --red:#c4675a; --red2:#241820;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;margin:0;padding:0;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:1120px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px;margin:0 auto}
+  section{padding-block:72px;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  h1{font-size:clamp(32px,5.6vw,58px);line-height:1.04;margin:0 0 20px;letter-spacing:-.03em;
+    font-weight:700;text-wrap:balance}
+  h2{font-size:clamp(25px,3.8vw,38px);line-height:1.12;margin:0 0 16px;letter-spacing:-.025em;
+    font-weight:700;text-wrap:balance}
+  h3{font-size:20px;font-weight:600;margin:30px 0 10px}
+  p{margin:0 0 16px;max-width:64ch}
+  .lede{font-size:20px;color:var(--dim);max-width:56ch}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+  b,strong{font-weight:600}
+  ul{margin:0 0 16px;padding-left:20px} li{margin-bottom:10px;max-width:60ch}
+  li::marker{color:var(--gold)}
+  .quote{font-size:24px;line-height:1.3;letter-spacing:-.02em;font-weight:600;
+    padding-left:20px;border-left:2px solid var(--gold);margin:28px 0;max-width:24ch}
+
+  figure{margin:28px 0}
+  img{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
+  video{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#000}
+
+  .btn{display:inline-block;background:var(--gold);color:#0a0e18;text-decoration:none;
+    font-weight:700;font-size:18px;padding:17px 32px;border-radius:7px;margin:8px 0 10px}
+  .btn:hover{background:#eed6a0}
+  .bsub{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);margin:0 0 8px;letter-spacing:.02em}
+  .cena-shapka{font-family:'JetBrains Mono',monospace;font-size:13px;margin:14px 0 0}
+  .cena-shapka a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent}
+  .cena-shapka a:hover{border-bottom-color:var(--gold)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .bs{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+  .bs .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;margin-bottom:9px}
+  .bs.was{border-color:#3a2530} .bs.was .n{color:var(--red)}
+  .bs.now{border-color:#3b3524} .bs.now .n{color:var(--gold)}
+  .bs p{margin:0;font-size:16px;max-width:none}
+  .pair{margin-bottom:22px}
+  .pair h4{font-size:19px;font-weight:600;margin:0 0 12px}
+
+  .steps{margin:22px 0}
+  .st{display:grid;grid-template-columns:130px 1fr;gap:20px;padding-block:16px;border-top:1px solid var(--line)}
+  .st:first-child{border-top:0}
+  .st .k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);padding-top:3px}
+  .st p{margin:0;font-size:16.5px}
+  @media(max-width:640px){.st{grid-template-columns:1fr;gap:4px}}
+
+  .tw{overflow-x:auto;margin:22px 0}
+  table{border-collapse:collapse;width:100%;font-size:16px;min-width:520px}
+  td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  /* 'Space Grotesk' вторым: в загруженном наборе JetBrains Mono нет кириллицы,
+     и русские слова в ячейке цены падали в системный Times — замерено браузером
+     26.09. Со вторым шрифтом цифры остаются моноширинными, а слова берут наш. */
+  td.p{text-align:right;white-space:nowrap;font-family:'JetBrains Mono','Space Grotesk',monospace;color:var(--dim)}
+  td.n small{display:block;color:var(--faint);font-size:14px;margin-top:3px;font-weight:400}
+  td.n{font-weight:600}
+  tr.h td{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);background:var(--gold2);border-bottom:0}
+  tr.sum td{border-bottom:0;padding-top:18px;font-weight:700;font-size:19px}
+  tr.sum td.p{font-family:'Space Grotesk',-apple-system,sans-serif;font-size:28px;color:#8a6a22}
+  tr.was td{border-bottom:0;color:var(--faint);padding-top:16px}
+  tr.was td.p{text-decoration:line-through}
+
+  .g{background:var(--gold2);border:1px solid #3b3524;border-radius:10px;padding:24px 26px;margin:20px 0}
+  .g .t{font-size:20px;font-weight:700;color:var(--gold);margin-bottom:10px}
+  .g p{margin:0;font-size:16.5px}
+  .g + .g{margin-top:14px}
+
+  .obj{border-top:1px solid var(--line);padding-block:22px}
+  .obj:first-of-type{border-top:0}
+  .obj .q{font-size:18px;font-weight:600;margin:0 0 9px}
+  .obj p{font-size:16px;color:var(--dim)}
+  .obj p b{color:var(--ink)}
+
+  .form{background:var(--card);border:1px solid #3b3524;border-radius:12px;padding:28px 30px;margin:26px 0}
+  .form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  @media(max-width:600px){.form .row{grid-template-columns:1fr}}
+  .form label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .form input{width:100%;background:var(--bg);border:1px solid var(--rule);border-radius:7px;
+    color:var(--ink);font-family:'Space Grotesk',sans-serif;font-size:17px;padding:13px 15px}
+  .form input::placeholder{color:#4d566e}
+  .form input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+  .form button{width:100%;background:var(--gold);color:#0a0e18;border:0;border-radius:7px;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;padding:17px;cursor:pointer;margin-top:4px}
+  .form .note{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);
+    margin:12px 0 0;line-height:1.6}
+  .fine{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);line-height:1.6}
+  .cen{text-align:center}
+  .cen p,.cen .lede{margin-left:auto;margin-right:auto}
+  .hero{background:linear-gradient(180deg,#0b1220 0%,var(--bg) 100%);padding-block:56px 76px}
+  footer{border-top:1px solid var(--line);padding-block:40px 60px;color:var(--faint);font-size:14px}
+
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .w{padding:0 18px}
+    section{padding-block:48px}
+    .bsub{font-size:15px}
+    .note,.form .note{font-size:15px}
+    .fine{font-size:14px}
+    .eyebrow,.bs .n,.st .k,tr.h td,.form label{font-size:12.5px;letter-spacing:.13em}
+    td.n small{font-size:14px}
+    .btn{display:block;text-align:center;font-size:17px;padding:16px 20px}
+    .quote{font-size:20px;max-width:none}
+    figure{margin:20px -18px}
+    figure img,figure video{border-radius:0;border-left:0;border-right:0}
+    table{min-width:0;font-size:15px}
+    td{padding:11px 6px}
+    td.p{font-size:15px}
+    tr.sum td{font-size:17px}
+    tr.sum td.p{font-size:23px}
+    input[type=checkbox]{width:20px;height:20px;min-width:20px;margin-top:2px}
+    .t3 tr.h{display:none}
+    .t3,.t3 tbody,.t3 tr,.t3 td{display:block;width:100%}
+    .t3 tr{border-bottom:1px solid var(--line);padding:16px 0}
+    .t3 td{border-bottom:0;padding:3px 0;text-align:left}
+    .t3 td.p{text-align:left;white-space:normal;font-weight:600;font-size:16px;padding-top:8px}
+    .t3 td.n{font-size:18px;padding-bottom:6px}
+  }
+.podarok{border:1.5px solid var(--gold);border-radius:9px;padding:15px 18px;margin:18px 0 6px;
+  background:rgba(214,178,94,.07);font-size:17.5px;line-height:1.5}
+.podarok b{color:var(--gold)}
+.spisok2{margin:0;padding-left:1.1em}
+.spisok2 li{margin:0 0 5px}
+</style>
+<section class="hero"><div class="w"><div class="narrow">
+  <figure style="margin-top:0"><video src="img/rolik.mp4" autoplay muted playsinline preload="metadata" aria-label="Телефон звонит в пятницу в 23:41, никто не берёт. Кадр отматывается, тот же звонок принимают на второй секунде, называют цену и записывают на вторник."></video></figure>
+  <h1>Пятница, 23:41. Вам позвонили. Вы узнаете об этом в понедельник.</h1>
+  <p class="lede">Вера берёт трубку на второй секунде, называет цену по вашему прайсу и записывает. Поговорите с ней прямо сейчас — она ответит вам так же, как ответит вашему клиенту.</p>
+  <p style="margin-top:26px"><a class="btn" href="#talk">Поговорить с Верой</a></p>
+  <p class="bsub">Три минуты · почта, чтобы прислать расшифровку вашего разговора</p>
+  <p class="podarok"><b>Покупаете Веру — глубокая диагностика вашего бизнеса в подарок.</b> Отдельно она стоит $500.</p>
+  <p style="margin-top:14px"><a class="btn btn2" href="https://buy.stripe.com/eVqfZ92R23NoaLH1jtfrW07">Оплатить и начать — $1&nbsp;000 + $199 за первый месяц</a></p>
+  <p class="bsub">Получайте глубокую диагностику в подарок.</p>
+  <p class="cena-shapka">Или наберите её прямо сейчас, ничего не заполняя: <b>+1 424 781 1913</b> · по телефону до трёх минут</p>
+<p class="cena-shapka"><a style="display:inline-block;min-height:44px;line-height:44px" href="#cena">Что входит →</a></p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Арифметика</p>
+  <h2>В неделе 168 часов. Вы работаете 45. Остальные 123 вам звонят в пустоту.</h2>
+  <p>Все продают автоответчик словами «вы теряете звонки». Мы посмотрели свежие замеры: в зависимости от отрасли теряется от четырнадцати до сорока четырёх процентов. Не шестьдесят два — эта цифра из теста две тысячи тринадцатого года.</p>
+  <p><b>А вот что важнее.</b> По замеру <a href="https://www.invoca.com/blog/5-insights-60-million-phone-conversations" target="_blank" rel="noopener">Invoca</a> на 70 млн звонков её клиентов (2026) <b>купить или записаться просят только 36% компаний.</b> Трубку берут. Разговаривают. И отпускают.</p>
+  <p>И перезвонить больше нельзя: 86% звонков с незнакомого номера остаются без ответа (опрос <a href="https://www.hiya.com/state-of-the-call" target="_blank" rel="noopener">Hiya</a>, 2026, шесть стран). Раньше пропущенный звонок был отложенным. Теперь он потерянный.</p>
+  <p class="quote">Проблема не в том, что трубку не взяли. Проблема в том, что взяли и ничего не предложили.</p>
+  <p><a class="btn" href="#talk">Послушать, как она отвечает</a></p>
+</div></div></section>
+
+<section id="talk"><div class="w"><div class="narrow">
+  <p class="eyebrow">Попробовать</p><h2>Три минуты, и вы поймёте сами.</h2>
+  <p>Позвоните ей и спросите что угодно — цену, часы, услугу, которой у вас нет. Она ответит так же, как ответила бы вашему клиенту.</p>
+<p><b>Как это будет.</b> Разговор идёт прямо в браузере: ни гудков, ни номера, ставить ничего не надо. Нужен только микрофон — браузер спросит разрешение, это нормально.</p>
+<p><b>Спрашивайте то, что спрашивают ваши клиенты.</b> Сколько стоит, когда приедете, делаете ли вы вообще то, что человеку нужно. Попробуйте и то, чего у вас не бывает: интересно, что она ответит.</p>
+<p><b>Она отвечает по листу правды, а не по общим знаниям</b> — и прямо скажет, когда чего-то не знает. Лист написан нами, потому что это наше демо. Ваш пишется так же, по вашим ценам, и подписывается вами до того, как она скажет первое слово.</p>
+<p><b>С обычного телефона: +1 424 781 1913</b> — разговор до трёх минут. Ничего заполнять не надо. Это тот самый агент, а не запись и не демонстрационный ролик.</p>
+
+  <form class="form" method="POST" name="vera-demo-ru" data-netlify="true" action="/spasibo-vera">
+    <input type="hidden" name="form-name" value="vera-demo-ru">
+    <div style="margin-bottom:14px"><label for="e3">Почта для расшифровки</label><input id="e3" name="email" type="email" placeholder="vy@vashakompaniya.com" required autocomplete="email"></div>
+    <button type="submit">Открыть звонок</button>
+    <p class="note">Разговор идёт в браузере. Три минуты, нужен только микрофон, ставить ничего не надо.<br>Расшифровку вашего разговора пришлём следом.</p>
+  </form>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">После каждого звонка</p><h2>Вы получаете это, были вы на месте или нет.</h2>
+  <figure><picture><source media="(max-width:640px)" srcset="img/m-pismo-vladelcu.webp"><img src="img/d-pismo-vladelcu.webp" alt="Письмо, которое приходит владельцу после каждого звонка: кто, когда, о чём спрашивал, что Вера ответила, записался или нет, номер, и отдельно — на какой вопрос она не смогла ответить." width="1600" height="900"></picture><figcaption style="margin-top:8px;font-size:13px;opacity:.7">Пример</figcaption></figure>
+  <p>Семь полей, и последнее — то, которого не присылает никто: <b>вопрос, на который она не смогла ответить.</b> Так её задание становится лучше каждую неделю — не потому что мы угадали, а потому что живой человек спросил то, чего в нём не было.</p>
+  <p><a class="btn" href="#talk">Поговорить с Верой</a></p>
+</div></div></section>
+
+<section id="chto"><div class="w">
+  <div class="narrow"><p class="eyebrow">Что меняется</p><h2>Пять вещей.</h2></div>
+  <div class="pair"><h4>1. Вечером, ночью и в выходные</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>Гудки или автоответчик. Утром список пропущенных, и перезванивать почти бесполезно: с незнакомого номера трубку не берут.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Берут на второй секунде. Круглосуточно, включая праздники. Человек получает ответ тогда, когда задаёт вопрос.</p></div></div></div>
+  <div class="pair"><h4>2. Вопрос про цену</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>«Нужно посмотреть, оставьте номер». Половина звонящих кладёт трубку и идёт к соседу, который цифру назвал.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Вилка с условиями за сорок секунд, по вашему же прайсу. Где цену назвать нельзя — говорит почему и что будет дальше.</p></div></div></div>
+  <div class="pair"><h4>3. Довести до записи</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>Поговорили и попрощались. Две трети компаний вообще не предлагают записаться — это замер, а не наше мнение.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Предлагает конкретное окно и переспрашивает. Это второй этап — менеджер по продажам.</p></div></div></div>
+  <div class="pair"><h4>4. Что она наговорила</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>У чужих ботов — неизвестно. Владелец узнаёт о проблеме от клиента, который уже разозлился.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Лист правды, подписанный вами: двадцать два вопроса. Каждый её ответ механически сверяется с ним. Раз в неделю письмо, где она от него отошла.</p></div></div></div>
+  <div class="pair"><h4>5. Ваш номер и ваша свобода</h4><div class="grid">
+    <div class="bs was"><p class="n">Сейчас</p><p>Годовой контракт, девяносто дней на отмену. Номер часто оказывается вендорским, и уйти с ним нельзя.</p></div>
+    <div class="bs now"><p class="n">После</p><p>Номер остаётся ваш — ставим переадресацию с действующего. Месяц в месяц, выход в один клик.</p></div></div></div>
+  <div class="narrow cen" style="margin-top:34px"><p><a class="btn" href="#talk">Поговорить с Верой</a></p></div>
+</div></section>
+
+<section id="cena"><div class="w"><div class="narrow">
+  <p class="eyebrow">Цена</p><h2>$1&nbsp;000 за запуск. Вот что за них делается.</h2>
+  <p>Запуск — это не «подключим вас к чему-то». Справа — цены других компаний за ту же работу, взятые с их собственных сайтов. Ни одной нашей цифры там нет: наша одна, в последней строке.</p></div>
+<div class="tw"><table><tbody>
+  <tr><td class="n">Лист правды на двадцать два вопроса<small>Прайс, что делаете и чего не делаете, часы, зона выезда, запрещённые фразы. Заполняете сами, и он остаётся вашим</small></td><td class="p">$300</td></tr>
+  <tr><td class="n">Её текст под ваш прайс<small>Не шаблон. Пишем, вы читаете и правите. Пока не подписали — она не работает</small></td><td class="p">$600</td></tr>
+  <tr><td class="n">Тридцать тестовых звонков до запуска<small>Прогоняем вашу линию по списку проверок до того, как она скажет первое слово</small></td><td class="p">$750</td></tr>
+  <tr><td class="n">Отчёт обкатки на руки<small>Что спрашивали, что она отвечала, что починили перед запуском</small></td><td class="p">$500</td></tr>
+  <tr><td class="n">Переадресация с вашего номера<small>Номер остаётся ваш. Уходите — просто снимаете переадресацию</small></td><td class="p">$200</td></tr>
+  <tr class="was"><td>Если покупать по отдельности</td><td class="p">$2&nbsp;350</td></tr>
+  <tr class="sum"><td>Запуск</td><td class="p">$1&nbsp;000</td></tr>
+</tbody></table></div>
+<div class="narrow"><h3>Наши цены</h3></div>
+<div class="tw"><table class="t3"><tbody>
+  <tr class="h"><td>Помесячно</td><td class="p">Что входит</td><td class="p">Цена</td></tr>
+  <tr><td class="n">ЭТАП 1 · АДМИНИСТРАТОР<small>отвечает и записывает · запуск $1&nbsp;000</small></td><td><ul class="spisok2"><li>Отвечает на звонок по вашему листу правды</li><li><b>Записывает в ваш календарь</b> — сама смотрит свободные окна и создаёт запись</li><li>Письмо вам после каждого звонка: семь полей, включая вопрос, на который она не ответила</li><li>Еженедельная сверка её ответов с вашим листом правды</li></ul></td><td class="p">Запуск <b>$1&nbsp;000</b><br><b>$199</b> в месяц<br>1 000 минут включено<br><small style="color:#4a5578">сверх — $0,25 за минуту</small></td></tr>
+  <tr><td class="n">ЭТАП 2 · МЕНЕДЖЕР ПО ПРОДАЖАМ<small>продаёт и доводит до оплаты · по вашей готовности</small></td><td>Всё то же, и сверх этого она <b>ведёт разговор к решению</b>:<ul class="spisok2"><li>Узнаёт, что нужно человеку</li><li>Называет цену по вашему прайсу</li><li>Отвечает на возражение — без уговоров</li><li>Не торгуется и скидок не даёт</li><li>Предлагает два времени и записывает</li><li>Шлёт предложение, пока человек на линии</li><li>Дожимает письмами тех, кто не решил</li></ul></td><td class="p">Запуск <b>+$1&nbsp;500</b><br><b style="font-size:1.3em;color:#8a6a22">итого $2&nbsp;500</b><br><b>$399</b> в месяц<br>1 500 минут включено<br><small style="color:#4a5578">сверх — $0,25 за минуту</small></td></tr>
+</tbody></table></div>
+<div class="narrow">
+  <p>В стоимость запуска входят 30 проверочных звонков — отдельно вы за них не платите.</p>
+  <p><b>Остановиться на первом этапе можно.</b> Второй этап включается, когда вы сами скажете, а уйти можно в любой месяц.</p>
+  <p><b>Скажем прямо.</b> Готовый голосовой ассистент стоит $29–199 в месяц. Нужно, чтобы просто снимали трубку, — берите его, совет честный. У нас дороже из-за трёх вещей:</p>
+  <ul class="spisok2"><li>Её текст написан под ваш прайс и подписан вами</li><li>Каждый ответ сверяется с этим текстом</li><li>Вы видите цифрой, что происходит на линии</li></ul>
+  <p><a class="btn" href="#talk">Сначала поговорить с ней</a></p>
+  <p style="margin-top:10px"><a class="btn" href="https://buy.stripe.com/eVqfZ92R23NoaLH1jtfrW07">Оплатить и начать — $1&nbsp;000 + $199 за первый месяц</a></p>
+  <p class="bsub">Получайте глубокую диагностику в подарок.</p>
+  <p class="bsub">Оплата картой. Лист правды пришлём сразу после — заполняете в своём темпе.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">В подарок</p><h2>К Вере — глубокая диагностика вашего бизнеса.</h2>
+  <p class="lede">Отдельно она стоит $500. Вместе с Верой — в подарок.</p>
+  <div class="steps">
+    <div class="st"><span class="k">ДНК бизнеса</span><p>Ваше отличие одним предложением, которое работает и на сайте, и в разговоре.</p></div>
+    <div class="st"><span class="k">ДНК клиента</span><p>Портрет покупателя его же словами: за что он платит на самом деле, чего боится, чем возражает.</p></div>
+    <div class="st"><span class="k">Карта разрывов</span><p>Где именно вы теряете клиентов — по приоритету, а не списком. И какой рычаг трогать первым.</p></div>
+    <div class="st"><span class="k">Разбор конкурентов</span><p>Мы сами смотрим ваш рынок по открытым источникам, а не верим на слово.</p></div>
+    <div class="st"><span class="k">Три точки для AI</span><p>Ровно три места, где AI даёт вам деньги или время, привязанные к вашим потерям.</p></div>
+    <div class="st"><span class="k">Документ на руки</span><p>Всё перечисленное оформленным PDF. Останется у вас, даже если дальше вы с нами не пойдёте.</p></div>
+  </div>
+  <p>Анкету вы получаете сразу после оплаты. <b>Документ приходит в течение трёх рабочих дней</b> после того, как вы её заполнили.</p>
+  <p style="margin-top:22px"><a class="btn" href="https://buy.stripe.com/eVqfZ92R23NoaLH1jtfrW07">Оплатить и начать — $1&nbsp;000 + $199 за первый месяц</a></p>
+  <p class="bsub">Оплатите — и сразу получите анкету для глубокой диагностики.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Десять рабочих дней</p><h2>Как идёт запуск.</h2>
+  <div class="steps">
+    <div class="st"><span class="k">День 1</span><p>Присылаем лист правды — двадцать два вопроса о том, что у вас считается правильным ответом. Заполняете в своём темпе, голосом или текстом.</p></div>
+    <div class="st"><span class="k">Дни 2–5</span><p>Пишем её текст под ваш прайс. Вы читаете и правите. Пока не подписали — не запускаем.</p></div>
+    <div class="st"><span class="k">Дни 6–8</span><p>Обкатка. Тридцать звонков по сетке часов, включая кривые вопросы и то, чего вы не делаете. Правим то, что вылезло.</p></div>
+    <div class="st"><span class="k">День 9</span><p>Переадресация с вашего действующего номера. Номер остаётся ваш.</p></div>
+    <div class="st"><span class="k">День 10</span><p>Запуск и отчёт обкатки на руки.</p></div>
+    <div class="st"><span class="k">Дальше</span><p>Раз в неделю письмо: где она отошла от листа правды. При любой правке текста — полный повторный прогон.</p></div>
+  </div>
+    <p style="margin-top:22px"><a class="btn" href="https://buy.stripe.com/eVqfZ92R23NoaLH1jtfrW07">Оплатить и начать — $1&nbsp;000 + $199 за первый месяц</a></p>
+    <p class="bsub">Получайте глубокую диагностику в подарок.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Гарантии</p><h2>Мы обещаем работу и свободу уйти.</h2>
+  <div class="g"><p class="t">Не запустили за десять рабочих дней — месяц бесплатно</p>
+    <p>Отсчёт с часа, когда вы подписали лист правды, а не с оплаты.</p></div>
+  <div class="g"><p class="t">Сломалось — выключаем в тот же день и месяц не берём</p>
+    <p>Не «разберёмся» и не «поставим в очередь». Выключаем, возвращаем звонки на вас, чиним, включаем обратно. Месяц, в котором это случилось, не оплачивается.</p></div>
+  <div class="g"><p class="t">Уходите в один клик</p>
+    <p>Месяц в месяц, без окна отмены. Номер ваш — просто снимаете переадресацию. Лист правды и все расшифровки забираете с собой.</p></div>
+  <h3>Чего мы не обещаем</h3>
+  <p>Ни процента, ни количества записей, ни срока окупаемости. Сколько людей запишется — зависит от вашего рынка и вашей цены, а не от того, кто взял трубку. Обещаем, что трубку возьмут и что вы увидите каждый разговор.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Кто это делает</p><h2>С вами будут работать</h2>
+  <figure style="max-width:420px"><img src="img/foto.webp" alt="Андрей и Маша — двое, кто делает эту работу." width="820" height="850"></figure>
+  <p><b>Андрей.</b> Предприниматель с тридцатилетним опытом. Финансовый холдинг, налоговая оптимизация корпораций, стратегия. Инвестор.</p>
+  <p><b>Маша.</b> Экс-CFO крупной корпорации, предприниматель. Психология клиента, переговоры и нетворкинг. Системность и доведение до конца.</p>
+  <p>Муж и жена, выкованные в финансах.</p>
+  <p class="fine">Андрей и Маша. Wealthboosterpro LLC, Каспер, Вайоминг.</p>
+</div></div></section>
+
+<section id="voprosy"><div class="w"><div class="narrow">
+  <p class="eyebrow">Честные вопросы</p><h2>Четыре, которые вы уже задали про себя.</h2>
+  <div class="obj"><p class="q">«Клиенты разозлятся, что с ними говорит робот»</p>
+    <p>Злятся не на робота, а на стену. Вера в первой фразе говорит, что она не человек, и в любой момент переводит на живого. Бесит другое — когда до человека не добраться вообще.</p></div>
+  <div class="obj"><p class="q">«Есть за $49 в месяц»</p>
+    <p>Есть, и работает. Если нужно просто снять трубку — берите, серьёзно. Разница в трёх вещах: её текст написан под ваш прайс и подписан вами, каждый ответ механически сверяется с этим текстом, и раз в неделю вы видите, где она от него отошла. За $49 промпт не переписывают, и сверять не с чем.</p></div>
+  <div class="obj"><p class="q">«А если она наговорит лишнего»</p>
+    <p>Наговорит, и иногда — это физика, а не брак: на длинном разговоре любая модель теряет точность, и это измерено. Поэтому у нас стоит сторож, который сверяет каждый её ответ с подписанным вами листом. Сломается — выключаем в тот же день и месяц не берём.</p></div>
+<div class="obj"><p class="q">«Я не уверен, что у меня болит именно это»</p>
+<p>Тогда не берите эту работу. У нас есть отдельный шаг ровно для такого случая — когда болит везде сразу или непонятно где: <b>глубокая диагностика</b>. Разбор вашего дела по открытым источникам и вашим же ответам, $500 один раз. Не увидим, где вам это выгодно, — скажем прямо. <a href="/diagnostic/ru/">Что в неё входит →</a></p></div>
+    <p style="margin-top:22px"><a class="btn" href="https://buy.stripe.com/eVqfZ92R23NoaLH1jtfrW07">Оплатить и начать — $1&nbsp;000 + $199 за первый месяц</a></p>
+    <p class="bsub">Получайте глубокую диагностику в подарок.</p>
+</div></div></section>
+
+<section><div class="w"><div class="narrow cen">
+  <h2>Три минуты, и вы сами всё поймёте.</h2>
+  <p class="lede">Позвоните ей и спросите что угодно. Расшифровку вашего разговора пришлём на почту.</p>
+  <p style="margin-top:28px"><a class="btn" href="#talk">Поговорить с Верой</a></p>
+  <p class="bsub">Три минуты · без установки · расшифровка на почту</p>
+  <p style="margin-top:22px"><a class="btn btn2" href="https://buy.stripe.com/eVqfZ92R23NoaLH1jtfrW07">Оплатить и начать — $1&nbsp;000 + $199 за первый месяц</a></p>
+  <p class="bsub">Оплатите — и сразу получите анкету для глубокой диагностики.</p>
+</div></div></section>
+
+<footer><div class="w"><div class="narrow"><p class="fine">Wealthboosterpro LLC, dba Business Intelligence DNA · 5830 E 2nd St Ste 7000, Casper, WY 82609</p></div></div></footer>

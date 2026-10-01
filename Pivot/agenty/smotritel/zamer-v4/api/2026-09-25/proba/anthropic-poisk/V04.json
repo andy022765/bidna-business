@@ -1,0 +1,563 @@
+{
+ "vopros_id": "V04",
+ "vopros": "Нейросеть говорит про мой бизнес неправду. К кому обратиться, чтобы это поправили?",
+ "versiya_spiska": "v4-vidimost-CHERNOVIK",
+ "otpechatok": "3a6ad18284cb",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "proba",
+ "den": "2026-09-25",
+ "vne_okna": false,
+ "zapusk_id": "20260925-120054-33259",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-25T12:01:35-07:00",
+   "zapusk_id": "20260925-120054-33259",
+   "cena": 0.06995,
+   "ishod": "ok",
+   "sekund": 27.4,
+   "meta": {
+    "request_id": "req_011CfQg5maziR3dpz3bqzc74"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Важно понимать: у ИИ-моделей нет единого «редактора», к которому можно просто написать «исправьте» — но есть несколько рабочих направлений.\n\n## 1. Обратная связь напрямую в самом сервисе\n\nПожаловаться на неверную информацию в ChatGPT, Google AI Overviews и других нейросетях можно через встроенные механизмы обратной связи, которые есть у каждой из них. Обычно это кнопка «жалоба» / «не нравится ответ» под самим сообщением. Это не гарантирует моментального исправления, но сигнализирует разработчикам о проблеме.\n\n## 2. Проверить, откуда «растут ноги» у ошибки\n\nЭто галлюцинация: где данных мало или они противоречат, модель закрывает пробел усреднённым шаблоном ниши. Часто дело не в злом умысле нейросети, а в том, что модель берёт информацию из того, что есть в интернете, поэтому неточности обычно означают, что верных данных мало, они противоречивы или устарели.\n\nПервый практический шаг — диагностика: зафиксировать проблему — понять, какие именно запросы дают неправильное описание, что именно неверно, повторяется ли ошибка в разных системах и какие источники могут её поддерживать.\n\n## 3. Исправить первоисточники в интернете\nПоскольку сама модель обычно «сборник» сведений из сети, эффективнее работать не с ИИ напрямую, а с тем, что он читает:\n\n- **Обновить официальные данные о компании.** Обновить базовые источники — сайт, страницы услуг, раздел «О компании», профили основателей, карточки и справочники должны давать нейросетям ясную и одинаковую информацию.\n- **Убрать противоречия между площадками.** Привести в порядок факты о компании на своём сайте, обновить данные на внешних площадках и в каталогах, убрать противоречия между источниками. Единая формулировка важна: критично — с единой формулировкой. Если на сайте вы «платформа для найма в маркетинге», в статье «сервис подбора персонала», а в каталоге «кадровое агентство» — для модели это три разные сущности.\n- **Добавить структурированные данные.** Добавьте или обновите разметку Organization (тип структурированных данных), чтобы модели могли подтвердить вашу сущность, местоположение и ключевые атрибуты.\n- **Явно обозначить, чего у вас нет.** Лечится насыщением инфополя согласованными фактами — на сайте и снаружи, плюс блок «чего мы не делаем» в llms.txt, который прямо режет галлюцинации.\n\n## 4. Наберитесь терпения\nИзменения происходят не мгновенно: исправления в ответах нейросетей могут проявиться через несколько недель или даже месяцев — это зависит от конкретной нейросети, частоты ее обновлений и того, насколько широко скорректированная информация распространилась по интернету. Чёткой «кнопки исправить» не существует — быстрой кнопки исправить нет: ответы моделей меняются постепенно, по мере обновления того, на что они опираются.\n\n## 5. Если ошибка серьёзная (юридический/репутационный ущерб)\nЕсли неправда наносит реальный вред репутации (например, ложные обвинения, выдуманные факты о нарушениях), можно:\n- Направить официальную жалобу через форму обратной связи/поддержку конкретного сервиса (OpenAI, Яндекс и т.д.) с указанием на недостоверность и потенциальный вред.\n- Задокументировать конкретные запросы и ответы как доказательство для возможного юридического обращения (если ущерб значительный) — но учтите, что модели прямо предупреждают о своей ненадёжности: используйте ChatGPT как первый черновик, а не как окончательный источник, проверяйте важную информацию.\n\n**Практический план действий:**\n1. Соберите конкретные примеры (какие запросы → какие неверные ответы) в разных нейросетях.\n2. Отправьте жалобу через встроенную кнопку feedback в каждом сервисе.\n3. Параллельно наведите порядок в источниках: сайт, соцсети, карты, каталоги, отраслевые СМИ — везде должна быть одинаковая, актуальная формулировка о вашем бизнесе.\n4. Проверяйте результат раз в несколько недель — эффект накопительный, а не мгновенный.",
+  "poiskovye_zaprosy": [
+   "нейросеть говорит неправду про бизнес куда обратиться исправить",
+   "как исправить недостоверную информацию о компании в ChatGPT Yandex GPT"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://www.sostav.ru/blogs/280961/105042",
+    "domen": "sostav.ru",
+    "title": "Как попасть в ответы нейросетей: продвижение и репутация бизнеса в ИИ выдаче"
+   },
+   {
+    "url": "https://www.sostav.ru/blogs/287011/93252",
+    "domen": "sostav.ru",
+    "title": "Как исправлять неправильные ответы нейросетей о компании"
+   },
+   {
+    "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii",
+    "domen": "1ps.ru",
+    "title": "Как ошибки AI-ответов портят репутацию компании: AI ORM и GEO в 2026 году"
+   },
+   {
+    "url": "https://vc.ru/ai/2280126-pochemu-neyroseti-obmanyvayut-i-kak-izbezhat-oshibok",
+    "domen": "vc.ru",
+    "title": "Почему нейросети «врут» — и как перестать попадаться на их ошибки — AI на vc.ru"
+   },
+   {
+    "url": "https://kompot.bz/blog/tpost/54xj8zbhd1-pochemu-chatgpt-inogda-vryot-pro-vashu-k",
+    "domen": "kompot.bz",
+    "title": "Почему ChatGPT иногда врёт про вашу компанию и как это исправить"
+   },
+   {
+    "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende",
+    "domen": "ai.pixeltools.ru",
+    "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс"
+   },
+   {
+    "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah",
+    "domen": "kultura101.ru",
+    "title": "Что нейросети говорят о вашей компании: как проверить"
+   },
+   {
+    "url": "https://rookee.ru/blog/neyroseti-vrut-pro-vashu-kompaniyu-chto-takoe-gallyutsinatsii-i-kak-ot-nikh-spastis",
+    "domen": "rookee.ru",
+    "title": "Нейросети врут про вашу компанию. Что такое галлюцинации и как от них спастись? | Блог Rookee"
+   },
+   {
+    "url": "https://dzen.guru/news/ii-poisk-iskazhaet-informatsiyu-o-brende-poshagovyy-plan-kak-vernut-kontrol",
+    "domen": "dzen.guru",
+    "title": "ИИ-поиск искажает информацию о бренде: пошаговый план, как вернуть контроль"
+   },
+   {
+    "url": "https://www.sostav.ru/blogs/292278/98682",
+    "domen": "sostav.ru",
+    "title": "15 причин, почему ChatGPT не рекомендует вашу компанию — и как это исправить"
+   },
+   {
+    "url": "https://pr-cy.ru/news/p/10646-kak-ispolzovat-yandex-gpt",
+    "domen": "pr-cy.ru",
+    "title": "Как пользоваться YandexGPT и что умеет нейросеть от Яндекса – PR-CY Блог"
+   },
+   {
+    "url": "https://www.sostav.ru/publication/v-rekomendatsiyakh-openai-nashli-nedostovernuyu-informatsiyu-o-kazhdoj-devyatoj-kompanii-86357.html",
+    "domen": "sostav.ru",
+    "title": "В рекомендациях OpenAI нашли недостоверную информацию о каждой девятой компании"
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/8313428-does-chatgpt-tell-the-truth",
+    "domen": "help.openai.com",
+    "title": "Говорит ли ChatGPT правду? | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/collections/3742473-chatgpt",
+    "domen": "help.openai.com",
+    "title": "ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://lala.lanbook.ru/rubrika-kachestvo/tpost/9gu7nreey1-proverka-chatgpt-prompti-protiv-oshibok",
+    "domen": "lala.lanbook.ru",
+    "title": "Проверка ChatGPT: промпты против ошибок и выдумок"
+   },
+   {
+    "url": "https://lab-leaders.com/guides/oshibki-chatgpt-o-kompanii",
+    "domen": "lab-leaders.com",
+    "title": "Ошибки ChatGPT о вашей компании - Lab Leaders"
+   },
+   {
+    "url": "https://habr.com/en/news/392143",
+    "domen": "habr.com",
+    "title": "Компании приходится проверять заявления, поданные в бумажном виде"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende",
+    "domen": "ai.pixeltools.ru",
+    "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс"
+   },
+   {
+    "url": "https://www.sostav.ru/blogs/280961/105042",
+    "domen": "sostav.ru",
+    "title": "Как попасть в ответы нейросетей: продвижение и репутация бизнеса в ИИ выдаче"
+   },
+   {
+    "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah",
+    "domen": "kultura101.ru",
+    "title": "Что нейросети говорят о вашей компании: как проверить"
+   },
+   {
+    "url": "https://www.sostav.ru/blogs/287011/93252",
+    "domen": "sostav.ru",
+    "title": "Как исправлять неправильные ответы нейросетей о компании"
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/8313428-does-chatgpt-tell-the-truth",
+    "domen": "help.openai.com",
+    "title": "Говорит ли ChatGPT правду? | OpenAI Help Center"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 15482,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1899
+  },
+  "cena": 0.06995,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfQg5nd1JZ7bDGp2Axm63",
+    "request_id": "req_011CfQg5maziR3dpz3bqzc74",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 15482,
+     "output_tokens": 1899,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01JfxTJ5s5VSgXn53QF19WG9",
+    "caller": null,
+    "input": {
+     "query": "нейросеть говорит неправду про бизнес куда обратиться исправить"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01Bo5KiP8Ss1LZgpEnQNoF9T",
+    "caller": null,
+    "input": {
+     "query": "как исправить недостоверную информацию о компании в ChatGPT Yandex GPT"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "1 month ago",
+      "title": "Как попасть в ответы нейросетей: продвижение и репутация бизнеса в ИИ выдаче",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/blogs/280961/105042"
+     },
+     {
+      "page_age": null,
+      "title": "Как исправлять неправильные ответы нейросетей о компании",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/blogs/287011/93252"
+     },
+     {
+      "page_age": "July 17, 2026",
+      "title": "Как ошибки AI-ответов портят репутацию компании: AI ORM и GEO в 2026 году",
+      "type": "web_search_result",
+      "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii/"
+     },
+     {
+      "page_age": "October 17, 2025",
+      "title": "Почему нейросети «врут» — и как перестать попадаться на их ошибки — AI на vc.ru",
+      "type": "web_search_result",
+      "url": "https://vc.ru/ai/2280126-pochemu-neyroseti-obmanyvayut-i-kak-izbezhat-oshibok"
+     },
+     {
+      "page_age": null,
+      "title": "Почему ChatGPT иногда врёт про вашу компанию и как это исправить",
+      "type": "web_search_result",
+      "url": "https://kompot.bz/blog/tpost/54xj8zbhd1-pochemu-chatgpt-inogda-vryot-pro-vashu-k"
+     },
+     {
+      "page_age": null,
+      "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс",
+      "type": "web_search_result",
+      "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende"
+     },
+     {
+      "page_age": "July 24, 2026",
+      "title": "Что нейросети говорят о вашей компании: как проверить",
+      "type": "web_search_result",
+      "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah/"
+     },
+     {
+      "page_age": "May 21, 2026",
+      "title": "Нейросети врут про вашу компанию. Что такое галлюцинации и как от них спастись? | Блог Rookee",
+      "type": "web_search_result",
+      "url": "https://rookee.ru/blog/neyroseti-vrut-pro-vashu-kompaniyu-chto-takoe-gallyutsinatsii-i-kak-ot-nikh-spastis/"
+     },
+     {
+      "page_age": "3 weeks ago",
+      "title": "ИИ-поиск искажает информацию о бренде: пошаговый план, как вернуть контроль",
+      "type": "web_search_result",
+      "url": "https://dzen.guru/news/ii-poisk-iskazhaet-informatsiyu-o-brende-poshagovyy-plan-kak-vernut-kontrol"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01JfxTJ5s5VSgXn53QF19WG9",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "15 причин, почему ChatGPT не рекомендует вашу компанию — и как это исправить",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/blogs/292278/98682"
+     },
+     {
+      "page_age": null,
+      "title": "Как пользоваться YandexGPT и что умеет нейросеть от Яндекса – PR-CY Блог",
+      "type": "web_search_result",
+      "url": "https://pr-cy.ru/news/p/10646-kak-ispolzovat-yandex-gpt"
+     },
+     {
+      "page_age": "August 25, 2026",
+      "title": "В рекомендациях OpenAI нашли недостоверную информацию о каждой девятой компании",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/publication/v-rekomendatsiyakh-openai-nashli-nedostovernuyu-informatsiyu-o-kazhdoj-devyatoj-kompanii-86357.html"
+     },
+     {
+      "page_age": "July 30, 2026",
+      "title": "Говорит ли ChatGPT правду? | OpenAI Help Center",
+      "type": "web_search_result",
+      "url": "https://help.openai.com/ru-ru/articles/8313428-does-chatgpt-tell-the-truth"
+     },
+     {
+      "page_age": null,
+      "title": "ChatGPT | OpenAI Help Center",
+      "type": "web_search_result",
+      "url": "https://help.openai.com/ru-ru/collections/3742473-chatgpt"
+     },
+     {
+      "page_age": null,
+      "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс",
+      "type": "web_search_result",
+      "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende"
+     },
+     {
+      "page_age": "October 16, 2025",
+      "title": "Проверка ChatGPT: промпты против ошибок и выдумок",
+      "type": "web_search_result",
+      "url": "https://lala.lanbook.ru/rubrika-kachestvo/tpost/9gu7nreey1-proverka-chatgpt-prompti-protiv-oshibok"
+     },
+     {
+      "page_age": "August 25, 2026",
+      "title": "Ошибки ChatGPT о вашей компании - Lab Leaders",
+      "type": "web_search_result",
+      "url": "https://lab-leaders.com/guides/oshibki-chatgpt-o-kompanii"
+     },
+     {
+      "page_age": null,
+      "title": "Компании приходится проверять заявления, поданные в бумажном виде",
+      "type": "web_search_result",
+      "url": "https://habr.com/en/news/392143/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Bo5KiP8Ss1LZgpEnQNoF9T",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "Важно понимать: у ИИ-моделей нет единого «редактора», к которому можно просто написать «исправьте» — но есть несколько рабочих направлений.\n\n## 1. Обратная связь напрямую в самом сервисе\n\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Пожаловаться на неверную информацию в ChatGPT, Google AI Overviews и других нейросетях можно через встроенные механизмы обратной связи, которые есть у...",
+      "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс",
+      "type": "web_search_result_location",
+      "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende"
+     }
+    ],
+    "text": "Пожаловаться на неверную информацию в ChatGPT, Google AI Overviews и других нейросетях можно через встроенные механизмы обратной связи, которые есть у каждой из них.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Обычно это кнопка «жалоба» / «не нравится ответ» под самим сообщением. Это не гарантирует моментального исправления, но сигнализирует разработчикам о проблеме.\n\n## 2. Проверить, откуда «растут ноги» у ошибки\n\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Почему нейросеть приписывает компании то, чего не было? Это галлюцинация: где данных мало или они противоречат, модель закрывает пробел усреднённым ша...",
+      "title": "Как попасть в ответы нейросетей: продвижение и репутация бизнеса в ИИ выдаче",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/280961/105042"
+     }
+    ],
+    "text": "Это галлюцинация: где данных мало или они противоречат, модель закрывает пробел усреднённым шаблоном ниши.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Часто дело не в злом умысле нейросети, а в том, что ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Модель берёт информацию из того, что есть в интернете, поэтому неточности обычно означают, что верных данных мало, они противоречивы или устарели. ",
+      "title": "Что нейросети говорят о вашей компании: как проверить",
+      "type": "web_search_result_location",
+      "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah/"
+     }
+    ],
+    "text": "модель берёт информацию из того, что есть в интернете, поэтому неточности обычно означают, что верных данных мало, они противоречивы или устарели",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nПервый практический шаг — диагностика: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Первый шаг — зафиксировать проблему. Нужно понять, какие именно запросы дают неправильное описание, что именно неверно, повторяется ли ошибка в разных...",
+      "title": "Как исправлять неправильные ответы нейросетей о компании",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/287011/93252"
+     }
+    ],
+    "text": "зафиксировать проблему — понять, какие именно запросы дают неправильное описание, что именно неверно, повторяется ли ошибка в разных системах и какие источники могут её поддерживать",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## 3. Исправить первоисточники в интернете\nПоскольку сама модель обычно «сборник» сведений из сети, эффективнее работать не с ИИ напрямую, а с тем, что он читает:\n\n- **Обновить официальные данные о компании.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Третий шаг — обновить базовые источники. Сайт, страницы услуг, раздел «О компании», профили основателей, карточки и справочники должны давать нейросет...",
+      "title": "Как исправлять неправильные ответы нейросетей о компании",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/287011/93252"
+     }
+    ],
+    "text": "Обновить базовые источники — сайт, страницы услуг, раздел «О компании», профили основателей, карточки и справочники должны давать нейросетям ясную и одинаковую информацию.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Убрать противоречия между площадками.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Практические шаги: привести в порядок факты о компании на своём сайте, обновить данные на внешних площадках и в каталогах, убрать противоречия между и...",
+      "title": "Что нейросети говорят о вашей компании: как проверить",
+      "type": "web_search_result_location",
+      "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah/"
+     }
+    ],
+    "text": "Привести в порядок факты о компании на своём сайте, обновить данные на внешних площадках и в каталогах, убрать противоречия между источниками.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Единая формулировка важна: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "И критично — с единой формулировкой. Если на сайте вы «платформа для найма в маркетинге», в статье «сервис подбора персонала», а в каталоге «кадровое ...",
+      "title": "Как попасть в ответы нейросетей: продвижение и репутация бизнеса в ИИ выдаче",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/280961/105042"
+     }
+    ],
+    "text": "критично — с единой формулировкой. Если на сайте вы «платформа для найма в маркетинге», в статье «сервис подбора персонала», а в каталоге «кадровое агентство» — для модели это три разные сущности.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Добавить структурированные данные.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Добавьте или обновите разметку Organization (тип структурированных данных), чтобы модели могли подтвердить вашу сущность, местоположение и ключевые ат...",
+      "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс",
+      "type": "web_search_result_location",
+      "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende"
+     }
+    ],
+    "text": "Добавьте или обновите разметку Organization (тип структурированных данных), чтобы модели могли подтвердить вашу сущность, местоположение и ключевые атрибуты.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Явно обозначить, чего у вас нет.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Лечится насыщением инфополя согласованными фактами — на сайте и снаружи, плюс блок «чего мы не делаем» в llms.txt. ",
+      "title": "Как попасть в ответы нейросетей: продвижение и репутация бизнеса в ИИ выдаче",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/280961/105042"
+     },
+     {
+      "cited_text": "Блок «чего мы не делаем» прямо режет галлюцинации. ",
+      "title": "Как попасть в ответы нейросетей: продвижение и репутация бизнеса в ИИ выдаче",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/280961/105042"
+     }
+    ],
+    "text": "Лечится насыщением инфополя согласованными фактами — на сайте и снаружи, плюс блок «чего мы не делаем» в llms.txt, который прямо режет галлюцинации.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## 4. Наберитесь терпения\nИзменения происходят не мгновенно: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Исправления в ответах нейросетей могут проявиться через несколько недель или даже месяцев — это зависит от конкретной нейросети, частоты ее обновлений...",
+      "title": "Как исправить то, что нейросеть (Алиса, ChatGPT, Google AI Overviews) пишет о бренде? Корректировка информации от ИИ про ваш бизнес и бренд — Пиксель Тулс",
+      "type": "web_search_result_location",
+      "url": "https://ai.pixeltools.ru/blog/kak-nayti-i-ispravit-to-chto-ii-neverno-govorit-o-vashem-brende"
+     }
+    ],
+    "text": "исправления в ответах нейросетей могут проявиться через несколько недель или даже месяцев — это зависит от конкретной нейросети, частоты ее обновлений и того, насколько широко скорректированная информация распространилась по интернету.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Чёткой «кнопки исправить» не существует — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Быстрой кнопки исправить нет: ответы моделей меняются постепенно, по мере обновления того, на что они опираются. ",
+      "title": "Что нейросети говорят о вашей компании: как проверить",
+      "type": "web_search_result_location",
+      "url": "https://kultura101.ru/blog/kak-proverit-upominaniya-v-neyrosetyah/"
+     }
+    ],
+    "text": "быстрой кнопки исправить нет: ответы моделей меняются постепенно, по мере обновления того, на что они опираются.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## 5. Если ошибка серьёзная (юридический/репутационный ущерб)\nЕсли неправда наносит реальный вред репутации (например, ложные обвинения, выдуманные факты о нарушениях), можно:\n- Направить официальную жалобу через форму обратной связи/поддержку конкретного сервиса (OpenAI, Яндекс и т.д.) с указанием на недостоверность и потенциальный вред.\n- Задокументировать конкретные запросы и ответы как доказательство для возможного юридического обращения (если ущерб значительный) — но учтите, что модели прямо предупреждают о своей ненадёжности: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Используйте ChatGPT как первый черновик, а не как окончательный источник. Проверяйте важную информацию. ",
+      "title": "Говорит ли ChatGPT правду? | OpenAI Help Center",
+      "type": "web_search_result_location",
+      "url": "https://help.openai.com/ru-ru/articles/8313428-does-chatgpt-tell-the-truth"
+     }
+    ],
+    "text": "используйте ChatGPT как первый черновик, а не как окончательный источник, проверяйте важную информацию.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**Практический план действий:**\n1. Соберите конкретные примеры (какие запросы → какие неверные ответы) в разных нейросетях.\n2. Отправьте жалобу через встроенную кнопку feedback в каждом сервисе.\n3. Параллельно наведите порядок в источниках: сайт, соцсети, карты, каталоги, отраслевые СМИ — везде должна быть одинаковая, актуальная формулировка о вашем бизнесе.\n4. Проверяйте результат раз в несколько недель — эффект накопительный, а не мгновенный.",
+    "type": "text"
+   }
+  ]
+ }
+}

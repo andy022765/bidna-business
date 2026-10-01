@@ -1,0 +1,91 @@
+{
+  "_chto_eto": "Документ db panel/config пульта рекламы Веры (v2, 30.09). Сеет и правит главный агент (ArtifactData set/update). Пульт берёт отсюда ID, деньги, даты и все пороги; в коде страницы — только те же значения по умолчанию. Пороги — наши эвристики, не правила Meta (SPEC-PULT-v2.md).",
+  "updatedAt": "2026-09-30T12:10:00-07:00",
+  "server": "Meta Ads",
+  "account": "1004461399321073",
+  "campaign": "120249932374020430",
+  "page": "269332329600895",
+  "phone": "+1 424 781 1913",
+  "workingAdset": "120249962195710430",
+  "doNotEnable": ["120249932377750430"],
+  "adsets": [
+    {"id": "120249962195710430", "name": "RU_NYLA_260930", "role": "рабочая с 30.09 09:56"},
+    {"id": "120249932377750430", "name": "RU_NYLA_260928", "role": "старая, на паузе с 30.09 09:56 — не включать (вместе с новой $30 в день)"}
+  ],
+  "ads": [
+    {"id": "120249962197880430", "tag": "bot", "name": "bot_v2s", "title": "Бот", "hook": "«Бот пообещал клиенту бесплатный визит»", "adset": "120249962195710430"},
+    {"id": "120249962202330430", "tag": "pismo", "name": "pismo_v2s", "title": "Письмо", "hook": "«После каждого звонка — письмо вам»", "adset": "120249962195710430"},
+    {"id": "120249962203870430", "tag": "demo", "name": "demo_v3s", "title": "Дорого", "hook": "«Скажите ей «дорого»»", "adset": "120249962195710430"}
+  ],
+  "tags": {
+    "noch": {"title": "Ночь", "hook": "«Пятница, 23:41. Вам звонят…»"},
+    "bot": {"title": "Бот", "hook": "«Бот пообещал клиенту бесплатный визит»"},
+    "pismo": {"title": "Письмо", "hook": "«После каждого звонка — письмо вам»"},
+    "demo": {"title": "Дорого", "hook": "«Скажите ей «дорого»»"}
+  },
+  "test": {"start": "2026-09-28", "end": "2026-10-07", "endTime": "2026-10-07T23:59:00-07:00", "leaderFrom": "2026-10-04"},
+  "money": {
+    "daily": 15,
+    "campaignCap": 150,
+    "accountCap": 200,
+    "weekly": [
+      {"from": "2026-09-27", "to": "2026-10-03", "max": 90},
+      {"from": "2026-10-04", "to": "2026-10-10", "max": 60}
+    ]
+  },
+  "quiet": {"until": "2026-10-03T10:00:00-07:00", "why": "72 часа после пересборки группы RU_NYLA_260930 (30.09 09:57)"},
+  "knownDrafts": [
+    {"id": "120249933239550430", "time_updated": 1790787210, "why": "пауза noch_v2 — Meta не публикует; безвредна (группа на паузе)"},
+    {"id": "120249962197880430", "time_updated": 1790787841, "why": "имя bot_v2s = живому, пустая правка после пробы"},
+    {"id": "120249962203870430", "time_updated": 1790787839, "why": "имя demo_v3s = живому, пустая правка после пробы"}
+  ],
+  "poll": {"fastMin": 5, "slowMin": 15},
+  "guard": {"_chto_eto": "предохранитель кнопки «Да»: что пульт вообще согласен отправить в Meta (опечатка в центах, чужой объект). Не решение о деньгах. maxCampaignCap null = не выше потолка аккаунта", "maxDaily": 30, "maxCampaignCap": null, "maxEnd": "2026-10-31T23:59:00-07:00", "fields": ["status", "daily_budget", "spend_cap", "end_time", "stop_time"]},
+  "links": {
+    "billing": "https://business.facebook.com/latest/billing_hub/payment_settings/?payment_account_id=1004461399321073&asset_id=1004461399321073",
+    "adsManager": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=1004461399321073&selected_campaign_ids=120249932374020430",
+    "failedPaymentHelp": "https://www.facebook.com/business/help/268196136699959",
+    "spendingLimitHelp": "https://www.facebook.com/business/help/764293677236889"
+  },
+  "thresholds": {
+    "dayHours": {"from": 7, "to": 23},
+    "pulse": {"dayYellowMin": 75, "dayRedMin": 120, "nightYellowMin": 600, "nightRedMin": 720, "morningGraceMin": 45},
+    "noData": {"waitSec": 90, "staleMult": 3},
+    "nothingRunsGraceMin": 30,
+    "fullCheck": {"yellowH": 16, "redH": 24},
+    "watch": {"yellowH": 3, "redH": 6},
+    "payment": {"notActiveAfterMoneyMin": 60},
+    "quietStop": {"zeroHours": 2, "graceHoursAfterStart": 3, "lagMin": 30, "halfDayHour": 18, "halfDayShare": 0.5},
+    "todaySpend": {"yellowPct": 150, "redPct": 175},
+    "week": {"yellowShare": 0.9},
+    "planLag": {"yellowShare": 0.3},
+    "endSoonH": 48,
+    "draftYellowH": 2,
+    "pendingReviewH": 24,
+    "deliveryPendingH": 24,
+    "campaignCapLeft": {"yellow": 45, "red": 15},
+    "accountCapLeft": {"yellow": 45, "red": 15},
+    "prepaidLeft": {"yellow": 15, "red": 5},
+    "ads": {
+      "judgeSpend": 10, "judgeImpr": 1000,
+      "stopSpend": 15, "stopWarnSpend": 12,
+      "costPerCallRed": 40, "costPerCallYellow": 30, "costMinCalls": 2,
+      "waitYellow": 2, "waitRed": 5,
+      "frequencyYellow": 2.5,
+      "spendShareYellow": 0.7,
+      "leaderMinCalls": 3,
+      "benchLow": 0.7, "benchHigh": 1.3
+    },
+    "line": {
+      "callsDayYellow": 10, "callsDayRed": 15,
+      "mailsYellow": 45, "mailsRed": 60,
+      "clicksNoCallYellow": 3, "clicksNoCallRed": 5,
+      "metaVsLineYellow": 3,
+      "unansweredYellowH": 4, "unansweredRedH": 24,
+      "targetCost": 20, "costRed": 40
+    },
+    "test": {"noCallsYellow": 75, "noCallsStop": 100},
+    "decisionPendingYellowH": 12,
+    "inboxNewYellowH": 12
+  }
+}

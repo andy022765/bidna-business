@@ -1,0 +1,195 @@
+{
+ "vopros_id": "G06",
+ "vopros": "Нанять человека на телефон или поставить голосового робота — что выгоднее малому бизнесу?",
+ "versiya_spiska": "v2-golosovoy-dezhurny",
+ "otpechatok": "c458d38d1699",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-09-23",
+ "vne_okna": false,
+ "zapusk_id": "20260923-133207-99702",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-23T13:33:24-07:00",
+   "zapusk_id": "20260923-133207-99702",
+   "cena": 0.01918,
+   "ishod": "ok",
+   "sekund": 5.7,
+   "meta": {
+    "date": "Wed, 23 Sep 2026 20:33:30 GMT",
+    "x-request-id": "req_4e4eec5320854d7eb83de2274803832f",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "5540"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Для малого бизнеса чаще выгоднее не выбирать строго одно из двух, а использовать робота для первого контакта и человека — для сложных или ценных звонков.\n\n- Человек выгоднее, если звонков немного, сделки дорогие, клиентам нужны консультации, переговоры или эмпатия. Сотрудник умеет импровизировать и лучше закрывает нестандартные ситуации.\n- Голосовой робот выгоднее при большом количестве однотипных звонков: запись, подтверждение визита, квалификация лида, напоминания, ответы на типовые вопросы. Он может одновременно вести несколько разговоров и не требует отдельной оплаты за часы ожидания.\n- У робота есть скрытые расходы: настройка сценариев, интеграция с CRM/календарём, телефония, распознавание и генерация речи, контроль качества. Плохо настроенный бот может стоить дешевле сотрудника, но терять клиентов.\n- У человека главный недостаток — постоянная стоимость. Например, при условной полной стоимости рабочего времени $25/час только 160 часов дают около $4 000 в месяц, ещё до возможных дополнительных расходов работодателя.\n\nПрактическое правило: если у вас 10–30 содержательных звонков в день и каждый потенциальный клиент ценен, я бы оставил человека. Если идут десятки или сотни преимущественно типовых звонков — автоматизация обычно начинает выигрывать.\n\nЕсли дадите 4 цифры — количество звонков в месяц, среднюю длительность, зарплату оператора и примерную ценность одного клиента — я могу посчитать экономику «человек vs робот» конкретно для вашего бизнеса.",
+  "poiskovye_zaprosy": [
+   "calculator: 160*25"
+  ],
+  "poiskovyh_zaprosov": 1,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [],
+  "citaty_v_tekste": [],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 4550,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 349,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 4899
+  },
+  "cena": 0.01918,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_02b95c601a815f25006ab43795105487d09d2a1b0bc6051eb9",
+  "object": "response",
+  "created_at": 1790195605,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790195610,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_02b95c601a815f25006ab43795dc5887d09265e756bd9bde42",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "calculator: 160*25"
+     ],
+     "query": "calculator: 160*25",
+     "sources": [
+      {
+       "type": "api",
+       "name": "oai-calculator"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_02b95c601a815f25006ab43796d97087d0904a4af6201a5be1",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [],
+      "logprobs": [],
+      "text": "Для малого бизнеса чаще выгоднее не выбирать строго одно из двух, а использовать робота для первого контакта и человека — для сложных или ценных звонков.\n\n- Человек выгоднее, если звонков немного, сделки дорогие, клиентам нужны консультации, переговоры или эмпатия. Сотрудник умеет импровизировать и лучше закрывает нестандартные ситуации.\n- Голосовой робот выгоднее при большом количестве однотипных звонков: запись, подтверждение визита, квалификация лида, напоминания, ответы на типовые вопросы. Он может одновременно вести несколько разговоров и не требует отдельной оплаты за часы ожидания.\n- У робота есть скрытые расходы: настройка сценариев, интеграция с CRM/календарём, телефония, распознавание и генерация речи, контроль качества. Плохо настроенный бот может стоить дешевле сотрудника, но терять клиентов.\n- У человека главный недостаток — постоянная стоимость. Например, при условной полной стоимости рабочего времени $25/час только 160 часов дают около $4 000 в месяц, ещё до возможных дополнительных расходов работодателя.\n\nПрактическое правило: если у вас 10–30 содержательных звонков в день и каждый потенциальный клиент ценен, я бы оставил человека. Если идут десятки или сотни преимущественно типовых звонков — автоматизация обычно начинает выигрывать.\n\nЕсли дадите 4 цифры — количество звонков в месяц, среднюю длительность, зарплату оператора и примерную ценность одного клиента — я могу посчитать экономику «человек vs робот» конкретно для вашего бизнеса."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 4550,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 349,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 4899
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

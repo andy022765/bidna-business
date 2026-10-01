@@ -1,0 +1,51 @@
+# Стенд прототипов №44 CareLine и №43 NightDesk. Отдельный сайт Netlify, живые линии Веры не задевает.
+# Выкладка — только по «да» Андрея, одним окном вечером (README.md, раздел «Выкладка»).
+
+[build]
+  publish = "web"
+
+# Без node_bundler = "esbuild" зависимости функций не попадают в бандл, и функция падает на проде
+# с «Cannot find module» (грабля основного сайта 03.09 и стенда Веры 12.09).
+# package.json и node_modules лежат в корне platforma/, поэтому @netlify/blobs находится и из
+# netlify-functions/, и из lib/ (у Веры kalendar-lib лежал вне папки с node_modules — сборка падала).
+# linii.json и nastroyki.json подключаются через require — esbuild кладёт их в бандл сам.
+[functions]
+  directory = "netlify-functions"
+  node_bundler = "esbuild"
+
+# Утренняя сводка в 7:00 по Нью-Йорку. Cron у Netlify — только в UTC, а 7:00 America/New_York
+# это 11:00 UTC летом (EDT, UTC−4) и 12:00 UTC зимой (EST, UTC−5). Одна строка cron уехала бы
+# на час при каждом переводе часов (ближайший — 1 ноября 2026). Поэтому зовём дважды, в 11 и 12 UTC,
+# а функция сама смотрит местный час: шлёт только в 7:xx по поясу клиента и не чаще раза в сутки
+# (замок svodka/<дата> в хранилище клиента). Подробно — README, «Сводка и летнее время».
+[functions."svodka"]
+  schedule = "0 11,12 * * *"
+
+# Волны предложений смен и побудка дежурного (A3): раз в 5 минут. Функции нет в таблице контракта —
+# добавлена сборщиком стенда 30.09 (KONTRAKT.md, «Дополнения платформы»).
+[functions."volny"]
+  schedule = "*/5 * * * *"
+
+# Напоминания о собеседованиях и оценках на дому за 24 ч и за 2 ч до начала (A1/A2): раз в 15 минут, окно ±7,5 мин
+# вокруг момента напоминания — в окно попадает ровно один запуск; флаги во встрече не дают повторить. Cron в UTC
+# здесь не мешает: моменты считаются от времени встречи, а не от местного часа. Добавлено сборщиком стенда 30.09 вечером.
+[functions."napominaniya"]
+  schedule = "*/15 * * * *"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Заголовки безопасности для статических страниц (пульт, демо). Функции ставят свои заголовки сами.
+# CSP пускает скрипты только свои, со встроенными и с двух CDN; если пульту нужен ещё источник —
+# добавить сюда, иначе браузер молча его заблокирует.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+    Strict-Transport-Security = "max-age=31536000"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"

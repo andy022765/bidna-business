@@ -1,0 +1,52 @@
+{
+  "opisanie": "SPEC 7.1 №04 + скептик №2. Без кода, режим kod: Вера молчит, сигнал НЕОПОЗНАННЫЙ с именем и @username, текст неопознанного чата не хранится ни в Blobs, ни в сигнале, в модель ничего не уходит.",
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    }
+  },
+  "update": {
+    "update_id": 1004,
+    "business_message": {
+      "message_id": 202,
+      "from": {
+        "id": 5003,
+        "is_bot": false,
+        "first_name": "Павел",
+        "username": "pavel_kofe",
+        "language_code": "ru"
+      },
+      "chat": {
+        "id": 5003,
+        "type": "private",
+        "first_name": "Павел",
+        "username": "pavel_kofe"
+      },
+      "date": "@unix",
+      "business_connection_id": "bc-test-1",
+      "text": "Здравствуйте, сколько по деньгам Дежурный для кофейни?"
+    }
+  },
+  "ozhidaem": {
+    "klientu": 0,
+    "gruppe_est": true,
+    "signal_soderzhit": [
+      "неопознан",
+      "pavel_kofe"
+    ],
+    "signal_ne_soderzhit": [
+      "для кофейни"
+    ],
+    "tekst_ne_hranitsya": [
+      "для кофейни"
+    ],
+    "model_vyzovov": 0
+  }
+}

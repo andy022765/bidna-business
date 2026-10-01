@@ -1,0 +1,62 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "perevod_nightdesk_demo",
+    "description": "Puts the live call through to a person: to the on-call team for an emergency the sortirovka result marked PEREVOD, or to the office when the office is OPEN. Call it WITHOUT announcing anything first — the phone system itself tells the caller they are being connected. If ok is true, say nothing more: a person takes over. If ok is false, say the meaning of soobshchenie (the on-call team has the report and will call back) and continue. Never use it to leave a message. Never for something that is not an emergency when the office is CLOSED. Never promise to stay on the line.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "off",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/nd-perevod",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "ZAPOLNIT_secret_id_nightdesk_demo_x_liniya_klyuch"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "NightDesk DEMO → nd-perevod",
+        "required": [
+          "call_sid",
+          "conversation_id",
+          "agent_id",
+          "svodka",
+          "yazyk"
+        ],
+        "properties": {
+          "call_sid": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__call_sid"
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          },
+          "agent_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__current_agent_id"
+          },
+          "svodka": {
+            "type": "string",
+            "description": "One short English sentence for the person who answers: what and where, e.g. \"Water leak from the ceiling at 41 Harbor Row, apartment 4B.\" No names, no phone numbers, no health details."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

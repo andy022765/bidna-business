@@ -1,0 +1,659 @@
+<title>Разбор ниш 41–45</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: одноколоночная записка due diligence (ширина 880px): табло вердиктов линейками, досье по нишам сеткой «вопрос / ответ», решения кнопками. */
+:root {
+  --bg: #f7f5f1;
+  --surface: #ffffff;
+  --ink: #141a3a;
+  --navy: #1b2557;
+  --muted: #5a6078;
+  --line: #e2ded5;
+  --gold: #8f6620;
+  --gold-rule: #c69a4c;
+  --gold-soft: #f3e8d2;
+  --go: #256b47;
+  --go-soft: #e2f0e7;
+  --hold: #8f5a06;
+  --hold-soft: #f6ead3;
+  --stop: #93362f;
+  --stop-soft: #f5e3e0;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1330; --surface: #151b3f; --ink: #ecebe6; --navy: #c9cff2; --muted: #a3a8c3;
+    --line: #2a3163; --gold: #e3c88a; --gold-rule: #c69a4c; --gold-soft: #2e2c3b;
+    --go: #86d4a9; --go-soft: #173a2e; --hold: #f0bf6a; --hold-soft: #3a2f1a;
+    --stop: #f2a198; --stop-soft: #3d2227; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1330; --surface: #151b3f; --ink: #ecebe6; --navy: #c9cff2; --muted: #a3a8c3;
+  --line: #2a3163; --gold: #e3c88a; --gold-rule: #c69a4c; --gold-soft: #2e2c3b;
+  --go: #86d4a9; --go-soft: #173a2e; --hold: #f0bf6a; --hold-soft: #3a2f1a;
+  --stop: #f2a198; --stop-soft: #3d2227; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+.page { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 64px; display: grid; gap: 56px; }
+a { color: var(--navy); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, textarea:focus-visible { outline: 2px solid var(--gold-rule); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); color: var(--navy); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(32px, 5.4vw, 46px); font-weight: 700; }
+h2 { font-size: clamp(24px, 3.6vw, 30px); font-weight: 700; }
+h3 { font-size: 22px; font-weight: 600; }
+p { margin: 0; }
+.eyebrow, .label { font-family: var(--font-data); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 20px; }
+.section-head { display: grid; gap: 8px; border-top: 2px solid var(--navy); padding-top: 16px; }
+.section-head p { color: var(--muted); max-width: 65ch; }
+
+/* Hero */
+.hero { display: grid; gap: 18px; }
+.lead { font-size: 19px; line-height: 1.55; max-width: 62ch; }
+.lead strong { color: var(--navy); }
+.nav { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; }
+.nav a { text-decoration: none; border-bottom: 1px solid var(--gold-rule); padding-bottom: 1px; }
+.frame { display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 14px; font-size: 15px; color: var(--muted); max-width: 70ch; }
+
+/* Stamps and meters */
+.stamp { display: inline-block; font-family: var(--font-data); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border: 1.5px solid currentColor; border-radius: 3px; white-space: nowrap; line-height: 1.3; }
+.stamp.go { color: var(--go); background: var(--go-soft); }
+.stamp.hold { color: var(--hold); background: var(--hold-soft); }
+.stamp.stop { color: var(--stop); background: var(--stop-soft); }
+.score { display: grid; gap: 5px; }
+.score .k { display: none; font-size: 12px; color: var(--muted); }
+.meter { display: grid; grid-template-columns: repeat(10, 7px); gap: 2px; }
+.meter i { display: block; height: 14px; border-radius: 1px; background: var(--line); }
+.meter i.on { background: var(--navy); }
+.score b { font-family: var(--font-data); font-weight: 500; font-size: 13px; font-variant-numeric: tabular-nums; }
+.score small { color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+/* Board */
+.board { display: grid; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) 112px 132px 168px; gap: 18px; align-items: center; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.row.head { padding-block: 0 8px; border-bottom: 1px solid var(--navy); align-items: end; }
+.row.head span { font-family: var(--font-data); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.what { display: grid; gap: 4px; min-width: 0; }
+.what .t { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.what .t a { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--navy); text-decoration: none; }
+.what .t a:hover { text-decoration: underline; }
+.what p { color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+.board-note { font-size: 14px; color: var(--muted); max-width: 70ch; }
+@media (max-width: 760px) {
+  .row { grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .row.head { display: none; }
+  .what, .row .verdict { grid-column: 1 / -1; }
+  .score .k { display: block; }
+}
+
+/* Findings */
+.findings { display: grid; }
+.finding { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 18px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.finding h3 { font-size: 18px; }
+.finding p { font-size: 15.5px; }
+@media (max-width: 760px) { .finding { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Dossiers */
+.dossier { display: grid; gap: 14px; padding-block: 8px 12px; scroll-margin-top: 16px; }
+.d-head { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.d-head .num { font-size: 14px; color: var(--gold); }
+.d-scores { font-size: 14px; color: var(--muted); }
+.qa { display: grid; grid-template-columns: 170px minmax(0, 1fr); margin: 0; border-top: 1px solid var(--line); }
+.qa dt, .qa dd { margin: 0; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.qa dt { font-family: var(--font-data); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); padding-top: 15px; padding-right: 12px; }
+.qa dd { font-size: 15.5px; min-width: 0; }
+.qa ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+@media (max-width: 760px) {
+  .qa { grid-template-columns: 1fr; }
+  .qa dt { border-bottom: 0; padding-bottom: 0; }
+}
+
+/* Decisions */
+.decision { display: grid; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
+.decision .qn { font-family: var(--font-data); font-size: 12px; letter-spacing: .08em; color: var(--gold); }
+.decision .why { color: var(--muted); font-size: 15px; max-width: 65ch; }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 2px 12px; align-items: start; width: 100%; text-align: left; padding: 13px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); font: inherit; cursor: pointer; transition: border-color .15s ease; }
+.opt:hover { border-color: var(--navy); }
+.opt .letter { font-family: var(--font-data); font-size: 14px; color: var(--navy); padding-top: 1px; }
+.opt .ot { font-weight: 600; }
+.opt .od { grid-column: 2 / 3; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.opt .flag { font-family: var(--font-data); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); background: var(--gold-soft); border-radius: 3px; padding: 3px 7px; white-space: nowrap; }
+.opt .picked { display: none; font-family: var(--font-data); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--go); }
+.opt.is-on { border-color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); background: var(--surface); }
+.opt.is-on .picked { display: inline; }
+.decision.is-busy .opt, .decision.is-readonly .opt { cursor: default; }
+.decision.is-readonly .opt:hover { border-color: var(--line); }
+.decision.is-readonly .opt.is-on:hover { border-color: var(--navy); }
+.rec { font-size: 15px; border-top: 1px solid var(--line); padding-top: 12px; }
+.rec b { color: var(--navy); }
+.note { display: grid; gap: 8px; }
+.note label { font-size: 14px; color: var(--muted); }
+.note textarea { width: 100%; min-height: 72px; resize: vertical; font: inherit; font-size: 15px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; }
+.note-row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.save-note { font: inherit; font-size: 14px; font-weight: 600; color: var(--surface); background: var(--navy); border: 0; border-radius: 6px; padding: 9px 16px; cursor: pointer; }
+.decision.is-readonly .save-note, .decision.is-readonly .note textarea { opacity: .55; cursor: not-allowed; }
+.q-status { font-size: 13.5px; color: var(--muted); }
+
+/* Lists and sources */
+.plain { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch; }
+.sources { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px 28px; }
+.sources div { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.sources ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 14px; }
+.sources a { overflow-wrap: anywhere; }
+.foot { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 6px; }
+.foot code { font-family: var(--font-data); font-size: 12.5px; overflow-wrap: anywhere; color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+@media (max-width: 480px) { .page { padding-inline: 16px; padding-block: 28px 48px; gap: 44px; } .lead { font-size: 17px; } .decision { padding: 16px; } }
+</style>
+
+<div class="page" lang="ru">
+
+  <header class="hero">
+    <span class="eyebrow">Услуги ИИ в США · №41–45 · разбор с нуля · 30.09.2026</span>
+    <h1>Из пяти ниш проверять стоит одну</h1>
+    <p class="lead">Сейчас ни одна из пяти ниш не тянет на отдельное направление для двоих без опыта в отрасли. Боль везде настоящая, и её измеряли не продавцы. Но в каждой нише ИИ уже встраивает своя отраслевая платформа, у которой есть и клиенты, и их данные. <strong>Если проверять, то №44: линию приёма кандидатов в сиделки.</strong></p>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#board">Табло</a>
+      <a href="#common">Общее для всех</a>
+      <a href="#dossiers">Допрос по нишам</a>
+      <a href="#decisions">Решения за тобой</a>
+      <a href="#sources">Источники</a>
+    </nav>
+    <div class="frame">
+      <span class="label">Как считали</span>
+      <p>Каждую нишу оценивали как самостоятельный бизнес, без наших продуктов, стека и цен. Раунды и опросы вендоров шли только в карту конкуренции. Спрос выводили из самой работы: BLS, Census, FMCSA, SBA, CMS и KFF, решения судов, независимые тайные покупатели. Выполнимость проверяли по GitHub и arXiv, прошлые знания по университету. Ключевые факты перепроверены по первоисточникам.</p>
+    </div>
+  </header>
+
+  <section id="board" aria-labelledby="board-h">
+    <div class="section-head">
+      <h2 id="board-h">Табло</h2>
+      <p>Спрос и выполнимость по шкале от 1 до 10. Выполнимость считали для команды из двух человек без опыта в отрасли.</p>
+    </div>
+    <div class="board" role="list">
+      <div class="row head" aria-hidden="true"><span>Ниша</span><span>Спрос</span><span>Выполнимость</span><span>Вердикт</span></div>
+
+      <div class="row" role="listitem">
+        <div class="what">
+          <div class="t"><span class="num">№44</span><a href="#n44">Уход на дому</a></div>
+          <p>Найм сиделок не останавливается: 760 тыс. открывающихся мест в год, текучесть около 75%. Первый шаг обходится без медданных и интеграций.</p>
+        </div>
+        <div class="score"><span class="k">Спрос</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><b>6/10</b></div>
+        <div class="score"><span class="k">Выполнимость</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><b>4/10</b><small>первый шаг 6/10</small></div>
+        <div class="verdict"><span class="stamp go">Тест первым</span></div>
+      </div>
+
+      <div class="row" role="listitem">
+        <div class="what">
+          <div class="t"><span class="num">№43</span><a href="#n43">Управление арендой</a></div>
+          <p>День простоя квартиры стоит около $50. Но полку заняли AppFolio и LetHub (голос от $49), а ИИ-агенту грозят иски по законам о равном доступе к жилью.</p>
+        </div>
+        <div class="score"><span class="k">Спрос</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><b>6/10</b></div>
+        <div class="score"><span class="k">Выполнимость</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><b>4/10</b></div>
+        <div class="verdict"><span class="stamp hold">Резерв</span></div>
+      </div>
+
+      <div class="row" role="listitem">
+        <div class="what">
+          <div class="t"><span class="num">№41</span><a href="#n41">Автосалоны, ИИ-BDC</a></div>
+          <p>Боль измерена, но ИИ-запись в сервис встроили сами CDK, Tekion и Xtime. У малых автосервисов боль не доказана.</p>
+        </div>
+        <div class="score"><span class="k">Спрос</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><b>6/10</b></div>
+        <div class="score"><span class="k">Выполнимость</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><b>4/10</b><small>малые сервисы 5–6</small></div>
+        <div class="verdict"><span class="stamp stop">Нет</span></div>
+      </div>
+
+      <div class="row" role="listitem">
+        <div class="what">
+          <div class="t"><span class="num">№45</span><a href="#n45">Заявки на госконтракты</a></div>
+          <p>Малым фирмам в первую очередь мешает найти закупку, а не написать заявку. ИИ-писатель заявок уже стоит $39 в месяц.</p>
+        </div>
+        <div class="score"><span class="k">Спрос</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><b>5/10</b></div>
+        <div class="score"><span class="k">Выполнимость</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><b>4/10</b></div>
+        <div class="verdict"><span class="stamp stop">Нет без эксперта</span></div>
+      </div>
+
+      <div class="row" role="listitem">
+        <div class="what">
+          <div class="t"><span class="num">№42</span><a href="#n42">Фрахт-брокеры</a></div>
+          <p>Малым брокерам ИИ раздают бесплатно внутри TMS, а голосовые агенты в переговорах проваливаются.</p>
+        </div>
+        <div class="score"><span class="k">Спрос</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><b>5/10</b></div>
+        <div class="score"><span class="k">Выполнимость</span><div class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><b>4/10</b><small>голос 3, документы 5</small></div>
+        <div class="verdict"><span class="stamp stop">Нет без инсайдера</span></div>
+      </div>
+    </div>
+    <p class="board-note">В исходном документе 6/10 тоже верхняя оценка, но шкалы разные: там засчитывались данные вендоров, здесь нет.</p>
+  </section>
+
+  <section id="common" aria-labelledby="common-h">
+    <div class="section-head">
+      <h2 id="common-h">Общее для всех пяти</h2>
+    </div>
+    <div class="findings">
+      <div class="finding">
+        <h3>Платформа ниши встраивает ИИ сама</h3>
+        <p>CDK включил ИИ-запись в сервис в свой пакет. AscendTMS с 07.05.2026 отдаёт ИИ бесплатно, у них 69 тыс. компаний. AppFolio с июня 2026 даёт голосового агента по аренде. HHAeXchange открыл Zingage свою сеть из 32 тыс. агентств ухода. CLEATUS продаёт ИИ-писателя заявок за $39 в месяц.</p>
+      </div>
+      <div class="finding">
+        <h3>Голос справляется с простым и ломается на сложном</h3>
+        <p>В тесте τ-Voice голосовые агенты решают 26–38% реалистичных задач, тот же агент в тексте — 85%. В APEX-Voice ни один из пяти агентов не превысил 25% рабочих сценариев с первой попытки. Имена, номера и даты голосом записываются точно в 14–41% случаев. У дилеров ИИ сам закрыл 91% простых звонков в сервис, но каждая третья передача человеку срывается.</p>
+      </div>
+      <div class="finding">
+        <h3>Деньги в цене ошибки</h3>
+        <p>Кража груза в среднем стоит $274 тыс. Счёт, отклонённый из-за электронной проверки визита (EVV), — это вся выручка визита. ИИ-чатбот, отказавший держателям жилищных ваучеров, закончился мировым соглашением и двумя годами мониторинга. 1% сорванных записей в сервис — около $39 тыс. валовой прибыли в год у среднего дилера.</p>
+      </div>
+      <div class="finding">
+        <h3>Выдерживает связка из трёх частей</h3>
+        <p>Модель ведёт разговор, правила или решатель принимают решение, человек подтверждает. В тесте SCHEDBench модель составляет допустимое расписание в лучшем случае в 56% случаев, на сестринских графиках в 1,7%. Во фрахте жёсткая формула цены плюс модель в роли переводчика дают те же сделки. Нарушения законов о равном доступе к жилью ловит отдельный классификатор (F1 0,91).</p>
+      </div>
+      <div class="finding">
+        <h3>2026 год поменял правила</h3>
+        <p>Верховный суд 14.05.2026 разрешил иски к брокерам за небрежный выбор перевозчика. Северная Каролина и Миссури жёстко отклоняют счета без EVV. Medicaid урезают. Колорадо с 2027 года регулирует ИИ в жилье. Для оборонных подрядчиков действует CMMC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dossiers" aria-labelledby="dossiers-h">
+    <div class="section-head">
+      <h2 id="dossiers-h">Допрос по нишам</h2>
+      <p>Главные вопросы к каждой нише и ответы по данным. Полные досье со всеми ссылками лежат в папке проекта, путь внизу страницы.</p>
+    </div>
+
+    <article class="dossier" id="n44">
+      <div class="d-head"><span class="num">№44</span><h3>Уход на дому (HCBS)</h3><span class="stamp go">Тест первым</span></div>
+      <p class="d-scores">Спрос 6/10, доказательства средние · выполнимость 4/10, первый шаг 6/10</p>
+      <dl class="qa">
+        <dt>Боль</dt>
+        <dd>4,68 млн рабочих мест сиделок и 760 тыс. открывающихся мест в год (BLS). Текучесть около 75% (отраслевой бенчмарк). Замена одной сиделки стоит $4 200 (Питтсбургский университет). Агентство на 100 сиделок тратит на замены около $315 тыс. в год (расчёт: 75 замен × $4 200).</dd>
+        <dt>Кто платит</dt>
+        <dd>13 136 фирм на 30–199 сотрудников с выручкой $3,4–4,3 млн (Census). Денег у них всё меньше: ставка Medicaid около $18 в час при зарплате сиделки $14–18, правило 80/20 примерно с 2030 года, федеральные деньги Medicaid урежут на $911 млрд за 2025–2034 годы.</dd>
+        <dt>Кто уже закрывает</dt>
+        <dd>Zingage ($12,5 млн, партнёр HHAeXchange), голосовой агент CareFunnels от $97 в месяц, Enginehire для найма. Офшорный ассистент за $5–7 в час задаёт потолок цены: $900–1 200 в месяц за полную ставку.</dd>
+        <dt>Почему не с биллинга</dt>
+        <dd>Там медданные и нужна BAA, в каждом штате свои правила, есть риск ложных счетов. Брать процент от сборов Medicaid запрещено.</dd>
+        <dt>Что строить</dt>
+        <dd><ol>
+          <li>Линию кандидатов в сиделки 24/7: ответ за минуту, отбор по сертификату, району, графику и языку, запись на собеседование, возврат пропавших.</li>
+          <li>После BAA ночные отказы от смен: решатель ранжирует замены, уходят SMS, человек подтверждает.</li>
+          <li>Затем расхождения EVV до подачи счетов, на правилах, без модели.</li>
+        </ol></dd>
+        <dt>Слабые места</dt>
+        <dd>По сути это ассистент найма, и на этой полке уже есть игроки. Лучшим покупателем могут оказаться частные агентства без Medicaid, их долю не мерили. В Нью-Йорке шум вокруг программы CDPAP: 16.06.2026 Минюст подал иск к её единому посреднику PPL.</dd>
+        <dt>Тест за 7 дней</dt>
+        <dd>80 агентств Бруклина и Квинса из открытого реестра штата. Владельцам вручную три вопроса: кто закрывает отказ от смены в 5 утра, сколько кандидатов теряется, за что уже платят. Двум-трём агентствам на 5 дней переводим звонки кандидатов на нашу линию. Планка: 15 разговоров, 5 названных текущих затрат, 2 платных пилота от $300 в месяц. Меньше двух пилотов — закрываем. Бюджет до $100.</dd>
+      </dl>
+    </article>
+
+    <article class="dossier" id="n43">
+      <div class="d-head"><span class="num">№43</span><h3>Управление арендой</h3><span class="stamp hold">Резерв</span></div>
+      <p class="d-scores">Спрос 6/10, доказательства средние · выполнимость 4/10</p>
+      <dl class="qa">
+        <dt>Боль</dt>
+        <dd>День простоя квартиры около $50: вакантность 7,3%, медианная аренда $1 531 (Census, II кв. 2026). В аудите 25 тыс. обращений около 40% писем остались без ответа (NBER, 2020). Персонал на объектах меняется на 29% в год (NAA).</dd>
+        <dt>Кто платит</dt>
+        <dd>Около 11,7 тыс. управляющих компаний на 5–99 сотрудников (Census). Рынок уже платит $1–6 за квартиру в месяц. Управляющему на 300 квартир ночная линия даёт $10–23 тыс. в год при цене $3,6–5,4 тыс. (расчёт разведчика).</dd>
+        <dt>Мелкие арендодатели</dt>
+        <dd>Не покупатель. На форумах владельцы 13–30 квартир обходятся автоответчиком, а на 350 квартир приходится меньше четырёх настоящих аварий в месяц.</dd>
+        <dt>Кто уже закрывает</dt>
+        <dd>AppFolio (голосовой агент с июня 2026), LetHub от $49 в месяц, Latchel с бесплатным тарифом, ShowMojo, Tenant Turner. Наверху EliseAI: 29.09.2026 привлекла $350 млн при оценке $4 млрд.</dd>
+        <dt>Риски</dt>
+        <dd>Дело Harbor Group и PERQ: ИИ-чатбот отвечал держателям ваучеров «не принимаем», итог — мировое соглашение и два года мониторинга. В Нью-Йорке нельзя спрашивать о судимости до условного одобрения, штраф до $250 тыс. Отсюда правила: никакого скрининга, отдельный классификатор нарушений, раскрытие ИИ, согласие на запись.</dd>
+        <dt>Интеграции</dt>
+        <dd>API AppFolio только на старших тарифах, их маркетплейс стоит $25–50 тыс. в год, Yardi $25 тыс. в год. Первая версия работает без API: почта, SMS, календарь.</dd>
+        <dt>Тест за 7 дней</dt>
+        <dd>50–60 управляющих на 100–1 000 квартир в двух городах. Человек звонит после 19:00 и записывает, кто ответил. Потом письма с результатом, демо-номером и пилотом за $1 за квартиру на 30 дней. Планка: 10% ответов, 5 созвонов, 2 оплаты.</dd>
+      </dl>
+    </article>
+
+    <article class="dossier" id="n41">
+      <div class="d-head"><span class="num">№41</span><h3>Автосалоны, ИИ-BDC</h3><span class="stamp stop">Нет</span></div>
+      <p class="d-scores">Спрос 6/10, доказательства средние · выполнимость 4/10, для малых сервисов 5–6</p>
+      <dl class="qa">
+        <dt>Боль</dt>
+        <dd>Тайный покупатель Pied Piper, 13.07.2026, 4 163 обращения в 31 дилерскую группу: 12% звонков в сервис заканчиваются без записи, каждая третья передача от ИИ человеку срывается. 1% заказ-нарядов у среднего франчайзи — около $39 тыс. валовой прибыли в год (расчёт по NADA Data 2025).</dd>
+        <dt>Кто платит</dt>
+        <dd>Франчайзи, их 16 990. ИИ-BDC обходится им в $24–48 тыс. в год на точку.</dd>
+        <dt>Кто уже закрывает</dt>
+        <dd>Встроено в дилерские системы: CDK AIVA, Tekion Scheduler AI, Xtime Brooke AI, myKaarma. Стартапы Numa ($48 млн), Toma ($17 млн от a16z), Impel (8 000 дилеров). Запись прямо в дилерскую систему — это месяцы и сертификация.</dd>
+        <dt>Риски</dt>
+        <dd>FTC Safeguards Rule относит дилера к финансовым организациям, у поставщика должны быть процессы безопасности. В Калифорнии на запись разговора нужно согласие всех сторон, иск к Google Contact Center AI идёт.</dd>
+        <dt>Малые игроки</dt>
+        <dd>174 791 автосервис, в среднем 5,9 сотрудника. Независимых данных о пропущенных звонках нет, а сети сервисов отвечают лучше дилеров: без записи 5% звонков против 12%. Это обычный ИИ-ресепшен для местного бизнеса без отраслевого преимущества.</dd>
+        <dt>Если проверять малых</dt>
+        <dd>По два звонка человеком в 80 одиночных сервисов. Идём дальше, если пропущено 25% звонков и больше и внесено хотя бы 3 депозита по $149.</dd>
+      </dl>
+    </article>
+
+    <article class="dossier" id="n45">
+      <div class="d-head"><span class="num">№45</span><h3>Заявки на госконтракты</h3><span class="stamp stop">Нет без эксперта</span></div>
+      <p class="d-scores">Спрос 5/10 · выполнимость 4/10</p>
+      <dl class="qa">
+        <dt>Боль</dt>
+        <dd>Одна заявка — около 84 часов (опрос Deltek, данные продавца). По ставкам GSA это $5,7–14,9 тыс.</dd>
+        <dt>Главный барьер</dt>
+        <dd>26% малых фирм не знают, где искать закупки, 22% считают, что не подходят, 12% считают участие дорогим (Small Business Majority, материалы Палаты представителей). 83% узнают о закупках поздно (Deltek).</dd>
+        <dt>Рынок</dt>
+        <dd>Малому бизнесу $179 млрд в FY2025 (SBA). Но малых фирм-победителей за год стало на 7% меньше, 56,7 тыс. Тринадцать лет назад их было больше 100 тыс.</dd>
+        <dt>Кто уже закрывает</dt>
+        <dd>CLEATUS с ИИ-писателем за $39 в месяц, HigherGov за $500 в год, бесплатный поиск Govly, бесплатная помощь государственных центров APEX Accelerators.</dd>
+        <dt>Риски</dt>
+        <dd>Оплата за победу — серая зона по FAR 52.203-5. За ошибку в заявке отвечает автор: GAO по делу Oready пригрозил санкциями за выдуманные ИИ ссылки. Оборонные закупки с CUI требуют FedRAMP Moderate.</dd>
+        <dt>Справятся ли модели</dt>
+        <dd>Тестовую часть польского экзамена по госзакупкам модели прошли, практическую письменную провалили. Юридические ИИ-сервисы выдумывают факты в 17–33% ответов.</dd>
+        <dt>С экспертом</dt>
+        <dd>Сервис для малых фирм в уборке, эксплуатации зданий и субподряде: поиск закупок, решение «идти или нет», таблица соответствия требованиям. Фиксированная цена, без процента от контракта.</dd>
+      </dl>
+    </article>
+
+    <article class="dossier" id="n42">
+      <div class="d-head"><span class="num">№42</span><h3>Фрахт-брокеры</h3><span class="stamp stop">Нет без инсайдера</span></div>
+      <p class="d-scores">Спрос 5/10, доказательства средние · выполнимость 4/10: голос 3, документы 5</p>
+      <dl class="qa">
+        <dt>Рынок</dt>
+        <dd>25 081 действующая брокерская лицензия (FMCSA). Новых лицензий в 2025 году 3 785 против 8 644 в 2022-м. 80% заведений отрасли меньше 10 человек.</dd>
+        <dt>Деньги на груз</dt>
+        <dd>Маржа около $354: $1 989 выручки при 17,8% (TIA, II кв. 2026).</dd>
+        <dt>Боль</dt>
+        <dd>Мошенничество. 22% брокеров из опроса TIA потеряли больше $200 тыс. за полгода. Средняя кража груза — $274 тыс. (CargoNet).</dd>
+        <dt>Кто уже закрывает</dt>
+        <dd>AscendAI бесплатно внутри TMS, Tai включил агента статусных звонков всем клиентам. Проверку перевозчиков продают Truckstop, Parade, Highway. Наверху HappyRobot ($150 млн).</dd>
+        <dt>Голос</dt>
+        <dd>В APEX-Voice ни один агент не превысил 25% в сценариях с переговорами. В тесте NegotiationArena агент, изображающий отчаяние, выбивает у модели на 20% больше. Исходящие ИИ-звонки водителям на мобильные подпадают под TCPA.</dd>
+        <dt>Новое</dt>
+        <dd>14.05.2026 Верховный суд единогласно разрешил иски к брокерам за небрежный выбор перевозчика, и проверку теперь нужно документировать. Повод реальный, но рынок проверки занят, а базы мошенников у новичка нет.</dd>
+      </dl>
+    </article>
+  </section>
+
+  <section id="decisions" aria-labelledby="decisions-h">
+    <div class="section-head">
+      <h2 id="decisions-h">Решения за тобой</h2>
+      <p>Первый раунд вопросов. Выбор сохраняется на этой странице. Напиши мне в чате «ответил», и я его прочитаю.</p>
+    </div>
+
+    <div class="decision" data-q="q1">
+      <span class="qn">ВОПРОС 1</span>
+      <h3>Какие ниши пускаем в недельный тест?</h3>
+      <p class="why">Нужно твоё «да» и до $100 на тест.</p>
+      <div class="opts">
+        <button type="button" class="opt" id="q1-a" data-choice="А" aria-pressed="false">
+          <span class="letter">А</span><span class="ot">Только №44</span><span class="flag">Рекомендую</span>
+          <span class="od">80 агентств Бруклина и Квинса, три вопроса владельцам, 2–3 пилота на 5 дней. Планка — 2 платных пилота от $300 в месяц. <span class="picked">Выбрано</span></span>
+        </button>
+        <button type="button" class="opt" id="q1-b" data-choice="Б" aria-pressed="false">
+          <span class="letter">Б</span><span class="ot">№44 и №43 параллельно</span><span></span>
+          <span class="od">Вдвое больше ручной работы на ту же неделю. <span class="picked">Выбрано</span></span>
+        </button>
+        <button type="button" class="opt" id="q1-c" data-choice="В" aria-pressed="false">
+          <span class="letter">В</span><span class="ot">Ни одной</span><span></span>
+          <span class="od">Разбор уходит в архив, вернёмся к нему позже. <span class="picked">Выбрано</span></span>
+        </button>
+      </div>
+      <p class="rec"><b>Почему А.</b> Тест дешёвый и отвечает на главный вопрос, который пока никто не проверил: заплатит ли агентство новичку. №43 держим в резерве, там сильнее конкуренты и выше юридический риск.</p>
+      <div class="note">
+        <label for="q1-comment">Свой вариант или комментарий</label>
+        <textarea id="q1-comment" rows="3"></textarea>
+        <div class="note-row"><button type="button" class="save-note" id="q1-save">Сохранить комментарий</button><span class="q-status" role="status">Ответить можно и в чате.</span></div>
+      </div>
+    </div>
+
+    <div class="decision" data-q="q2">
+      <span class="qn">ВОПРОС 2</span>
+      <h3>Ищем ли человека из отрасли под №42 и №45?</h3>
+      <p class="why">Без опыта в отрасли обе ниши закрываются. Во фрахте всё держится на связях и доверии брокеров, в госзаявках за ошибку в тексте отвечает автор. С бывшим брокером или профессиональным составителем заявок вывод меняется.</p>
+      <div class="opts">
+        <button type="button" class="opt" id="q2-a" data-choice="А" aria-pressed="false">
+          <span class="letter">А</span><span class="ot">Закрыть обе</span><span></span>
+          <span class="od">Не ищем и не возвращаемся. <span class="picked">Выбрано</span></span>
+        </button>
+        <button type="button" class="opt" id="q2-b" data-choice="Б" aria-pressed="false">
+          <span class="letter">Б</span><span class="ot">Закрыть, но открыть снова, если человек появится сам</span><span class="flag">Рекомендую</span>
+          <span class="od">Держим вывод в памяти, партнёра не ищем. <span class="picked">Выбрано</span></span>
+        </button>
+        <button type="button" class="opt" id="q2-c" data-choice="В" aria-pressed="false">
+          <span class="letter">В</span><span class="ot">Искать активно</span><span></span>
+          <span class="od">Ищем бывшего брокера или составителя заявок в партнёры. <span class="picked">Выбрано</span></span>
+        </button>
+      </div>
+      <p class="rec"><b>Почему Б.</b> Тратить время на поиск партнёра ради ниш с оценкой 5/10 рано.</p>
+      <div class="note">
+        <label for="q2-comment">Свой вариант или комментарий</label>
+        <textarea id="q2-comment" rows="3"></textarea>
+        <div class="note-row"><button type="button" class="save-note" id="q2-save">Сохранить комментарий</button><span class="q-status" role="status">Ответить можно и в чате.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="unverified" aria-labelledby="unverified-h">
+    <div class="section-head">
+      <h2 id="unverified-h">Что не проверено</h2>
+    </div>
+    <ul class="plain">
+      <li>Ни в одной нише не доказано, что малый покупатель заплатит новичку. Эта сторона доказательств везде слабая.</li>
+      <li>Reddit, Indeed и доски вакансий закрыты для роботов, поэтому голосов практиков почти нет.</li>
+      <li>Цены части вендоров не опубликованы.</li>
+      <li>Русскоязычный срез по рамке «с нуля» не исследовали.</li>
+    </ul>
+  </section>
+
+  <section id="sources" aria-labelledby="sources-h">
+    <div class="section-head">
+      <h2 id="sources-h">Источники</h2>
+      <p>Главные страницы, на которых держатся выводы. Остальные ссылки в досье.</p>
+    </div>
+    <div class="sources">
+      <div>
+        <span class="label">Исследования (arXiv)</span>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2603.13686" target="_blank" rel="noopener">τ-Voice: голосовые агенты на реальных задачах</a></li>
+          <li><a href="https://arxiv.org/abs/2609.34973" target="_blank" rel="noopener">APEX-Voice: рабочие сценарии голосом</a></li>
+          <li><a href="https://arxiv.org/abs/2609.13602" target="_blank" rel="noopener">τ-Elicitation: точность записи имён и номеров</a></li>
+          <li><a href="https://arxiv.org/abs/2608.00991" target="_blank" rel="noopener">SCHEDBench: расписания и модели</a></li>
+          <li><a href="https://arxiv.org/abs/2409.05990" target="_blank" rel="noopener">FairHome: классификатор нарушений в жилье</a></li>
+          <li><a href="https://arxiv.org/abs/2604.20732" target="_blank" rel="noopener">Переговоры о фрахте с моделью</a></li>
+          <li><a href="https://arxiv.org/abs/2405.20362" target="_blank" rel="noopener">Выдумки юридических ИИ-сервисов</a></li>
+          <li><a href="https://arxiv.org/abs/2511.04205" target="_blank" rel="noopener">Модели на экзамене по госзакупкам</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">№44 Уход на дому</span>
+        <ul>
+          <li><a href="https://www.bls.gov/ooh/healthcare/home-health-aides-and-personal-care-aides.htm" target="_blank" rel="noopener">BLS: сиделки, численность и прогноз</a></li>
+          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12762692/" target="_blank" rel="noopener">Стоимость замены сиделки</a></li>
+          <li><a href="https://www.kff.org/medicaid/payment-rates-for-medicaid-home-care-states-responses-to-workforce-challenges/" target="_blank" rel="noopener">KFF: ставки Medicaid за уход</a></li>
+          <li><a href="https://www.kff.org/medicaid/states-management-of-medicaid-home-care-spending-ahead-of-h-r-1-effects/" target="_blank" rel="noopener">KFF: штаты перед сокращениями</a></li>
+          <li><a href="https://health.data.ny.gov/Health/Licensed-Home-Care-Services-Agency-Registration-St/u7ui-w87n" target="_blank" rel="noopener">Реестр агентств ухода Нью-Йорка</a></li>
+          <li><a href="https://www.prnewswire.com/news-releases/zingage-brings-ai-agents-to-hhaexchanges-network-of-32-000-home-care-providers-302757354.html" target="_blank" rel="noopener">Zingage в сети HHAeXchange</a></li>
+          <li><a href="https://homehealthcarenews.com/2026/06/doj-sues-ppl-new-york-doh-over-alleged-cdpap-fraud-scheme/" target="_blank" rel="noopener">Иск Минюста к PPL</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">№43 Аренда</span>
+        <ul>
+          <li><a href="https://www.census.gov/housing/hvs/files/qtr226/Q226press.pdf" target="_blank" rel="noopener">Census: вакантность, II кв. 2026</a></li>
+          <li><a href="https://www.nber.org/system/files/working_papers/w29516/w29516.pdf" target="_blank" rel="noopener">NBER: аудит 25 тыс. обращений</a></li>
+          <li><a href="https://naahq.org/news/why-employee-retention-challenges-go-deeper-wages" target="_blank" rel="noopener">NAA: текучесть персонала</a></li>
+          <li><a href="https://www.globenewswire.com/news-release/2026/06/16/3312820/36405/en/AppFolio-Deepens-Agentic-AI-Across-Leasing-Accounting-and-Resident-Operations.html" target="_blank" rel="noopener">AppFolio: голосовой агент по аренде</a></li>
+          <li><a href="https://www.globenewswire.com/news-release/2026/09/29/3370681/0/en/eliseai-raises-350-million-at-4-billion-valuation-to-bring-ai-deeper-into-housing-and-healthcare-operations.html" target="_blank" rel="noopener">EliseAI: $350 млн, 29.09.2026</a></li>
+          <li><a href="https://www.open-communities.org/post/press-release-open-communities-reaches-accord-in-case-addressing-artificial-intelligence-communicat" target="_blank" rel="noopener">Дело Harbor Group и PERQ</a></li>
+          <li><a href="https://www.lethub.co/pricing" target="_blank" rel="noopener">LetHub: цены</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">№41 Автосалоны</span>
+        <ul>
+          <li><a href="https://www.piedpiperpsi.com/press/press-release-mileone-autogroup-ranked-highest-in-new-2026-service-scheduling-effectiveness-omnichannel-study-533.htm" target="_blank" rel="noopener">Pied Piper 2026: запись в сервис</a></li>
+          <li><a href="https://www.piedpiperpsi.com/press/press-release-group-1-tops-pied-pipers-2025-service-appointment-rankings-industrywide-a-i-often-beats-human-staff-486.htm" target="_blank" rel="noopener">Pied Piper 2025: ИИ против людей</a></li>
+          <li><a href="https://www.nada.org/media/4695/download?inline=" target="_blank" rel="noopener">NADA Data 2025</a></li>
+          <li><a href="https://www.cdkglobal.com/aiva-fixed-operations" target="_blank" rel="noopener">CDK AIVA</a></li>
+          <li><a href="https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know" target="_blank" rel="noopener">FTC Safeguards Rule</a></li>
+          <li><a href="https://techcrunch.com/2025/06/05/tomas-ai-voice-agents-have-taken-off-at-car-dealerships-and-attracted-funding-from-a16z/" target="_blank" rel="noopener">Toma и a16z</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">№45 Госконтракты</span>
+        <ul>
+          <li><a href="https://legacy.sba.gov/article/2026/06/25/sba-releases-fy25-scorecard-small-business-contracting" target="_blank" rel="noopener">SBA: итоги FY2025</a></li>
+          <li><a href="https://fedlift.substack.com/p/small-business-government-contracting" target="_blank" rel="noopener">FedLift: число малых победителей</a></li>
+          <li><a href="https://docs.house.gov/meetings/SM/SM23/20250910/118586/HHRG-119-SM23-20250910-SD037.pdf" target="_blank" rel="noopener">Small Business Majority: барьеры</a></li>
+          <li><a href="https://www.govconwire.com/articles/clarity-report-2026-deltek-govcon-kevin-plexico" target="_blank" rel="noopener">Deltek Clarity 2026</a></li>
+          <li><a href="https://www.cleat.ai/pricing" target="_blank" rel="noopener">CLEATUS: цены</a></li>
+          <li><a href="https://www.acquisition.gov/far/52.203-5" target="_blank" rel="noopener">FAR 52.203-5</a></li>
+          <li><a href="https://www.gao.gov/products/b-423649,b-423650,b-423670,b-423670.2" target="_blank" rel="noopener">GAO: дело Oready</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label">№42 Фрахт</span>
+        <ul>
+          <li><a href="https://www.faegredrinker.com/en/insights/publications/2026/5/supreme-court-decides-montgomery-v-caribe-transport-ii-llc" target="_blank" rel="noopener">Верховный суд: Montgomery v. Caribe</a></li>
+          <li><a href="https://natlawreview.com/press-releases/ascendtms-unveils-unique-free-logistics-ai-suite-freight-brokers-trucking" target="_blank" rel="noopener">AscendAI бесплатно</a></li>
+          <li><a href="https://tai-software.com/tai-tms-introduces-ai-track-trace-agent-making-check-calls-a-thing-of-the-past/" target="_blank" rel="noopener">Tai: агент статусных звонков</a></li>
+          <li><a href="https://www.logisticsmgmt.com/article/tia_report_signals_continued_recovery_in_freight_brokerage_market" target="_blank" rel="noopener">TIA: маржа брокеров, II кв. 2026</a></li>
+          <li><a href="https://news.tianet.org/tia-releases-state-of-fraud-in-the-industry-april-2025-report/" target="_blank" rel="noopener">TIA: мошенничество</a></li>
+          <li><a href="https://www.claimsjournal.com/news/national/2026/01/28/335280.htm" target="_blank" rel="noopener">CargoNet: кражи грузов 2025</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Полные досье по каждой нише (экономика с нуля, юридика, таблицы GitHub, статьи arXiv, все ссылки) и выжимка из университета лежат в папке проекта:</p>
+    <code>Our Business (Andrii &amp; Masha)/Pivot/issledovanie-2026-09-30-41-45/</code>
+    <p>Итог текстом: VYVODY-41-45.md. Разбор от 30.09.2026.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var QS = ['q1', 'q2'];
+  var state = { q1: null, q2: null };
+  var busy = { q1: false, q2: false };
+  var db = null;
+  var writable = true;
+  var connected = false;
+
+  function box(q) { return document.querySelector('.decision[data-q="' + q + '"]'); }
+
+  function fmt(iso) {
+    try {
+      return new Date(iso).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    } catch (e) { return ''; }
+  }
+
+  function setStatus(q, text) { box(q).querySelector('.q-status').textContent = text; }
+
+  function render(q) {
+    var el = box(q);
+    var data = state[q];
+    el.querySelectorAll('.opt').forEach(function (b) {
+      var on = !!data && data.choice === b.dataset.choice;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    var ta = el.querySelector('textarea');
+    if (data && typeof data.comment === 'string' && document.activeElement !== ta && !ta.dataset.dirty) {
+      ta.value = data.comment;
+    }
+    if (!connected) { setStatus(q, 'Сохранение недоступно в этом окне. Ответь в чате.'); return; }
+    if (!writable) {
+      setStatus(q, data && data.choice ? ('Выбран вариант ' + data.choice + ' · ' + fmt(data.at)) : 'Ответа пока нет. Отвечать может только владелец.');
+      return;
+    }
+    if (data && (data.choice || data.comment)) {
+      setStatus(q, 'Сохранено ' + fmt(data.at) + '. Напиши мне в чате «ответил».');
+    } else {
+      setStatus(q, 'Ответа пока нет.');
+    }
+  }
+
+  function setReadonly(q, on) {
+    var el = box(q);
+    el.classList.toggle('is-readonly', on);
+    el.querySelectorAll('.opt, .save-note').forEach(function (b) { b.disabled = on; });
+    el.querySelector('textarea').disabled = on;
+  }
+
+  function save(q, patch) {
+    if (!db || !writable || busy[q]) return Promise.resolve(false);
+    busy[q] = true;
+    var el = box(q);
+    el.classList.add('is-busy');
+    setStatus(q, 'Сохраняю…');
+    var cur = state[q] || {};
+    var next = {
+      choice: cur.choice || null,
+      comment: typeof cur.comment === 'string' ? cur.comment : ''
+    };
+    Object.keys(patch).forEach(function (k) { next[k] = patch[k]; });
+    next.at = new Date().toISOString();
+    return db.doc('answers/' + q).set(next).then(function () {
+      state[q] = next;
+      busy[q] = false;
+      el.classList.remove('is-busy');
+      render(q);
+      return true;
+    }, function (e) {
+      busy[q] = false;
+      el.classList.remove('is-busy');
+      var code = e && e.code;
+      if (code === 'invalid_argument') {
+        writable = false;
+        QS.forEach(function (x) { setReadonly(x, true); });
+        setStatus(q, 'Сохранить не вышло: у этой ссылки нет права записи. Ответь в чате.');
+      } else if (code === 'unavailable') {
+        setStatus(q, 'Связь пропала. Нажми ещё раз.');
+      } else {
+        setStatus(q, 'Сохранить не вышло. Ответь в чате.');
+      }
+      return false;
+    });
+  }
+
+  QS.forEach(function (q) {
+    var el = box(q);
+    el.querySelectorAll('.opt').forEach(function (b) {
+      b.addEventListener('click', function () { save(q, { choice: b.dataset.choice }); });
+    });
+    var ta = el.querySelector('textarea');
+    ta.addEventListener('input', function () { ta.dataset.dirty = '1'; });
+    el.querySelector('.save-note').addEventListener('click', function () {
+      save(q, { comment: ta.value.trim() }).then(function (ok) { if (ok) delete ta.dataset.dirty; });
+    });
+  });
+
+  var claudeApi = window.claude;
+  if (!claudeApi || typeof claudeApi.use !== 'function') return;
+
+  claudeApi.use('db').then(function (ns) {
+    if (!ns) { QS.forEach(render); return; }
+    db = ns;
+    connected = true;
+    return claudeApi.use('user').then(function (user) {
+      if (!user) return null;
+      return user.can('data.write');
+    }, function () { return null; }).then(function (can) {
+      if (can === false) { writable = false; QS.forEach(function (q) { setReadonly(q, true); }); }
+      QS.forEach(function (q) {
+        render(q);
+        db.doc('answers/' + q).onSnapshot(function (snap) {
+          state[q] = snap.exists ? snap.data() : null;
+          render(q);
+        }, function () {
+          setStatus(q, 'Связь с сохранением прервалась. Обнови страницу или ответь в чате.');
+        });
+      });
+    });
+  }, function () { QS.forEach(render); });
+})();
+</script>

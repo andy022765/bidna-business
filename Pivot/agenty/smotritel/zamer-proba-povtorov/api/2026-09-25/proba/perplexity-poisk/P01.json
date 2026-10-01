@@ -1,0 +1,157 @@
+{
+ "vopros_id": "P01",
+ "povtor": 1,
+ "vopros": "Кто в США принимает звонки за малый бизнес?",
+ "versiya_spiska": "proba-povtorov",
+ "otpechatok": "4fa2fddeb827",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "proba",
+ "den": "2026-09-25",
+ "vne_okna": false,
+ "zapusk_id": "20260925-143906-54716",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-25T14:39:06-07:00",
+   "zapusk_id": "20260925-143906-54716",
+   "cena": 0.0,
+   "ishod": "http 429",
+   "tekst": "{\"error\":{\"message\":\"Request rate limit exceeded, please try again later.\",\"type\":\"request_rate_limit_exceeded\",\"code\":429}}",
+   "sekund": 0.3
+  },
+  {
+   "n": 2,
+   "nachalo": "2026-09-25T14:39:22-07:00",
+   "zapusk_id": "20260925-143906-54716",
+   "cena": 0.00076,
+   "ishod": "ok",
+   "sekund": 2.8,
+   "meta": {
+    "date": "Fri, 25 Sep 2026 21:39:24 GMT",
+    "x-request-id": "526bbfa0-7c5c-41ba-a8b3-2678d0d0c0f2"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "В США звонки для малого бизнеса обычно принимают:\n\n- **рецепционист / секретарь (receptionist, secretary)** — если человек отвечает на входящие звонки и переносит их;\n- **администратор офиса (office administrator / office manager)** — часто совмещает прием звонков с организацией работы офиса;\n- **ассистент по работе с клиентами (customer service representative)** — если речь о клиентах и заказах;\n- **виртуальный ассистент (virtual assistant)** — если звонки принимает удаленно;\n- **call answering service / answering service** — если это внешний сервис, который принимает звонки вместо компании;\n- **front desk specialist / receptionist** — в салонах, клиниках, сервисных компаниях.\n\nЕсли вы спрашиваете **как называется такая должность по-английски**, самый общий вариант — **receptionist** или **phone answering service** для внешней услуги.\n\nЕсли хотите, я могу:\n1. подобрать **точное название должности** для резюме/вакансии в США, или  \n2. объяснить, **сколько обычно платят** за прием звонков для малого бизнеса в Лос-Анджелесе.",
+  "poiskovye_zaprosy": [],
+  "poiskovyh_zaprosov": 0,
+  "poiskovyh_vyzovov": 0,
+  "istochniki": [],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "currency": "USD",
+    "input_cost": 0.00012,
+    "output_cost": 0.00064,
+    "total_cost": 0.00076
+   },
+   "input_tokens": 481,
+   "input_tokens_details": {
+    "cached_tokens": 0
+   },
+   "output_tokens": 256,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 737
+  },
+  "cena": 0.00076,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790372362,
+  "created_at": 1790372362,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_526bbfa0-7c5c-41ba-a8b3-2678d0d0c0f2",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "В США звонки для малого бизнеса обычно принимают:\n\n- **рецепционист / секретарь (receptionist, secretary)** — если человек отвечает на входящие звонки и переносит их;\n- **администратор офиса (office administrator / office manager)** — часто совмещает прием звонков с организацией работы офиса;\n- **ассистент по работе с клиентами (customer service representative)** — если речь о клиентах и заказах;\n- **виртуальный ассистент (virtual assistant)** — если звонки принимает удаленно;\n- **call answering service / answering service** — если это внешний сервис, который принимает звонки вместо компании;\n- **front desk specialist / receptionist** — в салонах, клиниках, сервисных компаниях.\n\nЕсли вы спрашиваете **как называется такая должность по-английски**, самый общий вариант — **receptionist** или **phone answering service** для внешней услуги.\n\nЕсли хотите, я могу:\n1. подобрать **точное название должности** для резюме/вакансии в США, или  \n2. объяснить, **сколько обычно платят** за прием звонков для малого бизнеса в Лос-Анджелесе.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_b77f8716-753a-4204-9854-22fc4aedd5e6",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "currency": "USD",
+    "input_cost": 0.00012,
+    "output_cost": 0.00064,
+    "total_cost": 0.00076
+   },
+   "input_tokens": 481,
+   "input_tokens_details": {
+    "cached_tokens": 0
+   },
+   "output_tokens": 256,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 737
+  },
+  "user": null
+ }
+}

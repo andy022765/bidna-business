@@ -1,0 +1,396 @@
+<title>Лендинг «Ваше имя в ответе»</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --bg:#fbfaf8; --card:#fff; --ink:#17150f; --dim:#575249; --faint:#8b857a;
+    --line:#e7e3da; --rule:#d0cabe;
+    --acc:#12604a; --acc2:#e3efe9; --accd:#0c4435;
+    --was:#93463a; --was2:#faece8;
+    --dark:#14170f; --darkink:#f2f0e9;
+    --gold:#8a6510; --gold2:#faf1dd;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#121310; --card:#1a1c18; --ink:#ebe9e3; --dim:#9ba295; --faint:#7e847a;
+    --line:#292c26; --rule:#3b3f37;
+    --acc:#6fc7a4; --acc2:#142a21; --accd:#8fd8ba;
+    --was:#df8f87; --was2:#2b1b18;
+    --dark:#0c0e0a; --darkink:#f2f0e9;
+    --gold:#d9ae5e; --gold2:#2a2214;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#121310; --card:#1a1c18; --ink:#ebe9e3; --dim:#9ba295; --faint:#7e847a;
+    --line:#292c26; --rule:#3b3f37;
+    --acc:#6fc7a4; --acc2:#142a21; --accd:#8fd8ba;
+    --was:#df8f87; --was2:#2b1b18;
+    --dark:#0c0e0a; --darkink:#f2f0e9;
+    --gold:#d9ae5e; --gold2:#2a2214;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;padding:0;margin:0;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:900px;margin:0 auto;padding:0 20px}
+  .narrow{max-width:720px;margin:0 auto}
+
+  /* служебная рамка прототипа */
+  .meta{background:var(--gold2);border-bottom:1px solid var(--gold);padding:11px 20px;font-size:13.5px;color:var(--ink)}
+  .meta b{color:var(--gold)}
+  .scr{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+    font-weight:700;margin:0 0 14px}
+
+  /* места под картинки */
+  .img{border:2px dashed var(--rule);border-radius:6px;padding:22px;text-align:center;
+    background:var(--card);margin:18px 0}
+  .img .t{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--acc);font-weight:700;margin-bottom:8px}
+  .img p{margin:0 auto;font-size:14.5px;color:var(--dim);max-width:56ch}
+  .img.video{min-height:260px;display:flex;flex-direction:column;justify-content:center;
+    border-color:var(--acc);background:var(--acc2)}
+
+  /* экраны */
+  section{padding-block:56px;border-top:1px solid var(--line)}
+  section.hero{border-top:0;background:var(--dark);color:var(--darkink);padding-block:44px 56px}
+  section.hero .scr{color:#8a8f80}
+  h1{font-family:Bitter,Georgia,serif;font-weight:800;font-size:clamp(30px,6.2vw,50px);
+    line-height:1.06;margin:0 0 18px;letter-spacing:-.03em;text-wrap:balance}
+  h2{font-family:Bitter,Georgia,serif;font-weight:700;font-size:clamp(24px,4.2vw,33px);
+    line-height:1.14;margin:0 0 14px;letter-spacing:-.02em;text-wrap:balance}
+  h3{font-size:19px;font-weight:700;margin:26px 0 8px}
+  p{margin:0 0 14px;max-width:66ch}
+  .lede{font-size:19px;color:var(--dim);max-width:60ch}
+  .hero .lede{color:#b3b8a8}
+  b{font-weight:600}
+  ul{margin:0 0 14px;padding-left:20px} li{margin-bottom:9px;max-width:64ch}
+  li::marker{color:var(--acc)}
+
+  /* кнопка */
+  .btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;
+    font-weight:700;font-size:18px;padding:16px 30px;border-radius:5px;margin:6px 0 8px;
+    font-family:Bitter,serif}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:#0c0e0a}}
+  :root[data-theme="dark"] .btn{color:#0c0e0a}
+  .btn-sub{font-size:14px;color:var(--faint);margin:0 0 8px}
+  .hero .btn-sub{color:#8a8f80}
+  .to{font-size:11.5px;color:var(--faint);font-style:italic;margin-top:2px}
+
+  /* было-стало */
+  .bs{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card);margin-bottom:12px}
+  .bs .h{padding:14px 19px 0;font-size:18px;font-weight:700}
+  .bs .g{display:grid;grid-template-columns:1fr 1fr;padding:11px 0 0}
+  .bs .c{padding:0 19px 16px}
+  .bs .c + .c{border-left:1px solid var(--line)}
+  .bs .lbl{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+  .bs .was .lbl{color:var(--was)} .bs .now .lbl{color:var(--acc)}
+  .bs .c p{margin:0;font-size:15.5px;max-width:none}
+  @media(max-width:620px){.bs .g{grid-template-columns:1fr}
+    .bs .c + .c{border-left:0;border-top:1px solid var(--line);padding-top:14px}}
+
+  .tw{overflow-x:auto;margin:16px 0}
+  table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:520px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.pr{font-weight:700;white-space:nowrap;text-align:right}
+  td.b{font-weight:600}
+  tr.hdr td{background:var(--acc2);font-family:Bitter,serif;font-weight:700;font-size:12.5px;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--acc)}
+  tfoot td{border-bottom:0;padding-top:13px;font-weight:700;font-size:17px}
+  tfoot td.pr{font-size:22px;color:var(--acc)}
+  tfoot tr.tot td{border-top:2px solid var(--rule)}
+
+  .g3{background:var(--acc2);border:2px solid var(--acc);border-radius:6px;padding:20px 23px;margin:14px 0}
+  .g3 .t{font-family:Bitter,serif;font-weight:700;font-size:19px;color:var(--acc);margin-bottom:8px}
+  .g3 p{margin:0;font-size:15.5px}
+
+  .step{display:grid;grid-template-columns:104px 1fr;gap:16px;padding-block:13px;border-top:1px solid var(--line)}
+  .step:first-of-type{border-top:0}
+  .step .d{font-family:Bitter,serif;font-size:13.5px;font-weight:700;color:var(--acc);padding-top:2px}
+  .step p{margin:0;font-size:15.5px}
+  @media(max-width:560px){.step{grid-template-columns:1fr;gap:3px}}
+
+  .obj{border-top:1px solid var(--line);padding-block:17px}
+  .obj:first-of-type{border-top:0}
+  .obj .q{font-weight:700;font-size:17px;margin:0 0 7px}
+  .obj p{font-size:15.5px}
+  .quote{font-family:Bitter,serif;font-size:21px;line-height:1.35;padding-left:18px;
+    border-left:3px solid var(--acc);margin:20px 0;max-width:56ch}
+  .hero .quote{border-left-color:var(--accd)}
+  .cen{text-align:center}
+  .cen p{margin-left:auto;margin-right:auto}
+</style>
+
+<div class="meta"><b>Прототип лендинга.</b> Пунктирные рамки - места под картинки, их генерим отдельно. Кнопки пока не кликаются. Под каждым экраном курсивом написано, куда ведёт кнопка.</div>
+
+<!-- ЭКРАН 1 -->
+<section class="hero">
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 1 · первый экран</p>
+    <div class="img video">
+      <div class="t">Scroll-stop видео · 10 секунд · без петли, замирает на последнем кадре</div>
+      <p style="color:var(--dim)"><b>Новый сценарий, под этот оффер.</b> Тёмный экран. Курсор печатает вопрос покупателя: «who's the best roofer in Tampa». Ответ вытекает строками - одно за другим появляются шесть названий компаний. Камера медленно отъезжает, и под списком видно седьмое место, пустое и серое. В нём проступает вывеска зрителя, тусклая. Пауза. Потом вывеска загорается и встаёт третьей строкой в список. Замереть.<br><br>Без роботов, без спиралей, без силуэтов из света. Текст в кадре не генерим, надписи накладываем в монтаже.</p>
+    </div>
+    <h1>Ваш конкурент спросит ChatGPT, кто лучший в городе, и увидит там вас.</h1>
+    <p class="lede">Сегодня на этот вопрос звучат шесть имён, и вашего среди них нет.</p>
+    <p style="margin-top:22px"><a class="btn" href="#">Посмотреть, кого называют вместо вас</a></p>
+    <p class="btn-sub">Бесплатно · 30 секунд · нужны два слова, чем занимаетесь и в каком городе</p>
+    <p class="to">→ кнопка ведёт на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 2 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 2 · почему людей стало меньше</p>
+    <h2>Сайт живой. Реклама крутится. А телефон звонит реже.</h2>
+    <p>Объяснение скучное. Ваш покупатель перестал искать так, как искал два года назад. Он открывает ChatGPT и спрашивает: «кому отдать ремонт кровли в Тампе».</p>
+    <p>ChatGPT называет шестерых. Вас там нет, и узнать об этом неоткуда - вы же не стоите у него за спиной.</p>
+    <p class="quote">Вы не упали в поиске. Вы просто не попали в ответ.</p>
+    <div class="img">
+      <div class="t">Картинка · скриншот-мокап</div>
+      <p>Настоящий ответ ChatGPT на вопрос про местную нишу. Шесть названий списком, у каждого короткое описание. Никакой подсветки и стрелок - просто ответ, каким его видит покупатель.</p>
+    </div>
+    <p><a class="btn" href="#">Проверить свою нишу</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 3 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 3 · бесплатная проверка</p>
+    <h2>Тридцать секунд, и вы видите список</h2>
+    <div class="step"><span class="d">Вы пишете</span><p>Два слова. Чем занимаетесь и в каком городе. Например «кровля, Тампа».</p></div>
+    <div class="step"><span class="d">Мы спрашиваем</span><p>Три нейросети, каждую по три раза, тем вопросом, который задал бы ваш покупатель.</p></div>
+    <div class="step"><span class="d">Вы видите</span><p>Девять ответов и список имён. Кого назвали, сколько раз, и есть ли там вы.</p></div>
+    <div class="img">
+      <div class="t">Картинка · экран результата</div>
+      <p>Как выглядит выдача. Слева девять прогонов, справа имена с числом упоминаний. Строка зрителя внизу и подсвечена: «0 из 9».</p>
+    </div>
+    <p>Если вы в списке есть и стоите высоко - мы так и напишем, и продавать вам будет нечего.</p>
+    <p><a class="btn" href="#">Посмотреть свой список</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 3б -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 3б · если нашли не одно, а несколько</p>
+    <h2>Заодно мы посмотрели ещё три вещи</h2>
+    <p>Этот экран показывается не всем. Только тем, у кого машина нашла два и больше мест сразу.</p>
+    <div class="img">
+      <div class="t">Картинка · три находки списком</div>
+      <p>Три строки, у каждой время проверки. «Ваш сервер не пустил робота ChatGPT, код 403, проверено сегодня в 14:22». «В карточке Google адрес, по которому вы не работаете с 2023 года». «Три из девяти ответов называют вас поставщиком того, чего вы не делаете».</p>
+    </div>
+    <p>Каждое чинится отдельно, и цены у нас открыты.</p>
+    <p><b>Но порядок важнее списка.</b> Пока сервер закрыт, переписывать страницы бессмысленно - их никто не прочитает. Пока в карточке старый адрес, чистить каталоги бесполезно - они тянут данные оттуда.</p>
+    <p>Если не знаете, с чего начать - час разговора, и вы получаете порядок работ: что первым, что потом и <b>чего делать не надо</b>. Пятьсот долларов, и они засчитываются в то, что закажете дальше.</p>
+    <p><a class="btn" href="#">Разобрать, с чего начинать — $500</a></p>
+    <p class="btn-sub">Или выберите одну работу сами — вот цены</p>
+    <p class="to">→ первая кнопка на оплату диагностики · вторая мелким на прайс</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 4 -->
+<section>
+  <div class="w">
+    <p class="scr">Экран 4 · было-стало</p>
+    <div class="narrow"><h2>Что меняется за квартал</h2></div>
+
+    <div class="bs"><div class="h">1. Как вас находят</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>Покупатель спрашивает ChatGPT, кому отдать работу. Тот называет шестерых. Вас нет, и вы об этом не знаете.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Вас называют вместе с ними, и рядом стоит ваша цена.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">2. Что про вас написано</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>На восьми площадках три разных телефона и два адреса, один старый. Где-то вас склеили с однофамильцем, и его отзывы читают как ваши.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Везде одно и то же. Мёртвые карточки снесены, однофамилец отцеплен. Нейросетям неоткуда взять про вас неправду.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">3. Ваша страница</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>«Качественно и профессионально с 2009 года». Цена картинкой или «по запросу». Нейросети нечего процитировать.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Город словом в заголовке. Цена обычным текстом. Ответы теми словами, которыми люди спрашивают.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">4. Как вы это проверяете</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>Никак. Ощущение «вроде звонить стали меньше». Подрядчик показывает метрику, в которой всё растёт.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Два замера, до и через девяносто дней. Те же вопросы, те же движки. Построчная разница и скриншоты.</p></div>
+    </div></div>
+
+    <div class="bs"><div class="h">5. Кто за это отвечает</div><div class="g">
+      <div class="c was"><div class="lbl">Было</div><p>Никто. Платите помесячно, результат обсуждается словами, уйти неудобно.</p></div>
+      <div class="c now"><div class="lbl">Стало</div><p>Список вопросов заморожен до старта. Не назвал ни один движок - возвращаем все деньги.</p></div>
+    </div></div>
+
+    <div class="narrow cen" style="margin-top:26px">
+      <p><a class="btn" href="#">Начать с бесплатной проверки</a></p>
+      <p class="to">→ на форму бесплатной проверки</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 5 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 5 · что входит и сколько стоит</p>
+    <h2>Квартал работы - $1 500</h2>
+    <p>Ни одна цифра справа не придумана нами. Это чужие прайсы за то же самое, открытые на их сайтах.</p>
+  </div>
+  <div class="tw">
+    <table>
+      <tbody>
+        <tr class="hdr"><td colspan="2">Основа</td></tr>
+        <tr><td class="b">Два замера, до и после, со скриншотами</td><td class="pr">$190</td></tr>
+        <tr><td class="b">Восемь площадок и отраслевые каталоги в порядок</td><td class="pr">$400</td></tr>
+        <tr><td class="b">Переписанные страницы</td><td class="pr">$600</td></tr>
+        <tr><td class="b">Чужие каталоги и письма третьим сторонам</td><td class="pr">$450</td></tr>
+        <tr><td class="b">Страница, которую читают нейросети<br><span style="font-weight:400;color:var(--dim);font-size:14px">если своей нет или свою не спасти</span></td><td class="pr">$1 500</td></tr>
+        <tr class="hdr"><td colspan="2">Сверх работы</td></tr>
+        <tr><td class="b">«Двойник» - отцепить бизнес, с которым вас склеили</td><td class="pr">$300</td></tr>
+        <tr><td class="b">«Открытая дверь» - пустить роботов ChatGPT и Claude на ваш сервер</td><td class="pr">$300</td></tr>
+        <tr><td class="b">«Паспорт фактов» - 25 утверждений, ваш навсегда</td><td class="pr">$150</td></tr>
+        <tr><td class="b">«Лист для вашего вебмастера»</td><td class="pr">$100</td></tr>
+        <tr><td class="b">«Две правки в месяц»</td><td class="pr">$300</td></tr>
+        <tr><td class="b">«Скорая по вранью»</td><td class="pr">$250</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>По отдельности, если сайт у вас есть</td><td class="pr" style="color:var(--dim)">$3 040</td></tr>
+        <tr><td>По отдельности, если страницу делаем мы</td><td class="pr" style="color:var(--dim)">$4 540</td></tr>
+        <tr class="tot"><td>Квартал целиком, в обоих случаях</td><td class="pr">$1 500</td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="narrow">
+    <p>Один платёж за квартал вперёд. Ни установки, ни сбора за оформление, ни автопродления.</p>
+    <p><a class="btn" href="#">Сначала бесплатная проверка</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 6 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 6 · что когда</p>
+    <h2>Первое вы увидите в тот же день</h2>
+    <div class="step"><span class="d">День 0</span><p>Бесплатная проверка. Список имён, которые называют вместо вас.</p></div>
+    <div class="step"><span class="d">День 1</span><p>Разговор сорок минут. Вместе пишем вопросы вашего покупателя и замораживаем список. Снимаем нулевую точку.</p></div>
+    <div class="step"><span class="d">Недели 1-4</span><p>Площадки. Открываете любую и видите одинаковые данные.</p></div>
+    <div class="step"><span class="d">Недели 5-8</span><p>Страницы. Читаете свой сайт и видите свой город, свою цену и свои ответы.</p></div>
+    <div class="step"><span class="d">Недели 9-12</span><p>Чужие каталоги и письма тем, кто пишет про вас неправду.</p></div>
+    <div class="step"><span class="d">День 90</span><p>Второй замер. Те же вопросы, построчная разница.</p></div>
+    <div class="img">
+      <div class="t">Картинка · календарь-полоса</div>
+      <p>Горизонтальная шкала на 90 дней с шестью отметками. Простая, без градиентов. Первая отметка подсвечена - «сегодня».</p>
+    </div>
+    <p><b>Девяносто дней - это срок нашей работы, а не срок, за который придут клиенты.</b></p>
+    <p><a class="btn" href="#">Посмотреть свой список</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 7 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 7 · гарантии</p>
+    <h2>Три гарантии, и все три работают сразу</h2>
+    <div class="g3"><div class="t">Не назвали - вернём всё</div>
+      <p>До старта вместе пишем три-пять вопросов и замораживаем. Через девяносто дней прогоняем те же. Если ни один из трёх движков не назвал вас ни разу - возвращаем все $1 500. Форму заполнять не надо, объяснять ничего не надо.</p></div>
+    <div class="g3"><div class="t">Сорвём срок - работаем бесплатно</div>
+      <p>Не отдали второй замер на девяностый день - следующий квартал за наш счёт.</p></div>
+    <div class="g3"><div class="t">Чего нельзя починить - за то не берём</div>
+      <p>Часть неправды вшита в модель при обучении, её не трогает никто в мире. Находим такое на первой неделе, говорим вам и вычитаем из счёта. До оплаты, а не после.</p></div>
+    <p style="margin-top:20px"><b>Чего мы не обещаем.</b> Ни процента, ни количества звонков, ни срока, за который придут клиенты. Никто честно не может. Мы обещаем, что после нас вас можно называть - сегодня нейросеть не сделает этого, даже если захочет.</p>
+    <p><a class="btn" href="#">Начать</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 8 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 8 · что нужно от вас</p>
+    <h2>Сорок минут за квартал</h2>
+    <ul>
+      <li>Два слова на бесплатной проверке.</li>
+      <li>Один разговор на сорок минут. Один раз за весь квартал.</li>
+      <li>Добавить нас менеджером карточки в Google. Две минуты, права снимаются одной кнопкой.</li>
+    </ul>
+    <p>Анкеты нет.</p>
+    <h3>Что будет с вашим сайтом - решаете вы</h3>
+    <div class="step"><span class="d">Есть свой<br>разработчик</span><p>Мы к сайту не прикасаемся. Отдаём ему лист правок его словами, на одну страницу. Доступ не нужен.</p></div>
+    <div class="step"><span class="d">Сайт есть,<br>разработчика нет</span><p>Даёте доступ - правим сами. Не хотите давать - получаете тот же лист правок и делаете когда удобно.</p></div>
+    <div class="step"><span class="d">Сайта нет<br>или он не жилец</span><p>Делаем отдельную страницу, которую нейросети умеют прочитать. К старому сайту не прикасаемся вообще. Эта страница входит в квартал и остаётся вашей.</p></div>
+    <p style="margin-top:16px">Доступа к деньгам, счетам и базе клиентов не просим никогда, ни в одном из трёх случаев.</p>
+    <div class="img">
+      <div class="t">Картинка · фото</div>
+      <p>Андрей и Маша. Настоящее фото, не сток. Рабочее, не студийное.</p>
+    </div>
+    <p><a class="btn" href="#">Посмотреть, кого называют вместо вас</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 9 -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="scr">Экран 9 · возражения</p>
+    <h2>Три вопроса, которые вы уже задали про себя</h2>
+    <div class="obj"><p class="q">«Я и сам могу спросить ChatGPT»</p>
+      <p>Можете, это две минуты. Спросите. Только три вещи вы сделаете иначе, и все три меняют ответ. Спросите один движок, а у трёх ответы разные. Спросите один раз, а два прогона через десять часов совпадают на 28% - значит один вопрос не значит ничего. И спросите так, как думаете вы, а не как спрашивает покупатель.</p></div>
+    <div class="obj"><p class="q">«Есть сервисы за $29 в месяц»</p>
+      <p>Они показывают цифру. Мы её тоже показываем, и бесплатно - на той самой проверке, с которой вы начинаете. С мая и июня эту цифру даром отдают ещё и Microsoft Clarity с Google Search Console, так что платить за неё $29 в месяц уже незачем никому.</p>
+      <p>Вопрос в другом. Цифра сама по себе ничего не меняет. Вы узнали, что вас называют ноль раз из девяти - и дальше что? Кто-то должен пойти и вычистить восемь площадок, переписать страницы, отцепить однофамильца, написать в каталоги, которые вас цитируют неправильно. Этого не делает ни один сервис - ни за $29, ни за $99. Это руки, и за руки берут деньги.</p>
+      <p><b>Термометр стал бесплатным. Лечить он не научился.</b></p></div>
+    <div class="obj"><p class="q">«А если не сработает»</p>
+      <p>Тогда вы не платите. Список вопросов пишем вместе до старта и замораживаем, чтобы потом не спорить о том, что считать успехом.</p></div>
+    <p style="margin-top:20px"><a class="btn" href="#">Проверить бесплатно</a></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- ЭКРАН 10 -->
+<section class="hero">
+  <div class="w"><div class="narrow cen">
+    <p class="scr">Экран 10 · финал</p>
+    <h2 style="font-size:clamp(26px,5vw,38px)">Сначала посмотрите список. Потом решайте.</h2>
+    <p class="lede" style="margin-left:auto;margin-right:auto">Проверка бесплатная и ни к чему не обязывает. Если вы в списке есть и стоите высоко - мы так и напишем.</p>
+    <p style="margin-top:22px"><a class="btn" href="#">Посмотреть, кого называют вместо вас</a></p>
+    <p class="btn-sub">30 секунд · два слова · без регистрации</p>
+    <p style="margin-top:22px;font-size:15px;color:#8a8f80">Берём четыре квартала за раз. Сейчас свободно: <b style="color:var(--darkink)">[живое число]</b></p>
+    <p class="to">→ на форму бесплатной проверки</p>
+  </div></div>
+</section>
+
+<!-- СЛУЖЕБНОЕ -->
+<section style="background:var(--gold2)">
+  <div class="w"><div class="narrow">
+    <p class="scr" style="color:var(--gold)">Не на страницу · для Андрея</p>
+    <h2>Что решено и что осталось</h2>
+    <h3>Про ролик</h3>
+    <p>Готовый сценарий 11А сюда не ложится. Он показывает спираль ДНК, утечку золотых частиц и цифровых сотрудников, которые входят в повреждённые узлы. Это язык старого позиционирования, и там в кадре роботы - ровно то, от чего мы отказались, когда нашли, что слово «ИИ» в оффере снижает доверие.</p>
+    <p>11А хорош и не пропадёт: он ложится на страницу внедрения, где мы как раз ставим сотрудников в конкретные места. Для этого лендинга нужен другой, и его сюжет написан в первом экране.</p>
+    <h3>Одна кнопка на весь сайт</h3>
+    <p>Все десять кнопок ведут в одно место - на форму бесплатной проверки. Ни одна не ведёт на прайс, на Calendly или на «оставьте заявку». Человек не должен выбирать, куда нажать.</p>
+    <h3>Чего на странице нет намеренно</h3>
+    <ul>
+      <li>Слова «ИИ» и «цифровой сотрудник» в заголовках. В теле только «ChatGPT» и «нейросети». Слово «машина» убрано везде: оно читается как автомобиль, и это поймал Андрей.</li>
+      <li>Отзывов и логотипов клиентов. Их нет, и рисовать нечего.</li>
+      <li>Блока «было-стало» с картинками результата. Появится после первых трёх клиентов за $950.</li>
+      <li>Обратных отсчётов, сезонных скидок и «цена вырастет в пятницу».</li>
+    </ul>
+    <h3>Диагностика поменяла содержание, и это надо знать</h3>
+<p>В старой линейке это были три рабочих дня research, PDF и стратсессия. Теперь машина находит симптомы бесплатно за двадцать центов, и брать $500 за то же самое нечестно.</p>
+<p><b>Новая диагностика - час разговора и порядок работ.</b> Берём машинные находки, добавляем то, что человек расскажет про свои цифры и своих людей, и отдаём последовательность с ценами и со строкой «этого не делайте». Тот же чек, другое наполнение, и оно теперь оправдано.</p>
+<h3>Что нужно сгенерить</h3>
+    <ul>
+      <li>Видео на первый экран, 10 секунд, по сценарию выше.</li>
+      <li>Скриншот-мокап ответа ChatGPT со списком шести компаний.</li>
+      <li>Экран результата проверки: девять прогонов, имена, «0 из 9».</li>
+      <li>Полоса календаря на 90 дней с шестью отметками.</li>
+      <li>Настоящее фото Андрея и Маши.</li>
+    </ul>
+    <h3>Что решить</h3>
+    <ul>
+      <li>Живое число свободных мест. Одно на весь сайт, должно падать по-настоящему.</li>
+      <li>Английская версия - после того как утвердишь русскую.</li>
+      <li>Страница внедрения и страница приёмки - отдельно, у них другой покупатель.</li>
+    </ul>
+  </div></div>
+</section>

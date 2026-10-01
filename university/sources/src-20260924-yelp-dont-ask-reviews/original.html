@@ -1,0 +1,785 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en_US">
+
+<head>
+<script src="/static/111213/js/perf/stub.js" type="text/javascript"></script><script src="/faces/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript?rel=1790201353000" type="text/javascript"></script><script src="/jslibrary/1752551382262/ui-sfdc-javascript-impl/SfdcCore.js" type="text/javascript"></script><script src="/jslibrary/1746634855262/sfdc/IframeThirdPartyContextLogging.js" type="text/javascript"></script><script src="/static/111213/js/picklist4.js" type="text/javascript"></script><script src="/jslibrary/1686615502262/sfdc/VFState.js" type="text/javascript"></script><script src="/jslibrary/1647410351262/sfdc/NetworkTracking.js" type="text/javascript"></script><script>try{ NetworkTracking.init('/_ui/networks/tracking/NetworkTrackingServlet', 'network', '066400000008yVO'); }catch(x){}try{ NetworkTracking.logPageView();}catch(x){}</script><script>(function(UITheme) {
+    UITheme.getUITheme = function() { 
+        return UserContext.uiTheme;
+    };
+}(window.UITheme = window.UITheme || {}));</script><meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+<meta HTTP-EQUIV="Expires" content="Mon, 01 Jan 1990 12:00:00 GMT" />
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-30501-49', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-5QNBSZ45X8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-5QNBSZ45X8');
+    </script>
+
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Don't Ask for Reviews | Support Center | Yelp</title>
+    <meta content="For business owners: you may be hurting your Yelp rating by proactively asking your customers for reviews. Here are some tips to avoid hurting your Yelp rating." name="description" />
+
+    
+    <link href="https://s3-media0.fl.yelpcdn.com/assets/2/www/css/ffe3cb4d46bc/support-pkg.css" media="all" rel="stylesheet" type="text/css" />
+
+    <style type="text/CSS">
+        .import-image-url {
+            background-image: url(https://s3-media1.fl.yelpcdn.com/assets/srv0/yelp_styleguide/d36a0875ec95/assets/img/sprites/common_sprite.png);
+        }
+        .expand-dropdown-icon {
+            padding-right: 18px;
+            background-position-x: 9px;
+            background-position-y: -4278px;
+            background-size: 170px 6360px;
+        }
+        .collapse-dropdown-icon {
+            padding-right: 18px;
+            background-position-x: 9px;
+            background-position-y: -4318px;
+            background-size:170px 6360px;
+        }
+        .review-icon{
+            background-position-x: 260px;
+            background-position-y: -2561px;
+            background-repeat: no-repeat;
+            background-size: 170px 6360px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            padding-right: 22px;
+            padding-top: 2px;
+        }
+        .suitcase-icon{
+            background-position-x: 196px;
+            background-position-y: -2871px;
+            background-repeat: no-repeat;
+            background-size: 170px 6360px;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            padding-top: 2px;
+        }
+        .search-icon{
+            background-position-x: -2.0px;
+            background-position-y: -6237.0px;
+            background-repeat: no-repeat;
+            background-size: 170.0px 6360.0px;
+            padding-bottom: 0px;
+            padding-left: 22px;
+            padding-top: 0px;
+        }
+        .langaunge-dropdown-icon {
+            width: 16px;
+            height: 13px;
+            left: 50px;
+            position: absolute;
+            background-image: url(https://s3-media4.fl.yelpcdn.com/assets/2/www/img/2796870a82eb/sprites/common.png);
+            background-position-x: -4px;
+            background-position-y: -3938px;
+            background-repeat: no-repeat;
+            top: 8px;
+        }
+
+        .support-center-text {
+            font-size: 26px;
+            font-weight: 400;
+        }
+
+        .search-help-text {
+            font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 20px;
+            padding-left: 0px;
+        }
+
+        .sc-top-shelf-search-block {
+            border: none;
+        }
+
+        .faq-block {
+            padding: 18px 18px 18px 0px;
+            color:#333;
+        }
+        .menu-text {
+            font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .content-container{
+            width: 96%;
+        }
+        .arrange--3-units>.arrange_unit {
+            width: 30.4%;
+        }
+        .faq-text {
+            font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .main-footer_item {
+            width: 18.5%;
+        }
+        .main-header_logo {
+        	background-image: none !important;
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        }
+        .header-a {
+        	text-indent: 0 !important;
+        	height: fit-content !important;
+        }
+        .footer-image-logo {
+            height: 15px !important;
+        }
+        .footer-image-burst {
+            height: 12px !important;
+        }
+        .nonadvertiser-call-us-button-container {
+            place-content: normal;
+            position: fixed;
+            right: 40px;
+            bottom: 0px;
+            height: 132px;
+            width: 372px;
+            border-radius: 4px 4px 0px 0px;
+            box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.15);
+            background: #FFFFFF;
+            z-index: 1;
+        }
+        .call-us-button-container {
+            place-content: normal;
+            position: fixed;
+            right: 40px;
+            bottom: 0px;
+            height: 112px;
+            width: 372px;
+            border-radius: 4px 4px 0px 0px;
+            box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.15);
+            background: #FFFFFF;
+            z-index: 1;
+        }
+        .nonadvertiser-call-us-button-container-webview {
+            right: 0px;
+            left: 0px;
+            width: 100%;
+            height: 98px;
+        }
+        .call-us-button-container-webview {
+            right: 0px;
+            left: 0px;
+            width: 100%;
+            height: 72px;
+        }
+        .call-us-button-contents {
+            margin: 24px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .call-us-button-contents-webview {
+            margin: 16px;
+        }
+        .call-us-need-help-text {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom:0px;
+            line-height: 20px;
+            color:#2D2E2F;
+        }
+        .call-us-phone-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: #027A97;
+            margin-bottom:0px;
+            line-height: 24px;
+        }
+        .call-us-phone-number-webview {
+            line-height: 20px;
+            margin-left: 5px;
+        }
+        .call-us-wait-times {
+            font-size: 12px;
+            font-weight: 400;
+            color: #6E7072;
+            margin-bottom:0px;
+            line-height: 16px;
+        }
+    </style>
+
+    <link href="https://s3-media2.ak.yelpcdn.com/assets/2/www/img/118ff475a341/ico/favicon.ico" rel="shortcut icon" />
+    <meta content="app-id=284910350" name="apple-itunes-app" />
+            <link href="/article/Bitten-Sie-nicht-um-Beitr&auml;ge?l=de" hreflang="de" rel="alternate" />
+            <link href="/article/Don-t-Ask-for-Reviews?l=en_GB" hreflang="en-GB" rel="alternate" />
+            <link href="/article/Don-t-Ask-for-Reviews?l=en_US" hreflang="en-US" rel="alternate" />
+                <link href="/article/Don-t-Ask-for-Reviews?l=en_US" rel="canonical" />
+            <link href="/article/No-solicites-rese&ntilde;as?l=es" hreflang="es" rel="alternate" />
+            <link href="/article/Ne-demandez-pas-d-avis?l=fr" hreflang="fr" rel="alternate" />
+            <link href="/article/Non-chiedere-recensioni?l=it" hreflang="it" rel="alternate" />
+            <link href="/article/Nie-proś-o-recenzje?l=pl" hreflang="pl" rel="alternate" />
+</head>
+
+<body class="ytype borderless satellite jquery responsive " id="yelp_main_body">
+    <div id="fb-root"></div>
+    <div class="main-header main-content-wrap js-main-header main-header--slim webview-hidden" style="background:#fff;padding:26px;width:99%;">
+        <div class="clearfix">
+            <div class="arrange main-header_arrange arrange--middle">
+                <div class="arrange_unit main-header--full_arrange_unit">
+                    <div class="main-header_logo" id="logo">
+                        <a class="header-a" href="/?l=en_US" id="logo-header-anchor"><img src="/resource/1631070005000/logoDesktopMedium" />
+						</a>
+                    </div>
+                </div>
+                <div class="arrange_unit nowrap arrange_unit--fill removable-tag" style="padding-left: 18px;">
+                    <h2 class="main-header_title"><span class="support-center-text" style="line-height: inherit; color: black;">Support Center</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <span class="offscreen" id="page-content">&nbsp;</span>
+
+    <div id="print-masthead">
+        <img alt="Yelp" class="print-bkg-img" src="https://s3-media2.fl.yelpcdn.com/assets/2/www/img/b7e9d647188d/gfx/header_print.gif" />
+    </div>
+
+    <div class="main-content-wrap--full lang-en" id="wrap">
+        <div class="content-container" id="super-container">
+            <div id="alert-container"></div>
+            <div class="container">
+                <div class="clearfix layout-block layout-n column--responsive">
+                    <div class="column column-alpha column--responsive removable-tag" style="width:20%">
+                        
+                        <div class="titled-nav js-titled-nav">
+                            <input class="titled-nav-dropdown_handler" id="titled-nav-aea849eb-e635-459e-8595-36b9e3314f07" role="presentation" type="checkbox" />
+                            <div class="titled-nav-dropdown hidden-non-responsive-block responsive-hidden-large">
+                                <label class="titled-nav-dropdown_trigger" for="titled-nav-aea849eb-e635-459e-8595-36b9e3314f07">
+                                    <span class="arrange arrange--middle titled-nav-dropdown_content" id="menu">
+                                        <span class="arrange_unit arrange_unit--fill titled-nav-dropdown_shadow">
+                                            <span class="titled-nav-dropdown_faded-title">
+                                                <strong>Menu</strong>
+                                            </span>
+                                        </span>
+                                        <span class="arrange_unit titled-nav-dropdown_icon import-image-url expand-dropdown-icon" id="icon">
+                                            <i class="i ig-common_sprite i-24x24_ios_chevron_down-common_sprite titled-nav-dropdown_expand import-image-url expand-dropdown-icon"></i>
+                                            <i class="i ig-common_sprite i-24x24_ios_chevron_up-common_sprite titled-nav-dropdown_collapse import-image-url collapse-dropdown-icon"></i>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="titled-nav_menus">
+                                <div class="titled-nav_menu titled-nav-list--responsive">
+                                    <div class="titled-nav-header arrange arrange--top">
+                                        <h3>
+                                            <a href="/?l=en_US">Support Center</a>
+                                        </h3>
+                                    </div>
+                                    <ul class="titled-nav_items" style="font-weight: bold;">
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Consumers?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Yelp For Consumers</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Reviews_Photos?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Reviews &amp; Photos</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Updating_Business_Information?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Updating Business Information</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Yelp_for_Business?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Yelp for Business</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Advertising_on_Yelp?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Advertising on Yelp</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Claiming_your_Business_Page?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Claiming your Business Page</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Yelp_Guest_Manager?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Yelp Guest Manager</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Recommended_Reviews?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Recommended Reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Yelp_Elite_Squad?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Yelp Elite Squad</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Legal_Questions?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Legal Questions</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Searching_Yelp?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Searching Yelp</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp.com/developers" target="_blank">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Yelp for Developers</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp.com/static?p=tos" target="_blank">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Terms of Service</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp.com/guidelines" target="_blank">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Content Guidelines</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/article/Yelp-s-Content-Use-Policy?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Yelp&#8217;s Content Use Policy</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="/Regulatory_Disclosures?l=en_US" target="">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label menu-text">Regulatory Disclosures</span>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="column column-alpha column--responsive removable-tag" style="width:75%">
+                        <div class="search-help-text">
+                            How can we help?
+                        </div>
+                        <div class="sc-search-form-container" style="padding: 18px 0px 0;">
+                            <form action="/" class="yform arrange arrange--6 arrange--stack-small sc-search-form" method="get">
+                                <input name="l" type="hidden" value="en_US" />
+                                <input name="biz" type="hidden" value="" />
+                                <input name="bui" type="hidden" value="" />
+                                <input name="bi" type="hidden" value="" />
+                                <input name="ss" type="hidden" value="1" />
+                                <div class="arrange_unit arrange_unit--fill sc-search-field" style="width:60%">
+                                    <input name="q" placeholder="Ask a question..." type="text" value="" />
+                                </div>
+                                <div class="arrange_unit nowrap">
+                                    <button class="ybtn ybtn-primary ybtn-full-responsive-small" style="padding: 8px 9px 9px;" type="submit" value="submit"><span><span class="i-wrap ig-wrap-common_sprite i-search-common_sprite-wrap import-image-url search-icon"><i class="i ig-common_sprite i-search-common_sprite search-icon"></i> Search</span></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="column column-beta column--responsive">
+                        <div class="sat-content clearfix">
+                        </div>
+                        <br class="removable-tag" /><br class="removable-tag" /><br class="removable-tag" /><br class="removable-tag" />
+                        
+                        <div class="sat-content clearfix">
+                        </div><span id="j_id0:article">
+                            <div class="sat-article">
+                                <div class="removable-tag"><span id="j_id0:j_id155">
+
+    <style>
+        .breadcrumArrow {
+            background-image:url(https://s3-media4.fl.yelpcdn.com/assets/2/www/img/2796870a82eb/sprites/common.png);
+            background-position-x:-2px;
+            background-position-y:-1742px;
+            background-size:242px 3918px;
+            background-repeat-x: no-repeat;
+            background-repeat-y: no-repeat;
+        }
+    </style>
+
+    <ul class="breadcrumbs">
+        <li>
+            <a href="/?l=en_US">Support Center
+            </a>
+        </li><span id="j_id0:j_id155:j_id156:j_id160"><span id="j_id0:j_id155:j_id156:j_id160:j_id161:j_id162:1:j_id165">
+        <li>
+                <span class="i-wrap ig-wrap-common i-breadcrumb-arrow-common-wrap breadcrumArrow">
+                    <i class="i ig-common i-breadcrumb-arrow-common breadcrumArrow"></i>
+                    <a href="/Reviews_Photos?l=en_US" style="padding-left: 18px;">Reviews &amp; Photos
+                    </a>
+                </span>
+        </li></span></span>
+    </ul></span>
+                                </div>
+                                <h1>Don't Ask for Reviews</h1>
+                                <div class="sat-article-content">Yelp&#39;s <a href="https://trust.yelp.com/recommendation-software/" target="_blank">recommendation software</a> is designed to highlight reviews from people who want to share their genuine experiences—without being asked or tempted.<br><br>Proactively asking for reviews may hurt your Yelp rating because our automated software may not recommend reviews that seem to be prompted or encouraged by the business. Also, many businesses only ask happy customers for reviews, which leads to biased ratings. Yelp’s software tries to identify any reviews that appear to have been requested, and not recommend them.<br><br>This policy is part of Yelp&#39;s <a href="https://www.yelp.com/guidelines" target="_blank">Content Guidelines</a>, and helps us create a level playing field for all businesses who rightfully earn their great reputations on Yelp. It shouldn&#39;t be about who has the time and resources to ask the most people to write reviews. Great Yelp reviews and ratings should come from consumers who had a great experience that they’re inspired to tell others about.
+<h3>Here are some things to consider when it comes to Yelp’s policies against soliciting reviews:</h3>
+
+<ul style="margin-left: 40px;"><li>Don’t ask anyone to review your business, be it customers, mailing list subscribers, friends, family, etc.</li><li>Your staff should never compete to collect reviews.</li><li>Don’t ask for reviews after requesting customer feedback in other places like surveys or contact forms. While it can be tempting to ask this of customers, it is against Yelp’s policy and unfair to other businesses.</li><li>Don’t offer freebies, discounts, or payment in exchange for reviews—it will turn off savvy consumers and may also be <a href="https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" target="_blank"><em class="Highlight htc221af9f-3953-4150-b865-ae807c3d7ab0" style="font-style: inherit;">illegal</em></a>. For the same reason, you can’t offer incentives for users to remove reviews. Yelp has a <a href="https://trust.yelp.com/consumer-alerts/" target="_blank">Consumer Alerts program</a> that publishes a pop-up alert on business pages to let people know when we learn about this sort of activity.</li></ul>
+<br>Your best bet to get positive, unbiased reviews about your business is by providing a high quality, memorable customer experience—without any expectation or encouragement of a review in return.<br><br>Read more about <a href="https://www.yelpblog.com/2017/01/dont-ask-reviews-yelp-not-recommend-solicited-reviews" target="_blank">why you shouldn&#39;t solicit reviews</a> and learn more on the <a href="https://business.yelp.com/" target="_blank">Yelp for Business site</a>.
+                                </div>
+                            </div></span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    
+
+    <div class="call-us-button-container " id="call_us_button" style="display: none;">
+<form id="j_id0:j_id181" name="j_id0:j_id181" method="post" action="/portallanding" enctype="application/x-www-form-urlencoded" onclick="A4J.AJAX.Submit('j_id0:j_id181',event,{'similarityGroupingId':'j_id0:j_id181:j_id182','parameters':{'j_id0:j_id181:j_id182':'j_id0:j_id181:j_id182'} } )">
+<input type="hidden" name="j_id0:j_id181" value="j_id0:j_id181" />
+
+                <a href="tel:8777679357" style="text-decoration: none;">
+                    <div class="call-us-button-contents "><svg height="40px" version="1.1" viewBox="0 0 40 40" width="40px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g fill="none" fill-rule="evenodd" id="40x40_get_help_v2" stroke="none" stroke-width="1">
+                                <g id="Group" transform="translate(-0.000000, -0.000000)">
+                                    <path d="M17,4.00000001 L11,4.00000001 C6.02943727,4.00000001 2.00000001,8.02943727 2.00000001,13 L2.00000001,14 C2.00000001,18.9705628 6.02943727,23 11,23 L14.65,23 L19.38,26.7800001 C19.5559393,26.9211607 19.7744358,26.9986917 20,27.0001242 C20.1493688,27.0024673 20.2970477,26.9681233 20.4300001,26.9000001 C20.7772838,26.7345974 20.9989112,26.3846595 21,26 L21,22.0600001 C24.062016,20.5408148 25.9991425,17.4181669 26,14 L26,13 C26,8.02943727 21.9705628,4.00000001 17,4.00000001 Z" fill="#E9E9E9" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M10.21,10 C12.0920557,6.32637163 15.8723277,4.01556578 20,4.01556578 C24.1276724,4.01556578 27.9079444,6.32637163 29.7900001,10 L32,10 C29.9814958,5.15558981 25.2481111,2 20,2 C14.751889,2 10.0185043,5.15558981 8.00000002,10 L10.21,10 Z" fill="#2B273D" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M31.0000001,21.0000001 L31.0000001,27.0000001 C31.0000001,29.7614238 28.7614238,32.0000001 26.0000001,32.0000001 L24.9000001,32.0000001 C24.3866353,29.4850369 22.0523013,27.7673305 19.4984758,28.0253193 C16.9446502,28.2833081 15.0010206,30.4331765 15.0010206,33.0000001 C15.0010206,35.5668237 16.9446502,37.7166921 19.4984758,37.9746809 C22.0523013,38.2326696 24.3866353,36.5149633 24.9000001,34.0000001 L26.0000001,34.0000001 C27.8565155,34.0000001 29.6369929,33.2625022 30.9497475,31.9497475 C32.2625022,30.6369929 33.0000001,28.8565155 33.0000001,27.0000001 L33.0000001,21.0000001 L31.0000001,21.0000001 Z M20,36.0000001 C18.3431458,36.0000001 17,34.6568543 17,33.0000001 C17,31.3431458 18.3431458,30.0000001 20,30.0000001 C21.6568543,30.0000001 23,31.3431458 23,33.0000001 C23,34.6568543 21.6568543,36.0000001 20,36.0000001 Z" fill="#2B273D" fill-rule="nonzero" id="Shape"></path>
+                                    <rect height="40.0000001" id="Rectangle" width="40.0000001" x="0" y="0"></rect>
+                                    <path d="M34.0000001,12 L30.0000001,12 C29.4477153,12 29.0000001,12.4477153 29.0000001,13 L29.0000001,27 C29.0000001,27.5522848 29.4477153,28 30.0000001,28 L34.0000001,28 C36.2091391,28 38.0000001,26.2091391 38.0000001,24 L38.0000001,16 C38.0000001,13.790861 36.2091391,12 34.0000001,12 Z" fill="#EF3B3A" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M10,12 L6.00000001,12 C3.79086101,12 2,13.790861 2,16 L2,24 C2,26.2091391 3.79086101,28 6.00000001,28 L10,28 C10.5522848,28 11,27.5522848 11,27 L11,13 C11,12.4477153 10.5522848,12 10,12 Z" fill="#EF3B3A" fill-rule="nonzero" id="Path"></path>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <div>
+                            <div style="margin-left: 26px">
+                                <div style="">
+                                    <p class="call-us-need-help-text">Need Help? Call us. </p>
+                                    <p class="call-us-phone-number ">(877) 767-9357</p>
+                                </div>
+                                <p class="call-us-wait-times">Mon-Fri, 5am-6pm PT | Average wait 1-3 mins</p>
+                            </div>
+                        </div></div>
+                </a><div id="j_id0:j_id181:j_id209"></div>
+</form><span id="ajax-view-state-page-container" style="display: none"><span id="ajax-view-state" style="display: none"><input type="hidden"  id="com.salesforce.visualforce.ViewState" name="com.salesforce.visualforce.ViewState" value="i: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" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateVersion" name="com.salesforce.visualforce.ViewStateVersion" value="202609232209130000" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateMAC" name="com.salesforce.visualforce.ViewStateMAC" value="AGV5SnViMjVqWlNJNklrcENURmt0TWpWclVVUTBZMnhaYkV4SVlqVlNkRlpwYUZCNVdVeERTRzAyVFhGVVZVZFJlR1Y1TjBGY2RUQXdNMlFpTENKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUlzSW10cFpDSTZJbnRjSW5SY0lqcGNJakF3UkRNd01EQXdNREF3TUhaRFRsd2lMRndpZGx3aU9sd2lNREpIWmpNd01EQXdNREJRVXpkeFhDSXNYQ0poWENJNlhDSjJabk5wWjI1cGJtZHJaWGxjSWl4Y0luVmNJanBjSWpBd05UUXdNREF3TURBeVZIQkZUVndpZlNJc0ltTnlhWFFpT2xzaWFXRjBJbDBzSW1saGRDSTZNVGM1TURJNE9URTRORGN4Tml3aVpYaHdJam93ZlE9PS4uZjhja0t5OWRURHVxRkdVVkZBRVZVYWhIOFppWERnX2YzaE9pd3BqTnN0az0=" /></span></span>
+    </div>
+
+    
+    <div class="nonadvertiser-call-us-button-container " id="call_us_button_non_advertisers" style="display: none;">
+<form id="j_id0:j_id187" name="j_id0:j_id187" method="post" action="/portallanding" enctype="application/x-www-form-urlencoded" onclick="A4J.AJAX.Submit('j_id0:j_id187',event,{'similarityGroupingId':'j_id0:j_id187:j_id188','parameters':{'j_id0:j_id187:j_id188':'j_id0:j_id187:j_id188'} } )">
+<input type="hidden" name="j_id0:j_id187" value="j_id0:j_id187" />
+
+                <a href="tel:8777679357" style="text-decoration: none;">
+                    <div class="call-us-button-contents "><svg height="40px" version="1.1" viewBox="0 0 40 40" width="40px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g fill="none" fill-rule="evenodd" id="40x40_get_help_v2" stroke="none" stroke-width="1">
+                                <g id="Group" transform="translate(-0.000000, -0.000000)">
+                                    <path d="M17,4.00000001 L11,4.00000001 C6.02943727,4.00000001 2.00000001,8.02943727 2.00000001,13 L2.00000001,14 C2.00000001,18.9705628 6.02943727,23 11,23 L14.65,23 L19.38,26.7800001 C19.5559393,26.9211607 19.7744358,26.9986917 20,27.0001242 C20.1493688,27.0024673 20.2970477,26.9681233 20.4300001,26.9000001 C20.7772838,26.7345974 20.9989112,26.3846595 21,26 L21,22.0600001 C24.062016,20.5408148 25.9991425,17.4181669 26,14 L26,13 C26,8.02943727 21.9705628,4.00000001 17,4.00000001 Z" fill="#E9E9E9" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M10.21,10 C12.0920557,6.32637163 15.8723277,4.01556578 20,4.01556578 C24.1276724,4.01556578 27.9079444,6.32637163 29.7900001,10 L32,10 C29.9814958,5.15558981 25.2481111,2 20,2 C14.751889,2 10.0185043,5.15558981 8.00000002,10 L10.21,10 Z" fill="#2B273D" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M31.0000001,21.0000001 L31.0000001,27.0000001 C31.0000001,29.7614238 28.7614238,32.0000001 26.0000001,32.0000001 L24.9000001,32.0000001 C24.3866353,29.4850369 22.0523013,27.7673305 19.4984758,28.0253193 C16.9446502,28.2833081 15.0010206,30.4331765 15.0010206,33.0000001 C15.0010206,35.5668237 16.9446502,37.7166921 19.4984758,37.9746809 C22.0523013,38.2326696 24.3866353,36.5149633 24.9000001,34.0000001 L26.0000001,34.0000001 C27.8565155,34.0000001 29.6369929,33.2625022 30.9497475,31.9497475 C32.2625022,30.6369929 33.0000001,28.8565155 33.0000001,27.0000001 L33.0000001,21.0000001 L31.0000001,21.0000001 Z M20,36.0000001 C18.3431458,36.0000001 17,34.6568543 17,33.0000001 C17,31.3431458 18.3431458,30.0000001 20,30.0000001 C21.6568543,30.0000001 23,31.3431458 23,33.0000001 C23,34.6568543 21.6568543,36.0000001 20,36.0000001 Z" fill="#2B273D" fill-rule="nonzero" id="Shape"></path>
+                                    <rect height="40.0000001" id="Rectangle" width="40.0000001" x="0" y="0"></rect>
+                                    <path d="M34.0000001,12 L30.0000001,12 C29.4477153,12 29.0000001,12.4477153 29.0000001,13 L29.0000001,27 C29.0000001,27.5522848 29.4477153,28 30.0000001,28 L34.0000001,28 C36.2091391,28 38.0000001,26.2091391 38.0000001,24 L38.0000001,16 C38.0000001,13.790861 36.2091391,12 34.0000001,12 Z" fill="#EF3B3A" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M10,12 L6.00000001,12 C3.79086101,12 2,13.790861 2,16 L2,24 C2,26.2091391 3.79086101,28 6.00000001,28 L10,28 C10.5522848,28 11,27.5522848 11,27 L11,13 C11,12.4477153 10.5522848,12 10,12 Z" fill="#EF3B3A" fill-rule="nonzero" id="Path"></path>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <div>
+                            <div style="margin-left: 26px">
+                                <div style="">
+                                    <p class="call-us-need-help-text">Need Help? Call us. </p>
+                                    <p class="call-us-phone-number ">(877) 767-9357</p>
+                                </div>
+                                <p class="call-us-wait-times">Available Mon-Thurs, 5am - 7pm PST; Fri, 5am - 6pm PST; Sat-Sun, 8am - 4pm PST.</p>
+                                <p class="call-us-wait-times">Average wait time: less than 30 secs.</p>
+                            </div>
+                        </div></div>
+                </a><div id="j_id0:j_id187:j_id210"></div>
+</form>
+    </div>
+
+    <div class="nonadvertiser-call-us-button-container " id="call_us_button_non_advertisers" style="display: none;">
+<form id="j_id0:j_id193" name="j_id0:j_id193" method="post" action="/portallanding" enctype="application/x-www-form-urlencoded" onclick="A4J.AJAX.Submit('j_id0:j_id193',event,{'similarityGroupingId':'j_id0:j_id193:j_id194','parameters':{'j_id0:j_id193:j_id194':'j_id0:j_id193:j_id194'} } )">
+<input type="hidden" name="j_id0:j_id193" value="j_id0:j_id193" />
+
+                <a href="tel:8887170532" style="text-decoration: none;">
+                    <div class="call-us-button-contents "><svg height="40px" version="1.1" viewBox="0 0 40 40" width="40px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g fill="none" fill-rule="evenodd" id="40x40_get_help_v2" stroke="none" stroke-width="1">
+                                <g id="Group" transform="translate(-0.000000, -0.000000)">
+                                    <path d="M17,4.00000001 L11,4.00000001 C6.02943727,4.00000001 2.00000001,8.02943727 2.00000001,13 L2.00000001,14 C2.00000001,18.9705628 6.02943727,23 11,23 L14.65,23 L19.38,26.7800001 C19.5559393,26.9211607 19.7744358,26.9986917 20,27.0001242 C20.1493688,27.0024673 20.2970477,26.9681233 20.4300001,26.9000001 C20.7772838,26.7345974 20.9989112,26.3846595 21,26 L21,22.0600001 C24.062016,20.5408148 25.9991425,17.4181669 26,14 L26,13 C26,8.02943727 21.9705628,4.00000001 17,4.00000001 Z" fill="#E9E9E9" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M10.21,10 C12.0920557,6.32637163 15.8723277,4.01556578 20,4.01556578 C24.1276724,4.01556578 27.9079444,6.32637163 29.7900001,10 L32,10 C29.9814958,5.15558981 25.2481111,2 20,2 C14.751889,2 10.0185043,5.15558981 8.00000002,10 L10.21,10 Z" fill="#2B273D" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M31.0000001,21.0000001 L31.0000001,27.0000001 C31.0000001,29.7614238 28.7614238,32.0000001 26.0000001,32.0000001 L24.9000001,32.0000001 C24.3866353,29.4850369 22.0523013,27.7673305 19.4984758,28.0253193 C16.9446502,28.2833081 15.0010206,30.4331765 15.0010206,33.0000001 C15.0010206,35.5668237 16.9446502,37.7166921 19.4984758,37.9746809 C22.0523013,38.2326696 24.3866353,36.5149633 24.9000001,34.0000001 L26.0000001,34.0000001 C27.8565155,34.0000001 29.6369929,33.2625022 30.9497475,31.9497475 C32.2625022,30.6369929 33.0000001,28.8565155 33.0000001,27.0000001 L33.0000001,21.0000001 L31.0000001,21.0000001 Z M20,36.0000001 C18.3431458,36.0000001 17,34.6568543 17,33.0000001 C17,31.3431458 18.3431458,30.0000001 20,30.0000001 C21.6568543,30.0000001 23,31.3431458 23,33.0000001 C23,34.6568543 21.6568543,36.0000001 20,36.0000001 Z" fill="#2B273D" fill-rule="nonzero" id="Shape"></path>
+                                    <rect height="40.0000001" id="Rectangle" width="40.0000001" x="0" y="0"></rect>
+                                    <path d="M34.0000001,12 L30.0000001,12 C29.4477153,12 29.0000001,12.4477153 29.0000001,13 L29.0000001,27 C29.0000001,27.5522848 29.4477153,28 30.0000001,28 L34.0000001,28 C36.2091391,28 38.0000001,26.2091391 38.0000001,24 L38.0000001,16 C38.0000001,13.790861 36.2091391,12 34.0000001,12 Z" fill="#EF3B3A" fill-rule="nonzero" id="Path"></path>
+                                    <path d="M10,12 L6.00000001,12 C3.79086101,12 2,13.790861 2,16 L2,24 C2,26.2091391 3.79086101,28 6.00000001,28 L10,28 C10.5522848,28 11,27.5522848 11,27 L11,13 C11,12.4477153 10.5522848,12 10,12 Z" fill="#EF3B3A" fill-rule="nonzero" id="Path"></path>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <div>
+                            <div style="margin-left: 26px">
+                                <div style="">
+                                    <p class="call-us-need-help-text">Need Help? Call us. </p>
+                                    <p class="call-us-phone-number ">(888) 717-0532</p>
+                                </div>
+                                <p class="call-us-wait-times">Available Mon-Thurs, 5am - 7pm PST; Fri, 5am - 6pm PST; Sat-Sun, 8am - 4pm PST.</p>
+                                <p class="call-us-wait-times">Average wait time: less than 30 secs.</p>
+                            </div>
+                        </div></div>
+                </a><div id="j_id0:j_id193:j_id211"></div>
+</form>
+    </div>
+
+    
+    <div class="main-content-wrap main-content-wrap--separated webview-hidden">
+        <div class="content-container" style="width: 70%">
+            <div class="main-footer">
+                <div class="sc-footer">
+                    <div class="main-footer_section main-footer_menu clearfix">
+                        <div class="main-footer_item responsive-hidden-small responsive-hidden-medium">
+                            <div class="footer-menu"></div>
+                        </div>
+                        <div class="main-footer_item">
+                            <div class="footer-menu">
+                                <h3 class="footer-menu-header">About</h3>
+                                <ul class="footer-menu-list">
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/about">About Yelp</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/careers?country=US">Careers</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp-press.com/news">Press</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp-ir.com/">Investor Relations</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/guidelines">Content Guidelines</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/static?p=tos">Terms of Service</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/static?p=privacy">Privacy Policy</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/static?p=privacy">Ad Choices</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="main-footer_item">
+                            <div class="footer-menu">
+                                <h3 class="footer-menu-header">Discover</h3>
+                                <ul class="footer-menu-list">
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/local_yelp">The Weekly Yelp</a></li>
+                                    <li class="footer-menu_item"><a href="http://officialblog.yelp.com">Yelp Blog</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp-support.com/">Support</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/mobile">Yelp Mobile</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/developers">Developers</a></li>
+                                    <li class="footer-menu_item"><a href="http://www.yelp.com/rss">RSS</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="main-footer_item" style="clear: none">
+                            <div class="footer-menu">
+                                <h3 class="footer-menu-header">Yelp for Business</h3>
+                                <ul class="footer-menu-list">
+                                    <li class="footer-menu_item"><a href="https://business.yelp.com">Claim your Business Page</a></li>
+                                    <li class="footer-menu_item"><a href="https://business.yelp.com/products/yelp-ads">Advertise on Yelp</a></li>
+                                    <li class="footer-menu_item"><a href="http://restaurants.yelp.com">Yelp Reservations</a></li>
+                                    <li class="footer-menu_item"><a href="https://business.yelp.com/resources/case-studies">Business Success Stories</a></li>
+                                    <li class="footer-menu_item"><a href="https://biz.yelp.com/support-center">Business Support</a></li>
+                                    <li class="footer-menu_item"><a href="http://blog.yelp.com/section/business">Yelp Business Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="main-footer_item" style="clear: none">
+                            <div class="languages-menu footer-menu">
+                                <div class="footer-menu_section footer-language">
+                                    <h3 class="footer-menu_header">Language</h3>
+                                    <div class="footer-subsection">
+                                        <div class="drop-menu-origin" id="language-selector-wrap">
+                                            <a class="drop-menu-link embossed-text-white" href="/language" id="language-selector-anchor" style="font-size: 14px;">
+                                                <span class="i-wrap ig-wrap-common i-dropdown-arrow-common-wrap ig-wrap-common-r dropdown-arrow"><i class="i ig-common i-dropdown-arrow-common langaunge-dropdown-icon"></i>English</span>
+                                            </a>
+                                            <div class="drop-menu drop-menu-left drop-menu-restricted" id="language-selector-menu">
+                                                    <ul class="drop-menu-group">
+                                                            <li class="drop-down-menu-link">
+                                                                <a href="/article/Bitten-Sie-nicht-um-Beitr&auml;ge?l=de">Deutsch</a>
+                                                            </li>
+                                                    </ul>
+                                                    <ul class="drop-menu-group">
+                                                            <li class="drop-down-menu-link">
+                                                                <a href="/article/Don-t-Ask-for-Reviews?l=en_GB">English (UK)</a>
+                                                            </li>
+                                                            <li class="drop-down-menu-link">
+                                                                <a href="/article/Don-t-Ask-for-Reviews?l=en_US">English</a>
+                                                            </li>
+                                                    </ul>
+                                                    <ul class="drop-menu-group">
+                                                            <li class="drop-down-menu-link">
+                                                                <a href="/article/No-solicites-rese&ntilde;as?l=es">Espa&ntilde;ol</a>
+                                                            </li>
+                                                    </ul>
+                                                    <ul class="drop-menu-group">
+                                                            <li class="drop-down-menu-link">
+                                                                <a href="/article/Ne-demandez-pas-d-avis?l=fr">Francais</a>
+                                                            </li>
+                                                    </ul>
+                                                    <ul class="drop-menu-group">
+                                                            <li class="drop-down-menu-link">
+                                                                <a href="/article/Non-chiedere-recensioni?l=it">Italiano</a>
+                                                            </li>
+                                                    </ul>
+                                                    <ul class="drop-menu-group">
+                                                            <li class="drop-down-menu-link">
+                                                                <a href="/article/Nie-proś-o-recenzje?l=pl">Polski</a>
+                                                            </li>
+                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-footer_city-landscape-img responsive-hidden-small" role="presentation"></div>
+                    <div class="main-footer_copyright">
+                        <small>
+                            Copyright &copy; 2004&#8211;2026 Yelp Inc. Yelp, <img alt="Yelp logo" class="footer-copyright-logo footer-image-logo" src="/resource/1631070005000/logoTiny" />, <img alt="Yelp burst" class="footer-burst-logo footer-image-burst" src="/resource/1631070005000/burstTiny" /> and related marks are registered trademarks of Yelp.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script>
+        (function() {
+            var main = null;
+
+            var main=function(){var d=false;var c=jQuery("#language-selector-menu");var b=function(){c.toggle();d=!d};var a=function(f){if(d&&!(jQuery(f.target).parents(".footer-subsection").length)){b()}};jQuery("#language-selector-anchor").on("click",function(f){f.preventDefault();b();if(d){jQuery("body").on("click",a)}else{jQuery("body").off("click",a)}})};
+
+            if (main === null) {
+                throw 'invalid inline script, missing main declaration.';
+            }
+            main();
+        })();
+    </script>
+    
+    <script>
+        if (navigator.userAgent.match('YelpWebView')) {
+            var hasWebview = document.body.classList.contains('webview');
+            if (!hasWebview) document.body.className += ' webview';
+        }
+
+        // Adding below method to flip the navigation dropdown arrow expand / collapse for menu items
+        (function(document) {
+            var menu = document.getElementById('menu');
+            var icon = document.getElementById('icon');
+            var expand = false;
+            menu.addEventListener('click', function() {
+                if (expand) {
+                    icon.className = 'arrange_unit titled-nav-dropdown_icon import-image-url expand-dropdown-icon';
+                } else {
+                    icon.className = 'arrange_unit titled-nav-dropdown_icon import-image-url collapse-dropdown-icon';
+                }
+                expand = !expand;
+            });
+        })(document);
+    </script>
+    
+    <script>
+        let langArr = ['cs', 'da', 'nl_NL', 'fi', 'pt_BR', 'sv', 'bg', 'hr', 'el', 'tr', 'et', 'hu', 'lv', 'lt', 'lb', 'mt', 'ro', 'sk', 'sl', 'pt_PT', 'NO'];
+        let currLang = "en_US";
+        if (langArr.includes(currLang)) {
+            const arrangeUnits = document.querySelectorAll(".arrange_unit");
+            arrangeUnits.forEach(element => {
+                element.style.textAlign = 'center';
+            });
+            const bodyContent = document.querySelector(".column-beta");
+            bodyContent.style.width = "100%";
+            const headerAnchorTag = document.getElementById("logo-header-anchor");
+            headerAnchorTag.href = "https://www.yelp.com";
+            const removeables = document.querySelectorAll(".removable-tag");
+            removeables.forEach(element => {
+                element.style.display = 'None';
+            });
+        }
+    </script>
+</body><script type="text/javascript">Sfdc.onReady(function(){
+	SfdcApp && SfdcApp.Visualforce && SfdcApp.Visualforce.VSManager && SfdcApp.Visualforce.VSManager.vfPrepareForms(["j_id0:results","j_id0:j_id181","j_id0:j_id193","j_id0:j_id187"]);
+
+});</script></html>

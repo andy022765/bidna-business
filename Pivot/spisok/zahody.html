@@ -1,0 +1,1467 @@
+<title>Шестнадцать заходов</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --paper:#F1F2F4; --surface:#FFFFFF; --sunk:#E9EBEF;
+  --ink:#12161C; --ink-2:#39414C; --muted:#69727F; --rule:#DCDFE5;
+  --indigo:#31408F; --indigo-soft:#E6E9F6;
+  --ochre:#8C6210; --ochre-soft:#F5EDDC;
+  --green:#1C6B4A; --green-soft:#DFEEE6;
+  --shadow:0 1px 2px rgba(18,22,28,.05), 0 6px 20px -12px rgba(18,22,28,.22);
+  --measure:64ch;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#0F1217; --surface:#171C24; --sunk:#12161D;
+  --ink:#E7EAEF; --ink-2:#BAC2CD; --muted:#8B95A3; --rule:#293240;
+  --indigo:#93A4EE; --indigo-soft:#1D2540;
+  --ochre:#D9A63F; --ochre-soft:#33280F;
+  --green:#63C093; --green-soft:#12301F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --paper:#0F1217; --surface:#171C24; --sunk:#12161D;
+  --ink:#E7EAEF; --ink-2:#BAC2CD; --muted:#8B95A3; --rule:#293240;
+  --indigo:#93A4EE; --indigo-soft:#1D2540;
+  --ochre:#D9A63F; --ochre-soft:#33280F;
+  --green:#63C093; --green-soft:#12301F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper); color:var(--ink);
+  font:400 16px/1.62 "Golos Text","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; padding:0 0 5rem}
+h1,h2,h3{font-family:Literata,Georgia,"Times New Roman",serif; text-wrap:balance; margin:0}
+p{margin:0 0 .85em}
+p:last-child{margin-bottom:0}
+b,strong{font-weight:600}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 1.5rem}
+
+/* ——— шапка */
+.top{border-bottom:1px solid var(--rule); background:var(--surface);
+  padding:2.6rem 0 1.6rem; margin-bottom:2rem}
+.brand{font:500 .68rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.19em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem}
+.top h1{font-size:clamp(2rem,5.2vw,3.1rem); font-weight:700; letter-spacing:-.022em; line-height:1.04}
+.dek{max-width:58ch; color:var(--ink-2); margin:.9rem 0 0; font-size:1.02rem}
+
+.tally{display:flex; flex-wrap:wrap; gap:1.6rem 2.4rem; align-items:flex-end;
+  margin-top:1.9rem; padding-top:1.5rem; border-top:1px solid var(--rule)}
+.tally-i{display:flex; flex-direction:column; gap:.15rem}
+.tally-n{font:700 1.9rem/1 Literata,Georgia,serif; font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em}
+.tally-l{font:500 .66rem/1.3 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--muted)}
+.tally-goal{flex:1 1 220px; min-width:200px}
+.goal-bar{height:6px; background:var(--sunk); border-radius:99px; overflow:hidden; margin-top:.5rem}
+.goal-bar span{display:block; height:100%; background:var(--green); width:0;
+  transition:width .35s ease}
+.tally-note{font-size:.8rem; color:var(--muted); margin-top:.45rem}
+.tally .sync{font:500 .64rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); opacity:0}
+.tally.live .sync{opacity:1; color:var(--green)}
+
+/* ——— раскладка */
+.board{display:grid; grid-template-columns:266px minmax(0,1fr); gap:2.2rem; align-items:start}
+@media (max-width:900px){ .board{grid-template-columns:1fr; gap:1.4rem} }
+
+.rail{display:flex; flex-direction:column; gap:2px; position:sticky; top:1rem;
+  background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+  padding:6px; box-shadow:var(--shadow)}
+@media (max-width:900px){ .rail{position:static; flex-direction:row; overflow-x:auto;
+  gap:6px; padding:8px} }
+.row{display:flex; align-items:center; gap:.6rem; width:100%; text-align:left;
+  background:none; border:0; border-radius:7px; padding:.5rem .55rem; cursor:pointer;
+  color:inherit; font:inherit; font-size:.88rem}
+.row:hover{background:var(--sunk)}
+.row.on{background:var(--indigo-soft)}
+.row:focus-visible{outline:2px solid var(--indigo); outline-offset:1px}
+@media (max-width:900px){ .row{flex:0 0 auto; min-width:150px} }
+.row-n{font:600 .7rem/1 "IBM Plex Mono",ui-monospace,monospace; color:var(--muted);
+  font-variant-numeric:tabular-nums}
+.row.on .row-n{color:var(--indigo)}
+.row-mid{display:flex; flex-direction:column; min-width:0; flex:1}
+.row-name{font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.row-inst{font-size:.72rem; color:var(--muted); white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis}
+.row-right{display:flex; align-items:center; gap:.4rem; flex-shrink:0}
+.row-t{font:500 .6rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.06em}
+.row-t.warm{color:var(--ochre)} .row-t.cold{color:var(--muted)}
+.dot{width:7px; height:7px; border-radius:99px; background:transparent;
+  box-shadow:inset 0 0 0 1px var(--rule)}
+.dot.s-sent{background:var(--indigo); box-shadow:none}
+.dot.s-reply{background:var(--ochre); box-shadow:none}
+.dot.s-call{background:var(--green); box-shadow:none}
+
+/* ——— карточка */
+.card{background:var(--surface); border:1px solid var(--rule); border-radius:12px;
+  padding:1.9rem 2rem 1.5rem; box-shadow:var(--shadow)}
+@media (max-width:600px){ .card{padding:1.4rem 1.2rem} }
+.card-head{display:flex; gap:1rem; align-items:baseline}
+.card-n{font:600 .8rem/1 "IBM Plex Mono",ui-monospace,monospace; color:var(--indigo);
+  font-variant-numeric:tabular-nums; padding-top:.35rem}
+.card h2{font-size:clamp(1.35rem,3.1vw,1.85rem); font-weight:700; letter-spacing:-.016em;
+  line-height:1.16}
+.card-delo{color:var(--ink-2); margin:.45rem 0 0; font-size:.95rem; max-width:var(--measure)}
+.meta{display:flex; flex-wrap:wrap; gap:.4rem; margin:1.1rem 0 0}
+.tag{font:500 .68rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.05em;
+  padding:.4rem .55rem; border-radius:5px; background:var(--sunk); color:var(--ink-2)}
+.tag.warm{background:var(--ochre-soft); color:var(--ochre)}
+.tag.cold{background:var(--sunk); color:var(--muted)}
+.tag.inst{background:var(--indigo-soft); color:var(--indigo)}
+
+.track{display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+  margin:1.3rem 0 0; padding:.7rem .8rem; background:var(--sunk); border-radius:8px}
+.track-l{font:500 .64rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--muted)}
+.track-b{display:flex; gap:4px; flex-wrap:wrap}
+.st{font:inherit; font-size:.8rem; padding:.34rem .7rem; border-radius:99px; cursor:pointer;
+  border:1px solid var(--rule); background:var(--surface); color:var(--ink-2)}
+.st:hover{border-color:var(--indigo)}
+.st.on{background:var(--indigo); border-color:var(--indigo); color:#fff}
+:root[data-theme="dark"] .st.on{color:#0F1217}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .st.on{color:#0F1217} }
+.st:focus-visible{outline:2px solid var(--indigo); outline-offset:2px}
+
+.blok{margin:1.7rem 0 0; padding-top:1.4rem; border-top:1px solid var(--rule)}
+.blok h3{font-size:.95rem; font-weight:600; margin:0 0 .7rem}
+.blok.two{display:grid; grid-template-columns:1.7fr 1fr; gap:1.6rem}
+.blok.two h3{margin-top:0}
+.blok.two>div>p{font-size:.9rem; color:var(--ink-2)}
+@media (max-width:700px){ .blok.two{grid-template-columns:1fr; gap:1.2rem} }
+
+.msg{background:var(--sunk); border-left:2px solid var(--indigo); border-radius:0 8px 8px 0;
+  padding:1.1rem 1.2rem; max-width:var(--measure); font-size:.95rem}
+.copy{margin-top:.85rem; font:inherit; font-size:.86rem; font-weight:500;
+  padding:.55rem 1.1rem; border-radius:7px; cursor:pointer;
+  border:1px solid var(--indigo); background:var(--indigo); color:#fff}
+:root[data-theme="dark"] .copy{color:#0F1217}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .copy{color:#0F1217} }
+.copy:hover{filter:brightness(1.08)}
+.copy.done{background:var(--green); border-color:var(--green)}
+.copy:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+
+.tally-rezh{display:flex; flex-direction:column; gap:.3rem; align-items:flex-start}
+.rezh{font:500 .74rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.06em;
+  padding:.6rem .9rem; border-radius:99px; cursor:pointer; border:1px solid var(--rule);
+  background:var(--surface); color:var(--ink-2); white-space:nowrap}
+.rezh:hover{border-color:var(--indigo); color:var(--indigo)}
+.rezh:focus-visible{outline:2px solid var(--indigo); outline-offset:2px}
+.rezh[aria-pressed="true"]{background:var(--indigo); border-color:var(--indigo); color:#fff}
+:root[data-theme="dark"] .rezh[aria-pressed="true"]{color:#0F1217}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .rezh[aria-pressed="true"]{color:#0F1217} }
+.rezh-n{font-size:.74rem; color:var(--muted); margin:0}
+/* режим отправки: внутренний слой прячем */
+body.tiho .blok.two, body.tiho .skept, body.tiho .obmen{display:none}
+.buy{margin:.9rem 0 0; font-size:.9rem; color:var(--ink-2); max-width:var(--measure);
+  padding:.55rem .75rem; background:var(--green-soft); border-radius:7px}
+.buy-l{font:600 .62rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--green); margin-right:.5rem}
+.buy em{font-style:normal; color:var(--muted); font-size:.82rem}
+.obmen{margin:.5rem 0 0; font-size:.88rem; color:var(--ink-2); max-width:var(--measure);
+  padding:.55rem .75rem; background:var(--ochre-soft); border-radius:7px}
+.obmen-l{font:600 .62rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--ochre); margin-right:.5rem}
+.msg.old{border-left-color:var(--muted); opacity:.85; margin-top:.9rem}
+.zam{margin:1.4rem 0 0; padding-top:1.2rem; border-top:1px solid var(--rule)}
+.zam-l{display:block; font:500 .66rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:.5rem}
+.zam-t{width:100%; max-width:var(--measure); font:inherit; font-size:.92rem; color:var(--ink);
+  background:var(--sunk); border:1px solid var(--rule); border-radius:8px; padding:.7rem .8rem;
+  resize:vertical; min-height:2.8rem}
+.zam-t:focus{outline:2px solid var(--indigo); outline-offset:1px; border-color:var(--indigo)}
+.zam-s{display:inline-block; margin-top:.35rem; font:500 .66rem/1 "IBM Plex Mono",monospace;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--green); opacity:0;
+  transition:opacity .2s}
+.zam-s.on{opacity:1}
+.skept{margin:1.5rem 0 0; padding-top:1.2rem; border-top:1px solid var(--rule)}
+.skept summary{cursor:pointer; font:500 .78rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--muted)}
+.skept summary:hover{color:var(--ink)}
+.skept p{font-size:.87rem; color:var(--ink-2); margin-top:.9rem; max-width:var(--measure)}
+
+.flip{display:flex; justify-content:space-between; gap:.6rem; margin-top:1.6rem;
+  padding-top:1.1rem; border-top:1px solid var(--rule)}
+.flip-b{font:inherit; font-size:.82rem; color:var(--muted); background:none; border:0;
+  cursor:pointer; padding:.35rem .1rem}
+.flip-b:hover{color:var(--indigo)}
+.flip-b:focus-visible{outline:2px solid var(--indigo); outline-offset:2px}
+
+/* ——— низ */
+.tail{margin-top:3.2rem; display:grid; grid-template-columns:1fr 1fr; gap:2rem}
+@media (max-width:860px){ .tail{grid-template-columns:1fr} }
+.tail section{background:var(--surface); border:1px solid var(--rule); border-radius:12px;
+  padding:1.6rem 1.7rem; box-shadow:var(--shadow)}
+.tail h2{font-size:1.15rem; font-weight:700; margin-bottom:.9rem; letter-spacing:-.01em}
+.tail p{font-size:.9rem; color:var(--ink-2)}
+.tail ol{margin:0; padding-left:1.2rem; display:flex; flex-direction:column; gap:.75rem}
+.tail li{font-size:.86rem; color:var(--ink-2); line-height:1.55}
+.tail li::marker{color:var(--indigo); font-family:"IBM Plex Mono",monospace; font-size:.75rem}
+.vyb{margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--rule)}
+.vyb h3{font-size:.78rem; font-family:"IBM Plex Mono",monospace; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:.7rem}
+.vyb p{font-size:.84rem}
+.pod{margin-top:2.6rem; padding-top:1.2rem; border-top:1px solid var(--rule);
+  font-size:.78rem; color:var(--muted); display:flex; justify-content:space-between;
+  flex-wrap:wrap; gap:.6rem}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+
+<header class="top">
+ <div class="wrap">
+  <div class="brand">Business Intelligence DNA · неделя 09.09.2026</div>
+  <h1>Шестнадцать заходов</h1>
+  <p class="dek">Кому пишем на этой неделе, чем открываем разговор и что продаём первым.
+   Отобрано из 31 контакта: разведка по каждому, отбор в три угла, трое скептиков,
+   плюс пятеро добора 12.09 — их факты перепроверены живьём. Сообщения написаны через рамку
+   24 обещаний: первым абзацем идёт то, что человек получает в итоге. Готовы к отправке
+   без правок. Заметки в карточках общие: что напишет один, видит другой.</p>
+  <div class="tally">
+   <div class="tally-i"><span class="tally-n" id="c-sent">0</span><span class="tally-l">написали</span></div>
+   <div class="tally-i"><span class="tally-n" id="c-reply">0</span><span class="tally-l">ответили</span></div>
+   <div class="tally-i"><span class="tally-n" id="c-call">0</span><span class="tally-l">созвонов</span></div>
+   <div class="tally-rezh">
+    <button type="button" id="rezh" class="rezh" aria-pressed="true">
+     <span class="rezh-t">режим отправки</span>
+    </button>
+    <p class="rezh-n">внутренний разбор скрыт</p>
+   </div>
+   <div class="tally-goal">
+    <span class="tally-l">цель недели — 10 созвонов</span>
+    <div class="goal-bar"><span id="bar"></span></div>
+    <p class="tally-note">Шестнадцать писем: волна 1 во вторник — тёплые, среда — холодные.
+     Холодные отвечают примерно один из трёх-четырёх. <span class="sync">отметки общие</span></p>
+   </div>
+  </div>
+ </div>
+</header>
+
+<div class="wrap">
+ <div class="board">
+  <nav class="rail" aria-label="Заходы"><button class="row" data-go="1" type="button" aria-controls="k1"><span class="row-n">01</span><span class="row-mid"><span class="row-name">Olga Garibian</span><span class="row-inst">Дежурный</span></span><span class="row-right"><span class="dot" data-dot="1"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="2" type="button" aria-controls="k2"><span class="row-n">02</span><span class="row-mid"><span class="row-name">Анна Семенова</span><span class="row-inst">Сначала поток</span></span><span class="row-right"><span class="dot" data-dot="2"></span><span class="row-t warm">тёплый</span></span></button><button class="row" data-go="3" type="button" aria-controls="k3"><span class="row-n">03</span><span class="row-mid"><span class="row-name">Кристина Шадрина</span><span class="row-inst">Сначала поток</span></span><span class="row-right"><span class="dot" data-dot="3"></span><span class="row-t warm">тёплый</span></span></button><button class="row" data-go="4" type="button" aria-controls="k4"><span class="row-n">04</span><span class="row-mid"><span class="row-name">Яна Беранек</span><span class="row-inst">Видимость</span></span><span class="row-right"><span class="dot" data-dot="4"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="5" type="button" aria-controls="k5"><span class="row-n">05</span><span class="row-mid"><span class="row-name">Артём Лысков</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="5"></span><span class="row-t warm">тёплый</span></span></button><button class="row" data-go="6" type="button" aria-controls="k6"><span class="row-n">06</span><span class="row-mid"><span class="row-name">Анна Тураева</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="6"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="7" type="button" aria-controls="k7"><span class="row-n">07</span><span class="row-mid"><span class="row-name">Лена Талан</span><span class="row-inst">Видимость</span></span><span class="row-right"><span class="dot" data-dot="7"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="8" type="button" aria-controls="k8"><span class="row-n">08</span><span class="row-mid"><span class="row-name">Nadia Kuzmina</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="8"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="9" type="button" aria-controls="k9"><span class="row-n">09</span><span class="row-mid"><span class="row-name">Екатерина Новикова</span><span class="row-inst">Дежурный</span></span><span class="row-right"><span class="dot" data-dot="9"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="10" type="button" aria-controls="k10"><span class="row-n">10</span><span class="row-mid"><span class="row-name">Игорь Лён</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="10"></span><span class="row-t warm">тёплый</span></span></button><button class="row" data-go="11" type="button" aria-controls="k11"><span class="row-n">11</span><span class="row-mid"><span class="row-name">Анжелика Getmancouk</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="11"></span><span class="row-t warm">тёплый</span></span></button><button class="row" data-go="12" type="button" aria-controls="k12"><span class="row-n">12</span><span class="row-mid"><span class="row-name">Кирилл Комбаров</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="12"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="13" type="button" aria-controls="k13"><span class="row-n">13</span><span class="row-mid"><span class="row-name">Надя Луркова</span><span class="row-inst">Сначала поток</span></span><span class="row-right"><span class="dot" data-dot="13"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="14" type="button" aria-controls="k14"><span class="row-n">14</span><span class="row-mid"><span class="row-name">Марина</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="14"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="15" type="button" aria-controls="k15"><span class="row-n">15</span><span class="row-mid"><span class="row-name">Лада Попова</span><span class="row-inst">ДНК и сайт</span></span><span class="row-right"><span class="dot" data-dot="15"></span><span class="row-t cold">холодный</span></span></button><button class="row" data-go="16" type="button" aria-controls="k16"><span class="row-n">16</span><span class="row-mid"><span class="row-name">Мила Ануфриева</span><span class="row-inst">Видимость</span></span><span class="row-right"><span class="dot" data-dot="16"></span><span class="row-t warm">тёплый</span></span></button></nav>
+  <div class="stage"><article class="card" id="k1" data-card="1">
+ <div class="card-head">
+  <span class="card-n">01</span>
+  <div>
+   <h2>Olga Garibian (The Classic T-Shirt Co.)</h2>
+   <p class="card-delo">DTC-бренд органических футболок, шьётся в Лос-Анджелесе, розница $80–90 по всему миру + опт с MOQ 50. Стек Shopify + Klaviyo + Yotpo + Gorgias, живая поддержка семь дней в неделю 8:00–17:00 PST.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">Дежурный</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  выручку, которая уходит, пока в Калифорнии ночь <em>· пункт 12 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="1">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="1">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="1">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="1">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m1"><p>Ольга, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, делаем AI-сотрудников для переписки. Работаем под NDA, доступ к вашим счетам и CRM нам не нужен.</p><p>Пишу про деньги, которые у вас уже есть, но которые до вас не доезжают.</p><p>Смотрели theclassictshirt.com как покупатель. Вы продаёте по всему миру, а на странице Contact написано: поддержка 8:00–17:00 по тихоокеанскому. Пока в Калифорнии ночь, в Европе рабочий день — и всё, что падает в чат Gorgias и на четыре ваших ящика, лежит до утра. Человек, который в девять утра по Лондону спросил про размер, к вашему утру уже купил в другом месте. Он не жалуется, он просто не возвращается.</p><p>Цифра, которая закрывает этот разговор, у вас есть — она лежит в Gorgias и Shopify: сколько обращений приходит вне рабочих часов и кто на них отвечает. Мы делаем так, чтобы отвечали за минуту в любое время, вашими же квалифицирующими вопросами, и человек доходил до заказа, а не до утра; всё сложное уходит вашим людям с уже собранным контекстом. У себя мы этим продали на $85 016 за два месяца.</p><p>Второе, из той же серии: на странице оптовых заказов — там, где самые крупные чеки, — стоит телефон (504) 644-7700, код Луизианы, а везде на сайте и в подвале (818) 619-2270. Это отдельная линия опта или остаток от прежнего подрядчика?</p><p>Час в Zoom, разберём именно ваши цифры: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="1">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Дежурный. ЧЕМ ПОДТВЕРЖДЕНО: только признаки, но признаки самые дорогие в списке — оплаченный стек (Shopify+Klaviyo+Yotpo+Gorgias), живые люди на поддержке семь дней в неделю, четыре почты, два телефона, опт с MOQ 50. Точных цифр выручки разведка не видела. Почему первое место: это единственный в списке настоящий e-commerce, где поток входящих доказан структурно (чат Gorgias, четыре ящика, форма опта), а не выведен из числа форм на сайте. ДО ЗВОНКА обязательно: выписать в две колонки, что делает AI-надстройка Gorgias в рабочие часы и что делает Дежурный за 60 секунд круглосуточно, с ценами обеих — иначе встреча превращается в спор с действующим вендором и чек падает. Хук про BLIK/EPS/Multibanco из письма убран: значки в подвале Shopify не доказывают европейских заказов, и ответ «это дефолтные бейджи» убил бы разговор одной строкой.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Дежурный: запуск $1,000 + $199/мес (1,000 минут). Связка с Продавцом: $2,500 + $399/мес (1,500 минут). Цену называем ПОСЛЕ цифры обращений вне рабочих часов, не в письме.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Первый ход переписан целиком. Убран хук про BLIK/EPS/Multibanco (значки в подвале Shopify не доказывают европейских заказов — самое опровержимое утверждение во всей десятке стояло первой фразой холодного письма). Телефон (504) переведён из «дефекта» в вопрос — разведка прямо пишет, что по нему не звонили. Вместо европейской доли — вопрос про заказы вне рабочих часов, на который у них есть готовая цифра. Поднята с 7-го места на 1-е: это единственный кандидат, у кого поток под Дежурного доказан структурой, а не выведен из числа форм. В работу добавлена обязательная подготовка сравнения с AI-надстройкой Gorgias.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Ольга, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, делаем AI-сотрудников для переписки. Работаем под NDA, доступ к вашим счетам и CRM нам не нужен.</p><p>Смотрели theclassictshirt.com как покупатель. Вы продаёте по всему миру, а на странице Contact написано, что поддержка работает 8:00–17:00 по тихоокеанскому. Всё, что падает в чат Gorgias и на четыре ваших ящика вне этих часов, ждёт до следующего утра. Вопрос, на который у вас есть точная цифра — она лежит в Gorgias и в Shopify: сколько обращений приходит вне рабочих часов и кто на них отвечает?</p><p>Второе, из той же серии: на странице оптовых заказов — той, где самые крупные чеки, — стоит телефон (504) 644-7700, код Луизианы, а везде на сайте и в подвале (818) 619-2270. Это отдельная линия опта или остаток от прежнего подрядчика?</p><p>Что мы делаем: AI-продавец в переписке отвечает за 60 секунд круглосуточно, задаёт ваши квалифицирующие вопросы, ведёт человека до заказа или до встречи, а всё сложное отдаёт вашим людям с уже собранным контекстом. У себя мы этим продали на $85 016 за два месяца.</p><p>Час в Zoom, разберём именно ваши цифры: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z1">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z1" data-zam="1" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="1"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="16">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="2">следующий →</button>
+ </nav>
+</article><article class="card" id="k2" data-card="2" hidden>
+ <div class="card-head">
+  <span class="card-n">02</span>
+  <div>
+   <h2>Анна (Annie) Семенова</h2>
+   <p class="card-delo">BeMomager.PRO — курс для мам про актёрскую карьеру ребёнка в США ($3 497, либо 3×$899, либо 6×$499) + Unity Acting School, онлайн-школа для детей 6–17 с восемью поимённо названными педагогами. Лос-Анджелес.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag warm">тёплый через Машу</span>
+  <span class="tag inst">Сначала поток</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  момент, когда мама решилась, — пока страх не остыл <em>· пункт 16 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="2">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="2">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="2">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="2">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m2"><p>Анна, здравствуйте — Андрей, муж Маши. Спасибо, что откликнулись.</p><p>Мама, которая пишет вам в полночь, покупает не курс. Она покупает будущее ребёнка — и пишет именно ночью, потому что днём об этом думать некогда, а ночью страшно. Кто ответит ей первым, тот и получит её решение: к утру страх остывает, и она возвращается к обычной жизни, где ребёнок никуда не поступает.</p><p>Прошёл ваш путь как такая мама: бесплатный курс на intensive.bemomager.com, дальше «Sign up for a free consultation with our manager», плюс WhatsApp и поп-ап на unityactingschool.com и две разные почты — momager@bemomager.pro и Info@mail.unityactingschool.com. Четыре точки входа, и за каждой живой человек.</p><p>Вопрос, на который снаружи ответа нет и от которого зависит, есть ли нам о чём говорить: за сколько минут в среднем отвечает менеджер на free consultation и что происходит с теми, кто написал ночью или в выходные?</p><p>Спрашиваю потому, что мы ставим AI-продавца в переписке: он отвечает за минуту в любое время, задаёт ваши квалифицирующие вопросы и ставит встречу в календарь. Менеджер приходит утром не к очереди, а к людям, которые уже рассказали про своего ребёнка. У себя мы этим продали на $85 016 за два месяца.</p><p>Отдельно, просто чтобы вы знали: bemomager.com — ваш собственный домен — до сих пор отдаёт страницу «Launching Soon». Кто набирает очевидный .com, до курса не доходит. И есть пара мест на английской странице, из-за которых машина читает ваш текст неправильно — покажу на звонке, там минута.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="2">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Продукт определяется на звонке, по ответу на один вопрос. ЧЕМ ПОДТВЕРЖДЕНО: опубликованный прайс ($3 497 / 3×$899 / 6×$499, пробное $19) и восемь платных педагогов; прямых доказательств оборота разведка не нашла, рассрочка на шесть платежей и депозит $400 «чтобы зафиксировать цену» — признак не толстой кассы. Если ответ «ночью и в выходные никто не отвечает» — Дежурный $1000–2000. Если «менеджер справляется, отвечаем за час» — Дежурного не продаём вовсе, идём в диагностику $500 под Unity Acting School (полной цены пятимесячной программы на сайте нет ни одной, продаётся только пробное за $19 — это дыра в оффере, а не в переписке). ДО ЗВОНКА: выяснить, WhatsApp на unityactingschool.com личный или Business API — личный автоматизировать нельзя, аккаунт банят, и тогда в чек входит перевод приёма на другой канал.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Дежурный: запуск $1,000 + $199/мес (1,000 минут). Связка с Продавцом: $2,500 + $399/мес (1,500 минут), но только после ответа про время реакции. Иначе диагностика $500 под Unity Acting School.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Из обоснования выкинуты два утверждения, которых в разведке нет: «решает одна» (про решателя разведка не говорит ничего, а у неё два бренда, восемь педагогов и менеджер) и «узкое место она нашла сама» (мы предположили его по числу форм). Продукт больше не назначен заранее — Дежурный только по ответу на вопрос про ночные заявки, ровно тем же тестом, которым Дежурного не дали Чегновой. Из первого хода убраны даты WHOIS («оплачен до 2028 года» читается как «нас пробили») и кириллические «С» — они чинятся за пять минут, держим на звонок как доказательство, что смотрели живьём. С первого места на второе: ниже Гарибян, у которой поток доказан, а не выведен.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Анна, здравствуйте — Андрей, муж Маши. Спасибо, что откликнулись.</p><p>Прошёл ваш путь как мама, которая нашла вас в инстаграме: бесплатный курс на intensive.bemomager.com, дальше «Sign up for a free consultation with our manager», плюс WhatsApp и поп-ап на unityactingschool.com и две разные почты — momager@bemomager.pro и Info@mail.unityactingschool.com. Четыре точки входа, и в каждой дальше живой человек.</p><p>Вопрос, на который снаружи ответа нет: за сколько минут в среднем отвечает менеджер на free consultation и что происходит с теми, кто написал ночью или в выходные? Спрашиваю потому, что от этого зависит, есть ли нам о чём говорить: мы ставим AI-продавца в переписке, который отвечает за 60 секунд круглосуточно, задаёт ваши квалифицирующие вопросы и ставит встречу в календарь — менеджер получает уже тёплого человека, а не очередь. У себя мы этим продали на $85 016 за два месяца.</p><p>Отдельно, просто чтобы вы знали: bemomager.com — ваш собственный домен — до сих пор отдаёт страницу «Launching Soon». Кто набирает очевидный .com, до курса не доходит. Есть ещё пара мест на английской странице, из-за которых машина читает ваш текст неправильно — покажу на звонке, там минута.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z2">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z2" data-zam="2" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="2"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="1">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="3">следующий →</button>
+ </nav>
+</article><article class="card" id="k3" data-card="3" hidden>
+ <div class="card-head">
+  <span class="card-n">03</span>
+  <div>
+   <h2>Кристина Шадрина / La Brusciano</h2>
+   <p class="card-delo">«Академия финансовой независимости» — курс по управлению деньгами на двух доменах с двумя разными офферами; тарифы $1 599 / $2 699 / $4 490 + «по собеседованию». Коста-Меса, Калифорния.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag warm">тёплый через Машу</span>
+  <span class="tag inst">Сначала поток</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  ощущение контроля над деньгами в вечер, когда посчитал <em>· пункт 7 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="3">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="3">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="3">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="3">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m3"><p>Кристина, здравствуйте — Андрей, муж Маши.</p><p>Человек решается разобраться со своими деньгами один раз и обычно вечером — когда посчитал и стало не по себе. В этот момент он покупает не курс, а ощущение, что дальше он управляет, а не его несёт. Если ответ приходит через день, покупать уже нечего: он успокоился сам.</p><p>141 тысяча в инстаграме, TikTok и два канала на YouTube — и все кнопки ведут в один t.me/academyfinance. Два вопроса, на которые снаружи ответа нет: сколько сообщений в день туда падает и кто отвечает тому, кто написал в три ночи?</p><p>Спрашиваю не из вежливости. Мы ставим AI-продавца в переписке: отвечает за минуту круглосуточно, задаёт ваши квалифицирующие вопросы, доводит до записи на разговор, сложное отдаёт человеку. У себя мы им продали на $85 016 за два месяца. Смысл он имеет только при реальном потоке — поэтому сначала цифра, цена потом.</p><p>Два места, которые видно снаружи и которые ближе к деньгам, чем кажется. Первое: карточка, которая уезжает вместе с вашей ссылкой в мессенджер, показывает текст, который вы бы точно переписали, а описание в ней пустое — на звонке покажу за минуту. Второе: krishadrina.com и kristinashadrina.com продают два разных оффера, а почта на первом стоит с домена второго — человек читает один сайт и пишет на адрес другого.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="3">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Продукт определяется на звонке. ЧЕМ ПОДТВЕРЖДЕНО: опубликованный прайс — но использовать его как доказательство размера нельзя: долларовая и рублёвая колонки разъезжаются между тарифами (37,5 / 26,7 / 64,6 ₽ за доллар), то есть цены пересчитывали разово и давно. Что подтверждено твёрдо: 141K в инстаграме, TikTok, два YouTube и Коста-Меса, Калифорния (LinkedIn: Kristina La Brusciano Consulting) — то есть платит она в долларах. Дежурный $1000–2000 — ТОЛЬКО если в t.me/academyfinance есть входящие сообщения. ДО ПИСЬМА открыть t.me/academyfinance и посмотреть, чат это или вещательный канал: если канал — входящих нет вовсе, Дежурному нечего отвечать, и разговор идёт про два домена, которые продают два разных оффера (диагностика $500). GEO ей первым не продаём: по её имени ранжируются SEO-фермы «развод или нет», снятие которых мы не делаем и обещать не будем.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Дежурный: запуск $1,000 + $199/мес (1,000 минут). Связка с Продавцом: $2,500 + $399/мес (1,500 минут) при подтверждённом потоке; иначе диагностика $500 под два разошедшихся домена.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Снята формулировка «чище конфигурации под Дежурного среди тёплых нет» — ссылку t.me/academyfinance никто не открывал, разведка дословно пишет «сидит живой человек или никто». Открыть до письма, продукт назначать после. Из первого хода убраны обе опечатки, названные по буквам («две опечатки в четырёх словах» человеку, который продаёт финансовую грамотность на английском 141 тысяче людей, — это «ты неграмотная» первой строкой; для Чегновой мы это правило себе написали, для Шадриной нарушали) и даты оплаты доменов (WHOIS в первом сообщении). Ведём теперь потоком, а не опечаткой.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Кристина, здравствуйте — Андрей, муж Маши.</p><p>141 тысяча в инстаграме, TikTok и два канала на YouTube — и все кнопки ведут в один t.me/academyfinance. Два вопроса, на которые снаружи ответа нет: сколько сообщений в день туда падает и кто отвечает тому, кто написал в три ночи?</p><p>Спрашиваю не из вежливости. Мы ставим AI-продавца в переписке: отвечает за 60 секунд круглосуточно, задаёт ваши квалифицирующие вопросы, ведёт до записи на разговор, сложное отдаёт человеку. У себя мы им продали на $85 016 за два месяца. Смысл он имеет только при реальном потоке — поэтому сначала цифра, цена потом.</p><p>Два места, которые видно снаружи и которые ближе к деньгам, чем кажется. Первое: карточка, которая уезжает вместе с вашей ссылкой в мессенджер, показывает текст, который вы бы точно переписали, а описание в ней пустое — на звонке покажу за минуту. Второе: krishadrina.com и kristinashadrina.com продают два разных оффера, а почта на первом стоит с домена второго — человек читает один сайт и пишет на адрес другого.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z3">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z3" data-zam="3" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="3"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="2">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="4">следующий →</button>
+ </nav>
+</article><article class="card" id="k4" data-card="4" hidden>
+ <div class="card-head">
+  <span class="card-n">04</span>
+  <div>
+   <h2>Яна Беранек (Beranek Realty Group)</h2>
+   <p class="card-delo">Команда из четырёх человек в люксовой жилой недвижимости под Berkshire Hathaway HomeServices, офис Санта-Моника; рынки Санта-Моника / Пасифик-Палисейдс / Беверли-Хиллз. Лицензия DRE 01957970 с 2013.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">Видимость</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  человека, на которого можно опереться в чужом городе <em>· пункт 7 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="4">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="4">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="4">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="4">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m4"><p>Яна, здравствуйте. Андрей и Маша, Business Intelligence DNA — делаем так, чтобы ассистенты называли имя, когда у них спрашивают про нишу.</p><p>Семья, которая переезжает в другую страну, покупает не дом. Она покупает человека, на которого можно опереться в городе, где у неё никого нет. Раньше такого человека искали через знакомых — сейчас сначала спрашивают ассистента. Мы работаем ровно над тем, чтобы в этот момент называли вас.</p><p>Прикладываю скриншот вашей главной в том виде, в каком её отдаёт сервер — до того, как выполнятся скрипты. В блоке «Success Backed by NUMBERS» там стоит: 0 Years Industry Experience · $0.0M average price range · $0 GCI · 0% Client Satisfaction. Поисковик скрипты выполнит и цифры дорисует, а GPTBot, ClaudeBot и PerplexityBot скрипты не выполняют — ассистенту про вас достаются четыре нуля. Это, кстати, чинит ваш подрядчик за час, и это стоит сделать.</p><p>Мы про другое и на три месяца. Ваш покупатель спрашивает не «Beranek Realty Group», а «риэлтор в Санта-Монике для семьи, которая переезжает из другой страны» или «кто ведёт luxury в Пасифик-Палисейдс и говорит по-русски». Мы работаем по списку из пяти таких запросов, который фиксируем письменно до старта вместе со скриншотами сегодняшней выдачи. Квартал — $1500 вперёд; если по этим запросам вас не называют ни разу, возвращаем всё.</p><p>Два условия, которые я скажу сразу. Цифры про топ-0,5% и «#1 команда» мы за вас не придумываем: что подтверждаете выгрузкой или наградой — то и публикуем. И тексты про районы мы пишем только про сделку и процесс, без связок «район — школы — кто там живёт»: под вашей лицензией это реклама, и рисковать ею мы не будем.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="4">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Видимость в нейросетях (GEO), квартал вперёд. ЧЕМ ПОДТВЕРЖДЕНО: только признаки — топ-0,5%, Chairman&#x27;s Circle, «#1 команда в отделении» — это её собственный маркетинговый текст, а её же счётчик сломан и Zillow отдал 403. ТВЁРДО подтверждена одна вещь и она важнее: она уже платит подрядчику (сайт Agent Image + движок iHomeFinder), то есть расход на маркетинг у неё существует. Именно поэтому возвратную подписку $500/мес ей не предлагаем — это добровольное понижение чека; квартал $1500 вперёд по фиксированному списку запросов. Внедрение (оффер команды, тексты, которые читают машины) — вторым шагом. Дежурный только третьим и только после разговора про Fair Housing. К ПИСЬМУ ПРИЛОЖИТЬ СКРИНШОТ её главной без выполнения скриптов — никаких инструкций «выключите JavaScript» холодному человеку.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>$1500 за квартал вперёд (GEO по письменному списку запросов). Внедрение — вторым шагом, отдельно.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Убрана возвратная подписка $500/мес — человеку, который уже платит Agent Image, дешёвый возвратный чек не предлагаем. Убрана инструкция «откройте сайт с выключенным JavaScript» (холодный человек этого не сделает) — вместо неё скриншот. Исправлено техническое утверждение: Googlebot JS отрисовывает, не отрисовывают GPTBot/ClaudeBot/PerplexityBot — в прежней формулировке сеошник Agent Image разбил бы нас одной строкой. Из письма убран список опечаток (alt=&quot;Exp Realty&quot;, «Beverly HIlls», «by by», «$600 GCI») — всё это подрядчик закрывает одним бесплатным тикетом; держим на звонок. Fair Housing перенесён с бота на весь дилиерабл: GEO-текст про районы опаснее бота, потому что он опубликован, постоянен и атрибутирован агенту. Добавлено вслух: чужие цифры без подтверждения не публикуем.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Яна, здравствуйте. Андрей и Маша, Business Intelligence DNA — делаем так, чтобы ассистенты называли бизнес по имени, когда у них спрашивают про его нишу.</p><p>Прикладываю скриншот вашей главной в том виде, в каком её отдаёт сервер — до того, как выполнятся скрипты. В блоке «Success Backed by NUMBERS» там стоит: 0 Years Industry Experience · $0.0M average price range · $0 GCI · 0% Client Satisfaction. Поисковик скрипты выполнит и цифры дорисует, а GPTBot, ClaudeBot и PerplexityBot скрипты не выполняют — ассистенту про вас достаются четыре нуля. Это, кстати, чинит ваш подрядчик за час, и это стоит сделать.</p><p>Мы про другое и на три месяца. Ваш покупатель спрашивает ассистента не «Beranek Realty Group», а «риэлтор в Санта-Монике для семьи, которая переезжает из другой страны» или «кто ведёт luxury в Пасифик-Палисейдс и говорит по-русски». Мы работаем по списку из пяти таких запросов, который фиксируем письменно до старта вместе со скриншотами сегодняшней выдачи. Квартал — $1500 вперёд; если по этим запросам вас не называют ни разу, возвращаем всё.</p><p>Два условия, которые я скажу сразу. Цифры про топ-0,5% и «#1 команда» мы за вас не придумываем: что подтверждаете выгрузкой или наградой — то и публикуем. И тексты про районы мы пишем только про сделку и процесс, без связок «район — школы — кто там живёт»: под вашей лицензией это реклама, и рисковать ею мы не будем.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z4">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z4" data-zam="4" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="4"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="3">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="5">следующий →</button>
+ </nav>
+</article><article class="card" id="k5" data-card="5" hidden>
+ <div class="card-head">
+  <span class="card-n">05</span>
+  <div>
+   <h2>Артём Лысков (Welcome to Yourself™)</h2>
+   <p class="card-delo">Актёрская студия в Нью-Йорке с 2017, свой метод в трёх ступенях. Подписки $1500 / $2500 / $3500 в месяц, частная сессия $500/час, корпоративная программа DRIVE $18 000, менторство от $15K/мес.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag warm">тёплый через Машу</span>
+  <span class="tag inst">ДНК и сайт</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  чтобы имя работало на студию, а не на сериал <em>· пункт 19 из 24</em></p>
+
+ <p class="obmen"><span class="obmen-l">без оплаты · в письме</span>
+  Диагностика без оплаты — в обмен на кейс, отзыв и два интро. Сказано в письме.</p>
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="5">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="5">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="5">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="5">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m5"><p>Артём, здравствуйте — Андрей, муж Маши.</p><p>Педагог продаёт одну вещь — доверие. Человек платит $1500–3500 в месяц не за расписание, а за то, что доверяет тому, кто ведёт. Ваше имя это доверие производит двадцать лет. Проблема в том, что достаётся оно сейчас сериалу и Щукинскому, а не студии в Нью-Йорке.</p><p>Прошёл ваш сайт как англоязычный человек, который дошёл до цен. Нажал «Join the next workshop» на lyskov.studio — открылась гугл-форма, и называется она по-русски: «ИНДИВИДУАЛЬНЫЙ ТРЕНИНГ Online (One-on-one class)». То есть главная кнопка на странице с подписками ведёт на другой продукт и на другом языке.</p><p>Рядом то же самое, но крупнее. Занятия по вторникам вы ведёте по-русски, а сайт существует только по-английски — русскоязычный запрос вашу студию не находит вообще. А в вашей статье в Википедии официальным сайтом указан lyskov.com: там страница Coming Soon с таймером, на котором нули, и брошенные формы внутри. Википедию мы не правим и обещать этого не будем — но именно с неё машины начинают собирать про вас справку, и ведёт она в пустоту.</p><p>Это не список опечаток. Это одно имя, разъехавшееся на два домена, два языка и два продукта: доверие, которое вы зарабатывали двадцать лет, не доезжает до того, кто готов платить. Чинится не правкой, а решением, кто ваш покупатель и какими словами он вас ищет. Так мы и работаем: глубокая диагностика $500, дальше собранный сайт на двух языках и внедрение от $5000; видимость в нейросетях идёт внутри, отдельной подпиской я вам её продавать не буду — вас и так называют, только про сериал.</p><p>И сразу про деньги, чтобы не гадали. Диагностика стоит $500. Сейчас я беру несколько первых случаев без оплаты — в обмен на право опубликовать результат как кейс, короткий отзыв на камеру и пару знакомых, кому это может быть нужно. Если публиковать нельзя — тогда обычные $500, и это нормально.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="5">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт на двух языках. Вход — глубокая диагностика $500, внедрение от $5000. GEO входит В СОСТАВ внедрения, отдельной подпиской не продаём. ЧЕМ ПОДТВЕРЖДЕНО: опубликованный прайс (самый крупный и подробный в списке); сколько человек реально платит по этим ценам, снаружи не видно. Почему сменили инструмент: месячная GEO-подписка $500 ниже собственного пола пивота и возвратна, а гарантия «ноль цитат — возврат» у него не сработает НИКОГДА — его уже называют по имени (Википедия, IMDb, Кинопоиск), просто по другому бизнесу. Продавать гарантию, которая не может сработать, нельзя. Настоящая его дыра — не видимость, а разъехавшееся имя: два домена, один язык на сайте при русскоязычных занятиях, и главная кнопка, ведущая в форму другого продукта.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → внедрение от $5000. Месячную GEO-подписку не называем вовсе.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Сменён инструмент: с GEO $500/мес на диагностику $500 → внедрение от $5000. Причина в разведке: он цитируется уже сегодня (Википедия, IMDb, Кинопоиск), поэтому гарантия «ноль цитат — полный возврат» физически не может сработать, а $500 возвратных ниже нашего собственного пола. Первый ход перевёрнут: ведёт сломанная кнопка «Join the next workshop» → русская гуглоформа (её прятали с прямой мотивировкой «он починит её за пять минут и разговор закончится бесплатно» — это выбор инструмента против боли), а Википедия ушла на вторую позицию как подпорка. Убран тщеславный запрос «спросите ассистента, кто такой Артём Лысков»: его покупатель за $1500–3500 в месяц такого запроса не задаёт. Со второго места на пятое — первый платёж здесь $500, а не $1000+.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Артём, здравствуйте — Андрей, муж Маши.</p><p>Прошёл ваш сайт как англоязычный человек, который дошёл до цен. Нажал «Join the next workshop» на lyskov.studio — открылась гугл-форма, и называется она по-русски: «ИНДИВИДУАЛЬНЫЙ ТРЕНИНГ Online (One-on-one class)». То есть главная кнопка на странице с подписками $1500–$3500 в месяц ведёт на другой продукт и на другом языке.</p><p>Рядом то же самое, но крупнее. Занятия по вторникам вы ведёте по-русски, а сайт существует только по-английски — русскоязычный запрос вашу студию не находит вообще. А в вашей статье в Википедии официальным сайтом указан lyskov.com: там страница Coming Soon с таймером, на котором нули, и брошенные формы внутри. Википедию мы не правим и обещать этого не будем — но именно с неё машины начинают собирать про вас справку, и ведёт она в пустоту.</p><p>Это не список опечаток. Это одно имя, разъехавшееся на два домена, два языка и два продукта — и чинится оно не правкой, а решением, кто ваш покупатель и какими словами он вас ищет. Так мы и работаем: глубокая диагностика $500, дальше собранный сайт на двух языках и внедрение от $5000; видимость в нейросетях идёт внутри, отдельной подпиской я вам её продавать не буду — вас и так называют, только про сериал.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z5">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z5" data-zam="5" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="5"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="4">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="6">следующий →</button>
+ </nav>
+</article><article class="card" id="k6" data-card="6" hidden>
+ <div class="card-head">
+  <span class="card-n">06</span>
+  <div>
+   <h2>Анна Тураева (Conceptica / 1000 Palms Hideout)</h2>
+   <p class="card-delo">Фэшн- и рекламный фотограф в Майами (Harper&#x27;s Bazaar, Elle, Glamour, L&#x27;Officiel) + собственная съёмочно-событийная площадка «1000 Palms Hideout»: больше акра в North Miami, бассейн, два эйрстрима, до 200 гостей.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">ДНК и сайт</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  место, которого не было в ролике у конкурента <em>· пункт 21 из 24</em></p>
+
+ <p class="obmen"><span class="obmen-l">без оплаты · только на звонке</span>
+  Диагностика без оплаты — в обмен на кейс. В холодном письме НЕ упоминаем, только на звонке после показа находок.</p>
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="6">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="6">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="6">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="6">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m6"><p>Анна, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, собираем позиционирование и сайты. Работаем под NDA.</p><p>Продюсер, который ищет локацию, покупает уникальность: место, которого не было в прошлом ролике у конкурента. За это он и переплачивает. Сейчас вашу уникальность продаёт каталог — и продаёт её строчкой среди сотни таких же, с комиссией сверху.</p><p>Ссылка 1000palmshideout.com, которая стоит у вас в профилях, открывается страницей ошибки «ConnectYourDomain Error» — и с www, и без. Домен куплен и направлен на Wix, но к сайту так и не подключён. Человек, который пришёл по ней из вашего же профиля, упирается в 404.</p><p>Из-за этого всё описание площадки живёт на Peerspace, Giggster и EventSmack. Спросите ассистента «где снять тропическую локацию с бассейном в Майами» — он процитирует маркетплейс, потому что вашей собственной страницы в интернете нет. И на annaturayeva.com нет ни формы, ни календаря — только почта в подвале. Отдельно: conceptica.com, .com того имени, которым вы подписываете все свои работы, занят израильским брендинговым агентством Conceptica из Тель-Авива.</p><p>Мы делаем ровно это: кто ваш покупатель — продюсер, бренд, свадебный организатор, велнес-организатор, — какими словами он ищет площадку, и сайт на двух языках, который принимает брони напрямую, а не только через комиссию маркетплейсов. Вход — глубокая диагностика $500, внедрение от $5000. Доступ к вашим счетам и календарям нам не нужен.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="6">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт площадки. Вход — глубокая диагностика $500, внедрение от $5000. ЧЕМ ПОДТВЕРЖДЕНО — единственный человек в новой десятке со СТОРОННИМ подтверждением оплаченных сделок: опубликованный прайс Peerspace ($150/ч до 5 человек, $250 до 15, $350 до 25, $450 до 35, $500 свыше 35, минимум два часа) ПЛЮС статус Superhost и 11 отзывов с рейтингом 5.0 на Giggster, два листинга Peerspace и третья площадка EventSmack. Она же единственная, про кого точно известно, что она уже платит за лидогенерацию — комиссию трёх маркетплейсов, — а это ровно тот признак, по которому наш контекст отбирает покупателя этой линии. Доллары, Майами, своя земля. Дежурный — вторым шагом: входящие сыпятся в директ двух инстаграмов (28K и 26K) и в личку трёх маркетплейсов, единой точки приёма нет.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → внедрение от $5000. Дежурный обсуждаем вторым шагом, после цифры по директу.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>НОВАЯ В ДЕСЯТКЕ — из запаса, на место Анжелики. Разведка подтверждает, что она сильнее выбывшей: у Анжелики оценка денег целиком выводная («цен на сайте нет ни одной, заполняемость нигде не опубликована») и девять лет нулевых трат на веб, у Тураевой — опубликованный почасовой прайс и стороннее подтверждение оплаченных броней (Superhost, 11 отзывов 5.0 на Giggster, три площадки). Её находка не чинится ни за десять минут, ни деньгами подрядчика: домен площадки не подключён, а всё описание бизнеса живёт у маркетплейсов. Юридически чистый разговор — ни Fair Housing, ни FDD, ни медицины.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Анна, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, собираем позиционирование и сайты. Работаем под NDA.</p><p>Ссылка 1000palmshideout.com, которая стоит у вас в профилях, открывается страницей ошибки «ConnectYourDomain Error» — и с www, и без. Домен куплен и направлен на Wix, но к сайту так и не подключён. Человек, который пришёл по ней из вашего же профиля, упирается в 404.</p><p>Из-за этого всё описание площадки живёт на Peerspace, Giggster и EventSmack. Спросите ассистента «где снять тропическую локацию с бассейном в Майами» — он процитирует маркетплейс, потому что вашей собственной страницы в интернете нет. И на annaturayeva.com нет ни формы, ни календаря — только почта в подвале. Отдельно: conceptica.com, .com того имени, которым вы подписываете все свои работы, занят израильским брендинговым агентством Conceptica из Тель-Авива.</p><p>Мы делаем ровно это: кто ваш покупатель — продюсер, бренд, свадебный организатор, велнес-организатор, — какими словами он ищет площадку, и сайт на двух языках, который принимает брони напрямую, а не только через комиссию маркетплейсов. Вход — глубокая диагностика $500, внедрение от $5000. Доступ к вашим счетам и календарям нам не нужен.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z6">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z6" data-zam="6" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="6"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="5">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="7">следующий →</button>
+ </nav>
+</article><article class="card" id="k7" data-card="7" hidden>
+ <div class="card-head">
+  <span class="card-n">07</span>
+  <div>
+   <h2>Лена Талан (Frenchies Inc.)</h2>
+   <p class="card-delo">Бренд шпилек с флокированным покрытием, frenchieshairpins.com, шестой год, US INC с двумя совладелицами. Shopify, чек $18–$44.95, международная доставка, опт и партнёрская программа; пресса Vogue, Elle, InStyle, People.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">Видимость</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  пучок, который доживёт до конца вариации <em>· пункт 23 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="7">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="7">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="7">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="7">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m7"><p>Лена, здравствуйте. Андрей и Маша, Business Intelligence DNA — занимаемся тем, чтобы ассистенты называли бренд, когда у них спрашивают про его нишу.</p><p>Девочка, которая выходит на сцену, покупает не шпильки. Она покупает пучок, который доживёт до конца вариации, — и ровно этот вопрос задаёт вслух. Сегодня она задаёт его ассистенту, и там за вас отвечают Bloch и Bunheads.</p><p>В вашем robots.txt на frenchieshairpins.com написано вашей рукой: «Strategy: Welcome AI for citations», дата July 2025. Мы задали ассистенту ровно тот вопрос, под который сделан ваш продукт — «лучшие шпильки для балетного пучка, которые не скользят». В ответе: Bloch, Bunheads, Tech Dance, WSICSE, ROCST, дальше Amazon и DiscountDance. Frenchies не названы ни разу. В подборке «5 Best Hair Pins» на wellwhisk.com, которая выдаётся по этому же запросу, вас тоже нет.</p><p>То есть заявку на цитирование вы подали, робота пустили — а брать ему нечего: страница Press перечисляет Vogue и Elle, но текста, из которого ассистент может собрать ответ на вопрос этой девочки, на сайте нет.</p><p>Мы работаем на это три месяца по списку из пяти запросов, который фиксируем письменно до старта, со скриншотами сегодняшней выдачи как нулевой точкой. Квартал — $1500 вперёд; если по этим запросам вас не называют ни разу, возвращаем всё.</p><p>Отдельно на звонок, не к спеху: оптовая заявка у вас падает в ту же форму, что и вопрос про доставку, и четыре Propack по $44.95 стоят Sold out — это профессиональный SKU.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="7">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Видимость в нейросетях (GEO), квартал вперёд по фиксированному списку запросов. ЧЕМ ПОДТВЕРЖДЕНО: опубликованный прайс и US INC с двумя совладелицами; $10k/мес разведка НЕ подтверждает — говорим об этом вслух между собой и не считаем её чеком-гарантией недели. Почему всё-таки в десятке: это единственный человек из 31, у кого боль под GEO не предположена, а ЗАМЕРЕНА (ассистенту задали покупательский вопрос — девять чужих брендов и ноль Frenchies), и единственный, кто ОПУБЛИКОВАЛ спрос на наш продукт — переписал robots.txt руками под нейросети со строкой «Strategy: Welcome AI for citations», July 2025. Человек уже пробовал решить нашу задачу и не решил. Решают вдвоём с Elena Bick — второй совладелице писать параллельно.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>$1500 за квартал вперёд.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>НОВАЯ В ДЕСЯТКЕ — из «не наших», в GEO-слот вместо Чегновой. Основание из разведки: у Чегновой в GEO-слоте боль состояла из трёх битых ссылок на Tilda и мёртвого чужого домена — вещей, которые по нашему же правилу отдавать нельзя, а флагман её стоит $669–790, дешевле нашего квартала. У Талан боль замерена реальным покупательским запросом и она сама написала, что хочет цитируемости. Планка «$10k/мес» к ней применена честно: признаков нет, поэтому она седьмая, а не первая, и её чек в план недели закладываем как возможный, а не как основной.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Лена, здравствуйте. Андрей и Маша, Business Intelligence DNA — занимаемся тем, чтобы ассистенты называли бренд, когда у них спрашивают про его нишу.</p><p>В вашем robots.txt на frenchieshairpins.com написано вашей рукой: «Strategy: Welcome AI for citations», дата July 2025. Мы задали ассистенту ровно тот вопрос, под который сделан ваш продукт — «лучшие шпильки для балетного пучка, которые не скользят». В ответе: Bloch, Bunheads, Tech Dance, WSICSE, ROCST, дальше Amazon и DiscountDance. Frenchies не названы ни разу. В подборке «5 Best Hair Pins» на wellwhisk.com, которая выдаётся по этому же запросу, вас тоже нет.</p><p>То есть заявку на цитирование вы подали, робота пустили — а брать ему нечего: страница Press перечисляет Vogue и Elle, но текста, из которого ассистент может собрать ответ на вопрос покупателя, на сайте нет.</p><p>Мы работаем на это три месяца по списку из пяти запросов, который фиксируем письменно до старта, со скриншотами сегодняшней выдачи как нулевой точкой. Квартал — $1500 вперёд; если по этим запросам вас не называют ни разу, возвращаем всё.</p><p>Отдельно на звонок, не к спеху: оптовая заявка у вас падает в ту же форму, что и вопрос про доставку, и четыре Propack по $44.95 стоят Sold out — это профессиональный SKU.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z7">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z7" data-zam="7" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="7"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="6">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="8">следующий →</button>
+ </nav>
+</article><article class="card" id="k8" data-card="8" hidden>
+ <div class="card-head">
+  <span class="card-n">08</span>
+  <div>
+   <h2>Nadia Kuzmina (Shot of Art)</h2>
+   <p class="card-delo">Сеть студий арт-впечатлений с 2022, восемь локаций (Нью-Йорк, ЛА, Чикаго, Хьюстон, Orange County, Woodlands, Лас-Вегас, Los Altos), с 2024 продаёт франшизу. Решают вдвоём с мужем Ильёй.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">ДНК и сайт</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  выход из найма у того, кто выглядит надёжнее прочих <em>· пункт 15 из 24</em></p>
+
+ <p class="obmen"><span class="obmen-l">без оплаты · только на звонке</span>
+  Диагностика без оплаты — в обмен на кейс. Только на звонке. Скорее всего откажется: FDD и franchise counsel закрывают цифры — тогда обычные $500.</p>
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="8">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="8">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="8">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="8">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m8"><p>Надя, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — собираем позиционирование, офферы и сайты, работаем под NDA.</p><p>Человек, который несёт во франшизу сто с лишним тысяч, покупает не бизнес по продаже впечатлений. Он покупает выход из найма — и берёт его у того, кто из всех вариантов выглядит надёжнее. Всё, что по дороге выглядит небрежно, он засчитывает как ответ про вас.</p><p>Прошли вашу франшизную форму как кандидат. В выпадающем списке «How much liquid capital do you have available to invest?» варианты идут так: Below $50,000 · $50,000–$75,000 · $75,000–$110,000 · $160,000–$350,000. Между $110 000 и $160 000 нет ничего. Кандидату со $130 000 выбрать нечего — а это ровно тот кандидат, который вам подходит: на той же странице написано «minimum Liquid Capital of $75,000». Он закрывает форму, и вы про него никогда не узнаете. Это не косметика, это потеря заявки на самой дорогой странице сайта.</p><p>Второе, из той же серии: в теге title вашей главной буква «О» в слове «Of» — кириллическая. Человек читает «Shot Of Art», машина видит другую строку, и точного совпадения с названием бренда в заголовке нет. На франшизном сайте буква нормальная — два ваших сайта расходятся между собой.</p><p>Что мы делаем: разбираем, чем вы отличаетесь от других франшиз впечатлений, кто ваш кандидат и какими словами он думает про свой выход из найма, и собираем под него страницу и форму. Вход — глубокая диагностика $500, внедрение от $5000.</p><p>Сразу оговорю границу: всё, что касается сумм инвестиций, доходности и Item 19 вашего FDD, мы не пишем и не редактируем — это к вашему franchise counsel. На франшизной странице сейчас три разные цифры стартовых вложений; это вопрос к нему, не к нам.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="8">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт (франшизная воронка). Вход — глубокая диагностика $500, внедрение от $5000. ЧЕМ ПОДТВЕРЖДЕНО — сторонние документы, единственный такой случай в десятке по юрлицам: Shot of Art HOU LLC и Shot of Art Chi LLC в листингах, карточка на FranchiseForSale, FDD 2026, восемь локальных страниц. НО: цифру «median gross sales $731k на студию» из обоснования УБИРАЕМ — это выручка локаций, раскрываемая в Item 19, чтобы продавать франшизу, а не её деньги. Её деньги — franchise fee $49–55k и восемь работающих точек. ДО ОТПРАВКИ подтвердить личность через linkedin.com/in/nadiakuzmina («Business Owner Shot Of Art»), а не по совпадению ника в инстаграме; писать через форму сайта и LinkedIn. В скоуп внедрения письменно вписать: суммы инвестиций, доходность и Item 19 мы не пишем и не редактируем.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → внедрение от $5000.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Обоснование переписано: убрана чужая выручка ($731k median gross sales — это Item 19 про локации, а не её деньги), вместо неё названы её собственные подтверждённые цифры (fee $49–55k, восемь локаций, юрлица по штатам). Первый ход больше не открывается фразой «три разные суммы стартовых вложений» — для франчайзера это сообщение постороннего о нестыковке публичных financial performance representations, и разговор уходит к франшизному юристу, а не к нам. Ведём дырой в выпадающем списке капитала — это потеря лида, чистая арифметика и наша территория. Расхождение сумм отдано обратно её юристу одной строкой в конце. Добавлено: подтвердить личность через LinkedIn до отправки.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Надя, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — собираем позиционирование, офферы и сайты, работаем под NDA.</p><p>Прошли вашу франшизную форму как кандидат. В выпадающем списке «How much liquid capital do you have available to invest?» варианты идут так: Below $50,000 · $50,000–$75,000 · $75,000–$110,000 · $160,000–$350,000. Между $110 000 и $160 000 нет ничего. Кандидату со $130 000 выбрать нечего — а это ровно тот кандидат, который вам подходит: на той же странице написано «minimum Liquid Capital of $75,000». Он закрывает форму, и вы про него никогда не узнаете. Это не косметика, это потеря заявки на самой дорогой странице сайта.</p><p>Второе, из той же серии: в теге title вашей главной буква «О» в слове «Of» — кириллическая. Человек читает «Shot Of Art», машина видит другую строку, и точного совпадения с названием бренда в заголовке нет. На франшизном сайте буква нормальная — два ваших сайта расходятся между собой.</p><p>Что мы делаем: разбираем, чем вы отличаетесь от других франшиз впечатлений, кто ваш кандидат, какими словами он про это думает, и собираем под него страницу и форму. Вход — глубокая диагностика $500, внедрение от $5000.</p><p>Сразу оговорю границу: всё, что касается сумм инвестиций, доходности и Item 19 вашего FDD, мы не пишем и не редактируем — это к вашему franchise counsel. На франшизной странице сейчас три разные цифры стартовых вложений; это вопрос к нему, не к нам.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z8">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z8" data-zam="8" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="8"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="7">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="9">следующий →</button>
+ </nav>
+</article><article class="card" id="k9" data-card="9" hidden>
+ <div class="card-head">
+  <span class="card-n">09</span>
+  <div>
+   <h2>Екатерина Новикова</h2>
+   <p class="card-delo">Превентивный врач-натуропат, школа МУНН, своя линейка БАД «Доктор Натуропат» (WB, OZON) + американский Shopify-магазин BotaniKate (en-nutrition.com), чеки $44,90–$207. Instagram 1M.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">Дежурный</span>
+  <span class="tag aud">1M в инстаграме</span>
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  превращение миллиона подписчиков в заказы <em>· пункт 18 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="9">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="9">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="9">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="9">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m9"><p>Екатерина, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг).</p><p>Миллион подписчиков — это ещё не деньги, это право на них. Деньгами он становится в одном узком месте: между «человек нажал» и «человек написал». Пишу про три точки, где у вас этот переход рвётся, и все три видно только снаружи.</p><p>Первое и денежное: на вашем американском магазине en-nutrition.com единственная ссылка на инстаграм ведёт на instagram.com/kate.novaya. Такого профиля нет — страница отдаётся пустой. Покупатель из США, который дочитал витрину с чеками $44,90–$207 и захотел посмотреть, кто за этим стоит, попадает в пустоту вместо аккаунта на миллион.</p><p>Второе, про первый клик: первая кнопка на taplink.cc/katerina.novaya подписана «ВЕБИНАР ПО АНАЛИЗАМ / 30 июля — бесплатно», а ведёт на страницу «Запись вебинара». Подпись и то, куда она ведёт, разошлись — а это единственная ссылка для миллиона человек. Сколько людей жмёт первую кнопку и сколько доходит до формы, вам сейчас никто не считает.</p><p>Третье, главное. Единственная кнопка для вопросов — WhatsApp, где отвечают Феи Школы. Сколько сообщений в день туда падает и за сколько отвечают ночью? Мы ставим AI-сотрудника, который отвечает за минуту круглосуточно и работает строго как маршрутизатор: он не консультирует, не называет добавку под симптом и не трактует анализы — берёт имя, контакт и вопрос одной строкой, отвечает на организационное (где заказать, сроки, оплата, где запись) и передаёт человеку всё, что касается здоровья. Феи получают разобранную очередь, а не свалку. Границу «чего бот не делает» пришлю письменно до любого разговора о цене.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="9">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Дежурный как МАРШРУТИЗАТОР, не как консультант. ЧЕМ ПОДТВЕРЖДЕНО: только признаки — своя производимая линейка, WB и OZON, американский Shopify с чеками $44,90–$207 и партнёрской программой, команда консультантов, «Феи Школы» на поддержке; конкретных оборотов в открытых источниках нет. ДО ЦЕНЫ написать и показать ей одну страницу «что бот не делает»: не называет продукт под симптом, не трактует анализы, не говорит про дозировки, эффекты и сроки, не собирает жалобы — берёт имя, контакт и вопрос одной строкой, отвечает на организационное, всё про здоровье передаёт человеку. Врачу с миллионом подписчиков «мы за вас не отвечаем» звучит лучше, чем «мы всё умеем». Пока страницы нет — $1000+ не называть. ДО ЗВОНКА выяснить: WhatsApp +7 995 998 3396 личный или Business API, и какое юрлицо платит подрядчикам — рублёвый контур нам не платит, платить может только американский.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Дежурный: запуск $1,000 + $199/мес (1,000 минут). Связка с Продавцом: $2,500 + $399/мес (1,500 минут) — после цифры потока и после согласованной страницы «что бот не делает».</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Из первого хода вырезана фраза «мы проверяли своим User-Agent и сверяли с контрольным выдуманным именем» — это наш внутренний протокол, для неё звучит как «мы гоняли по вашим сайтам автоматику». Хук про вебинар переписан: разведка сама пишет, что ссылка редиректит на страницу «Запись вебинара», то есть утверждение «приглашение на вебинар, который прошёл» наполовину опровергается нашим же файлом — теперь это вопрос про расхождение подписи и назначения. Ведёт битая ссылка на инстаграм в американском магазине: это её долларовый контур и она сама этого не видит. Продукт переопределён: не «AI отвечает клиентам», а маршрутизация с письменной границей по медицинской теме — иначе бот в потоке про симптомы и анализы превращается в «за 60 секунд вежливо отказываем».</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Екатерина, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг). Пишу по трём местам, которые видно только снаружи.</p><p>Первое и денежное: на вашем американском магазине en-nutrition.com единственная ссылка на инстаграм ведёт на instagram.com/kate.novaya. Такого профиля нет — страница отдаётся пустой. Покупатель из США, который дочитал витрину с чеками $44,90–$207 и захотел посмотреть, кто за этим стоит, попадает в пустоту вместо аккаунта на миллион.</p><p>Второе, про первый клик: первая кнопка на taplink.cc/katerina.novaya подписана «ВЕБИНАР ПО АНАЛИЗАМ / 30 июля — бесплатно», а ведёт на страницу «Запись вебинара». Подпись и то, куда она ведёт, разошлись — а это единственная ссылка для миллиона человек. Сколько людей жмёт первую кнопку и сколько доходит до формы, вам сейчас никто не считает.</p><p>Главное. Единственная кнопка для вопросов — WhatsApp, где отвечают Феи Школы. Сколько сообщений в день туда падает и за сколько отвечают ночью? Мы ставим AI-сотрудника, который отвечает за 60 секунд круглосуточно и работает строго как маршрутизатор: он не консультирует, не называет добавку под симптом и не трактует анализы — берёт имя, контакт и вопрос одной строкой, отвечает на организационное (где заказать, сроки, оплата, где запись) и передаёт человеку всё, что касается здоровья. Феи получают разобранную очередь, а не свалку. Границу «чего бот не делает» пришлю письменно до любого разговора о цене.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z9">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z9" data-zam="9" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="9"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="8">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="10">следующий →</button>
+ </nav>
+</article><article class="card" id="k10" data-card="10" hidden>
+ <div class="card-head">
+  <span class="card-n">10</span>
+  <div>
+   <h2>Игорь Лён</h2>
+   <p class="card-delo">LIMiK — строительно-инженерная компания с 1994 (по его сайту 450+ сотрудников, 520+ объектов); Force Capital — инвестплатформа по недвижимости и инфраструктуре в США; сообщество Force Business Ecosystem 1500+ предпринимателей. Майами.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag warm">тёплый через Машу</span>
+  <span class="tag inst">ДНК и сайт</span>
+  <span class="tag aud">21K в инстаграме</span>
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  чтобы проверка перед сделкой прошла в его пользу <em>· пункт 5 из 24</em></p>
+
+ <p class="obmen"><span class="obmen-l">без оплаты · в письме</span>
+  Диагностика без оплаты — в обмен на кейс. Сказано в письме, но кейс с инвестплатформы почти невозможен: ждём отказа и обычных $500.</p>
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="10">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="10">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="10">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="10">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m10"><p>Игорь, здравствуйте — Андрей, муж Маши. Спасибо за время.</p><p>На вашем уровне покупают одно — чтобы проверка перед сделкой прошла в вашу пользу. И проверяют теперь не люди: прежде чем сесть за стол, партнёр или инвестор спрашивает ассистента и читает первые три источника. Пишу про то, что он там читает.</p><p>Про завод больших силовых трансформаторов, который вы двигаете сейчас. Снаружи про него нет ничего, кроме текста на вашем собственном сайте: ни одного стороннего материала, ни одной страницы, на которую можно сослаться. Лента прессы на igorlon.com при этом заканчивается на четвёртом Grand Business Event 15–17 декабря 2023 и до сих пор написана в будущем времени.</p><p>Рядом, механически: адрес limik.us, указанный на igorlon.com как ваш контакт для США, открывается заглушкой конструктора на немецком — «Bald geht&#x27;s los». А почта в подвале force-capital.com стоит на домене, который не совпадает ни с одним из ваших американских юрлиц. Для того, кто несёт деньги, это лишние вопросы, которых можно не задавать.</p><p>Что предлагаю: глубокая диагностика $500 по LIMiK International и трансформаторному направлению — чем вы отличаетесь от тех, кто делает то же самое, кто ваш покупатель на американском рынке, какими словами он вас ищет; дальше сайт и внедрение от $5000. Инвестиционную часть Force Capital — доходность, условия входа — мы не пишем и не редактируем: это территория вашего юриста, и мы туда не лезем.</p><p>Про деньги сразу. Диагностика стоит $500, и сейчас несколько первых случаев я беру без оплаты — в обмен на право показать результат как кейс, короткий отзыв и пару знакомых, кому это нужно. Понимаю, что у вас это может быть закрыто: тогда просто $500, и вопрос снят.</p><p>Первый вопрос на звонке будет скучный: какое юрлицо подписывает и в какой валюте платит.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="10">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт — ТОЛЬКО по LIMiK International и трансформаторному направлению. Вход — диагностика $500, внедрение от $5000. ЧЕМ ПОДТВЕРЖДЕНО: только признаки, и все с его собственных сайтов — разведка дважды пишет, что независимого подтверждения ни оборота LIMiK, ни портфеля Force Capital не видела, а «$352 млн» встретилось только в поисковой выдаче. force-capital.com мы не трогаем: писать маркетинговый текст сайту, который обещает американским инвесторам «18%+ годовых», без securities-юриста — то же самое, чем опасен бот, только медленнее и за наши деньги. Дежурного не предлагаем по той же причине. Интро в Force Business Ecosystem — отдельный разговор ВТОРЫМ касанием, когда деньги на счету; брать интро вместо чека нельзя, это прямо записано в выводе прошлого отбора. Первый вопрос на звонке: какое юрлицо подписывает и в какой валюте платит.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → внедрение от $5000 по LIMiK/трансформаторам. Интро в сообщество — отдельно и не вместо чека.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Скоуп сужен письменно: force-capital.com не трогаем вообще — переписывать оффер инвестиционного предложения с заявленной доходностью 18%+ без securities-юриста нельзя. Первый ход больше не начинается с 404 на Contact (это аудит чужого сайта ради $500 у человека, чьё одно упоминание внутри сообщества закрывает недельную задачу по контактам) — ведёт то, что он сам не починит: его текущий проект в интернете не существует нигде, кроме его же сайта. Из формулировок убрано слово «украинский» — говорим про несовпадение с американскими юрлицами, а не про страну: он украинец, и «твоя украинскость мешает продавать американцам» читается именно так. 404 и пустой og:description держим на звонок. С четвёртого места на десятое: первый платёж здесь $500, а решение уедет к ассистенту.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Игорь, здравствуйте — Андрей, муж Маши. Спасибо за время.</p><p>Про завод больших силовых трансформаторов, который вы двигаете сейчас. Снаружи про него нет ничего, кроме текста на вашем собственном сайте: ни одного стороннего материала, ни одной страницы, на которую можно сослаться. Лента прессы на igorlon.com при этом заканчивается на четвёртом Grand Business Event 15–17 декабря 2023 и до сих пор написана в будущем времени. Человек и машина, которые проверяют вас перед разговором о деньгах, читают именно это — и делают вывод не в вашу пользу.</p><p>Рядом, механически: адрес limik.us, указанный на igorlon.com как ваш контакт для США, открывается заглушкой конструктора на немецком — «Bald geht&#x27;s los». А почта в подвале force-capital.com стоит на домене, который не совпадает ни с одним из ваших американских юрлиц. Для того, кто несёт деньги, это лишние вопросы, которых можно не задавать.</p><p>Что предлагаю: глубокая диагностика $500 по LIMiK International и трансформаторному направлению — чем вы отличаетесь от тех, кто делает то же самое, кто ваш покупатель на американском рынке, какими словами он вас ищет; дальше сайт и внедрение от $5000. Инвестиционную часть Force Capital — доходность, условия входа — мы не пишем и не редактируем: это территория вашего юриста, и мы туда не лезем.</p><p>Первый вопрос на звонке будет скучный: какое юрлицо подписывает и в какой валюте платит.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z10">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z10" data-zam="10" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="10"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="9">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="11">следующий →</button>
+ </nav>
+</article><article class="card" id="k11" data-card="11" hidden>
+ <div class="card-head">
+  <span class="card-n">11</span>
+  <div>
+   <h2>Анжелика Getmancouk (Worldspeak School)</h2>
+   <p class="card-delo">языковая иммерсионная школа полного цикла в Западном Лос-Анджелесе с 2001 года: ясли, preschool, TK, elementary TK–5, middle, лагерь, afterschool; два адреса в Вествуде и West LA; двенадцать педагогов в трёх языковых программах</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag warm">тёплый — Андрей знает лично</span>
+  <span class="tag inst">ДНК и сайт</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  причину не волноваться за ребёнка <em>· пункт 4 из 24</em></p>
+
+ <p class="obmen"><span class="obmen-l">без оплаты · в письме</span>
+  Диагностика без оплаты — в обмен на кейс, отзыв и два интро. Сказано в письме.</p>
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="11">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="11">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="11">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="11">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m11"><p>Анжелика, привет. Хочу показать тебе две вещи, которые видно снаружи, а изнутри не видно никогда, — и спросить про одну из них, потому что сам не понял.</p><p>Родитель в Вествуде платит не за испанский. Он платит за спокойствие: что ребёнок в правильных руках и что через десять лет это окажется правильным решением. Всё, что он делает до звонка в школу, — ищет причину не волноваться. Найти тебя он найдёт. Я спросил ChatGPT и Perplexity про двуязычный садик в Вествуде, и оба называют тебя. А дальше он начинает проверять и находит две причины волноваться.</p><p>Первое, и с этого начну, потому что это единственное, что меня реально насторожило. В реестре Департамента образования Калифорнии запись WorldSpeak Language Immersion Private School (CDS 19647336154249) помечена Closed с 30 июня 2025 года. При этом сайт прямо сейчас набирает elementary TK–5 и middle school. Я почти уверен, что это просто не поданный годовой affidavit — но родитель, который проверяет школу через cde.ca.gov (а на Westside так делают), видит слово «закрыта». Это правда так, или я смотрю не на ту запись?</p><p>Второе — про деньги, и оно самое простое. У тебя на сайте нет ни одной цены. Даже на странице, у которой в самом адресе стоит слово tuition, слово tuition в тексте не встречается ни разу, а знака доллара нет вообще. То есть родитель, который готов платить, не может понять, его это школа или нет, — и звонит по телефону, чтобы это выяснить, либо не звонит. У preschool в Вествуде это прямо дорогая тишина.</p><p>И одна мелочь, которая показывает, что я смотрел живьём, а не по описанию: имя школы-партнёра написано с ошибкой двумя разными способами на одной и той же странице — в меню «Berkley Hall», а в адресе страницы «buckley-hall». Она называется Berkeley Hall School.</p><p>Что предлагаю. Сначала глубокая диагностика — $500: разбираем, чем ты отличаешься от соседних школ на самом деле, кто именно твой родитель и какими словами он тебя ищет. Дальше, если решим, внедрение от $5000: сайт, на котором родитель находит ответы, включая цену, ещё до звонка. Доступ к твоим счетам и базе не нужен, работаем под NDA.</p><p>Про деньги честно. Диагностика стоит $500, но сейчас я беру несколько первых без оплаты — в обмен на то, что результат можно будет показать: кейс с цифрами, короткий отзыв на камеру и пара знакомых, кому это нужно. Если показывать нельзя — тогда $500.</p><p>И отдельный вопрос не для письма, а для разговора: в списке у Маши написано, что ты продвигаешь франшизу садика, а на сайте про франшизу нет ни слова. Продаёшь? Если да, это отдельный и куда более крупный разговор — каждому франчайзи нужен свой оффер и свой сайт.</p><p>Час в Zoom, когда тебе удобно: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="11">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт, вход — глубокая диагностика $500. ЧЕМ ПОДТВЕРЖДЕНО: личным знанием Андрея, что деньги есть и клиенты платёжеспособны — это сильнее вывода из отсутствия следов в вебе, на котором её вычеркнул скептик. Внешние признаки не противоречат: два адреса в Вестсайде, программы от яслей до middle, 24 года, outreach на территории Berkeley Hall. Видимость идёт внутри внедрения, а не отдельной подпиской: цитировать у неё есть что (свой домен с 2001, сорок страниц текста, реестр CDE, два Yelp, mommypoppins), но материал старый.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → сайт и видимость от $5000. Дежурного не предлагать в первом разговоре: поток есть (телефон, форма, два Yelp), но объём и время ответа не измерены; инстаграм 310 подписчиков — в директ поток вряд ли идёт.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>ВЕРНУЛ АНДРЕЙ. Скептики вычеркнули её по выводу из отсутствия: нулевые видимые траты на веб девять лет (подвал 2001-2017, логотип 2014, Contact Form 7 5.5.3, брендовая почта закомментирована, инстаграм 310 подписчиков), а оценка денег в разведке целиком выводная — «цен на сайте нет ни одной, заполняемость нигде не опубликована». Андрей знает её лично и знает, что деньги есть и клиенты платёжеспособные. Прямое знание бьёт вывод из отсутствия — возражение снято. Что из претензий скептиков осталось в силе и учтено в ходе: запись Closed в реестре CDE подаётся ВОПРОСОМ, а не утверждением (её нельзя утверждать как факт в письме владелице школы — не разведены оба адреса); франшиза тоже вопросом, потому что на сайте про неё ни слова; опечатка Berkley/Buckley стоит последней и служит доказательством, что смотрели живьём, а не крючком.</p>
+ </details>
+
+ <details class="skept">
+  <summary>Прежняя версия сообщения, до рамки 24</summary>
+  <div class="msg old"><p>Анжелика, привет. Хочу показать тебе три вещи, которые видно снаружи, а изнутри не видно никогда — и спросить про одну из них, потому что сам не понял.</p><p>Первое, и с этого начну, потому что это единственное, что меня реально насторожило. В реестре Департамента образования Калифорнии запись WorldSpeak Language Immersion Private School (CDS 19647336154249) помечена Closed с 30 июня 2025 года. При этом сайт прямо сейчас набирает elementary TK–5 и middle school. Я почти уверен, что это просто не поданный годовой affidavit — но родитель, который проверяет школу через cde.ca.gov (а на Westside так делают), видит слово «закрыта». Это правда так, или я смотрю не на ту запись?</p><p>Второе — про то, как тебя читают машины. Родители сейчас спрашивают не поисковик, а ассистента: «двуязычный preschool в Вестсайде с испанским», «школа с погружением рядом с UCLA». Тебя там не называют. Цитировать про тебя есть что — двадцать четыре года, сорок страниц, два Yelp, реестр, mommypoppins, — но всё это лежит текстом, написанным для человека, а не для машины, и датировано подвалом 2017 года. Это не чинится правкой подвала, это делается один раз и потом работает само.</p><p>Третье — про деньги, и оно самое простое. У тебя на сайте нет ни одной цены. Даже на странице, у которой в самом адресе стоит слово tuition, слово tuition в тексте не встречается ни разу, а знака доллара нет вообще. То есть родитель, который готов платить, не может понять, его это школа или нет, — и звонит по телефону, чтобы это выяснить, либо не звонит. У preschool в Вествуде это прямо дорогая тишина.</p><p>И одна мелочь, которая показывает, что я смотрел живьём, а не по описанию: имя школы-партнёра написано с ошибкой двумя разными способами на одной и той же странице — в меню «Berkley Hall», а в адресе страницы «buckley-hall». Она называется Berkeley Hall School.</p><p>Что предлагаю. Сначала глубокая диагностика — $500: разбираем, чем ты отличаешься от соседних школ на самом деле, кто именно твой родитель и какими словами он тебя ищет. Дальше собранный сайт и видимость в ассистентах — от $5000. Доступ к твоим счетам и базе не нужен, работаем под NDA.</p><p>И отдельный вопрос не для письма, а для разговора: в списке у Маши написано, что ты продвигаешь франшизу садика, а на сайте про франшизу нет ни слова. Продаёшь? Если да, это отдельный и куда более крупный разговор — каждому франчайзи нужен свой оффер и свой сайт.</p><p>Час в Zoom, когда тебе удобно: calendly.com/bizzinteldna/1hr</p></div>
+ </details>
+
+ <section class="zam">
+  <label class="zam-l" for="z11">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z11" data-zam="11" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="11"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="10">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="12">следующий →</button>
+ </nav>
+</article><article class="card" id="k12" data-card="12" hidden>
+ <div class="card-head">
+  <span class="card-n">12</span>
+  <div>
+   <h2>Кирилл Комбаров (Ball in Goal)</h2>
+   <p class="card-delo">Приложение для тренировки футбольных навыков Ball in Goal (iOS/Android, подписка $9,99/мес или $59,99/год, 10K+ загрузок) + магазин экипировки на Shopify + тренерская работа в Майами. Instagram 53 000 подписчиков.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">ДНК и сайт</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  чтобы имя работало на его дело, а не на прошлую карьеру <em>· пункт 19 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="12">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="12">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="12">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="12">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m12"><p>Кирилл, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, собираем позиционирование, офферы и сайты. Работаем под NDA, доступ к вашим счетам и аналитике нам не нужен.</p><p>Родитель платит $59,99 в год не за 170 упражнений. Он платит за тренера, которому доверяет, — и это доверие вы двадцать лет зарабатывали своим именем. Пятьдесят три тысячи человек подписаны на Кирилла Комбарова. А покупают они приложение, на котором Кирилла Комбарова нет.</p><p>Проверили ballingoal.com по всему коду страницы: слова «Kombarov» — ноль вхождений, «Kirill» — ноль, «Miami» — ноль. В магазине то же самое. В App Store и Google Play продавец указан как «Ball in llc», без фамилии. То есть продукт, который покупают из-за вашего личного бренда, продаётся без автора.</p><p>Обратная сторона у этого дорогая. Спросите любого ассистента, кто такой Кирилл Комбаров, — он расскажет про правого защитника, брата-близнеца Дмитрия и директора по спорту в тульском «Арсенале-2». Ни Майами, ни тренерской работы, ни Ball in Goal там нет ни слова: ваше имя в интернете занято вашей прошлой карьерой, а нынешнее дело к нему не привязано ничем.</p><p>И цифра, которая, на наш взгляд, из этого следует: пятьдесят три тысячи подписчиков и пятнадцать оценок в App Store. Между аудиторией и покупкой стоит очень узкое горло, и мы думаем, что оно не в приложении.</p><p>Мы разбираем ровно это: кто ваш покупатель — юный игрок, его родитель или тренер, — какими словами он вас ищет, и почему он должен выбрать вас, а не любое из десятка похожих приложений. Вход — глубокая диагностика $500, дальше сайт и внедрение от $5000.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="12">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт. Вход — диагностика $500, внедрение от $5000. ЧЕМ ПОДТВЕРЖДЕНО: 10K+ загрузок в Google Play, подписка $59,99/год, отдельный магазин с товаром до $84,99, 53 000 подписчиков, три канала контента плюс офлайн-тренерская работа. Точных цифр выручки нет. Узкое горло видно снаружи: 53 тысячи подписчиков и пятнадцать оценок в App Store. Дежурный — вторым шагом: на сайте нет ни одной формы, весь входящий упирается в директ. ДО ОТПРАВКИ уточнить у Маши имя: в её списке он «муж Кати Комбаровой», и там же курс ОФП, которого на сайте нет вовсе.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → внедрение от $5000. Дежурный вторым шагом, после цифры по директу.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Проверено живьём 12.09: на ballingoal.com «Kombarov» — 0 вхождений, «Kirill» — 0, «Miami» — 0. Опечатка в заголовке подтверждена: «Soccer Traing App». Она в письмо НЕ идёт — чинится за пять минут, держим на звонок как доказательство, что смотрели живьём.</p>
+ </details>
+
+
+ <section class="zam">
+  <label class="zam-l" for="z12">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z12" data-zam="12" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="12"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="11">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="13">следующий →</button>
+ </nav>
+</article><article class="card" id="k13" data-card="13" hidden>
+ <div class="card-head">
+  <span class="card-n">13</span>
+  <div>
+   <h2>Надя Луркова (Nadiia Bliss)</h2>
+   <p class="card-delo">Косметолог-эстетист, свой кабинет на 2154 Westwood Blvd, Лос-Анджелес. Массаж лица, Hydrafacial, пилинги, микротоки. Цены открыто: $200–$444 за процедуру, пакеты $1111, депозит $2000. Instagram 11K.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">Сначала поток</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  своё лицо через две недели — на встрече, на съёмке, на свадьбе <em>· пункт 2 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="13">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="13">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="13">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="13">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m13"><p>Надя, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, собираем позиционирование и сайты, работаем под NDA.</p><p>Человек, который платит $255 за девяносто минут, покупает не массаж. Он покупает своё лицо через две недели — на встрече, на съёмке, на свадьбе. Такие вещи решают в один вечер, и кто в этот вечер ответил, тот и записал.</p><p>Прошли ваш путь как клиент. На nadiiabliss.com нажали Book Now — и оказались по адресу `vagaro.com/nadyasboutiqueskincare`, на странице, которая называется «Nadya&#x27;s Boutique Skin Care Services». Человек шёл к Nadiia Bliss, а в момент записи видит другое имя — и в адресной строке, и в заголовке. Это не косметика: это разрыв ровно там, где человек достаёт карту.</p><p>Второе, из той же серии: кнопка WhatsApp у вас в подвале не работает вообще — у неё в коде нет адреса, клик не делает ничего. И вход раздроблен на четыре разные точки: Vagaro, оплата сертификата через Square, SMS на номер и директ инстаграма. Единого места, куда всё сходится, нет — его сейчас держите вы сами.</p><p>Отсюда вопрос, на который снаружи ответа нет и от которого зависит, есть ли нам о чём говорить: сколько сообщений в день приходит суммарно по всем четырём входам и что происходит с теми, кто написал ночью или в воскресенье?</p><p>Есть ещё два места на сайте, которые стоит поправить, — покажу на звонке, это минута и стоит ноль.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="13">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Сначала цифра потока, продукт после. ЧЕМ ПОДТВЕРЖДЕНО: опубликованный прайс $200–444, пакеты $1111, депозит $2000, 11K в инстаграме, кнопки Book Now на каждом экране. Пограничный случай по деньгам: один мастер, один кабинет, признаков команды нет — чтобы делать $10k/мес при среднем чеке ~$250, нужно 40–50 процедур в месяц. Вход раздроблен на четыре точки: Vagaro, Square, SMS и директ. GEO ей НЕ продаём: сайт это пять экранов и прайс, цитировать нечего.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Дежурный: запуск $1,000 + $199/мес (1,000 минут). Связка с Продавцом: $2,500 + $399/мес (1,500 минут) — только после цифры потока; иначе диагностика $500.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Проверено живьём 12.09: Book Now ведёт на vagaro.com/nadyasboutiqueskincare — чужое имя и в адресе, и в заголовке. Кнопка WhatsApp в подвале действительно без адреса, клик не делает ничего. Обе опечатки на месте — в письмо не идут, держим на звонок.</p>
+ </details>
+
+
+ <section class="zam">
+  <label class="zam-l" for="z13">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z13" data-zam="13" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="13"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="12">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="14">следующий →</button>
+ </nav>
+</article><article class="card" id="k14" data-card="14" hidden>
+ <div class="card-head">
+  <span class="card-n">14</span>
+  <div>
+   <h2>Марина (Magic Body Spheres)</h2>
+   <p class="card-delo">Кабинет Endospheres-терапии, 150 S Rodeo Dr, Беверли-Хиллз, с 2019 года, семь дней в неделю. Три услуги: Endospheres на тело и на лицо, инфракрасная терапия. Цен на сайте нет ни одной.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">ДНК и сайт</span>
+  
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  что это место не такое, как соседнее, — иначе он пошёл бы, где дешевле <em>· пункт 21 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="14">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="14">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="14">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="14">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m14"><p>Марина, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, собираем позиционирование и сайты. Если я ошибся адресом и Magic Body Spheres не ваш кабинет — скажите, и я больше не побеспокою.</p><p>На Родео Драйв человек платит не за процедуру. Он платит за то, что это место не такое, как соседнее, — иначе он пошёл бы туда, где на пятьдесят долларов дешевле. Вся ваша цена держится на отличии.</p><p>Сегодня открыли список центров на сайте самого производителя Endospheres. Вы там не одна на этой улице: в перечне стоит Spheres Of Beauty LA, 479 Rodeo Drive — несколько кварталов от вас, тот же аппарат, и название почти такое же, как то, которым вы подписаны в инстаграме.</p><p>Это значит, что фраза «я привезла Endosphères в Лос-Анджелес в 2019» больше не работает как отличие: производитель сам ведёт каталог, и в нём вы — одна из строчек. Отличие приходится строить не на аппарате, а на том, чего у соседей нет: на вас, на вашем клиенте и на том, зачем к вам едут через весь город.</p><p>Рядом техническое, но оно про то же. Форму записи на вашем сайте видит только человек с браузером — в самом коде страницы её нет, её подставляет скрипт. Поисковик и ассистент видят страницу без формы. И цен нет ни на одной из тринадцати страниц: человек, который готов платить, не может понять, его это кабинет или нет.</p><p>Мы разбираем ровно это: чем вы отличаетесь на самом деле, кто ваш клиент и какими словами он вас ищет. Вход — глубокая диагностика $500, дальше сайт и внедрение от $5000.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="14">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт. Вход — диагностика $500, внедрение от $5000. ЧЕМ ПОДТВЕРЖДЕНО: адрес на Родео Драйв, работа с 2019 года, семь дней в неделю по 11 часов, 23 отзыва на Yelp, JSON-LD MedicalBusiness на месте. ПРОТИВ: цен нет ни на одной из тринадцати страниц, посчитать выручку не по чему. ОСТОРОЖНО: связь «Марина из списка = Magic Body Spheres» НЕ подтверждена — совпали имя, город, услуга и поток, фамилии нет нигде; первая строка письма это допускает. Альтернатива, которую не закрыли, — endospheresla.com в Тарзане.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → внедрение от $5000.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Цифры «17 точек Endospheres в радиусе 5 миль, 43 в радиусе 50» в письмо НЕ пошли — сам не перепроверил, локатор отдаёт список только скриптом. В письме только проверенное 12.09: Spheres Of Beauty LA (479 Rodeo Dr) есть в каталоге центров на endospheres.com; на сайте Марины ноль знаков доллара; формы записи в HTML нет, её подставляет скрипт. Локатор открыть ВМЕСТЕ С НЕЙ на звонке.</p>
+ </details>
+
+
+ <section class="zam">
+  <label class="zam-l" for="z14">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z14" data-zam="14" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="14"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="13">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="15">следующий →</button>
+ </nav>
+</article><article class="card" id="k15" data-card="15" hidden>
+ <div class="card-head">
+  <span class="card-n">15</span>
+  <div>
+   <h2>Лада Попова</h2>
+   <p class="card-delo">Продюсер запусков и маркетолог, Нью-Йорк. Программы «Матрица продаж» и «Матрица продаж 2.0» с кураторами и мастермайндами, клуб «КОД ПРОДАЖ». Instagram 119K, YouTube 13,9K при 435 видео.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag cold">холодный</span>
+  <span class="tag inst">ДНК и сайт</span>
+  <span class="tag aud">119K в инстаграме</span>
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  чтобы её собственное имя в интернете работало на неё, а не на АвтоВАЗ <em>· пункт 12 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="15">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="15">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="15">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="15">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m15"><p>Лада, здравствуйте. Андрей и Маша, Business Intelligence DNA (Wealthboosterpro LLC, Вайоминг) — муж и жена, собираем позиционирование, офферы и сайты.</p><p>Пишу про одну кнопку, которая прямо сейчас стоит между вашей аудиторией и вашими деньгами.</p><p>На вашем YouTube-канале в блоке ссылок висит именная кнопка «клуб „КОД ПРОДАЖ“». Нажали — не открылось: адрес `ladapopova.com` сейчас не зарегистрирован ни на кого. Не «сайт лежит», а домена не существует, он свободен. Тринадцать девятьсот подписчиков видят кнопку на платный клуб, которая ведёт в пустоту.</p><p>Отсюда две вещи, которые стоит знать сегодня. Первая: в поисковой выдаче до сих пор живёт страница «матрица продаж 2.0» по адресу `ladapopova.com/matrix20` — то есть люди на неё ещё идут. Вторая: ваше имя в .com может купить кто угодно и сегодня же получить и вашу кнопку с канала, и вашу позицию в поиске. Это чинится не правкой ссылки.</p><p>И то, что рядом. По запросам вида «Лада Попова продажи» поисковик отдаёт АвтоВАЗ — Vesta, Aura, дилеров. Человек, который слышал вас в подкасте и пошёл искать, попадает к машинам. Вы продаёте продажи, а собственное имя в интернете за вас сейчас не работает.</p><p>Мы этим и занимаемся: кто ваш покупатель, какими словами он вас ищет, где он вас должен находить и что он там должен увидеть. Вход — глубокая диагностика $500, дальше собранный сайт и внедрение от $5000. Доступ к вашим счетам и базе не нужен, работаем под NDA.</p><p>Час в Zoom: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="15">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>ДНК бизнеса + ДНК клиента + оффер + сайт. Вход — диагностика $500, внедрение от $5000. ЧЕМ ПОДТВЕРЖДЕНО: 119K в инстаграме и 13,9K на YouTube, платная программа с рассрочкой и кураторами (значит под ней есть команда), отдельный клуб по подписке, продюсирование чужих запусков. Цен в открытых источниках нет; суммы вроде «70 млн за год» встречаются только в пересказах выдачи — за факт не берём. ДО ЗВОНКА выяснить платёжный контур: в архиве её сайта реквизиты «ИП Попова Ольга Александровна». Деньги из российского контура на Wyoming LLC через Stripe не берём — правило списка.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>Диагностика $500 → внедрение от $5000. Сначала платёжный контур.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Проверено 13.09 по реестру Verisign: «No match for domain LADAPOPOVA.COM» — домен свободен, DNS пуст. В письме это подано через кнопку на её же YouTube, а не через реестр: «нажал — не открылось». Правило списка: данные регистратора в первом сообщении не называем.</p>
+ </details>
+
+
+ <section class="zam">
+  <label class="zam-l" for="z15">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z15" data-zam="15" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="15"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="14">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="16">следующий →</button>
+ </nav>
+</article><article class="card" id="k16" data-card="16" hidden>
+ <div class="card-head">
+  <span class="card-n">16</span>
+  <div>
+   <h2>Мила Ануфриева</h2>
+   <p class="card-delo">Mila Anufrieva Luxury Lifestyle Atelier, Милан, с 2012 — консалтинг в люксе, показы, luxury business development. До этого сеть Vanity в России, завела Dior, Fendi, Bottega Veneta. Фонд Mila 4 Africa. Про неё снят документальный фильм. Instagram 205K.</p>
+  </div>
+ </div>
+ <div class="meta">
+  <span class="tag warm">тёплый — интро делает Маша</span>
+  <span class="tag inst">Видимость</span>
+  <span class="tag aud">205K в инстаграме</span>
+ </div>
+
+ <p class="buy"><span class="buy-l">покупает на самом деле</span>
+  чтобы про неё говорили машины, а не только пресса <em>· пункт 19 из 24</em></p>
+
+
+ <div class="track" role="group" aria-label="Отметка о работе">
+  <span class="track-l">Отметка</span>
+  <div class="track-b">
+   <button type="button" class="st" data-st="none"  data-for="16">не писали</button>
+   <button type="button" class="st" data-st="sent"  data-for="16">написали</button>
+   <button type="button" class="st" data-st="reply" data-for="16">ответил</button>
+   <button type="button" class="st" data-st="call"  data-for="16">созвон</button>
+  </div>
+ </div>
+
+ <section class="blok">
+  <h3>Сообщение — можно отправлять как есть</h3>
+  <div class="msg" id="m16"><p>Мила, здравствуйте — Андрей, муж Маши. Спасибо, что согласились посмотреть.</p><p>Про вас снят документальный фильм, вас зовёт Al Jazeera, о вас пишет пресса на трёх языках. Материала, из которого машина могла бы собрать ответ на вопрос «кто такая Мила Ануфриева», больше, чем у кого-либо, с кем мы работали.</p><p>И при этом ваш собственный именной сайт запрещает нейросетям себя читать. Откройте `milaanufrieva.com/robots.txt` — там отдельными строками стоит запрет для ClaudeBot, GPTBot, Google-Extended, Applebot-Extended, CCBot и ещё нескольких, плюс строка, которая прямо говорит «не использовать для обучения». Заодно закрыт архив интернета. Почти наверняка это поставили не вы, а плагин или хостинг — но результат один: когда у ассистента спрашивают про вас, ваш собственный сайт в ответ не попадает никогда.</p><p>И вторым слоем, там же: у главной страницы этого сайта пустое название вкладки. В коде стоит пустой тег заголовка — дважды. Откройте и посмотрите на вкладку браузера: имени там нет.</p><p>Получается, что про вас говорят все, кроме вас. Ваши материалы есть у чужих изданий, а ваша собственная площадка для машин закрыта — и в ответах о люксе, о Милане, о показах называют не вас.</p><p>Это чинится, и это ровно то, чем мы занимаемся: делаем так, чтобы ассистенты называли имя, когда у них спрашивают про нишу. Работаем кварталом по списку из пяти запросов, который фиксируем письменно до старта вместе со скриншотами сегодняшней выдачи. Сроков, когда именно вас начнут называть, я обещать не буду — этого честно не знает никто.</p><p>Час в Zoom, когда вам удобно: calendly.com/bizzinteldna/1hr</p></div>
+  <button type="button" class="copy" data-copy="16">Скопировать сообщение</button>
+ </section>
+
+ <section class="blok two">
+  <div>
+   <h3>Что продаём и чем это подтверждено</h3>
+   <p>Видимость в нейросетях (GEO), квартал вперёд по письменному списку запросов. Единственная из добора, кому GEO можно продавать честно: цитировать есть что — фильм на IMDb, интервью Al Jazeera, TRT, пресса на трёх языках. ЧЕМ ПОДТВЕРЖДЕНО как масштаб: юрлицо в Милане, история сети Vanity, 205K подписчиков, работающий магазин, фонд. ПРОТИВ: коммерческого сайта ателье не существует, прайса нет нигде — чем оно живёт сейчас, выясняем на звонке, а не предполагаем.</p>
+  </div>
+  <div>
+   <h3>Чек</h3>
+   <p>$1500 за квартал вперёд.</p>
+  </div>
+ </section>
+
+ <details class="skept">
+  <summary>Что здесь поменяли скептики</summary>
+  <p>Проверено живьём 12.09: milaanufrieva.com/robots.txt содержит Disallow: / для ClaudeBot, GPTBot, Google-Extended, CCBot, Applebot-Extended и строку Content-Signal: search=yes, ai-train=no. Заголовок главной пустой — &lt;title&gt;&lt;/title&gt; дважды. В письме прямо сказано, что это почти наверняка поставил плагин или хостинг, а не она.</p>
+ </details>
+
+
+ <section class="zam">
+  <label class="zam-l" for="z16">Заметки — видят оба, сохраняется само</label>
+  <textarea class="zam-t" id="z16" data-zam="16" rows="2"
+   placeholder="Что поправить в тексте, что спросить у Маши, что выяснили на звонке…"></textarea>
+  <span class="zam-s" data-zam-s="16"></span>
+ </section>
+
+ <nav class="flip">
+  <button type="button" class="flip-b" data-go="15">← предыдущий</button>
+  <button type="button" class="flip-b" data-go="1">следующий →</button>
+ </nav>
+</article></div>
+ </div>
+
+ <div class="tail">
+  <section>
+   <h2>Правила на весь список</h2>
+   <ol><li>АНТИ-ГАРАНТИЯ. Никаких конкретных цифр и сроков результата — ни в письме, ни на звонке, ни в договоре. Можно направленно: продажи вырастут / затраты упадут / вас станет видно — и только с оговоркой «при внедрении наших решений и выполнении рекомендаций». Наш собственный результат ($85 016 за два месяца) называем как наш кейс и никогда как прогноз для него.</li><li>GEO ПРОДАЁМ ТОЛЬКО ПО СПИСКУ ЗАПРОСОВ. До первого платежа письменно фиксируем 3–5 запросов ПОКУПАТЕЛЯ (не имя человека: не «кто такой Артём Лысков», а «актёрская студия в Нью-Йорке с занятиями по-русски», «риэлтор в Санта-Монике для семьи, переезжающей из-за границы», «нескользящие шпильки для балетного пучка»), снимаем скриншоты сегодняшней выдачи как нулевую точку с датой и прикладываем к договору, и определяем «цитату» как «назван по имени + ссылка». Формулировка «ноль цитат — полный возврат» без такого списка запрещена: у Лыскова и Кузьминой цитируемость уже не нулевая, и такая гарантия не сработает никогда. Базу снимать на самом звонке вместе с клиентом — это и есть демонстрация.</li><li>GEO НЕ ПРОДАЁМ ТОМУ, У КОГО ТОЛЬКО ИНСТАГРАМ. Нет своего домена, текстов и упоминаний — цитировать нечего, и это говорим вслух, а не обходим.</li><li>ДЕЖУРНЫЙ: ЦИФРА ПОТОКА ВПЕРЁД ЦЕНЫ. В каждом разговоре первым идёт вопрос «сколько сообщений в день и за сколько отвечаете ночью и в выходные». Пока цифры нет, продукт в карточке не фиксируем и цену не называем. Правило применяется ко ВСЕМ без исключения — именно за выборочное применение (Чегновой отказали, Семеновой продали) прежний список и развалился.</li><li>ДЕЖУРНЫЙ: СНАЧАЛА КАНАЛ, ПОТОМ ОБЕЩАНИЕ. До цены выяснить, на чём стоит приём: личный WhatsApp автоматизировать нельзя вообще — аккаунт банят; работать можно только через WhatsApp Business API (opt-in, шаблоны на утверждении, окно 24 часа) и нужен Meta Business аккаунт. Если номер личный — в чек входит перевод приёма на канал, где мы имеем право работать, и это отдельная строка. Касается Семеновой и Новиковой в первую очередь.</li><li>TCPA. Автоматические исходящие смс и звонки — только при письменном согласии и с проверкой по стоп-листу; в номера, которых человек нам не давал сам, не пишем. В спецификацию Дежурного обязательным пунктом (не оговоркой): распознавание отказа в свободном тексте на двух языках, стоп-лист, лог согласия с датой и источником, отработка отзыва согласия в срок. «Догоняющего» в США предлагаем как e-mail-реактивацию по CAN-SPAM (отписка + идентификация отправителя), а не как смс.</li><li>FAIR HOUSING — НА ВЕСЬ ДИЛИВЕРАБЛ РИЭЛТОРА, НЕ ТОЛЬКО НА БОТА. В текстах, которые публикуются под её именем и лицензией, нет районов в связке с демографией, школами, «спокойно», «такие же, как вы», безопасностью. Бот на этих темах замолкает и передаёт человеку; статью замолчать нельзя — она уже вышла, поэтому GEO-контент опаснее бота. Всё публикуемое проходит комплаенс брокериджа, название брокериджа в подвале. Бот квалифицирует и записывает, но не оценивает цену и не торгуется.</li><li>МЕДИЦИНСКАЯ ТЕМА. Бот не называет продукт под симптом, не трактует анализы, не говорит про дозировки, эффекты и сроки, не собирает жалобы. Он берёт имя, контакт и вопрос одной строкой, отвечает на организационное и передаёт человеку всё, что касается здоровья. Страницу «что бот не делает» пишем ДО разговора о цене и показываем как часть продукта, а не как оговорку.</li><li>РЕГУЛЯТОРНЫЕ ЗОНЫ, В КОТОРЫЕ МЫ НЕ ЛЕЗЕМ, И ЭТО ПИШЕТСЯ В СКОУП. Доходность и условия инвестиций (force-capital.com, «18%+ годовых») — не пишем и не редактируем. Суммы инвестиций, financial performance representations и Item 19 FDD (Кузьмина) — не пишем и не редактируем, отдаём их franchise counsel. Финансовые обещания заработка в инфобизнесе — то же самое. Тексты, где стоит цифра доходности или дохода, пишет их юрист.</li><li>ЧУЖИЕ ЦИФРЫ БЕЗ ПОДТВЕРЖДЕНИЯ НЕ ПУБЛИКУЕМ. Топ-0,5%, «#1 команда в отделении», «500+ учеников», «100 000+ женщин», «450+ сотрудников» — либо документ (выгрузка брокериджа, награда с датой, отчёт), либо не ставим. Говорим это вслух в первом же разговоре: это и отличает нас от подрядчика, который дорисовал Беранек «$600 GCI» скриптом.</li><li>ЗАПИСЬ ЗВОНКА — СОГЛАСИЕ ВСЕХ СТОРОН. Семь человек из десяти в Калифорнии и Флориде, где на запись нужно согласие всех участников (Cal. Penal Code §632, Fla. Stat. §934.03). Первая фраза каждого созвона вслух и в чат: «мы записываем, запись отдадим вам — согласны?» и ждём «да» уже на записи. Та же строка в письме-подтверждении Calendly. Стоит ноль, снимает уголовную статью.</li><li>ПЕРВОЕ СООБЩЕНИЕ: ТО, ЧТО ЧЕЛОВЕК ЧИНИТ САМ ЗА ДЕСЯТЬ МИНУТ, В ПИСЬМО НЕ ИДЁТ. Опечатка, 404, битая кнопка, копирайт 2017, кириллическая буква — держим на звонок как доказательство, что смотрели живьём. Ведём тем, что он сам не уберёт: как машины читают его страницу, что уезжает в его карточке, что видит его покупатель в чужом реестре и в ответе ассистента, сколько часов в сутки его поток некому ловить. Проверка каждого хода одним вопросом: сколько минут и сколько долларов стоит человеку починить это самому?</li><li>ДАННЫЕ РЕГИСТРАТОРА В ПЕРВОМ СООБЩЕНИИ НЕ НАЗЫВАЕМ. Даты оплаты доменов, WHOIS, сроки продления — между «посмотрел ваш сайт» и «поднял ваши регистрационные записи» есть граница, и в первой строке её переходить нельзя. На звонке, когда доверие есть, это уже забота, а не слежка.</li><li>ПЛАТЁЖНЫЙ КОНТУР ВЫЯСНЯЕМ ДО ЗВОНКА. Какое юрлицо подписывает и в какой валюте платит. Деньги, источник которых — российское юрлицо или ИП, на Wyoming LLC через Stripe могут не пройти, а могут пройти и заморозить счёт вместе с деньгами других клиентов. Такой человек не идёт в план недели, пока не найдено платящее лицо вне РФ. Касается Чегновой, Мельниковой, Лианы и рублёвого контура Новиковой.</li><li>ПЕРЕД КАЖДЫМ ТЁПЛЫМ ЗВОНКОМ СПРОСИТЬ МАШУ, ОТКУДА ФОРМУЛИРОВКА В ЕЁ СПИСКЕ. Проверено пять неверных описаний: франшиза TEDx у Чегновой, американская B2B-франшиза у Мельниковой, франшиза детского сада у Анжелики, золотодобыча у Горбуновой, курс по коммерческой недвижимости у Шадриной. Начать разговор с собственной ошибки дороже, чем стоит любая находка. В письме про такие вещи — только вопросом, никогда утверждением.</li><li>СЛОВАРЬ И ГРАНИЦЫ. Слово «упаковщики» не употребляем ни разу. Платный вход называется «глубокая диагностика» — не аудит, не разбор, не анализ. Доступ к счетам, CRM и базе клиента не нужен и не запрашивается — говорим это в первом же сообщении холодным. Работаем под NDA.</li></ol>
+  </section>
+  <section>
+   <h2>Почему список такой</h2>
+   <p>ПРАВКА АНДРЕЯ 09.09: Анжелика возвращена в список одиннадцатой — он знает её лично и знает, что деньги и платёжеспособные клиенты есть. Это прямое знание, оно сильнее вывода скептика из отсутствия следов в вебе. Список стал из одиннадцати человек, и это правильно: цель — десять СОЗВОНОВ, а не десять писем, и по расчёту ниже отправлять надо пятнадцать-двадцать сообщений.</p><p>Прежняя десятка была собрана под качество находки и тепло контакта, а по деньгам расставлена наоборот: шесть первых платежей из десяти были $500, три из четырёх оставшихся стояли на неподтверждённых потоках, а самый крупный чек (от $5000) был выписан единственному человеку с доказанными девятью годами нулевых трат на веб. Исправленная десятка перестроена под недельную цель: первый платёж ≥$1000 теперь у шести из десяти — Гарибян, Семенова, Шадрина (Дежурный $1000–2500 после цифры потока), Беранек и Талан ($1500 за квартал вперёд; месячной возвратной подписки $500 больше нет нигде), Новикова. Диагностика $500 осталась там, где она честна: Лысков, Тураева, Кузьмина, Лён.</p><p>Состав. Вышли двое. Чегнова — её флагман стоит $669–790, «прямой выручки нигде не видно», касса рублёвая через московское ООО (банковский риск для всего нашего счёта), а её GEO-боль состояла из битых ссылок на Tilda, которые чинятся за десять минут. Анжелика — самый крупный чек человеку с нулевым видимым расходом на маркетинг, при том что крючок (запись Closed в реестре CDE) не разведён по двум её адресам, и в холодном письме владелице детской школы мы утверждали бы это как факт. Обе — в запасе с конкретными предусловиями, не выброшены. Вошли Тураева (единственная в списке со сторонним подтверждением оплаченных сделок: опубликованный прайс Peerspace $150–500/час плюс Superhost и 11 отзывов 5.0 на Giggster; уже платит комиссию трёх маркетплейсов — ровно тот признак, по которому наш контекст отбирает покупателя линии от $5000) и Талан (единственный человек из 31, у кого боль под GEO не предположена, а замерена, и кто сам написал в robots.txt «Welcome AI for citations» и не цитируется).</p><p>Три инструмента переназначены, потому что были выбраны раньше боли. Лысков — с GEO-подписки на диагностику → внедрение: его уже называют по имени (Википедия, IMDb, Кинопоиск), значит гарантия «ноль цитат — возврат» не сработает никогда, а его настоящая дыра в том, что английская страница с ценами $1500–3500 ведёт в русскую гуглоформу на другой продукт. Кузьмина — обоснование очищено от чужой выручки ($731k median gross sales — это Item 19 про локации, а не её деньги; её деньги это fee $49–55k и восемь точек), и первый ход больше не открывается расхождением сумм, которое уводит разговор к франшизному юристу. Новикова — Дежурный переопределён как маршрутизатор с письменной границей по медицинской теме.</p><p>Все десять первых ходов переписаны. Шесть из десяти прежних отдавали бесплатный чек-лист починки — опечатки, 404, битые кнопки, копирайт 2017 — то есть нарушали правило, написанное в выводе того же файла. Теперь каждый ход ведёт тем, что человек не уберёт сам, и в первой же фразе связывает это с тем, что мы продаём; опечатки держим на звонок как доказательство, что смотрели живьём. Убраны: WHOIS-даты у двух тёплых («нас пробили»), опечатки, названные по буквам, у женщины, которая продаёт грамотность на английском, инструкция «выключите JavaScript» холодному человеку (и заодно исправлено техническое утверждение: Googlebot скрипты выполняет, GPTBot и ClaudeBot — нет), самое опровержимое утверждение десятки (значки BLIK в подвале Shopify как доказательство европейских заказов), внутренний протокол про User-Agent и слово «украинский» в письме к украинцу.</p><p>Главный дефицит остался прежним и он не чинится перестановкой: ни у кого, кроме Тураевой и Кузьминой, деньги не подтверждены ничем, кроме их собственного текста, и ни у кого не измерена боль — во всей разведке нет ни одного времени ответа и ни одного объёма сообщений в день. Поэтому в каждой карточке теперь стоит строка «чем подтверждено», а цифра потока или выдача ассистента по покупательскому запросу добываются ДО того, как названа цена. Десять созвонов эта десятка даст: пять тёплых Маша пишет лично (Семенова, Шадрина, Лысков, Лён + Мельникова из запаса), пять холодных добираем из расчёта один ответ на три-четыре письма, то есть отправляем 15–20 сообщений, а не пять.</p>
+   <div class="vyb"><h3>Кто вышел из списка</h3><p><b>Екатерина Чегнова</b> — По претензии скептика №1 (деньги) плюс поддержка двух других. Разведка: флагман Public Talk Global $669–790 при «140+ выпускников с 2021 года», подготовка речи $1000, бизнес-консультация $170/час, урок Soft Skills 990 ₽ ($11), всё крупное — «корпоративные тренинги по запросу», цифр нет; дословно «прямой выручки нигде не видно» и «касса рублёвая и идёт через школу, а не через её личную практику». Мы просили бы $1500 за квартал — вдвое дороже её собственного флагмана. Второе (скептик №2): её GEO-боль состоит из двух битых href на Tilda, непубликованной EN-страницы и мёртвого чужого домена tedxdostykave.kz — ровно того класса, который наш собственный вывод запрещает отдавать. Третье (скептик №3): деньги из московского ООО на Wyoming LLC через Stripe — риск не логистический, а банковский, и он касается счёта, где лежат деньги других клиентов. Четвёртое: в списке Маши она записана как «владелица франшизы конференции а-ля TedX», а на сайте прямой дисклеймер о непричастности к TED/TEDx — начинать с нашей же ошибки дороже, чем стоит находка. ЧТО С НЕЙ ДЕЛАТЬ: остаётся в запасе как канал, а не как чек. Она сама берёт $170/час за консультации по запуску образовательных проектов, к ней ходят владельцы школ — это наша ЦА. Заходить как коллега за обменом контактами, а не как аудитор её Тильды, и до этого выяснить, есть ли у неё платящее лицо вне РФ (тенговый прайс намекает на казахстанский контур).</p></div>
+  </section>
+ </div>
+
+ <div class="pod">
+  <span>Разведка, отбор и скептики — 16 карточек, 49 претензий, 21 критичная.</span>
+  <span>Внутренний документ. Работаем под NDA.</span>
+ </div>
+</div>
+
+<script>
+(() => {
+  const cards = [...document.querySelectorAll('[data-card]')];
+  const rows  = [...document.querySelectorAll('.row')];
+  const N = cards.length;
+  let live = 1;
+
+  function go(n) {
+    n = ((n - 1 + N) % N) + 1;
+    live = n;
+    cards.forEach(c => { c.hidden = (+c.dataset.card !== n); });
+    rows.forEach(r => r.classList.toggle('on', +r.dataset.go === n));
+    const st = document.querySelector('.stage');
+    if (st && st.getBoundingClientRect().top < -40) st.scrollIntoView({block: 'start'});
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-go]');
+    if (b) { go(+b.dataset.go); }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.target.closest('input,textarea')) return;
+    if (e.key === 'ArrowRight') go(live + 1);
+    if (e.key === 'ArrowLeft')  go(live - 1);
+  });
+  go(1);
+
+  // ——— режим отправки: прячем внутренний разбор. Умолчание — спрятано.
+  const KL = 'bidna-rezhim';
+  const knopka = document.getElementById('rezh');
+  const nota = document.querySelector('.rezh-n');
+  function rezhim(tiho) {
+    document.body.classList.toggle('tiho', tiho);
+    if (knopka) {
+      knopka.setAttribute('aria-pressed', tiho ? 'true' : 'false');
+      knopka.querySelector('.rezh-t').textContent = tiho ? 'режим отправки' : 'виден разбор';
+    }
+    if (nota) nota.textContent = tiho ? 'внутренний разбор скрыт' : 'внутренний разбор на экране';
+    try { localStorage.setItem(KL, tiho ? '1' : '0'); } catch (_) {}
+  }
+  let tiho = true;
+  try { tiho = localStorage.getItem(KL) !== '0'; } catch (_) {}
+  rezhim(tiho);
+  if (knopka) knopka.addEventListener('click', () => rezhim(!document.body.classList.contains('tiho')));
+
+  // копирование
+  document.addEventListener('click', async e => {
+    const b = e.target.closest('[data-copy]');
+    if (!b) return;
+    const box = document.getElementById('m' + b.dataset.copy);
+    const txt = [...box.querySelectorAll('p')].map(p => p.innerText).join('\n\n');
+    let ok = false;
+    try { await navigator.clipboard.writeText(txt); ok = true; } catch (_) {}
+    if (!ok) {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        ok = document.execCommand('copy'); ta.remove();
+      } catch (_) {}
+    }
+    if (!ok) {
+      const r = document.createRange(); r.selectNodeContents(box);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    b.textContent = ok ? 'Скопировано' : 'Выделено — скопируйте руками';
+    b.classList.add('done');
+    setTimeout(() => { b.textContent = 'Скопировать сообщение'; b.classList.remove('done'); }, 2200);
+  });
+
+  // ——— общие отметки
+  const IMENA = {};
+  rows.forEach(r => { IMENA[r.dataset.go] = r.querySelector('.row-name').textContent; });
+  const state = {};
+  const PODPIS = {none: '', sent: 'написали', reply: 'ответил', call: 'созвон'};
+
+  function paint() {
+    let sent = 0, reply = 0, call = 0;
+    for (let i = 1; i <= N; i++) {
+      const s = state[i] || 'none';
+      const dot = document.querySelector(`[data-dot="${i}"]`);
+      if (dot) { dot.className = 'dot s-' + s; dot.title = PODPIS[s] || 'не писали'; }
+      document.querySelectorAll(`.st[data-for="${i}"]`).forEach(b => {
+        b.classList.toggle('on', b.dataset.st === s);
+      });
+      if (s === 'sent' || s === 'reply' || s === 'call') sent++;
+      if (s === 'reply' || s === 'call') reply++;
+      if (s === 'call') call++;
+    }
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    set('c-sent', sent); set('c-reply', reply); set('c-call', call);
+    const bar = document.getElementById('bar');
+    if (bar) bar.style.width = Math.min(100, call * 10) + '%';
+  }
+  paint();
+
+  claude.use('db').then(db => {
+    if (!db) return;                       // без общих отметок страница работает как есть
+    const tally = document.querySelector('.tally');
+    if (tally) tally.classList.add('live');
+    db.collection('otmetki').onSnapshot(snap => {
+      snap.docs.forEach(doc => {
+        const v = doc.data() || {};
+        if (v.sostoyanie) state[doc.id] = v.sostoyanie;
+        else delete state[doc.id];
+      });
+      paint();
+    }, () => {});
+    document.addEventListener('click', async e => {
+      const b = e.target.closest('.st');
+      if (!b) return;
+      const i = b.dataset.for, s = b.dataset.st;
+      state[i] = s; paint();
+      try {
+        await db.doc('otmetki/' + i).set({
+          sostoyanie: s, imya: IMENA[i] || '', kogda: new Date().toISOString(),
+        });
+      } catch (_) {}
+    });
+
+    // ——— заметки: общие, автосохранение
+    const boxes = [...document.querySelectorAll('[data-zam]')];
+    const trogal = new Set();                       // что сейчас правит этот человек
+    db.collection('zametki').onSnapshot(snap => {
+      snap.docs.forEach(doc => {
+        const el = document.getElementById('z' + doc.id);
+        if (!el || trogal.has(doc.id)) return;      // чужую правку не вписываем поверх своей
+        const v = (doc.data() || {}).tekst || '';
+        if (el.value !== v) el.value = v;
+      });
+    }, () => {});
+
+    const tajmery = {};
+    boxes.forEach(el => {
+      const i = el.dataset.zam;
+      const znak = document.querySelector(`[data-zam-s="${i}"]`);
+      const sohrani = async () => {
+        try {
+          await db.doc('zametki/' + i).set({
+            tekst: el.value, imya: IMENA[i] || '', kogda: new Date().toISOString(),
+          });
+          if (znak) { znak.textContent = 'сохранено'; znak.classList.add('on');
+            setTimeout(() => znak.classList.remove('on'), 1600); }
+        } catch (_) {
+          if (znak) { znak.textContent = 'не сохранилось'; znak.classList.add('on'); }
+        }
+      };
+      el.addEventListener('input', () => {
+        trogal.add(i);
+        clearTimeout(tajmery[i]);
+        tajmery[i] = setTimeout(sohrani, 900);
+      });
+      el.addEventListener('blur', () => {
+        clearTimeout(tajmery[i]); trogal.delete(i); sohrani();
+      });
+    });
+  });
+})();
+</script>

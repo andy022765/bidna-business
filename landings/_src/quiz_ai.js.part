@@ -1,0 +1,37 @@
+  // ── Живой AI-разбор ─────────────────────────────────────────────────────────
+  // Разбор по правилам уже на экране. Здесь просто пробуем заменить его на живой.
+  // Не получилось (нет ключа, таймаут, ошибка) — человек ничего не замечает.
+  (function(){
+    var box=document.getElementById('recapBox'); if(!box||!(wy||kl)) return;
+    var head=box.querySelector('.k'); var origHead=head?head.innerHTML:'';
+    if(head) head.innerHTML='🧠 AI разбирает ваши ответы…';
+    var ctl=('AbortController' in window)?new AbortController():null;
+    var killed=false;
+    var t=setTimeout(function(){ killed=true; if(ctl)ctl.abort(); if(head)head.innerHTML=origHead; }, 20000);
+    function opt(id){ var o=QOBJ[id]&&QOBJ[id].opts, i=S.ans[id]; return (o&&i!=null&&o[i])?o[i].t:''; }
+    fetch('/.netlify/functions/quiz-insight',{
+      method:'POST', headers:{'Content-Type':'application/json'}, signal:ctl?ctl.signal:undefined,
+      body:JSON.stringify({
+        segment:(S.avatar==='business'?'business':'expert'),
+        whatyoudo:wy, killer:kl,
+        scores:{score:r.score,clarity:r.clarity,system:r.system,aivis:r.aivis},
+        found:opt('found'), flow:opt('flow'),
+        matters:(S.ans.matters==null?'':['поток клиентов','цена и доход','своё время'][S.ans.matters])
+      })
+    })
+    .then(function(res){ return res.ok?res.json():null; })
+    .then(function(d){
+      if(killed||!d||!d.insight) return;
+      clearTimeout(t);
+      var ps=String(d.insight).split(/\n\s*\n/).filter(function(x){return x.trim();});
+      if(!ps.length) { if(head)head.innerHTML=origHead; return; }
+      if(head) head.innerHTML='🧠 AI-разбор ваших ответов';
+      var html=(wy?'<p style="margin:0 0 8px">Вы о себе: «<b style="color:var(--ink)">'+escapeHtml(wy)+'</b>».</p>':'')
+        + ps.map(function(p,i){
+            return '<p style="margin:0 0 8px'+(i===ps.length-1?';color:var(--gold)':'')+'">'+escapeHtml(p.trim())+'</p>';
+          }).join('');
+      var body=box.querySelector('.aibody'); if(body) body.innerHTML=html;
+    })
+    .catch(function(){ if(head)head.innerHTML=origHead; })
+    .then(function(){ clearTimeout(t); });
+  })();

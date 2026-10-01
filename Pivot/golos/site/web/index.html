@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Дежурный</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fon:#0F1211; --panel:#161A17; --panel2:#1C211E; --liniya:#272D29;
+  --tekst:#E7EBE6; --tusklo:#95A099; --seryy:#C3CBC5;
+  --zel:#55C79A; --zel-tem:#16281F; --krasn:#E2566A;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --disp:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fon);color:var(--tekst);
+  font:15px/1.5 var(--mono);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;flex-direction:column}
+::selection{background:rgba(85,199,154,.3)}
+button:focus-visible{outline:2px solid var(--zel);outline-offset:3px}
+
+header{display:flex;align-items:center;gap:14px;padding:16px 22px;flex:0 0 auto}
+.mark{font:800 15px var(--disp);letter-spacing:.04em;color:#fff}
+.tag{font:500 10px var(--mono);color:var(--tusklo);letter-spacing:.16em;
+  text-transform:uppercase;border-left:1px solid var(--liniya);padding-left:14px}
+.zhiv{margin-left:auto;font:500 10px var(--mono);color:var(--tusklo);letter-spacing:.1em}
+.zhiv i{display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--zel);margin-right:7px;animation:mig 2.4s infinite}
+@keyframes mig{0%,100%{opacity:.25}50%{opacity:1}}
+
+main{flex:1 1 auto;display:grid;grid-template-columns:minmax(300px,360px) 1fr;
+  gap:16px;padding:0 22px 22px;max-width:1180px;width:100%;margin:0 auto;min-height:0}
+
+/* ---- трубка ---- */
+#trubka{background:linear-gradient(168deg,#1A211D,#0D1211 62%);
+  border:1px solid rgba(85,199,154,.2);border-radius:28px;
+  box-shadow:0 22px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);
+  padding:20px 22px 26px;display:flex;flex-direction:column;min-height:470px}
+#kto{text-align:center;margin-top:14px;flex:0 0 auto}
+#avatar{width:96px;height:96px;margin:0 auto;border-radius:50%;position:relative;
+  border:1px solid rgba(85,199,154,.28);overflow:hidden;background:#162A25}
+#avatar img{width:100%;height:100%;display:block;object-fit:cover}
+#avatar::after{content:'';position:absolute;inset:-7px;border-radius:50%;
+  border:1px solid transparent;transition:border-color .3s}
+#trubka.live #avatar::after{border-color:rgba(85,199,154,.45);animation:dyshit 2.6s infinite}
+@keyframes dyshit{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.07);opacity:.35}}
+#imya{font:700 20px var(--disp);color:#fff;margin-top:14px}
+#rol{font:500 10px var(--mono);color:var(--tusklo);letter-spacing:.14em;
+  text-transform:uppercase;margin-top:6px}
+#sost{font:500 14px var(--mono);color:var(--zel);margin-top:16px;min-height:20px}
+
+#seredina{flex:1 1 auto;display:flex;flex-direction:column;justify-content:flex-end;
+  gap:12px;min-height:0}
+#volna{width:78%;margin:0 auto;height:44px;opacity:0;transition:opacity .4s}
+#trubka.live #volna{opacity:1}
+#podpis{font:400 12px/1.5 var(--mono);color:var(--tusklo);text-align:center;
+  min-height:34px;max-height:34px;overflow:hidden;font-style:italic}
+
+#knopki{display:flex;justify-content:center;gap:46px;margin-top:16px;flex:0 0 auto}
+.kn{width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:transform .12s,opacity .2s,box-shadow .25s}
+.kn svg{width:28px;height:28px;fill:#fff}
+.kn:active{transform:scale(.93)}
+#zvon{background:radial-gradient(circle at 34% 30%,#5FE0AC,#2A8A63)}
+#zvon:hover{box-shadow:0 0 28px rgba(85,199,154,.42)}
+#zvon.pulse{animation:puls 1.15s infinite}
+@keyframes puls{0%,100%{box-shadow:0 0 0 0 rgba(85,199,154,.35)}50%{box-shadow:0 0 0 15px rgba(85,199,154,0)}}
+#otboy{background:radial-gradient(circle at 34% 30%,#F0788A,#B32B40)}
+#otboy svg{transform:rotate(135deg)}
+.kn.off{opacity:.25;pointer-events:none;filter:saturate(.35)}
+.kncap{font:600 9px var(--mono);color:var(--tusklo);letter-spacing:.18em;
+  text-align:center;margin-top:8px;text-transform:uppercase}
+
+/* ---- правая колонка ---- */
+#prav{display:flex;flex-direction:column;gap:12px;min-height:0}
+.box{background:var(--panel);border:1px solid var(--liniya);border-radius:12px;padding:13px 16px}
+.cap{font:600 10px var(--mono);color:var(--tusklo);letter-spacing:.2em;text-transform:uppercase}
+#lat{font:600 40px/1 var(--mono);color:#fff;margin-top:8px}
+#lat.svezh{color:var(--zel);text-shadow:0 0 20px rgba(85,199,154,.45)}
+#lat small{font-size:12px;color:var(--tusklo);font-weight:500;margin-left:5px}
+#hody{display:flex;gap:5px;margin-top:9px;min-height:17px;flex-wrap:wrap}
+.hod{font:500 10px var(--mono);color:var(--zel);border:1px solid var(--liniya);
+  border-radius:4px;padding:1px 6px}
+.chipy{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.chip{font:500 10px var(--mono);color:var(--tusklo);border:1px solid var(--liniya);
+  border-radius:4px;padding:2px 7px}
+#lenta{flex:1 1 auto;min-height:180px;background:#0A0D0C;border:1px solid var(--liniya);
+  border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+#lentahead{flex:0 0 auto;padding:9px 16px;border-bottom:1px solid var(--liniya)}
+#feed{flex:1 1 auto;overflow-y:auto;padding:11px 16px;font:400 12px/1.75 var(--mono)}
+#feed div{word-break:break-word}
+#feed .t{color:#3B4B44;margin-right:8px}
+#feed .vy{color:var(--seryy)}
+#feed .ag{color:var(--zel)}
+#feed .sys{color:var(--tusklo)}
+#feed .err{color:var(--krasn)}
+
+@media (max-width:860px){
+  main{grid-template-columns:1fr}
+  #trubka{min-height:440px}
+  #feed{max-height:34vh}
+}
+@media (prefers-reduced-motion:reduce){
+  #zvon.pulse,#trubka.live #avatar::after,.zhiv i{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="mark">Business Intelligence DNA</span>
+  <span class="tag">Дежурный · стенд</span>
+  <span class="zhiv"><i></i>ЖИВОЙ РАЗГОВОР</span>
+</header>
+
+<main>
+  <section id="trubka">
+    <div id="kto">
+      <div id="avatar"><img src="img/vera-risovannaya-2.jpg" alt="Вера" width="96" height="96"></div>
+      <div id="imya">Вера</div>
+      <div id="rol">виртуальный ассистент</div>
+      <div id="sost">готова ответить</div>
+    </div>
+    <div id="seredina">
+      <canvas id="volna" width="600" height="88"></canvas>
+      <div id="podpis"></div>
+    </div>
+    <div id="knopki">
+      <div>
+        <button id="zvon" class="kn" aria-label="Позвонить">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+        </button>
+        <div class="kncap">Позвонить</div>
+      </div>
+      <div>
+        <button id="otboy" class="kn off" aria-label="Положить трубку">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+        </button>
+        <div class="kncap">Отбой</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prav">
+    <div class="box">
+      <div class="cap">Задержка ответа</div>
+      <div id="lat">—<small>мс</small></div>
+      <div id="hody"></div>
+    </div>
+    <div class="box">
+      <div class="cap">Из чего собрана</div>
+      <div class="chipy">
+        <span class="chip">слышит · Scribe realtime</span>
+        <span class="chip">думает · Gemini Flash</span>
+        <span class="chip">говорит · Eleven Flash v2.5</span>
+        <span class="chip">язык · русский</span>
+      </div>
+    </div>
+    <div id="lenta">
+      <div id="lentahead" class="cap">Расшифровка разговора</div>
+      <div id="feed"></div>
+    </div>
+  </section>
+</main>
+
+<script src="stend.js"></script>
+</body>
+</html>

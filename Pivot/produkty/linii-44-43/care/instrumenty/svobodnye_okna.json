@@ -1,0 +1,53 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "svobodnye_okna_careline_demo",
+    "description": "Returns the free times for a job interview (tip sobesedovanie) or a family's in-home assessment (tip ocenka). Call it when you are ready to offer times. Read out the tekst values word for word, at most three, and ask which one works. You never know the schedule yourself — never name a time that did not come from this result. If the caller named a day, pass that date in data_s.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/okna",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "KomtreYBZQp3NoyIGVnN"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "CareLine DEMO → okna",
+        "required": [
+          "tip",
+          "yazyk"
+        ],
+        "properties": {
+          "tip": {
+            "type": "string",
+            "description": "sobesedovanie = job interview at our office; ocenka = free in-home assessment for a family.",
+            "enum": [
+              "sobesedovanie",
+              "ocenka"
+            ]
+          },
+          "data_s": {
+            "type": "string",
+            "description": "Only if the caller named a day: that date as YYYY-MM-DD, worked out from today's date. Leave it out otherwise."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es",
+              "ru"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

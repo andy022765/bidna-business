@@ -1,0 +1,57 @@
+{
+  "opisanie": "SPEC 7.1 №21 + крайний случай 3. Код старше 30 дней — как без кода: тишина, сигнал с пометкой «код не найден», модель не зовём.",
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    },
+    "kod/K7M3X": {
+      "kod": "K7M3X",
+      "razgovor": "conv_test7m3x01",
+      "istochnik": "vera",
+      "email": "irina@salon-test.com",
+      "imya": "Ирина Соколова",
+      "segment": "biznes",
+      "shag": "razbor",
+      "t": "@now-31d",
+      "chaty": [],
+      "suhoy": false
+    }
+  },
+  "update": {
+    "update_id": 1021,
+    "business_message": {
+      "message_id": 266,
+      "from": {
+        "id": 5001,
+        "is_bot": false,
+        "first_name": "Ирина",
+        "username": "irina_nails",
+        "language_code": "ru"
+      },
+      "chat": {
+        "id": 5001,
+        "type": "private",
+        "first_name": "Ирина",
+        "username": "irina_nails"
+      },
+      "date": "@unix",
+      "business_connection_id": "bc-test-1",
+      "text": "Здравствуйте! Пишу после разговора с Верой. Код K7M3X"
+    }
+  },
+  "ozhidaem": {
+    "klientu": 0,
+    "model_vyzovov": 0,
+    "gruppe_est": true,
+    "signal_soderzhit": [
+      "не найден"
+    ]
+  }
+}

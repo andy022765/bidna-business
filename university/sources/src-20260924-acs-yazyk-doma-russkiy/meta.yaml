@@ -1,0 +1,40 @@
+# Template: sources/<src-id>/meta.yaml
+id: src-20260924-acs-yazyk-doma-russkiy
+url: https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b16001.dat
+canonical_url: https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b16001.dat
+type: dataset
+title: 'ACS 1-year 2021-2024, table B16001 Language Spoken at Home by Ability to Speak English (Russian; Ukrainian or other Slavic)'
+authors: [{name: "U.S. Census Bureau", affiliation: "American Community Survey"}]
+published: 2025-09-11
+fetched_at: 2026-09-24T19:00:00Z
+language: en
+fetch_method: webfetch (curl, raw .dat)
+storage:
+  original: original.dat (+ original-2021/2022/2023.dat, geos1y2024.txt, extract_acs.py, extract.md)
+  bytes: 984767
+
+relevance: 5
+quality: 9
+quality_breakdown:
+  primary_source: true
+  author_credible: true
+  has_math: false
+  has_empirics: true
+  reproducible: true
+  recent: true
+  cited: true
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: false
+  notes: 'Госстатистика. Ограничение: язык ДОМА, не владение языком; двуязычные семьи и выходцы из Центральной Азии недосчитаны. Census API теперь требует ключ, поэтому данные взяты из табличного Summary File.'
+
+extracted:
+  notes: [n-russkiy-doma-million-stabilno, n-russkoyazychnye-42-slabyy-angliyskiy, n-ukrainoyazychnye-rost-38-procentov, n-vosem-agglomeraciy-polovina-russkih, n-slavyanskiy-zapad-chikago-sakramento-sietl, n-yazyk-doma-nedoschet-russkoyazychnyh]
+  claims: [c-0400, c-0401, c-0402]
+  contradictions: []
+  outbound_links_tracked: 2
+
+status: processed
+reject_reason: null

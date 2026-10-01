@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>CareLine for home care agencies</title>
+<meta name="description" content="CareLine is an AI phone line for home care agencies: job applicants day and night in English, Spanish and Russian, shift call-offs, and an EVV check before billing. Demo with fictional data.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%231b2557%27/%3E%3Crect x=%2713%27 y=%277%27 width=%276%27 height=%2718%27 rx=%272%27 fill=%27%23c69a4c%27/%3E%3C/svg%3E">
+<script>
+  document.documentElement.className = 'js';
+  try { var t = localStorage.getItem('careline-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Design read: B2B product demo for US home care agency owners; trust-first, plain-spoken;
+   native CSS on CareLine tokens (ink navy, cool paper, gold as the one accent). Dials 4 / 3 / 4. */
+
+:root {
+  color-scheme: light;
+  --bg: #f3f4f7;
+  --surface: #fcfcfd;
+  --surface-2: #e9ecf2;
+  --line: #d8dce6;
+  --line-strong: #b4bacb;
+  --ink: #141a3a;
+  --text: #2a3050;
+  --muted: #535a76;
+  --brand: #1b2557;
+  --brand-ink: #fbfbfe;
+  --gold: #c69a4c;
+  --focus: #1b2557;
+  --cell-strong: #1b2557;
+  --cell-strong-ink: #f5f6fb;
+  --cell-strong-muted: #c7cde6;
+  --rule: rgba(27, 37, 87, 0.075);
+  --ok: #1d6842;
+  --ok-bg: #e2f0e7;
+  --bad: #992a22;
+  --bad-bg: #f8e3e0;
+  --decision: #8f6620;
+  --decision-bg: #f3e8d2;
+  --shadow-shot: 0 28px 60px -28px rgba(20, 26, 58, 0.45);
+  --font: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Atkinson Hyperlegible Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0e1222;
+    --surface: #151a2e;
+    --surface-2: #1b2138;
+    --line: #2a3150;
+    --line-strong: #454e74;
+    --ink: #eef0f7;
+    --text: #d3d7e6;
+    --muted: #a0a7c2;
+    --brand: #cbd3f5;
+    --brand-ink: #141a3a;
+    --gold: #d4ae66;
+    --focus: #d4ae66;
+    --cell-strong: #232c58;
+    --cell-strong-ink: #f5f6fb;
+    --cell-strong-muted: #c3cae6;
+    --rule: rgba(203, 211, 245, 0.07);
+    --ok: #86d6a5;
+    --ok-bg: rgba(134, 214, 165, 0.13);
+    --bad: #f59a90;
+    --bad-bg: rgba(245, 154, 144, 0.13);
+    --decision: #d4ae66;
+    --decision-bg: rgba(212, 174, 102, 0.14);
+    --shadow-shot: 0 28px 60px -28px rgba(0, 0, 0, 0.8);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e1222;
+  --surface: #151a2e;
+  --surface-2: #1b2138;
+  --line: #2a3150;
+  --line-strong: #454e74;
+  --ink: #eef0f7;
+  --text: #d3d7e6;
+  --muted: #a0a7c2;
+  --brand: #cbd3f5;
+  --brand-ink: #141a3a;
+  --gold: #d4ae66;
+  --focus: #d4ae66;
+  --cell-strong: #232c58;
+  --cell-strong-ink: #f5f6fb;
+  --cell-strong-muted: #c3cae6;
+  --rule: rgba(203, 211, 245, 0.07);
+  --ok: #86d6a5;
+  --ok-bg: rgba(134, 214, 165, 0.13);
+  --bad: #f59a90;
+  --bad-bg: rgba(245, 154, 144, 0.13);
+  --decision: #d4ae66;
+  --decision-bg: rgba(212, 174, 102, 0.14);
+  --shadow-shot: 0 28px 60px -28px rgba(0, 0, 0, 0.8);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--font); font-size: 17px; line-height: 1.55; overflow-wrap: break-word;
+}
+h1, h2, h3 { color: var(--ink); margin: 0; }
+h1 { font-size: clamp(36px, 3.9vw, 48px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 700; text-wrap: balance; }
+h2 { font-size: clamp(28px, 3vw, 38px); line-height: 1.12; letter-spacing: -0.02em; font-weight: 700; }
+h3 { font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 30; background: var(--brand); color: var(--brand-ink); padding: 10px 14px; border-radius: 10px; }
+.skip:focus { top: 12px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px;
+  border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; white-space: nowrap;
+  border: 1px solid transparent; transition: filter 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn--primary { background: var(--brand); color: var(--brand-ink); }
+.btn--primary:hover { filter: brightness(1.15); }
+.btn--ghost { color: var(--ink); border-color: var(--line-strong); background: transparent; }
+.btn--ghost:hover { background: var(--surface-2); }
+
+/* шапка */
+.nav { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.nav__in { display: flex; align-items: center; gap: 28px; min-height: 68px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 700; font-size: 19px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+.logo__mark { width: 5px; height: 24px; border-radius: 2px; background: var(--gold); }
+.logo__tag { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #141a3a; background: var(--gold); border-radius: 999px; padding: 3px 9px; }
+.nav__links { display: flex; gap: 22px; list-style: none; margin: 0 0 0 auto; padding: 0; }
+.nav__links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+.nav__links a:hover { color: var(--ink); }
+.nav__cta { min-height: 42px; padding: 0 16px; font-size: 15px; }
+
+/* первый экран */
+.hero { padding: 56px 0 80px; }
+.hero__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 48px; align-items: center; }
+.lead { font-size: 20px; line-height: 1.5; margin-top: 22px; max-width: 34ch; color: var(--text); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.shot { margin: 0; }
+.shot img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: var(--shadow-shot); background: var(--surface); }
+.shot figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
+.only-dark { display: none !important; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .only-dark { display: block !important; }
+  :root:not([data-theme="light"]) .only-light { display: none !important; }
+}
+:root[data-theme="dark"] .only-dark { display: block !important; }
+:root[data-theme="dark"] .only-light { display: none !important; }
+
+.sec { padding: 88px 0; border-top: 1px solid var(--line); }
+.sec__lead { margin-top: 14px; max-width: 62ch; color: var(--text); }
+
+/* что делает: бенто */
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.cell {
+  grid-column: span 6; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0;
+}
+.cell p { max-width: 58ch; }
+.cell--hiring { grid-column: span 7; background: var(--cell-strong); border-color: transparent; }
+.cell--hiring h3, .cell--hiring p { color: var(--cell-strong-ink); }
+.cell--calloff { grid-column: span 5; }
+.cell--evv { grid-column: span 5; background: var(--surface-2); }
+.mini { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 6px; font-size: 15px; }
+.mini__head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; color: var(--ink); }
+.mini__visit { color: var(--muted); font-size: 14px; }
+.mini__cap { font-size: 13px; color: var(--muted); }
+.st {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 26px; padding: 2px 10px 2px 8px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; white-space: nowrap; color: var(--bad); background: var(--bad-bg);
+}
+.st::before { content: ""; width: 10px; height: 10px; background: currentColor; border-radius: 1px; }
+.cell--pult { grid-column: span 7; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: 24px; align-items: start; }
+.cell--pult .cell__text { display: flex; flex-direction: column; gap: 14px; }
+.cell--pult img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+.langs { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: auto 0 0; padding: 10px 0 0; }
+.langs li { border: 1px solid rgba(245, 246, 251, 0.35); color: var(--cell-strong-ink); border-radius: 999px; padding: 5px 14px; font-weight: 600; font-size: 15px; }
+.cell__note { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; color: var(--muted); }
+.cell--hiring .cell__note { border-top-color: rgba(245, 246, 251, 0.25); color: var(--cell-strong-muted); }
+.link-strong { font-weight: 700; }
+
+/* как устроено: вкладки и схемы */
+.tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; margin: 32px 0 28px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
+.tab {
+  min-height: 44px; padding: 0 20px; border: 0; border-radius: 999px; background: transparent;
+  font: inherit; font-size: 16px; font-weight: 700; color: var(--muted); cursor: pointer;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(20, 26, 58, 0.14); }
+.tabpanel { display: grid; grid-template-columns: minmax(0, 470px) minmax(0, 1fr); gap: 56px; align-items: start; }
+.js .tabpanel + .tabpanel { margin-top: 0; }
+.tabpanel + .tabpanel { margin-top: 56px; }
+.flow { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 16px; }
+.flow-svg { display: block; width: 100%; height: auto; }
+.flow-svg .f-node { stroke-width: 1.5; }
+.flow-svg .f-start { fill: var(--brand); stroke: var(--brand); }
+.flow-svg .f-step { fill: var(--surface); stroke: var(--line-strong); }
+.flow-svg .f-decision { fill: var(--decision-bg); stroke: var(--decision); }
+.flow-svg .f-ok { fill: var(--ok-bg); stroke: var(--ok); }
+.flow-svg .f-bad { fill: var(--bad-bg); stroke: var(--bad); }
+.flow-svg .f-txt { font-family: var(--font); font-size: 15px; fill: var(--ink); }
+.flow-svg .f-txt--start { fill: var(--brand-ink); font-weight: 600; }
+.flow-svg .f-txt--decision { font-weight: 700; }
+.flow-svg .f-edge { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.flow-svg .f-edge--loop { stroke-dasharray: 5 4; }
+.flow-svg .f-arrow { fill: var(--muted); }
+.flow-svg .f-lbl { font-family: var(--font); font-size: 13px; font-weight: 700; fill: var(--muted); }
+.decide { position: sticky; top: 96px; }
+.decide h3 { margin-bottom: 16px; }
+.decide ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.decide li { position: relative; padding-left: 22px; }
+.decide li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 2px; background: var(--gold); }
+.decide__note { margin-top: 24px; padding: 16px 18px; border-radius: 10px; background: var(--surface-2); color: var(--ink); font-size: 16px; }
+.decide__why { margin-top: 16px; font-size: 16px; color: var(--text); max-width: 60ch; }
+.panel-title { font-size: 15px; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+
+/* попробовать */
+.sec--try { background: var(--surface-2); }
+.ticket {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 28px; align-items: center;
+  margin-top: 32px; padding: 22px 26px; border: 1.5px dashed var(--line-strong); border-radius: 12px; background: var(--surface);
+}
+.ticket__label { font-weight: 700; color: var(--ink); }
+.ticket__num { font-family: var(--mono); font-size: clamp(20px, 2.2vw, 28px); color: var(--muted); letter-spacing: 0.01em; }
+.ticket__note { grid-column: 1 / -1; color: var(--text); font-size: 16px; }
+.ticket--live { border-style: solid; border-color: var(--brand); }
+.ticket--live .ticket__num a { color: var(--ink); font-weight: 500; text-decoration: none; }
+.ticket--live .ticket__num a:hover { text-decoration: underline; }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.step__when { font-size: 14px; font-weight: 700; color: var(--muted); }
+.step--later { background: transparent; border-style: dashed; }
+.step p { font-size: 16px; }
+.step a { margin-top: auto; font-weight: 700; }
+
+/* правила */
+.rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; margin: 36px 0 0; }
+.rules div { padding: 22px 0; border-top: 1px solid var(--line); }
+.rules dt { font-weight: 700; color: var(--ink); font-size: 18px; margin-bottom: 6px; }
+.rules dd { margin: 0; max-width: 56ch; }
+
+.foot { padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+/* адаптив */
+@media (max-width: 1040px) {
+  .nav__links { display: none; }
+  .nav__cta { margin-left: auto; }
+  .hero__in { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .lead { max-width: 46ch; }
+  .tabpanel { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .decide { position: static; }
+  .flow { max-width: 520px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .bento { grid-template-columns: minmax(0, 1fr); }
+  .cell, .cell--hiring, .cell--calloff, .cell--evv, .cell--pult { grid-column: auto; }
+  .cell--pult { grid-template-columns: minmax(0, 1fr); }
+  .rules { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  body { font-size: 16px; }
+  .nav__cta { display: none; }
+  .hero { padding: 36px 0 56px; }
+  .lead { font-size: 18px; }
+  .cta-row .btn { flex: 1 1 100%; }
+  .sec { padding: 60px 0; }
+  .cell { padding: 22px 18px; }
+  .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; border-radius: 14px; }
+  .tab { padding: 0 6px; font-size: 15px; border-radius: 10px; }
+  .flow { padding: 14px 8px; }
+  .ticket { grid-template-columns: minmax(0, 1fr); padding: 18px; }
+  .cell a, .step a { display: inline-flex; align-items: center; min-height: 44px; }
+  .cta-row .btn { min-height: 52px; }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="logo" href="#top" aria-label="CareLine, top of page"><span class="logo__mark" aria-hidden="true"></span>CareLine <span class="logo__tag">DEMO</span></a>
+    <nav aria-label="Page sections">
+      <ul class="nav__links">
+        <li><a href="#what">What it does</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#try">Try the demo</a></li>
+        <li><a href="#data">Your data</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--primary nav__cta" href="/pult/?demo=1">Open the demo dashboard</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top" aria-labelledby="h-hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 id="h-hero">An AI phone line for home care agencies</h1>
+        <p class="lead">Answers job applicants day and night in English, Spanish and Russian, handles shift call-offs, and checks EVV visits before billing.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="/pult/?demo=1">Open the demo dashboard</a>
+          <a class="btn btn--ghost" href="#how">How it works</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <img class="only-light" src="pult-light.webp" width="1600" height="1000" fetchpriority="high"
+             alt="CareLine dashboard of a demo agency: items that need attention, then today's calls, new applicants, booked interviews, call-offs and open EVV issues.">
+        <img class="only-dark" src="pult-dark.webp" width="1600" height="1000" loading="lazy"
+             alt="CareLine dashboard of a demo agency in the dark theme: items that need attention, then today's calls, new applicants, booked interviews, call-offs and open EVV issues.">
+        <figcaption>The demo dashboard. Every name and number in it is fictional.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec" id="what" aria-labelledby="h-what">
+    <div class="wrap">
+      <h2 id="h-what">What CareLine does</h2>
+      <p class="sec__lead">CareLine is an AI voice assistant on your agency's phone lines. It follows the requirements and rules you set, and passes decisions to your staff.</p>
+      <div class="bento">
+        <article class="cell cell--hiring">
+          <h3>Hiring line, day and night</h3>
+          <p>Applicants call the number in your job ads at any hour. CareLine asks your screening questions, books the ones who meet your minimum into your interview calendar, and sends a confirmation and reminders. Your team decides who gets hired.</p>
+          <ul class="langs" aria-label="Languages on the hiring line">
+            <li lang="en">English</li>
+            <li lang="es">Español</li>
+            <li lang="ru">Русский</li>
+          </ul>
+        </article>
+        <article class="cell cell--calloff">
+          <h3>Shift call-offs</h3>
+          <p>A caregiver calls or texts that she can't make a shift. CareLine finds the shift, ranks who can cover it by your rules, and offers it to three caregivers at a time. The first yes gets the shift. If nobody takes it in time, CareLine calls your on-call coordinator.</p>
+          <p class="cell__note">Shown on demo data. To work with your clients' data, we sign a Business Associate Agreement (BAA) with you.</p>
+        </article>
+        <article class="cell cell--evv">
+          <h3>EVV check before billing</h3>
+          <p>Upload your visit export. CareLine checks each visit against the state's EVV rules and lists what is wrong and how to fix it, before the claim goes out. The demo uses New York and North Carolina rules.</p>
+          <div class="mini">
+            <p class="mini__head"><span class="st">Fix before billing</span> <strong>No clock-out</strong></p>
+            <p class="mini__visit">Visit V-10217, Fri, Sep 25, client QN-156</p>
+            <p><strong>How to fix:</strong> confirm the real end time with the caregiver and the member, then enter it as a visit edit with a reason code and supervisor approval.</p>
+            <p class="mini__cap">One item from the demo dashboard.</p>
+          </div>
+          <p class="cell__note">Shown on demo data. To work with your clients' data, we sign a Business Associate Agreement (BAA) with you.</p>
+        </article>
+        <article class="cell cell--pult">
+          <div class="cell__text">
+            <h3>Dashboard and a 7:00 AM summary</h3>
+            <p>Calls, applicants, interviews, call-offs, EVV issues and the consent log on one page. Every morning at 7:00 your time, an email with yesterday's numbers and what needs attention first.</p>
+            <a class="link-strong" href="svodka.html">See a sample morning email</a>
+          </div>
+          <img src="svodka.webp" width="1200" height="1400" loading="lazy"
+               alt="Sample CareLine morning email for a demo agency: a shift that went unfilled and EVV issues to fix listed first, then yesterday's calls, applicants, interviews and call-offs.">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how" aria-labelledby="h-how">
+    <div class="wrap">
+      <h2 id="h-how">How each process runs</h2>
+      <div class="tabs" role="tablist" aria-label="Processes">
+        <button class="tab" type="button" role="tab" id="t-hiring" aria-controls="p-hiring" aria-selected="true">Applicants</button>
+        <button class="tab" type="button" role="tab" id="t-calloff" aria-controls="p-calloff" aria-selected="false">Call-offs</button>
+        <button class="tab" type="button" role="tab" id="t-evv" aria-controls="p-evv" aria-selected="false">EVV check</button>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-hiring" aria-labelledby="t-hiring" tabindex="0">
+        <div class="flow"><!--svg:hiring:start--><svg class="flow-svg" viewBox="0 0 440 690" role="img" aria-labelledby="fl-hiring-t fl-hiring-d" xmlns="http://www.w3.org/2000/svg"><title id="fl-hiring-t">How an applicant call runs</title><desc id="fl-hiring-d">An applicant calls the number in your job ad. CareLine says it is an AI assistant and that the call is recorded, in English, Spanish or Russian. It asks the questions from your requirements. If the applicant does not meet your minimum, CareLine declines politely, says where to get HHA training and can add them to the waitlist. If they do, it offers open interview times from your calendar, books one, reads the name, phone and time back, puts the card in the dashboard and sends reminders before the interview. A caller who asks for a person goes to your coordinator during office hours; after hours CareLine takes a message.</desc><defs><marker id="fl-hiring-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="f-arrow" d="M0 0L10 5L0 10z"/></marker></defs><path class="f-edge" d="M139 68V96" marker-end="url(#fl-hiring-a)"/><path class="f-edge" d="M252 147H272" marker-end="url(#fl-hiring-a)"/><path class="f-edge" d="M139 196V243" marker-end="url(#fl-hiring-a)"/><path class="f-edge" d="M139 362V390" marker-end="url(#fl-hiring-a)"/><path class="f-edge" d="M252 412.5H272" marker-end="url(#fl-hiring-a)"/><text class="f-lbl" x="257" y="405.5" text-anchor="start">no</text><path class="f-edge" d="M139 433V489.5" marker-end="url(#fl-hiring-a)"/><text class="f-lbl" x="147" y="466.25" text-anchor="start">yes</text><path class="f-edge" d="M139 551.5V579.5" marker-end="url(#fl-hiring-a)"/><rect class="f-node f-start" x="26" y="8" width="226" height="60" rx="22"/><text class="f-txt f-txt--start" x="139" y="33" text-anchor="middle">Applicant calls the</text><text class="f-txt f-txt--start" x="139" y="52" text-anchor="middle">number from your ad</text><rect class="f-node f-step" x="26" y="98" width="226" height="98" rx="8"/><text class="f-txt f-txt--step" x="139" y="123" text-anchor="middle">&quot;I'm an AI assistant,</text><text class="f-txt f-txt--step" x="139" y="142" text-anchor="middle">and this call is</text><text class="f-txt f-txt--step" x="139" y="161" text-anchor="middle">recorded.&quot; English,</text><text class="f-txt f-txt--step" x="139" y="180" text-anchor="middle">Spanish or Russian</text><rect class="f-node f-step" x="274" y="79" width="156" height="136" rx="8"/><text class="f-txt f-txt--step" x="352" y="104" text-anchor="middle">Asks for a</text><text class="f-txt f-txt--step" x="352" y="123" text-anchor="middle">person: your</text><text class="f-txt f-txt--step" x="352" y="142" text-anchor="middle">coordinator in</text><text class="f-txt f-txt--step" x="352" y="161" text-anchor="middle">office hours, a</text><text class="f-txt f-txt--step" x="352" y="180" text-anchor="middle">message after</text><text class="f-txt f-txt--step" x="352" y="199" text-anchor="middle">hours</text><rect class="f-node f-step" x="26" y="245" width="226" height="117" rx="8"/><text class="f-txt f-txt--step" x="139" y="270" text-anchor="middle">Questions from your</text><text class="f-txt f-txt--step" x="139" y="289" text-anchor="middle">requirements:</text><text class="f-txt f-txt--step" x="139" y="308" text-anchor="middle">certificate, area,</text><text class="f-txt f-txt--step" x="139" y="327" text-anchor="middle">schedule, languages,</text><text class="f-txt f-txt--step" x="139" y="346" text-anchor="middle">work eligibility</text><polygon class="f-node f-decision" points="38,392 240,392 252,412.5 240,433 38,433 26,412.5"/><text class="f-txt f-txt--decision" x="139" y="417" text-anchor="middle">Meets your minimum?</text><rect class="f-node f-bad" x="274" y="363.5" width="156" height="98" rx="8"/><text class="f-txt f-txt--bad" x="352" y="388.5" text-anchor="middle">Polite no, where</text><text class="f-txt f-txt--bad" x="352" y="407.5" text-anchor="middle">to get HHA</text><text class="f-txt f-txt--bad" x="352" y="426.5" text-anchor="middle">training,</text><text class="f-txt f-txt--bad" x="352" y="445.5" text-anchor="middle">waitlist</text><rect class="f-node f-step" x="26" y="491.5" width="226" height="60" rx="8"/><text class="f-txt f-txt--step" x="139" y="516.5" text-anchor="middle">Open interview times</text><text class="f-txt f-txt--step" x="139" y="535.5" text-anchor="middle">from your calendar</text><rect class="f-node f-ok" x="26" y="581.5" width="226" height="98" rx="8"/><text class="f-txt f-txt--ok" x="139" y="606.5" text-anchor="middle">Booked. Name, phone and</text><text class="f-txt f-txt--ok" x="139" y="625.5" text-anchor="middle">time read back; card in</text><text class="f-txt f-txt--ok" x="139" y="644.5" text-anchor="middle">the dashboard; reminders</text><text class="f-txt f-txt--ok" x="139" y="663.5" text-anchor="middle">before the interview</text></svg><!--svg:hiring:end--></div>
+        <div class="decide">
+          <p class="panel-title">When an applicant calls</p>
+          <h3>You decide</h3>
+          <ul>
+            <li>Minimum requirements: certificate, area, schedule, languages, experience.</li>
+            <li>Interview times, taken from your calendar.</li>
+            <li>What applicants who don't qualify hear, and who goes on the waitlist.</li>
+            <li>Office hours for transfers to a person.</li>
+          </ul>
+          <p class="decide__note">Names, phone numbers and times are read back to the caller before anything is saved.</p>
+        </div>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-calloff" aria-labelledby="t-calloff" tabindex="0">
+        <div class="flow"><!--svg:calloff:start--><svg class="flow-svg" viewBox="0 0 440 732" role="img" aria-labelledby="fl-calloff-t fl-calloff-d" xmlns="http://www.w3.org/2000/svg"><title id="fl-calloff-t">How a shift call-off runs</title><desc id="fl-calloff-d">A caregiver calls or texts that she cannot make a shift. CareLine finds her shift by phone number and asks if it is unclear. It ranks who can cover the shift by your rules: skills, the client's language, free hours, the hours limit, distance and whether they know the client. It offers the shift to the next three caregivers. If someone replies yes within 15 minutes, the first yes gets the shift, the others are told it is taken and your coordinator is notified. If nobody replies and more than 2 hours remain before the shift, the next three get the offer. With less than 2 hours left, CareLine calls your on-call coordinator and the dashboard marks the shift open. Wave size, waiting time and the 2-hour threshold are your settings.</desc><defs><marker id="fl-calloff-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="f-arrow" d="M0 0L10 5L0 10z"/></marker></defs><path class="f-edge" d="M139 87V115" marker-end="url(#fl-calloff-a)"/><path class="f-edge" d="M139 177V205" marker-end="url(#fl-calloff-a)"/><path class="f-edge" d="M139 324V352" marker-end="url(#fl-calloff-a)"/><path class="f-edge" d="M139 414V442" marker-end="url(#fl-calloff-a)"/><path class="f-edge" d="M252 474H272" marker-end="url(#fl-calloff-a)"/><text class="f-lbl" x="257" y="467" text-anchor="start">yes</text><path class="f-edge" d="M139 504V551" marker-end="url(#fl-calloff-a)"/><text class="f-lbl" x="147" y="532.5" text-anchor="start">no</text><path class="f-edge f-edge--loop" d="M26 583H9V384H24" marker-end="url(#fl-calloff-a)"/><text class="f-lbl" transform="translate(6 483.5) rotate(-90)" text-anchor="middle">yes: next 3</text><path class="f-edge" d="M139 613V641" marker-end="url(#fl-calloff-a)"/><text class="f-lbl" x="147" y="632" text-anchor="start">no</text><rect class="f-node f-start" x="26" y="8" width="226" height="79" rx="22"/><text class="f-txt f-txt--start" x="139" y="33" text-anchor="middle">Caregiver calls or</text><text class="f-txt f-txt--start" x="139" y="52" text-anchor="middle">texts: can't make my</text><text class="f-txt f-txt--start" x="139" y="71" text-anchor="middle">shift</text><rect class="f-node f-step" x="26" y="117" width="226" height="60" rx="8"/><text class="f-txt f-txt--step" x="139" y="142" text-anchor="middle">Finds her shift by phone</text><text class="f-txt f-txt--step" x="139" y="161" text-anchor="middle">number; asks if unclear</text><rect class="f-node f-step" x="26" y="207" width="226" height="117" rx="8"/><text class="f-txt f-txt--step" x="139" y="232" text-anchor="middle">Ranks who can cover it</text><text class="f-txt f-txt--step" x="139" y="251" text-anchor="middle">by your rules: skills,</text><text class="f-txt f-txt--step" x="139" y="270" text-anchor="middle">client's language, free</text><text class="f-txt f-txt--step" x="139" y="289" text-anchor="middle">hours, distance, knows</text><text class="f-txt f-txt--step" x="139" y="308" text-anchor="middle">the client</text><rect class="f-node f-step" x="26" y="354" width="226" height="60" rx="8"/><text class="f-txt f-txt--step" x="139" y="379" text-anchor="middle">Offers the shift to the</text><text class="f-txt f-txt--step" x="139" y="398" text-anchor="middle">next 3 caregivers</text><polygon class="f-node f-decision" points="38,444 240,444 252,474 240,504 38,504 26,474"/><text class="f-txt f-txt--decision" x="139" y="469" text-anchor="middle">A yes within 15</text><text class="f-txt f-txt--decision" x="139" y="488" text-anchor="middle">minutes?</text><rect class="f-node f-ok" x="274" y="425" width="156" height="98" rx="8"/><text class="f-txt f-txt--ok" x="352" y="450" text-anchor="middle">First yes gets</text><text class="f-txt f-txt--ok" x="352" y="469" text-anchor="middle">the shift; the</text><text class="f-txt f-txt--ok" x="352" y="488" text-anchor="middle">rest hear it is</text><text class="f-txt f-txt--ok" x="352" y="507" text-anchor="middle">taken</text><polygon class="f-node f-decision" points="38,553 240,553 252,583 240,613 38,613 26,583"/><text class="f-txt f-txt--decision" x="139" y="578" text-anchor="middle">More than 2 hours</text><text class="f-txt f-txt--decision" x="139" y="597" text-anchor="middle">before the shift?</text><rect class="f-node f-bad" x="26" y="643" width="226" height="79" rx="8"/><text class="f-txt f-txt--bad" x="139" y="668" text-anchor="middle">Calls your on-call</text><text class="f-txt f-txt--bad" x="139" y="687" text-anchor="middle">coordinator; dashboard</text><text class="f-txt f-txt--bad" x="139" y="706" text-anchor="middle">marks the shift open</text></svg><!--svg:calloff:end--></div>
+        <div class="decide">
+          <p class="panel-title">When a caregiver calls off</p>
+          <h3>You decide</h3>
+          <ul>
+            <li>Who can cover whom: skills, languages, weekly hour limits.</li>
+            <li>How many caregivers get each offer (3 by default) and how long each wave waits (15 minutes).</li>
+            <li>When your on-call coordinator gets called (2 hours before the shift by default).</li>
+            <li>The on-call phone chain.</li>
+          </ul>
+          <p class="decide__note">A shift goes to one person only. A caregiver who says yes after it is taken hears that it is taken.</p>
+        </div>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-evv" aria-labelledby="t-evv" tabindex="0">
+        <div class="flow"><!--svg:evv:start--><svg class="flow-svg" viewBox="0 0 440 623" role="img" aria-labelledby="fl-evv-t fl-evv-d" xmlns="http://www.w3.org/2000/svg"><title id="fl-evv-t">How the EVV check runs</title><desc id="fl-evv-d">You upload the visit export from your EVV system as a CSV file. CareLine brings it to one format with the authorizations and the schedule, then checks each visit against the state rules: the six required EVV fields, clock-in and clock-out, location against the client address, hours against the authorization, overlapping visits of one caregiver, and authorization dates and service codes. The check is done by rules, not by AI judgment. Visits without issues are ready to bill. For the rest you get a list of what is wrong and how to fix it. Your coordinator fixes the visit in the EVV system and uploads again.</desc><defs><marker id="fl-evv-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="f-arrow" d="M0 0L10 5L0 10z"/></marker></defs><path class="f-edge" d="M139 68V96" marker-end="url(#fl-evv-a)"/><path class="f-edge" d="M139 177V205" marker-end="url(#fl-evv-a)"/><path class="f-edge" d="M139 362V390" marker-end="url(#fl-evv-a)"/><path class="f-edge" d="M252 412.5H272" marker-end="url(#fl-evv-a)"/><text class="f-lbl" x="257" y="405.5" text-anchor="start">no</text><path class="f-edge" d="M139 433V461" marker-end="url(#fl-evv-a)"/><text class="f-lbl" x="147" y="452" text-anchor="start">yes</text><path class="f-edge" d="M139 523V551" marker-end="url(#fl-evv-a)"/><path class="f-edge f-edge--loop" d="M26 583H9V38H24" marker-end="url(#fl-evv-a)"/><text class="f-lbl" transform="translate(6 310.5) rotate(-90)" text-anchor="middle">upload again</text><rect class="f-node f-start" x="26" y="8" width="226" height="60" rx="22"/><text class="f-txt f-txt--start" x="139" y="33" text-anchor="middle">Visit export (CSV) from</text><text class="f-txt f-txt--start" x="139" y="52" text-anchor="middle">your EVV system</text><rect class="f-node f-step" x="26" y="98" width="226" height="79" rx="8"/><text class="f-txt f-txt--step" x="139" y="123" text-anchor="middle">Matched with</text><text class="f-txt f-txt--step" x="139" y="142" text-anchor="middle">authorizations and the</text><text class="f-txt f-txt--step" x="139" y="161" text-anchor="middle">schedule</text><rect class="f-node f-step" x="26" y="207" width="226" height="155" rx="8"/><text class="f-txt f-txt--step" x="139" y="232" text-anchor="middle">State rules, not AI</text><text class="f-txt f-txt--step" x="139" y="251" text-anchor="middle">judgment: six EVV</text><text class="f-txt f-txt--step" x="139" y="270" text-anchor="middle">fields, clock-in and</text><text class="f-txt f-txt--step" x="139" y="289" text-anchor="middle">out, location,</text><text class="f-txt f-txt--step" x="139" y="308" text-anchor="middle">authorized hours,</text><text class="f-txt f-txt--step" x="139" y="327" text-anchor="middle">overlaps, authorization</text><text class="f-txt f-txt--step" x="139" y="346" text-anchor="middle">dates and codes</text><polygon class="f-node f-decision" points="38,392 240,392 252,412.5 240,433 38,433 26,412.5"/><text class="f-txt f-txt--decision" x="139" y="417" text-anchor="middle">Any issues?</text><rect class="f-node f-ok" x="274" y="392" width="156" height="41" rx="8"/><text class="f-txt f-txt--ok" x="352" y="417" text-anchor="middle">Ready to bill</text><rect class="f-node f-bad" x="26" y="463" width="226" height="60" rx="8"/><text class="f-txt f-txt--bad" x="139" y="488" text-anchor="middle">Fix list: what is wrong</text><text class="f-txt f-txt--bad" x="139" y="507" text-anchor="middle">and how to fix it</text><rect class="f-node f-step" x="26" y="553" width="226" height="60" rx="8"/><text class="f-txt f-txt--step" x="139" y="578" text-anchor="middle">Your coordinator fixes</text><text class="f-txt f-txt--step" x="139" y="597" text-anchor="middle">it in the EVV system</text></svg><!--svg:evv:end--></div>
+        <div class="decide">
+          <p class="panel-title">Before you bill</p>
+          <h3>You decide</h3>
+          <ul>
+            <li>Which state's rules apply. The demo has New York and North Carolina.</li>
+            <li>What to correct and when to bill. CareLine does not change records in your EVV system.</li>
+          </ul>
+          <p class="decide__note">Visits are flagged by fixed rules, not by AI judgment, and every flag comes with the reason and the fix.</p>
+          <p class="decide__why"><strong>Why it matters.</strong> North Carolina denies personal care claims without EVV since June 1, 2021, and home health claims in managed care plans since October 1, 2025. New York does not deny claims automatically; the risk there is an OMIG audit and recoupment of payments already made.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--try" id="try" aria-labelledby="h-try">
+    <div class="wrap">
+      <h2 id="h-try">Try the demo</h2>
+      <!-- Номер демо-линии включается одной настройкой: E.164 в data-demo-line (формат +1XXXXXXXXXX).
+           Пусто = «Demo line number coming soon». Вписывать только после выкладки стенда и проверки линии. -->
+      <div class="ticket" id="demo-line" data-demo-line="">
+        <p class="ticket__label">Demo line</p>
+        <p class="ticket__num" id="demo-line-num">Demo line number coming soon</p>
+        <p class="ticket__note">Call it as an applicant or as a caregiver, in English, Spanish or Russian. The assistant tells you it is an AI at the start of the call.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <p class="step__when">Open now</p>
+          <h3>Browse the dashboard</h3>
+          <p>Today's calls, applicants and interviews, the call-off feed, EVV issues with fixes, and the consent log.</p>
+          <a href="/pult/?demo=1">Open the demo dashboard</a>
+        </div>
+        <div class="step">
+          <p class="step__when">Open now</p>
+          <h3>Read the morning email</h3>
+          <p>What the owner gets at 7:00: what needs attention first, then yesterday in numbers.</p>
+          <a href="svodka.html">See a sample morning email</a>
+        </div>
+        <div class="step step--later">
+          <p class="step__when" data-when-live="Call the demo line">When the demo line is live</p>
+          <h3>Call as an applicant</h3>
+          <p>Answer the screening questions and book an interview. The demo dashboard is a sample on fictional data, so your own call won't appear in it.</p>
+        </div>
+        <div class="step step--later">
+          <p class="step__when" data-when-live="Call the demo line">When the demo line is live</p>
+          <h3>Call off a shift</h3>
+          <p>CareLine finds a caregiver's shift by the phone number she calls from, so a call-off works only from a number the agency has on file. From any other number, it takes a message for the coordinator. The demo dashboard shows a replacement search on sample data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="data" aria-labelledby="h-data">
+    <div class="wrap">
+      <h2 id="h-data">Your data and the rules</h2>
+      <dl class="rules">
+        <div>
+          <dt>An AI answers, and says so</dt>
+          <dd>Every call opens with "I'm an AI assistant, and this call is recorded." Callers who ask for a person are transferred to your coordinator during office hours; after hours, CareLine takes a message.</dd>
+        </div>
+        <div>
+          <dt>Consent on record</dt>
+          <dd>Consent to the recording, to talking with an AI and to text messages is logged for each phone number. A STOP reply turns texts off.</dd>
+        </div>
+        <div>
+          <dt>Demo data until a BAA is signed</dt>
+          <dd>Call-offs, calls from families and the EVV check run on demo data. Before CareLine works with your clients' information, we sign a Business Associate Agreement (BAA) with you.</dd>
+        </div>
+        <div>
+          <dt>Texting needs carrier registration</dt>
+          <dd>Text offers and reminders start after your agency's number is registered with US carriers (10DLC), which usually takes 5 to 15 business days. Until then, CareLine uses email.</dd>
+        </div>
+        <div>
+          <dt>Your rules, your decisions</dt>
+          <dd>Screening requirements, interview times, offer waves and on-call timing are your settings. Hiring decisions, billing and EVV corrections stay with your staff.</dd>
+        </div>
+        <div>
+          <dt>Lawful questions only</dt>
+          <dd>Applicants are asked whether they are authorized to work in the US. They are never asked about citizenship or national origin.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>CareLine demo. Every agency, person, phone number and record shown here and in the demo dashboard is fictional.</p>
+  </div>
+</footer>
+
+<script>
+  // номер демо-линии: одна настройка data-demo-line на #demo-line; пусто — остаётся «coming soon»
+  (function () {
+    var box = document.getElementById('demo-line');
+    var nomer = box ? String(box.getAttribute('data-demo-line') || '').trim() : '';
+    var m = /^\+1(\d{3})(\d{3})(\d{4})$/.exec(nomer);
+    if (!m) return;
+    var num = document.getElementById('demo-line-num');
+    var a = document.createElement('a');
+    a.href = 'tel:' + nomer;
+    a.textContent = '+1 (' + m[1] + ') ' + m[2] + '-' + m[3];
+    num.textContent = '';
+    num.appendChild(a);
+    box.classList.add('ticket--live');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-when-live]'), function (el) { el.textContent = el.getAttribute('data-when-live'); });
+    Array.prototype.forEach.call(document.querySelectorAll('.step--later'), function (el) { el.classList.remove('step--later'); });
+  })();
+
+  // вкладки: без скрипта все три схемы видны подряд
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+    function vybrat(t, fokus) {
+      tabs.forEach(function (x) {
+        var on = x === t;
+        x.setAttribute('aria-selected', on ? 'true' : 'false');
+        x.tabIndex = on ? 0 : -1;
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (fokus) t.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { vybrat(t); });
+      t.addEventListener('keydown', function (e) {
+        var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (e.key === 'Home') { vybrat(tabs[0], true); e.preventDefault(); }
+        else if (e.key === 'End') { vybrat(tabs[tabs.length - 1], true); e.preventDefault(); }
+        else if (n) { vybrat(tabs[(i + n + tabs.length) % tabs.length], true); e.preventDefault(); }
+      });
+    });
+    if (tabs.length) vybrat(tabs[0]);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+{
+  "demo": "DEMO — вымышленные данные, Brightside Home Care (DEMO)",
+  "shtat": "NY",
+  "vygruzka": "evv-s-oshibkami.csv",
+  "vsego": 30,
+  "po_pravilam": {
+    "NET_ISPOLNITELYA": 1,
+    "VNE_RASPISANIYA": 2,
+    "MESTO_NE_SOVPADAET": 3,
+    "EDINICY_BOLSHE_VREMENI": 2,
+    "NET_MESTA": 2,
+    "KOD_NE_AVTORIZOVAN": 2,
+    "NET_UHODA": 3,
+    "UHOD_RANSHE_PRIHODA": 1,
+    "PRAVKA_BEZ_PRICHINY": 2,
+    "NE_TA_SIDELKA": 1,
+    "NET_DATY": 1,
+    "NET_USLUGI": 1,
+    "PREVYSHENIE_AVTORIZACII": 2,
+    "NET_PRIHODA": 2,
+    "VNE_DAT_AVTORIZACII": 2,
+    "PERESECHENIE": 2,
+    "NET_POLUCHATELYA": 1
+  },
+  "normalnye_osobennosti": [
+    {
+      "vizit_id": "V-10173",
+      "chto": "пропущенный визит (Missed Visit = Y) — не проверяется"
+    },
+    {
+      "vizit_id": "V-10151",
+      "chto": "пропущенный визит (Missed Visit = Y) — не проверяется"
+    },
+    {
+      "vizit_id": "V-10051",
+      "chto": "уход внесён вручную с кодом причины"
+    },
+    {
+      "vizit_id": "V-10222",
+      "chto": "время прихода исправлено с кодом причины"
+    },
+    {
+      "vizit_id": "V-10210",
+      "chto": "приход внесён вручную с кодом причины"
+    },
+    {
+      "vizit_id": "V-10032",
+      "chto": "уход отмечен у поликлиники, тип места Community — не ошибка"
+    },
+    {
+      "vizit_id": "V-10251",
+      "chto": "уход отмечен у поликлиники, тип места Community — не ошибка"
+    },
+    {
+      "vizit_id": "V-18001",
+      "chto": "дубль, помеченный Is Deletion = Y — не проверяется"
+    }
+  ],
+  "oshibki": [
+    {
+      "vizit_id": "V-10006",
+      "pravilo": "NET_ISPOLNITELYA",
+      "chto_podlozheno": "стёрт Caregiver Code"
+    },
+    {
+      "vizit_id": "V-10018",
+      "pravilo": "VNE_RASPISANIYA",
+      "chto_podlozheno": "Schedule ID заменён на смену того же клиента в другой день (SM-0106)"
+    },
+    {
+      "vizit_id": "V-10030",
+      "pravilo": "MESTO_NE_SOVPADAET",
+      "chto_podlozheno": "GPS прихода сдвинут на ~2,5 км к северу"
+    },
+    {
+      "vizit_id": "V-10031",
+      "pravilo": "EDINICY_BOLSHE_VREMENI",
+      "chto_podlozheno": "Units Billed больше времени визита на 3 единицы"
+    },
+    {
+      "vizit_id": "V-10034",
+      "pravilo": "NET_MESTA",
+      "chto_podlozheno": "у ухода стёрты GPS и тип места"
+    },
+    {
+      "vizit_id": "V-10058",
+      "pravilo": "MESTO_NE_SOVPADAET",
+      "chto_podlozheno": "приход отмечен звонком с мобильного сиделки, а не с телефона клиента"
+    },
+    {
+      "vizit_id": "V-10101",
+      "pravilo": "KOD_NE_AVTORIZOVAN",
+      "chto_podlozheno": "код T1019:U1 заменён на S5125 (HHA), которого нет в авторизации"
+    },
+    {
+      "vizit_id": "V-10102",
+      "pravilo": "NET_UHODA",
+      "chto_podlozheno": "стёрты Visit End Time, EVV End Time и место ухода (сиделка забыла отметиться)"
+    },
+    {
+      "vizit_id": "V-10105",
+      "pravilo": "UHOD_RANSHE_PRIHODA",
+      "chto_podlozheno": "уход записан на 12 часов раньше (AM вместо PM)"
+    },
+    {
+      "vizit_id": "V-10114",
+      "pravilo": "PRAVKA_BEZ_PRICHINY",
+      "chto_podlozheno": "уход внесён вручную (EVV End Time пуст), кода причины нет"
+    },
+    {
+      "vizit_id": "V-10130",
+      "pravilo": "KOD_NE_AVTORIZOVAN",
+      "chto_podlozheno": "модификатор U1 заменён на U6 (CDPA), которого нет в авторизации"
+    },
+    {
+      "vizit_id": "V-10131",
+      "pravilo": "NE_TA_SIDELKA",
+      "chto_podlozheno": "Caregiver Code заменён на CG-040, в расписании смена за CG-039"
+    },
+    {
+      "vizit_id": "V-10140",
+      "pravilo": "NET_UHODA",
+      "chto_podlozheno": "стёрты Visit End Time, EVV End Time и место ухода (сиделка забыла отметиться)"
+    },
+    {
+      "vizit_id": "V-10157",
+      "pravilo": "NET_DATY",
+      "chto_podlozheno": "стёрта Visit Date"
+    },
+    {
+      "vizit_id": "V-10164",
+      "pravilo": "NET_MESTA",
+      "chto_podlozheno": "у прихода стёрты GPS и тип места"
+    },
+    {
+      "vizit_id": "V-10165",
+      "pravilo": "NET_USLUGI",
+      "chto_podlozheno": "стёрт Procedure Code"
+    },
+    {
+      "vizit_id": "V-10172",
+      "pravilo": "MESTO_NE_SOVPADAET",
+      "chto_podlozheno": "GPS ухода сдвинут на ~1,2 км к востоку"
+    },
+    {
+      "vizit_id": "V-10188",
+      "pravilo": "PREVYSHENIE_AVTORIZACII",
+      "chto_podlozheno": "последний визит недели продлён на 30 минут, выставлено на 2 единицы больше лимита авторизации"
+    },
+    {
+      "vizit_id": "V-10191",
+      "pravilo": "NET_PRIHODA",
+      "chto_podlozheno": "стёрты Visit Start Time, EVV Start Time и место прихода"
+    },
+    {
+      "vizit_id": "V-10192",
+      "pravilo": "PREVYSHENIE_AVTORIZACII",
+      "chto_podlozheno": "последний визит недели продлён на 30 минут, выставлено на 2 единицы больше лимита авторизации"
+    },
+    {
+      "vizit_id": "V-10206",
+      "pravilo": "EDINICY_BOLSHE_VREMENI",
+      "chto_podlozheno": "Units Billed больше времени визита на 3 единицы"
+    },
+    {
+      "vizit_id": "V-10217",
+      "pravilo": "NET_UHODA",
+      "chto_podlozheno": "стёрты Visit End Time, EVV End Time и место ухода (сиделка забыла отметиться)"
+    },
+    {
+      "vizit_id": "V-10221",
+      "pravilo": "VNE_DAT_AVTORIZACII",
+      "chto_podlozheno": "визит 2026-10-09 после конца авторизации 08.10 (расписание не обновили)"
+    },
+    {
+      "vizit_id": "V-10225",
+      "pravilo": "PERESECHENIE",
+      "chto_podlozheno": "приход сдвинут на 30 минут раньше конца визита V-10196 той же сиделки"
+    },
+    {
+      "vizit_id": "V-10234",
+      "pravilo": "PRAVKA_BEZ_PRICHINY",
+      "chto_podlozheno": "Visit Start Time сдвинут на 40 минут раньше EVV Start Time, кода причины нет"
+    },
+    {
+      "vizit_id": "V-10238",
+      "pravilo": "VNE_DAT_AVTORIZACII",
+      "chto_podlozheno": "визит 2026-10-10 после конца авторизации 08.10 (расписание не обновили)"
+    },
+    {
+      "vizit_id": "V-10240",
+      "pravilo": "NET_POLUCHATELYA",
+      "chto_podlozheno": "стёрты Member ID и Medicaid Number"
+    },
+    {
+      "vizit_id": "V-10241",
+      "pravilo": "NET_PRIHODA",
+      "chto_podlozheno": "стёрты Visit Start Time, EVV Start Time и место прихода"
+    },
+    {
+      "vizit_id": "V-19001",
+      "pravilo": "PERESECHENIE",
+      "chto_podlozheno": "дубль визита V-10182 под новым Visit ID"
+    },
+    {
+      "vizit_id": "V-19002",
+      "pravilo": "VNE_RASPISANIYA",
+      "chto_podlozheno": "визит 2026-10-10 15:00–17:00 у клиента CL-049, в этот день смен в расписании нет"
+    }
+  ]
+}

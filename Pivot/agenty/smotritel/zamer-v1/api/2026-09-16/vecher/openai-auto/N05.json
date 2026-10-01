@@ -1,0 +1,564 @@
+{
+ "vopros_id": "N05",
+ "vopros": "спросила у нейросети кто лучший косметолог в лос анджелесе и меня там нет. как сделать чтобы нейросети меня советовали?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "openai",
+ "rezhim": "auto",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "vecher",
+ "den": "2026-09-16",
+ "vne_okna": false,
+ "zapusk_id": "20260916-190009-84063",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-16T19:04:26-07:00",
+   "zapusk_id": "20260916-190009-84063",
+   "cena": 0.04718,
+   "ishod": "ok",
+   "sekund": 13.2,
+   "meta": {
+    "date": "Thu, 17 Sep 2026 02:04:39 GMT",
+    "x-request-id": "req_5c544fd7c1de488ba539b74cf60acba3",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "12983"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да, на это можно системно повлиять. Это направление обычно называют GEO/AEO — оптимизация присутствия бренда в ответах ChatGPT, Google AI и других нейросетей. Но «зарегистрироваться в ChatGPT как лучший косметолог» нельзя: рекомендации формируются из доступной информации и сигналов доверия/релевантности, и позиция не гарантируется. OpenAI прямо пишет, что публичные сайты могут попадать в ChatGPT Search, если доступны его поисковому роботу. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nДля косметолога в Лос-Анджелесе я бы работал в 5 направлениях:\n\n- Сделать так, чтобы в интернете была однозначная сущность «Имя Фамилия — esthetician/cosmetologist in Los Angeles»: одинаковое имя, специализация, район, сайт и контакты во всех профилях.\n- Максимально прокачать Google Business Profile: правильная категория, услуги, фотографии, адрес/зона обслуживания и реальные отзывы. Google подтверждает, что локальная выдача зависит в том числе от релевантности и известности бизнеса, а количество и качество отзывов могут влиять на локальный рейтинг. ([support.google.com](https://support.google.com/business/answer/7091?hl=en&utm_source=openai))\n- Сделать собственный сайт не просто визиткой. Нужны отдельные страницы вроде “Esthetician in Los Angeles”, “Acne Facial Los Angeles”, “Hydrafacial / Microneedling / [твоя специализация] Los Angeles” и страница About с твоим именем, квалификацией, опытом и локацией. На сайт стоит добавить структурированные данные LocalBusiness/Organization — Google сам рекомендует такую разметку, чтобы лучше понимать бизнес. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru&utm_source=openai))\n- Добиваться упоминаний не только на собственных площадках. Для AI особенно полезно, когда независимые сайты подтверждают, кто ты и чем известна: локальные LA-медиа, профильные каталоги, интервью, подборки специалистов, Yelp и другие авторитетные площадки. Это намного сильнее, чем написать на своем сайте «я лучший косметолог».\n- Проверить техническую доступность сайта для AI. В частности, не блокировать `OAI-SearchBot`, иначе контент сайта может не попадать в summaries/snippets ChatGPT Search. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nИ важный момент: не надо пытаться оптимизироваться только под запрос «кто лучший косметолог в Лос-Анджелесе». Гораздо реалистичнее сначала начать появляться в более конкретных рекомендациях: «best esthetician for acne in Los Angeles», «Russian speaking esthetician LA», «best facial in West Hollywood», «cosmetologist for sensitive skin LA» и т. п. — в зависимости от того, в чем именно ты сильна.\n\nПричем в 2026 году Google прямо говорит, что для его generative-AI результатов фундаментом по-прежнему служат обычные SEO-практики, качественный оригинальный контент и корректная локальная информация; отдельной магической «AI-разметки» для попадания в ответы нет. ([developers.google.com](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai))\n\nЕсли хочешь, могу сделать это предметно: пришли мне свое имя/название бизнеса, сайт и Instagram (если есть). Я поищу тебя так, как тебя сейчас видят ChatGPT/Google, сравню с косметологами, которых нейросети действительно рекомендуют в Los Angeles, и дам конкретный план: что изменить на сайте, какие страницы создать, где получить упоминания и какие запросы занять первыми.",
+  "poiskovye_zaprosy": [
+   "site:developers.google.com/search local business structured data Google Business Profile AI search recommendations official",
+   "site:support.google.com/business improve local ranking Google Business Profile official",
+   "site:platform.openai.com OAI-SearchBot ChatGPT search publisher official",
+   "site:help.openai.com publishers developers OAI-SearchBot ChatGPT search official",
+   "site:openai.com OAI-SearchBot ChatGPT search official"
+  ],
+  "poiskovyh_zaprosov": 5,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru",
+    "domen": "developers.google.com",
+    "title": "Структурированные данные для местных компаний (LocalBusiness) | Центр Google Поиска  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://support.google.com/business/answer/7091?hl=en",
+    "domen": "support.google.com",
+    "title": "Tips to improve your local ranking on Google - Google Business Profile Help"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?authuser=77",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/organization?authuser=19",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/help/site-appearance-faq",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2014/04/surfacing-your-businesss-contact-and",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://support.google.com/business/answer/145585?hl=en",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing",
+    "domen": "developers.google.com",
+    "title": "A new resource for optimizing for generative AI in Google Search  |  Google Search Central Blog  |  Google for Developers"
+   },
+   {
+    "url": "https://support.google.com/business/answer/15691556?hl=en",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://support.google.com/business/thread/460594182/how-can-i-improve-my-google-business-profile-visibility",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://support.google.com/business/answer/13682007",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/business-communications/business-messages/files/business-messages-two-pager.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/business-communications/business-messages/files/federal-bank-case-study.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/business-communications/business-messages/files/tango-technology-case-study.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/business-communications/business-messages/files/how-smart-communication-tools-drive-business-results.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/static/business-communications/business-messages/files/federal-bank-case-study.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/9237897-chatgpt-search",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/uk-ua/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ar/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/12627856-%D0%B8%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B8-%D0%B8-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B8-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B8-%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%8B",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://openai.com/index/introducing-chatgpt-search",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/es-419/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/fa-ir/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ml-in/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/zh-hans-cn/articles/12627856-%E5%8F%91%E5%B8%83%E5%95%86%E5%92%8C%E5%BC%80%E5%8F%91%E8%80%85-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/fr-fr/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/12082a3a-1a59-4bb9-b3e2-08a8c65849b0/OAI_California-Impact_Aug-2025.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://support.google.com/business/answer/7091?hl=en",
+    "domen": "support.google.com",
+    "title": "Tips to improve your local ranking on Google - Google Business Profile Help"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru",
+    "domen": "developers.google.com",
+    "title": "Структурированные данные для местных компаний (LocalBusiness) | Центр Google Поиска  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing",
+    "domen": "developers.google.com",
+    "title": "A new resource for optimizing for generative AI in Google Search  |  Google Search Central Blog  |  Google for Developers"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 14784,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 870,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 15654
+  },
+  "cena": 0.04718,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_063d91e2155aaf79006aab4aaaede087d09509583c9172c779",
+  "object": "response",
+  "created_at": 1789610666,
+  "status": "completed",
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1789610679,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_063d91e2155aaf79006aab4aab8d0487d08dee94fb4d65d20e",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "site:developers.google.com/search local business structured data Google Business Profile AI search recommendations official",
+      "site:support.google.com/business improve local ranking Google Business Profile official",
+      "site:platform.openai.com OAI-SearchBot ChatGPT search publisher official"
+     ],
+     "query": "site:developers.google.com/search local business structured data Google Business Profile AI search recommendations official",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/7091?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?authuser=77"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/organization?authuser=19"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/help/site-appearance-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2014/04/surfacing-your-businesss-contact-and"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/145585?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/15691556?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/thread/460594182/how-can-i-improve-my-google-business-profile-visibility"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/13682007"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/business-communications/business-messages/files/business-messages-two-pager.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/business-communications/business-messages/files/federal-bank-case-study.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/business-communications/business-messages/files/tango-technology-case-study.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/business-communications/business-messages/files/how-smart-communication-tools-drive-business-results.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/static/business-communications/business-messages/files/federal-bank-case-study.pdf"
+      }
+     ]
+    }
+   },
+   {
+    "id": "ws_063d91e2155aaf79006aab4aae51c887d0bebf96f01e15e504",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "site:help.openai.com publishers developers OAI-SearchBot ChatGPT search official",
+      "site:openai.com OAI-SearchBot ChatGPT search official"
+     ],
+     "query": "site:help.openai.com publishers developers OAI-SearchBot ChatGPT search official",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/9237897-chatgpt-search"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/uk-ua/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ar/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/12627856-%D0%B8%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B8-%D0%B8-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B8-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%B8-%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%8B"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/index/introducing-chatgpt-search/"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/es-419/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/fa-ir/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ml-in/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/zh-hans-cn/articles/12627856-%E5%8F%91%E5%B8%83%E5%95%86%E5%92%8C%E5%BC%80%E5%8F%91%E8%80%85-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/fr-fr/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/12082a3a-1a59-4bb9-b3e2-08a8c65849b0/OAI_California-Impact_Aug-2025.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/7091?hl=en&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_063d91e2155aaf79006aab4ab2428c87d08b40d02c3982762d",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 527,
+        "start_index": 444,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1180,
+        "start_index": 1085,
+        "title": "Tips to improve your local ranking on Google - Google Business Profile Help",
+        "url": "https://support.google.com/business/answer/7091?hl=en&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1727,
+        "start_index": 1593,
+        "title": "Структурированные данные для местных компаний (LocalBusiness) | Центр Google Поиска  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2310,
+        "start_index": 2227,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 3099,
+        "start_index": 2975,
+        "title": "A new resource for optimizing for generative AI in Google Search  |  Google Search Central Blog  |  Google for Developers",
+        "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да, на это можно системно повлиять. Это направление обычно называют GEO/AEO — оптимизация присутствия бренда в ответах ChatGPT, Google AI и других нейросетей. Но «зарегистрироваться в ChatGPT как лучший косметолог» нельзя: рекомендации формируются из доступной информации и сигналов доверия/релевантности, и позиция не гарантируется. OpenAI прямо пишет, что публичные сайты могут попадать в ChatGPT Search, если доступны его поисковому роботу. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nДля косметолога в Лос-Анджелесе я бы работал в 5 направлениях:\n\n- Сделать так, чтобы в интернете была однозначная сущность «Имя Фамилия — esthetician/cosmetologist in Los Angeles»: одинаковое имя, специализация, район, сайт и контакты во всех профилях.\n- Максимально прокачать Google Business Profile: правильная категория, услуги, фотографии, адрес/зона обслуживания и реальные отзывы. Google подтверждает, что локальная выдача зависит в том числе от релевантности и известности бизнеса, а количество и качество отзывов могут влиять на локальный рейтинг. ([support.google.com](https://support.google.com/business/answer/7091?hl=en&utm_source=openai))\n- Сделать собственный сайт не просто визиткой. Нужны отдельные страницы вроде “Esthetician in Los Angeles”, “Acne Facial Los Angeles”, “Hydrafacial / Microneedling / [твоя специализация] Los Angeles” и страница About с твоим именем, квалификацией, опытом и локацией. На сайт стоит добавить структурированные данные LocalBusiness/Organization — Google сам рекомендует такую разметку, чтобы лучше понимать бизнес. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru&utm_source=openai))\n- Добиваться упоминаний не только на собственных площадках. Для AI особенно полезно, когда независимые сайты подтверждают, кто ты и чем известна: локальные LA-медиа, профильные каталоги, интервью, подборки специалистов, Yelp и другие авторитетные площадки. Это намного сильнее, чем написать на своем сайте «я лучший косметолог».\n- Проверить техническую доступность сайта для AI. В частности, не блокировать `OAI-SearchBot`, иначе контент сайта может не попадать в summaries/snippets ChatGPT Search. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nИ важный момент: не надо пытаться оптимизироваться только под запрос «кто лучший косметолог в Лос-Анджелесе». Гораздо реалистичнее сначала начать появляться в более конкретных рекомендациях: «best esthetician for acne in Los Angeles», «Russian speaking esthetician LA», «best facial in West Hollywood», «cosmetologist for sensitive skin LA» и т. п. — в зависимости от того, в чем именно ты сильна.\n\nПричем в 2026 году Google прямо говорит, что для его generative-AI результатов фундаментом по-прежнему служат обычные SEO-практики, качественный оригинальный контент и корректная локальная информация; отдельной магической «AI-разметки» для попадания в ответы нет. ([developers.google.com](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai))\n\nЕсли хочешь, могу сделать это предметно: пришли мне свое имя/название бизнеса, сайт и Instagram (если есть). Я поищу тебя так, как тебя сейчас видят ChatGPT/Google, сравню с косметологами, которых нейросети действительно рекомендуют в Los Angeles, и дам конкретный план: что изменить на сайте, какие страницы создать, где получить упоминания и какие запросы занять первыми."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 2
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 14784,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4352
+   },
+   "output_tokens": 870,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 15654
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

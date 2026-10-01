@@ -1,0 +1,44 @@
+{
+  "opisanie": "SPEC 7.1 №23 + крайний случай 10. Чат начал сам владелец: status lichnyy, Вера здесь не участвует, текст не храним.",
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    }
+  },
+  "update": {
+    "update_id": 1023,
+    "business_message": {
+      "message_id": 500,
+      "from": {
+        "id": 7000,
+        "is_bot": false,
+        "first_name": "Business Intelligence DNA",
+        "username": "business_int_dna"
+      },
+      "chat": {
+        "id": 5004,
+        "type": "private",
+        "first_name": "Сергей"
+      },
+      "date": "@unix",
+      "business_connection_id": "bc-test-1",
+      "text": "Серёга, привет, как дела на даче?"
+    }
+  },
+  "ozhidaem": {
+    "net_tg": true,
+    "model_vyzovov": 0,
+    "meta_chat": 5004,
+    "meta_status": "lichnyy",
+    "tekst_ne_hranitsya": [
+      "на даче"
+    ]
+  }
+}

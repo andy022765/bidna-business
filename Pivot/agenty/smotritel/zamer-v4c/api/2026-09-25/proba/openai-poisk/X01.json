@@ -1,0 +1,489 @@
+{
+ "vopros_id": "X01",
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v4c-zamena-shestomu",
+ "otpechatok": "5dd6a25606d1",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "proba",
+ "den": "2026-09-25",
+ "vne_okna": false,
+ "zapusk_id": "20260925-120613-33764",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-25T12:06:13-07:00",
+   "zapusk_id": "20260925-120613-33764",
+   "cena": 0.02618,
+   "ishod": "ok",
+   "sekund": 6.1,
+   "meta": {
+    "date": "Fri, 25 Sep 2026 19:06:19 GMT",
+    "x-request-id": "req_766e9cfe4fe8437e910ae77bda5048f1",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "5708"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. Вам нужен специалист по Technical SEO / GEO (Generative Engine Optimization, иногда AEO), который умеет работать именно с AI-crawlers. Обычный SEO-специалист не всегда это проверяет.\n\nДля того чтобы компания могла попадать в ответы ChatGPT, Claude, Perplexity, Gemini и Copilot, недостаточно просто «открыть сайт для ИИ». Нужно проверить как минимум robots.txt, настройки CDN/Cloudflare/WAF, HTTP-ответы для AI-ботов, sitemap и индексирование. Например, для ChatGPT важны отдельные краулеры OAI-SearchBot и ChatGPT-User; доступ GPTBot — это другой вопрос. ([rankveo.com](https://rankveo.com/tools/ai-crawler-audit/?utm_source=openai))\n\nЯ могу сделать первичную проверку сам. Пришлите адрес сайта (например, `https://example.com`), и я проверю снаружи:\n- какие AI-роботы закрыты;\n- robots.txt и sitemap;\n- возможные блокировки ChatGPT/Perplexity/Claude/Google/Bing;\n- что именно нужно изменить вашему веб-разработчику;\n- и отдельно — есть ли уже признаки того, что нейросети находят вашу компанию.\n\nПосле этого будет понятно, нужен ли вообще платный специалист или проблема решается одной настройкой.",
+  "poiskovye_zaprosy": [
+   "AI crawler access website robots.txt ChatGPT Google Gemini Bing Copilot audit service United States"
+  ],
+  "poiskovyh_zaprosov": 1,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://rankveo.com/tools/ai-crawler-audit",
+    "domen": "rankveo.com",
+    "title": "AI crawler audit — free | Rankveo"
+   },
+   {
+    "url": "https://searchbeyondgoogle.com/tools/ai-bot-access-tester",
+    "domen": "searchbeyondgoogle.com",
+    "title": null
+   },
+   {
+    "url": "https://tryprefer.com/tools/crawler-access-checker",
+    "domen": "tryprefer.com",
+    "title": null
+   },
+   {
+    "url": "https://rankthispage.com/ai-crawler-checker",
+    "domen": "rankthispage.com",
+    "title": null
+   },
+   {
+    "url": "https://www.aergos.ai/tools/ai-visibility-audit",
+    "domen": "aergos.ai",
+    "title": null
+   },
+   {
+    "url": "https://seonix.ai/tools/ai-crawler-checker",
+    "domen": "seonix.ai",
+    "title": null
+   },
+   {
+    "url": "https://edenrank.com/ai-access",
+    "domen": "edenrank.com",
+    "title": null
+   },
+   {
+    "url": "https://www.liscu.com",
+    "domen": "liscu.com",
+    "title": null
+   },
+   {
+    "url": "https://getvisibai.com/tools/ai-crawler-checker",
+    "domen": "getvisibai.com",
+    "title": null
+   },
+   {
+    "url": "https://tryaivisibility.com/tools/ai-crawler-check",
+    "domen": "tryaivisibility.com",
+    "title": null
+   },
+   {
+    "url": "https://deployradar.dev",
+    "domen": "deployradar.dev",
+    "title": null
+   },
+   {
+    "url": "https://auditlamp.com/tools/ai-crawler-access",
+    "domen": "auditlamp.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2607.14447",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://people.cs.uchicago.edu/~ravenben/publications/pdf/crawlers-imc25.pdf",
+    "domen": "people.cs.uchicago.edu",
+    "title": null
+   },
+   {
+    "url": "https://vizamax.com/api/sample-report",
+    "domen": "vizamax.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2604.27790",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2510.10315",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/GEO_optimization/comments/1wgzhu0/i_analysed_the_robotstxt_of_9891_french_websites",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1u2eqo0/each_ai_agent_crawls_website_completely",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1vi78ao/ai_bots_allowed_in_robotstxt_full_prerendered",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1rps36i/i_built_a_free_tool_that_checks_if_your_website",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AISearchLab/comments/1w3s2z1/how_to_check_which_ai_assistants_are_reading_your",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/ChatGPT/comments/1u3694b/each_ai_crawls_website_completely_differently",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/aeo/comments/1vsr4er/we_blocked_a_page_in_robotstxt_then_asked_8_ai",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/TechSEO/comments/1s9l4be/we_tested_whether_ai_crawlers_can_actually_read",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/LLMTraffic/comments/1u3613w/each_ai_crawls_website_completely_differently",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.airfleet.co/wp-content/uploads/2025/07/The-Future-of-GenAI-Search-and-Discoverability-compressed.pdf",
+    "domen": "airfleet.co",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AISearchLab/comments/1vy3vni/i_pulled_robotstxt_from_72_companies_to_see_who",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/Agentic_SEO/comments/1u2lf07/each_ai_agent_crawls_website_completely",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2510.09031",
+    "domen": "arxiv.org",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://rankveo.com/tools/ai-crawler-audit",
+    "domen": "rankveo.com",
+    "title": "AI crawler audit — free | Rankveo"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10674,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 284,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 10958
+  },
+  "cena": 0.02618,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0569d15b6f740519006ab6c625e32887d086ceaf28f377e5b2",
+  "object": "response",
+  "created_at": 1790363173,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790363179,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_0569d15b6f740519006ab6c626a17c87d08755d9f9fbcfb8bc",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "AI crawler access website robots.txt ChatGPT Google Gemini Bing Copilot audit service United States"
+     ],
+     "query": "AI crawler access website robots.txt ChatGPT Google Gemini Bing Copilot audit service United States",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://rankveo.com/tools/ai-crawler-audit/"
+      },
+      {
+       "type": "url",
+       "url": "https://searchbeyondgoogle.com/tools/ai-bot-access-tester/"
+      },
+      {
+       "type": "url",
+       "url": "https://tryprefer.com/tools/crawler-access-checker/"
+      },
+      {
+       "type": "url",
+       "url": "https://rankthispage.com/ai-crawler-checker"
+      },
+      {
+       "type": "url",
+       "url": "https://www.aergos.ai/tools/ai-visibility-audit"
+      },
+      {
+       "type": "url",
+       "url": "https://seonix.ai/tools/ai-crawler-checker"
+      },
+      {
+       "type": "url",
+       "url": "https://edenrank.com/ai-access"
+      },
+      {
+       "type": "url",
+       "url": "https://www.liscu.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://getvisibai.com/tools/ai-crawler-checker"
+      },
+      {
+       "type": "url",
+       "url": "https://tryaivisibility.com/tools/ai-crawler-check"
+      },
+      {
+       "type": "url",
+       "url": "https://deployradar.dev/"
+      },
+      {
+       "type": "url",
+       "url": "https://auditlamp.com/tools/ai-crawler-access"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2607.14447"
+      },
+      {
+       "type": "url",
+       "url": "https://people.cs.uchicago.edu/~ravenben/publications/pdf/crawlers-imc25.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://vizamax.com/api/sample-report"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2604.27790"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2510.10315"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/GEO_optimization/comments/1wgzhu0/i_analysed_the_robotstxt_of_9891_french_websites/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AI_Agents/comments/1u2eqo0/each_ai_agent_crawls_website_completely/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1vi78ao/ai_bots_allowed_in_robotstxt_full_prerendered/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1rps36i/i_built_a_free_tool_that_checks_if_your_website/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AISearchLab/comments/1w3s2z1/how_to_check_which_ai_assistants_are_reading_your/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/ChatGPT/comments/1u3694b/each_ai_crawls_website_completely_differently/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/aeo/comments/1vsr4er/we_blocked_a_page_in_robotstxt_then_asked_8_ai/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/TechSEO/comments/1s9l4be/we_tested_whether_ai_crawlers_can_actually_read/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/LLMTraffic/comments/1u3613w/each_ai_crawls_website_completely_differently/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.airfleet.co/wp-content/uploads/2025/07/The-Future-of-GenAI-Search-and-Discoverability-compressed.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AISearchLab/comments/1vy3vni/i_pulled_robotstxt_from_72_companies_to_see_who/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/Agentic_SEO/comments/1u2lf07/each_ai_agent_crawls_website_completely/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2510.09031"
+      },
+      {
+       "type": "url",
+       "url": "https://rankveo.com/tools/ai-crawler-audit/?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_0569d15b6f740519006ab6c62a1dd487d0bf4aa0563fda4f5a",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 638,
+        "start_index": 560,
+        "title": "AI crawler audit — free | Rankveo",
+        "url": "https://rankveo.com/tools/ai-crawler-audit/?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да. Вам нужен специалист по Technical SEO / GEO (Generative Engine Optimization, иногда AEO), который умеет работать именно с AI-crawlers. Обычный SEO-специалист не всегда это проверяет.\n\nДля того чтобы компания могла попадать в ответы ChatGPT, Claude, Perplexity, Gemini и Copilot, недостаточно просто «открыть сайт для ИИ». Нужно проверить как минимум robots.txt, настройки CDN/Cloudflare/WAF, HTTP-ответы для AI-ботов, sitemap и индексирование. Например, для ChatGPT важны отдельные краулеры OAI-SearchBot и ChatGPT-User; доступ GPTBot — это другой вопрос. ([rankveo.com](https://rankveo.com/tools/ai-crawler-audit/?utm_source=openai))\n\nЯ могу сделать первичную проверку сам. Пришлите адрес сайта (например, `https://example.com`), и я проверю снаружи:\n- какие AI-роботы закрыты;\n- robots.txt и sitemap;\n- возможные блокировки ChatGPT/Perplexity/Claude/Google/Bing;\n- что именно нужно изменить вашему веб-разработчику;\n- и отдельно — есть ли уже признаки того, что нейросети находят вашу компанию.\n\nПосле этого будет понятно, нужен ли вообще платный специалист или проблема решается одной настройкой."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10674,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 284,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 10958
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

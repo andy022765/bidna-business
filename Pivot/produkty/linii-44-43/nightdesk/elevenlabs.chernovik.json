@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "chto": "ЧЕРНОВИК агентов ElevenLabs NightDesk DEMO (№43). НИЧЕГО НЕ СОЗДАНО: ни агентов, ни инструментов, ни секрета (задание 30.09: «агентов в ElevenLabs не создавать, прогонов не запускать»). Создаёт сборщик агентов №43 по образцу care/sborka_agentov.py, когда до №43 дойдёт очередь (план: после демо №44).",
+    "data": "2026-09-30",
+    "obrazec": "care/elevenlabs.json (CareLine): те же модель, голос, ASR, тайминги, раскрытие, privacy.record_voice false"
+  },
+  "sekret": {
+    "imya_v_elevenlabs": "nightdesk_demo_x_liniya_klyuch",
+    "secret_id": null,
+    "zagolovok": "x-liniya-klyuch",
+    "znachenie": "новое случайное значение → ~/.bidna-golos.env NIGHTDESK_DEMO_LINIYA_KLYUCH (в Drive значения нет); на стенде — та же переменная",
+    "posle_sozdaniya": "заменить ZAPOLNIT_secret_id_nightdesk_demo_x_liniya_klyuch во всех nightdesk/instrumenty/*.json на настоящий secret_id"
+  },
+  "instrumenty": {
+    "nayti_zhilca": { "imya": "nayti_zhilca_nightdesk_demo", "funkciya": "nd-zhilec", "fayl": "instrumenty/nayti_zhilca.json", "id": null },
+    "sortirovka": { "imya": "sortirovka_nightdesk_demo", "funkciya": "nd-sortirovka", "fayl": "instrumenty/sortirovka.json", "id": null },
+    "perevod": { "imya": "perevod_nightdesk_demo", "funkciya": "nd-perevod", "fayl": "instrumenty/perevod.json", "id": null },
+    "sozdat_zayavku": { "imya": "sozdat_zayavku_nightdesk_demo", "funkciya": "nd-zayavka", "fayl": "instrumenty/sozdat_zayavku.json", "id": null },
+    "svobodnye_okna": { "imya": "svobodnye_okna_nightdesk_demo", "funkciya": "okna", "fayl": "instrumenty/svobodnye_okna.json", "id": null },
+    "zapisat_pokaz": { "imya": "zapisat_pokaz_nightdesk_demo", "funkciya": "zapis", "fayl": "instrumenty/zapisat_pokaz.json", "id": null },
+    "sohranit_lida": { "imya": "sohranit_lida_nightdesk_demo", "funkciya": "nd-lid", "fayl": "instrumenty/sohranit_lida.json", "id": null },
+    "otpravit_ssylku": { "imya": "otpravit_ssylku_nightdesk_demo", "funkciya": "nd-ssylka", "fayl": "instrumenty/otpravit_ssylku.json", "id": null }
+  },
+  "agenty": {
+    "nd-after-hours": {
+      "imya": "NightDesk DEMO · Resident line",
+      "agent_id": null,
+      "prompty": { "en": "prompty/after-hours.en.md", "es": "prompty/after-hours.es.md (language_presets.es)" },
+      "pervaya_fraza": "prompty/pervye-frazy.json → nd-after-hours",
+      "instrumenty": ["nayti_zhilca_nightdesk_demo", "sortirovka_nightdesk_demo", "perevod_nightdesk_demo", "sozdat_zayavku_nightdesk_demo"],
+      "sistemnye": ["end_call", "language_detection", "transfer_to_agent → nd-leasing"],
+      "max_duration_seconds": 420,
+      "data_collection": {
+        "namerenie": "ugroza | avaria | zayavka | vopros_zhilca | soobshchenie | lizing | spam | drugoe",
+        "itog": "одной фразой по-английски, что случилось и что сделано",
+        "kratko": "2–3 фразы для утренней сводки",
+        "imya": "как продиктовано, латиницей",
+        "telefon": "E.164 для перезвона",
+        "dom": "tidewater | seawell | kestrel | ne_znayu",
+        "kvartira": "как подтверждено",
+        "soobshchenie": "сообщение офису одной фразой, если было",
+        "sms_soglasie": "true только при ясном «да»",
+        "yazyk": "en | es"
+      }
+    },
+    "nd-leasing": {
+      "imya": "NightDesk DEMO · Leasing",
+      "agent_id": null,
+      "prompty": { "en": "prompty/leasing.en.md", "es": "prompty/leasing.es.md (language_presets.es)" },
+      "pervaya_fraza": "prompty/pervye-frazy.json → nd-leasing",
+      "instrumenty": ["svobodnye_okna_nightdesk_demo", "zapisat_pokaz_nightdesk_demo", "otpravit_ssylku_nightdesk_demo", "sohranit_lida_nightdesk_demo", "perevod_nightdesk_demo"],
+      "sistemnye": ["end_call", "language_detection", "transfer_to_agent → nd-after-hours"],
+      "max_duration_seconds": 480,
+      "data_collection": {
+        "namerenie": "pokaz | vopros_ob_obyavlenii | zayavka_na_arendu | soobshchenie | zhilec | ugroza | spam | drugoe",
+        "itog": "одной фразой по-английски",
+        "kratko": "2–3 фразы для утренней сводки — БЕЗ личного (дети, ваучеры, доход, возраст, происхождение)",
+        "imya": "как продиктовано, латиницей",
+        "telefon": "E.164",
+        "obyavleniya": "коды объявлений через запятую",
+        "voprosy_bez_otveta": "вопросы об объектах, на которые не было ответа",
+        "soobshchenie": "сообщение офису лизинга, если было",
+        "sms_soglasie": "true только при ясном «да»",
+        "yazyk": "en | es"
+      }
+    }
+  },
+  "obshchee": {
+    "llm": "как CareLine: gemini-2.5-flash, temperature 0.2, max_tokens 600, thinking_budget 0; запасная gpt-4.1-mini",
+    "golos": "Sarah; en — eleven_flash_v2, es — eleven_flash_v2_5 (пресет)",
+    "asr": "scribe_realtime, quality high; keywords: Harbor Row, Tidewater, Seawell, Kestrel, CityFHEPS, HASA, Section 8",
+    "vremya": "prompt.timezone America/New_York + {{system__time}}; ofis_seychas и kalendar — от стенда (vhod / nachalo), как у CareLine",
+    "zapis_zvuka": "privacy.record_voice false — пишется только текст; в первой фразе «recorded as a text transcript»",
+    "vebhuk_itoga": "свой post-call на стенд (itog), не вебхук Веры",
+    "limity": "одновременно 4, в сутки 300; веб-вход закрыт",
+    "prompt_peredat_sistemnye": "system__caller_id, system__call_sid, system__conversation_id, system__current_agent_id — dynamic_variable в телах (модель их не заполняет)"
+  }
+}

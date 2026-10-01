@@ -1,0 +1,330 @@
+<title>Пять инструментов, которые заменяют отдел</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Literata:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F6F8F5; --surface:#FFFFFF; --ink:#14181C; --ink-2:#3A443E;
+  --muted:#5B665F; --rule:#DDE3DD; --rule-soft:#EBEFEA;
+  --accent:#17795A; --accent-soft:#E6F1EB; --shadow:14 24 18;
+  --measure:37rem; --wide:60rem;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0F1211; --surface:#161A17; --ink:#E7EBE6; --ink-2:#C3CBC5;
+  --muted:#95A099; --rule:#272D29; --rule-soft:#1C211E;
+  --accent:#55C79A; --accent-soft:#16281F; --shadow:0 0 0;
+}}
+:root[data-theme="dark"]{
+  --ground:#0F1211; --surface:#161A17; --ink:#E7EBE6; --ink-2:#C3CBC5;
+  --muted:#95A099; --rule:#272D29; --rule-soft:#1C211E;
+  --accent:#55C79A; --accent-soft:#16281F; --shadow:0 0 0;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font:400 1.0625rem/1.72 Literata,Georgia,"Times New Roman",serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  padding:0 1.25rem 6rem;
+}
+.wrap{max-width:var(--wide); margin:0 auto}
+article{display:flex; flex-direction:column}
+section{display:flex; flex-direction:column; gap:1.15rem; max-width:var(--measure);
+  margin:0 auto; width:100%; padding:0}
+section+section{margin-top:3.25rem}
+p{margin:0; text-wrap:pretty}
+strong{font-weight:600; color:var(--ink)}
+code{font:500 .88em/1 "IBM Plex Mono",ui-monospace,monospace;
+  background:var(--accent-soft); color:var(--accent);
+  padding:.12em .38em; border-radius:3px; word-break:break-all}
+hr{border:0; height:1px; background:var(--rule); max-width:var(--measure);
+  width:100%; margin:2.75rem auto 0}
+a{color:var(--accent); text-underline-offset:.18em}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+/* шапка */
+.masthead{max-width:var(--wide); margin:0 auto; padding:2.5rem 0 0;
+  display:flex; gap:.6rem; align-items:baseline; flex-wrap:wrap;
+  font:500 .7rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.masthead b{color:var(--ink); font-weight:600}
+.masthead span{color:var(--rule)}
+.hero{max-width:var(--wide); margin:0 auto; padding:1.5rem 0 0; display:block}
+h1{
+  font:600 clamp(2rem,5.2vw,3.4rem)/1.1 Fraunces,Georgia,serif;
+  font-variation-settings:"SOFT" 8,"WONK" 1,"opsz" 96;
+  letter-spacing:-.022em; margin:0; text-wrap:balance; max-width:19ch;
+}
+h1 .sum{color:var(--accent); font-variant-numeric:tabular-nums; white-space:nowrap}
+
+/* заголовки */
+h2{font:600 clamp(1.45rem,3vw,1.95rem)/1.2 Fraunces,Georgia,serif;
+  font-variation-settings:"SOFT" 6,"WONK" 1,"opsz" 40;
+  letter-spacing:-.014em; margin:0; text-wrap:balance}
+h3{font:600 1.08rem/1.35 Fraunces,Georgia,serif; font-variation-settings:"opsz" 20;
+  margin:1.1rem 0 -.35rem; letter-spacing:-.005em}
+
+/* блок инструмента */
+.tool-head{display:grid; grid-template-columns:auto 1fr; gap:.35rem 1rem;
+  align-items:baseline; padding-bottom:.9rem; border-bottom:2px solid var(--ink)}
+.tool-num{font:600 .82rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.1em; color:var(--accent); padding-top:.42em}
+.tool-price{grid-column:2; font:500 .82rem/1.4 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--muted); letter-spacing:.02em}
+
+/* цитаты */
+blockquote{margin:.35rem 0; padding:0 0 0 1.15rem; border-left:2px solid var(--accent);
+  color:var(--ink-2); font-style:italic}
+blockquote p{font-size:1.02rem}
+
+/* списки */
+ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.6rem}
+ul li{padding-left:1.15rem; position:relative}
+ul li::before{content:""; position:absolute; left:0; top:.72em; width:.5rem; height:1px;
+  background:var(--accent)}
+
+/* паспорт инструмента */
+.spec{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:.6rem 0 0;
+  background:var(--rule); border:1px solid var(--rule); border-radius:2px; overflow:hidden}
+.spec>div{background:var(--surface); padding:.85rem .95rem; display:flex;
+  flex-direction:column; gap:.3rem}
+.spec dt{font:500 .66rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.spec dd{margin:0; font-size:.88rem; line-height:1.5; color:var(--ink-2)}
+@media (max-width:620px){.spec{grid-template-columns:1fr}}
+
+/* доказательства */
+figure{margin:1.6rem 0; display:flex; flex-direction:column; gap:.6rem;
+  width:min(var(--wide),calc(100vw - 2.5rem));
+  margin-left:50%; transform:translateX(-50%)}
+figure.tbl{width:min(44rem,calc(100vw - 2.5rem))}
+figure img{display:block; width:100%; height:auto; border:1px solid var(--rule);
+  border-radius:3px; background:var(--surface)}
+.shots{display:flex; flex-direction:column; gap:.75rem}
+.shots.pair,.shots.trio{display:grid; gap:.75rem}
+.shots.pair{grid-template-columns:1fr}
+.shots.trio{grid-template-columns:repeat(3,1fr)}
+.shots.trio img{object-fit:cover; object-position:top; aspect-ratio:3/4}
+@media (max-width:640px){.shots.trio{grid-template-columns:1fr}
+  .shots.trio img{aspect-ratio:auto}}
+figcaption{font:400 .78rem/1.5 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--muted); letter-spacing:.005em}
+
+/* таблица замеров */
+.zamery{width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums;
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:.82rem}
+.zamery caption{caption-side:bottom; padding-top:.7rem; text-align:left;
+  color:var(--muted); font-size:.78rem; line-height:1.5}
+.zamery th{text-align:left; font-weight:500; color:var(--muted); padding:0 .8rem .5rem 0;
+  border-bottom:1px solid var(--rule); font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; white-space:nowrap}
+.zamery td{padding:.62rem .8rem .62rem 0; border-bottom:1px solid var(--rule-soft)}
+.zamery tr:last-child td{border-bottom:1px solid var(--rule)}
+.zamery .n{white-space:nowrap; color:var(--ink)}
+.zamery .p{text-align:right; color:var(--muted); white-space:nowrap}
+.zamery .bar{width:45%; min-width:5rem}
+.zamery .bar span{display:block; height:.42rem; border-radius:1px;
+  background:var(--accent); width:var(--w); min-width:2px; opacity:.9}
+.zamery tr:first-child .bar span{background:var(--rule); opacity:1}
+
+/* кнопки */
+.cta-row{display:flex; flex-direction:column; gap:.5rem; margin:.7rem 0 0;
+  align-items:flex-start}
+.cta{display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
+  font:500 .9rem/1 "IBM Plex Mono",ui-monospace,monospace; letter-spacing:.01em;
+  color:var(--ground); background:var(--ink); padding:.85rem 1.15rem; border-radius:2px;
+  transition:transform .12s ease, opacity .12s ease}
+.cta::after{content:"→"; opacity:.55}
+.cta:hover{opacity:.88; transform:translateY(-1px)}
+.cta.call{background:var(--accent); color:#fff}
+:root[data-theme="dark"] .cta.call,
+:root:not([data-theme="light"]) .cta.call{color:#0F1211}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .cta.call{color:#fff}}
+.cta.tg{background:transparent; color:var(--ink); border:1px solid var(--rule)}
+.cta-note{font-size:.86rem; color:var(--muted); max-width:34rem}
+@media (prefers-reduced-motion:reduce){.cta{transition:none} .cta:hover{transform:none}}
+
+/* пакет, который получила Юля */
+.paket-grid{display:flex; flex-direction:column; border-top:1px solid var(--rule)}
+.paket-row{display:grid; grid-template-columns:minmax(9rem,14rem) 1fr;
+  gap:.25rem 1.2rem; align-items:baseline; padding:.85rem 0;
+  border-bottom:1px solid var(--rule-soft)}
+.pk-w{font-weight:600; font-size:1.02rem}
+.pk-d{color:var(--muted); font-size:.88rem; line-height:1.45}
+figure.paket .cta{align-self:flex-start; margin-top:.4rem}
+a.paket-row{text-decoration:none; color:inherit; transition:background .12s ease}
+a.paket-row:hover{background:var(--accent-soft)}
+.pk-go{grid-column:2 / -1; font:500 .74rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--accent); padding-top:.15rem}
+@media (max-width:620px){
+  .paket-row{grid-template-columns:1fr; row-gap:.2rem}
+  .pk-go{grid-column:1 / -1}
+}
+
+/* живые окна сайтов */
+.browser{border:1px solid var(--rule); border-radius:6px; overflow:hidden; background:var(--surface)}
+.chrome{display:flex; align-items:center; gap:.4rem; padding:.55rem .75rem;
+  background:var(--rule-soft); border-bottom:1px solid var(--rule)}
+.chrome i{width:.55rem; height:.55rem; border-radius:50%; background:var(--rule); flex:none}
+.chrome b{margin-left:.6rem; font:400 .72rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--muted); font-weight:400}
+.viewport{position:relative; display:block; height:min(66vh,520px); overflow:hidden;
+  text-decoration:none; background:var(--rule-soft)}
+.viewport img{display:block; width:100%; height:auto}
+.viewport::after{content:""; position:absolute; inset:auto 0 0 0; height:8rem;
+  background:linear-gradient(transparent,var(--ground)); pointer-events:none}
+.launch{position:absolute; left:50%; bottom:1.5rem; transform:translateX(-50%);
+  background:var(--ink); color:var(--ground); border:0; cursor:pointer;
+  padding:.85rem 1.2rem; border-radius:2px; white-space:nowrap;
+  font:500 .88rem/1 "IBM Plex Mono",ui-monospace,monospace;
+  box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.launch:hover{opacity:.9}
+.viewport.loaded{background:var(--surface)}
+.viewport.loaded img,.viewport.loaded .launch,.viewport.loaded::after{display:none}
+.viewport.loaded iframe{position:absolute; inset:0; border:0; width:1280px;
+  transform:scale(var(--s,.7)); transform-origin:0 0}
+.hint{font:400 .74rem/1.5 "IBM Plex Mono",ui-monospace,monospace; color:var(--muted)}
+
+/* мелкий шрифт */
+.fineprint{font:400 .76rem/1.6 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--muted); margin-top:2.5rem; padding-top:1.1rem;
+  border-top:1px solid var(--rule)}
+.colophon{max-width:var(--measure); margin:0 auto; width:100%}
+</style>
+<div class="wrap">
+  <div class="masthead">
+    <b>Business Intelligence DNA</b><span>/</span>AI Agency for Business<span>/</span>сентябрь 2026
+  </div>
+  <header class="hero"><h1>Позвоните прямо сейчас: +1 424 781 1913. Трубку возьмёт не человек</h1></header>
+</div>
+<article class="wrap">
+<section class="lede"><p>Не дочитывайте. Наберите номер, держите трубку у уха — дочитаете, пока идут гудки.</p>
+<p>Ответит Вера. Кто она — скажет сама: «Добрый день, Business Intelligence DNA, меня зовут Вера, я виртуальный ассистент, разговор сохраняется в виде текста. Вы по диагностике или по внедрению?» Дальше отвечайте ей как человеку и спрашивайте о чём хотите.</p>
+<p>Вера — наш цифровой сотрудник: по-русски, голосом, на входящих звонках, круглосуточно. Обещание в интернете нарисовать легко. Того, кто берёт трубку в три часа ночи, — не нарисуешь.</p>
+<p>Ниже пять инструментов. Четыре уже работают, три из них открываются прямо отсюда. Пятый ставят потом — про него честно в конце.</p>
+<p>Придумали, что продавать. Сделали, где продавать. Привели людей. Поставили продавца. Отдали рутину машине.</p>
+<hr>
+</section><section class="tool" id="t1"><header class="tool-head"><span class="tool-num">01</span><h2>Она нашла то, чего не увидел CPA. И молчала об этом</h2></header>
+<p>Юля открыла книги клиента. Книги вёл дипломированный бухгалтер. Баланс сходился.</p>
+<p>Она нашла для клиента огромную сумму расхождений, которую не увидел его CPA.</p>
+<p>В продажах она это не использовала ни разу. Не считала, что кому-то интересно.</p>
+<p>Юля — финансист из Тампы. Пятнадцать лет в цифрах. Умеет находить то, что в них спрятали.</p>
+<p>На сайте у неё было написано «Fractional CFO». Так себя называют тысячи людей.</p>
+<p>Свой сайт она сама называла непонятным. Брала примерно вдвое меньше, чем хотела. Клиенты приходили только по сарафану.</p>
+<p>Мы забрали у неё 140 минут разговора. Дальше три рабочих дня работали сами.</p>
+<p>Вот что легло на стол.</p>
+<p>Теперь её отличие помещается в одну строку: финансовое руководство для компаний, которые переросли свою финансовую инфраструктуру.</p>
+<p>А эта находка теперь стоит в продажах первой. Нашла её она сама, у своего клиента — это не наш результат. Наша работа была в другом: поставить это в продажи первым.</p>
+<blockquote><p>«Честно говоря, сначала я думала, что это будет очередной красивый документ, который в итоге просто останется лежать в столе.»</p></blockquote>
+<p>Julia Dospehoff · Remote CFO &amp; Accounting Solutions · Тампа, Флорида</p>
+<figure class="wide paket"><div class="paket-grid"><a class="paket-row link" href="/obrazec/"><span class="pk-w">Разбор вашего дела</span><span class="pk-d">чем отличаетесь, на чём это держится и где мы пока гадаем</span><span class="pk-go">посмотреть, как выглядит →</span></a><a class="paket-row link" href="/obrazec/"><span class="pk-w">Разбор вашего покупателя</span><span class="pk-d">кто платит, чего боится, какими словами про это говорит</span><span class="pk-go">посмотреть, как выглядит →</span></a><div class="paket-row"><span class="pk-w">Оффер</span><span class="pk-d">что предлагаете и почему это трудно сравнивать по цене</span></div><div class="paket-row"><span class="pk-w">Сайт</span><span class="pk-d">собранный целиком, на двух языках</span></div><div class="paket-row"><span class="pk-w">Разбор рынка</span><span class="pk-d">кто рядом, что обещают и чем заняты соседние ниши</span></div></div><a class="cta" href="/obrazec/">Открыть оба разбора целиком</a><figcaption>Всё это собрано за три рабочих дня. Её личного времени ушло 140 минут разговора. Разборы открываются на выдуманной компании — чужие документы мы не показываем.</figcaption></figure>
+<p>Начинаем с глубокой диагностики — $500. Обычное маркетинговое исследование стоит около $5000 и идёт месяцами. У нас — не месяцы.</p>
+<p>Весь пакет, как у Юли, — это уже внедрение, от $5000. Диагностика в него засчитывается.</p>
+<div class="cta-row"><a class="cta" href="https://remotecfo.netlify.app" target="_blank" rel="noopener">Открыть пакет Юли и поклацать, что внутри</a></div>
+<p>У вас в шкафу лежит своя такая находка. Вы просто не считаете это товаром.</p>
+<hr>
+</section><section class="tool" id="t2"><header class="tool-head"><span class="tool-num">02</span><h2>Три секунды с телефона</h2></header>
+<p>Человек открыл ваш сайт. Три секунды. Закрыл.</p>
+<p>Он ничего не понял и не обязан был.</p>
+<p>Тут я ничего не буду рассказывать. Просто смотрите в окно.</p>
+<figure class="wide live"><div class="browser"><div class="chrome"><i></i><i></i><i></i><b>comfort-dental.example</b></div><div class="viewport shot" data-src="https://svettutest.github.io/shablony-demo/stomatologia/"><img src="img/sait-stomatologia.jpg" alt="" loading="lazy" decoding="async"><button class="launch" type="button">Полистать живой сайт</button></div></div><figcaption>Стоматология в Киеве. Внизу слева — кнопка, за которой отвечает голосовой агент. <a href="https://svettutest.github.io/shablony-demo/stomatologia/" target="_blank" rel="noopener">открыть отдельно</a></figcaption></figure>
+<p>Внизу слева кнопка «Подзвонити». Нажмите её.</p>
+<figure class="wide live"><div class="browser"><div class="chrome"><i></i><i></i><i></i><b>roma-system.example</b></div><div class="viewport shot" data-src="https://roma-kp-site.vercel.app"><img src="img/sait-roma.jpg" alt="" loading="lazy" decoding="async"><button class="launch" type="button">Полистать живой сайт</button></div></div><figcaption>Персональный коучинг. Тёмный первый экран, всё живое. <a href="https://roma-kp-site.vercel.app" target="_blank" rel="noopener">открыть отдельно</a></figcaption></figure>
+<p>Внутри бот тренировок с разбором видео и питание по фото. $500 в месяц.</p>
+<figure class="wide live"><div class="browser"><div class="chrome"><i></i><i></i><i></i><b>villa-sawah.example</b></div><div class="viewport shot" data-src="https://svettutest.github.io/shablony-demo/villa/"><img src="img/sait-villa.jpg" alt="" loading="lazy" decoding="async"><button class="launch" type="button">Полистать живой сайт</button></div></div><figcaption>Аренда виллы на Бали. <a href="https://svettutest.github.io/shablony-demo/villa/" target="_blank" rel="noopener">открыть отдельно</a></figcaption></figure>
+<p>Такие сайты продают за $5000. Мы сайт отдельно не продаём: сперва пишем, что на нём будет сказано, и только потом собираем. Исключение — если тексты у вас уже готовы.</p>
+<div class="cta-row"><a class="cta" href="https://calendly.com/bizzinteldna/1hr" target="_blank" rel="noopener">Посмотреть, как это крутится вживую</a></div>
+<p>Кнопку «Подзвонити» вы уже заметили. Голосом отвечать умеем и мы — про это через два экрана.</p>
+<hr>
+</section><section class="tool" id="t3"><header class="tool-head"><span class="tool-num">03</span><h2>Ассистент назвал три имени. Вашего среди них нет</h2></header>
+<p>Клиент больше не гуглит. Он спрашивает: кого посоветуешь. Читает ответ, в котором вас нет. Перепроверять не пойдёт — поверит списку.</p>
+<p>Место внутри ответа не продаётся за деньги. OpenAI включил в ChatGPT рекламу — это блок рядом с ответом: «Реклама не влияет на ответы ChatGPT».</p>
+<p>Реклама кончается вместе с бюджетом. Цитата остаётся.</p>
+<p>Магазин для бьюти-мастеров, семь рынков. Одиннадцать контрольных запросов в Perplexity записали 8 июня и не трогали.</p>
+<ul><li>8 июня — 0 из 11</li><li>7 июля — 3 из 11</li><li>29 июля — 7 из 11</li><li>11 августа — 10 из 11</li><li>2 сентября — 9 из 11</li></ul>
+<p>Copilot советует его товар вместо конкурента, клик — человек на сайте.</p>
+<figure class="wide"><div class="shots pair"><img src="img/geo-copilot.jpg" alt="" loading="lazy" decoding="async"><img src="img/geo-utm-copilot.jpg" alt="" loading="lazy" decoding="async"></div><figcaption>Copilot рекомендует товар против названного конкурента — и метка utm_source=copilot.com в адресной строке.</figcaption></figure>
+<p>Наш справочник по переезду в Германию: 1300 цитат в ответах ИИ за три месяца, из поиска — 22 клика.</p>
+<figure class="wide"><div class="shots"><img src="img/geo-bing-1300.jpg" alt="" loading="lazy" decoding="async"></div><figcaption>Bing Webmaster, AI Performance: 1.3K цитат за три месяца, график стартует с нуля.</figcaption></figure>
+<p>Честно: ChatGPT упирается сильнее остальных. 5 сентября — 2 ответа из 7, Perplexity — 8 из 9. Пока не закрыли.</p>
+<p>Это один проект. Рынок и язык у вас свои.</p>
+<p>$1500 за три месяца, оплата вперёд.</p>
+<p>До старта письменно согласуем ваши запросы и замерим, где вы сейчас. Через три месяца прогоняем тот же список и показываем, что изменилось.</p>
+<p>Спросите ассистента про свою нишу. Кого назовёт вместо вас?</p>
+<div class="cta-row"><a class="cta" href="https://calendly.com/bizzinteldna/1hr" target="_blank" rel="noopener">Замерить свои запросы</a></div>
+<p>Человек вас нашёл. Написал в пятницу в 23:40. Кто ему ответит?</p>
+<hr>
+</section><section class="tool" id="t4"><header class="tool-head"><span class="tool-num">04</span><h2>Написал в 23:40 в пятницу</h2></header>
+<p>Вы увидите это в понедельник.</p>
+<p>Он не дождётся. Он уже пишет следующему.</p>
+<p>Не читайте про неё. Позвоните: <strong>+1 424 781 1913</strong>.</p>
+<p>Её зовут Вера. Она не робот на кнопках «нажмите один»: говорит по-русски, слышит живую речь и отвечает почти без паузы. Первой фразой честно предупреждает, что она программа и что разговор сохраняется в виде текста.</p>
+<p>Спрашивает, что человеку нужно. Записывает. Может прислать письмо прямо во время разговора, пока человек держит трубку. Если человек готов платить — переводит на живого.</p>
+<p>После каждого звонка вам приходит письмо: кто звонил и с какого номера, зачем, о чём договорились и на какой вопрос она не ответила.</p>
+<p>Вам ставим такого же Дежурного — на ваш действующий номер, через переадресацию. Номер остаётся вашим, менять его не нужно.</p>
+<p>Запуск — $1000. Дальше $199 в месяц: 1000 минут разговоров и час наших правок. Сверх — $0.25 за минуту.</p>
+<p>Чтобы он ещё и продавал — плюс $1500 к запуску. Тогда в месяц $399: 1500 минут и два часа правок.</p>
+<div class="cta-row"><a class="cta call" href="tel:+14247811913">Позвонить Вере: +1 424 781 1913</a></div>
+<p>Попробуйте её перебить. Посмотрите, что будет.</p>
+<hr>
+</section><section class="tool" id="t5"><header class="tool-head"><span class="tool-num">05</span><h2>Четвёртый час в таблице</h2></header>
+<p>Конец месяца. Кто-то у вас сводит цифры руками.</p>
+<p>Четвёртый час. Через месяц будет то же самое.</p>
+<p>Это оплаченные часы. И так каждый раз.</p>
+<p>Заявки, счета, отчёты, панель с цифрами. Связываем между собой. Руками больше никто не переписывает.</p>
+<p>Кейса, который можно показать, у нас тут пока нет. Придумывать не будем.</p>
+<p>Сначала смотрим, как устроена ваша неделя. Потом называем цену. Работаем помесячно.</p>
+<p>Не факт, что возьмёмся за всё.</p>
+<div class="cta-row"><a class="cta" href="https://calendly.com/bizzinteldna/1hr" target="_blank" rel="noopener">Рассказать, что хочется отдать машине</a></div>
+<p>Об этом обычно заговаривают на третьем месяце. Когда продажи уже идут, а руки заняты.</p>
+<hr>
+</section><section><h2>Кто это делает</h2>
+<p>Андрей. Предприниматель и основатель бизнесов. Строил холдинг из ~30 предприятий: налоговая оптимизация корпораций, стратегия, разбор любого бизнеса. В прошлом — CFO в корпорации.</p>
+<p>Маша. Экс-CFO крупной корпорации. Психология клиента, переговоры и нетворкинг. Системность и доведение до конца.</p>
+<p>Муж и жена, выкованные в финансах. Поэтому вы разговариваете с двумя конкретными людьми, а не с командой, которую никогда не увидите.</p>
+<p>Business Intelligence DNA. Работаем под NDA.</p>
+<p>Раньше мы делали исследование рынка, разбор конкурентов и стратегию. Отдавали документы.</p>
+<p>Раньше я думал, что человеку нужен документ с ответом. Сегодня думаю иначе. Нужен продавец, который работает в понедельник утром.</p>
+<p>Поэтому теперь ставим то, что из документов следует: сайт, видимость, продавцов.</p>
+<hr>
+</section><section><h2>Что предлагаю</h2>
+<p>Первым 10 — глубокая диагностика бесплатно (обычно $500).</p>
+<p>Разбираю ваше дело и пишу: что ставить первым, что вторым, что не трогать вообще и сколько это стоит. Письменно, под вас. Не лекция про нейросети.</p>
+<p>Процентов и сроков не обещаю. Продажи вырастут, затраты упадут, вас станет видно — при внедрении наших решений и выполнении рекомендаций.</p>
+<div class="cta-row"><a class="cta" href="https://calendly.com/bizzinteldna/1hr" target="_blank" rel="noopener">Забрать диагностику</a><p class="cta-note">выбрать время</p></div>
+<div class="cta-row"><a class="cta tg" href="https://t.me/business_int_dna?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5.%20%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D1%8E%20%D0%BF%D1%80%D0%BE%20%D0%BF%D1%8F%D1%82%D1%8C%20AI-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D1%81%D0%B2%D0%BE%D1%91%20%D0%B4%D0%B5%D0%BB%D0%BE%20%D0%B8%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BF%D0%BE%D1%88%D0%B0%D0%B3%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8E%20%D0%B2%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D1%8F." target="_blank" rel="noopener">Написать в Telegram</a><p class="cta-note">текст уже готов, нажать «отправить»</p></div>
+<p>На этой неделе кто-то из ваших клиентов искал не в Google. Он спросил ассистента. И получил ответ.</p>
+<p>Вы не знаете, что там было сказано. Я тоже не знаю.</p>
+<p>И дома до сих пор спорим об одном: какой из пяти кусков сработал бы, если убрать остальные четыре.</p>
+<p>Если бы у вас был ровно один заход — что поставили бы первым?</p>
+<p class="podpis">Инструменты по видимости, продавцам и автоматизации внедряем вместе с партнёром.</p></section>
+</section>
+</article>
+<script>
+(function(){
+  function fit(vp){
+    var s = vp.clientWidth / 1280;
+    vp.style.setProperty('--s', s.toFixed(4));
+    var f = vp.querySelector('iframe');
+    if (f) f.style.height = Math.ceil(vp.clientHeight / s) + 'px';
+  }
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.launch');
+    if (!btn) return;
+    var vp = btn.closest('.viewport');
+    if (!vp || vp.classList.contains('loaded')) return;
+    var f = document.createElement('iframe');
+    f.src = vp.dataset.src;
+    f.loading = 'eager';
+    f.setAttribute('title', 'Живой сайт');
+    vp.appendChild(f);
+    vp.classList.add('loaded');
+    fit(vp);
+    var hint = document.createElement('p');
+    hint.className = 'hint';
+    hint.textContent = 'Сайт живой: прокручивайте прямо внутри окна.';
+    vp.closest('figure').appendChild(hint);
+  });
+  addEventListener('resize', function(){
+    document.querySelectorAll('.viewport.loaded').forEach(fit);
+  });
+})();
+</script>

@@ -1,0 +1,398 @@
+{
+ "vopros_id": "N04",
+ "vopros": "пишут в директ, спрашивают сколько стоит, я отвечаю и тишина. есть какой-то AI, который сам дожмёт их до записи или оплаты?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "vecher",
+ "den": "2026-09-16",
+ "vne_okna": false,
+ "zapusk_id": "20260916-190009-84063",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-16T19:02:11-07:00",
+   "zapusk_id": "20260916-190009-84063",
+   "cena": 0.00579,
+   "ishod": "ok",
+   "sekund": 12.1,
+   "meta": {
+    "date": "Thu, 17 Sep 2026 02:02:23 GMT",
+    "x-request-id": "46ef8dd9-2bb0-4807-a30d-57adb45572b7"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. Но лучше искать не «AI, который дожмёт», а связку **автоответчик в Instagram + квалификация + ссылка на запись/оплату + мягкие follow-up**.\n\n### Что поставить\n\n**1. Manychat — самый простой вариант для Instagram**\nОн умеет:\n\n- автоматически отвечать на вопрос «сколько стоит?»;\n- задавать уточняющие вопросы;\n- отправлять кейсы, условия и ссылку;\n- напоминать через несколько часов, если человек не ответил;\n- переводить диалог вам, когда нужен человек;\n- вести на Calendly, Yclients, Altegio, TidyCal или оплату через Stripe/другую платёжную ссылку.\n\nДля большинства услуг это оптимальный старт: не полноценный «свободный AI-продавец», а управляемая воронка, которая не будет нести ерунду.\n\n**2. AI-агент поверх Manychat или отдельный сервис**\nОн может отвечать более естественно: обработать «дорого», «а если на следующей неделе?», «что входит?», подобрать услугу и довести до ссылки на запись. Но его обязательно нужно ограничить вашей базой знаний и правилами — иначе он может пообещать лишнее или назвать неправильную цену.\n\n### Важное ограничение Instagram\n\nАвтоматические сообщения обычно можно отправлять в течение примерно **24 часов после действия пользователя** — например, после его DM или ответа на сторис. Холодно писать людям, которые вам не обращались, через официальную интеграцию нельзя. Поэтому сценарий должен быстро отработать после вопроса о цене, а не надеяться на бесконечную рассылку через несколько дней.\n\n### Как должен выглядеть сценарий\n\nПосле вопроса о цене:\n\n> Стоимость — 8 000 ₽. В неё входит консультация, разбор ситуации и готовый план действий.  \n> Подскажите, вам удобнее записаться на этой неделе или позже?\n\nЕсли человек не ответил:\n\n> Возможно, вы пока сравниваете варианты. Могу коротко рассказать, что входит в работу и какие есть ближайшие окна для записи.\n\nЕщё через несколько часов:\n\n> У меня освободилось время в четверг в 18:00. Если актуально, можно забронировать здесь: [ссылка]. Если остались вопросы — напишите, я отвечу.\n\nЕсли продаёте недорогой фиксированный продукт, лучше вести сразу на оплату:\n\n> Можно оплатить и сразу выбрать удобное время: [ссылка на оплату/запись].\n\nЕсли услуга дорогая или индивидуальная — сначала вести на короткую квалификацию или созвон, а не сразу давить оплатой.\n\n### Что я бы рекомендовал начать с\n\n1. **Manychat + Instagram Business/Creator.**\n2. Таблица с услугами, ценами, ограничениями и ответами на возражения.\n3. Ссылка на запись.\n4. Ссылка на оплату, если это уместно.\n5. 2–3 follow-up-сообщения.\n6. Передача вам диалога при словах «дорого», «хочу подумать», нестандартном запросе или конфликте.\n\nНе советую использовать серые сервисы, которые логинятся в Instagram как обычный пользователь и массово пишут от вашего имени: можно получить ограничения или блокировку аккаунта.\n\nГлавное: AI не должен просто повторять цену. Он должен **понять задачу, показать ценность, снять главный страх и предложить один конкретный следующий шаг** — запись или оплату.",
+  "poiskovye_zaprosy": [
+   "AI Instagram DM follow up booking payment automation 2026",
+   "Manychat Instagram DM AI automation bookings payments",
+   "Meta Instagram messaging API automated follow up limitations"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://www.visitoai.com/blog/instagram-dm-automation-for-hotels",
+    "domen": "visitoai.com",
+    "title": "Instagram DM automation for hotels + 7 tools - Visito's AI"
+   },
+   {
+    "url": "https://setsmart.io/blog/instagram-automation-tools",
+    "domen": "setsmart.io",
+    "title": "Instagram Automation Tools: 9 Best Tested (2026) - SetSmart"
+   },
+   {
+    "url": "https://instaoutreach.com/blog/instagram-messaging-api-vs-cold-dm-automation",
+    "domen": "instaoutreach.com",
+    "title": "The Official Instagram Messaging API Cannot Send Cold DMs ..."
+   },
+   {
+    "url": "https://www.reachlee.co/guides/instagram-automation-rules",
+    "domen": "reachlee.co",
+    "title": "Instagram Automation Rules (2026): What's Allowed - Reachlee"
+   },
+   {
+    "url": "https://esotier.com/wiki/guides/chatbot-dm-booking-spiritual-instagram",
+    "domen": "esotier.com",
+    "title": "Instagram DM Chatbot for Booking: Setup Guide for Spiritual Practitioners | Esotier"
+   },
+   {
+    "url": "https://setsmart.io/blog/how-to-automate-instagram-dms-with-ai",
+    "domen": "setsmart.io",
+    "title": "How to Automate Instagram DMs with AI (2026) - SetSmart"
+   },
+   {
+    "url": "https://instantdm.com/blog/instagram-auto-reply-how-it-works-whats-allowed-best-practices-2026",
+    "domen": "instantdm.com",
+    "title": "Instagram Auto Reply: How It Works, What's Allowed & Best ..."
+   },
+   {
+    "url": "https://rapiddm.com/blog/instagram-dm-automation-limits-24-hour-window",
+    "domen": "rapiddm.com",
+    "title": "Instagram DM automation limits: the 24-hour window ..."
+   },
+   {
+    "url": "https://appbrewers.com/blog/instagram-dm-automation-policy-2026",
+    "domen": "appbrewers.com",
+    "title": "Instagram DM Automation Policy in 2026: What Is Allowed and ..."
+   },
+   {
+    "url": "https://www.layer3labs.io/guides/manychat-pricing",
+    "domen": "layer3labs.io",
+    "title": "Manychat Pricing 2026: Free, Pro, Elite Plans Explained"
+   },
+   {
+    "url": "https://quasa.io/video/manychat-review-comment-to-dm-in-one-flow-quasaio",
+    "domen": "quasa.io",
+    "title": "Manychat Review – Comment to DM in One Flow | Quasa.io"
+   },
+   {
+    "url": "https://www.voiceflow.com/blog/manychat",
+    "domen": "voiceflow.com",
+    "title": "ManyChat [2026]: Pricing, Tutorial, Best Alternatives - Voiceflow"
+   },
+   {
+    "url": "https://creatorflow.so/blog/instagram-built-in-automation",
+    "domen": "creatorflow.so",
+    "title": "Instagram Built-In Automation: What Meta Gives Free"
+   },
+   {
+    "url": "https://creatorflow.so/blog/ai-agents-instagram-dm-automation-brands",
+    "domen": "creatorflow.so",
+    "title": "AI Agents for Instagram DMs: How Brands Automate in 2026"
+   },
+   {
+    "url": "https://instantdm.com/blog/instagram-rate-limit-2026-5000-dms-per-hour",
+    "domen": "instantdm.com",
+    "title": "Instagram DM Rate Limits 2026: 5000 DMs/Hour Explained"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.00105,
+    "currency": "USD",
+    "input_cost": 0.00015,
+    "output_cost": 0.00209,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00579
+   },
+   "input_tokens": 4776,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4196,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 837,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5613
+  },
+  "cena": 0.00579,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1789610532,
+  "created_at": 1789610532,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_46ef8dd9-2bb0-4807-a30d-57adb45572b7",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "AI Instagram DM follow up booking payment automation 2026",
+     "Manychat Instagram DM AI automation bookings payments",
+     "Meta Instagram messaging API automated follow up limitations"
+    ],
+    "results": [
+     {
+      "date": "2026-07-23",
+      "id": 1,
+      "last_updated": "2026-08-26",
+      "snippet": "Visito's Instagram DM automation lets a hotel answer, qualify, and book guests inside Instagram without a staff member touching every message, turning messages into confirmed bookings while you sleep.\n...\nVisito is the strongest option built specifically for that connection, with live PMS sync and payment inside the chat itself.\n...\nWhen the Instagram chatbot is wired into your hotel property management system, it can pull live rates and real-time availability instead of a fixed price list, send a direct booking link pre-filled with the guest's dates, and take payment inside the conversation.\n...\nVisito connects your Instagram DMs directly to your PMS, so the agent quotes live rates and availability and takes payment through Stripe, all inside the same conversation.\n...\n- **Connect your Instagram Business account:** You'll need a Professional (Business or Creator) Instagram account linked to a Facebook Page.\nPersonal accounts can't use the messaging API.\n- **Grant the automation tool the right permissions:** The integration uses Meta's official messaging permissions and App Review requirements.\n- **Connect your PMS:** Link Cloudbeds, SiteMinder, Mirai, Guesty, or whichever system runs your property, so the agent can pull live rates and availability instead of static answers.\n- **Set up your conversation flows:** Define what happens for common questions, story replies, comment triggers, and the handoff point where a real booking begins.\n- **Go live and monitor the first few weeks:** Watch response times, the questions guests actually ask, and where conversations stall, then adjust the flows accordingly.",
+      "source": "web",
+      "title": "Instagram DM automation for hotels + 7 tools - Visito's AI",
+      "url": "https://www.visitoai.com/blog/instagram-dm-automation-for-hotels"
+     },
+     {
+      "date": "2026-08-24",
+      "id": 2,
+      "last_updated": "2026-09-16",
+      "snippet": "Tools that handle your Instagram direct messages: responding to DMs, qualifying leads, booking calls.\n...\nText or voice note.\n...\n### Step 5: Add follow-ups inside the 24-hour window\nMeta only lets tools message a lead within **24 hours of that lead's last message**.",
+      "source": "web",
+      "title": "Instagram Automation Tools: 9 Best Tested (2026) - SetSmart",
+      "url": "https://setsmart.io/blog/instagram-automation-tools"
+     },
+     {
+      "date": "2026-08-29",
+      "id": 3,
+      "last_updated": "2026-08-30",
+      "snippet": "No. The official API is built so that cold outreach is structurally impossible.\n...\nThe API only ever lets you reply, never open.\n...\nMeta's Instagram Messaging API only lets your business send a message to someone who has already contacted you, and only inside a window that their action opened.\nFollowers who have not initiated a conversation or interaction with your account cannot be messaged through the API at all.\n...\n**The 24-hour window.** Once a prospect sends you a DM, you have 24 hours to respond, and messages inside that window may carry promotional content.\nThis is the only place automated sequences are allowed to run.\n...\n|Capability|Official Messaging API|Automation tooling on real accounts|\n...\n|Open a conversation with a stranger|No|Yes|\n|Reply automatically after they DM you|Yes, 24h window|Yes|\n...\n|Automated follow-up sequence over days|No|Yes|",
+      "source": "web",
+      "title": "The Official Instagram Messaging API Cannot Send Cold DMs ...",
+      "url": "https://instaoutreach.com/blog/instagram-messaging-api-vs-cold-dm-automation/"
+     },
+     {
+      "date": "2026-08-01",
+      "id": 4,
+      "last_updated": "2026-09-16",
+      "snippet": "On the official API, four rules bind you: you can never message someone first; free-form DMs only inside 24 hours of that person's last message to you; exactly one private reply per comment, within 7 days; and documented rate limits (750 private replies per hour per account).\nStay inside those and there is nothing to be banned for.\n...\nMeta's documentation puts it plainly: 'Your app has 24 hours to respond to any message sent from an Instagram user to your app user.'\nOnce a user takes a messageable action, the business may send free-form messages — text, links, media it owns — for 24 hours.\n...\nOutside the window, promotional content is not allowed at all, and the only sanctioned path is the HUMAN_AGENT message tag, which extends the response window to 7 days.\n...\nMessaging people who never contacted you is not possible on the official API and not permitted by policy.\n...\nAllowed on the official API: DMing someone who commented on your post or reel (one private reply per comment, within 7 days), replying to inbound DMs, replying to story replies, story reactions and story mentions, sending free-form messages within 24 hours of the user's last message, and using approved message tags such as HUMAN_AGENT (7 days, App Review required) for human escalation.\nNot available: cold DMs to people who haven't engaged, auto-follow or auto-unfollow, auto-liking, auto-commenting on other accounts' posts, and promotional messages outside the 24-hour window without a tag.",
+      "source": "web",
+      "title": "Instagram Automation Rules (2026): What's Allowed - Reachlee",
+      "url": "https://www.reachlee.co/guides/instagram-automation-rules/"
+     },
+     {
+      "date": "2026-06-23",
+      "id": 5,
+      "last_updated": "2026-09-05",
+      "snippet": "A ManyChat booking automation has four parts: trigger, qualification, booking handoff, and confirmation.\n**Trigger:** A keyword in a comment or DM activates the flow.\n...\n**Booking handoff:** Based on their answer, the bot sends the appropriate booking link.\nThis is where your Calendly, Acuity, or TidyCal link goes.\nFor payment before booking - the standard approach for practitioners who've dealt with no-shows - send a link to your Gumroad or Dodo Payments checkout first, then the booking confirmation arrives after payment.\n...\n**Confirmation:** Once booked, a follow-up DM with session prep instructions, what to expect, and a reminder that they'll get a calendar invite.\nManyChat can send this automatically if you integrate it with your booking tool via Zapier.\n...\n**Step 1: Connect Instagram to ManyChat.** You need a professional Instagram account (Creator or Business), linked to a Facebook Page.\nManyChat connects via Meta API - go to ManyChat dashboard, select Instagram, authorize with your Facebook login.\n...\n**Step 2: Create your first flow.** In ManyChat's Flow Builder (drag-and-drop interface), build:\n- A \"Message\" node: greeting + question 1\n- \"Quick Reply\" buttons for the answers\n- Separate paths for each service type\n- \"Send Message\" nodes with the booking link\n**Step 3: Set your keyword triggers.** Under \"Triggers\" in the flow, add: Instagram Comments - Keywords.\nAdd your keywords.\nEnable Comment Reply (the public comment where you reply to their comment inviting them to check their DMs) and DM Reply (the actual private message with the booking info).\n**Step 4: Add a fallback.** For any message the bot doesn't recognize, add a fallback node: \"I didn't catch that - here's my booking page directly: [link].\nOr feel free to DM me a question.\"\n**Step 5: Test before publishing.** Send yourself a test DM using a secondary account.\nWalk through every branch of the flow.\nConfirm the booking links work.\nCheck that the fallback fires correctly on an unexpected message.\n...\nYes - send a payment link as one of the DM steps, before the calendar link.\nGumroad and Dodo Payments both generate simple checkout links you can paste into a ManyChat message node.\nThe flow becomes: keyword trigger - qualifying questions - payment link (\"Secure your spot here: [link]\") - then a follow-up message (sent manually or via Zapier) with the booking link once payment clears.",
+      "source": "web",
+      "title": "Instagram DM Chatbot for Booking: Setup Guide for Spiritual Practitioners | Esotier",
+      "url": "https://esotier.com/wiki/guides/chatbot-dm-booking-spiritual-instagram"
+     },
+     {
+      "date": "2026-03-10",
+      "id": 6,
+      "last_updated": "2026-09-16",
+      "snippet": "**Automating Instagram DMs with AI IS:**\n- Having an AI agent that **reads, understands, and responds** to every DM naturally\n- An AI that **qualifies prospects** by asking the right questions in conversation\n- Automatic **appointment booking** inside the DM thread\n- **Two smart follow-ups** (at ~4 hours and ~23 hours) that re-engage cold leads without being pushy\n- All of this running **24/7**, using official Meta APIs that keep your account safe\n...\n**What it does:** Uses large language models (like GPT) to have real, natural conversations with every prospect — qualifying them and booking calls automatically.\n...\n### Step 1: Choose an AI DM Automation Tool\nYou need a tool that:\n...\n- Connects via **official Meta APIs** (to protect your account)\n- Supports **in-chat appointment booking**\n- Has **automatic follow-ups**\n- Works on **Instagram, WhatsApp, and Messenger**\n...\n1. Click \"Connect Instagram\" in your dashboard\n2. Log in to your Facebook account (Instagram uses Facebook's API)\n3. Select the Instagram Business account you want to automate\n4. Grant the necessary permissions\n...\n- **Booking preferences** — What calendar should the AI book into?\nWhat time slots are available?\n...\nBefore letting the AI handle real prospects, test it thoroughly:\n1. **Send test DMs** to your account from a personal account\n2. **Try different scenarios** — an interested lead, a tire-kicker, someone asking about pricing, an objection handler\n3. **Check the conversation quality** — does it sound natural?\nIs it asking the right questions?\n4. **Verify booking works** — did the AI successfully offer time slots and confirm the appointment?\n5. **Refine your configuration** — adjust the tone, add missing qualification questions, tweak the booking flow\n...\nOnce your AI is performing well in tests, turn it on for all incoming DMs.",
+      "source": "web",
+      "title": "How to Automate Instagram DMs with AI (2026) - SetSmart",
+      "url": "https://setsmart.io/blog/how-to-automate-instagram-dms-with-ai"
+     },
+     {
+      "date": "2026-07-30",
+      "id": 7,
+      "last_updated": "2026-08-01",
+      "snippet": "One of the biggest technical limitations to Instagram’s API is the 24-hour messaging window.\nOnce a user messages you – whether that's via a comment, story reply or DM – you have 24 hours to send them automated messages.\nWithin this window, automation can send multiple messages, follow-up reminders and nurture sequences.\nUnsolicited automated DMs outside the 24-hour window are not allowed.\n...\n4. Follow-up messages sent within the 24-hour window after user-initiated contact\n...\nSome brands set up extensive multi-day follow-up sequences without realising that Instagram's API restricts automated messaging to the 24-hour window after user-initiated contact.\n...\nThe rules are clear: use the official API, trigger messages from user actions, stay within the 24-hour messaging window for automated sequences, and always deliver genuine value in every message you send.",
+      "source": "web",
+      "title": "Instagram Auto Reply: How It Works, What's Allowed & Best ...",
+      "url": "https://instantdm.com/blog/instagram-auto-reply-how-it-works-whats-allowed-best-practices-2026"
+     },
+     {
+      "date": "2026-09-05",
+      "id": 8,
+      "last_updated": "2026-09-14",
+      "snippet": "Meta's Instagram Messaging API documentation says an app has 24 hours to respond after an Instagram user sends a message to the app user.\nThat is the main window most automation should care about.\nInside that window, keep the message relevant to what the person asked.\nOutside that window, do not assume automation can keep sending normal promotional follow-ups.\n...\nIt means the automation has a current messaging context after the person messages the professional account.\n...\n1. comment trigger\n2. story reply trigger\n3. first DM delivery\n4. user reply path\n5. follow-up timing\n...\n8. failed-send visibility",
+      "source": "web",
+      "title": "Instagram DM automation limits: the 24-hour window ...",
+      "url": "https://rapiddm.com/blog/instagram-dm-automation-limits-24-hour-window"
+     },
+     {
+      "date": "2026-05-07",
+      "id": 9,
+      "last_updated": "2026-09-16",
+      "snippet": "That means the same compliance rules now apply: businesses must use approved API partners, obtain opt-in where required, and honor 24-hour response windows.\n### Allowed\n- Auto-replies to DMs within 24 hours\n- Appointment booking via DM\n- FAQ responses from a knowledge base\n- Lead qualification flows\n- Order status updates for confirmed customers\n### Restricted / Banned\n- Cold outreach to non-followers\n- Spamming promotional messages outside 24h window\n- Unsolicited product links\n- Automated comments (not DMs)\n- Bulk messaging tools not using official API\n...\nMeta operates a \"24-hour messaging window.\"\nIf a customer messages your business, you have 24 hours to reply freely.\nAfter that window closes, you can only send templated messages that the customer has pre-approved — or wait for them to message you again.",
+      "source": "web",
+      "title": "Instagram DM Automation Policy in 2026: What Is Allowed and ...",
+      "url": "https://appbrewers.com/blog/instagram-dm-automation-policy-2026"
+     },
+     {
+      "date": "2026-07-22",
+      "id": 10,
+      "last_updated": "2026-09-12",
+      "snippet": "For SMBs and creators running Instagram DM automation as a real acquisition channel — comment-to-DM flows, lead-magnet delivery, appointment booking through DMs — Manychat is genuinely worth $25 to $65/month.",
+      "source": "web",
+      "title": "Manychat Pricing 2026: Free, Pro, Elite Plans Explained",
+      "url": "https://www.layer3labs.io/guides/manychat-pricing"
+     },
+     {
+      "date": "2026-09-15",
+      "id": 11,
+      "last_updated": "2026-09-16",
+      "snippet": "Manychat automates DMs and comments on Instagram, Messenger, TikTok, WhatsApp, Telegram, SMS, and email.\n...\nNew March 2026 plans bill Active Contacts.\nFree is 25 contacts.\nEssential is $17 a month or $14 billed yearly for 250.\nPro is $39 monthly or $29 yearly for 2,500, WhatsApp, extra seats, and AI replies included.\nBusiness is about $69 yearly for 7,500 and routing.\nAdvanced is $199 monthly or $139 yearly for 25,000 plus API.",
+      "source": "web",
+      "title": "Manychat Review – Comment to DM in One Flow | Quasa.io",
+      "url": "https://quasa.io/video/manychat-review-comment-to-dm-in-one-flow-quasaio"
+     },
+     {
+      "date": "2026-07-02",
+      "id": 12,
+      "last_updated": "2026-09-13",
+      "snippet": "1. Sign up for a ManyChat account and connect your Instagram, Facebook Messenger, WhatsApp, or TikTok account.\n2. Go to the Automation menu on the left, open My Automations, and click New Automation.\n3. Start from a ready-made template or build from scratch.\nA common first flow is auto-replying to Instagram DMs, or sending a link to anyone who replies to your story.\n4. Set your triggers, actions, and responses.\nUse custom fields and tags to personalize messages, and add the AI add-on if you want generated replies.\nPreview, test, and publish.\nYour automation is live.",
+      "source": "web",
+      "title": "ManyChat [2026]: Pricing, Tutorial, Best Alternatives - Voiceflow",
+      "url": "https://www.voiceflow.com/blog/manychat"
+     },
+     {
+      "date": "2026-07-27",
+      "id": 13,
+      "last_updated": "2026-09-12",
+      "snippet": "|Tool|Where it lives|Fires automatically?|Keyword-triggered?|Published limit|\n...\nThe free native stack handles greetings, off-hours coverage, four preset questions, and up to five exact-match keyword replies on a 15-minute timer from a desktop console.\nIt does not handle link tracking, email capture, follow gating, conditional flows, or per-post attribution.\n...\nMeta gives your account 24 hours to respond after someone messages you, and no tool changes that.\n...\nYour app has 24 hours to respond to any message sent from an Instagram user to your app user.”",
+      "source": "web",
+      "title": "Instagram Built-In Automation: What Meta Gives Free",
+      "url": "https://creatorflow.so/blog/instagram-built-in-automation/"
+     },
+     {
+      "date": "2026-04-12",
+      "id": 14,
+      "last_updated": "2026-09-13",
+      "snippet": "- **Bottom line:** AI agents handle the 80% of repetitive DM conversations (pricing questions, product links, booking requests) so you can focus on the 20% that need a human touch",
+      "source": "web",
+      "title": "AI Agents for Instagram DMs: How Brands Automate in 2026",
+      "url": "https://creatorflow.so/blog/ai-agents-instagram-dm-automation-brands/"
+     },
+     {
+      "date": "2026-05-05",
+      "id": 15,
+      "last_updated": "2026-08-26",
+      "snippet": "**Maximum Speed:** 10-20 DMs per second (100/sec burst cap)\n**Hourly Limit:** Up to 5,000 DMs/hour with high engagement (25%+ reply rate)\n**Low Engagement:** Only 800-1,500 DMs/hour if reply rate is below 8%\n...\n**Calls within one hour = 200 × Number of Users** The Number of Users is based on the number of unique daily active users an app has.\n...\nMeta also publishes per-account caps for the Instagram Messaging endpoints in their Messaging Rate Limits documentation (confirmed March 2026):\n- **Text, links, reactions, stickers**: 100 calls per second per Instagram professional account\n- **Audio or video messages**: 10 calls per second per account\n- **Conversations API**: 2 calls per second per account\n…",
+      "source": "web",
+      "title": "Instagram DM Rate Limits 2026: 5000 DMs/Hour Explained",
+      "url": "https://instantdm.com/blog/instagram-rate-limit-2026-5000-dms-per-hour"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Да. Но лучше искать не «AI, который дожмёт», а связку **автоответчик в Instagram + квалификация + ссылка на запись/оплату + мягкие follow-up**.\n\n### Что поставить\n\n**1. Manychat — самый простой вариант для Instagram**\nОн умеет:\n\n- автоматически отвечать на вопрос «сколько стоит?»;\n- задавать уточняющие вопросы;\n- отправлять кейсы, условия и ссылку;\n- напоминать через несколько часов, если человек не ответил;\n- переводить диалог вам, когда нужен человек;\n- вести на Calendly, Yclients, Altegio, TidyCal или оплату через Stripe/другую платёжную ссылку.\n\nДля большинства услуг это оптимальный старт: не полноценный «свободный AI-продавец», а управляемая воронка, которая не будет нести ерунду.\n\n**2. AI-агент поверх Manychat или отдельный сервис**\nОн может отвечать более естественно: обработать «дорого», «а если на следующей неделе?», «что входит?», подобрать услугу и довести до ссылки на запись. Но его обязательно нужно ограничить вашей базой знаний и правилами — иначе он может пообещать лишнее или назвать неправильную цену.\n\n### Важное ограничение Instagram\n\nАвтоматические сообщения обычно можно отправлять в течение примерно **24 часов после действия пользователя** — например, после его DM или ответа на сторис. Холодно писать людям, которые вам не обращались, через официальную интеграцию нельзя. Поэтому сценарий должен быстро отработать после вопроса о цене, а не надеяться на бесконечную рассылку через несколько дней.\n\n### Как должен выглядеть сценарий\n\nПосле вопроса о цене:\n\n> Стоимость — 8 000 ₽. В неё входит консультация, разбор ситуации и готовый план действий.  \n> Подскажите, вам удобнее записаться на этой неделе или позже?\n\nЕсли человек не ответил:\n\n> Возможно, вы пока сравниваете варианты. Могу коротко рассказать, что входит в работу и какие есть ближайшие окна для записи.\n\nЕщё через несколько часов:\n\n> У меня освободилось время в четверг в 18:00. Если актуально, можно забронировать здесь: [ссылка]. Если остались вопросы — напишите, я отвечу.\n\nЕсли продаёте недорогой фиксированный продукт, лучше вести сразу на оплату:\n\n> Можно оплатить и сразу выбрать удобное время: [ссылка на оплату/запись].\n\nЕсли услуга дорогая или индивидуальная — сначала вести на короткую квалификацию или созвон, а не сразу давить оплатой.\n\n### Что я бы рекомендовал начать с\n\n1. **Manychat + Instagram Business/Creator.**\n2. Таблица с услугами, ценами, ограничениями и ответами на возражения.\n3. Ссылка на запись.\n4. Ссылка на оплату, если это уместно.\n5. 2–3 follow-up-сообщения.\n6. Передача вам диалога при словах «дорого», «хочу подумать», нестандартном запросе или конфликте.\n\nНе советую использовать серые сервисы, которые логинятся в Instagram как обычный пользователь и массово пишут от вашего имени: можно получить ограничения или блокировку аккаунта.\n\nГлавное: AI не должен просто повторять цену. Он должен **понять задачу, показать ценность, снять главный страх и предложить один конкретный следующий шаг** — запись или оплату.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_2e799119-f3c7-4bad-b1a3-a5a8b6d46045",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.00105,
+    "currency": "USD",
+    "input_cost": 0.00015,
+    "output_cost": 0.00209,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00579
+   },
+   "input_tokens": 4776,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4196,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 837,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5613
+  },
+  "user": null
+ }
+}

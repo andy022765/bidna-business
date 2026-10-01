@@ -1,0 +1,142 @@
+{
+  "_meta": {
+    "chto": "Объекты ElevenLabs CareLine DEMO (№44). Без ключей и значений секретов. Обновляет sborka_agentov.py.",
+    "data": "2026-09-30",
+    "pravilo": "Трогать только объекты из этого файла. Живые агенты Веры и их инструменты — только GET (KONTRAKT.md, запрет 1)."
+  },
+  "sekret": {
+    "imya_v_elevenlabs": "careline_demo_x_liniya_klyuch",
+    "secret_id": "KomtreYBZQp3NoyIGVnN",
+    "zagolovok": "x-liniya-klyuch",
+    "znachenie": "~/.bidna-golos.env → CARELINE_DEMO_LINIYA_KLYUCH (в Drive значения нет). Стенду — та же переменная через process.env.",
+    "odin_na_klienta": "Один секрет на обе линии brightside: инструменты общие для двух агентов одного клиента (как у Веры dna/календарь/demo). Линию стенд различает по функции; нужно раздельно — завести второй секрет и копии инструментов."
+  },
+  "instrumenty": {
+    "svobodnye_okna": {
+      "imya": "svobodnye_okna_careline_demo",
+      "id": "tool_7301m3sx522he008hepn2w20wn1k",
+      "funkciya": "okna",
+      "fayl": "instrumenty/svobodnye_okna.json"
+    },
+    "zapisat": {
+      "imya": "zapisat_careline_demo",
+      "id": "tool_7801m3sx52hte08s1ahzc6s1x128",
+      "funkciya": "zapis",
+      "fayl": "instrumenty/zapisat.json"
+    },
+    "sohranit_kandidata": {
+      "imya": "sohranit_kandidata_careline_demo",
+      "id": "tool_7001m3sx540ef8jt8hdhjcnweys8",
+      "funkciya": "kandidat",
+      "fayl": "instrumenty/sohranit_kandidata.json"
+    },
+    "sohranit_semyu": {
+      "imya": "sohranit_semyu_careline_demo",
+      "id": "tool_7301m3sx555wfg7vj0qarkt3kdgh",
+      "funkciya": "semya",
+      "fayl": "instrumenty/sohranit_semyu.json"
+    },
+    "otkaz_ot_smeny": {
+      "imya": "otkaz_ot_smeny_careline_demo",
+      "id": "tool_5801m3sx56ebemka9rz3bgwrhzhw",
+      "funkciya": "otkaz",
+      "fayl": "instrumenty/otkaz_ot_smeny.json"
+    },
+    "perevod": {
+      "imya": "perevod_careline_demo",
+      "id": "tool_7701m3tyc9pqfmab2krhhmhbe2jq",
+      "funkciya": "perevod",
+      "fayl": "instrumenty/perevod.json",
+      "sozdan": "01.10 ночью (UTC 30.09), POST /v1/convai/tools; тело — instrumenty/perevod.json; заменил системный transfer_to_number у обоих DEMO-агентов"
+    }
+  },
+  "zaglushki": {
+    "url_stenda": "ЗАМЕНЕНО 30.09: https://linii-demo-85fof.netlify.app/.netlify/functions/<функция> (стенд linii-demo-85fof, id ea43276c-c92b-479d-b662-541651e04cf2; функции появятся после вечерней выкладки главного агента)",
+    "transfer_to_number": "СНЯТ 01.10: системный transfer_to_number (заглушка +17185550199) заменён вебхуком perevod_careline_demo → функция perevod (ширма «нажмите 1»); вне DRY_RUN нужны номера цепочек в nastroyki.json (решение Андрея)"
+  },
+  "agenty": {
+    "care-caregivers": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "imya": "CareLine DEMO · Caregivers",
+      "liniya": "care-caregivers — отказы от смен голосом (A3)",
+      "prompty": {
+        "en": "prompty/caregivers.en.md",
+        "es": "prompty/caregivers.es.md (language_presets.es)",
+        "ru": "prompty/caregivers.ru.md (language_presets.ru)"
+      },
+      "instrumenty": [
+        "otkaz_ot_smeny_careline_demo",
+        "perevod_careline_demo"
+      ],
+      "sistemnye": [
+        "end_call",
+        "language_detection",
+        "transfer_to_agent → care-hiring"
+      ],
+      "max_duration_seconds": 300,
+      "perevod": "вебхук perevod_careline_demo: часы офиса + срочное ночью (perevod_vne_chasov у линии DEMO-2)"
+    },
+    "care-hiring": {
+      "agent_id": "agent_2001m3sx90scf9msygm0e685h1yw",
+      "imya": "CareLine DEMO · Hiring",
+      "liniya": "care-hiring — найм сиделок + семьи (A1, A2)",
+      "prompty": {
+        "en": "prompty/hiring.en.md",
+        "es": "prompty/hiring.es.md (language_presets.es)",
+        "ru": "prompty/hiring.ru.md (language_presets.ru)"
+      },
+      "instrumenty": [
+        "svobodnye_okna_careline_demo",
+        "zapisat_careline_demo",
+        "sohranit_kandidata_careline_demo",
+        "sohranit_semyu_careline_demo",
+        "perevod_careline_demo"
+      ],
+      "sistemnye": [
+        "end_call",
+        "language_detection",
+        "transfer_to_agent → care-caregivers"
+      ],
+      "max_duration_seconds": 480,
+      "perevod": "вебхук perevod_careline_demo: только часы офиса (вне часов функция отвечает vne_chasov — агент принимает сообщение)"
+    }
+  },
+  "obshchee": {
+    "obrazec": "Дежурный · English agent_6801m3cz595hesgr7cxent1vse6r — только GET 30.09",
+    "llm": "gemini-2.5-flash, temperature 0.2, max_tokens 600, thinking_budget 0; запасная gpt-4.1-mini (cascade 2.5 с)",
+    "golos": "Sarah EXAVITQu4vr4xnSDxMaL; en — eleven_flash_v2, es/ru — eleven_flash_v2_5 (в пресетах)",
+    "asr": "scribe_realtime, quality high, keywords Brightside/HHA/PCA/CNA/Medicaid/Dana/районы",
+    "turn": "turn_timeout 4, eager, spelling_patience auto, speculative_turn, soft timeout 2 с (фраза на языке пресета)",
+    "yazyki": "en основной + language_presets es, ru (свой промпт, первая фраза, заполнитель, финальная фраза) + системный language_detection",
+    "zapis_zvuka": "privacy.record_voice false — пишется только текст; раскрытие: «recorded as a text transcript»",
+    "limity": "call_limits: одновременно 4, в сутки 20 (с 01.10, проверка 30.09; было 300), bursting выкл.; веб-вход закрыт enable_auth. Стенд сверх того — 15 входящих в сутки (nastroyki.limity)",
+    "vebhuk_itoga": "НЕ подключён (стенда нет); data_collection 8 полей, summary_language en",
+    "vremya": "prompt.timezone America/New_York + {{system__time}} в промпте",
+    "testy": {
+      "papka": "tfld_9101m3sxb9wbe3crzbw6xvjh23zx «CareLine DEMO (№44)»",
+      "karta": "progony/testy.json (сценарий → test_id)"
+    },
+    "hranenie": "privacy.retention_days 30 (с 01.10; к старым разговорам не применяется), record_voice false"
+  },
+  "linii_json_chernovik": {
+    "DEMO-1": {
+      "liniya": "care-hiring",
+      "klient": "brightside",
+      "agent_id": "agent_2001m3sx90scf9msygm0e685h1yw",
+      "yazyk": "en"
+    },
+    "DEMO-2": {
+      "liniya": "care-caregivers",
+      "klient": "brightside",
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "yazyk": "en"
+    }
+  },
+  "nomer": {
+    "nomer": "+19292099535",
+    "twilio_sid": "PNf8a1f3e6d8ade7dac3f3e8d69a08def2",
+    "kupil": "главный агент 30.09 20:13 UTC",
+    "privyazka": "НЕ привязан — делает главный агент в окно выкладки по care/PRIVYAZKA.md"
+  },
+  "perevod_vebhuk_id": "tool_7701m3tyc9pqfmab2krhhmhbe2jq"
+}

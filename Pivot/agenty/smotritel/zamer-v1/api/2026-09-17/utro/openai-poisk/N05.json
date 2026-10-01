@@ -1,0 +1,621 @@
+{
+ "vopros_id": "N05",
+ "vopros": "спросила у нейросети кто лучший косметолог в лос анджелесе и меня там нет. как сделать чтобы нейросети меня советовали?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "utro",
+ "den": "2026-09-17",
+ "vne_okna": false,
+ "zapusk_id": "20260917-090013-88676",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-17T09:14:03-07:00",
+   "zapusk_id": "20260917-090013-88676",
+   "cena": 0.03133,
+   "ishod": "ok",
+   "sekund": 9.2,
+   "meta": {
+    "date": "Thu, 17 Sep 2026 16:14:12 GMT",
+    "x-request-id": "req_d6d8b6c01f66497a9b55fff6d931fba0",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "9014"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. Это уже отдельное направление — GEO/AEO (оптимизация присутствия в ответах нейросетей), и для косметолога в Лос-Анджелесе это вполне решаемая задача. При этом нельзя просто «зарегистрироваться в ChatGPT и занять первое место»: ChatGPT Search ранжирует источники по нескольким сигналам релевантности и надежности, а для локальных рекомендаций может учитывать местоположение пользователя и данные сторонних сервисов. ([help.openai.com](https://help.openai.com/en/articles/9237897-chatgpt-search%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252523.zst?utm_source=openai))\n\nЯ бы работала сразу по нескольким направлениям:\n\n- Привести в идеальный порядок Google Business Profile: правильная категория, Los Angeles, услуги, цены, фото работ, сайт, телефон, часы. Google прямо указывает, что локальная выдача зависит прежде всего от relevance, distance и prominence, а отзывы и информация с сайта входят в используемые сигналы. ([support.google.com](https://support.google.com/business/answer/7091?hl=en&utm_source=openai))\n- Аналогично оформить Bing Places. Microsoft рекомендует владельцам компаний самим подтверждать и обновлять там карточку бизнеса. ([support.microsoft.com](https://support.microsoft.com/en-us/bing/add-and-manage-your-business-listing?utm_source=openai))\n- Серьезно заняться Yelp. В 2026 году Yelp и OpenAI заключили соглашение, по которому данные Yelp, включая отзывы, фотографии и информацию о локальных компаниях, используются в ChatGPT. Поэтому для косметолога сейчас это особенно интересный канал. ([axios.com](https://www.axios.com/2026/07/23/yelp-reviews-chatgpt-geo-partnership?utm_source=openai))\n- Сделать сайт не просто «красивой визиткой», а источником однозначной информации о вас: имя/бренд, `esthetician/cosmetologist in Los Angeles`, район, специализации, процедуры, qualifications/licenses (только реальные), FAQ, before/after, отзывы, контакты. Данные на сайте и во всех профилях должны совпадать.\n- Получать реальные отзывы клиентов, причем полезнее содержательные отзывы: что именно делали, какой был опыт, почему рекомендуют специалиста. Никаких купленных/сгенерированных отзывов.\n- Добиваться независимых упоминаний: локальные СМИ и beauty-сайты, профессиональные каталоги, интервью, подкасты, страницы брендов, с которыми вы работаете, и т. п. Цель — чтобы интернет содержал не только ваши собственные заявления «я лучший косметолог», а независимые подтверждения вашей репутации.\n\nИ важный нюанс: оптимизироваться нужно не под запрос «кто лучший косметолог в LA» вообще, а под те запросы, по которым вы действительно сильны. Например: “best esthetician in Los Angeles for acne”, “best facial in West Hollywood”, “Russian-speaking esthetician Los Angeles”, “best esthetician for sensitive skin LA”. На узкой специализации попасть в рекомендации обычно реалистичнее, чем пытаться сразу стать универсальным №1.\n\nМогу сделать гораздо полезнее: пришлите мне ваше имя/название бизнеса + сайт + Instagram + Google Maps/Yelp, если они есть. Я проверю, что сейчас видят ChatGPT и поисковики при запросах вроде “best cosmetologist/esthetician in Los Angeles”, сравню вас с теми, кого они рекомендуют, и составлю конкретный план, что изменить, чтобы повысить вероятность попадания в такие ответы.",
+  "poiskovye_zaprosy": [
+   "OpenAI ChatGPT search ranking recommendations websites local businesses official",
+   "Google Business Profile improve local ranking relevance distance prominence official",
+   "Bing Places for Business official local business listing"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://support.google.com/business/answer/7091?hl=en",
+    "domen": "support.google.com",
+    "title": "Tips to improve your local ranking on Google - Google Business Profile Help"
+   },
+   {
+    "url": "https://support.google.com/business/answer/2721884",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252523.zst",
+    "domen": "help.openai.com",
+    "title": "ChatGPT Search | OpenAI Help Center"
+   },
+   {
+    "url": "https://support.microsoft.com/en-us/bing/add-and-manage-your-business-listing",
+    "domen": "support.microsoft.com",
+    "title": "Add and manage your business listing | Microsoft Support"
+   },
+   {
+    "url": "https://www.bingplaces.com/Home/Index",
+    "domen": "bingplaces.com",
+    "title": null
+   },
+   {
+    "url": "https://blogs.bing.com/search/October-2025/Introducing-the-New-Bing-Places-for-Business-Built-for-Business-Owners%2C-Powered-by-Research",
+    "domen": "blogs.bing.com",
+    "title": null
+   },
+   {
+    "url": "https://support.google.com/business/answer/7039811?hl=en",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://support.google.com/business/answer/7091?hl=es-ES",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://openai.com/business/plugins/semrush",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://support.google.com/google-ads/answer/3246303?hl=en",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://support.google.com/business/answer/9918094",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://www.trypromptrank.com/research/how-ai-recommends-local-businesses",
+    "domen": "trypromptrank.com",
+    "title": null
+   },
+   {
+    "url": "https://static1.squarespace.com/static/641214f0e4daa61c84fbc13f/t/64ea9dde98aef144cb2d8bf1/1693097438496/ClaimYourBusinessOnBing.pdf",
+    "domen": "static1.squarespace.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.bingplaces.com/tpshared/BingPlaces_API_Latest.pdf",
+    "domen": "cdn.bingplaces.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/GoogleMyBusiness/comments/1vss6e5/we_analyzed_14472_ai_citations_to_see_what_gemini",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/GrowthHacking/comments/1uw8enq/i_checked_whether_500_local_businesses_show_up_in",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/localseo/comments/1qnsc51/got_mentions_for_a_local_business_on_chatgpt_and",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://powrpractice.s3.amazonaws.com/Guides/Bing%20Places%20for%20Business.pdf",
+    "domen": "powrpractice.s3.amazonaws.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AISearchLab/comments/1ux0jpc/i_audited_50_websites_to_see_which_ones_chatgpt",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_SPM_Communications/comments/1uxaawb/only_12_of_local_businesses_have_started",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/smallbusinessUS/comments/1t3bs1o/i_searched_for_my_own_business_on_chatgpt_it",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=ZrffdvdonqA",
+    "domen": "youtube.com",
+    "title": null
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=8YGQ5kIxp0Q",
+    "domen": "youtube.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/localseo/comments/1u1tgec/what_is_the_best_way_to_get_into_chatgpt_and_ai",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AiForSmallBusiness/comments/1q25zua/why_chatgpt_isnt_recommending_your_business_even",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/localseo/comments/1ukjuc9/how_do_llms_and_ai_search_rank_local_businesses",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/localseo/comments/1khuzb1/list_of_chatgpts_local_ranking_factors",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/MarketingHelp/comments/1q26ug0/why_chatgpt_isnt_recommending_your_business_even",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/OpenAI/comments/1rwzbji/how_does_chatgpt_decide_which_businesses_to",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://customerfindermarketing.com/wp-content/uploads/2025/06/ChatGPT-Local-Ranking-Factors-Google-Latest-AI-Upgrade-8-Strategies-to-Optimize-for-Google-AI-Powered-Search-CustomerFinderMarketing.com-Online-Marketing-Newsletter-2025-June.pdf",
+    "domen": "customerfindermarketing.com",
+    "title": null
+   },
+   {
+    "url": "https://ukassets.web.com/downloads/BingPlaces.pdf",
+    "domen": "ukassets.web.com",
+    "title": null
+   },
+   {
+    "url": "https://www.axios.com/2026/07/23/yelp-reviews-chatgpt-geo-partnership",
+    "domen": "axios.com",
+    "title": "Exclusive: Yelp partners with ChatGPT to surface reviews"
+   },
+   {
+    "url": "https://www.tomsguide.com/ai/i-used-chatgpt-to-shop-online-heres-what-i-learned-the-hard-way-about-spotting-fake-stores",
+    "domen": "tomsguide.com",
+    "title": null
+   },
+   {
+    "url": "https://apnews.com/article/c43a6a642c9f649e1707ba29d52a143c",
+    "domen": "apnews.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2307.01135",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.axios.com/newsletters/axios-ai-plus-41cb8f00-97bc-11ef-a299-a1862fd1d4d9",
+    "domen": "axios.com",
+    "title": null
+   },
+   {
+    "url": "https://www.theatlantic.com/technology/2026/06/google-search-ai-optimization/687495",
+    "domen": "theatlantic.com",
+    "title": null
+   },
+   {
+    "url": "https://www.techradar.com/pro/how-to-track-your-brands-visibility-in-ai-search-results",
+    "domen": "techradar.com",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Local_search_%28Internet%29",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2304.09542",
+    "domen": "arxiv.org",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252523.zst",
+    "domen": "help.openai.com",
+    "title": "ChatGPT Search | OpenAI Help Center"
+   },
+   {
+    "url": "https://support.google.com/business/answer/7091?hl=en",
+    "domen": "support.google.com",
+    "title": "Tips to improve your local ranking on Google - Google Business Profile Help"
+   },
+   {
+    "url": "https://support.microsoft.com/en-us/bing/add-and-manage-your-business-listing",
+    "domen": "support.microsoft.com",
+    "title": "Add and manage your business listing | Microsoft Support"
+   },
+   {
+    "url": "https://www.axios.com/2026/07/23/yelp-reviews-chatgpt-geo-partnership",
+    "domen": "axios.com",
+    "title": "Exclusive: Yelp partners with ChatGPT to surface reviews"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10814,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 781,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11595
+  },
+  "cena": 0.03133,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_03b0a3c08916e60e006aac11cb3bd487d0b6ba4323130311d1",
+  "object": "response",
+  "created_at": 1789661643,
+  "status": "completed",
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1789661651,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_03b0a3c08916e60e006aac11cbdbe487d085df6232f4a397c9",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "OpenAI ChatGPT search ranking recommendations websites local businesses official",
+      "Google Business Profile improve local ranking relevance distance prominence official",
+      "Bing Places for Business official local business listing"
+     ],
+     "query": "OpenAI ChatGPT search ranking recommendations websites local businesses official",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/7091?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/2721884"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252523.zst"
+      },
+      {
+       "type": "url",
+       "url": "https://support.microsoft.com/en-us/bing/add-and-manage-your-business-listing"
+      },
+      {
+       "type": "url",
+       "url": "https://www.bingplaces.com/Home/Index"
+      },
+      {
+       "type": "url",
+       "url": "https://blogs.bing.com/search/October-2025/Introducing-the-New-Bing-Places-for-Business-Built-for-Business-Owners%2C-Powered-by-Research"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/7039811?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/7091?hl=es-ES"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/business/plugins/semrush/"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/google-ads/answer/3246303?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/9918094"
+      },
+      {
+       "type": "url",
+       "url": "https://www.trypromptrank.com/research/how-ai-recommends-local-businesses"
+      },
+      {
+       "type": "url",
+       "url": "https://static1.squarespace.com/static/641214f0e4daa61c84fbc13f/t/64ea9dde98aef144cb2d8bf1/1693097438496/ClaimYourBusinessOnBing.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.bingplaces.com/tpshared/BingPlaces_API_Latest.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/GoogleMyBusiness/comments/1vss6e5/we_analyzed_14472_ai_citations_to_see_what_gemini/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/GrowthHacking/comments/1uw8enq/i_checked_whether_500_local_businesses_show_up_in/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/localseo/comments/1qnsc51/got_mentions_for_a_local_business_on_chatgpt_and/"
+      },
+      {
+       "type": "url",
+       "url": "https://powrpractice.s3.amazonaws.com/Guides/Bing%20Places%20for%20Business.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AISearchLab/comments/1ux0jpc/i_audited_50_websites_to_see_which_ones_chatgpt/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_SPM_Communications/comments/1uxaawb/only_12_of_local_businesses_have_started/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/smallbusinessUS/comments/1t3bs1o/i_searched_for_my_own_business_on_chatgpt_it/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.youtube.com/watch?v=ZrffdvdonqA"
+      },
+      {
+       "type": "url",
+       "url": "https://www.youtube.com/watch?v=8YGQ5kIxp0Q"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/localseo/comments/1u1tgec/what_is_the_best_way_to_get_into_chatgpt_and_ai/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AiForSmallBusiness/comments/1q25zua/why_chatgpt_isnt_recommending_your_business_even/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/localseo/comments/1ukjuc9/how_do_llms_and_ai_search_rank_local_businesses/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/localseo/comments/1khuzb1/list_of_chatgpts_local_ranking_factors/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/MarketingHelp/comments/1q26ug0/why_chatgpt_isnt_recommending_your_business_even/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/OpenAI/comments/1rwzbji/how_does_chatgpt_decide_which_businesses_to/"
+      },
+      {
+       "type": "url",
+       "url": "https://customerfindermarketing.com/wp-content/uploads/2025/06/ChatGPT-Local-Ranking-Factors-Google-Latest-AI-Upgrade-8-Strategies-to-Optimize-for-Google-AI-Powered-Search-CustomerFinderMarketing.com-Online-Marketing-Newsletter-2025-June.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://ukassets.web.com/downloads/BingPlaces.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.axios.com/2026/07/23/yelp-reviews-chatgpt-geo-partnership"
+      },
+      {
+       "type": "url",
+       "url": "https://www.tomsguide.com/ai/i-used-chatgpt-to-shop-online-heres-what-i-learned-the-hard-way-about-spotting-fake-stores"
+      },
+      {
+       "type": "url",
+       "url": "https://apnews.com/article/c43a6a642c9f649e1707ba29d52a143c"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2307.01135"
+      },
+      {
+       "type": "url",
+       "url": "https://www.axios.com/newsletters/axios-ai-plus-41cb8f00-97bc-11ef-a299-a1862fd1d4d9"
+      },
+      {
+       "type": "url",
+       "url": "https://www.theatlantic.com/technology/2026/06/google-search-ai-optimization/687495/?utm_source=apple_news"
+      },
+      {
+       "type": "url",
+       "url": "https://www.techradar.com/pro/how-to-track-your-brands-visibility-in-ai-search-results"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Local_search_%28Internet%29"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2304.09542"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252523.zst?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/business/answer/7091?hl=en&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://support.microsoft.com/en-us/bing/add-and-manage-your-business-listing?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://www.axios.com/2026/07/23/yelp-reviews-chatgpt-geo-partnership?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_03b0a3c08916e60e006aac11d1980887d08affbb6048f9368b",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 843,
+        "start_index": 419,
+        "title": "ChatGPT Search | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/9237897-chatgpt-search%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252523.zst?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1291,
+        "start_index": 1196,
+        "title": "Tips to improve your local ranking on Google - Google Business Profile Help",
+        "url": "https://support.google.com/business/answer/7091?hl=en&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1544,
+        "start_index": 1422,
+        "title": "Add and manage your business listing | Microsoft Support",
+        "url": "https://support.microsoft.com/en-us/bing/add-and-manage-your-business-listing?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1895,
+        "start_index": 1793,
+        "title": "Exclusive: Yelp partners with ChatGPT to surface reviews",
+        "url": "https://www.axios.com/2026/07/23/yelp-reviews-chatgpt-geo-partnership?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да. Это уже отдельное направление — GEO/AEO (оптимизация присутствия в ответах нейросетей), и для косметолога в Лос-Анджелесе это вполне решаемая задача. При этом нельзя просто «зарегистрироваться в ChatGPT и занять первое место»: ChatGPT Search ранжирует источники по нескольким сигналам релевантности и надежности, а для локальных рекомендаций может учитывать местоположение пользователя и данные сторонних сервисов. ([help.openai.com](https://help.openai.com/en/articles/9237897-chatgpt-search%2525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252525252523.zst?utm_source=openai))\n\nЯ бы работала сразу по нескольким направлениям:\n\n- Привести в идеальный порядок Google Business Profile: правильная категория, Los Angeles, услуги, цены, фото работ, сайт, телефон, часы. Google прямо указывает, что локальная выдача зависит прежде всего от relevance, distance и prominence, а отзывы и информация с сайта входят в используемые сигналы. ([support.google.com](https://support.google.com/business/answer/7091?hl=en&utm_source=openai))\n- Аналогично оформить Bing Places. Microsoft рекомендует владельцам компаний самим подтверждать и обновлять там карточку бизнеса. ([support.microsoft.com](https://support.microsoft.com/en-us/bing/add-and-manage-your-business-listing?utm_source=openai))\n- Серьезно заняться Yelp. В 2026 году Yelp и OpenAI заключили соглашение, по которому данные Yelp, включая отзывы, фотографии и информацию о локальных компаниях, используются в ChatGPT. Поэтому для косметолога сейчас это особенно интересный канал. ([axios.com](https://www.axios.com/2026/07/23/yelp-reviews-chatgpt-geo-partnership?utm_source=openai))\n- Сделать сайт не просто «красивой визиткой», а источником однозначной информации о вас: имя/бренд, `esthetician/cosmetologist in Los Angeles`, район, специализации, процедуры, qualifications/licenses (только реальные), FAQ, before/after, отзывы, контакты. Данные на сайте и во всех профилях должны совпадать.\n- Получать реальные отзывы клиентов, причем полезнее содержательные отзывы: что именно делали, какой был опыт, почему рекомендуют специалиста. Никаких купленных/сгенерированных отзывов.\n- Добиваться независимых упоминаний: локальные СМИ и beauty-сайты, профессиональные каталоги, интервью, подкасты, страницы брендов, с которыми вы работаете, и т. п. Цель — чтобы интернет содержал не только ваши собственные заявления «я лучший косметолог», а независимые подтверждения вашей репутации.\n\nИ важный нюанс: оптимизироваться нужно не под запрос «кто лучший косметолог в LA» вообще, а под те запросы, по которым вы действительно сильны. Например: “best esthetician in Los Angeles for acne”, “best facial in West Hollywood”, “Russian-speaking esthetician Los Angeles”, “best esthetician for sensitive skin LA”. На узкой специализации попасть в рекомендации обычно реалистичнее, чем пытаться сразу стать универсальным №1.\n\nМогу сделать гораздо полезнее: пришлите мне ваше имя/название бизнеса + сайт + Instagram + Google Maps/Yelp, если они есть. Я проверю, что сейчас видят ChatGPT и поисковики при запросах вроде “best cosmetologist/esthetician in Los Angeles”, сравню вас с теми, кого они рекомендуют, и составлю конкретный план, что изменить, чтобы повысить вероятность попадания в такие ответы."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10814,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 781,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11595
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

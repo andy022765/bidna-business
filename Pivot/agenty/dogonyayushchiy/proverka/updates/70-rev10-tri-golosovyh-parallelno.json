@@ -1,0 +1,210 @@
+{
+  "opisanie": "Ревью 15.09 №10. Три голосовых одновременно (Telegram шлёт вебхук до max_connections=10 параллельно). Троттлинг в meta — get-затем-set, параллельно он не срабатывает. Поэтому перед шаблоном «напишите текстом» — метка «одна обработка на пачку» (записать — подождать — перечитать): клиенту одна просьба, в группу один НЕ ТЕКСТ.",
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    },
+    "adm/chat/5001": "bc-test-1",
+    "zvonok/conv_test7m3x01": {
+      "conv": "conv_test7m3x01",
+      "agent_id": "agent_test_prodavec",
+      "istochnik": "telefon",
+      "t": "@now-2h",
+      "dlit": 360,
+      "sobrano": {
+        "imya": "Ирина Соколова",
+        "telefon": "+15615550100",
+        "pochta": "irina@salon-test.com",
+        "zachem": "узнать про Дежурного для салона",
+        "biznes": "салон маникюра в Тампе",
+        "obeshchali": "письмо со списком работ",
+        "hvost": "когда можно запустить"
+      },
+      "itog": "Звонила про Дежурного, письмо razbor ушло",
+      "dialog": [
+        {
+          "kto": "klient",
+          "text": "Меня зовут Ирина Соколова, почта irina@salon-test.com, номер 561 555 0100"
+        },
+        {
+          "kto": "vera",
+          "text": "Проверю по буквам."
+        },
+        {
+          "kto": "klient",
+          "text": "Мы на Жасминовой улице, вечером администратор уходит"
+        }
+      ],
+      "nomer": "+15615550100",
+      "kod": "K7M3X"
+    },
+    "kod/K7M3X": {
+      "kod": "K7M3X",
+      "razgovor": "conv_test7m3x01",
+      "istochnik": "vera",
+      "email": "irina@salon-test.com",
+      "imya": "Ирина Соколова",
+      "segment": "biznes",
+      "shag": "razbor",
+      "t": "@now-2h",
+      "chaty": [
+        {
+          "bc": "bc-test-1",
+          "chat": 5001,
+          "user_id": 5001,
+          "t": "@now-1h"
+        }
+      ],
+      "suhoy": false
+    },
+    "chat/bc-test-1/5001/meta": {
+      "chat_id": 5001,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 5001,
+        "first_name": "Ирина",
+        "username": "irina_nails",
+        "language_code": "ru"
+      },
+      "kod": "K7M3X",
+      "razgovor": "conv_test7m3x01",
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-1h"
+      },
+      "pauza_do": null,
+      "pauza_prichina": null,
+      "posl_vhod": {
+        "id": 100,
+        "t": "@now-1h"
+      },
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "okno_do": "@now+23h",
+      "predstavilas": true,
+      "nuzhno_snova_predstavitsya": false,
+      "tseli": [],
+      "segment": "biznes",
+      "tema": "dezhurny",
+      "oplatil": false,
+      "kasaniy": 0,
+      "signal_t": {},
+      "topic_id": 42
+    },
+    "chat/bc-test-1/5001/m/000000000100": {
+      "kto": "klient",
+      "tip": "text",
+      "text": "Здравствуйте! Пишу после разговора с Верой. Код K7M3X",
+      "t": "@now-1h"
+    },
+    "chat/bc-test-1/5001/m/000000000101": {
+      "kto": "vera",
+      "tip": "text",
+      "text": "Это Вера, виртуальный ассистент Business Intelligence DNA. По телефону вы спрашивали про Дежурного. Что осталось непонятным?",
+      "t": "@now-1h"
+    }
+  },
+  "parallelno": true,
+  "updates": [
+    {
+      "update_id": 1701,
+      "business_message": {
+        "message_id": 350,
+        "from": {
+          "id": 5001,
+          "is_bot": false,
+          "first_name": "Ирина",
+          "username": "irina_nails",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 5001,
+          "type": "private",
+          "first_name": "Ирина",
+          "username": "irina_nails"
+        },
+        "date": "@unix",
+        "business_connection_id": "bc-test-1",
+        "voice": {
+          "file_id": "v350",
+          "file_unique_id": "uv350",
+          "duration": 4,
+          "mime_type": "audio/ogg"
+        }
+      }
+    },
+    {
+      "update_id": 1702,
+      "business_message": {
+        "message_id": 351,
+        "from": {
+          "id": 5001,
+          "is_bot": false,
+          "first_name": "Ирина",
+          "username": "irina_nails",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 5001,
+          "type": "private",
+          "first_name": "Ирина",
+          "username": "irina_nails"
+        },
+        "date": "@unix",
+        "business_connection_id": "bc-test-1",
+        "voice": {
+          "file_id": "v351",
+          "file_unique_id": "uv351",
+          "duration": 4,
+          "mime_type": "audio/ogg"
+        }
+      }
+    },
+    {
+      "update_id": 1703,
+      "business_message": {
+        "message_id": 352,
+        "from": {
+          "id": 5001,
+          "is_bot": false,
+          "first_name": "Ирина",
+          "username": "irina_nails",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 5001,
+          "type": "private",
+          "first_name": "Ирина",
+          "username": "irina_nails"
+        },
+        "date": "@unix",
+        "business_connection_id": "bc-test-1",
+        "voice": {
+          "file_id": "v352",
+          "file_unique_id": "uv352",
+          "duration": 4,
+          "mime_type": "audio/ogg"
+        }
+      }
+    }
+  ],
+  "ozhidaem": {
+    "klientu": 1,
+    "model_vyzovov": 0,
+    "tekst_soderzhit": [
+      "Голосовые пока не слушаю"
+    ],
+    "signal_soderzhit": [
+      "НЕ ТЕКСТ"
+    ]
+  }
+}

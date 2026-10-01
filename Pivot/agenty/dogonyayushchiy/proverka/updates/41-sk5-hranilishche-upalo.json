@@ -1,0 +1,40 @@
+{
+  "opisanie": "Скептик №5 + ревью 15.09 №11. Хранилище падает на любом вызове (например, не поднялся EV_BLOBS_TOKEN). Сигнал ОШИБКА уходит в группу прямым fetch в Telegram — с именем, @username, chat_id и кнопкой «Открыть чат». Клиенту ничего не ушло, поэтому исключение уходит наружу: Netlify повторит фоновую функцию через 1 и 2 минуты.",
+  "slomat_hranilishche": true,
+  "podgotovka": {},
+  "update": {
+    "update_id": 1041,
+    "business_message": {
+      "message_id": 286,
+      "from": {
+        "id": 5001,
+        "is_bot": false,
+        "first_name": "Ирина",
+        "username": "irina_nails",
+        "language_code": "ru"
+      },
+      "chat": {
+        "id": 5001,
+        "type": "private",
+        "first_name": "Ирина",
+        "username": "irina_nails"
+      },
+      "date": "@unix",
+      "business_connection_id": "bc-test-1",
+      "text": "Здравствуйте! Пишу после разговора с Верой. Код K7M3X"
+    }
+  },
+  "ozhidaem": {
+    "klientu": 0,
+    "model_vyzovov": 0,
+    "gruppe_est": true,
+    "signal_soderzhit": [
+      "ошибк",
+      "Ирина",
+      "@irina_nails",
+      "chat 5001",
+      "повторит"
+    ],
+    "brosaet": true
+  }
+}

@@ -1,0 +1,40 @@
+# Template: sources/<src-id>/meta.yaml
+id: src-20260924-acs-mesto-rozhdeniya-sng
+url: https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b05006.dat
+canonical_url: https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b05006.dat
+type: dataset
+title: 'ACS 1-year 2024, table B05006 Place of Birth for the Foreign-Born Population (former USSR countries)'
+authors: [{name: "U.S. Census Bureau", affiliation: "American Community Survey"}]
+published: 2025-09-11
+fetched_at: 2026-09-24T19:00:00Z
+language: en
+fetch_method: webfetch (curl, raw .dat)
+storage:
+  original: original.dat (+ original-2021.dat, extract.md)
+  bytes: 699114
+
+relevance: 4
+quality: 9
+quality_breakdown:
+  primary_source: true
+  author_credible: true
+  has_math: false
+  has_empirics: true
+  reproducible: true
+  recent: true
+  cited: true
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: false
+  notes: 'Госстатистика. Место рождения не равно языку: армяне, грузины, прибалты говорят по-русски не все. Коды строк 2021 и 2024 различаются для стран Азии — сравнение 2021 сделано только по России и Украине.'
+
+extracted:
+  notes: [n-rodivshiesya-v-sng-1-4-milliona, n-centralnaya-aziya-v-russkoyazychnom-rynke]
+  claims: [c-0401]
+  contradictions: []
+  outbound_links_tracked: 0
+
+status: processed
+reject_reason: null

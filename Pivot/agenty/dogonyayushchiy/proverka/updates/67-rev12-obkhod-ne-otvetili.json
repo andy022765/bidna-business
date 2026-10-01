@@ -1,0 +1,219 @@
+{
+  "opisanie": "Ревью 15.09 №12, скептик №5. Обход «НЕ ОТВЕТИЛИ»: Ирина ждёт 5 мин без ответа Веры — сигнал и надзор снят; Олегу Вера ответила — снят молча; Семён в паузе владельца — снят молча; Павел ждёт 1 мин — рано, надзор остаётся, а через 10 минут сигнал уже по нему. Клиентам обход не пишет.",
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    },
+    "chat/bc-test-1/5001/meta": {
+      "chat_id": 5001,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 5001,
+        "first_name": "Ирина",
+        "username": "user_5001",
+        "language_code": "ru"
+      },
+      "kod": "K5001",
+      "razgovor": null,
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-2h"
+      },
+      "pauza_do": null,
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "predstavilas": true,
+      "tseli": [],
+      "segment": "biznes",
+      "signal_t": {},
+      "topic_id": 5001,
+      "sozdano": "@now-2h",
+      "obnovleno": "@now-5m",
+      "posl_vhod": {
+        "id": 360,
+        "t": "@now-5m"
+      }
+    },
+    "nadzor/otvet/bc-test-1/5001": {
+      "id": 360,
+      "t": "@now-5m",
+      "bc": "bc-test-1",
+      "chat": "5001"
+    },
+    "chat/bc-test-1/5002/meta": {
+      "chat_id": 5002,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 5002,
+        "first_name": "Олег",
+        "username": "user_5002",
+        "language_code": "ru"
+      },
+      "kod": "K5002",
+      "razgovor": null,
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-2h"
+      },
+      "pauza_do": null,
+      "posl_vera_t": "@now-4m",
+      "posl_vladelec_t": null,
+      "predstavilas": true,
+      "tseli": [],
+      "segment": "biznes",
+      "signal_t": {},
+      "topic_id": 5002,
+      "sozdano": "@now-2h",
+      "obnovleno": "@now-5m",
+      "posl_vhod": {
+        "id": 50,
+        "t": "@now-5m"
+      }
+    },
+    "nadzor/otvet/bc-test-1/5002": {
+      "id": 50,
+      "t": "@now-5m",
+      "bc": "bc-test-1",
+      "chat": "5002"
+    },
+    "chat/bc-test-1/5003/meta": {
+      "chat_id": 5003,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 5003,
+        "first_name": "Павел",
+        "username": "user_5003",
+        "language_code": "ru"
+      },
+      "kod": "K5003",
+      "razgovor": null,
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-2h"
+      },
+      "pauza_do": null,
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "predstavilas": true,
+      "tseli": [],
+      "segment": "biznes",
+      "signal_t": {},
+      "topic_id": 5003,
+      "sozdano": "@now-2h",
+      "obnovleno": "@now-5m",
+      "posl_vhod": {
+        "id": 70,
+        "t": "@now-1m"
+      }
+    },
+    "nadzor/otvet/bc-test-1/5003": {
+      "id": 70,
+      "t": "@now-1m",
+      "bc": "bc-test-1",
+      "chat": "5003"
+    },
+    "chat/bc-test-1/5004/meta": {
+      "chat_id": 5004,
+      "bc": "bc-test-1",
+      "user": {
+        "id": 5004,
+        "first_name": "Семён",
+        "username": "user_5004",
+        "language_code": "ru"
+      },
+      "kod": "K5004",
+      "razgovor": null,
+      "istochnik": "vera",
+      "status": "aktivnyy",
+      "soglasie": {
+        "sposob": "pismo",
+        "t": "@now-2h"
+      },
+      "pauza_do": "@now+20h",
+      "posl_vera_t": "@now-1h",
+      "posl_vladelec_t": null,
+      "predstavilas": true,
+      "tseli": [],
+      "segment": "biznes",
+      "signal_t": {},
+      "topic_id": 5004,
+      "sozdano": "@now-2h",
+      "obnovleno": "@now-5m",
+      "posl_vhod": {
+        "id": 80,
+        "t": "@now-6m"
+      },
+      "pauza_prichina": "vladelec"
+    },
+    "nadzor/otvet/bc-test-1/5004": {
+      "id": 80,
+      "t": "@now-6m",
+      "bc": "bc-test-1",
+      "chat": "5004"
+    }
+  },
+  "updates": [
+    {
+      "now": "@now",
+      "obkhod": true
+    },
+    {
+      "now": "@now+10m",
+      "obkhod": true
+    }
+  ],
+  "ozhidaem": {
+    "klientu": 0,
+    "klyuchi_net": [
+      "nadzor/otvet/*"
+    ],
+    "po_shagam": [
+      {
+        "shag": 1,
+        "signal_soderzhit": [
+          "НЕ ОТВЕТИЛИ",
+          "Ирина",
+          "Вера не ответила"
+        ],
+        "signal_ne_soderzhit": [
+          "Олег",
+          "Павел",
+          "Семён"
+        ],
+        "klyuchi_net": [
+          "nadzor/otvet/bc-test-1/5001",
+          "nadzor/otvet/bc-test-1/5002",
+          "nadzor/otvet/bc-test-1/5004"
+        ],
+        "klyuchi_est": [
+          "nadzor/otvet/bc-test-1/5003"
+        ]
+      },
+      {
+        "shag": 2,
+        "signal_soderzhit": [
+          "НЕ ОТВЕТИЛИ",
+          "Павел"
+        ],
+        "signal_ne_soderzhit": [
+          "Ирина",
+          "Олег",
+          "Семён"
+        ]
+      }
+    ]
+  }
+}

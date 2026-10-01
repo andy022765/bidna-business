@@ -1,0 +1,95 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "sohranit_semyu_careline_demo",
+    "description": "Saves a family's request for home care, before you offer assessment times. Call it exactly ONCE per call, only after the caller's name was spelled and confirmed and the phone confirmed — never with a placeholder name such as 'Caller', never for a message. Never put medical details, diagnoses or the care recipient's name here. If the result has ok false with kod net_imeni, nothing was saved: ask for the first and last name, spelled, then call it again with that name.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/semya",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "KomtreYBZQp3NoyIGVnN"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "CareLine DEMO → semya",
+        "required": [
+          "imya",
+          "telefon",
+          "rayon",
+          "oplata",
+          "srochnost",
+          "yazyk",
+          "conversation_id"
+        ],
+        "properties": {
+          "imya": {
+            "type": "string",
+            "description": "Caller's first and last name exactly as spelled and confirmed, in Latin letters."
+          },
+          "telefon": {
+            "type": "string",
+            "description": "The confirmed phone number in E.164 format, e.g. +17185550142."
+          },
+          "rayon": {
+            "type": "string",
+            "description": "Neighborhood in Brooklyn or Queens where the person who needs care lives."
+          },
+          "zip": {
+            "type": "string",
+            "description": "Five-digit ZIP code where care is needed."
+          },
+          "chasov_v_nedelyu": {
+            "type": "number",
+            "description": "About how many hours of care a week the family wants; leave it out if they don't know."
+          },
+          "oplata": {
+            "type": "string",
+            "description": "How care would be paid: private, medicaid, ltc (long-term care insurance), unknown.",
+            "enum": [
+              "private",
+              "medicaid",
+              "ltc",
+              "unknown"
+            ]
+          },
+          "srochnost": {
+            "type": "string",
+            "description": "How soon care is needed: srochno (within a few days), nedelya (within one or two weeks), pozzhe (later), ne_znayu.",
+            "enum": [
+              "srochno",
+              "nedelya",
+              "pozzhe",
+              "ne_znayu"
+            ]
+          },
+          "sms_soglasie": {
+            "type": "boolean",
+            "description": "true ONLY if the caller clearly said yes to text messages about the assessment (a confirmation and a reminder) in this call; otherwise false."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es",
+              "ru"
+            ]
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          }
+        }
+      }
+    }
+  }
+}

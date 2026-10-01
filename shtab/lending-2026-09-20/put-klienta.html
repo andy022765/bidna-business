@@ -1,0 +1,588 @@
+<title>Путь клиента</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --bg:#f6f7f8; --card:#fff; --ink:#15181b; --dim:#565d64; --faint:#858c93;
+    --line:#e1e4e7; --rule:#c7ccd1; --acc:#0d5f70; --acc2:#e3eef1;
+    --free:#7a4bb8; --free2:#eee8f8;
+    --go:#1b6a46; --no:#9f3325; --no2:#fbeae7;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#101214; --card:#181b1e; --ink:#e8eaec; --dim:#99a1a7; --faint:#7c848b;
+    --line:#282c31; --rule:#3a4046; --acc:#6ec3d5; --acc2:#15282e;
+    --free:#b79ae0; --free2:#221c30;
+    --go:#67c69a; --no:#e48a7b; --no2:#2a1815;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#101214; --card:#181b1e; --ink:#e8eaec; --dim:#99a1a7; --faint:#7c848b;
+    --line:#282c31; --rule:#3a4046; --acc:#6ec3d5; --acc2:#15282e;
+    --free:#b79ae0; --free2:#221c30;
+    --go:#67c69a; --no:#e48a7b; --no2:#2a1815;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,sans-serif;
+    font-size:16.5px;line-height:1.55;padding:0 18px;padding-block:0 80px;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:880px;margin:0 auto}
+  header{padding-block:44px 18px}
+  .kick{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--acc);font-weight:700;margin:0 0 12px}
+  h1{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:clamp(27px,5.2vw,37px);
+    line-height:1.13;margin:0 0 15px;letter-spacing:-.02em}
+  .one{background:var(--acc2);border-left:4px solid var(--acc);border-radius:0 4px 4px 0;padding:15px 18px;margin:0}
+  .one p{margin:0 0 9px;font-size:16.5px} .one p:last-child{margin-bottom:0}
+  h2{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--acc);margin:0 0 6px}
+  .sec{padding-block:30px;border-top:2px solid var(--rule)}
+  .sec>h3{font-family:'Roboto Slab',Georgia,serif;font-weight:700;font-size:23px;line-height:1.2;
+    margin:0 0 8px;letter-spacing:-.01em}
+  .lead{color:var(--dim);margin:0 0 16px;font-size:15.5px;max-width:74ch}
+  p{margin:0 0 12px;max-width:74ch} p:last-child{margin-bottom:0}
+  b{font-weight:600}
+  figure{margin:0 0 6px;overflow-x:auto}
+  svg{max-width:100%;height:auto;display:block;color:var(--ink);min-width:660px}
+  figcaption{font-size:14px;color:var(--faint);margin-top:8px;max-width:74ch}
+  .bx{fill:none;stroke:currentColor;stroke-width:1.4}
+  .bxf{fill:var(--card);stroke:currentColor;stroke-width:1.4}
+  .dia{fill:var(--acc2);stroke:var(--acc);stroke-width:1.6}
+  .prod{fill:var(--acc2);stroke:var(--acc);stroke-width:1.7}
+  .freeb{fill:var(--free2);stroke:var(--free);stroke-width:2}
+  .stop{fill:var(--no2);stroke:var(--no);stroke-width:1.4}
+  .ln{stroke:currentColor;stroke-width:1.4;fill:none}
+  text{font-family:Inter,sans-serif;fill:currentColor}
+  .t-lbl{font-size:11px;fill:var(--faint);letter-spacing:.07em;text-transform:uppercase;font-weight:700}
+  .t-free{font-size:10.5px;fill:var(--free);letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+  .t-cond{font-size:11.5px;fill:var(--dim)}
+  .t-nm{font-size:15px;font-weight:700}
+  .t-nmb{font-size:16.5px;font-weight:700}
+  .t-fr{font-size:16.5px;font-weight:700;fill:var(--free)}
+  .t-pr{font-size:13px;font-weight:700;fill:var(--acc)}
+  .t-sm{font-size:12px;fill:var(--dim)}
+  .t-dia{font-size:14.5px;font-weight:700;fill:var(--acc)}
+  .t-stop{font-size:13.5px;font-weight:700;fill:var(--no)}
+  .t-edge{font-size:12px;fill:var(--faint);font-weight:700}
+  .tw{overflow-x:auto;margin:14px 0 0}
+  table{border-collapse:collapse;width:100%;font-size:15px;min-width:600px}
+  th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700}
+  td.pr{font-weight:700;color:var(--go);white-space:nowrap;text-align:right}
+  td.nm{font-weight:700;white-space:nowrap}
+  .warn{background:var(--no2);border-left:3px solid var(--no);border-radius:0 3px 3px 0;padding:13px 16px;margin:16px 0;font-size:15.5px}
+  .warn b{color:var(--no)}
+  .freebox{background:var(--free2);border-left:4px solid var(--free);border-radius:0 4px 4px 0;padding:14px 17px;margin:16px 0}
+  .freebox h4{margin:0 0 6px;font-size:16px;color:var(--free)}
+  .freebox p{margin:0;font-size:15.5px}
+</style>
+
+<div class="w">
+
+<header>
+  <p class="kick">Business Intelligence DNA · 20 сентября 2026</p>
+  <h1>Путь клиента</h1>
+  <div class="one">
+    <p><b>Два бесплатных продукта — два алгоритма.</b> Оба показывают человеку одно и то же: <b>его место среди соседей</b>. Машиной — мгновенно и бесплатно. Голосом — дороже и только для тех, кто зацепился.</p>
+    <p>Куда человек пойдёт, решает не он и не анкета, а то, что машина нашла на сайте и что сделала его трубка.</p>
+  </div>
+</header>
+
+<section class="sec" style="border-top:0">
+  <h2>Алгоритм А</h2>
+  <h3>Он пришёл сам · бесплатный продукт — «кто вместо вас»</h3>
+  <p class="lead">Сюда попадают все, кто пришёл с рекламы или по совету. Ниша и город есть у каждого, поэтому эта дверь работает у любого бизнеса — робот, реклама и даже сайт не нужны.</p>
+
+  <figure>
+    <svg viewBox="0 0 960 800" role="img" aria-label="Алгоритм А: человек приходит с рекламы на страницу «кто вместо вас», вводит нишу и город, видит имена конкурентов, оставляет почту; по числу найденных симптомов попадает в ВИДИМОСТЬ, СЧЁТЧИК, ПРИЁМКУ, ДИАГНОСТИКУ или переходит в алгоритм Б">
+      <defs><marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
+
+      <text class="t-lbl" x="16" y="14">Вход</text>
+      <rect class="bxf" x="200" y="24" width="250" height="48" rx="4"/>
+      <text class="t-nm" x="325" y="46" text-anchor="middle">РЕКЛАМА НА ПОИСКЕ</text>
+      <text class="t-sm" x="325" y="63" text-anchor="middle">платный трафик</text>
+      <rect class="bxf" x="510" y="24" width="250" height="48" rx="4"/>
+      <text class="t-nm" x="635" y="46" text-anchor="middle">РЕКОМЕНДАЦИЯ</text>
+      <text class="t-sm" x="635" y="63" text-anchor="middle">пришёл по совету</text>
+
+      <polyline class="ln" points="325,72 325,92 480,92"/>
+      <polyline class="ln" points="635,72 635,92 480,92"/>
+      <line class="ln" x1="480" y1="92" x2="480" y2="114" marker-end="url(#aa)"/>
+
+      <rect class="freeb" x="230" y="118" width="500" height="74" rx="5"/>
+      <text class="t-free" x="480" y="139" text-anchor="middle">Бесплатный продукт № 1</text>
+      <text class="t-fr" x="480" y="161" text-anchor="middle">КТО ВМЕСТО ВАС</text>
+      <text class="t-sm" x="480" y="180" text-anchor="middle">вводит нишу, город и почту · 30 секунд · нам стоит 20 центов</text>
+
+      <line class="ln" x1="480" y1="192" x2="480" y2="216" marker-end="url(#aa)"/>
+      <rect class="bx" x="200" y="220" width="560" height="52" rx="4"/>
+      <text class="t-nm" x="480" y="242" text-anchor="middle">НА ЭКРАНЕ ИМЕНА ЕГО КОНКУРЕНТОВ</text>
+      <text class="t-sm" x="480" y="261" text-anchor="middle">три движка × три прогона · кого назвали и сколько раз · его — ноль</text>
+
+      <line class="ln" x1="480" y1="272" x2="480" y2="294" marker-end="url(#aa)"/>
+      <polygon class="dia" points="480,298 650,332 480,366 310,332"/>
+      <text class="t-dia" x="480" y="337" text-anchor="middle">ОСТАВИЛ ПОЧТУ?</text>
+
+      <line class="ln" x1="310" y1="332" x2="196" y2="332" marker-end="url(#aa)"/>
+      <text class="t-edge" x="253" y="325" text-anchor="middle">нет</text>
+      <rect class="stop" x="40" y="310" width="156" height="44" rx="4"/>
+      <text class="t-stop" x="118" y="337" text-anchor="middle">УШЁЛ</text>
+
+      <line class="ln" x1="480" y1="366" x2="480" y2="390" marker-end="url(#aa)"/>
+      <text class="t-edge" x="500" y="382">да</text>
+      <rect class="bx" x="270" y="394" width="420" height="48" rx="4"/>
+      <text class="t-nm" x="480" y="416" text-anchor="middle">ПОЛНЫЙ РАЗБОР ПИСЬМОМ</text>
+      <text class="t-sm" x="480" y="434" text-anchor="middle">через 15 минут, без нашего предложения внутри</text>
+
+      <line class="ln" x1="480" y1="442" x2="480" y2="466" marker-end="url(#aa)"/>
+      <polygon class="dia" points="480,470 690,510 480,550 270,510"/>
+      <text class="t-dia" x="480" y="506" text-anchor="middle">СКОЛЬКО МЕСТ СЛОМАНО?</text>
+      <text class="t-sm" x="480" y="524" text-anchor="middle">считает машина, не он</text>
+
+      <line class="ln" x1="480" y1="550" x2="480" y2="570"/>
+      <line class="ln" x1="110" y1="570" x2="850" y2="570"/>
+      <line class="ln" x1="110" y1="570" x2="110" y2="592" marker-end="url(#aa)"/>
+      <line class="ln" x1="357" y1="570" x2="357" y2="592" marker-end="url(#aa)"/>
+      <line class="ln" x1="604" y1="570" x2="604" y2="592" marker-end="url(#aa)"/>
+      <line class="ln" x1="850" y1="570" x2="850" y2="592" marker-end="url(#aa)"/>
+
+      <rect class="prod" x="16" y="596" width="188" height="96" rx="4"/>
+      <text class="t-cond" x="110" y="616" text-anchor="middle">одно: его не называют</text>
+      <text class="t-cond" x="110" y="631" text-anchor="middle">или врут про него</text>
+      <text class="t-nm" x="110" y="656" text-anchor="middle">ВИДИМОСТЬ</text>
+      <text class="t-pr" x="110" y="676" text-anchor="middle">$1 500 за квартал</text>
+
+      <rect class="prod" x="263" y="596" width="188" height="96" rx="4"/>
+      <text class="t-cond" x="357" y="616" text-anchor="middle">одно: бейдж</text>
+      <text class="t-cond" x="357" y="631" text-anchor="middle">Google Screened</text>
+      <text class="t-nm" x="357" y="656" text-anchor="middle">СЧЁТЧИК</text>
+      <text class="t-pr" x="357" y="676" text-anchor="middle">$500 + $149/мес</text>
+
+      <rect class="prod" x="510" y="596" width="188" height="96" rx="4"/>
+      <text class="t-cond" x="604" y="616" text-anchor="middle">два и больше</text>
+      <text class="t-cond" x="604" y="631" text-anchor="middle">сразу</text>
+      <text class="t-nm" x="604" y="656" text-anchor="middle">ДИАГНОСТИКА</text>
+      <text class="t-pr" x="604" y="676" text-anchor="middle">$500</text>
+
+      <rect class="bx" x="756" y="596" width="188" height="96" rx="4"/>
+      <text class="t-cond" x="850" y="616" text-anchor="middle">ноль: по сайту</text>
+      <text class="t-cond" x="850" y="631" text-anchor="middle">всё чисто</text>
+      <text class="t-nm" x="850" y="656" text-anchor="middle">ЗВОНИМ ЕМУ</text>
+      <text class="t-sm" x="850" y="676" text-anchor="middle">уходит в алгоритм Б</text>
+
+      <line class="ln" x1="604" y1="692" x2="604" y2="722" marker-end="url(#aa)"/>
+      <rect class="prod" x="480" y="726" width="248" height="52" rx="4"/>
+      <text class="t-nm" x="604" y="748" text-anchor="middle">ВНЕДРЕНИЕ</text>
+      <text class="t-pr" x="604" y="767" text-anchor="middle">сумма продуктов по прайсу</text>
+    </svg>
+    <figcaption>Реклама ведёт только сюда — не на прайс и не на «оставьте заявку». Первое, что он видит, — имена тех, кого машина называет вместо него.</figcaption>
+  </figure>
+</section>
+
+<section class="sec">
+  <h2>Алгоритм Б</h2>
+  <h3>Мы пришли к нему · бесплатный продукт — звонок его роботу</h3>
+  <p class="lead">Сюда попадают те, кого нашла Маша, и те, у кого по сайту оказалось чисто.</p>
+
+  <figure>
+    <svg viewBox="0 0 960 860" role="img" aria-label="Алгоритм Б: Маша собирает список, делает машинный снимок молча, отсекает тех у кого Google Screened, звонит как покупатель, и по тому кто взял трубку ведёт в ПРИЁМКУ, к Вере или к связке Вера плюс Продавец">
+      <defs><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
+
+      <text class="t-lbl" x="16" y="14">Вход</text>
+      <rect class="bxf" x="330" y="24" width="300" height="50" rx="4"/>
+      <text class="t-nm" x="480" y="46" text-anchor="middle">МАША СОБРАЛА СПИСОК</text>
+      <text class="t-sm" x="480" y="64" text-anchor="middle">город + ниша, кроме Невады</text>
+
+      <line class="ln" x1="480" y1="74" x2="480" y2="98" marker-end="url(#ab)"/>
+      <rect class="bx" x="290" y="102" width="380" height="50" rx="4"/>
+      <text class="t-nm" x="480" y="124" text-anchor="middle">МАШИННЫЙ СНИМОК МОЛЧА</text>
+      <text class="t-sm" x="480" y="142" text-anchor="middle">он об этом не знает · 20 центов</text>
+
+      <line class="ln" x1="480" y1="152" x2="480" y2="176" marker-end="url(#ab)"/>
+      <polygon class="dia" points="480,180 700,220 480,260 260,220"/>
+      <text class="t-dia" x="480" y="216" text-anchor="middle">ЕСТЬ БЕЙДЖ</text>
+      <text class="t-dia" x="480" y="234" text-anchor="middle">GOOGLE SCREENED?</text>
+
+      <line class="ln" x1="700" y1="220" x2="778" y2="220" marker-end="url(#ab)"/>
+      <text class="t-edge" x="739" y="212" text-anchor="middle">да</text>
+      <rect class="bx" x="782" y="190" width="162" height="60" rx="4"/>
+      <text class="t-stop" x="863" y="212" text-anchor="middle">НЕ ЗВОНИМ</text>
+      <text class="t-sm" x="863" y="230" text-anchor="middle">письмо про</text>
+      <text class="t-sm" x="863" y="244" text-anchor="middle">1 октября</text>
+      <line class="ln" x1="863" y1="250" x2="863" y2="590" marker-end="url(#ab)"/>
+
+      <line class="ln" x1="480" y1="260" x2="480" y2="286" marker-end="url(#ab)"/>
+      <text class="t-edge" x="500" y="278">нет</text>
+
+      <rect class="freeb" x="230" y="290" width="500" height="74" rx="5"/>
+      <text class="t-free" x="480" y="311" text-anchor="middle">Бесплатный продукт № 2</text>
+      <text class="t-fr" x="480" y="333" text-anchor="middle">ОДИН ЗВОНОК ЕГО БОТУ</text>
+      <text class="t-sm" x="480" y="352" text-anchor="middle">Маша звонит один раз как покупатель · предупреждает о записи</text>
+
+      <line class="ln" x1="480" y1="364" x2="480" y2="388" marker-end="url(#ab)"/>
+      <rect class="bx" x="270" y="392" width="420" height="48" rx="4"/>
+      <text class="t-sm" x="480" y="414" text-anchor="middle">Два вопроса: цена типовой работы и услуга,</text>
+      <text class="t-sm" x="480" y="432" text-anchor="middle">которой у него по его же сайту нет</text>
+
+      <line class="ln" x1="480" y1="440" x2="480" y2="464" marker-end="url(#ab)"/>
+      <polygon class="dia" points="480,468 680,506 480,544 280,506"/>
+      <text class="t-dia" x="480" y="511" text-anchor="middle">КТО ВЗЯЛ ТРУБКУ?</text>
+
+      <line class="ln" x1="480" y1="544" x2="480" y2="564"/>
+      <line class="ln" x1="140" y1="564" x2="700" y2="564"/>
+      <line class="ln" x1="140" y1="564" x2="140" y2="590" marker-end="url(#ab)"/>
+      <line class="ln" x1="420" y1="564" x2="420" y2="590" marker-end="url(#ab)"/>
+      <line class="ln" x1="700" y1="564" x2="700" y2="590" marker-end="url(#ab)"/>
+
+      <rect class="prod" x="46" y="594" width="188" height="92" rx="4"/>
+      <text class="t-cond" x="140" y="614" text-anchor="middle">робот ответил</text>
+      <text class="t-cond" x="140" y="629" text-anchor="middle">и где-то соврал</text>
+      <text class="t-nm" x="140" y="653" text-anchor="middle">ПРИЁМКА</text>
+      <text class="t-pr" x="140" y="672" text-anchor="middle">$450</text>
+
+      <rect class="prod" x="326" y="594" width="188" height="92" rx="4"/>
+      <text class="t-cond" x="420" y="614" text-anchor="middle">никто не взял,</text>
+      <text class="t-cond" x="420" y="629" text-anchor="middle">гудки или автоответчик</text>
+      <text class="t-nm" x="420" y="653" text-anchor="middle">ВЕРА</text>
+      <text class="t-pr" x="420" y="672" text-anchor="middle">$1 000 + $199/мес</text>
+
+      <rect class="prod" x="606" y="594" width="188" height="92" rx="4"/>
+      <text class="t-cond" x="700" y="614" text-anchor="middle">взял человек,</text>
+      <text class="t-cond" x="700" y="629" text-anchor="middle">но цену не назвал</text>
+      <text class="t-nm" x="700" y="653" text-anchor="middle">ВЕРА + ПРОДАВЕЦ</text>
+      <text class="t-pr" x="700" y="672" text-anchor="middle">$2 500 + $399/мес</text>
+
+      <rect class="prod" x="786" y="594" width="158" height="92" rx="4"/>
+      <text class="t-cond" x="865" y="614" text-anchor="middle">платит Google</text>
+      <text class="t-cond" x="865" y="629" text-anchor="middle">за звонки</text>
+      <text class="t-nm" x="865" y="653" text-anchor="middle">СЧЁТЧИК</text>
+      <text class="t-pr" x="865" y="672" text-anchor="middle">$500 + $149</text>
+
+      <line class="ln" x1="140" y1="686" x2="140" y2="712"/>
+      <line class="ln" x1="420" y1="686" x2="420" y2="712"/>
+      <line class="ln" x1="700" y1="686" x2="700" y2="712"/>
+      <line class="ln" x1="865" y1="686" x2="865" y2="712"/>
+      <line class="ln" x1="140" y1="712" x2="865" y2="712"/>
+      <line class="ln" x1="480" y1="712" x2="480" y2="736" marker-end="url(#ab)"/>
+
+      <rect class="bx" x="270" y="740" width="420" height="52" rx="4"/>
+      <text class="t-nm" x="480" y="762" text-anchor="middle">ПИСЬМО С ЕГО СОБСТВЕННОЙ ЦИТАТОЙ</text>
+      <text class="t-sm" x="480" y="781" text-anchor="middle">«ваш телефон, четверг 19:42» · без ссылок и вложений</text>
+
+      <line class="ln" x1="480" y1="792" x2="480" y2="820" marker-end="url(#ab)"/>
+      <text class="t-edge" x="480" y="840" text-anchor="middle">дальше общий хвост — схема 3</text>
+    </svg>
+    <figcaption>Звонок — единственный надёжный детектор: по сайту не видно, что стоит на линии, по трубке видно за четыре секунды.</figcaption>
+  </figure>
+
+  <div class="warn">
+    <b>Бейдж Google Screened — стоп на звонок.</b> С 1 октября Google списывает с такого человека неотвеченный звонок как оплаченный лид, а если первый звонок лидом не стал — то и любой ответный в ближайшие пятнадцать дней. Наш тестовый звонок стоил бы ему $53–130. По этой ветке только письмо.
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Схема 3</h2>
+  <h3>Общий хвост — дальше одинаково</h3>
+
+  <figure>
+    <svg viewBox="0 0 960 470" role="img" aria-label="Общий хвост: ответил или нет, разговор двадцать минут, развилка на один продукт или диагностику с внедрением, работа, отчёт, абонентка или вторая дверь">
+      <defs><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>
+
+      <polygon class="dia" points="480,14 640,48 480,82 320,48"/>
+      <text class="t-dia" x="480" y="53" text-anchor="middle">ОТВЕТИЛ?</text>
+
+      <line class="ln" x1="320" y1="48" x2="206" y2="48" marker-end="url(#ac)"/>
+      <text class="t-edge" x="263" y="41" text-anchor="middle">нет</text>
+      <rect class="bx" x="44" y="26" width="162" height="44" rx="4"/>
+      <text class="t-sm" x="125" y="44" text-anchor="middle">ещё два касания</text>
+      <text class="t-sm" x="125" y="60" text-anchor="middle">за пять дней</text>
+      <line class="ln" x1="125" y1="70" x2="125" y2="98" marker-end="url(#ac)"/>
+      <rect class="stop" x="44" y="102" width="162" height="42" rx="4"/>
+      <text class="t-stop" x="125" y="128" text-anchor="middle">СТОП-ЛИСТ НАВСЕГДА</text>
+
+      <line class="ln" x1="480" y1="82" x2="480" y2="106" marker-end="url(#ac)"/>
+      <text class="t-edge" x="500" y="98">да</text>
+      <rect class="bx" x="290" y="110" width="380" height="52" rx="4"/>
+      <text class="t-nm" x="480" y="132" text-anchor="middle">РАЗГОВОР 20 МИНУТ</text>
+      <text class="t-sm" x="480" y="151" text-anchor="middle">единственный вопрос: что у вас считается правильным ответом</text>
+
+      <line class="ln" x1="480" y1="162" x2="480" y2="186" marker-end="url(#ac)"/>
+      <polygon class="dia" points="480,190 700,228 480,266 260,228"/>
+      <text class="t-dia" x="480" y="225" text-anchor="middle">СКОЛЬКО МЕСТ СЛОМАНО?</text>
+      <text class="t-sm" x="480" y="243" text-anchor="middle">выяснилось в разговоре</text>
+
+      <line class="ln" x1="260" y1="228" x2="216" y2="228" marker-end="url(#ac)"/>
+      <text class="t-edge" x="238" y="220" text-anchor="middle">одно</text>
+      <rect class="prod" x="24" y="204" width="192" height="48" rx="4"/>
+      <text class="t-nm" x="120" y="234" text-anchor="middle">ОПЛАТА ПРОДУКТА</text>
+
+      <line class="ln" x1="700" y1="228" x2="744" y2="228" marker-end="url(#ac)"/>
+      <text class="t-edge" x="722" y="220" text-anchor="middle">много</text>
+      <rect class="prod" x="748" y="200" width="192" height="56" rx="4"/>
+      <text class="t-nm" x="844" y="222" text-anchor="middle">ДИАГНОСТИКА</text>
+      <text class="t-pr" x="844" y="241" text-anchor="middle">$500</text>
+      <line class="ln" x1="844" y1="256" x2="844" y2="284" marker-end="url(#ac)"/>
+      <rect class="prod" x="748" y="288" width="192" height="56" rx="4"/>
+      <text class="t-nm" x="844" y="310" text-anchor="middle">ВНЕДРЕНИЕ</text>
+      <text class="t-pr" x="844" y="329" text-anchor="middle">сумма продуктов</text>
+
+      <polyline class="ln" points="120,252 120,300 480,300"/>
+      <polyline class="ln" points="844,344 844,368 480,368"/>
+      <line class="ln" x1="480" y1="300" x2="480" y2="368"/>
+      <line class="ln" x1="480" y1="368" x2="480" y2="392" marker-end="url(#ac)"/>
+
+      <rect class="bx" x="330" y="396" width="300" height="46" rx="4"/>
+      <text class="t-nm" x="480" y="424" text-anchor="middle">РАБОТА И ОТЧЁТ</text>
+
+      <line class="ln" x1="630" y1="419" x2="700" y2="419" marker-end="url(#ac)"/>
+      <rect class="prod" x="704" y="396" width="236" height="46" rx="4"/>
+      <text class="t-nm" x="822" y="417" text-anchor="middle">АБОНЕНТКА</text>
+      <text class="t-pr" x="822" y="434" text-anchor="middle">$99–249/мес</text>
+
+      <line class="ln" x1="330" y1="419" x2="262" y2="419" marker-end="url(#ac)"/>
+      <rect class="prod" x="22" y="396" width="240" height="46" rx="4"/>
+      <text class="t-nm" x="142" y="417" text-anchor="middle">ВТОРАЯ ДВЕРЬ</text>
+      <text class="t-sm" x="142" y="434" text-anchor="middle">другой продукт из таблицы</text>
+    </svg>
+    <figcaption>Предложение уходит отдельным письмом через сутки после находки. Внутри самой находки его нет ни строки.</figcaption>
+  </figure>
+</section>
+
+<section class="sec">
+  <h2>Решено</h2>
+  <h3>Внедрение — это сумма продуктов, а не «от $5 000»</h3>
+  <p><b>«От $5 000» убрано.</b> Это был выдуманный пол, и он врал в обе стороны: одному нужна связка за $2 500, другому три продукта за $4 000. Называть одно число для обоих — значит одного отпугнуть, а второму продать дешевле, чем стоит.</p>
+  <p><b>Новая формула простая.</b> Диагностика показывает, что сломано. Из этого складывается набор продуктов. Цена — их сумма по прайсу, который открыт и не меняется.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Пример: что показала диагностика</th><th>Что ставим</th><th style="text-align:right">Цена</th></tr></thead>
+      <tbody>
+        <tr><td>Звонки теряются, а кто дозвонился — не доводят до записи</td><td class="nm">ВЕРА + ПРОДАВЕЦ</td><td class="pr">$2 500</td></tr>
+        <tr><td>То же плюс машины его не называют</td><td class="nm">ВЕРА + ПРОДАВЕЦ<br>+ ВИДИМОСТЬ</td><td class="pr">$4 000</td></tr>
+        <tr><td>Только теряются звонки</td><td class="nm">ВЕРА</td><td class="pr">$1 000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px"><b>Установка входит в цену продукта.</b> «$1 000 запуск» — это и есть запуск: лист правды, прайс-карта, тексты, настройка. Отдельно за это не берём и в документах не расписываем.</p>
+
+  <div class="freebox" style="border-left-color:var(--acc);background:var(--acc2)">
+    <p style="font-size:17px"><b>Диагностика $500 засчитывается при внедрении от $2 000. Ниже — не засчитывается.</b></p>
+    <p style="margin-top:8px">Порог написан на странице заранее, а не выясняется на счёте. Причина честная: зачёт на маленьком чеке съедает половину, и диагностика превращается в работу себе в убыток.</p>
+  </div>
+  <p><b>Что мы клиенту не показываем никогда:</b> сколько часов у нас уходит и по какой ставке. Наша ставка — внутренняя мерка, по ней мы проверяем, живёт продукт или нет. В прайсе только цены на конкретные вещи, которые человек получает.</p>
+</section>
+
+<section class="sec">
+  <h2>Решено</h2>
+  <h3>Приёмка и Счётчик — одна работа с двух сторон</h3>
+  <p>Оба отвечают на вопрос «что происходит на его линии». Разница в том, откуда берём материал: приёмка создаёт ситуации, которых ещё не было, счётчик разбирает то, что уже случилось.</p>
+  <p><b>И выбор делает не клиент, а наличие бейджа Google Screened.</b></p>
+  <div class="tw">
+    <table>
+      <thead><tr><th></th><th>ПРИЁМКА</th><th>СЧЁТЧИК</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Когда</td><td>бейджа нет</td><td>бейдж есть</td></tr>
+        <tr><td class="nm">Откуда материал</td><td>наши тридцать звонков</td><td>записи из его кабинета Google</td></tr>
+        <tr><td class="nm">Что показывает</td><td>что робот говорит в ситуациях, которых не было</td><td>за что с него списали деньги и что было на тех звонках</td></tr>
+        <tr><td class="nm">Цена</td><td class="pr" style="text-align:left">$450 разово</td><td class="pr" style="text-align:left">$500 + $149/мес</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn">
+    <b>Почему при бейдже звонить нельзя, точно.</b> Первое правило — неотвеченный дольше двадцати секунд списывается как лид — мы обходим, кладя трубку на восемнадцатой. Второе не обходится: если первый звонок лидом не стал, любой следующий между ним и этим номером в ближайшие пятнадцать дней спишется один раз. Один звонок пройдёт. Тридцать — нет.
+  </div>
+  <p><b>Вместе они нужны в одном случае:</b> у него есть Local Services и он хочет проверить сценарии, которых в живых звонках не было. Тогда приёмка делается поверх счётчика, но всё равно без наших звонков — только по его записям. Ограничение честное, и говорим мы его сами, до продажи.</p>
+
+  <h4 style="font-size:18px;margin-top:26px">Что входит в приёмку</h4>
+  <p>И сразу поправка: <b>приёмка — это работа, а не сотрудник.</b> Сотрудник внутри неё есть — СЛИЧИТЕЛЬ, он сверяет каждый ответ робота с подписанным листом правды. Но клиенту мы ставим не его, а отдаём протокол.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Шаг</th><th>Что делаем</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Лист правды</td><td>Две страницы, подписывает владелец: прайс строками, что делаем и чего не делаем, часы, география, пять запрещённых фраз. Это линейка — без неё мерить нечем.</td></tr>
+        <tr><td class="nm">Генератор проверок</td><td>Из листа разворачиваем 120–200 вопросов четырьмя пачками: прямой вопрос, кривой с ложной посылкой, провокация, край — шум, акцент, молчание в трубку.</td></tr>
+        <tr><td class="nm">Тридцать звонков</td><td>Пять окон: до открытия, утро, обед, вечер, поздний вечер и выходной. Не больше двух в сутки на номер. Первая фраза каждого — предупреждение о записи.</td></tr>
+        <tr><td class="nm">Судья в три слоя</td><td>Регулярки по числам и телефонам → модель ищет расхождения → дорогая модель подтверждает → человек вычитывает. Три слоя нужны потому, что одно выдуманное нарушение убивает сделку навсегда.</td></tr>
+        <tr><td class="nm">Протокол</td><td>По каждой находке: цитата — какая строка листа нарушена — что править.</td></tr>
+        <tr><td class="nm">Повторный прогон</td><td>После его правки, с отдельной графой «сломалось новое». Входит в цену, шестьдесят дней.</td></tr>
+        <tr><td class="nm">Дежурство дальше</td><td>Он ставит автопересылку писем от своей коробки к нам. Раз в неделю разбираем его живые разговоры плюс четыре контрольных звонка.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Ты спросил</h2>
+  <h3>На каком этапе диагностика</h3>
+  <p><b>Диагностика — это не первый шаг воронки, как было раньше. Это одна из веток, и попадает в неё не каждый.</b></p>
+  <p>Логика простая. Сломано одно место — ведём прямо в продукт, и брать $500 за то, чтобы сказать очевидное, нечестно. Сломано несколько — чинить поштучно вслепую нельзя, надо сперва понять, с чего начинать, и вот тут $500 честны.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Где именно она стоит</th><th>Что туда приводит</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Алгоритм А, после проверки</td><td>Машина нашла на сайте два и больше симптомов сразу</td></tr>
+        <tr><td class="nm">Схема 3, после разговора</td><td>Пришёл с одной болью, а в разговоре выяснилось, что их три</td></tr>
+        <tr><td class="nm">Прямой вход</td><td>Сам говорит «болит везде, не знаю с чего начать»</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">То есть она не вход, а <b>развилка для тех, кого нельзя отправить в один продукт.</b> И за ней всегда стоит внедрение — иначе диагностика сама по себе это бумага, за которую платят один раз.</p>
+</section>
+
+<section class="sec">
+  <h2>Переписано</h2>
+  <h3>Видимость — квартал, с гарантией возврата</h3>
+  <p><b>Я зря вычеркнул обещание.</b> «Вас станет видно» — одна из трёх формулировок, которые анти-гарантия прямо разрешает, наряду с «продажи вырастут» и «затраты упадут». Запрещены цифры и сроки. Возвращаю в текст.</p>
+  <p><b>И квартальная модель была правильной — из-за гарантии.</b> Замер шумный: два прогона одной программы через десять часов дают 28% совпадения по названным компаниям. За четыре недели разницу не доказать, она утонет в шуме. За девяносто дней — доказать можно. Поэтому возвращаю квартал, а «проект с хвостом» отменяю.</p>
+
+  <div class="freebox" style="border-left-color:var(--acc);background:var(--acc2)">
+    <h4 style="color:var(--acc)">ВИДИМОСТЬ · $1 500 за квартал вперёд</h4>
+    <p><b>Гарантия.</b> Список из 3–5 запросов вашего покупателя согласуем письменно до старта. Нулевую точку снимаем со скриншотами. Через 90 дней меряем тем же протоколом и теми же вопросами. <b>Не процитировал ни один движок — возвращаем всё.</b></p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Что делаем за квартал</th><th>Что он получает</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Замер до</td><td>3–5 согласованных вопросов покупателя, три движка, каждый по три раза, чистая сессия. Скриншоты нулевой точки. Кого называют вместо него — поимённо.</td></tr>
+        <tr><td class="nm">Месяц 1 · правда</td><td>Лист фактов. Восемь обязательных площадок плюс отраслевые. Снос мёртвых карточек со старым адресом. Разведение однофамильцев. Отдельно Yelp — с 23 июля OpenAI лицензировал у них данные о бизнесах, это единственный прямой управляемый вход в ChatGPT.</td></tr>
+        <tr><td class="nm">Месяц 2 · страницы</td><td>Город словом в заголовке. Цена или вилка обычным текстом — в живом тесте называли только тех, у кого цена написана на странице. Вопрос-ответ теми словами, которыми спрашивает покупатель. Отзывы текстом, не картинкой.</td></tr>
+        <tr><td class="nm">Месяц 3 · чужие страницы</td><td>Каталоги и агрегаторы, которые движки цитируют. Письма третьим сторонам по неверным фактам. Честный сбор отзывов.</td></tr>
+        <tr><td class="nm">День 90 · замер после</td><td>Тот же протокол, те же вопросы, те же движки. Построчная разница. Доступы передаём ему.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:14px"><b>Движка три, а не четыре.</b> Gemini запрещён условиями использования, Google AI Mode — серая зона. В арбитраж по гарантии их брать нельзя.</p>
+  <p><b>Чего внутри нет.</b> Подписки «покажем, называют ли вас» — она умерла 13 мая и 3 июня: Microsoft Clarity и Google Search Console отдают эту цифру бесплатно. И llms.txt: Google официально пишет, что не использует его, а по логам 137 тысяч доменов 97% таких файлов за месяц не получили ни одного обращения. Ставим за минуту, денег не берём.</p>
+  <div class="warn">
+    <b>Одна задача, когда будем писать оферту.</b> В старой, которую ты велел считать несуществующей, п. 8.4.4 написано дословно: «Мы не гарантируем позиции в поиске, охваты, показы, попадание в ответы нейросетей», а п. 7.4 говорит, что после начала работы возврата нет. Витрина обещала гарантию, а наш же документ её отрицал — при споре с платёжной системой мы проиграли бы собственной бумагой. В новой оферте эти два пункта пишутся под гарантию, а не против неё.
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Ты спросил</h2>
+  <h3>Где вау и на что человек придёт</h3>
+  <p class="lead">Отвечаю прямо: проверка сайта — не вау. Это невод, а не крючок. Дешёвый, работает у всех, масштабируется — но «у вас robots.txt закрыт» никого не поднимет со стула. Ты прав.</p>
+
+  <p><b>Вау — это когда человек видит, что теряет деньги прямо сейчас, не мог об этом знать, и оспорить нечем.</b> По этой мерке из всего, что у нас есть, проходят три вещи, и они очень разной силы.</p>
+
+  <div class="freebox">
+    <h4 style="color:var(--free)">Первое и главное · «за вами уже приходил покупатель, вы его не видели»</h4>
+    <p>Гугл своей функцией сам обзванивает бизнесы вместо клиента: человек просит узнать цены, ИИ звонит пятерым и присылает ему сводку. Замер по реальной телефонии: за ноябрь к октябрю такие звонки выросли <b>вчетверо</b>, у сантехников на 650%, у ветеринаров на 1700%. <b>26% никто не взял. Из ответивших 48% не смогли назвать цену.</b> Дальше агент идёт к следующему, а клиент видит у соседа «$89–149», а на месте нашего — прочерк.</p>
+    <p style="margin-top:9px">Мы можем это <b>показать</b>: просим Гугл обзвонить его нишу в его городе и пересылаем ему, что произошло. Два исхода, и оба сильные — либо ему позвонили и он не назвал цену, либо <b>его не было в пятёрке вообще, и мы присылаем имена тех, кого обзвонили вместо него.</b></p>
+  </div>
+
+  <p><b>Второе · «ваш робот вчера пообещал клиенту то, чего вы не разрешали».</b> Его собственная расшифровка, его голос, его номер. Бьёт насмерть, но работает только у тех, у кого робот уже стоит.</p>
+
+  <p><b>Третье · «три нейросети назвали шестерых в вашей нише, вас нет».</b> Работает у всех и стоит копейки, но он может проверить это сам за минуту и, возможно, уже догадывается. Это как раз невод.</p>
+
+  <div class="warn">
+    <b>Первое не проверено, и проверить надо на этой неделе.</b> Мы не знаем, представляется ли робот Гугла машиной, дотягивается ли функция до нашего штата и категории, и что именно приходит в сводке. Проверяется бесплатно за вечер: просим Гугл обзвонить нишу, где трубку берёт наша же Вера, и смотрим, что получилось. Пока этого не сделали — вокруг этого крючка ничего не строим.
+  </div>
+
+  <h4 style="font-size:18px;margin-top:26px">Где я промахнулся: вау не в факте про него</h4>
+  <p>Я всё время искал факт <b>про него одного</b>. А вау появляется, когда рядом с ним стоит сосед.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Не вау</th><th>Вау</th></tr></thead>
+      <tbody>
+        <tr><td>«У вас закрыт сервер для роботов ChatGPT»</td><td>«У вас закрыт, у трёх соседей открыт. Нейросети назвали их одиннадцать раз, вас — ноль»</td></tr>
+        <tr><td>«Ваш телефон взяли за 40 секунд»</td><td>«Ваш за 40, сосед за 4. Он назвал цену, вы предложили перезвонить»</td></tr>
+        <tr><td>«Ваш робот согласился на выдуманное»</td><td>«Ваш согласился, у двоих соседей сказали „мы этим не занимаемся"»</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">Один и тот же факт, но во второй колонке он <b>про его место среди своих</b>, а не про абстрактную настройку. Это невозможно списать на «у всех так».</p>
+
+  <h4 style="font-size:18px;margin-top:26px">Отсюда настоящий крючок</h4>
+  <div class="freebox" style="border-left-color:var(--acc);background:var(--acc2)">
+    <p style="font-size:17.5px"><b>«Мы позвоним вам и трём вашим соседям по нише как обычный покупатель. Вернём таблицу: кто взял трубку за сколько секунд, кто назвал цену, кто предложил записаться. И записи.»</b></p>
+  </div>
+  <p style="margin-top:12px">Почему это сильнее всего остального:</p>
+  <ul>
+    <li><b>Работает у каждого, у кого есть телефон.</b> Не нужен робот, не нужен Google Screened, не нужна реклама. Телефон есть у всех.</li>
+    <li><b>Оспорить нечем.</b> Его собственная линия и публичные линии соседей.</li>
+    <li><b>Он не мог этого знать.</b> Он ни разу не звонил конкурентам как покупатель и ни разу не звонил себе в субботу вечером.</li>
+    <li><b>Это уже индустрия, просто дорогая.</b> Сети платят за телефонного тайного покупателя $200–700 тысяч в год, отчёт идёт двое суток. Малому бизнесу этого не показывал никто и никогда.</li>
+    <li><b>Дыра шире, чем кажется.</b> По замеру на 70 миллионах звонков <b>64% компаний вообще не просят собеседника купить или записаться.</b> Это не про роботов — это про всех.</li>
+  </ul>
+
+  <div class="warn">
+    <b>Цена этого крючка — и почему он не может быть массовым.</b> Звонить должен человек: закон обязывает искусственный голос представиться первой фразой, а представившийся тайный покупатель — уже не тайный. Значит звонит Маша. Четыре звонка по семь минут — полчаса, по нашей ставке это $50 на одного человека. Как бесплатная раздача всем подряд — разорительно. Как крючок для того, кто уже оставил почту, — отлично: $50, чтобы выиграть чек от $450.
+  </div>
+
+  <h4 style="font-size:18px;margin-top:26px">Дешёвая версия того же самого</h4>
+  <p>Сравнение с соседями можно делать и машиной, за центы, без звонков: спросить три нейросети «кому отдать такую-то работу в таком-то городе» и посчитать, сколько раз назвали соседей и сколько раз его. <b>Это тоже сравнение, и оно масштабируется.</b> Ставим его прямо в бесплатную проверку сайта — тогда невод перестаёт быть скучным, потому что в нём появляются чужие имена.</p>
+
+  <h4 style="font-size:18px;margin-top:26px">Вход с платного трафика — переделан</h4>
+  <p>Ты поймал верно: я починил исходящий крючок и оставил входящий скучным. «Проверьте свой сайт» — это то, за чем никто не кликает по рекламе.</p>
+  <p><b>Человек с рекламы приходит не на проверку сайта. Он приходит посмотреть, кого машина называет вместо него.</b></p>
+  <div class="freebox">
+    <p style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--free);font-weight:700;margin-bottom:8px">Бесплатный продукт № 1</p>
+    <p style="font-size:19px"><b>КТО ВМЕСТО ВАС</b></p>
+    <p style="margin-top:8px">Он вводит два слова — чем занимается и в каком городе. Не адрес сайта. Просто «сантехника, Тампа».</p>
+    <p style="margin-top:8px">За тридцать секунд мы задаём трём нейросетям тот вопрос, который задал бы его покупатель, каждый по три раза. На экране — <b>список имён, которые вернулись.</b> Его имя подсвечено, если оно там есть. Чаще его там нет.</p>
+    <p style="margin-top:8px"><b>«Вас назвали 0 раз из 9. Вот кого назвали.»</b> И дальше девять имён, половину из которых он знает лично.</p>
+  </div>
+  <p>Вот на что кликают. Не на «аудит», а на «покажи, кого называют вместо меня» — потому что ответ он хочет знать сам, независимо от того, купит он что-то или нет.</p>
+
+  <h4 style="font-size:18px;margin-top:24px">Что писать в рекламе</h4>
+  <div class="freebox" style="border-left-color:var(--acc);background:var(--acc2)">
+    <p style="font-size:17px"><b>«Спросите ChatGPT, кому отдать вашу работу в вашем городе. Посмотрите, кого он назовёт.»</b></p>
+  </div>
+  <p>Никакого «ИИ для бизнеса», никакого «проверьте видимость». Владелец кликает, потому что хочет увидеть фамилии.</p>
+
+  <h4 style="font-size:18px;margin-top:24px">Честная слабость, и чем закрываем</h4>
+  <p>Он может сделать это сам за две минуты, открыв ChatGPT. Это правда, и врать, что не может, нельзя.</p>
+  <p>Закрываем тремя вещами, и все три настоящие. <b>Три движка, а не один</b> — ответы у них разные. <b>Три прогона каждого</b> — два прогона одной программы через десять часов дают 28% совпадения, то есть один вопрос не значит ничего, и мы показываем разброс, а не цифру. И <b>формулировка</b>: в живом случае компания не появлялась ни в одном из 41 ответа при выставленной геолокации, а стоило вписать название города словом внутрь фразы — три из трёх. Сам он спросит неправильно и успокоится.</p>
+
+  <h4 style="font-size:18px;margin-top:24px">Куда ведёт дальше</h4>
+  <p>На том же экране, под именами конкурентов, вторая кнопка — и вот это уже за почту:</p>
+  <div class="freebox" style="border-left-color:var(--acc);background:var(--acc2)">
+    <p style="font-size:17px"><b>«Позвонить вам и трём из этого списка как покупатель и прислать таблицу с записями?»</b></p>
+  </div>
+  <p>Имена соседей у нас уже есть — машина их только что вернула. Ему не надо ничего выбирать, мы предлагаем позвонить <b>именно тем, кого назвали вместо него</b>. Это и есть склейка: машина находит соседей бесплатно, Маша звонит им за $50, и обе половины — про одно и то же место среди своих.</p>
+
+  <h4 style="font-size:18px;margin-top:26px">За что он платит</h4>
+  <p><b>Не за находку. Находка бесплатная.</b> Платят за документ, которым можно ткнуть в третье лицо.</p>
+  <p>Владелец, который узнал, что его робот врёт, не может ничего доказать вендору одной расшифровкой — ему ответят «это единичный случай». Тридцать звонков по сетке часов с подписью того, кто этого робота не строил, — может. То же с видимостью: «мне кажется, нас не находят» превращается в замер до и после по письменно согласованным вопросам.</p>
+  <p style="margin-top:10px">Кому он этим документом тычет: вендору, который поставил бота. Маркетологу, который ведёт рекламу. Партнёру. Самому себе, когда решает, менять ли подрядчика.</p>
+  <p><b>За «я теперь знаю» не платят. За «мне есть что положить на стол» платят.</b></p>
+</section>
+
+<section class="sec">
+  <h2>Решено 21.09</h2>
+  <h3>Четыре правки к этим схемам</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Было</th><th>Стало</th><th>Почему</th></tr></thead>
+      <tbody>
+        <tr><td>Пять бесплатных звонков</td><td class="nm">Один звонок</td><td>Пять были «для выборки», но мы и так пишем, что это не выборка. Один даёт ту же цитату за пятую часть времени Маши: сорок-пятьдесят проверок в неделю вместо десяти.</td></tr>
+        <tr><td>Почта после проверки</td><td class="nm">Почта до звонка, всегда</td><td>Одна почта - один звонок, квота лечится сама. Контакт остаётся у Доводчика, даже если человек не дошёл.</td></tr>
+        <tr><td>Тридцать звонков платной приёмки делает Маша</td><td class="nm">Их делает машина</td><td>На платной приёмке владелец сам письменно просит звонить на свой номер. Значит наш агент может представиться первой фразой, как требует закон, и это ничего не ломает: бот не меняет поведение под наблюдением. Час человека вместо трёх с половиной.</td></tr>
+        <tr><td>Очередь на бесплатные проверки</td><td class="nm">Не нужна</td><td>При одном звонке потолок Маши перестал быть узким местом.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px"><b>Где машина по-прежнему не работает:</b> бесплатная разведка, потому что там мы звоним без разрешения и представляться нельзя. И вычитка находок - судья-модель ошибается примерно каждый девятый раз, а одно выдуманное нарушение в отчёте убивает сделку навсегда.</p>
+</section>
+
+<section class="sec">
+  <h2>Сводка</h2>
+  <h3>Два бесплатных, семь платных</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Что</th><th>Кому достаётся</th><th style="text-align:right">Цена</th></tr></thead>
+      <tbody>
+        <tr><td class="nm" style="color:var(--free)">КТО ВМЕСТО ВАС</td><td>всем, кто пришёл сам</td><td class="pr" style="color:var(--free)">$0</td></tr>
+        <tr><td class="nm" style="color:var(--free)">ОДИН ЗВОНОК ЕГО БОТУ</td><td>тем, кто оставил почту, и тем, кого нашли мы</td><td class="pr" style="color:var(--free)">$0</td></tr>
+        <tr><td class="nm">ПРИЁМКА</td><td>у кого робот на телефоне</td><td class="pr">$450</td></tr>
+        <tr><td class="nm">СЧЁТЧИК</td><td>кто платит Google за звонки</td><td class="pr">$500 + $149/мес</td></tr>
+        <tr><td class="nm">ДИАГНОСТИКА</td><td>у кого сломано в нескольких местах</td><td class="pr">$500</td></tr>
+        <tr><td class="nm">ВЕРА</td><td>у кого теряются звонки</td><td class="pr">$1 000 + $199/мес</td></tr>
+        <tr><td class="nm">ВИДИМОСТЬ</td><td>кого не называют нейросети или про кого врут</td><td class="pr">$1 500 за квартал</td></tr>
+        <tr><td class="nm">ВЕРА + ПРОДАВЕЦ</td><td>кто берёт трубку, но не продаёт</td><td class="pr">$2 500 + $399/мес</td></tr>
+        <tr><td class="nm">ВНЕДРЕНИЕ</td><td>после диагностики</td><td class="pr">сумма продуктов</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div>

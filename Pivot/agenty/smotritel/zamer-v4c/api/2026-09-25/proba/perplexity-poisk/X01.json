@@ -1,0 +1,147 @@
+{
+ "vopros_id": "X01",
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v4c-zamena-shestomu",
+ "otpechatok": "5dd6a25606d1",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "proba",
+ "den": "2026-09-25",
+ "vne_okna": false,
+ "zapusk_id": "20260925-120613-33764",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-25T12:06:13-07:00",
+   "zapusk_id": "20260925-120613-33764",
+   "cena": 0.00189,
+   "ishod": "ok",
+   "sekund": 5.9,
+   "meta": {
+    "date": "Fri, 25 Sep 2026 19:06:19 GMT",
+    "x-request-id": "6f0c2c96-1b02-44ac-a87c-45bfb36b6672"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Если ваш сайт в США **закрыт для ИИ-роботов**, то **никто “автоматически” не откроет его за вас** — это делает **владелец сайта / webmaster / SEO-специалист / devops-инженер**, который управляет:\n\n- `robots.txt`\n- meta-тегами `noindex`, `nofollow`\n- `X-Robots-Tag` в HTTP-заголовках\n- firewall / WAF / CDN (например, Cloudflare, Akamai)\n- правилами для AI-crawlers, если вы их отдельно блокировали\n\n### Кто обычно проверяет и открывает доступ\n1. **Webmaster / администратор сайта**  \n   Проверяет, не запрещён ли доступ для ботов.\n\n2. **SEO-специалист**  \n   Смотрит, можно ли индексировать сайт поисковикам и AI-системам.\n\n3. **Разработчик / DevOps / админ CDN**  \n   Меняет настройки на сервере, в CMS или на CDN.\n\n4. **Digital agency / web maintenance provider**  \n   Если сайт обслуживает подрядчик, они обычно и вносят правки.\n\n---\n\n### Что именно нужно проверить\nПопросите проверить:\n\n- нет ли в `robots.txt` строк типа:\n  - `User-agent: *`\n  - `Disallow: /`\n- не стоит ли на страницах:\n  - `<meta name=\"robots\" content=\"noindex,nofollow\">`\n- не отправляет ли сервер:\n  - `X-Robots-Tag: noindex`\n- не блокирует ли сайт ботов по IP, User-Agent или географии\n- не запрещён ли доступ именно для AI-crawler’ов, например:\n  - OpenAI\n  - Google-Extended\n  - PerplexityBot\n  - ClaudeBot\n  - Bytespider\n  - Applebot-Extended\n\n---\n\n### Как открыть сайт для нейросетей\nЕсли вы хотите, чтобы **нейросети могли видеть компанию**, обычно нужно:\n\n- разрешить нужные боты в `robots.txt`\n- убрать `noindex`\n- разрешить доступ на уровне CDN/WAF\n- при необходимости добавить корректную sitemap.xml\n- проверить, что важный контент не грузится только через JS без SSR\n\n---\n\n### Пример `robots.txt` для разрешения\n```txt\nUser-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n```\n\nЕсли вы **хотите открыть только часть сайта** или только **отдельные AI-боты**, это тоже можно настроить точечно.\n\n---\n\n### Если вам нужен практический следующий шаг\nСамый правильный запрос подрядчику или администратору такой:\n\n> Проверьте, пожалуйста, не закрыт ли сайт для поисковых и AI-ботов. Нужно убедиться, что `robots.txt`, meta robots, `X-Robots-Tag`, WAF/CDN и правила для AI-crawlers не блокируют индексацию. Если блокировка есть — откройте доступ для нужных ботов.\n\nЕсли хотите, я могу:\n1. помочь **составить письмо вашему веб-мастеру на английском**,  \n2. дать **чек-лист для проверки сайта**,  \n3. или **посмотреть ваш robots.txt**, если пришлёте ссылку на сайт.",
+  "poiskovye_zaprosy": [],
+  "poiskovyh_zaprosov": 0,
+  "poiskovyh_vyzovov": 0,
+  "istochniki": [],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "currency": "USD",
+    "input_cost": 0.00012,
+    "output_cost": 0.00177,
+    "total_cost": 0.00189
+   },
+   "input_tokens": 499,
+   "input_tokens_details": {
+    "cached_tokens": 0
+   },
+   "output_tokens": 707,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 1206
+  },
+  "cena": 0.00189,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790363173,
+  "created_at": 1790363173,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_6f0c2c96-1b02-44ac-a87c-45bfb36b6672",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Если ваш сайт в США **закрыт для ИИ-роботов**, то **никто “автоматически” не откроет его за вас** — это делает **владелец сайта / webmaster / SEO-специалист / devops-инженер**, который управляет:\n\n- `robots.txt`\n- meta-тегами `noindex`, `nofollow`\n- `X-Robots-Tag` в HTTP-заголовках\n- firewall / WAF / CDN (например, Cloudflare, Akamai)\n- правилами для AI-crawlers, если вы их отдельно блокировали\n\n### Кто обычно проверяет и открывает доступ\n1. **Webmaster / администратор сайта**  \n   Проверяет, не запрещён ли доступ для ботов.\n\n2. **SEO-специалист**  \n   Смотрит, можно ли индексировать сайт поисковикам и AI-системам.\n\n3. **Разработчик / DevOps / админ CDN**  \n   Меняет настройки на сервере, в CMS или на CDN.\n\n4. **Digital agency / web maintenance provider**  \n   Если сайт обслуживает подрядчик, они обычно и вносят правки.\n\n---\n\n### Что именно нужно проверить\nПопросите проверить:\n\n- нет ли в `robots.txt` строк типа:\n  - `User-agent: *`\n  - `Disallow: /`\n- не стоит ли на страницах:\n  - `<meta name=\"robots\" content=\"noindex,nofollow\">`\n- не отправляет ли сервер:\n  - `X-Robots-Tag: noindex`\n- не блокирует ли сайт ботов по IP, User-Agent или географии\n- не запрещён ли доступ именно для AI-crawler’ов, например:\n  - OpenAI\n  - Google-Extended\n  - PerplexityBot\n  - ClaudeBot\n  - Bytespider\n  - Applebot-Extended\n\n---\n\n### Как открыть сайт для нейросетей\nЕсли вы хотите, чтобы **нейросети могли видеть компанию**, обычно нужно:\n\n- разрешить нужные боты в `robots.txt`\n- убрать `noindex`\n- разрешить доступ на уровне CDN/WAF\n- при необходимости добавить корректную sitemap.xml\n- проверить, что важный контент не грузится только через JS без SSR\n\n---\n\n### Пример `robots.txt` для разрешения\n```txt\nUser-agent: *\nAllow: /\n\nSitemap: https://example.com/sitemap.xml\n```\n\nЕсли вы **хотите открыть только часть сайта** или только **отдельные AI-боты**, это тоже можно настроить точечно.\n\n---\n\n### Если вам нужен практический следующий шаг\nСамый правильный запрос подрядчику или администратору такой:\n\n> Проверьте, пожалуйста, не закрыт ли сайт для поисковых и AI-ботов. Нужно убедиться, что `robots.txt`, meta robots, `X-Robots-Tag`, WAF/CDN и правила для AI-crawlers не блокируют индексацию. Если блокировка есть — откройте доступ для нужных ботов.\n\nЕсли хотите, я могу:\n1. помочь **составить письмо вашему веб-мастеру на английском**,  \n2. дать **чек-лист для проверки сайта**,  \n3. или **посмотреть ваш robots.txt**, если пришлёте ссылку на сайт.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_95eed654-49bb-4cbf-938a-52daf3d7f49b",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "currency": "USD",
+    "input_cost": 0.00012,
+    "output_cost": 0.00177,
+    "total_cost": 0.00189
+   },
+   "input_tokens": 499,
+   "input_tokens_details": {
+    "cached_tokens": 0
+   },
+   "output_tokens": 707,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 1206
+  },
+  "user": null
+ }
+}

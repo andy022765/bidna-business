@@ -1,0 +1,69 @@
+<title>Звонок поставлен в очередь</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="robots" href="">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0a0e18; --panel:#0e1524; --card:#121a2c; --ink:#eef1f7; --dim:#97a1b8; --faint:#6b768f;
+    --line:#1e2940; --gold:#d87f70;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;
+    min-height:100vh;display:flex;flex-direction:column}
+  .w{max-width:1120px;margin:0 auto;padding:0 24px;width:100%}
+  .narrow{max-width:640px;margin:0 auto}
+  main{flex:1;padding-block:86px 72px}
+  h1{font-size:clamp(30px,5.2vw,46px);line-height:1.06;margin:0 0 18px;letter-spacing:-.03em;
+    font-weight:700;text-wrap:balance}
+  p{margin:0 0 16px;max-width:60ch}
+  .lede{font-size:19px;color:var(--dim)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+  b,strong{font-weight:600}
+  ol{counter-reset:s;list-style:none;margin:30px 0 26px;padding:0}
+  ol li{counter-increment:s;position:relative;padding:0 0 0 46px;margin-bottom:20px;max-width:58ch}
+  ol li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:2px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--gold)}
+  .btn{display:inline-block;background:var(--gold);color:#0a0e18;text-decoration:none;
+    font-weight:700;font-size:18px;padding:17px 32px;border-radius:7px;margin:6px 0 12px}
+  .btn:hover{filter:brightness(1.08)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:26px 0}
+  .card p{margin:0;color:var(--dim);font-size:16px}
+  .note{color:var(--faint);font-size:14px;max-width:58ch}
+  footer{border-top:1px solid var(--line);padding-block:32px 46px;color:var(--faint);font-size:14px}
+  .fine{font-size:13px;color:var(--faint);max-width:none}
+  a{color:var(--gold)}
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .w{padding:0 18px}
+    main{padding-block:56px 48px}
+    .eyebrow{font-size:12.5px;letter-spacing:.13em}
+    .btn{display:block;text-align:center;font-size:17px;padding:16px 20px}
+    ol li{padding-left:38px}
+    .note{font-size:15px}
+    .fine{font-size:14px}
+  }
+</style>
+
+<main><div class="w"><div class="narrow">
+  <p class="eyebrow">Заявка принята</p>
+  <h1>Один звонок на вашу линию. В течение рабочего дня.</h1>
+  <p class="lede">Вы подтвердили, что владеете бизнесом или уполномочены за него действовать. Именно это разрешение даёт нам право набрать номер.</p>
+  <ol><li>Звоним на ваш публичный номер один раз — как обычный человек с обычным вопросом.</li><li>Записываем, что произошло: взяли ли трубку, за сколько, что сказали про цену, предложили ли запись.</li><li>Расшифровку и короткий отчёт присылаем на вашу почту.</li></ol>
+  <div class="card"><p>Если звонок записывается, запись начинается с объявления вслух. Флорида и Калифорния требуют согласия всех сторон — тихой записи с нашей стороны не бывает.</p></div>
+  <p class="note">Один звонок — не выборка, и мы пишем это прямо в отчёте. Линия может ответить правильно один раз и сломаться на третий. Звонок показывает, есть ли о чём разговаривать. Полная приёмка — это тридцать звонков по сетке часов.</p>
+
+  <div class="card"><p><b>Это ответит на один вопрос. Не на все.</b></p>
+  <p>Если непонятно, где вы теряете вообще — есть отдельный шаг: <b>глубокая диагностика</b>. ДНК бизнеса и клиента, карта разрывов по приоритету, разбор конкурентов и документ на руки. $500 один раз, зачтётся в первый платёж за внедрение. <a href="/diagnostic/ru/">Посмотреть, что входит →</a></p></div>
+
+  <div class="card"><p><b>Уже решили?</b> Ждать разбор не обязательно.</p>
+  <p><a class="btn" href="https://buy.stripe.com/3cI4grezKgAa8Dz2nxfrW02">Оплатить и начать — $450</a></p>
+  <p>Лист правды откроется сразу после оплаты, ждать письма не надо. Заполняете в своём темпе.</p></div>
+</div></div></main>
+
+<footer><div class="w"><div class="narrow">
+  <p class="fine">Wealthboosterpro LLC, dba Business Intelligence DNA · 5830 E 2nd St Ste 7000, Casper, WY 82609</p>
+</div></div></footer>

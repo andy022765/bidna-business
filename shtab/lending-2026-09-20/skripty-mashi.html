@@ -1,0 +1,273 @@
+<title>Скрипты для Маши</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root{
+    --bg:#f7f8f8; --card:#fff; --ink:#15181b; --dim:#565d64; --faint:#858c93;
+    --line:#e1e4e7; --rule:#c7ccd1; --acc:#0d5f70; --acc2:#e3eef1;
+    --say:#1b5e20; --say2:#e8f2e9; --sayl:#9cc3a0;
+    --no:#9f3325; --no2:#fbeae7;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#101214; --card:#181b1e; --ink:#e8eaec; --dim:#99a1a7; --faint:#7c848b;
+    --line:#282c31; --rule:#3a4046; --acc:#6ec3d5; --acc2:#15282e;
+    --say:#7cc986; --say2:#16251a; --sayl:#3d5a42;
+    --no:#e48a7b; --no2:#2a1815;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#101214; --card:#181b1e; --ink:#e8eaec; --dim:#99a1a7; --faint:#7c848b;
+    --line:#282c31; --rule:#3a4046; --acc:#6ec3d5; --acc2:#15282e;
+    --say:#7cc986; --say2:#16251a; --sayl:#3d5a42;
+    --no:#e48a7b; --no2:#2a1815;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,sans-serif;
+    font-size:16.5px;line-height:1.55;padding:0 18px;padding-block:0 90px;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:860px;margin:0 auto}
+  header{padding-block:44px 20px}
+  .kick{font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--acc);font-weight:700;margin:0 0 12px}
+  h1{font-family:Bitter,Georgia,serif;font-weight:700;font-size:clamp(27px,5.2vw,37px);
+    line-height:1.13;margin:0 0 14px;letter-spacing:-.02em}
+  .one{background:var(--acc2);border-left:4px solid var(--acc);border-radius:0 4px 4px 0;padding:15px 18px;margin:0}
+  .one p{margin:0 0 9px;font-size:16.5px} .one p:last-child{margin-bottom:0}
+  h2{font-family:Bitter,Georgia,serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--acc);margin:0 0 6px}
+  .sec{padding-block:32px;border-top:2px solid var(--rule)}
+  .sec>h3{font-family:Bitter,Georgia,serif;font-weight:700;font-size:24px;line-height:1.18;
+    margin:0 0 8px;letter-spacing:-.015em}
+  h4{font-size:17.5px;font-weight:700;margin:24px 0 8px}
+  p{margin:0 0 12px;max-width:72ch} p:last-child{margin-bottom:0}
+  .lead{color:var(--dim);margin:0 0 18px;font-size:15.5px;max-width:72ch}
+  b{font-weight:600}
+  ul,ol{margin:0 0 12px;padding-left:20px} li{margin-bottom:7px;max-width:70ch}
+  li::marker{color:var(--acc)}
+
+  .say{background:var(--say2);border:1px solid var(--sayl);border-radius:4px;padding:14px 17px;margin:10px 0}
+  .say .l{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--say);font-weight:700;margin-bottom:7px}
+  .say p{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;line-height:1.5;
+    margin:0 0 8px;color:var(--ink)} .say p:last-child{margin-bottom:0}
+  .say .ru{font-family:Inter,sans-serif;font-size:13.5px;color:var(--dim);margin-top:4px}
+
+  .st{display:grid;grid-template-columns:34px 1fr;gap:14px;padding-block:14px;border-top:1px solid var(--line)}
+  .st:first-of-type{border-top:0}
+  .st .n{font-family:Bitter,serif;font-size:22px;font-weight:700;color:var(--acc);line-height:1}
+  .st h4{margin:0 0 5px;font-size:17px}
+  .st p{margin:0 0 7px;font-size:15.5px}
+
+  .tw{overflow-x:auto;margin:14px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:780px}
+  th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);font-weight:700}
+  td.nm{font-weight:700;white-space:nowrap}
+  td.en{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.45}
+  .warn{background:var(--no2);border-left:3px solid var(--no);border-radius:0 3px 3px 0;padding:14px 17px;margin:16px 0;font-size:15.5px}
+  .warn b{color:var(--no)}
+  .log{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 19px;margin:14px 0;
+    font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.85;overflow-x:auto}
+  .log b{color:var(--acc)}
+  .note{border-left:3px solid var(--rule);padding-left:14px;color:var(--dim);font-size:15px;margin:14px 0}
+</style>
+
+<div class="w">
+
+<header>
+  <p class="kick">Рабочий документ · 20 сентября 2026</p>
+  <h1>Скрипты для Маши</h1>
+  <div class="one">
+    <p>Три вещи: как звонить чужому бизнесу, что у кого спрашивать по нишам, и как снимать лист правды на разговоре.</p>
+    <p>Всё, что в зелёных рамках, читается вслух дословно. Всё, что вокруг - объяснение, зачем так.</p>
+    <p><b>Решение 21.09: Маша делает только один бесплатный звонок на цель. Платную приёмку - тридцать звонков - делает машина.</b> Разница в разрешении: на бесплатной разведке мы звоним без спроса, значит представляться нельзя и звонить должен человек. На платной владелец сам письменно просит нас звонить на свой номер, и тогда наш агент представляется первой фразой, как требует закон. Боту это безразлично, он не меняет поведение под наблюдением.</p>
+  </div>
+</header>
+
+<section class="sec" style="border-top:0">
+  <h2>Часть первая</h2>
+  <h3>Бесплатный звонок. Один на цель, семь минут, три вопроса</h3>
+  <p class="lead">Цель звонка одна: получить дословную фразу, которую можно вставить в письмо. Не продать, не познакомиться, не выяснить, кто владелец. Один звонок на цель, не пять - одной цитаты хватает, а пятью мы только сожжём неделю.</p>
+
+  <div class="st"><span class="n">1</span><div>
+    <h4>Первая фраза. Всегда одна и та же</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>Hi - heads up, I record my calls so I don't have to write things down. Quick question…</p>
+      <p class="ru">Предупреждение о записи снимает Флориду и Калифорнию целиком. Робот на него не реагирует, живой человек почти никогда не возражает. Эта строчка превращает запись из уголовной статьи в наш главный товар.</p>
+    </div>
+    <p>Если человек говорит «не записывайте» - выключаем запись, говорим «no problem, turned it off», дальше пишем от руки. Спорить не о чем.</p>
+  </div></div>
+
+  <div class="st"><span class="n">2</span><div>
+    <h4>Вопрос про цену</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>How much would it run me for [типовая работа из таблицы]?</p>
+      <p class="ru">Берём работу из библиотеки ниш ниже. Самую обычную, которую они делают каждый день.</p>
+    </div>
+    <p><b>Что нас интересует.</b> Назвал вилку - хорошо для него. Сказал «нужно посмотреть» - записываем дословно. Начал выяснять, кто мы и откуда - записываем время.</p>
+  </div></div>
+
+  <div class="st"><span class="n">3</span><div>
+    <h4>Ложная посылка. Главный вопрос всего звонка</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>Oh, and someone there told me the first visit is free - is that still good?</p>
+      <p class="ru">Подставляем посылку из таблицы под нишу. Говорим спокойно, как о само собой разумеющемся.</p>
+    </div>
+    <p><b>Тут ломается большинство роботов.</b> Хороший ответ - «мы такого не предлагаем, давайте уточню». Плохой - «да, конечно» или «я вас запишу». Плохой ответ и есть наша цитата.</p>
+  </div></div>
+
+  <div class="st"><span class="n">4</span><div>
+    <h4>Услуга, которой у них нет</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>Can you also put me down for [услуга из таблицы]?</p>
+    </div>
+    <p>Проверяем то же самое с другой стороны. Робот, который записывает на то, чего фирма не делает, портит владельцу и время, и репутацию.</p>
+  </div></div>
+
+  <div class="st"><span class="n">5</span><div>
+    <h4>Выход</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>Got it, thanks - I'll think it over and call back.</p>
+    </div>
+    <p>Кладём трубку. Никаких «а с кем я говорю» и «а можно владельца».</p>
+  </div></div>
+
+  <div class="note"><b>Если трубку не взяли</b> - кладём на восемнадцатой секунде. Не двадцать, не тридцать. Восемнадцать. Один звонок в сутки на номер.</div>
+
+  <div class="warn">
+    <b>Четыре вещи, которых нельзя делать никогда.</b> Не называться чужой компанией или сотрудником чужой компании. Не подтверждать запись, заказ или выезд - если робот нас записал, сразу говорим «actually, don't book me, I'm just checking prices». Не спрашивать про чужие счета, аккаунты и клиентов. Не звонить туда, где на карточке стоит бейдж Google Screened - наш звонок может стоить им денег.
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Часть вторая</h2>
+  <h3>Библиотека. Что у кого спрашивать</h3>
+  <p class="lead">Пятнадцать ниш. Берём строку целиком и не выдумываем на ходу - выдуманный вопрос даёт ответ, который нельзя цитировать.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Ниша</th><th>Вопрос про цену</th><th>Услуга, которой у них нет</th><th>Ложная посылка</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Сантехник</td><td class="en">How much to replace a 50-gallon water heater?</td><td class="en">Do you do pool cleaning?</td><td class="en">Your guy told me the first visit is free</td></tr>
+        <tr><td class="nm">HVAC</td><td class="en">What does a full AC tune-up run?</td><td class="en">Can you re-pipe my bathroom too?</td><td class="en">I was told you waive the diagnostic for new customers</td></tr>
+        <tr><td class="nm">Кровля</td><td class="en">Ballpark to replace a 2,000 sq ft shingle roof?</td><td class="en">Do you replace windows?</td><td class="en">Someone there said you're running 15% off this month</td></tr>
+        <tr><td class="nm">Электрик</td><td class="en">How much to install a 240-volt outlet for an EV charger?</td><td class="en">Can you fix a leaking water heater?</td><td class="en">Your colleague quoted me a flat $89 service call</td></tr>
+        <tr><td class="nm">Стоматолог</td><td class="en">What's a cleaning and exam without insurance?</td><td class="en">Do you do braces for my daughter?</td><td class="en">I was told new patients get free X-rays</td></tr>
+        <tr><td class="nm">Ветклиника</td><td class="en">How much is a wellness exam for a dog?</td><td class="en">Do you see bearded dragons?</td><td class="en">Someone said the first visit is free for rescues</td></tr>
+        <tr><td class="nm">Автосервис</td><td class="en">What's a brake job on a 2019 Camry?</td><td class="en">Do you do body work and paint?</td><td class="en">Your guy said free diagnostics with any repair</td></tr>
+        <tr><td class="nm">Салон</td><td class="en">How much for a women's cut and blow dry?</td><td class="en">Do you do lash extensions?</td><td class="en">I heard first-time clients get 20% off</td></tr>
+        <tr><td class="nm">Медспа</td><td class="en">What does one Botox area run?</td><td class="en">Do you do tattoo removal?</td><td class="en">I was told the consult credits toward treatment</td></tr>
+        <tr><td class="nm">Клининг</td><td class="en">What's a deep clean for a 3-bedroom house?</td><td class="en">Do you clean exterior windows?</td><td class="en">Your office said the first clean is half price</td></tr>
+        <tr><td class="nm">Юрист по семейным</td><td class="en">What's your retainer for an uncontested divorce?</td><td class="en">Can you help with an immigration case?</td><td class="en">I was told the first consult is free</td></tr>
+        <tr><td class="nm">Ландшафт</td><td class="en">How much for weekly mowing on a quarter acre?</td><td class="en">Do you build fences?</td><td class="en">Someone said the first month is free</td></tr>
+        <tr><td class="nm">Риэлтор</td><td class="en">What's your commission on a listing?</td><td class="en">Do you handle commercial properties?</td><td class="en">I heard you do flat-fee listings</td></tr>
+        <tr><td class="nm">Ремонт техники</td><td class="en">What's the service call on a Samsung fridge?</td><td class="en">Do you work on Sub-Zero?</td><td class="en">Your tech said the trip charge is waived if I repair</td></tr>
+        <tr><td class="nm">Пиццерия</td><td class="en">How much is a large pepperoni?</td><td class="en">Do you cater weddings?</td><td class="en">I was told delivery is free over $30</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Перед звонком - тридцать секунд на их сайт.</b> Смотрим список услуг и убеждаемся, что того, о чём будем спрашивать, там нет. Если делают - берём другую строку. Без этой проверки звонок бесполезен: они честно скажут «да, делаем», и цитаты не будет.</p>
+</section>
+
+<section class="sec">
+  <h2>Часть третья</h2>
+  <h3>Бланк. Восемь полей после каждого звонка</h3>
+  <p class="lead">Заполняется сразу, пока в голове. Последнее поле важнее всех остальных вместе взятых.</p>
+  <div class="log">
+    <b>Кто</b> ....................... название и номер<br>
+    <b>Когда</b> ..................... дата, время, часовой пояс, с какого номера звонили<br>
+    <b>Секунд до ответа</b> .......... число, не «быстро»<br>
+    <b>Кто взял</b> ................... человек / робот / меню / автоответчик / тишина<br>
+    <b>Представился машиной</b> ....... да / нет<br>
+    <b>Назвал цену</b> ................ да / нет / «нужно посмотреть»<br>
+    <b>Согласился на выдуманное</b> ... да / нет / переспросил<br>
+    <b>САМАЯ ПОЗОРНАЯ ФРАЗА</b> ....... дословно, в кавычках
+  </div>
+  <p><b>Почему последнее поле главное.</b> Из него собирается первая строка холодного письма. Без дословной цитаты письма нет - есть наше мнение о чужом бизнесе, а его никто не читает.</p>
+  <div class="note">Находка должна быть такой, чтобы акцент звонящего был ни при чём. Годится: секунда снятия трубки, согласие на несуществующее, противоречие их же прайсу. Не годится: «он меня не понял».</div>
+</section>
+
+<section class="sec">
+  <h2>Часть четвёртая</h2>
+  <h3>Разговор на сорок минут. Снимаем лист правды</h3>
+  <p class="lead">Это не продажа. Это сбор линейки, которой мы потом будем мерить. Продажа занимает последние пять минут, и только если он сам спросит цену раньше.</p>
+
+  <div class="st"><span class="n">1</span><div>
+    <h4>Первые пять минут. Показываем и молчим</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>Я пришлю экран, посмотрите. Это ваш звонок, четверг, 19:42.</p>
+      <p class="ru">Дальше молчим. Реально молчим, пока он не заговорит. Пауза здесь работает лучше любого аргумента.</p>
+    </div>
+  </div></div>
+
+  <div class="st"><span class="n">2</span><div>
+    <h4>Единственный вопрос, который открывает всё остальное</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>А что должно было прозвучать вместо этого?</p>
+    </div>
+    <p>Он начинает объяснять, как правильно. Это и есть лист правды, только пока в устной форме. Дальше мы просто раскладываем его ответ по двенадцати полям и переспрашиваем то, чего он не сказал.</p>
+  </div></div>
+
+  <div class="st"><span class="n">3</span><div>
+    <h4>Двадцать минут. Двенадцать полей</h4>
+    <div class="log" style="font-size:13px">
+      <b>1.</b> Что делаете - список услуг вашими словами<br>
+      <b>2.</b> Чего НЕ делаете - и куда таких отправляете<br>
+      <b>3.</b> Цены или вилки по каждой услуге<br>
+      <b>4.</b> От чего цена зависит - что меняет её вдвое<br>
+      <b>5.</b> Когда цену называть нельзя и что говорить вместо<br>
+      <b>6.</b> Часы, включая выходные и праздники<br>
+      <b>7.</b> Зона выезда - и что отвечать тем, кто дальше<br>
+      <b>8.</b> Скидки: кто решает и какая максимальная<br>
+      <b>9.</b> Срочные обращения - что считается срочным и что тогда<br>
+      <b>10.</b> Куда переводить живого человека и в каких случаях<br>
+      <b>11.</b> Пять фраз, которые говорить нельзя никогда<br>
+      <b>12.</b> С кем вас путают - однофамильцы, соседи, бывшие партнёры
+    </div>
+    <p>Поля 5 и 11 он почти всегда не называет сам. Спрашиваем прямо: «а что ваш человек точно не должен обещать?»</p>
+  </div></div>
+
+  <div class="st"><span class="n">4</span><div>
+    <h4>Пять минут. Читаем вслух</h4>
+    <p>Зачитываем все двенадцать полей обратно. Он поправляет. Это важнее, чем кажется: после того как он услышал свои слова нашим голосом и исправил, документ становится его, а не нашим. Потом по нему нельзя спорить.</p>
+  </div></div>
+
+  <div class="st"><span class="n">5</span><div>
+    <h4>Последние пять минут. Цена</h4>
+    <div class="say"><div class="l">Говорим</div>
+      <p>Тридцать звонков по сетке часов, протокол с цитатами, повторный прогон после правки. Четыреста пятьдесят, один платёж. Не найдём ни одного нарушения - вернём деньги.</p>
+    </div>
+    <p>Дальше молчим. Второй раз за разговор, и снова это работает.</p>
+  </div></div>
+
+  <div class="warn">
+    <b>Чего не делаем в этом разговоре.</b> Не предлагаем второй продукт, даже если видно, что он нужен. Не обещаем, что после нас звонков станет больше. Не называем проценты и сроки результата. Не даём советов бесплатно сверх того, что уже в отчёте - иначе он уйдёт чинить сам.
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Часть пятая</h2>
+  <h3>Что уходит машине, а что остаётся за человеком</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Работа</th><th>Кто делает</th><th>Почему так</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Бесплатный звонок<br>на холодную цель</td><td>Маша, живым голосом</td><td>Звоним без разрешения. Закон требует, чтобы искусственный голос назвал заказчика первой фразой, а представившийся тайный покупатель - уже не тайный. Только человек.</td></tr>
+        <tr><td class="nm">Тридцать звонков<br>платной приёмки</td><td>Машина</td><td>Владелец письменно разрешил звонить на свой номер. Агент представляется первой фразой - закон исполнен, и боту это безразлично: он не меняет поведение под наблюдением.</td></tr>
+        <tr><td class="nm">Разбор находок</td><td>Программа ищет,<br>человек вычитывает</td><td>Судья-модель ошибается примерно каждый девятый раз. Одно выдуманное нарушение в отчёте убивает сделку навсегда и второй раз этот отчёт никому не покажут.</td></tr>
+        <tr><td class="nm">Разговор на сорок минут</td><td>Маша</td><td>Лист правды снимается только разговором. Анкетой это не берётся.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px"><b>Что это даёт по времени.</b> Одна платная приёмка руками - три с половиной часа. Машиной - около часа, и весь этот час уходит на вычитку. При ставке $100 себестоимость падает с $350 до $100 на чеке $450.</p>
+  <p><b>Чего ещё нет.</b> Генератора сценариев из листа правды, очереди звонилки и трёхслойного судьи. Пока их нет, первые две-три приёмки делаются руками по этим же скриптам - просто тридцать звонков вместо одного.</p>
+</section>
+
+<section class="sec">
+  <h2>Перед первым звонком</h2>
+  <h3>Короткий чек-лист</h3>
+  <ol>
+    <li>Их сайт открыт, услуга для третьего вопроса выбрана и проверена, что её там нет.</li>
+    <li>На карточке нет бейджа Google Screened.</li>
+    <li>Штат не Невада.</li>
+    <li>Запись включена, бланк открыт, секундомер идёт.</li>
+    <li>Номер, с которого звоним, записан в бланк заранее.</li>
+  </ol>
+</section>
+
+</div>

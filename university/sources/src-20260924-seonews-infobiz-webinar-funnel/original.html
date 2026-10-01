@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: http://ogp.me/ns#">
+<head>
+    <script>
+        function bitrixErrHandler(message, url, line, column, error) {
+            // Собираем дополнительную информацию
+            var stack = '';
+            var errorDetails = '';
+
+            if (error && error.stack) {
+                stack = error.stack;
+                errorDetails = error.toString();
+            }
+
+            // Информация о браузере и экране
+            var viewport = window.innerWidth + 'x' + window.innerHeight;
+            var user_agent = navigator.userAgent;
+            var language = navigator.language;
+            var cookies_enabled = navigator.cookieEnabled;
+            var current_url = window.location.href;
+            var referrer = document.referrer;
+
+            // Собираем все данные
+            var params = [
+                'message=' + encodeURIComponent(message),
+                'url=' + encodeURIComponent(url || current_url),
+                'line=' + encodeURIComponent(line || '0'),
+                'ex=' + encodeURIComponent(errorDetails),
+                'stack=' + encodeURIComponent(stack),
+                'user_agent=' + encodeURIComponent(user_agent),
+                'viewport=' + encodeURIComponent(viewport),
+                'language=' + encodeURIComponent(language),
+                'cookies=' + encodeURIComponent(cookies_enabled),
+                'referrer=' + encodeURIComponent(referrer),
+                'timestamp=' + encodeURIComponent(new Date().toISOString())
+            ].join('&');
+
+            var req = new XMLHttpRequest();
+            req.open('POST', '/local/php_interface/logger/js.php', true);
+            req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            req.send(params);
+
+            return true;
+        }
+
+        // Устанавливаем обработчик
+        window.onerror = bitrixErrHandler;
+
+        // Дополнительно перехватываем Promise ошибки
+        window.addEventListener('unhandledrejection', function(event) {
+            var error = event.reason;
+            bitrixErrHandler(
+                'Unhandled Promise Rejection: ' + (error && error.message ? error.message : String(error)),
+                window.location.href,
+                0,
+                0,
+                error
+            );
+        });
+    </script>
+	<meta name="robots" content="noyaca, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+		<meta name="viewport" content="width=1223">
+	<link rel="canonical" href="https://www.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/"/>
+			<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/">
+		<meta name="theme-color" content="#39538f"/>
+	<meta property="fb:app_id" content="195219411079142"/>
+	<link rel="icon" sizes="192x192" href="/images/icons/icon-192.png"/>
+	<link rel="icon" sizes="144x144" href="/images/icons/icon-144.png"/>
+	<link rel="icon" sizes="96x96" href="/images/icons/icon-96.png"/>
+	<link rel="manifest" href="/manifest.json"/>
+	<title>Как работают воронки продаж на примере вебинаров и автовебинаров | Статьи SEOnews</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="продвижение сайта, раскрутка сайта, seonews,  поисковая оптимизация, поисковый маркетинг" />
+<meta name="description" content="А также как просчитывать конверсии рассказываем в этой статье" />
+<link href="/bitrix/js/main/core/css/core.css?14913027512953" type="text/css"  rel="stylesheet" />
+<link href="/bitrix/panel/main/popup.css?157054766021605" type="text/css"  rel="stylesheet" />
+<link href="/bitrix/js/socialservices/css/ss.css?13933307804347" type="text/css"  rel="stylesheet" />
+<link href="/local/templates/main/components/bitrix/news.detail/news/style.css?1638793172199" type="text/css"  rel="stylesheet" />
+<script type="text/javascript">if(!window.BX)window.BX={message:function(mess){if(typeof mess=='object') for(var i in mess) BX.message[i]=mess[i]; return true;}};</script>
+<script type="text/javascript">(window.BX||top.BX).message({'LANGUAGE_ID':'ru','FORMAT_DATE':'DD.MM.YYYY','FORMAT_DATETIME':'DD.MM.YYYY HH:MI:SS','COOKIE_PREFIX':'BITRIX_SM','USER_ID':'','SERVER_TIME':'1790289381','SERVER_TZ_OFFSET':'10800','USER_TZ_OFFSET':'0','USER_TZ_AUTO':'Y','bitrix_sessid':'5629f444af02177370730b9a6cac4b14','SITE_ID':'s1'});(window.BX||top.BX).message({'JS_CORE_LOADING':'Загрузка...','JS_CORE_NO_DATA':'- Нет данных -','JS_CORE_WINDOW_CLOSE':'Закрыть','JS_CORE_WINDOW_EXPAND':'Развернуть','JS_CORE_WINDOW_NARROW':'Свернуть в окно','JS_CORE_WINDOW_SAVE':'Сохранить','JS_CORE_WINDOW_CANCEL':'Отменить','JS_CORE_H':'ч','JS_CORE_M':'м','JS_CORE_S':'с','JSADM_AI_HIDE_EXTRA':'Скрыть лишние','JSADM_AI_ALL_NOTIF':'Показать все','JSADM_AUTH_REQ':'Требуется авторизация!','JS_CORE_WINDOW_AUTH':'Войти','JS_CORE_IMAGE_FULL':'Полный размер'});</script>
+
+<script type="text/javascript" src="/bitrix/js/main/core/core.js?149130281979446"></script>
+<script type="text/javascript" src="/bitrix/js/main/core/core_ajax.js?149130305626820"></script>
+<script type="text/javascript" src="/bitrix/js/main/session.js?14908742583642"></script>
+<script type="text/javascript" src="/bitrix/js/main/core/core_window.js?149130308180118"></script>
+<script type="text/javascript" src="/bitrix/js/socialservices/ss.js?14232132941487"></script>
+
+<script type="text/javascript">
+bxSession.Expand(3600, '5629f444af02177370730b9a6cac4b14', false, '79b01ba01e58cd45f8176311e1001b42');
+</script>
+<script type="text/javascript">
+bxSession.Expand(3600, '5629f444af02177370730b9a6cac4b14', false, '79b01ba01e58cd45f8176311e1001b42');
+</script>
+<link rel="amphtml" href="https://www.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/amp/" />
+<meta property="og:url" content="https://www.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="SeoNews">
+<meta property="og:title" content="Воронка продаж в инфобизнесе: от разработки до расчетов конверсии" />
+<meta property="og:description" content="Универсальные советы, которые можно применить в любых нишах" />
+<meta property="og:image" content="https://www.seonews.ru/upload/iblock/78b/78b3689acfbfc6d0b63d820bd2c3714b.jpg" />
+<meta property="og:image:width" content="640" />
+<meta property="og:image:height" content="397" />
+<link itemprop="image" href="https://www.seonews.ru/upload/iblock/78b/78b3689acfbfc6d0b63d820bd2c3714b.jpg" />
+<meta name="twitter:card" content="summary_large_image">
+	<link rel="apple-touch-icon" href="/touch-icon-iphone.png"/>
+	<link rel="apple-touch-icon" sizes="76x76" href="/touch-icon-ipad.png"/>
+	<link rel="apple-touch-icon" sizes="120x120" href="/touch-icon-iphone-retina.png"/>
+	<link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png"/>
+	<link rel="icon" href="https://www.seonews.ru/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="https://www.seonews.ru/favicon.ico" type="image/x-icon"/>
+	<link href="/assets/css/base_style.css?v=2.03" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="/js/jquery213.min.js"></script>
+	<script type="text/javascript" src="/js/js_func.js?v=2.11.0"></script>
+	<script type="text/javascript">
+        var yaCounter25391549;
+	</script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.webvisor.org/metrika/tag_ww.js', 'ym');
+
+        ym(25391549, 'init', {webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+    </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/25391549" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    					<meta content="summary" property="twitter:card"/>
+	<meta content="@SEOnewsru" property="twitter:site"/>
+	<meta content="124459995" property="twitter:site:id"/>
+	<meta name="referrer" content="origin"/>
+	<!-- Global site tag (gtag.js) - AdWords: 807828281 -->
+	<meta name="facebook-domain-verification" content="ievcgivke6gpdh3k2ozaj9y1yezy8i"/>
+</head>
+<body class="adaptive">
+
+
+<div id="fb-root"></div>
+
+
+
+
+
+<header class="header">
+	
+	<div class="header__top">
+		<div class="inner flex">
+			<nav class="nav">
+				<div class="header__menu flex" itemscope itemtype="http://schema.org/SiteNavigationElement">
+										<div class="item  ">
+						<a href="//www.seonews.ru/events/" itemprop="url">Новости</a>
+												</div>
+									<div class="item  active">
+						<a href="//www.seonews.ru/analytics/" itemprop="url">Статьи</a>
+												</div>
+									<div class="item  ">
+						<a href="//www.seonews.ru/interviews/" itemprop="url">Интервью</a>
+												</div>
+									<div class="item  ">
+						<a href="//www.seonews.ru/blogs/" itemprop="url">Блоги</a>
+												</div>
+									<div class="item lamp ">
+						<a href="//rating.seonews.ru/" itemprop="url">Рейтинги</a>
+												</div>
+									<div class="item  ">
+						<a href="#">Каталоги</a>
+																	<div class=" header__submenu flex">
+													<div class="submenu__item"><a href="//www.seonews.ru/companies/" itemprop="url">Каталог компаний</a></div>
+													<div class="submenu__item"><a href="//www.seonews.ru/tools/" itemprop="url">Каталог сервисов</a></div>
+											</div>
+									</div>
+									<div class="item  ">
+						<a href="//www.seonews.ru/calendar/" itemprop="url">Календарь</a>
+												</div>
+									<div class="item  ">
+						<a href="//www.seonews.ru/glossary/" itemprop="url">Глоссарий</a>
+												</div>
+									<div class="item  ">
+						<a href="//www.seonews.ru/advertisment/" itemprop="url">Реклама</a>
+												</div>
+						</div>
+		</nav>
+		<div class="search-top-trigger"></div>
+		<div class="search-block-top fc">
+			<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "WebSite",
+					"url": "https://www.seonews.ru/",
+					"potentialAction": [
+						{
+							"@type": "SearchAction",
+							"target": "https://www.seonews.ru/search/?searchid=2131059&l10n=ru&do_search=Y&text={search_term_string}",
+							"query-input": "required name=search_term_string"
+						}
+					]
+				}
+			</script>
+            <form data-bem="{&quot;action&quot;:&quot;https://www.seonews.ru/search/&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:14,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;ru&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Поиск по seonews.ru&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;ru&quot;,&quot;type&quot;:2,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:5756525,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:&quot;&quot;,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"
+                  action="https://www.seonews.ru/search/"
+                  id="search-form"
+                  name="search-form"
+                  method="GET"
+                  target="_self"
+                  class="flex">
+                <input type="hidden" name="searchid" value="5756525"/>
+				<input type="hidden" name="l10n" value="ru"/>
+				<input type="hidden" name="reqenc" value=""/>
+				<input type="hidden" name="do_search" value="Y"/>
+				<div class="search-input flex">
+					<div id="search-form-submit" class="submit"></div>
+					<input type="text" name="text" class="form-text initial"  />
+				</div>
+				<div id="search-form-close" class="close">&times;</div>
+			</form>
+		</div>
+	</div>
+	</div>
+	<div class="header__bottom">
+		<div class="inner flex">
+			<div class="logo">
+                                    <a class="logo-main" href="https://www.seonews.ru"><img src="/images/logo.svg" alt="SeoNews" width="167" height="33"/></a>
+                    			</div>
+						<div class="header-soclinks">
+				<noindex style="display:flex;">
+					<a href="javascript:void(0);" target="_blank" class="h-soclink h-soclink-email posting-fancybox fancybox.ajax fa fa-envelope-open-o" id="subscribe" onrel="noopener"></a>
+										<a rel="nofollow noopener" href="https://vk.com/seonews_ru" target="_blank" class="h-soclink h-soclink-vk fa fa-vk"></a>
+											<a rel="nofollow noopener" href="//dzen.ru/seonews.ru" target="_blank" class="h-soclink h-soclink-dzen"><svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 50 50" width="18px" height="35px">
+								<path d="M46.894 23.986c.004 0 .007 0 .011 0 .279 0 .545-.117.734-.322.192-.208.287-.487.262-.769C46.897 11.852 38.154 3.106 27.11 2.1c-.28-.022-.562.069-.77.262-.208.192-.324.463-.321.746C26.193 17.784 28.129 23.781 46.894 23.986zM46.894 26.014c-18.765.205-20.7 6.202-20.874 20.878-.003.283.113.554.321.746.186.171.429.266.679.266.03 0 .061-.001.091-.004 11.044-1.006 19.787-9.751 20.79-20.795.025-.282-.069-.561-.262-.769C47.446 26.128 47.177 26.025 46.894 26.014zM22.823 2.105C11.814 3.14 3.099 11.884 2.1 22.897c-.025.282.069.561.262.769.189.205.456.321.734.321.004 0 .008 0 .012 0 18.703-.215 20.634-6.209 20.81-20.875.003-.283-.114-.555-.322-.747C23.386 2.173 23.105 2.079 22.823 2.105zM3.107 26.013c-.311-.035-.555.113-.746.321-.192.208-.287.487-.262.769.999 11.013 9.715 19.757 20.724 20.792.031.003.063.004.094.004.25 0 .492-.094.678-.265.208-.192.325-.464.322-.747C23.741 32.222 21.811 26.228 3.107 26.013z"/>
+							</svg></a>
+					<a rel="nofollow noopener" href="https://t.me/digital_bar" target="_blank" class="h-soclink h-soclink-telegram fa fa-telegram"></a>
+                    <a rel="nofollow noopener" href="https://max.ru/seonews_ru" target="_blank" class="h-soclink h-soclink-max"><svg xmlns="http://www.w3.org/2000/svg" height="35" width="18" viewBox="0 0 720 720"><path fill="#fff" d="M350.4,9.6C141.8,20.5,4.1,184.1,12.8,390.4c3.8,90.3,40.1,168,48.7,253.7,2.2,22.2-4.2,49.6,21.4,59.3,31.5,11.9,79.8-8.1,106.2-26.4,9-6.1,17.6-13.2,24.2-22,27.3,18.1,53.2,35.6,85.7,43.4,143.1,34.3,299.9-44.2,369.6-170.3C799.6,291.2,622.5-4.6,350.4,9.6h0ZM269.4,504c-11.3,8.8-22.2,20.8-34.7,27.7-18.1,9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9,16.8-72.5,72.9-136.3,150-143.1,78-6.9,150.4,32.7,183.1,104.2,72.4,159.1-112.9,316.2-256.4,218.6h0Z"/></svg></a>
+					<a rel="nofollow noopener" href="https://ok.ru/group/70000001368032" target="_blank" class="h-soclink h-soclink-odnoklassniki fa fa-odnoklassniki"></a>
+				<a href="https://www.seonews.ru/rss/" class="h-soclink h-soclink-rss fa fa-rss"></a>
+				</noindex>
+			</div>
+							<div class="user-link user-logged-out flex">
+					<div class="user-link-wrapper">
+						<a class="login-fancybox fancybox.ajax" href="/user/authorize/" onclick="if (typeof yaCounter25391549 !== 'undefined')yaCounter25391549.reachGoal('click_enter');"><span class="icon fa fa-sign-out"></span><span class="login-link">Войти</span></a>
+					</div>
+					<div style="display:none;">
+						<div style="display:none">
+<div id="bx_auth_float" class="bx-auth-float">
+
+<div class="bx-auth">
+	<form method="post" name="bx_auth_servicesform" target="_top" action="/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/">
+					<div class="bx-auth-title">Войти как пользователь</div>
+			<div class="bx-auth-note">Вы можете войти на сайт, если вы зарегистрированы на одном из этих сервисов:</div>
+							<div class="bx-auth-services">
+									<div><a href="javascript:void(0)" onclick="BxShowAuthService('GoogleOAuth', 'form')" id="bx_auth_href_formGoogleOAuth"><i class="bx-ss-icon google"></i><b>Google</b></a></div>
+									<div><a href="javascript:void(0)" onclick="BxShowAuthService('VKontakte', 'form')" id="bx_auth_href_formVKontakte"><i class="bx-ss-icon vkontakte"></i><b>ВКонтакте</b></a></div>
+									<div><a href="javascript:void(0)" onclick="BxShowAuthService('Twitter', 'form')" id="bx_auth_href_formTwitter"><i class="bx-ss-icon twitter"></i><b>Twitter</b></a></div>
+							</div>
+							<div class="bx-auth-line"></div>
+				<div class="bx-auth-service-form" id="bx_auth_servform" style="display:none">
+												<div id="bx_auth_serv_formGoogleOAuth" style="display:none"><a href="javascript:void(0)" onclick="BX.util.popup('https://accounts.google.com/o/oauth2/auth?client_id=788639753106-204dar8l5b3oi1dcb4heoptf08rjvprd.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fwww.seonews.ru%2Fbitrix%2Ftools%2Foauth%2Fgoogle.php&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&amp;response_type=code&amp;access_type=offline&amp;state=site_id%3Ds1%26backurl%3D%252Fanalytics%252Fvoronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii%252F%253Fcheck_key%253Dcd09269a98f141ef36f3dee16bd517aa%2526ELEMENT_CODE%253Dvoronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii%26mode%3Dopener', 580, 400)" class="bx-ss-button google-button"></a><span class="bx-spacer"></span><span>Используйте вашу учетную запись Google для входа на сайт.</span></div>
+																<div id="bx_auth_serv_formVKontakte" style="display:none"><a href="javascript:void(0)" onclick="BX.util.popup('https://oauth.vk.ru/authorize?client_id=4493640&amp;redirect_uri=https://www.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/?auth_service_id=VKontakte&amp;scope=friends,video,offline&amp;response_type=code&amp;v=5.82&amp;state=site_id%253Ds1%2526backurl%253D%25252Fanalytics%25252Fvoronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii%25252F%25253Fcheck_key%25253Dcd09269a98f141ef36f3dee16bd517aa%252526ELEMENT_CODE%25253Dvoronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii', 580, 400)" class="bx-ss-button vkontakte-button"></a><span class="bx-spacer"></span><span>Используйте вашу учетную запись VKontakte для входа на сайт.</span></div>
+																<div id="bx_auth_serv_formTwitter" style="display:none"><a href="javascript:void(0)" onclick="BX.util.popup('/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/?auth_service_id=Twitter&amp;check_key=cd09269a98f141ef36f3dee16bd517aa&amp;ELEMENT_CODE=voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii', 800, 450)" class="bx-ss-button twitter-button"></a><span class="bx-spacer"></span><span>Используйте вашу учетную запись на Twitter.com для входа на сайт.</span></div>
+									</div>
+				<input type="hidden" name="auth_service_id" value="" />
+	</form>
+</div>
+
+</div>
+</div>
+					</div>
+				</div>
+					</div>
+	</div>
+</header>
+
+											<div>
+									                    <div class="header-banner-2"><a href="/bitrix/rk2.php?id=931&amp;event1=banner&amp;event2=click&amp;event3=1+%2F+%5B931%5D+%5Btop_main_2%5D+%D0%9A%D0%BB%D0%B8%D0%BA.+%D0%98%D0%98-%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D0%BB%D0%BE%D0%B3&amp;goto=https%3A%2F%2Fpartners.click.ru%2Fpromo_aidirect%3Futm_source%3Dseonews-ads_seeding%26utm_medium%3Dcpp%26utm_campaign%3Dcn%3Aseonews_desk1%26utm_content%3Dseonews_desk1%26utm_mrkt%3Dsrcn%3Aseonews%7Csrct%3Aads_seeding%7Ccst%3Acpp%7Ccn%3Aseonews_desk1%7Cresp%3Amrkt_click%7Cdir%3Acc%7Cch%3Adirect%7Cchgr%3Apr%7Chst%3Apartners_click%7Cprod%3Ainstr%7Cgeo%3Arf%7Cemp%3Arno%26erid%3D2SDnjcSJsgP" target="_blank" ><img alt=""  title="" src="/upload/rk2/a5a/a5a93a32b50880a8c697acc1900dbf88.png" width="1140" height="90" border="0" /></a></div>
+                							</div>
+							
+<main class="body">
+	<div class="center-wrapper">
+		<div class="content">
+						<div class="main-column" id="news_list_pageID">
+				<div class="breadcrumbs fc" itemscope itemtype="http://schema.org/BreadcrumbList"> <a class="ico-back fa fa-angle-left" href="../" ></a> <div style='display: none;'>../</div><span itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" href="/" title="Главная"><span itemprop="name">Главная</span><meta itemprop="position" content="1"></a></span> <span class="sep">&gt;</span> <span itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a itemprop="item" href="/analytics/" title="Статьи SEOnews"><span itemprop="name">Статьи SEOnews</span><meta itemprop="position" content="2"></a></span> <span class="sep">&gt;</span> <span itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><noindex><a class="hidden" itemprop="item" href="/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/" title="Воронка продаж в инфобизнесе: от разработки до расчетов конверсии"></a></noindex><span itemprop="name">Воронка продаж в инфобизнесе: от разработки до расчетов конверсии</span><meta itemprop="position" content="3"></span></div><div style="display:none;" class="post-text" id="opros-wrapper">
+ 
+</div>
+<div>
+
+	<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+		<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" style="display:none;">
+			<span itemprop="addressLocality">Россия</span>
+			<span itemprop="telephone">+7 (909) 261-97-71</span>
+		</div>
+		<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+			<img itemprop="contentUrl" src="https://www.seonews.ru/images/logo.png" style="display:none;"/>
+			<meta itemprop="width" content="169">
+			<meta itemprop="height" content="33">
+		</div>
+		<meta itemprop="name" content="SEOnews">
+		<meta itemprop="url" content="https://www.seonews.ru/">
+	</div>
+
+	<div class="news-item-content">
+		<div itemscope itemtype="https://schema.org/Article">
+			<h1 itemprop="headline">Воронка продаж в инфобизнесе: от разработки до расчетов конверсии</h1>
+			<meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="https://www.seonews.ru//analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/"/>
+			<meta itemprop="dateModified" content="2020-03-10T14:40:00+03:00"/>
+			<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+				<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" style="display:none;">
+					<span itemprop="addressLocality">Россия</span>
+					<span itemprop="telephone">+7 (909) 261-97-71</span>
+				</div>
+				<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+					<img itemprop="contentUrl" src="https://www.seonews.ru/images/logo.png" style="display:none;"/>
+					<meta itemprop="width" content="169">
+					<meta itemprop="height" content="33">
+					<meta itemprop="url" content="https://www.seonews.ru/">
+				</div>
+				<meta itemprop="name" content="SEOnews">
+			</div>
+										<div itemscope itemprop="image" itemtype="https://schema.org/ImageObject">
+					<img itemprop="url contentUrl" src="https://www.seonews.ru/upload/resize_cache/iblock/5e0/409_1000_1/5e0eca0c9ded1be3481a2c6c2c3681d9.jpg" style="display:none;"/>
+					<meta itemprop="width" content="640">
+					<meta itemprop="height" content="360">
+				</div>
+			
+			<div class="post-controls fc">
+				<div>
+											
+																				<div class="date-time-analytics" itemprop="datePublished" content="2020-03-10T14:40:00+03:00">
+									10 Марта 2020 года<span class="time">, 14:40</span>
+								</div>
+							
+
+									</div>
+
+								<div class="social-buttons fc">
+                    <a class="ya-share2__item ya-share2__item_service_max ya-share2__container_size_m ya-share2__link"
+                       href="https://max.ru/:share?text=https%3A%2F%2Fwww.seonews.ru%2Fanalytics%2Fvoronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii%2F"
+                       rel="nofollow noopener" target="_blank" title="MAX">
+                        <span class="ya-share2__badge"><span class="ya-share2__icon"></span></span>
+                    </a>
+                    <div class="ya-share2" style="display: inline-block;" data-services="vkontakte,telegram,odnoklassniki" data-counter="" data-url="https://www.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/" data-via:twitter="SEOnewsru"></div>
+					<div class="edit-button" style="display: none"></div>
+				</div>
+				<div class="font-control fc">
+					<div class="title">Шрифт:</div>
+
+					<div class="less"></div>
+
+					<div class="more"></div>
+				</div>
+
+				<div class="comments-views">
+					<span class="cv-item"><a href="#comments"><span class="ico ico-comments"></span><span class="num-comments">2</a></span></span>
+					<span class="cv-item"><span class="ico ico-views"></span> 						36768</span>
+				</div>
+			</div>
+			<div class="table_of_contents contents-table" itemscope itemtype="http://schema.org/ItemList"><div class="block-title">Оглавление</div><ol class="contents">
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#1-voronka-zapuska-produkta-launch" class="scroll-btn" data-scrollto="#1-voronka-zapuska-produkta-launch">
+                    <span itemprop="name">1.Воронка запуска продукта (launch)</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#2-voronka-besplatnoj-konsultatsii" class="scroll-btn" data-scrollto="#2-voronka-besplatnoj-konsultatsii">
+                    <span itemprop="name">2. Воронка бесплатной консультации</span>
+                </a>
+                <meta itemprop="position" content="2" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#3-voronka-oflajn-meropriyatiya" class="scroll-btn" data-scrollto="#3-voronka-oflajn-meropriyatiya">
+                    <span itemprop="name">3. Воронка офлайн мероприятия</span>
+                </a>
+                <meta itemprop="position" content="3" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#4-voronka-trafik-v-lob" class="scroll-btn" data-scrollto="#4-voronka-trafik-v-lob">
+                    <span itemprop="name">4. Воронка «трафик в лоб»</span>
+                </a>
+                <meta itemprop="position" content="4" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#5-voronka-avtovebinara-evergreen" class="scroll-btn" data-scrollto="#5-voronka-avtovebinara-evergreen">
+                    <span itemprop="name">5. Воронка автовебинара (evergreen)</span>
+                </a>
+                <meta itemprop="position" content="5" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#podrobnee-o-vebinarnoj-voronke-prodazh" class="scroll-btn" data-scrollto="#podrobnee-o-vebinarnoj-voronke-prodazh">
+                    <span itemprop="name">Подробнее о вебинарной воронке продаж</span>
+                </a>
+                <meta itemprop="position" content="6" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#dozhimy-doprodazhi-i-avtomatizatsiya-voronki" class="scroll-btn" data-scrollto="#dozhimy-doprodazhi-i-avtomatizatsiya-voronki">
+                    <span itemprop="name">Дожимы, допродажи и автоматизация воронки</span>
+                </a>
+                <meta itemprop="position" content="7" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#dozhimy" class="scroll-btn" data-scrollto="#dozhimy">
+                    <span itemprop="name">«Дожимы»</span>
+                </a>
+                <meta itemprop="position" content="8" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#konversii-vebinara" class="scroll-btn" data-scrollto="#konversii-vebinara">
+                    <span itemprop="name">Конверсии вебинара</span>
+                </a>
+                <meta itemprop="position" content="9" />
+            </li>
+
+            <li class="top" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a rel="nofollow" itemprop="url" href="#neskolko-slov-o-sistemnom-podhode-k-avtovoronkam-i-vebinaram" class="scroll-btn" data-scrollto="#neskolko-slov-o-sistemnom-podhode-k-avtovoronkam-i-vebinaram">
+                    <span itemprop="name">Несколько слов о системном подходе к автоворонкам и вебинарам</span>
+                </a>
+                <meta itemprop="position" content="10" />
+            </li>
+</ol>
+</div>            <a href="https://max.ru/seonews_ru" target="_blank" class="button button-pink">
+                Подпишитесь на нас в MAX
+            </a>
+            <div class="post-text" id="post-text" itemprop="articleBody">
+				<p>
+							<div class="news-post-author-wrapper qwe" style="float:left;">
+
+								<div class="news-post-author">
+									<div class="author-data fc">
+										<div class="userpic">
+																							<a href="https://www.seonews.ru/author/dariashans/" target="_blank"><img src="/upload/resize_cache/main/cb0/105_105_2/cb070ee90578326ba0185fb4e1d70d61.jpg" title="Дарья Шанс"/></a>
+																					</div>
+										<div class="descr-top">
+																							<b><a href="https://www.seonews.ru/author/dariashans/" target="_blank"><span itemprop="author">Дарья Шанс</span></a></b>
+																						</div>
+
+										<div class="descr-bottom">
+											Руководитель проекта                                         <a href="http://marketinator.com/" target="_blank" title="Сайт компании marketinator.com" ><span itemprop="author">marketinator.com</span></a>
+                                        										</div>
+									</div>
+								</div>
+
+															</div>
+							<!-- wrapper end -->
+
+
+							Воронка продаж &ndash; это путь покупателя от знакомства с торговым предложением до совершения сделки и повторных покупок. </p>
+ 
+<p>Такое определение придумал Элиас Сент-Элмо Льюис (американский гений и создатель маркетинга).</p>
+ 
+<p>По Льюису воронка стоит на 3-х китах: </p>
+ 
+<ul>
+	<li>привлечь;</li>
+	 
+	<li>заинтересовать;</li>
+	 
+	<li>убедить.</li>
+</ul>
+
+<p><i>Привлечь внимание к себе и своему продукту, заинтересовать потенциального клиента его полезными свойствами и убедить в необходимости сделки.</i></p>
+ 
+<p align="center"><img src="/upload/medialibrary/5c5/5c5cc023f4c4604cf54a8d627ab9ce7a.jpg" title="Воронка продаж – это путь покупателя от знакомства с торговым предложением до совершения сделки и повторных покупок" border="0" alt="Воронка продаж – это путь покупателя от знакомства с торговым предложением до совершения сделки и повторных покупок" width="700" height="419"  /></p>
+ 
+<p>Прошло 100 лет, смысл определения не изменился, а возможности выросли многократно. Сегодня воронка продаж – это сложный комплекс маркетинговых инструментов по реализации товаров и услуг. Привлекать, убеждать и заинтересовывать можно через интернет, что открывает великолепные перспективы.</p>
+  
+<p>Важнейшая особенность интернет-продаж в том, что все действия происходят при минимальном участии человека. В воронке предусмотрен алгоритм поэтапного разогрева клиента и доведения его до покупки и, возможно, до повторных сделок. </p>
+  
+<p>Как работают воронки продаж на примере вебинаров и автовебинаров, а также как просчитывать конверсии рассказываем в этой статье. Мы будем использовать примеры из своей ниши, но это универсальные советы, которые можно применить не только в онлайн образовании (инфобизнесе), но и в других нишах.</p>
+ 
+<h3><b>Воронки продаж в инфобизнесе принято делить на 5 основных типов:</b></h3>
+
+<p align="center"><img src="/upload/medialibrary/23c/23c2bced683f0bf5a51f9b000658c7a5.jpg" title="5 типов коронок продаж в инфобизнесе" border="0" alt="5 типов коронок продаж в инфобизнесе" width="700" height="395" /></p>
+
+<p>А именно:</p>
+
+<ul>
+	<li>Воронка запуска продукта.</li>
+
+	<li>Воронка бесплатной консультации.</li>
+
+	<li>Воронка офлайн мероприятия.</li>
+
+	<li>Воронка &laquo;трафик в лоб&raquo;</li>
+
+	<li>Воронка автовебинара (evergreen).</li>
+</ul>
+
+
+<h2 id="1-voronka-zapuska-produkta-launch" >1.<b>Воронка запуска продукта (launch)</b></h2>
+ 
+<p>Название говорит само за себя. Запускается определенный продукт, и перед тем, как представить его рынку аудиторию постепенно разогревают, создавая вокруг шумиху. Это напоминает ажиотаж, который создается перед выходом нового блокбастера или новой модели смартфона. Воронку запуска создают под конкретный, зачастую повторяющийся проект. Это может быть онлайн-марафон, прямой эфир, онлайн мастер-класс (вебинар). Недостаток этой модели в том, что заработать можно, только когда проводятся мастер-классы или обучающие семинары. </p>
+ 
+<p>Работает принцип «то густо, то пусто». Это «активный доход», и вы от него очень сильно зависите. Прибыль, которую сгенерировали во время продаж должна быть поделена на все то время, что к ним готовились.</p>
+ 
+<p>Например, запуск онлайн-курса принес $9000, а готовились вы к нему 3 месяца, то считайте, что в месяц вы зарабатывали $3000. Согласитесь, это важно.</p>
+ 
+
+<h2 id="2-voronka-besplatnoj-konsultatsii" ><b>2. Воронка бесплатной консультации</b></h2>
+ 
+<p>Работает за счет индивидуальных консультаций, которые проводятся с потенциальными клиентами или с существующими платежеспособными покупателями с целью «закрыть» их на апгрейд того продукта, который они уже приобрели, или продать им новый, более дорогой продукт.</p>
+ 
+<p>Как это работает: человека приглашают на личную или онлайн-встречу (через Skype или Zoom), помогают ему решить проблемы и предлагают свой самый дорогой продукт. </p>
+ 
+<p>Особенность консалтинговой воронки – большие затраты времени и сил. Ведь себя не размножишь, так что, если вы проводите консультацию с тем или иным человеком, отнимаете это время от ваших главных сфер деятельности – маркетинга и стратегии. Так что здесь речь идет о цене упущенных возможностей. Количество продаж с таких встреч будет невысоким, поэтому на них стоит предлагать именно дорогой продукт.</p>
+ 
+
+<h2 id="3-voronka-oflajn-meropriyatiya" ><b>3. Воронка офлайн мероприятия</b></h2>
+ 
+<p>Это та же воронка запуска, только под единичный офлайн проект – конференцию, саммит, семинар или форум. Такое событие может длиться от одного до трех дней, и зачастую на него приглашают известных спикеров. По ходу мероприятия целевая аудитория очень хорошо подогревается, и в конце делаются продажи. </p>
+ 
+<p>Подобные события могут принести немалую прибыль, но есть и сложности – это затратная и ресурсоемкая воронка. Нужно:</p>
+ 
+<ul> 
+	<li>снять зал;</li>
+
+	<li>обеспечить рекламу;</li>
+
+	<li>привезти аппаратуру;</li>
+
+	<li>оплатить приезд и гонорар спикеров;</li>
+
+	<li>организовать питание и интересный досуг гостей.</li>
+</ul>
+
+<p>Без серьезного организаторского опыта сложно «выйти в ноль», не говоря уже о прибыли.</p>
+ 
+
+<h2 id="4-voronka-trafik-v-lob" ><b>4. Воронка «трафик в лоб»</b></h2>
+ 
+<p>Человек видит таргетированную или контекстную рекламу, переходит по ней на лендинг (посадочную страницу) и там сразу читает ваш оффер (предложение). Оффер может представлять из себя учебную онлайн-программу, онлайн-курс, или еще какой-то продукт. Здесь же расположена кнопка «Купить». </p>
+ 
+<p>Сложность – сразу, без предварительного «разогрева» человеку нужно сделать заказ и оплатить его картой. С недорогими бытовыми товарами это работает, особенно если это популярный продукт. Через трафик в лоб были проданы миллионы спиннеров, говорящих игрушек и MP3 плееров, но с инфопродуктами сложнее. Тут нужна репутация и востребованность предложения у целевой аудитории. Да и в СНГ люди еще не совсем освоились с онлайн-платежами и побаиваются пользоваться картами, если покупают что-то на сайте, о котором еще ничего не знают</p>
+  
+
+<h2 id="5-voronka-avtovebinara-evergreen" ><b>5. Воронка автовебинара (evergreen)</b></h2>
+  
+<p>Воронка автоматических вебинаров – самая эффективная. Автовебинар делают из записи живого вебинара, который прошел «на ура!». СМС сообщение и рассылка цепочек писем, а также обзвоны могут производиться практически без человеческого вмешательства. Поэтому автовебинар можно крутить каждый день. Все время будут поступать заявки, благодаря настроенной рекламе, что, при правильной организации, обеспечивает стабильную прибыль. </p>
+
+<p>Это и есть, тот самый пассивный доход, который вы получаете 24/7 при минимальных или почти нулевых ,если есть команда, затратах вашего самого главного ресурса – времени.</p>
+
+<p>Автоматическая вебинарная воронка – приоритетное средство реализации инфопродукта. Важнейший плюс в том, что она работает с различными срезами целевой аудитории за счет отдельных алгоритмов реализации торгового предложения.</p>
+
+<h3><b>Что нужно знать, прежде чем перейти к созданию собственной воронки продаж</b></h3>
+
+<p>Чтобы построить воронку реализации товаров или услуг, нужно ответить на несколько вопросов:</p>
+
+<ul> 
+	<li>какой продукт будете продавать, каковы его особенности и преимущества;</li>
+
+	<li>каково ваше УТП (уникальное торговое предложение);</li>
+
+	<li>каков портрет вашей целевой аудитории;</li>
+
+	<li>на каких площадках ее находить.</li>
+</ul>
+
+<p>Это основа, отталкиваясь от которой планируют и запускают онлайн-продажи. Не будем сейчас разбирать эти вопросы, заранее предположим, что вы уже все это знаете. </p>
+
+<p>Перейдем непосредственно к вопросам о воронках:  </p>
+ 
+<ul> 
+	<li>какие маркетинговые и рекламные инструменты будете использовать для продвижения товара или услуги;</li>
+
+	<li>какое потребуется программное обеспечение;</li>
+
+	<li>какова общая концепция и главные триггеры вашей воронки продаж;</li>
+
+	<li>кто будет обеспечивать работу воронки (персонал);</li>
+
+	<li>каких результатов нужно добиться, чтобы обеспечить минимальную окупаемость продукта;</li>
+
+	<li>как просчитывать экономическую эффективность мероприятий.</li>
+</ul>
+ 
+<p>На первый взгляд – сложно и непонятно, но есть проверенный способ решения трудных задач – разбить проблему на вопросы (подзадачи), и разобрать их отдельно. </p>
+ 
+<h3><b>Создаем и структурируем неавтоматизированную вебинарную воронку</b></h3>
+ 
+<p>Воронка продаж представляет собой конструктор, т.е. из маркетинговых инструментов можно собирать различные по сложности и стоимости структуры продаж.</p>
+ 
+<p style="text-align: center;"><img src="/upload/medialibrary/07b/07b3ff43348f78e5070b6015ad98a61c.jpg" title="Создаем и структурируем неавтоматизированную вебинарную воронку" border="0" alt="Создаем и структурируем неавтоматизированную вебинарную воронку" width="685" height="460"  /></p>
+ 
+<p>О чем идет речь? О сервисах продвижения:</p>
+ 
+<ul> 
+	<li>мессенджеры и чат-боты;</li>
+
+	<li>контекстная реклама в поисковых системах;</li>
+
+	<li>таргетированная реклама в соцсетях;</li>
+
+	<li>сервисы почтовых рассылок;</li>
+
+	<li>сервисы автообзвона;</li>
+
+	<li>мобильные сервисы;</li>
+
+	<li>платформы для создания сайтов и лендингов;</li>
+
+	<li>платформы для проведения вебинаров и онлайн-марафонов.</li>
+</ul>
+ 
+<p>Вышеперечисленного достаточно для построения самой прогрессивной автоворонки. Но много программ – это дорого, они способны нанести урон стартовому капиталу начинающего бизнесмена. В самом начале нужно определить эффективный минимум, на котором можно построить свою первую воронку.</p>
+ 
+<p><b>От чего отталкиваться, определяя этот минимум? </b>От характера предложения, бюджета и площадок, где находится целевая аудитория. Чтобы найти актуальные площадки для рекламы, нужно знать тренды и целевую аудиторию. А именно: если у вас онлайн-курс для ретроградов, которые 20 лет сидят на форумах и создают геральдические эмблемы, не имеет смысла запускать рекламу в TikTok. Точно так же, наверное, не стоит использовать дорогостоящие рекламные кампании проектам с минимальным бюджетом.</p>
+ 
+<p><b>В большинстве случаев, для создания автоворонки используют: </b></p>
+
+<ul> 
+	<li>лендинг, как главную площадку для сбора трафика;</li>
+
+	<li>рекламу в соцсетях или поисковых системах;</li>
+
+	<li>сервисы автоматических оповещений;</li>
+
+	<li>лид-магниты – бесплатный подарок, который представляет из себя полезный материал (PDF-книги, видеоролики, руководства, чек-листы и т.д.).</li>
+</ul>
+
+<p> Вебинар работает как основное мероприятие и главный инструмент продаж. </p>
+ 
+<p style="text-align: center;"><img src="/upload/medialibrary/269/26941727a623cb68829e992ee4b6f25d.jpg" title="Схема воронки автовебинара" border="0" alt="Схема воронки автовебинара" width="700" height="389"  /></p>
+ 
+<p>Рекламу запускают в поисковике и соцсетях, где сидит ЦА. Чаще всего люди приходят на лендинг, чтобы зарегистрироваться на вебинар или другое мероприятие, попутно оставляют свой почтовый адрес и номер телефона. С первым письмом, подтверждающим регистрацию на мероприятие, получают лид-магнит. Система собирает базу подписчиков, с которой потом и ведется работа. Потенциальные клиенты попадают в цепочку e-mail рассылок или в список получателей сообщений чат-бота.</p>
+ 
+<p>Подбирая инструменты, нужно определиться, какие рассылки планируются и через какие каналы они будут реализованы. Также важно понять, где реклама принесет наибольшую пользу. </p>
+
+<p class="incut"><i>Акцентируете внимание на соцсетях? Тогда поисковую рекламу можно отложить на потом, и работать с ними. Если знаете, что контекстная реклама у работает лучше, чем таргетинговая – концентрируйтесь на ней. Не используете с мессенджеры? Значит пока можно экономить на чат-боте.</i></p>
+
+<p>&lt;Конечно, если бюджет позволяет, имеет смысл запустить масштабную акцию, но прежде чем это делать, рекомендуем протестировать продукт и эффективность различных каналов продвижения.</p>
+ 
+<p><b>Есть две основные схемы:</b></p>
+ 
+<p>«План минимум» – это цепочка e-mail писем, доводящих потенциальных клиентов до вебинара.</p>
+   
+<p>«План максимум» – мультиканальная серия мероприятий, где напоминания о вебинаре настраивают не только через цепочку писем, но и через автозвонки, чат-боты и СМС.</p>
+  
+<p align="center"><img src="/upload/medialibrary/08f/08fa067d70da2f55586325dfbbe3ee90.jpg" title="«План максимум» &amp;mdash; мультиканальная серия мероприятий" border="0" alt="«План максимум» &amp;mdash; мультиканальная серия мероприятий" width="684" height="394"  /></p>
+
+<p>Мультиканальная серия хороша, если готовится масштабное мероприятие с большим количеством посетителей, или несколько ответственных вебинаров с известными спикерами. </p>
+
+<p>Можно использовать любые сочетания «Планов», например, чат-бот и e-mail или СМС и e-mail.</p>
+
+
+<h2 id="podrobnee-o-vebinarnoj-voronke-prodazh" ><b>Подробнее о вебинарной воронке продаж</b></h2>
+
+<p>Предположим, вебинар назначен и запущена кампания. Человек видит рекламу, кликает на баннер и попадает на страницу регистрации, где просят оставить e-mail. После этого посетитель переходит на страницу «спасибо», где предусмотрены три шага:</p>
+
+<ol> 
+	<li>сообщение о том, что на почту уже пришло письмо с подарком (лид-магнитом);</li>
+
+	<li>предложение подписаться на чат-бот;</li>
+
+	<li>предложение оставить номер телефона для одноразового напоминания через СМС.</li>
+</ol>
+
+<p>На первый взгляд – все просто. Есть почта, написали, пригласили – пришли, но пользователи не приходят. Почему? Причин несколько, от элементарной забывчивости, до digital-интоксикации. Чтобы достучаться до потенциального клиента, нужно несколько раз напомнить о мероприятии и желательно по различным каналам. Это могут быть e-mail письма, чат-бот, СМС и (или) автообзвон.</p>
+
+<p>Как только человек подписался и зарегистрировался, ему приходит e-mail в стиле «Поздравляем с регистрацией, вот ваш подарок», затем в день вебинара он получает напоминание о том, что мероприятие состоится, например, в 20.00.</p>
+
+<p>Перед вами шаблон письма, которое отправляется через 20 минут после начала автовебинара, чтобы завести в вебинарную комнату тех, кто о нем забыл/не успел войти вовремя. </p>
+
+<p align="center" style="font-size: x-large;"><img src="/upload/medialibrary/10e/10e153251f99596033f420bc83c3e88a.jpg" title="Шаблон письма, которое отправляется через 20 мин. после начала автовебинара" border="0" alt="Шаблон письма, которое отправляется через 20 мин. после начала автовебинара" width="627" height="310"  /></p>
+
+<p>Дополнительно предусмотрены напоминания за три часа до начала, за также за час и через минуту после старта эфира.</p>
+
+<p align="center" style="font-size: x-large;"> <img src="/upload/medialibrary/94f/94f9e720b98bd9a44ca0d9715e910e1b.jpg" title="Схема автовебинара изнутри" border="0" alt="Схема автовебинара изнутри" width="700" height="394"  /> </p>
+
+<p>Обратите внимание, на иллюстрации – простая вебинарная воронка с алгоритмами регистрации, напоминаний и оплаты продукта, продажа которого делается в конце автовебинара. Такая система позволяет получить максимум посетителей из всех, кто зарегистрировался.</p>
+
+<p>Вебинар – важнейшая часть конверсии, он эффективно разогревает целевую аудиторию, повышает лояльность, снимает возражения и дает ответы на актуальные вопросы. Во время бесплатного вебинара рекламируют конечный продукт. В онлайн-обучении это может быть платный полноценный онлайн-курс или серия видео уроков.</p>
+ 
+<p>В случае, когда конечным продуктом является сам вебинар, роль разогрева играют лид-магнит и рекламная кампания. Платный вебинар – это схема «трафик в лоб», которая работает, если у спикера «прокачан» личный бренд.</p>
+ 
+
+<h2 id="dozhimy-doprodazhi-i-avtomatizatsiya-voronki" ><b>Дожимы, допродажи и автоматизация воронки</b></h2>
+ 
+<p>Мы остановились на том моменте, когда посетители пришли на вебинар, прослушали материал, и некоторые совершили нужное действие, то есть совершили покупку. Но это далеко не все. Автоматизация только начинается.</p>
+ 
+<p><b>Аудитория по совершению целевого действия делится на:</b></p>
+ 
+<ul> 
+	<li>был, но не заказал;</li>
+
+	<li>был и заказал;</li>
+
+	<li>не был и не заказал.</li>
+</ul>
+
+<p>И теперь необходимо организовать коммуникацию с каждым из этих сегментов.</p>
+ 
+<ol> 
+	<li>Был, но не заказал. Скорее всего, у этих людей остались сомнения, которые нужно развеять и возражения, которые необходимо отработать. (Второй вариант – просто нет денег, но это обсуждать не будем). Вечером автоворонка отправляет письмо, в котором говорится, что вебинар закончился, но еще на протяжении 48 часов действует спецпредложение, сделанное во время вебинара (например, 20% скидка на продукт). На следующий день – еще одно письмо с напоминанием, и через сутки – последнее предложение «запрыгнуть в последний вагон уходящего поезда». Далее – только запись на курс по полной цене, то есть без скидок.</li>
+
+	<li>Был и заказал. С этой категорией работать проще. Если человек сделал заказ, (возможно, оставил задаток в виде небольшой суммы еще во время вебинара), то на следующий день ему звонит менеджер, отвечает на все вопросы и устраняет сомнения. Потом отправляет ссылку для оплаты продукта и клиент перечисляет требуемую сумму.</li>
+
+	<li>Не был и не заказал. Этот срез ЦА нужно дополнительно проработать, для этого используем систему автовебинара и проводим повторную трансляцию на следующий день. На третий день мы также можем предложить посмотреть эфир в записи и оставить заявку на сайте.</li>
+</ol>
+
+<p>Давайте посмотрим на схему воронки автовебинара во 2-й и 3-й дни.</p>
+ 
+<p style="text-align: center;"><img src="/upload/medialibrary/ca7/ca733ce96e5286aa108cdb57cb483297.jpg" title="Схема автовебинара" border="0" alt="Схема автовебинара" width="667" height="384"  /></p>
+ 
+<p>Во второй день человека приглашают на тот же самый автовебинар, что прошел в первый день, а в третий – присылают e-mail со ссылкой на страницу с видео эфира. Это делается для тех, кто не смог посетить вебинар в предыдущие два дня. Данные клиентов берем из собранной базы.</p>
+ 
+<p>В день повтора, с утра присылается напоминание, затем приходит еще один e-mail за час до начала, и еще один уже во время начала.</p>
+ 
+<p align="center"><img src="/upload/medialibrary/22d/22d7b811e8ccc333c07dc4a0fc048b40.jpg" title="Напоминание" border="0" alt="Напоминание" width="687" height="295"  /></p>
+ 
+<p>Принцип тот же, что и в 1-й день: в конце вебинара появляется кнопка под окном трансляции, которая ведет на форму оплаты/внесения брони, и еще одна кнопка, нажав на которую человек может скачать подарки, которые выдают после мероприятия.</p>
+ 
+<p>Обратите внимание, живой вебинар проводим только один раз (ну или несколько, а потом выбираем лучший эфир). Из записи делаем автовебинар, и проводим его каждый день, «на автопилоте», без живого участия спикера.</p>
+ 
+<p>Важный момент – понадобится модератор, который будет банить троллей и отвечать на комментарии участников чата.</p>
+ 
+<p>И самое главное – под эту запись (автовебинар) мы создаем автоворонку: отдельный лендинг с кнопками «забронировать», «заказать». Также настраиваем систему оповещения и платежный функционал. И в дальнейшем автоворонка на основе автовебинара будет работать как самостоятельный инструмент продаж.</p>
+ 
+<p>Автоворонка отлично себя показала, когда речь идет о тех регистрантах, кто оставил данные, но по какой-то причине не пришел на вебинар. Устраивать для них еще один – трудоемкий процесс, а вот продемонстрировать запись – разумное решение.</p>
+ 
+<p>Задача: довести до вебинара максимум лидов (регистрантов).</p>
+ 
+
+<h2 id="dozhimy" ><b>«Дожимы»</b></h2>
+ 
+<p>Но это еще не все. Вечером, спустя полчаса после вебинара, включается так называемая «дожимающая» e-mail цепочка. Это серия писем, где мы напоминаем о том, что льготные условия участия со скидкой будут действовать еще 24 часа.</p>
+ 
+<p>Через день можно прислать напоминание, что скидки продолжают действовать «специально для вас» еще пару часов, так что это – последний шанс.</p>
+ 
+<p>Обратите внимание на то, что в третий день мы никогда не присылаем просто ссылку на запись вебинара. Запись эфира надо поместить на лендинг, на котором также будет оффер, то есть, предложение приобрести продукт и кнопка «заказать».</p>
+ 
+
+<h2 id="konversii-vebinara" ><b>Конверсии вебинара</b></h2>
+ 
+<p>Давайте теперь посмотрим на схему воронки автовебинара, но уже с цифрами, и рассчитаем конверсии.</p>
+ 
+<p>Вот реальная табличка из практики. Разберем ее подробно:</p>
+ 
+<p align="center"><img src="/upload/medialibrary/57b/57b6296dc27dca658f2a24c9164d0418.jpg" title="Конверсии вебинара" border="0" alt="Конверсии вебинара" width="685" height="437"  /></p>
+ 
+<p>Посмотрите на показатели конверсии на каждом этапе. При рекламном бюджете $6000, стоимость перехода на сайт $0,5. Получается, что общее количество переходов на посадочную страницу было 12,000, но поскольку конверсия в регистрацию на вебинар этой посадочной странице 50%, мы получаем 6000 регистрантов (лидов).</p>
+ 
+<p>Конверсия посадочной страницы на примере достаточно высокая – 50% (при обычном качестве лендинга она составляет примерно 30-40%).</p>
+ 
+<p>Это хорошая новость, но есть и плохая – стоимость регистрации на вебинар не мала – $1 (с этим придется разбираться отдельно). Такова цена регистрации в «твердых» нишах, где спрос уже сформирован и конкуренция высока, так как там цена клика по рекламному баннеру около $0.5, а в «мягких» нишах цена клика обычно $0,2-0,3.</p>
+ 
+<p>При условии 50% конверсии посадочной страницы, цена регистрации будет $0,4-0,6, что примерно в два раза меньше!</p>
+ 
+<p>Доходимость до вебинара – 25%. Это то количество записавшихся, что реально будут смотреть и слушать (от 6000 это 1500 человек). Получается, что 1 зритель обходится нам в $4.</p>
+ 
+<p>Конверсия в заявку – 7% от количества посетителей. Это достаточно низкий показатель, так как средний – 10%.  </p>
+ 
+<p>При таком сценарии заявку оформили 105 человек, при стоимости заявки $57.</p>
+ 
+<p>Но оставленная заявка не означает оплату. От этого количества реально перечислили деньги 55%, что в общем-то неплохо.  </p>
+ 
+<p>Получается всего 56 продаж, со средним чеком – $390 при себестоимости клиента в $104.</p>
+ 
+<p>На этапе продаж «по горячим лидам», сумма дохода составляет примерно $22,523.</p>
+ 
+<p>Но ведь еще есть база, и остались люди, которые не решились, не смогли прийти, или еще думают. Удалось добиться 2,400 заявок с конверсией 1%, это 24 человека. Немного, но и не мало. Теплые продажи примерно так и работают.</p>
+ 
+<p>Итоговая сумма с допродажами составила $31,883.</p>
+ 
+<p>Вычитаем затраты – $381 на человека.</p>
+ 
+<p>Чистое сальдо $25,883. А возврат на маркетинговые инвестиции (ROMI) – 431%. Это те деньги, которыми можно оперировать, планируя дальнейшее развитие бизнеса.</p>
+ 
+<p align="center"> <img src="/upload/medialibrary/a24/a248bfdffca19ace0dd08cfed85d8404.jpg" title="Системный подход к автоворонкам" border="0" alt="Системный подход к автоворонкам" width="658" height="416"  /> </p>
+ 
+
+<h2 id="neskolko-slov-o-sistemnom-podhode-k-avtovoronkam-i-vebinaram" >Несколько слов о системном подходе к автоворонкам и вебинарам</h2>
+ 
+<p>$25,883 в месяц – это много или мало? Это очень даже неплохой показатель, но надо учесть время на подготовку материала, написание курса, настройку рекламы, почтовой рассылки, создание лендинга и т.д.</p>
+ 
+<p>Главный плюс в том, что такой эфир идет несколько раз в неделю (в идеале – каждый день), причем с минимальными трудозатратами. Вы просто взяли запись отличного вебинара, который удался и принес хорошие конверсии, и на его основе сделали автовебинар и запустили прибыльную автоворонку!</p>
+ 
+<p>Чем такое мероприятие будет отличаться от живого вебинара? Ответами на вопросы? Так в большинстве случаев они типичны. Можно просто добавить блок «Ответы на типичные вопросы» в конце, когда будете проводить тот вебинар, из которого потом сделаете запись.</p>
+ 
+<p>Кроме того, есть чат с участниками и модератором, который будет во время демонстрации видеозаписи отвечать на вопросы зрителей в письменном виде.</p>
+ 
+<p>Автоворонка на основе автовебинара – отличное решение для онлайн-обучения и не только. Любой вебинар, на котором вы рассказываете о продукте или услуге, может быть органично вписан в автоматизированную воронку продаж и системно приносить прибыль своему разработчику.</p>
+ 							</div>
+		</div>
+
+					<div class="post-controls fc">
+				<div style="margin-top: -30px;"></div>
+<div style="display: none;" class="iblock-vote" id="vote_219928">
+<script type="text/javascript">
+if (!window.voteScript) window.voteScript =
+{
+	trace_vote: function(div, flag)
+	{
+		var my_div;
+		var r = div.id.match(/^vote_(\d+)_(\d+)$/);
+		for (var i = r[2]; i >= 0; i--)
+		{
+			my_div = document.getElementById('vote_'+r[1]+'_'+i);
+			if (my_div)
+			{
+				if (flag)
+				{
+					if (!my_div.saved_class)
+						my_div.saved_className = my_div.className;
+					if(my_div.className != 'star-active star-over')
+						my_div.className = 'star-active star-over';
+				}
+				else
+				{
+					if (my_div.saved_className && my_div.className != my_div.saved_className)
+						my_div.className = my_div.saved_className;
+				}
+			}
+		}
+		i = r[2] + 1;
+		while (my_div = document.getElementById('vote_'+r[1]+'_'+i))
+		{
+			if (my_div.saved_className && my_div.className != my_div.saved_className)
+				my_div.className = my_div.saved_className;
+			i++;
+		}
+	},
+	do_vote: function(div, parent_id, arParams)
+	{
+		var r = div.id.match(/^vote_(\d+)_(\d+)$/);
+
+		var vote_id = r[1];
+		var vote_value = r[2];
+
+		function __handler(data)
+		{
+			$('.iblock-vote').replaceWith(data);
+			var obContainer = document.getElementById(parent_id);
+			if (obContainer)
+			{
+				var obResult = document.createElement("DIV");
+				obResult.innerHTML = data;
+				obContainer.parentNode.replaceChild(obResult.firstChild, obContainer);
+			}
+		}
+		var url = '/bitrix/components/askaron/askaron.ibvote.iblock.vote/component.php';
+
+		arParams['vote'] = 'Y';
+		arParams['vote_id'] = vote_id;
+		arParams['rating'] = vote_value;
+
+		$.post(
+			url,
+			arParams,
+			function(data){
+				$('.iblock-vote').replaceWith(data);
+			}
+		);
+	}
+}
+</script>
+<!--<table border="0" cellspacing="0" cellpadding="0">-->
+<!--	<tr>-->
+<!--	--><!--		--><!--			--><!--				--><!--					<td><div id="vote_--><!--_--><!--" class="star-voted" title="--><!--"></div></td>-->
+<!--				--><!--					<td><div id="vote_--><!--_--><!--" class="star-empty" title="--><!--"></div></td>-->
+<!--				--><!--			--><!--		--><!--			--><!--				<td><div id="vote_--><!--_--><!--" class="star" title="--><!--"></div></td>-->
+<!--			--><!--		--><!--	--><!--		--><!--			--><!--				--><!--					<td><div id="vote_--><!--_--><!--" class="star-active star-voted" title="--><!--" onmouseover="voteScript.trace_vote(this, true);" onmouseout="voteScript.trace_vote(this, false)" onclick="--><!--"></div></td>-->
+<!--				--><!--					<td><div id="vote_--><!--_--><!--" class="star-active star-empty" title="--><!--" onmouseover="voteScript.trace_vote(this, true);" onmouseout="voteScript.trace_vote(this, false)" onclick="--><!--"></div></td>-->
+<!--				--><!--			--><!--		--><!--			--><!--				<td><div id="vote_--><!--_--><!--" class="star-active star-empty" title="--><!--" onmouseover="voteScript.trace_vote(this, true);" onmouseout="voteScript.trace_vote(this, false)" onclick="--><!--"></div></td>-->
+<!--			--><!--		--><!--	--><!--	</tr>-->
+<!--	<tr>-->
+<!--		<td class="vote-result" id="vote-result---><!--" colspan="--><!--">-->
+<!--			--><!--				<div id="wait_vote_--><!--">-->
+<!--					--><!--				</div>-->
+<!--			--><!--				<div id="wait_vote_--><!--">-->
+<!--					--><!--				</div>-->
+<!--			--><!--		</td>-->
+<!--	</tr>-->
+<!--</table>-->
+    <style>
+        @media screen and (max-width: 900px){
+            .hider-mobile{
+                display: none;
+            }
+            .rewrite-mobile-img{
+                margin: 28px 0px 3px 0px !important;
+            }
+            .rewrite-mobile-td{
+                padding-left: 13px !important;
+            }
+        }
+    </style>
+    <table>
+        <tr>
+            <td>
+                <img class="rewrite-mobile-img" src="/upload/1_files/star.png" style="margin: 10px 0px 3px;" alt="">
+                <img class="hider-mobile" src="/upload/1_files/star.png" style="margin: 10px 0px 3px;" alt="">
+                <img class="hider-mobile" src="/upload/1_files/star.png" style="margin: 10px 0px 3px;" alt="">
+            </td>
+            <td class="rewrite-mobile-td" style="text-align: left;  padding-left: 30px; font-weight: bold; font-style: italic; line-height: 1.6;">
+                Друзья, теперь вы можете поддержать SEOnews <a href="https://pay.cloudtips.ru/p/8828f772">https://pay.cloudtips.ru/p/8828f772</a> <br>
+                Ваши донаты помогут нам развивать издание и дальше радовать вас полезным контентом.
+            </td>
+            <td>
+                <img class="hider-mobile" src="/upload/1_files/star.png" style="margin: 10px 0px 3px 20px;" alt="">
+                <img class="hider-mobile" src="/upload/1_files/star.png" style="margin: 10px 0px 3px;" alt="">
+                <img class="hider-mobile" src="/upload/1_files/star.png" style="margin: 10px 0px 3px;" alt="">
+            </td>
+        </tr>
+    </table>
+</div>
+			</div>
+			<div class="post-controls fc">
+				<div class="social-buttons fc social-buttons-down">
+					<p style="color: #6d6d6d; font-family: 'OpenSansItalic',sans-serif; display: inline-block;">Рассказать друзьям: </p>
+                    <a class="ya-share2__item ya-share2__item_service_max ya-share2__container_size_m ya-share2__link"
+                       href="https://max.ru/:share?text=https%3A%2F%2Fwww.seonews.ru%2Fanalytics%2Fvoronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii%2F"
+                       rel="nofollow noopener" target="_blank" title="MAX">
+                        <span class="ya-share2__badge"><span class="ya-share2__icon"></span></span>
+                    </a>
+					<div class="ya-share2" style="display: inline-block;" data-services="max,vkontakte,telegram,odnoklassniki" data-counter="" data-url="https://www.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/" data-via:twitter="SEOnewsru"></div>
+				</div>
+			</div>
+			<div class="social-goriz-wrapper">
+	<div class="sn-subscribe fc">
+		<div class="ico sn-subscribe-ico"></div>
+		<div class="txt">Нас удобно читать в социальных сетях.<br/>Подписывайся!</div>
+		<div class="buttons">
+			<!--			<a href="#" class="button button-1 button-sn button-ico button-fb">Facebook</a>-->
+			<!--			<a href="https://vk.com/seonews_ru" style="line-height: 2.8; height: 37px; width: 100px; text-align: center;" class="button button-1 button-sn button-3">ВКонтакте</a>-->
+			<a href="https://vk.com/seonews_ru" style="line-height: 2.8;height: 37px;width: 100px;text-align: center;/* padding: 3px 25px; */color: white;display: inline-flex;" class="button-1 button-sn button-3">
+				<img data-v-8d30b0e0=""
+					 src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxNzIgMTcyIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiNmZmZmZmYiPjxwYXRoIGQ9Ik0xNjMuOTg0MDgsMTI2LjE0MDVjLTYuNDM5MjUsLTExLjU4ODUgLTIzLjAyNjUsLTI1LjUxMzMzIC0yOS44NzQyNSwtMzEuNTcyNzVjLTEuODc0MDgsLTEuNjU5MDggLTIuMDc0NzUsLTQuNTI5MzMgLTAuMzY5MDgsLTYuMzY0YzEzLjA2ODQyLC0xNC4wNDMwOCAyMy41MjEsLTMwLjE3ODgzIDI3LjExODY3LC0zOS45MjkwOGMxLjU4NzQyLC00LjMwNzE3IC0xLjY5ODUsLTguODU4IC02LjMyODE3LC04Ljg1OGgtMTMuNDQ4MjVjLTQuNDMyNTgsMCAtNy4wMjY5MiwxLjU5MSAtOC4yNjMxNyw0LjEyNDQyYy0xMC44NjEwOCwyMi4yNTYwOCAtMjAuMTc3NzUsMzEuODg4MDggLTI2LjY5OTQyLDM3LjUxNzVjLTMuNjUxNDIsMy4xNTMzMyAtOS4zNDUzMywwLjU0MTA4IC05LjM0NTMzLC00LjI1N2MwLC05LjI0NSAwLC0yMS4xOTU0MiAwLC0yOS42N2MwLC00LjExMDA4IC0zLjM2MTE3LC03LjQzNTQyIC03LjUwNzA4LC03LjQzNTQybC0yNC41NjczMywtMC4yNzk1Yy0zLjA5MjQyLDAgLTQuODU5LDMuNTAwOTIgLTMuMDAyODMsNS45NTU1bDQuMDU2MzMsNS44MjI5MmMxLjUyNjUsMi4wMTc0MiAyLjM1MDY3LDQuNDcyIDIuMzUwNjcsNi45OTEwOGwtMC4wMjE1LDI2LjIyMjgzYzAsNC41NjE1OCAtNS41MjkwOCw2Ljc5MDQyIC04LjgxMTQyLDMuNTk0MDhjLTExLjEwNDc1LC0xMC44MTQ1IC0yMC43NDAzMywtMzIuODk4NTggLTI0LjIwOSwtNDMuNDU4NjdjLTEuMDAzMzMsLTMuMDU2NTggLTMuODY2NDIsLTUuMTIwNTggLTcuMTEyOTIsLTUuMTI3NzVsLTEzLjI0NzU4LC0wLjAzMjI1Yy00Ljk3MDA4LDAgLTguNjAzNTgsNC43MTIwOCAtNy4yNTI2Nyw5LjQ1NjQyYzEyLjEwNDUsNDIuNDg3NTggMzYuOTQwNTgsODIuOTA3NTggODEuMjAxOTIsODcuMjljNC4zNjA5MiwwLjQzIDguMTIzNDIsLTMuMDgxNjcgOC4xMjM0MiwtNy40MjgyNXYtMTMuNzgxNWMwLC0zLjk1MjQyIDMuMDk5NTgsLTcuMzQ5NDIgNy4wODQyNSwtNy40NDk3NWMwLjEzOTc1LC0wLjAwMzU4IDAuMjc5NSwtMC4wMDM1OCAwLjQxOTI1LC0wLjAwMzU4YzExLjcwNjc1LDAgMjQuODE4MTcsMTcuMDM4NzUgMjkuNDA0ODMsMjUuMDA4MDhjMS4zMTg2NywyLjI5MzMzIDMuNzg0LDMuNjkwODMgNi40NSwzLjY5MDgzaDE3LjgxOTkyYzUuMTk5NDIsMCA4LjUzNTUsLTUuNTE0NzUgNi4wMzA3NSwtMTAuMDI2MTd6Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4="
+					 alt="icon" customsize="20" width="20" height="20" style="fill: rgb(0, 0, 0);height: 37px;margin-right: 8px;">
+				ВКонтакте
+			</a>
+			<a href="https://t.me/digital_bar" target="_blank" class="button button-1 button-sn button-ico button-telegram">Telegram</a>
+			<a href="https://ok.ru/group/70000001368032" class="button button-1 button-sn button-ico button-ok bttn_ok_aua" style="margin: 0;">Одноклассники</a>
+														</div>
+	</div>
+</div>						<div class="banner-block-overbest"></div>
+			
+
+<style>
+.theme-links-slider {
+	width: 1068px !important;
+}
+
+</style>
+
+<script>
+$( function() {
+
+	var SliderCurPage = 1;
+	var SliderMaxPage = 1;
+	var SliderMaxPageNarrow = 1;
+	var SliderPageW = 880;
+	var SliderPageNarrowW = 660;
+	
+	var IsNarrow =( $( "html.html-narrow" ).length > 0 );
+	
+	function MoveSlider( speed ) {
+		speed = Number( speed );
+		var slider = $( ".theme-links-slider" );
+		var nextM = - ( SliderCurPage - 1 ) * ( IsNarrow ? SliderPageNarrowW : SliderPageW );
+		slider.stop( true, true ).animate( { "marginLeft": nextM + "px" }, speed, function() {
+			ShowHideSliderBtns();
+		});
+	}
+	
+	function ShowHideSliderBtns() {
+		if( SliderCurPage <= 1 ) {
+			$( ".theme-links-slider-nav-prev" ).hide();
+		} else {
+			$( ".theme-links-slider-nav-prev" ).show();
+		}
+		//
+		if( SliderCurPage >= ( IsNarrow ? SliderMaxPageNarrow : SliderMaxPage ) ) {
+			$( ".theme-links-slider-nav-next" ).hide();
+		} else {
+			$( ".theme-links-slider-nav-next" ).show();
+		}
+	}
+	
+	ShowHideSliderBtns();
+
+	$( ".theme-links-slider-nav-next" ).on( "click", function() {
+		var MaxPage =( IsNarrow ? SliderMaxPageNarrow : SliderMaxPage );
+		if( SliderCurPage < MaxPage ) {
+			SliderCurPage++;
+			MoveSlider( 300 );
+		}
+	});
+	
+	$( ".theme-links-slider-nav-prev" ).on( "click", function() {
+		if( SliderCurPage > 1 ) {
+			SliderCurPage--;
+			MoveSlider( 300 );
+		}
+	});
+	
+	$( window ).on( "resize", function() {
+		IsNarrow =( $( "html.html-narrow" ).length > 0 );
+		SliderCurPage = 1;
+		MoveSlider( 0 );
+	});
+});
+</script>
+
+<noindex>
+    <div class="theme-links-wrapper">
+		<div class="theme-links-slider-wrapper">
+						<div class="theme-links-slider-caption">
+				<span><a href="https://www.seonews.ru/analytics/">Статьи:</a></span> Читайте также
+			</div>
+			<div class="theme-links-slider-nav">
+				<div class="theme-links-slider-nav-btn-wrapper theme-links-slider-nav-prev">
+					<div class="theme-links-slider-nav-btn "></div>
+				</div>
+				<div class="theme-links-slider-nav-btn-wrapper theme-links-slider-nav-next">
+					<div class="theme-links-slider-nav-btn "></div>
+				</div>
+			</div>
+			<div class="theme-links-slider-window">
+				<div class="theme-links-slider">
+										<div class="theme-links-slider-item">
+							<a href="https://www.seonews.ru/analytics/kak-neyroseti-menyayut-pravila-prodvizheniya-mobilnykh-prilozheniy/" title="Как нейросети меняют правила продвижения мобильных приложений">
+							<div class="theme-links-slider-item-preview-picture">
+																	<img src="/upload/resize_cache/iblock/b3b/189_145_2/b3be9ef7ef822b87ebae4d113b6fe1b8.png" alt="Как нейросети меняют правила продвижения мобильных приложений" width="189" height="145" />
+																							</div>
+							<div class="theme-links-slider-item-caption">
+								Как нейросети меняют правила продвижения мобильных приложений							</div>
+							</a>
+						</div>					<div class="theme-links-slider-item">
+							<a href="https://www.seonews.ru/analytics/schema-org-llms-txt-robots-txt-i-ai-kraulery-chto-realno-vliyaet-na-dostupnost-sayta-dlya-ai-poiska/" title="Schema.org, llms.txt, robots.txt и AI-краулеры: что реально влияет на доступность сайта для AI-поиска">
+							<div class="theme-links-slider-item-preview-picture">
+																	<img src="/upload/resize_cache/iblock/bb5/189_145_2/bb59be6d317eba0025585661234a1f28.png" alt="Schema.org, llms.txt, robots.txt и AI-краулеры: что реально влияет на доступность сайта для AI-поиска" width="189" height="145" />
+																							</div>
+							<div class="theme-links-slider-item-caption">
+								Schema.org, llms.txt, robots.txt и AI-краулеры: что реально влияет на доступность сайта для AI-поиска							</div>
+							</a>
+						</div>					<div class="theme-links-slider-item">
+							<a href="https://www.seonews.ru/analytics/milliony-prosmotrov-kakoy-vyvod-mozhno-sdelat-tri-voprosa-k-statistike-korotkikh-video/" title="Миллионы просмотров: какой вывод можно сделать? Три вопроса к статистике коротких видео">
+							<div class="theme-links-slider-item-preview-picture">
+																	<img src="/upload/resize_cache/iblock/275/189_145_2/275b0503d88488a704a235a45b1c32b6.png" alt="Миллионы просмотров: какой вывод можно сделать? Три вопроса к статистике коротких видео" width="189" height="145" />
+																							</div>
+							<div class="theme-links-slider-item-caption">
+								Миллионы просмотров: какой вывод можно сделать? Три вопроса к статистике коротких видео							</div>
+							</a>
+						</div>					<div class="theme-links-slider-item">
+							<a href="https://www.seonews.ru/analytics/sayt-zhiv-a-trafika-iz-google-net-odin-neochevidnyy-killer-indeksatsii/" title="Сайт жив, а трафика из Google нет: один неочевидный киллер индексации">
+							<div class="theme-links-slider-item-preview-picture">
+																	<img src="/upload/resize_cache/iblock/77c/189_145_2/77c9c23d1d956f3b73780fd9554c97e0.png" alt="Сайт жив, а трафика из Google нет: один неочевидный киллер индексации" width="189" height="145" />
+																							</div>
+							<div class="theme-links-slider-item-caption">
+								Сайт жив, а трафика из Google нет: один неочевидный киллер индексации							</div>
+							</a>
+						</div> 
+				</div>
+			</div>
+		</div>
+
+		<div class="theme-links-yadirect-wrapper">
+					</div>
+
+</div>
+</noindex>
+			<div class="" style="font-size: 14px;line-height: 22px;padding-bottom: 1px;">
+									<p><b>Есть о чем рассказать? Тогда присылайте свои материалы <a href="mailto:marina.ibusheva@seonews.ru" target="_blank">Марине Ибушевой</a></b></p>
+					<br/>
+							</div>
+				</div>
+		<!-- <style>
+		.banner-block-overbest {
+			display: none;
+		}
+		</style> -->
+		
+</div>
+    <a name="comments" style="display: block; position: absolute; margin-top: -50px;"></a>
+        
+	<script>
+		if( typeof(window.xcom) != 'object' ) {
+			window.xcom = {};
+		}
+		window.xcom.m = "219928";
+		window.xcom.mib = "17";
+		window.xcom.u = "";
+		window.xcom.a = true;
+	</script>
+	<link href="https://www.seonews.ru/css/xcom/main.css" type="text/css" rel="stylesheet" />
+	
+	<link href="https://www.seonews.ru/css/xcom/readmore.css" type="text/css" rel="stylesheet" />
+	
+<div class="comment-button-wrapper">
+	<a href="#comments">
+		<div class="comment-button-label">
+		Комментарии (2)
+		</div> <div class="ico-comment-block ico-forward ico"></div>
+		<div class="comment-button">
+			<span>Добавить комментарий</span>
+		</div>
+	</a>
+</div>
+
+
+<div class="xcom-wrapper" style="display: block">
+	<div class="xcom-allaround-form-wrapper">
+		</div>
+	
+	<div class="xcom-nav-line-wrapper">
+
+		<div class="xcom-nav-line-view-selector-wrapper">
+			<div class="xcom-nav-line-filter-wrapper">
+				<div class="xcom-nav-line-view-selector xcom-act xcom-nav-line-current-filter-name" data-xcom-view-id="xcom-tab-tree-view">Новые&nbsp;<span class="xcom-nav-line-ma"></span></div>
+				<div class="xcom-nav-line-filters-list">
+				<div class="xcom-nav-line-filters-list-item xcom-active" data-xcom-filter="new" data-xcom-filter-name="Новые">Новые<span class="xcom-nav-line-filters-list-item-ma"></span></div>
+				<div class="xcom-nav-line-filters-list-item" data-xcom-filter="best" data-xcom-filter-name="Лучшие">Лучшие<span class="xcom-nav-line-filters-list-item-ma"></span></div>
+				<div class="xcom-nav-line-filters-list-item" data-xcom-filter="old" data-xcom-filter-name="Старые">Старые<span class="xcom-nav-line-filters-list-item-ma"></span></div>
+			</div>
+			</div>
+			<span class="xcom-nav-line-view-selector" data-xcom-view-id="xcom-tab-community">Сообщество</span>
+		</div>
+		<div class="xcom-nav-line-controls-wrapper">
+			
+			<div class="xcom-nav-line-controls-subscribe-wrapper">
+				<div class="xcom-nav-line-controls-subscribe">Подписаться&nbsp;<span class="xcom-nav-line-ma"></span></div>
+				<div class="xcom-nav-line-controls-subscribe-list">
+					Подписаться на дискуссию:<br>
+					<div class="xcom-comcounter-subscribe-wrapper">
+						<div class="xcom-comcounter-subscribe-b">
+							<div class="xcom-comcounter-subscribe-label">E-mail:</div>
+							<input type="text" name="email" >
+							<div class="xcom-comcounter-subscribe-btn">ОК</div>
+						</div>
+						<div class="xcom-comcounter-subscribe-success">Вы подписаны на комментарии</div>
+						<div class="xcom-comcounter-subscribe-error">Ошибка. Пожалуйста, попробуйте ещё раз.</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="xcom-nav-line-controls-delim-1"></div>
+			<div class="xcom-nav-line-controls-login-wrapper">
+									<div class="xcom-nav-line-controls-login">Войти <span class="xcom-nav-line-ma"></span></div>
+										
+									<div class="xcom-nav-line-controls-login-list">
+                        						<div class="xcom-nav-line-controls-settings-list-item" data-xcom-settings-action="login-vk">Вконтакте</div>
+																	</div>
+							</div>
+
+			<div class="xcom-nav-line-controls-delim-1"></div>
+			<div class="xcom-nav-line-controls-settings-wrapper">
+				<div class="xcom-nav-line-controls-settings"><span class="xcom-nav-line-ma"></span></div>
+				<div class="xcom-nav-line-controls-settings-list">
+															<div class="xcom-nav-line-controls-settings-list-item" data-xcom-settings-action="send-review">Отправить отзыв</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="xcom-main-block">
+		<a name="xcom-main"></a>
+	
+		<div class="xcom-main-tab-wrapper xcom-act" id="xcom-tab-tree-view">
+			<div class="xcom-tree-view-wrapper">
+				
+					
+				<ul class="xcom-tree-view-list level-0" 
+	data-xcom-tree-level="0"
+	
+	>
+
+
+	<!-- BEGIN ВЕТКА КОММЕНТАРИЕВ -->
+	<li>
+		<div class="xcom-tree-view-comment-wrapper" data-xcom-comment-id="241324" data-xcom-comment-author-id="163314">
+			<a name="xcom-comment-241324"></a>
+			<div class="xcom-tree-view-comment-avatar noavatar" data-xcom-user-id="163314">
+								
+											<img src="/images/avatar/4.png">
+									
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+			
+					
+	
+	<div class="xcom-tree-view-comment-author-info-wrapper">
+		<div class="xcom-tree-view-comment-author-info" data-xcom-comment-author-id="163314">
+			<div class="xcom-tree-view-comment-author-info-caption">
+				<div class="xcom-tree-view-comment-author-info-caption-text">Алексей Свиридов  </div>
+			</div>
+			<div class="xcom-tree-view-comment-author-info-avatar noavatar xcom-active">
+				<img src="/images/avatar/4.png">
+			</div>
+			<div class="xcom-tree-view-comment-author-info-ab">
+				<div class="xcom-tree-view-comment-author-info-a">
+					<b>2</b><br>комментария				</div>
+				<div class="xcom-tree-view-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-tree-view-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-tree-view-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+					
+								
+			</div>
+			<div class="xcom-tree-view-comment-block">
+				<div class="xcom-tree-view-comment-caption">
+					<div class="xcom-tree-view-comment-closecontrols">
+						<div class="xcom-tree-view-comment-hider" title="Свернуть комментарий"><div class="xcom-tree-view-comment-hider-inner"></div></div><div class="xcom-tree-view-comment-hider-delim"></div><div class="xcom-tree-view-comment-red-flag xcom-disabled " title="Вам нужно авторизоваться, чтобы отметить комментарий как неуместный. Нажмите, чтобы перейти к авторизации"></div>
+					</div>
+											<a class="xcom-tree-view-comment-author " href="javascript:void(0);">Алексей Свиридов  </a>
+															<div class="xcom-tree-view-comment-controls-delim"></div>больше года назад				</div>
+																					<div class="xcom-tree-view-comment-text-short">Спасибо за такой подробный разбор. Есть только два момента: 1&#41; Я бы в план минимум вместо имейла поместил СМС... Но это мое субъективное мнение. Все равно люди с телефонов чаще сидят, чем с компьютеров. Мы для компании запускали вебинар и ссылки отправляли не через бота, а через обычные СМС, и все успешно случилось. 2&#41; Про лендинги и экономию, если у вас нет своего сайта, где собирать заявки -- сейчас появилась интересная разработка, можно создать лендинг за пару минут в конструкторе ...<br></div>
+												<div class="xcom-tree-view-comment-text">Спасибо за такой подробный разбор. Есть только два момента: 1&#41; Я бы в план минимум вместо имейла поместил СМС... Но это мое субъективное мнение. Все равно люди с телефонов чаще сидят, чем с компьютеров. Мы для компании запускали вебинар и ссылки отправляли не через бота, а через обычные СМС, и все успешно случилось. 2&#41; Про лендинги и экономию, если у вас нет своего сайта, где собирать заявки -- сейчас появилась интересная разработка, можно создать лендинг за пару минут в конструкторе на сервисах мобильной рассылки... я встречал такое у Зазу Медиа l.zazumedia.ru/kllkf&nbsp;&nbsp;и еще на каком-то сервисе, СМС Победа кажется. Из СМС можно перейти на лендинг и там будет автозаполняемая форма - то есть номер абонента-получателя автоматически будет уже подставлен. А вы увидете в личном кабинете,кто просто перешел по ссылке из СМС на этот лендинг &#40;это отдельный сегмент заинтересованных&#41; и кто сделал заявку. Очень качественная отчетность, для отслеживания теплой и горячей аудитории на вебинары -- замечательная вещь.<br></div>
+													
+								
+				<div class="xcom-tree-view-comment-controls">
+									<div class="xcom-tree-view-comment-rating-minus  " title="Уменьшить рейтинг">-</div>
+					<div class="xcom-tree-view-comment-rating-value xcom-pozitive" >1</div>
+					<div class="xcom-tree-view-comment-rating-plus  " title="Увеличить рейтинг">+</div>
+										<div class="xcom-tree-view-comment-rating-answer">Ответить</div>
+									</div>
+			</div>
+			
+			<div class="xcom-tree-view-comment-form-wrapper">
+			<!-- tree-view-comment-form -->
+						</div>
+			
+						
+		
+		</div>
+	</li>
+	<!-- END ВЕТКА КОММЕНТАРИЕВ -->
+	
+
+	<!-- BEGIN ВЕТКА КОММЕНТАРИЕВ -->
+	<li>
+		<div class="xcom-tree-view-comment-wrapper" data-xcom-comment-id="224966" data-xcom-comment-author-id="159903">
+			<a name="xcom-comment-224966"></a>
+			<div class="xcom-tree-view-comment-avatar" data-xcom-user-id="159903">
+								
+											<img src="/upload/resize_cache/main/e0d/62_62_2/e0d402ff28efe53ff8ce92de3b322568.jpg">
+									
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+			
+					
+	
+	<div class="xcom-tree-view-comment-author-info-wrapper">
+		<div class="xcom-tree-view-comment-author-info" data-xcom-comment-author-id="159903">
+			<div class="xcom-tree-view-comment-author-info-caption">
+				<div class="xcom-tree-view-comment-author-info-caption-text">Ольга Тарасова</div>
+			</div>
+			<div class="xcom-tree-view-comment-author-info-avatar xcom-active">
+				<img src="/upload/resize_cache/main/e0d/60_60_2/e0d402ff28efe53ff8ce92de3b322568.jpg">
+			</div>
+			<div class="xcom-tree-view-comment-author-info-ab">
+				<div class="xcom-tree-view-comment-author-info-a">
+					<b>1</b><br>комментарий				</div>
+				<div class="xcom-tree-view-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-tree-view-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-tree-view-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+					
+								
+			</div>
+			<div class="xcom-tree-view-comment-block">
+				<div class="xcom-tree-view-comment-caption">
+					<div class="xcom-tree-view-comment-closecontrols">
+						<div class="xcom-tree-view-comment-hider" title="Свернуть комментарий"><div class="xcom-tree-view-comment-hider-inner"></div></div><div class="xcom-tree-view-comment-hider-delim"></div><div class="xcom-tree-view-comment-red-flag xcom-disabled " title="Вам нужно авторизоваться, чтобы отметить комментарий как неуместный. Нажмите, чтобы перейти к авторизации"></div>
+					</div>
+											<a class="xcom-tree-view-comment-author " href="javascript:void(0);">Ольга Тарасова</a>
+															<div class="xcom-tree-view-comment-controls-delim"></div>больше года назад				</div>
+																					<div class="xcom-tree-view-comment-text">а откуда затраты в 381 доллар на человекА?<br></div>
+													
+								
+				<div class="xcom-tree-view-comment-controls">
+									<div class="xcom-tree-view-comment-rating-minus  " title="Уменьшить рейтинг">-</div>
+					<div class="xcom-tree-view-comment-rating-value " >0</div>
+					<div class="xcom-tree-view-comment-rating-plus  " title="Увеличить рейтинг">+</div>
+										<div class="xcom-tree-view-comment-rating-answer">Ответить</div>
+									</div>
+			</div>
+			
+			<div class="xcom-tree-view-comment-form-wrapper">
+			<!-- tree-view-comment-form -->
+						</div>
+			
+						
+		
+		</div>
+	</li>
+	<!-- END ВЕТКА КОММЕНТАРИЕВ -->
+	
+	
+</ul>
+		
+			</div>
+		</div>
+		
+		<div class="xcom-main-tab-wrapper" id="xcom-tab-community">
+			<div class="xcom-community-wrapper">
+				<div class="xcom-community-column-left">
+					
+							
+				<noindex>
+<div class="xcom-community-column-caption">ПОПУЛЯРНЫЕ ОБСУЖДЕНИЯ НА SEONEWS</div>
+					
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/analytics/kak-chatgpt-vybiraet-kompanii-dlya-rekomendatsiy-chto-uzhe-izvestno-i-kak-biznesu-podgotovitsya-k-ep/" target="_blank">Как ChatGPT выбирает компании для рекомендаций: что уже известно и как бизнесу подготовиться к эпохе AI Search</a></div>
+		<div class="xcom-community-article-info">
+			3 комментария<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/analytics/kak-chatgpt-vybiraet-kompanii-dlya-rekomendatsiy-chto-uzhe-izvestno-i-kak-biznesu-podgotovitsya-k-ep/#xcom-comment-274449" target="_blank">2 недели назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="169125">
+						
+									<img src="/images/avatar/5.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="169125">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Игорь Антонов </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/5.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>1</b><br>комментарий				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="169125">Игорь Антонов </a> - 
+			Для молодых сайтов в YMYL-тематиках я бы добавил отдельный блок про согласованность сущности: одинаковые название, телефон, адрес и перечень услуг на сайте, в картах, каталогах и профильных публикациях. Мы сейчас проверяем это на новом медицинском проекте narkologmsk.ru — без массовых анкорных ссылок, через подтверждённые карточки и содержательные материалы. Было бы полезно увидеть в продолжении сравнение источников, которые чаще цитируют Google AI Overviews и ChatGPT именно для локальных запросов.		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/analytics/my-sokratili-rutinu-seo-spetsialista-na-95-vot-arkhitektura-kotoraya-eto-sdelala/" target="_blank">Мы сократили рутину SEO-специалиста на 95% – вот архитектура, которая это сделала</a></div>
+		<div class="xcom-community-article-info">
+			2 комментария<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/analytics/my-sokratili-rutinu-seo-spetsialista-na-95-vot-arkhitektura-kotoraya-eto-sdelala/#xcom-comment-272380" target="_blank">5 месяцев назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="168605">
+						
+									<img src="/images/avatar/5.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="168605">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Гостьkorayaskin </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/5.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>2</b><br>комментария				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="168605">Гостьkorayaskin </a> - 
+			Можно также посмотреть разбор инструментов типа KeywordKick — помогает быстрее понять, где именно конфликт сигналов.		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/analytics/sayt-kompanii-v-2026-godu-chto-proveryaet-roskomnadzor-i-kak-ne-poluchit-shtraf/" target="_blank">Сайт компании в 2026 году: что проверяет Роскомнадзор и как не получить штраф</a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/analytics/sayt-kompanii-v-2026-godu-chto-proveryaet-roskomnadzor-i-kak-ne-poluchit-shtraf/#xcom-comment-273792" target="_blank">2 месяца назад</a>
+		</div>
+		<div class="xcom-community-article-avatar" data-xcom-user-id="166261">
+						
+									<img src="/upload/resize_cache/main/4b7/60_60_2/4b7cc77ccc5fdf5dbf0647e92c03d8bf.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="166261">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Олег Черников</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar xcom-active" >
+				<img src="/upload/resize_cache/main/4b7/60_60_2/4b7cc77ccc5fdf5dbf0647e92c03d8bf.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>1</b><br>комментарий				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="166261">Олег Черников</a> - 
+			Дима спасибо, отличный обзор! За ГОСТ Р 52872-2019 спасибо! Давно около него ходил.		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/analytics/reyting-geo-agentstv-dlya-ecom-v-rossii-kak-prodvigat-internet-magazin-v-neyrosetyakh/" target="_blank">Рейтинг GEO-агентств для ecom в России: как продвигать интернет-магазин в нейросетях</a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/analytics/reyting-geo-agentstv-dlya-ecom-v-rossii-kak-prodvigat-internet-magazin-v-neyrosetyakh/#xcom-comment-274243" target="_blank">3 недели назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="162571">
+						
+									<img src="/images/avatar/1.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="162571">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Игорь </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/1.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>6</b><br>комментариев				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="162571">Игорь </a> - 
+			Как раз сейчас пытаемся продвинуть свой интернет-магазин спортивных товаров для нейросетей, чтоб почаще нас упоминали. Работаем с Zenlink. Привлекло то, что у них есть реальные кейсы и к работе адекватно подходят. 
+Сначала заказали просто анализ, чтоб они проверили, как нас вообще нейросети упоминают. Интересовала Алиса, ЧатГпт, и ДипСик. Там конечно все довольно печально было... Упоминаний мало. Но после того как мы свой сайт оптимизировали по их советам и они выполнили аутрич, плюс GERM, упоминаться стали чаще. В Алисе и ГПТ особенно, в ДипСик поменьше рост, но тоже есть. Это воодушевляет, конечно. И даже было пару клиентов, которые нас именно через нейросеть нашли. Сейчас опрос проводим, чтоб реальную пользу для себя понять. И вот, она уже есть. На мой взгляд эта услуга подходит тем бизнесам у кого большой средний чек, тогда даже пару клиентов с лихвой отбивают затраты на такое продвижение.		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/analytics/rynok-bezalkogolnykh-napitkov-v-2026-godu-kak-kategoriya-prodaet-cherez-doverie-k-brendu/" target="_blank">Рынок безалкогольных напитков в 2026 году: как категория продает через доверие к бренду</a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/analytics/rynok-bezalkogolnykh-napitkov-v-2026-godu-kak-kategoriya-prodaet-cherez-doverie-k-brendu/#xcom-comment-274009" target="_blank">1 месяц назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="169024">
+						
+									<img src="/images/avatar/4.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="169024">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Алексей </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/4.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>1</b><br>комментарий				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="169024">Алексей </a> - 
+			Все бы хорошо, но это в прошлом. В 2026 г. о росте 2020-2025 гг. остается только мечтать. Рынок БАН перешел к снижению. К серьезному снижению.		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/events/konferentsiya-geo-2026-kak-brendam-popast-v-otvety-neyrosetey/" target="_blank">Конференция GEO 2026: как брендам попасть в ответы нейросетей</a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/events/konferentsiya-geo-2026-kak-brendam-popast-v-otvety-neyrosetey/#xcom-comment-272088" target="_blank">6 месяцев назад</a>
+		</div>
+		<div class="xcom-community-article-avatar" data-xcom-user-id="5964">
+						
+									<img src="/upload/resize_cache/main/86f/60_60_2/86f807210d59cbe18a1d0ca524eb82ac.jpg">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="5964">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Дмитрий Севальнев</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar xcom-active" >
+				<img src="/upload/resize_cache/main/86f/60_60_2/86f807210d59cbe18a1d0ca524eb82ac.jpg">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>0</b><br>комментариев				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="5964">Дмитрий Севальнев</a> - 
+			Мощно, мощно!		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/events/yandeks-otkryl-prodazhi-cherez-alisu-i-poisk-dlya-prodavtsov-bez-saytov-/" target="_blank">Яндекс открыл продажи через Алису и Поиск для продавцов без сайтов </a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/events/yandeks-otkryl-prodazhi-cherez-alisu-i-poisk-dlya-prodavtsov-bez-saytov-/#xcom-comment-274196" target="_blank">1 месяц назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="169071">
+						
+									<img src="/images/avatar/1.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="169071">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Дмитрий Орлов </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/1.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>1</b><br>комментарий				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="169071">Дмитрий Орлов </a> - 
+			Прикольно, покупать через колонку-))		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/events/yandeks-vylozhil-v-opensors-yazykovuyu-model-kotoraya-lezhit-v-osnove-bystrykh-ii-otvetov-v-poiske/" target="_blank">Яндекс выложил в опенсорс языковую модель, которая лежит в основе быстрых ИИ-ответов в Поиске</a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/events/yandeks-vylozhil-v-opensors-yazykovuyu-model-kotoraya-lezhit-v-osnove-bystrykh-ii-otvetov-v-poiske/#xcom-comment-274485" target="_blank">неделю назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="169136">
+						
+									<img src="/images/avatar/6.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="169136">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Роман Каржонков </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/6.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>1</b><br>комментарий				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="169136">Роман Каржонков </a> - 
+			Молодцы! Такие AI-модели могут широко используется в корпоративных, обучающих и научных АI-enabled платформах.		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/analytics/servisy-dlya-sozdaniya-kvizov-sravnenie-po-konversii-gibkosti-stsenariev-i-integratsiyam/" target="_blank">Сервисы для создания квизов: сравнение по конверсии, гибкости сценариев и интеграциям</a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/analytics/servisy-dlya-sozdaniya-kvizov-sravnenie-po-konversii-gibkosti-stsenariev-i-integratsiyam/#xcom-comment-273128" target="_blank">3 месяца назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="168840">
+						
+									<img src="/images/avatar/0.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="168840">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Виктор </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/0.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>1</b><br>комментарий				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="168840">Виктор </a> - 
+			Без сервиса FormDesigner.ru эта подборка будет не полной. Удивлен, почему вы его не включили в список?		</div>
+	</div>
+	
+
+	<div class="xcom-community-article-block">
+		<div class="xcom-community-article-caption"><a href="https://www.seonews.ru/analytics/5-poleznykh-servisov-dlya-raboty-s-uchebnymi-tekstami/" target="_blank">5 полезных сервисов для работы с учебными текстами</a></div>
+		<div class="xcom-community-article-info">
+			1 комментарий<div class="xcom-community-article-info-delim"></div><a href="https://www.seonews.ru/analytics/5-poleznykh-servisov-dlya-raboty-s-uchebnymi-tekstami/#xcom-comment-273261" target="_blank">3 месяца назад</a>
+		</div>
+		<div class="xcom-community-article-avatar noavatar" data-xcom-user-id="168808">
+						
+									<img src="/images/avatar/8.png">
+							
+				<!-- МИНИПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ -->
+				
+				
+
+	<div class="xcom-community-article-comment-author-info-wrapper">
+		<div class="xcom-community-article-comment-author-info" data-xcom-comment-author-id="168808">
+			<div class="xcom-community-article-comment-author-info-caption">
+				<div class="xcom-community-article-comment-author-info-caption-text">Anna B. </div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-avatar noavatar xcom-active" >
+				<img src="/images/avatar/8.png">
+			</div>
+			<div class="xcom-community-article-comment-author-info-ab">
+				<div class="xcom-community-article-comment-author-info-a">
+					<b>2</b><br>комментария				</div>
+				<div class="xcom-community-article-comment-author-info-b">
+					<b>0</b><br>читателей				</div>
+			</div>
+			<div class="xcom-community-article-comment-author-info-full">
+				<a class="xcom-link-to-big-profile" href="javascript:void(0);">Полный профиль</a> <div class="xcom-community-article-comment-author-info-full-arrow"></div>
+			</div>
+		</div>
+	</div>
+	
+				
+					</div>
+		<div class="xcom-community-article-text">
+			<a class="xcom-community-article-text-username" href="javascript:void(0);" data-xcom-comment-author-id="168808">Anna B. </a> - 
+			Отличный разбор, очень своевременно!		</div>
+	</div>
+	
+</noindex>					
+				</div>
+				
+				<div class="xcom-community-column-right">
+					
+								
+				
+
+<div class="xcom-community-column-caption">ТОП КОММЕНТАТОРОВ</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="263">
+		
+					<img src="/images/avatar/3.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="263">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Светлана Чернева</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">910</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="384">
+		
+					<img src="/images/avatar/4.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="384">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Ярослав Домбровский</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">834</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="77">
+		
+					<img src="/images/avatar/7.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="77">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Людмила Кудрявцева</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">554</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="268">
+		
+					<img src="/upload/resize_cache/main/585/42_42_2/585f431424743e842039591d897b0018.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="268">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Анна Лебедева</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">540</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="111">
+		
+					<img src="/upload/resize_cache/main/a7d/42_42_2/a7d58966649e99f3a4bc367b19fdace1.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="111">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Олег Сахно</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">483</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="12">
+		
+					<img src="/upload/resize_cache/main/713/42_42_2/713cf673b9cc25f51e3ab30512c44960.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="12">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Анна Макарова</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">393</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="331">
+		
+					<img src="/upload/resize_cache/main/a8f/42_42_2/a8fff0ebc3ae749f6c6e9235ee028d04.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="331">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Анастасия Гутникова</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">373</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="302">
+		
+					<img src="/images/avatar/2.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="302">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Miha Kuzmin </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">262</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="18117">
+		
+					<img src="/upload/resize_cache/main/517/42_42_2/5176ed0818edf65ffafd8091d485a4ef.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="18117">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Дарья Калинская</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">249</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="5569">
+		
+					<img src="/images/avatar/9.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="5569">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Murketolog </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">171</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="8118">
+		
+					<img src="/upload/resize_cache/main/06d/42_42_2/06deae019622f209c1d2dbf0b02efa26.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="8118">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Жанна Рожкова</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">156</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="5365">
+		
+					<img src="/upload/resize_cache/main/c81/42_42_2/c816924d3b35c0fb60ed8597fcf48a5c.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="5365">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Марал Гаипова</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">142</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="5964">
+		
+					<img src="/upload/resize_cache/main/86f/42_42_2/86f807210d59cbe18a1d0ca524eb82ac.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="5964">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Дмитрий Севальнев</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">130</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="6262">
+		
+					<img src="/upload/resize_cache/main/802/42_42_2/802244fb8bbbdf42e704c3d7629712a7.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="6262">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Дарья Мутовкина</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">121</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="151952">
+		
+					<img src="/upload/resize_cache/main/d35/42_42_2/d3592bbe1f46c09319b2e411691696ae.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="151952">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">dotaidi </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">100</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="5972">
+		
+					<img src="/images/avatar/2.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="5972">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Димон </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">97</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="6">
+		
+					<img src="/upload/resize_cache/main/e73/42_42_2/e73ce1fffeff410ec230dab60b43bb2c.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="6">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Демфира Шакурова</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">97</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="139304">
+		
+					<img src="/upload/resize_cache/main/974/42_42_2/9748368d2314dfb79ed5da3eaf65c5c4.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="139304">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Skarui </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">96</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="1159">
+		
+					<img src="/upload/resize_cache/main/950/42_42_2/95075458576d86f53a212f253fa06fae.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="1159">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Юлия Вронская </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">80</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="132965">
+		
+					<img src="/upload/resize_cache/main/0bc/42_42_2/0bc9321f23deb17434fdc831ed3f9242.jpg">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="132965">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Валерия  Полякова</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">77</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="159524">
+		
+					<img src="/upload/resize_cache/main/52c/42_42_2/52c72b135acd8f0d14938c084ad5c668.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="159524">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">everystraus </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">74</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="369">
+		
+					<img src="/images/avatar/9.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="369">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">sem_en </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">67</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="8312">
+		
+					<img src="/upload/resize_cache/main/627/42_42_2/6274ca7bc8ca45f160ab71750f1e8c28.JPG">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="8312">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Марина Ибушева</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">66</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar noavatar" data-xcom-user-id="43">
+		
+					<img src="/images/avatar/3.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="43">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Анастасия Филатова</a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">60</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="xcom-community-commentator-wrapper">
+	<div class="xcom-community-commentator-avatar" data-xcom-user-id="141586">
+		
+					<img src="/upload/resize_cache/main/527/42_42_2/5270eff60c8599d94be00b89d941c224.png">
+				
+	</div>
+	
+	<div class="xcom-community-commentator-info" data-xcom-comment-author-id="141586">
+		<div class="xcom-community-commentator-username"><a href="javascript:void(0);">Vysokoff.ru </a></div>
+		<div class="xcom-community-commentator-counter">
+			Комментариев
+			<div class="xcom-community-commentator-counter-a"></div><div class="xcom-community-commentator-counter-value">59</div><div class="xcom-community-commentator-counter-b"></div>
+		</div>
+	</div>
+</div>
+
+
+					
+				</div>
+			</div>
+		</div>
+		<br clear="all">
+	</div>
+</div>
+
+
+<div class="xcom-hidden-iframes-list"></div>
+<div class="xcom-modest-progress-indicator"></div>
+<div class="xcom-review-notable-plate">
+	<div class="xcom-review-notable-plate-inner xcom-active">Отправьте отзыв!</div>
+</div>
+
+            <script type="text/javascript">
+        $(document).ready(function () {
+            var positionBanner = $('.ad-banner').offset();
+            // var bannerPlace = $('.right-block-main');
+            var bannerPlace = $('.ad-banner').first();
+            var commentsBlock = $('.comment-button-wrapper');
+            if (bannerPlace.length > 0 && $('.ad-banner').height() > 0) {
+                $(window).scroll(function (event) {
+                    if ($(this).scrollTop() > positionBanner.top + 1500) {
+
+                        if (!bannerPlace.hasClass('fxit')) {
+                            bannerPlace.addClass('fxit');
+                        }
+
+                        if ($(this).scrollTop() > commentsBlock.offset().top - bannerPlace.height()) {
+                            var tp = commentsBlock.offset().top - bannerPlace.height() - 460;
+
+                            if (tp < 0) {
+                                tp = 0;
+                            }
+                            bannerPlace.removeClass('fxit').addClass('abit').css({
+                                top: tp,
+                            });
+                        } else {
+                            bannerPlace.removeClass('abit').addClass('fxit').css({
+                                top: '1.5%',
+                            });
+                        }
+                    } else {
+                        if (bannerPlace.hasClass('fxit')) {
+                            bannerPlace.removeClass('fxit');
+                        }
+                    }
+                    //console.log($(this).scrollTop());
+                });
+            }
+        });
+    </script>
+    <style type="text/css">
+        .slider-useable-block-wrapper {
+            width: 240px;
+        }
+
+        .form-table input[type=checkbox] {
+            margin-top: 15px;
+        }
+        .link-black:hover{
+            font-family: 'OpenSansRegular',sans-serif;
+        }
+        .link-black{
+            color: #000!important;
+            font-weight: normal!important;
+            font-family: 'OpenSansRegular',sans-serif;
+        }
+    </style>
+
+
+        <div class="y-wrapper" style="margin-top: 35px;">
+        <div id="yandex_ad_6ab5a5e54c5bf"></div>
+<script type="text/javascript">
+(function(w, d, n, s, t) {
+    w[n] = w[n] || [];
+    w[n].push(function() {
+        Ya.Direct.insertInto(9841, "yandex_ad_6ab5a5e54c5bf", {
+            stat_id: 9,
+            ad_format: "direct",
+            font_family: "arial",
+            type: "posterHorizontal",
+            border_type: "block",
+            limit: 3,
+            title_font_size: 1,
+            border_radius: true,
+            links_underline: true,
+            site_bg_color: "CCCCCC",
+            bg_color: "FFFFFF",
+            border_color: "CCCCCC",
+            title_color: "000000",
+            url_color: "666666",
+            text_color: "000000",
+            hover_color: "CCCCCC",
+            no_sitelinks: true
+        });
+    });
+    t = d.getElementsByTagName("script")[0];
+    s = d.createElement("script");
+    s.src = "//an.yandex.ru/system/context.js";
+    s.type = "text/javascript";
+    s.async = true;
+    t.parentNode.insertBefore(s, t);
+})(window, document, "yandex_context_callbacks");
+</script>
+    </div>
+    
+
+
+	</div>
+	<div class="sidebar" style="padding-top:20px;">
+					<div class="sidenav">
+				<div class="up-link">
+					<div class="ico-up fa fa-angle-up"></div>
+					<span>Наверх</span>
+				</div>
+			</div>
+										<div class="right-block-main">
+																
+					<div class="ad-banner">
+						<div class="content-text"><span>Реклама на сайте</span></div>
+						<div class="content-banners">
+																	<div class="content-block"><a href="/bitrix/rk2.php?id=934&amp;event1=banner&amp;event2=click&amp;event3=1+%2F+%5B934%5D+%5Bright_column_top%5D+Rookee+%D1%81+%D0%98%D0%98&amp;goto=https%3A%2F%2Frookee.ru%2Fgeo%3Futm_source%3Dseonews%26utm_medium%3Dskvoznoybanner%26erid%3D2SDnjeSNnMy" target="_blank" ><img alt=""  title="" src="/upload/rk2/93d/93d8b22c3baa926497eda71f4928723f.png" width="240" height="400" border="0" /></a></div>
+															</div>
+						<div class="content-text"><a href="//www.seonews.ru/advertisment/" onclick="yaCounter25391549.reachGoal('hochu_reklamu');">Хочу рекламу. Что делать?</a></div>
+					</div>
+				
+
+												<div class="content-block"><a href="/bitrix/rk2.php?id=929&amp;event1=banner&amp;event2=click&amp;event3=1+%2F+%5B929%5D+%5Bright_column_bottom_main%5D+%D0%98%D1%82%D0%BE%D0%B3%D0%B8+SMM-%D1%80%D0%B5%D0%B9%D1%82%D0%B8%D0%BD%D0%B3%D0%B0+2026&amp;goto=https%3A%2F%2Fwww.likeni.ru%2Frating%2Freyting-izvestnosti-smm-kompaniy-2026%2F%3Futm_source%3Dseonews%26utm_campaign%3DSMMratingLikeni_2026" target="_blank" ><img alt=""  title="" src="/upload/rk2/8e3/8e373d3a71cff3906efc1d1ad237433f.png" width="240" height="400" border="0" /></a></div>							<div class="ad-banner" style="border: 0;">
+															<div id="yandex_rtb_R-A-9841-15"></div>
+					<script type="text/javascript">
+                        (function (w, d, n, s, t) {
+                            w[n] = w[n] || [];
+                            w[n].push(function () {
+                                Ya.Context.AdvManager.render({
+                                    blockId: "R-A-9841-15",
+                                    renderTo: "yandex_rtb_R-A-9841-15",
+                                    async: true,
+                                                                            onRender: function () {
+                                            scroll_banner();
+                                        },
+                                                                    });
+                            });
+                            t = d.getElementsByTagName("script")[0];
+                            s = d.createElement("script");
+                            s.type = "text/javascript";
+                            s.src = "//an.yandex.ru/system/context.js";
+                            s.async = true;
+                            t.parentNode.insertBefore(s, t);
+                        })(this, this.document, "yandexContextAsyncCallbacks");
+					</script>
+
+					<!-- SAPE RTB DIV 240x400 --> <!--<div id = "SRTB_663490" ></div> --> <!-- SAPE RTB END -->
+				</div>
+
+
+						
+			
+															<div class="slider-useable-block-wrapper">
+	<div class="slider-useable-block">
+				
+		
+		<div class="slider-useable-item" style="">
+			<div class="slider-useable-item-picture"><a href="https://rating.seonews.ru/rating-izvestnost-brenda-seo-kompaniy-2025/" target="_blank" title="Полезная статья: Объявлены победители рейтинга Известности SEO-компаний 2025"><div class="badge badge-slider-useable"></div><img src="/upload/resize_cache/iblock/22e/200_0_2/22e84b58c3a6fedae7c2aafb44ad62b9.png" width="200"  /></a></div>
+			<div class="slider-useable-item-name"><a href="https://rating.seonews.ru/rating-izvestnost-brenda-seo-kompaniy-2025/" target="_blank" title="Полезная статья: Объявлены победители рейтинга Известности SEO-компаний 2025">Объявлены победители рейтинга Известности SEO-компаний 2025</a></div>		</div>
+	
+			
+	</div>
+	</div>
+	
+		
+											
+														</div>
+	</div>
+</div>
+</div>
+
+
+
+</main>
+	<div class="footer" itemscope itemtype="http://schema.org/WPFooter">
+		<div class="center-wrapper">
+			<div class="footer-content">
+				<div class="footer-col footer-col-1">
+					<div class="top">
+						<p style="position:relative;">
+                                                            <a href="/"><img loading="lazy" class="logo" src="/images/logo.svg" alt="SeoNews" width="167" height="33"/></a>
+                                						</p>
+						<p>Нашли опечатку? Ctrl+Enter</p><p>&copy; SEOnews.ru Все права защищены. 2026</p>					</div>
+					<div class="bottom">
+						<p><a class="email-link" href="mailto:info@seonews.ru"><span>Email редакции: info@seonews.ru</span></a></p>
+						<p>Телефон редакции:<br><a href="tel:+79092619771">+7 (909) 261-97-71</a></p>
+					</div>
+					<div class="bottom">
+						<p style="font-size: 10px;color: gray;">This site is protected by reCAPTCHA and the Google
+							<a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+					</div>
+				</div>
+				<div class="footer-col">
+					<div class="top">
+													
+<div class="h4">Компания</div>
+<ul class="footer-menu">
+<li><a href="https://www.seonews.ru/about/">О проекте</a></li>
+<li><a href="https://www.seonews.ru/about/editors.php">Приглашаем авторов</a></li>
+<li><a href="https://www.seonews.ru/files/about/publication_terms.pdf">Условия публикации</a></li>
+<li><a href="https://www.seonews.ru/about/contacts.php">Контакты</a></li>
+<li><a href="https://www.seonews.ru/about/rules.php">Правила</a></li>
+<li><a href="https://www.seonews.ru/map/">Карта сайта</a></li>
+<li><a href="/security/">Обработка ПД</a></li>
+</ul>
+											</div>
+					<div class="bold bottom">
+													<a href="https://m.seonews.ru/analytics/voronka-prodazh-v-infobiznese-ot-razrabotki-do-raschetov-konversii/"><span>Мобильная версия</span></a>
+												</div>
+				</div>
+								<div class="footer-col sections-list">
+					<div class="top">
+						
+<div class="h4">Разделы</div>
+<ul class="footer-menu">
+<li><a href="https://www.seonews.ru/events/">Новости</a></li>
+<li><a href="https://www.seonews.ru/analytics/">Статьи</a></li>
+<li><a href="https://www.seonews.ru/interviews/">Интервью</a></li>
+<li><a href="https://www.seonews.ru/blogs/">Блоги компаний</a></li>
+<li><a href="https://rating.seonews.ru/">Рейтинги SEO-компаний</a></li>
+<li><a href="https://www.seonews.ru/calendar/">Календарь событий</a></li>
+<li><a href="https://www.seonews.ru/companies/">Каталог компаний</a></li>
+<li><a href="https://www.seonews.ru/tools/">Каталог сервисов</a></li>
+<li><a href="https://www.seonews.ru/books/">Библиотека</a></li>
+<li><a href="https://www.seonews.ru/glossary/">Энциклопедия интернет-маркетинга</a></li>
+</ul>
+					</div>
+					<div class="bold bottom">
+						<a href="https://www.seonews.ru/advertisment/" onclick="yaCounter25391549.reachGoal('click_on_ads_footer');"><span>Реклама на сайте</span></a>
+					</div>
+				</div>
+				<div class="footer-col">
+					<div class="top">
+							<div class="h4">Подписывайтесь</div>
+	<ul class="footer-menu">
+<li><!--noindex--><a rel="nofollow" href="https://vk.com/seonews_ru">ВКонтакте</a><!--/noindex--></li>
+<li><!--noindex--><a rel="nofollow" href="https://t.me/digital_bar">Telegram</a><!--/noindex--></li>
+<li><!--noindex--><a rel="nofollow" href="https://dzen.ru/seonews.ru">Дзен</a><!--/noindex--></li>
+<li><!--noindex--><a rel="nofollow" href="https://max.ru/seonews_ru">MAX</a><!--/noindex--></li>
+<li><!--noindex--><a rel="nofollow" href="https://twitter.com/SEOnewsru">Тwitter</a><!--/noindex--></li>
+<li><!--noindex--><a rel="nofollow" href="https://www.seonews.ru/rss/">RSS</a><!--/noindex--></li>
+</ul>
+						<a class="posting-link posting-fancybox posting-fancybox-footer fancybox.ajax" href="#">Рассылка</a>
+					</div>
+					<div class="developed-by fc bottom">
+						<span>Разработка сайта:</span>
+						<span class="dev-link"><noindex><a rel="nofollow noopener" href="http://renart.ru/" target="_blank">Renaissance Art</a></noindex></span>
+					</div>
+					<div class="developed-by fc bottom">
+						<span><a href="//ingate.ru/" rel="noopener" target="_blank">Продвижение сайта</a>:</span>
+						<span class="dev-link"><a rel="nofollow noopener" href="https://ingate.ru/?utm_source=referral&utm_medium=banner&utm_campaign=seonews" target="_blank">Ingate</a></span>
+					</div>
+				</div>
+				<div class="footer-col footer-col-last">
+					<div class="top"></div>
+					<div class="footer-age-limit bottom">12+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="xcom-hidden-iframes-list"></div>
+<div class="xcom-modest-progress-indicator"></div>
+<div class="xcom-review-notable-plate">
+	<div class="xcom-review-notable-plate-inner xcom-active">Отправьте отзыв!</div>
+</div>
+	<link href="/css/xcom/base.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es5-shim/es5-shim.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/yandex-share2/share.js"></script>
+<script defer type="text/javascript" src="/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="/js/jquery.all.js"></script>
+<script type="text/javascript" src="/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/xcom-ui.js"></script>
+<script type="text/javascript" src="/js/scripts.js?v=1.24.10.25"></script>
+<script type="text/javascript" src="/js/carousel.js"></script>
+<script type="text/javascript" src="/js/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LefpqggAAAAAFhlRSremqZObPaX9g_Nc59X4V80"></script>
+<script>
+    window.onReadyState = (e, t) => {
+        const a = ["loading", "interactive", "complete"],
+            o = a.slice(a.indexOf(e)),
+            n = () => o.includes(document.readyState);
+        n() ? t() : document.addEventListener("readystatechange", (() => n() && t()))
+    }
+    window.onReadyState("complete", function () {
+        setTimeout(function () {
+
+
+            s = document.createElement('script');
+            s.src = "//www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit";
+            s.async = true;
+            document.body.appendChild(s);
+
+            
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter25391549 = new Ya.Metrika2({
+                            id: 25391549,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true,
+                            webvisor: true,
+                            ut: "noindex"
+                        });
+                    } catch (e) {
+                    }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "//mc.yandex.ru/metrika/tag.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })
+            (document, window, "yandex_metrika_callbacks2");
+
+
+            s = document.createElement('script');
+            s.src = "//cdn.jsdelivr.net/npm/es5-shim/es5-shim.min.js";
+            s.async = true;
+            document.body.appendChild(s);
+
+            s = document.createElement('script');
+            s.src = "//web.webpushs.com/js/push/010a7a8016b87935fca3b27f6258c757_1.js";
+            s["charset"] = 'UTF-8';
+            s.async = true;
+            document.body.appendChild(s);
+
+            
+            window.onerror = function (msg, filename, line, col, error) {
+                $.post(
+                    '/ajax/js.php',
+                    {
+                        message: msg,
+                        params: {
+                            file: filename,
+                            line: line,
+                            column: col,
+                            location: window.location.href,
+                            search: window.location.search,
+                            userAgent: navigator.userAgent,
+                            error: error
+                        }
+                    }
+                );
+                return false;
+            };
+
+
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'AW-807828281');
+			
+            //отключил гугл-аналитику 16.01.2025
+            //подключил гугл-аналитику 04.04.2025
+            //отключил гугл-аналитику 27.06.2025
+
+             // (function (i, s, o, g, r, a, m) {
+             //     i['GoogleAnalyticsObject'] = r;
+             //     i[r] = i[r] || function () {
+             //         (i[r].q = i[r].q || []).push(arguments)
+             //     }, i[r].l = 1 * new Date();
+             //     a = s.createElement(o),
+             //         m = s.getElementsByTagName(o)[0];
+             //     a.async = 1;
+             //     a.src = g;
+             //     m.parentNode.insertBefore(a, m)
+             // })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+             //
+             // ga('create', 'UA-49851957-1', 'seonews.ru');
+             // ga('send', 'pageview');
+
+
+        }, 1500)
+    })
+</script>
+
+	<script>
+        // $(document).ready(function () {
+        //     setTimeout( function() {
+        //         $.fancybox({
+        //             fitToView: true,
+        //             closeBtn: true,
+        //             autoSize: true,
+        //             closeClick: false,
+        //             openEffect: 'none',
+        //             closeEffect: 'none',
+        //             content: '<div style="max-width: 500px"><p align="center"><img width="500" height="333" src="/upload/medialibrary/b91/b9133758783eef72db5604bae61a1700.png"></p><p style="font-size: 18px; font-weight: 600; margin: 30px 0; line-height: 30px" align="center">Sape и SEOnews запустили масштабное исследование по SEO и линкбилдингу. Ждем экспертов!</p><p style="text-align: center"><a style="display: inline-block;float: unset;" class="button-4" href="/events/sape-i-seonews-zapuskayut-masshtabnoe-issledovanie-po-seo-i-linkbildingu/">Принять участие</a></p></div>',
+        //             afterShow: function () {
+        //                 document.cookie = "popup_SN_sape=Y; domain=.seonews.ru; expires=Fri, 31 Dec 2030 23:59:59 GMT; path=/";
+        //             },
+        //         });
+        //     }, 20000);
+
+        // });
+	</script>
+		<style>
+    .header__bottom .header-soclinks .h-soclink:hover.h-soclink-max {background: #53e linear-gradient(60deg, #4cf 0%, #53e 66.2%, #93d 100%);}
+    .social-buttons .ya-share2 { display: inline-block; }
+    .ya-share2__item_service_max { margin: 0 1px 0 0; display: inline-block; }
+    .ya-share2__item_service_max .ya-share2__badge .ya-share2__icon {
+        background: #53e url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720"%3E%3Cpath fill="%23fff" d="M350.4,9.6C141.8,20.5,4.1,184.1,12.8,390.4c3.8,90.3,40.1,168,48.7,253.7,2.2,22.2-4.2,49.6,21.4,59.3,31.5,11.9,79.8-8.1,106.2-26.4,9-6.1,17.6-13.2,24.2-22,27.3,18.1,53.2,35.6,85.7,43.4,143.1,34.3,299.9-44.2,369.6-170.3C799.6,291.2,622.5-4.6,350.4,9.6h0ZM269.4,504c-11.3,8.8-22.2,20.8-34.7,27.7-18.1,9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9,16.8-72.5,72.9-136.3,150-143.1,78-6.9,150.4,32.7,183.1,104.2,72.4,159.1-112.9,316.2-256.4,218.6h0Z"%3E%3C/path%3E%3C/svg%3E') center no-repeat;
+        background-size: 15px 24px;
+    }
+</style>
+
+
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Вера записывает в календарь — демо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --fon:#0F1211; --panel:#161A17; --liniya:#272D29;
+  --tekst:#E7EBE6; --tusklo:#95A099; --seryy:#C3CBC5;
+  --zel:#55C79A; --krasn:#E2566A; --zhelt:#E3C17A;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --disp:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fon);color:var(--tekst);font:15px/1.5 var(--mono);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
+button:focus-visible,input:focus-visible{outline:2px solid var(--zel);outline-offset:3px}
+
+.karta{width:100%;max-width:400px;background:linear-gradient(168deg,#1A211D,#0D1211 62%);
+  border:1px solid rgba(85,199,154,.2);border-radius:26px;padding:26px 22px 20px;
+  box-shadow:0 22px 60px rgba(0,0,0,.5);text-align:center}
+
+#avatar{width:104px;height:104px;margin:0 auto;border-radius:50%;position:relative;overflow:hidden;
+  border:1px solid rgba(85,199,154,.28);background:#162A25}
+#avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.live #avatar{box-shadow:0 0 0 6px rgba(85,199,154,.12)}
+.imya{font:700 21px var(--disp);color:#fff;margin-top:14px}
+.rol{font:500 10px var(--mono);color:var(--tusklo);letter-spacing:.14em;text-transform:uppercase;margin-top:5px}
+
+#sost{font:500 13px var(--mono);color:var(--zel);margin-top:14px;min-height:20px}
+
+.taymer{margin:14px auto 0;max-width:260px}
+#vremya{font:600 38px/1 var(--mono);color:#fff;letter-spacing:.02em}
+.polosa{height:4px;background:var(--liniya);border-radius:3px;margin-top:10px;overflow:hidden}
+#polosa{height:100%;width:100%;background:var(--zel);transition:width 1s linear,background .3s}
+.malo #vremya{color:var(--zhelt)} .malo #polosa{background:var(--zhelt)}
+
+#podpis{font:400 12.5px/1.5 var(--mono);color:var(--seryy);min-height:58px;max-height:58px;overflow:hidden;
+  margin:14px 2px 0;text-align:left}
+#podpis .kto{color:var(--tusklo)} #podpis .vera{color:var(--zel)}
+
+.knopka{margin-top:14px;width:100%;border:none;border-radius:14px;padding:15px 16px;cursor:pointer;
+  font:600 15px var(--disp);color:#0F1211;background:radial-gradient(circle at 30% 30%,#6BE3B1,#2E9B6E);
+  transition:transform .12s,opacity .2s}
+.knopka:active{transform:scale(.98)}
+.knopka.otboy{background:radial-gradient(circle at 30% 30%,#F0788A,#B32B40);color:#fff}
+.knopka[disabled]{opacity:.45;cursor:default}
+
+.pod{font:400 11px/1.5 var(--mono);color:var(--tusklo);margin-top:14px}
+.pod a{color:var(--seryy)}
+
+#forma{display:none;margin-top:16px;text-align:left}
+#forma p{font-size:13px;color:var(--seryy);margin:0 0 10px}
+#forma input[type=email],#forma input[type=text]{width:100%;background:#0A0D0C;border:1px solid var(--liniya);
+  border-radius:10px;color:var(--tekst);font:15px var(--mono);padding:12px;margin-bottom:8px}
+#forma .lovushka{position:absolute;left:-9999px}
+#formaOtvet{font-size:13px;margin-top:8px;min-height:18px}
+
+
+/* ---------- два столбца: разговор и календарь ---------- */
+body{display:block;padding:0}
+.stol{display:grid;grid-template-columns:400px minmax(0,1fr);gap:22px;
+  max-width:1180px;margin:0 auto;padding:22px 18px 40px;align-items:start}
+@media(max-width:900px){.stol{grid-template-columns:1fr}}
+.shapka{max-width:1180px;margin:0 auto;padding:22px 18px 0}
+.shapka h1{font:700 22px var(--disp);color:#fff;margin:0 0 6px}
+.shapka p{font:400 13px/1.6 var(--mono);color:var(--tusklo);margin:0;max-width:74ch}
+
+.kal{background:var(--panel);border:1px solid var(--liniya);border-radius:18px;overflow:hidden}
+.kal .verh{padding:16px 18px 12px;border-bottom:1px solid var(--liniya)}
+.kal .verh h2{font:700 15px var(--disp);color:#fff;margin:0 0 5px}
+.kal .verh p{font:400 11.5px/1.55 var(--mono);color:var(--tusklo);margin:0}
+.ramka{position:relative;height:460px;background:#0F1211}
+.ramka iframe{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0;
+  transition:opacity .18s;pointer-events:none}
+.ramka iframe.vidno{opacity:1;pointer-events:auto}
+@media(max-width:900px){.ramka{height:380px}}
+
+.niz{padding:14px 18px 16px;border-top:1px solid var(--liniya)}
+.niz .zagol{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
+.niz .zagol b{font:600 12px var(--mono);color:var(--seryy);letter-spacing:.06em;text-transform:uppercase}
+#vzyato{font:400 11px var(--mono);color:var(--tusklo)}
+.zapis{padding:9px 0;border-top:1px solid #1E2320}
+.zapis:first-of-type{border-top:0}
+.zapis .kogda{font:500 12px var(--mono);color:var(--zel)}
+.zapis .chto{font:400 13.5px var(--mono);color:var(--tekst);margin-top:2px}
+.zapis .gost{font:400 11.5px var(--mono);color:var(--tusklo);margin-top:2px}
+.zapis.novaya{animation:vspyshka 2.2s ease-out}
+@keyframes vspyshka{0%{background:rgba(85,199,154,.22)}100%{background:transparent}}
+.pusto{font:400 12.5px/1.6 var(--mono);color:var(--tusklo)}
+.pusto.beda{color:var(--zhelt)}
+.knop2{background:none;border:1px solid var(--liniya);border-radius:9px;color:var(--seryy);
+  font:500 11px var(--mono);padding:6px 10px;cursor:pointer}
+.knop2:hover{border-color:var(--zel);color:var(--zel)}
+.sled{font:400 11px/1.6 var(--mono);color:var(--tusklo);margin-top:12px}
+.sled a{color:var(--seryy)}
+.sled code{color:var(--seryy);font-size:10.5px}
+
+</style>
+</head>
+<body>
+<div class="shapka">
+  <h1>Вера записывает в календарь</h1>
+  <p>Слева — разговор. Справа — календарь владельца, встроенный прямо
+  с calendar.google.com: это не наша картинка, панель чужая, и подделать её нельзя.
+  Скажите Вере «запишите меня на четверг в три» и смотрите направо.</p>
+</div>
+
+<div class="stol">
+<main class="karta" id="karta">
+  <div id="avatar"><img src="../img/vera-risovannaya-2.jpg" alt="Вера" width="104" height="104"></div>
+  <div class="imya">Вера</div>
+  <div class="rol">виртуальный ассистент · демо</div>
+  <div id="sost">Поговорите со мной четыре минуты</div>
+
+  <div class="taymer" id="taymerBlok" hidden>
+    <div id="vremya">4:00</div>
+    <div class="polosa"><div id="polosa"></div></div>
+  </div>
+
+  <div id="podpis" aria-live="polite"></div>
+
+  <button class="knopka" id="knopka">Позвонить Вере</button>
+
+  <form id="forma" novalidate>
+    <p id="formaTekst">Сейчас все линии заняты. Оставьте почту — пришлём, с чего начать.</p>
+    <input type="email" id="fEmail" placeholder="name@example.com" autocomplete="email" inputmode="email" required>
+    <input type="text" id="fImya" placeholder="Как к вам обращаться (необязательно)" autocomplete="name">
+    <input type="text" class="lovushka" id="fSayt" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="knopka" id="fKnopka" type="submit">Прислать</button>
+    <div id="formaOtvet"></div>
+  </form>
+
+  <div class="pod">
+    Вы говорите с программой, а не с человеком. Нужен микрофон.<br>
+    Звук не записывается, остаётся текст разговора · <a href="https://businessinteldna.com/privacy" target="_blank" rel="noopener">конфиденциальность</a>
+  </div>
+</main>
+
+  <section class="kal">
+    <div class="verh">
+      <h2>Календарь владельца</h2>
+      <p>Настоящий Google-календарь. Во время разговора обновляется сам, раз в четыре секунды.</p>
+    </div>
+    <div class="ramka">
+      <iframe id="kadrA" title="Календарь владельца" loading="eager"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe id="kadrB" title="Календарь владельца (обновление)" aria-hidden="true"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="niz">
+      <div class="zagol">
+        <b>Что сейчас в календаре</b>
+        <span><span id="vzyato"></span>
+        <button class="knop2" id="obnovit" type="button">обновить</button></span>
+      </div>
+      <div id="spisok"><div class="pusto">Читаю календарь…</div></div>
+      <p class="sled">Этот список читается нашей функцией из публичной выгрузки календаря,
+      поэтому его можно проверить помимо страницы:
+      <code>curl -s https://dezhurny-r4p8w2.netlify.app/.netlify/functions/kalendar-sobytiya</code>.
+      Google кэширует выгрузку, так что список иногда отстаёт от рамки выше — рамка живая, она главная.
+      <a id="otkryt" href="#" target="_blank" rel="noopener" hidden>открыть календарь отдельно</a></p>
+    </div>
+  </section>
+</div>
+
+<script src="kalendar.js"></script>
+</body>
+</html>

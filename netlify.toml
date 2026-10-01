@@ -1,0 +1,11 @@
+# Конфиг деплоя обоих сайтов (business / expert).
+# Без node_bundler="esbuild" зависимости функций не попадают в бандл:
+# quiz-insight падал с Cannot find module '@anthropic-ai/sdk'. Наступали 03.09.2026.
+[functions]
+  directory = "netlify-functions"
+  node_bundler = "esbuild"
+
+# Счётчик роботов нейросетей (23.09.2026). Статические страницы не поднимают обычных
+# функций — приход GPTBot в логи функций не попадает вообще. Видит его только edge.
+[build]
+  edge_functions = "netlify/edge-functions"

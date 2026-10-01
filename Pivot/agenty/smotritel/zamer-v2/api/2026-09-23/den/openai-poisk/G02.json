@@ -1,0 +1,424 @@
+{
+ "vopros_id": "G02",
+ "vopros": "Половина клиентов не дозванивается и уходит к конкуренту. Как перестать терять звонки?",
+ "versiya_spiska": "v2-golosovoy-dezhurny",
+ "otpechatok": "c458d38d1699",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-09-23",
+ "vne_okna": false,
+ "zapusk_id": "20260923-133207-99702",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-23T13:32:24-07:00",
+   "zapusk_id": "20260923-133207-99702",
+   "cena": 0.02535,
+   "ishod": "ok",
+   "sekund": 7.3,
+   "meta": {
+    "date": "Wed, 23 Sep 2026 20:32:31 GMT",
+    "x-request-id": "req_71902866add2450780a35672a3bf3ab7",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "6932"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Если не дозванивается половина клиентов, проблема уже не в «телефонии», а в маршрутизации входящего спроса. Я бы не начинал сразу с найма дополнительных операторов: сначала нужно понять, где именно теряются звонки.\n\nРабочая схема обычно такая:\n\n- Настроить очередь вместо сигнала «занято»: звонок должен переходить следующему свободному сотруднику.\n- После разумного времени ожидания предлагать «нажмите 1 — мы перезвоним, сохранив вашу очередь». Callback как раз используется для снижения числа брошенных звонков. ([aws.amazon.com](https://aws.amazon.com/blogs/contact-center/optimize-customer-wait-experience-in-queue-using-amazon-connect/?utm_source=openai))\n- Каждый пропущенный звонок автоматически превращать в задачу в CRM и перезванивать по заданному SLA, например в течение 5–10 минут.\n- После пропущенного звонка автоматически отправлять SMS/сообщение: «Не смогли ответить. Уже увидели ваш звонок и скоро свяжемся».\n- Сделать резервную маршрутизацию: если основные менеджеры заняты, звонок идет другой группе, дежурному или внешнему колл-центру.\n- Посмотреть статистику по часам: входящие → отвеченные → пропущенные/брошенные → перезвоненные → продажи. Так станет видно, действительно ли не хватает людей или проблема в пиковых 1–2 часах и настройках телефонии.\n\nСовременные очереди также позволяют сообщать расчетное время ожидания и давать клиенту возможность заказать обратный звонок вместо удержания линии. ([aircall.io](https://aircall.io/blog/how-to-reduce-missed-calls-in-sales/?utm_source=openai))\n\nЕсли сейчас теряется около 50% звонков, я бы первым делом внедрил связку «очередь → callback → автоматическая задача в CRM → контроль времени перезвона». Это позволяет спасать уже поступившие лиды, не дожидаясь расширения штата.\n\nЕсли скажете, какой у вас бизнес, сколько звонков в день и сколько человек их принимают, я могу предложить конкретную схему обработки звонков.",
+  "poiskovye_zaprosy": [
+   "best practices reduce missed business calls call queue callback IVR missed calls"
+  ],
+  "poiskovyh_zaprosov": 1,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://www.mycallcloud.com/blog/contact-center-software/reduce-abandoned-calls-with-queue-callback",
+    "domen": "mycallcloud.com",
+    "title": null
+   },
+   {
+    "url": "https://aws.amazon.com/blogs/contact-center/optimize-customer-wait-experience-in-queue-using-amazon-connect",
+    "domen": "aws.amazon.com",
+    "title": "Optimize customer wait experience in queue using Amazon Connect | AWS Contact Center"
+   },
+   {
+    "url": "https://aircall.io/blog/how-to-reduce-missed-calls-in-sales",
+    "domen": "aircall.io",
+    "title": "How to Reduce Missed Calls in Sales: 7 Strategies That Recover More Inbound | Aircall"
+   },
+   {
+    "url": "https://docs.medallia.com/en/mindful/mindful-callback/faqs/best-practices/best-practices-for-improving-take-rate",
+    "domen": "docs.medallia.com",
+    "title": null
+   },
+   {
+    "url": "https://www.easedial.com/blog/call-queue-announcements",
+    "domen": "easedial.com",
+    "title": null
+   },
+   {
+    "url": "https://www.virtualassistantcallcenter.com/blog/missed-call-recovery-workflow",
+    "domen": "virtualassistantcallcenter.com",
+    "title": null
+   },
+   {
+    "url": "https://blog.letssignal.com/stop-missing-business-calls",
+    "domen": "blog.letssignal.com",
+    "title": null
+   },
+   {
+    "url": "https://ucall.co/blog/en/callback-strategy-optimization",
+    "domen": "ucall.co",
+    "title": null
+   },
+   {
+    "url": "https://www.cisco.com/en/US/docs/voice_ip_comm/cust_contact/contact_center/customer_voice_portal/srnd/9_0/CCVP_BK_C7053373_00_cvp-srnd.pdf",
+    "domen": "cisco.com",
+    "title": null
+   },
+   {
+    "url": "https://telvanta.ai/resources/learn/blog/ivr-best-practices-reduce-call-drop-improve-csat",
+    "domen": "telvanta.ai",
+    "title": null
+   },
+   {
+    "url": "https://www.verizon.com/business/products/contact-center-cx/voice-services/voice-call-back-cloud",
+    "domen": "verizon.com",
+    "title": null
+   },
+   {
+    "url": "https://www.verizon.com/business/resources/whitepapers/2019/callback-the-science-behind-the-art-of-customer-relationships.pdf",
+    "domen": "verizon.com",
+    "title": null
+   },
+   {
+    "url": "https://blog.operatorarc.com/stop-missing-business-calls",
+    "domen": "blog.operatorarc.com",
+    "title": null
+   },
+   {
+    "url": "https://justcall.io/blog/ivr-best-practices.html",
+    "domen": "justcall.io",
+    "title": null
+   },
+   {
+    "url": "https://productdocuments.mitel.com/AEM/Applications/Contact%20Center/MiCC-B/9.3%20SP4/SIP/PDF/MiContactCenter_Online_Help_SIP.pdf",
+    "domen": "productdocuments.mitel.com",
+    "title": null
+   },
+   {
+    "url": "https://productdocuments.mitel.com/AEM/Applications/Contact%20Center/MiCC-B/9.3%20SP2/SIP/PDF/MiContactCenter_Online_Help_SIP.pdf",
+    "domen": "productdocuments.mitel.com",
+    "title": null
+   },
+   {
+    "url": "https://www.avoxi.com/wp-content/uploads/2021/04/avoxi-ebook-reducing-contact-center-costs.pdf",
+    "domen": "avoxi.com",
+    "title": null
+   },
+   {
+    "url": "https://www.mitel.com/sites/default/files/s3_imports/Applications/Contact%20Center/MiContact%20Center%20Business/MiContact%20Center%20Business%20for%20SIP/9.3%20SP1/en/MiContactCenter_Installation_AdministrationGuide_SIP.pdf",
+    "domen": "mitel.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/RingCentral/comments/1rruw7e/our_call_queue_keeps_looping_callers_back_into",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/automation/comments/1s2uobs/built_a_missedcall_sms_triage_workflow_for_local",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/Nextiva/comments/1tcbitr/setting_up_call_queues_that_dont_frustrate_callers",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Virtual_queue",
+    "domen": "en.wikipedia.org",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://aws.amazon.com/blogs/contact-center/optimize-customer-wait-experience-in-queue-using-amazon-connect",
+    "domen": "aws.amazon.com",
+    "title": "Optimize customer wait experience in queue using Amazon Connect | AWS Contact Center"
+   },
+   {
+    "url": "https://aircall.io/blog/how-to-reduce-missed-calls-in-sales",
+    "domen": "aircall.io",
+    "title": "How to Reduce Missed Calls in Sales: 7 Strategies That Recover More Inbound | Aircall"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 8654,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 453,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 9107
+  },
+  "cena": 0.02535,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_02b340cb06744669006ab43758b84c87d086485e5e5ee83769",
+  "object": "response",
+  "created_at": 1790195544,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790195551,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_02b340cb06744669006ab43759c39887d08f6c7b3fff5cb6e8",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "best practices reduce missed business calls call queue callback IVR missed calls"
+     ],
+     "query": "best practices reduce missed business calls call queue callback IVR missed calls",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://www.mycallcloud.com/blog/contact-center-software/reduce-abandoned-calls-with-queue-callback/"
+      },
+      {
+       "type": "url",
+       "url": "https://aws.amazon.com/blogs/contact-center/optimize-customer-wait-experience-in-queue-using-amazon-connect/"
+      },
+      {
+       "type": "url",
+       "url": "https://aircall.io/blog/how-to-reduce-missed-calls-in-sales/"
+      },
+      {
+       "type": "url",
+       "url": "https://docs.medallia.com/en/mindful/mindful-callback/faqs/best-practices/best-practices-for-improving-take-rate"
+      },
+      {
+       "type": "url",
+       "url": "https://www.easedial.com/blog/call-queue-announcements/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.virtualassistantcallcenter.com/blog/missed-call-recovery-workflow"
+      },
+      {
+       "type": "url",
+       "url": "https://blog.letssignal.com/stop-missing-business-calls"
+      },
+      {
+       "type": "url",
+       "url": "https://ucall.co/blog/en/callback-strategy-optimization"
+      },
+      {
+       "type": "url",
+       "url": "https://www.cisco.com/en/US/docs/voice_ip_comm/cust_contact/contact_center/customer_voice_portal/srnd/9_0/CCVP_BK_C7053373_00_cvp-srnd.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://telvanta.ai/resources/learn/blog/ivr-best-practices-reduce-call-drop-improve-csat"
+      },
+      {
+       "type": "url",
+       "url": "https://www.verizon.com/business/products/contact-center-cx/voice-services/voice-call-back-cloud/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.verizon.com/business/resources/whitepapers/2019/callback-the-science-behind-the-art-of-customer-relationships.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://blog.operatorarc.com/stop-missing-business-calls/"
+      },
+      {
+       "type": "url",
+       "url": "https://justcall.io/blog/ivr-best-practices.html"
+      },
+      {
+       "type": "url",
+       "url": "https://productdocuments.mitel.com/AEM/Applications/Contact%20Center/MiCC-B/9.3%20SP4/SIP/PDF/MiContactCenter_Online_Help_SIP.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://productdocuments.mitel.com/AEM/Applications/Contact%20Center/MiCC-B/9.3%20SP2/SIP/PDF/MiContactCenter_Online_Help_SIP.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.avoxi.com/wp-content/uploads/2021/04/avoxi-ebook-reducing-contact-center-costs.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.mitel.com/sites/default/files/s3_imports/Applications/Contact%20Center/MiContact%20Center%20Business/MiContact%20Center%20Business%20for%20SIP/9.3%20SP1/en/MiContactCenter_Installation_AdministrationGuide_SIP.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/RingCentral/comments/1rruw7e/our_call_queue_keeps_looping_callers_back_into/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/automation/comments/1s2uobs/built_a_missedcall_sms_triage_workflow_for_local/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/Nextiva/comments/1tcbitr/setting_up_call_queues_that_dont_frustrate_callers/"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/Virtual_queue"
+      },
+      {
+       "type": "url",
+       "url": "https://aws.amazon.com/blogs/contact-center/optimize-customer-wait-experience-in-queue-using-amazon-connect/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://aircall.io/blog/how-to-reduce-missed-calls-in-sales/?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_02b340cb06744669006ab4375c632c87d09cad83f486192a8f",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 661,
+        "start_index": 515,
+        "title": "Optimize customer wait experience in queue using Amazon Connect | AWS Contact Center",
+        "url": "https://aws.amazon.com/blogs/contact-center/optimize-customer-wait-experience-in-queue-using-amazon-connect/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1515,
+        "start_index": 1421,
+        "title": "How to Reduce Missed Calls in Sales: 7 Strategies That Recover More Inbound | Aircall",
+        "url": "https://aircall.io/blog/how-to-reduce-missed-calls-in-sales/?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Если не дозванивается половина клиентов, проблема уже не в «телефонии», а в маршрутизации входящего спроса. Я бы не начинал сразу с найма дополнительных операторов: сначала нужно понять, где именно теряются звонки.\n\nРабочая схема обычно такая:\n\n- Настроить очередь вместо сигнала «занято»: звонок должен переходить следующему свободному сотруднику.\n- После разумного времени ожидания предлагать «нажмите 1 — мы перезвоним, сохранив вашу очередь». Callback как раз используется для снижения числа брошенных звонков. ([aws.amazon.com](https://aws.amazon.com/blogs/contact-center/optimize-customer-wait-experience-in-queue-using-amazon-connect/?utm_source=openai))\n- Каждый пропущенный звонок автоматически превращать в задачу в CRM и перезванивать по заданному SLA, например в течение 5–10 минут.\n- После пропущенного звонка автоматически отправлять SMS/сообщение: «Не смогли ответить. Уже увидели ваш звонок и скоро свяжемся».\n- Сделать резервную маршрутизацию: если основные менеджеры заняты, звонок идет другой группе, дежурному или внешнему колл-центру.\n- Посмотреть статистику по часам: входящие → отвеченные → пропущенные/брошенные → перезвоненные → продажи. Так станет видно, действительно ли не хватает людей или проблема в пиковых 1–2 часах и настройках телефонии.\n\nСовременные очереди также позволяют сообщать расчетное время ожидания и давать клиенту возможность заказать обратный звонок вместо удержания линии. ([aircall.io](https://aircall.io/blog/how-to-reduce-missed-calls-in-sales/?utm_source=openai))\n\nЕсли сейчас теряется около 50% звонков, я бы первым делом внедрил связку «очередь → callback → автоматическая задача в CRM → контроль времени перезвона». Это позволяет спасать уже поступившие лиды, не дожидаясь расширения штата.\n\nЕсли скажете, какой у вас бизнес, сколько звонков в день и сколько человек их принимают, я могу предложить конкретную схему обработки звонков."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 8654,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 453,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 9107
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

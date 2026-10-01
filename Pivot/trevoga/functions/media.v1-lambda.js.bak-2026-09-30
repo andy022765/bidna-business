@@ -1,0 +1,89 @@
+// «Ящик медиа» для облачного таргетолога (30.09.2026): облако собирает ролик, но Meta (ads_creative_upload_media)
+// берёт только публичный адрес, а публичного адреса у облачной машины нет. Поэтому:
+//   PUT  /m/<имя> (или /.netlify/functions/media/<имя>)   тело = байты файла (mp4 | png | jpg), заголовок x-bidna: targetolog
+//        → кладём в Netlify Blobs, отвечаем {"ok":true,"url":"https://<сайт>/m/<имя>","bytes":N}
+//   GET  /m/<имя>   → отдаём байты с правильным content-type (это и есть публичная ссылка; /m/ — rewrite из netlify.toml,
+//        Meta не скачивала по адресу с «/.netlify/functions/» — 30.09)
+// Ключа нет (облачным задачам секреты не передаём — как у trevoga.js); рамки вместо ключа:
+//   имя только [a-z0-9_-]{3,60}.(mp4|png|jpg); байты проверяются по сигнатуре (ftyp / PNG / JPEG); не больше 4 МБ;
+//   не больше 40 загрузок в сутки на весь ящик; файл живёт 48 часов (после — 404, Meta к тому времени уже скопировала);
+//   заголовок x-bidna: targetolog обязателен (тот же принцип «префикс», что у тревог).
+// Хранилище: @netlify/blobs. По токену (EV_BLOBS_TOKEN + SITE_ID), если они заданы; иначе connectLambda(event) —
+// без токена, с обычной согласованностью (чтение может отставать до минуты; уроки hranilishche.js у ответа на заявки:
+// голый getStore на живом сайте молча не работает, connectLambda со strong бросает на первом get).
+const blobs = require('@netlify/blobs');
+
+const MAX = 4 * 1024 * 1024;
+const TTL = 48 * 3600 * 1000;
+const V_SUTKI = 40;
+const IMYA = /^[a-z0-9_-]{3,60}\.(mp4|png|jpg)$/;
+const TIPY = { mp4: 'video/mp4', png: 'image/png', jpg: 'image/jpeg' };
+
+function store(event) {
+  const siteID = process.env.SITE_ID || process.env.NETLIFY_SITE_ID;
+  const token = process.env.EV_BLOBS_TOKEN || process.env.NETLIFY_API_TOKEN;
+  if (siteID && token) return blobs.getStore({ name: 'media', siteID, token, consistency: 'strong' });
+  if (typeof blobs.connectLambda === 'function') blobs.connectLambda(event);
+  return blobs.getStore({ name: 'media', consistency: 'eventual' });
+}
+
+function signaturaOk(buf, ext) {
+  if (buf.length < 12) return false;
+  if (ext === 'png') return buf.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
+  if (ext === 'jpg') return buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff;
+  if (ext === 'mp4') return buf.slice(4, 8).toString('ascii') === 'ftyp';
+  return false;
+}
+
+function imya(event) {
+  // имя — последний сегмент пути: так работает и короткий адрес /m/<имя> (rewrite в netlify.toml), и прямой /.netlify/functions/media/<имя>
+  const p = (event.path || '').split('?')[0].split('/').pop() || '';
+  return decodeURIComponent(p).toLowerCase();
+}
+
+exports.handler = async (event) => {
+  const name = imya(event);
+  if (!IMYA.test(name)) return { statusCode: 400, body: 'name' };
+  const ext = name.split('.').pop();
+  let s;
+  try { s = store(event); } catch (e) { console.log('[media] store:', e.message); return { statusCode: 500, body: 'store' }; }
+
+  if (event.httpMethod === 'GET' || event.httpMethod === 'HEAD') {
+    let zapis;
+    try { zapis = await s.getWithMetadata(name, { type: 'arrayBuffer' }); } catch (e) { console.log('[media] get:', e.message); zapis = null; }
+    if (!zapis || !zapis.data || !zapis.metadata || Number(zapis.metadata.do) < Date.now()) return { statusCode: 404, body: 'no' };
+    const buf = Buffer.from(zapis.data);
+    return {
+      statusCode: 200,
+      headers: { 'content-type': TIPY[ext], 'content-length': String(buf.length), 'cache-control': 'public, max-age=3600',
+        'content-disposition': 'inline; filename="' + name + '"' },
+      body: buf.toString('base64'),
+      isBase64Encoded: true,
+    };
+  }
+
+  if (event.httpMethod !== 'PUT' && event.httpMethod !== 'POST') return { statusCode: 405, body: 'PUT' };
+  const h = event.headers || {};
+  if ((h['x-bidna'] || h['X-Bidna']) !== 'targetolog') return { statusCode: 403, body: 'prefix' };
+  const buf = event.isBase64Encoded ? Buffer.from(event.body || '', 'base64') : Buffer.from(event.body || '', 'binary');
+  if (!buf.length || buf.length > MAX) return { statusCode: 413, body: 'size' };
+  if (!signaturaOk(buf, ext)) return { statusCode: 415, body: 'signature' };
+
+  // потолок за сутки — счётчик в том же хранилище
+  const den = new Date().toISOString().slice(0, 10);
+  let schet = 0;
+  try { schet = Number(await s.get('_schet_' + den)) || 0; } catch (e) { schet = 0; }
+  if (schet >= V_SUTKI) return { statusCode: 429, body: 'daily cap' };
+  try {
+    await s.set('_schet_' + den, String(schet + 1));
+    await s.set(name, buf, { metadata: { do: String(Date.now() + TTL), bytes: String(buf.length) } });
+  } catch (e) { console.log('[media] set:', e.message); return { statusCode: 500, body: 'store write' }; }
+  // Хост для ссылки: адрес ЭТОЙ выкладки (DEPLOY_URL, вида https://<id>--<сайт>.netlify.app), если Netlify его даёт функции,
+  // иначе боевой хост. Почему: Meta кэширует robots.txt по хосту — 30.09 боевой хост остался у неё «запрещённым» после старого
+  // «Disallow: /», а по свежему хосту выкладки картинка скачалась сразу. Хост выкладки меняется с каждой выкладкой — кэш не мешает.
+  const host = h['x-forwarded-host'] || h['host'] || '';
+  const baza = (process.env.DEPLOY_URL && /^https:\/\//.test(process.env.DEPLOY_URL)) ? process.env.DEPLOY_URL : 'https://' + host;
+  const url = baza + '/m/' + name;   // короткий адрес через rewrite — его и отдаём Meta
+  const otkuda = baza === process.env.DEPLOY_URL ? 'deploy_url' : 'host';
+  return { statusCode: 200, headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ok: true, url, bytes: buf.length, otkuda }) };
+};

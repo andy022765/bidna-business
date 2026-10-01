@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>CareLine dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%231b2557%27/%3E%3Crect x=%2713%27 y=%277%27 width=%276%27 height=%2718%27 rx=%272%27 fill=%27%23c69a4c%27/%3E%3C/svg%3E">
+<script>
+  // тема до первой отрисовки: выбор человека важнее системной
+  try { var t = localStorage.getItem('careline-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="pult.css">
+<script src="pult.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap top__row">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__word">CareLine</span>
+      <h1 class="brand__agency" id="agency">Dashboard</h1>
+      <span class="tag tag--demo" id="demo-tag" hidden>DEMO</span>
+    </div>
+    <div class="top__tools">
+      <span class="updated" id="updated" aria-live="polite"></span>
+      <button class="btn btn--ghost" id="refresh" type="button" hidden>Refresh</button>
+      <button class="btn btn--ghost" id="theme" type="button" aria-pressed="false">Dark theme</button>
+    </div>
+  </div>
+</header>
+
+<nav class="sections" id="nav" aria-label="Dashboard sections" hidden>
+  <div class="wrap sections__list">
+    <a href="#today">Today</a>
+    <a href="#hiring">Hiring</a>
+    <a href="#families">Families</a>
+    <a href="#calloffs">Call-offs</a>
+    <a href="#evv">EVV</a>
+    <a href="#consent">Consent</a>
+    <a href="#calls">Calls</a>
+    <a href="#activity">Activity</a>
+  </div>
+</nav>
+
+<div class="demo-bar" id="demo-bar" hidden>
+  <div class="wrap">Demo data. Every agency, person, phone number and record on this page is fictional.</div>
+</div>
+
+<main id="main" class="wrap" tabindex="-1">
+
+  <!-- загрузка, ошибка, вход без ключа -->
+  <div id="state" role="status" aria-live="polite">
+    <div class="sk sk-title"></div>
+    <div class="sk-row"><div class="sk sk-kpi"></div><div class="sk sk-kpi"></div><div class="sk sk-kpi"></div><div class="sk sk-kpi"></div><div class="sk sk-kpi"></div></div>
+    <div class="sk sk-block"></div>
+    <span class="vh">Loading the dashboard</span>
+  </div>
+
+  <div id="content" hidden>
+
+    <section class="sec" id="today" aria-labelledby="h-today">
+      <div class="sec__head"><h2 id="h-today">Today</h2><p class="sec__sub" id="today-sub"></p></div>
+      <div class="attention" id="attention"></div>
+      <div class="kpis" id="kpis"></div>
+    </section>
+
+    <section class="sec" id="hiring" aria-labelledby="h-hiring">
+      <div class="sec__head"><h2 id="h-hiring">Hiring</h2><p class="sec__sub" id="hiring-sub"></p></div>
+      <div class="grid-2">
+        <div class="panel"><h3>Funnel: new, booked, attended</h3><div id="funnel"></div></div>
+        <div class="panel"><h3>Did not qualify, by reason</h3><div id="reasons"></div></div>
+      </div>
+      <div class="panel"><h3>Upcoming interviews</h3><div id="interviews"></div></div>
+      <div class="panel"><h3>Recent applicants</h3><div id="applicants"></div></div>
+    </section>
+
+    <section class="sec" id="families" aria-labelledby="h-families">
+      <div class="sec__head"><h2 id="h-families">Family inquiries</h2><p class="sec__sub" id="families-sub"></p></div>
+      <p class="summary" id="families-summary"></p>
+      <div class="filters" id="families-filters" role="group" aria-label="Filter family inquiries"></div>
+      <div class="panel"><div id="families-table"></div></div>
+    </section>
+
+    <section class="sec" id="calloffs" aria-labelledby="h-calloffs">
+      <div class="sec__head"><h2 id="h-calloffs">Shift call-offs</h2><p class="sec__sub" id="calloffs-sub"></p></div>
+      <p class="summary" id="calloffs-summary"></p>
+      <div class="filters" id="calloffs-filters" role="group" aria-label="Filter call-offs by status"></div>
+      <ol class="feed" id="feed" aria-label="Call-offs, newest first"></ol>
+      <p class="rules-note" id="rules-note"></p>
+    </section>
+
+    <section class="sec" id="evv" aria-labelledby="h-evv">
+      <div class="sec__head"><h2 id="h-evv">EVV check before billing</h2><p class="sec__sub" id="evv-sub"></p></div>
+      <div class="evv-grid">
+        <form class="panel upload" id="evv-form" novalidate>
+          <h3>Check a new visit export</h3>
+          <div class="field">
+            <label for="evv-file">Visit export (CSV file)</label>
+            <input type="file" id="evv-file" name="file" accept=".csv,text/csv" aria-describedby="evv-file-help">
+            <p class="help" id="evv-file-help">Export the visits you plan to bill from your EVV system, up to 5 MB.</p>
+          </div>
+          <div class="field">
+            <label for="evv-state">State rules</label>
+            <select id="evv-state" name="shtat">
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+            </select>
+          </div>
+          <button class="btn btn--primary" type="submit" id="evv-submit">Check visits</button>
+          <p class="form-msg" id="evv-msg" role="status" aria-live="polite"></p>
+          <p class="safety" id="evv-safety" hidden></p>
+        </form>
+        <div class="panel">
+          <h3>Latest check</h3>
+          <div id="evv-summary"></div>
+        </div>
+      </div>
+      <div class="filters" id="evv-filters" role="group" aria-label="Filter EVV issues by severity"></div>
+      <ol class="issues" id="issues" aria-label="EVV issues"></ol>
+      <div class="panel runs" id="runs-panel"><h3>Previous checks</h3><div id="runs"></div></div>
+    </section>
+
+    <section class="sec" id="consent" aria-labelledby="h-consent">
+      <div class="sec__head"><h2 id="h-consent">Consent log</h2><p class="sec__sub" id="consent-sub"></p></div>
+      <p class="sec__lead">Every call opens with a notice that the caller is talking to an AI assistant and that the call is recorded. Texts go only to numbers that agreed to them, and a STOP reply turns them off. This log keeps the latest answer for each phone number.</p>
+      <div class="panel">
+        <div class="field" style="max-width: 360px">
+          <label for="consent-q">Find a phone number</label>
+          <input type="search" id="consent-q" inputmode="tel" autocomplete="off" aria-describedby="consent-q-help">
+          <p class="help" id="consent-q-help">Type any part of the number, for example 555 0142.</p>
+        </div>
+        <div id="consent-table"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="calls" aria-labelledby="h-calls">
+      <div class="sec__head"><h2 id="h-calls">Calls</h2><p class="sec__sub" id="calls-sub"></p></div>
+      <p class="summary" id="calls-summary"></p>
+      <div class="filters" id="calls-filters" role="group" aria-label="Filter calls by line"></div>
+      <div class="panel"><div id="calls-table"></div></div>
+    </section>
+
+    <section class="sec" id="activity" aria-labelledby="h-activity">
+      <div class="sec__head"><h2 id="h-activity">Activity log</h2><p class="sec__sub" id="activity-sub"></p></div>
+      <p class="sec__lead">What the phone assistant and the automations did today: calls, cards, bookings, call-offs and shift offers, texts and emails, consent changes. Test-mode entries show what would have been sent.</p>
+      <div class="filters" id="activity-filters" role="group" aria-label="Filter the activity log"></div>
+      <div class="panel"><div id="activity-table"></div></div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="wrap foot" id="foot">
+  <div class="legend" aria-label="Status shapes">
+    <span class="st st--ok st--plain">Done</span>
+    <span class="st st--warn st--plain">Needs attention</span>
+    <span class="st st--bad st--plain">Problem</span>
+    <span class="st st--info st--plain">In progress or note</span>
+    <span class="st st--neutral st--plain">No action needed</span>
+  </div>
+  <p>CareLine answers the agency's hiring and caregiver lines with an AI voice assistant. It works by the requirements and rules the agency sets; hiring, billing and EVV corrections stay with the agency's staff.</p>
+  <p id="foot-tz"></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "otkaz_ot_smeny_careline_demo",
+    "description": "Records that the caregiver on the line cannot work a shift and starts the search for a replacement. The caregiver is recognized by the number they are calling from. Call it only after you asked the reason and the caregiver confirmed the weekday, the date and the reason — once per shift. If the result has nuzhno_utochnit true (even with ok false, e.g. kod net_prichiny), nothing is recorded yet: ask what soobshchenie asks and call it again with the answer. Never for a message. If ok is false otherwise, the call-off is NOT recorded — never say it was; take a message. Never promise that the shift will be covered.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/otkaz",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "KomtreYBZQp3NoyIGVnN"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "CareLine DEMO → otkaz",
+        "required": [
+          "caller_id",
+          "prichina",
+          "conversation_id"
+        ],
+        "properties": {
+          "caller_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__caller_id"
+          },
+          "data_smeny": {
+            "type": "string",
+            "description": "Date of the shift as YYYY-MM-DD, worked out from today's date and confirmed by the caregiver."
+          },
+          "klient_kod": {
+            "type": "string",
+            "description": "Client code only if the caregiver said one, e.g. BK-114. Never a client's name."
+          },
+          "prichina": {
+            "type": "string",
+            "description": "Reason in one word, as the caregiver said it when you asked: bolezn (sick), semya (family matter), transport, drugoe (they said something else). Ask before calling — never guess.",
+            "enum": [
+              "bolezn",
+              "semya",
+              "transport",
+              "drugoe"
+            ]
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es",
+              "ru"
+            ]
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          }
+        }
+      }
+    }
+  }
+}

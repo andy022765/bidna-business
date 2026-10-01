@@ -1,0 +1,40 @@
+id: src-20260924-searchatlas-near-me-citations
+url: https://searchatlas.com/blog/how-llms-rank-local-business/
+canonical_url: https://searchatlas.com/blog/how-llms-rank-local-business/
+type: blog
+title: 'How LLMs Rank Local Businesses: A Study of “Near Me” Query Citations'
+authors:
+  - {name: 'Manick Bhan', affiliation: 'Search Atlas'}
+published: 2026-01-17
+fetched_at: 2026-09-24T00:00:00Z
+language: en
+fetch_method: curl  # сырой HTML через curl -sL (для OpenAI — markdown-версия страницы .md)
+storage:
+  original: original.html
+  bytes: 399483
+
+relevance: 4
+quality: 5
+quality_breakdown:
+  primary_source: false
+  author_credible: true
+  has_math: false
+  has_empirics: true
+  reproducible: false
+  recent: true
+  cited: false
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: true
+  notes: 'Вендор SEO-софта (в том числе «LLM Visibility», «GBP Galactic»). Корреляции порядка 0,16–0,19 названы «strong» — маркетинговый тон. Меряется позиция ссылки, а не упоминание бизнеса.'
+
+extracted:
+  notes: [n-gbp-signals-modest-in-llm-local, n-near-me-relevance-over-authority, n-relevance-context-position-strongest]
+  claims: [c-0101, c-0110]
+  contradictions: []
+  outbound_links_tracked: 0
+
+status: processed
+reject_reason: null

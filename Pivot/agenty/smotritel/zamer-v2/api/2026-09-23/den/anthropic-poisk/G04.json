@@ -1,0 +1,550 @@
+{
+ "vopros_id": "G04",
+ "vopros": "Как понять, сколько звонков я пропускаю и во сколько мне это обходится?",
+ "versiya_spiska": "v2-golosovoy-dezhurny",
+ "otpechatok": "c458d38d1699",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-09-23",
+ "vne_okna": false,
+ "zapusk_id": "20260923-133207-99702",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-23T13:33:00-07:00",
+   "zapusk_id": "20260923-133207-99702",
+   "cena": 0.07704,
+   "ishod": "ok",
+   "sekund": 23.9,
+   "meta": {
+    "request_id": "req_011CfM1SGfE6Roevr6QfsYmY"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "# Как посчитать пропущенные звонки и их стоимость\n\n## Шаг 1. Узнайте, сколько звонков вы пропускаете\n\nИсточник данных зависит от того, есть ли у вас телефония с аналитикой:\n\n- **Если есть виртуальная АТС/IP-телефония** — там обычно уже есть отчёты. Например, в системах статистики звонков есть отдельный показатель \"Пропущен (входящий) - общее количество пропущенных входящих звонков\", а также данные о том, сколько из них перезвонили сами клиенты или перезвонил менеджер.\n- **Если телефонии с аналитикой нет** — придётся вести учёт вручную или подключить коллтрекинг/CRM с записью звонков.\n\nОриентиры по рынку, чтобы понимать, много это или мало:\n- По данным аналитической платформы CoMagic, российские компании упускают около двух звонков из каждых десяти, а в сегменте туризма этот показатель достигает 31%.\n- Для медицинских клиник: по детализации операторов связи частные клиники пропускают от 15% до 30% входящих звонков, а в пиковые часы и в сезон ОРВИ доля доходит до 50-60%. Причины: занятые линии, нерабочее время и отказ дозвона.\n\n## Шаг 2. Посчитайте стоимость пропущенных звонков\n\nФормула проста и складывается из трёх переменных:\n\n**Упущенная выручка = Число пропущенных звонков × Конверсия звонка в продажу (запись/заказ) × Средний чек**\n\nПример расчёта из реальной практики: если за месяц пропущено 220 звонков, в запись превращается каждый второй, а средний чек 2 500 ₽ — клиника теряет около 275 000 ₽ в месяц только на пропусках.\n\nЕщё один пример логики расчёта: небольшой сервисный бизнес получает 300 звонков в месяц; если 20% из них остаются без ответа — это 60 пропущенных звонков; при конверсии звонка в запись 40% и средней стоимости заказа $150, ежемесячные потери составляют 60 × 0.4 × $150 = $3600, а за год — $43 200.\n\n### Откуда брать данные для формулы:\n1. **Число пропущенных звонков** — из отчётов телефонии/CRM за месяц.\n2. **Конверсия звонка в продажу** — конверсию звонка в запись возьмите из CRM, средний чек — из кассы. Если раньше не считали — возьмите текущую конверсию из принятых звонков как ориентир (она обычно близка).\n3. **Средний чек** — из бухгалтерии/кассы за тот же период.\n\n## Шаг 3. Учтите скрытые потери\n\nЕсть нюансы, которые усиливают эффект:\n- около 85% людей, которые не дозвонились, никогда не перезванивают повторно — они звонят следующей компании в списке.\n- первый ответивший бизнес обычно и получает клиента — то есть пропущенный звонок часто напрямую конвертируется в продажу у конкурента.\n\n## Шаг 4. Зачем это считать\n\nПонимание того, сколько денег теряет компания на пропущенных звонках, может стать аргументом для повышения дисциплины в отделе продаж или введения дежурных смен — а зная стоимость звонков, можно чётко посчитать, рентабельно ли это делать.\n\n---\n\n### Практический план действий:\n1. Выгрузите из телефонии/CRM за последний месяц: всего звонков, пропущено, перезвонили сами.\n2. Возьмите свою реальную конверсию звонок→продажа и средний чек.\n3. Подставьте в формулу выше — получите сумму месячных потерь.\n4. Сравните эту сумму со стоимостью решения (дополнительный сотрудник, автоответчик с перезвоном, IVR, callback-виджет) — это и даст ответ, стоит ли что-то менять.\n\nЕсли скажете, в какой у вас сфере бизнеса и есть ли уже CRM/телефония с отчётами — помогу подобрать конкретную формулу и метрики под вашу ситуацию.",
+  "poiskovye_zaprosy": [
+   "как посчитать сколько звонков пропускает компания и во сколько это обходится",
+   "missed calls cost calculator business ROI"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://kontur.ru/compass/spravka-compass/48329-konversiya_iz_vxodyashhix_zvonkov_v_prodazhu",
+    "domen": "kontur.ru",
+    "title": "Конверсия из звонков в продажу: что это, как посчитать и увеличить — Контур.Поиск клиентов"
+   },
+   {
+    "url": "https://roistat.com/rublog/skolko-biznes-terjaet-na-poterjannyh-zvonkah",
+    "domen": "roistat.com",
+    "title": "Сколько бизнес теряет на потерянных звонках | Блог Roistat"
+   },
+   {
+    "url": "https://webest.ru/blog/kak-i-zachem-schitat-stoimost-zvonka-ot-klienta",
+    "domen": "webest.ru",
+    "title": "Как и зачем считать стоимость звонка от клиента — Webest Digital-agency"
+   },
+   {
+    "url": "https://manual.kcell.kz/reports",
+    "domen": "manual.kcell.kz",
+    "title": "Статистика звонков"
+   },
+   {
+    "url": "https://planetcalc.ru/3151",
+    "domen": "planetcalc.ru",
+    "title": "Онлайн калькулятор: Расчет количества операторов в call-центре"
+   },
+   {
+    "url": "https://notificore.ru/blog/missed-incoming-calls-solutions",
+    "domen": "notificore.ru",
+    "title": "Пропущенные входящие звонки: причины и способы обработки"
+   },
+   {
+    "url": "https://new-tel.net/vats/vozmozhnosti/statistika-zvonkov",
+    "domen": "new-tel.net",
+    "title": "Статистика звонков - телефония Нью-Тел"
+   },
+   {
+    "url": "https://stexa.ru/blog/skolko-pacientov-teryaet-klinika-na-neprinyatyh-zvonkah-schitaem-v",
+    "domen": "stexa.ru",
+    "title": "Сколько пациентов теряет клиника на непринятых звонках — Stexa AI"
+   },
+   {
+    "url": "https://nemind.com/help/ru/pokazateli_otcheta_zvonki_1.htm",
+    "domen": "nemind.com",
+    "title": "Показатели отчета Звонки"
+   },
+   {
+    "url": "https://ring4.com/blog/real-cost-of-missing-calls",
+    "domen": "ring4.com",
+    "title": "The Real Cost of Missing Business Calls | Revenue Calculator | Ring4"
+   },
+   {
+    "url": "https://www.nextiva.com/resources/missed-calls-calculator",
+    "domen": "nextiva.com",
+    "title": "Missed Call Cost Calculator - AI Voice Agent ROI - XBert®"
+   },
+   {
+    "url": "https://www.answerconnect.com/blog/business-tips/how-much-are-missed-calls-costing-your-business",
+    "domen": "answerconnect.com",
+    "title": "Answering Service Missed Calls ROI Calculator | AnswerConnect"
+   },
+   {
+    "url": "https://newo.ai/insights/missed-call-revenue-calculator-how-to-estimate-lost-bookings-with-examples",
+    "domen": "newo.ai",
+    "title": "Missed Call Revenue Calculator: How to Estimate Lost Bookings (with examples)"
+   },
+   {
+    "url": "https://vikingmarketing.ai/missed-call-roi-calculator",
+    "domen": "vikingmarketing.ai",
+    "title": "Missed Call ROI Calculator (Free) | Viking Marketing"
+   },
+   {
+    "url": "https://www.layer3labs.io/tools/missed-call-calculator",
+    "domen": "layer3labs.io",
+    "title": "Missed Call Revenue Calculator | Layer3Labs | AI Consultants"
+   },
+   {
+    "url": "https://botafide.com/missed-call-roi-calculator",
+    "domen": "botafide.com",
+    "title": "Missed Call ROI Calculator | See Your Lost Revenue"
+   },
+   {
+    "url": "https://clearcallai.com/blog/roi-missed-calls-cost-business",
+    "domen": "clearcallai.com",
+    "title": "What Missed Calls Really Cost Your Business (With Calculator) — ClearCall AI"
+   },
+   {
+    "url": "https://mctb.press4wardgroup.com/calculator",
+    "domen": "mctb.press4wardgroup.com",
+    "title": "FREE Business Calls Calculator | Missed-Call Text-Back"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://nemind.com/help/ru/pokazateli_otcheta_zvonki_1.htm",
+    "domen": "nemind.com",
+    "title": "Показатели отчета Звонки"
+   },
+   {
+    "url": "https://notificore.ru/blog/missed-incoming-calls-solutions",
+    "domen": "notificore.ru",
+    "title": "Пропущенные входящие звонки: причины и способы обработки"
+   },
+   {
+    "url": "https://stexa.ru/blog/skolko-pacientov-teryaet-klinika-na-neprinyatyh-zvonkah-schitaem-v",
+    "domen": "stexa.ru",
+    "title": "Сколько пациентов теряет клиника на непринятых звонках — Stexa AI"
+   },
+   {
+    "url": "https://newo.ai/insights/missed-call-revenue-calculator-how-to-estimate-lost-bookings-with-examples",
+    "domen": "newo.ai",
+    "title": "Missed Call Revenue Calculator: How to Estimate Lost Bookings (with examples)"
+   },
+   {
+    "url": "https://vikingmarketing.ai/missed-call-roi-calculator",
+    "domen": "vikingmarketing.ai",
+    "title": "Missed Call ROI Calculator (Free) | Viking Marketing"
+   },
+   {
+    "url": "https://webest.ru/blog/kak-i-zachem-schitat-stoimost-zvonka-ot-klienta",
+    "domen": "webest.ru",
+    "title": "Как и зачем считать стоимость звонка от клиента — Webest Digital-agency"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19664,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1771
+  },
+  "cena": 0.07704,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfM1SHHgnCd1yX1w7LMjv",
+    "request_id": "req_011CfM1SGfE6Roevr6QfsYmY",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19664,
+     "output_tokens": 1771,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01F1u1mzuEAStmkwL7Q9f35h",
+    "caller": null,
+    "input": {
+     "query": "как посчитать сколько звонков пропускает компания и во сколько это обходится"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01M5BRxx8tcyDkNjUJDGF88u",
+    "caller": null,
+    "input": {
+     "query": "missed calls cost calculator business ROI"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "January 16, 2024",
+      "title": "Конверсия из звонков в продажу: что это, как посчитать и увеличить — Контур.Поиск клиентов",
+      "type": "web_search_result",
+      "url": "https://kontur.ru/compass/spravka-compass/48329-konversiya_iz_vxodyashhix_zvonkov_v_prodazhu"
+     },
+     {
+      "page_age": "January 16, 2026",
+      "title": "Сколько бизнес теряет на потерянных звонках | Блог Roistat",
+      "type": "web_search_result",
+      "url": "https://roistat.com/rublog/skolko-biznes-terjaet-na-poterjannyh-zvonkah/"
+     },
+     {
+      "page_age": null,
+      "title": "Как и зачем считать стоимость звонка от клиента — Webest Digital-agency",
+      "type": "web_search_result",
+      "url": "https://webest.ru/blog/kak-i-zachem-schitat-stoimost-zvonka-ot-klienta"
+     },
+     {
+      "page_age": null,
+      "title": "Статистика звонков",
+      "type": "web_search_result",
+      "url": "https://manual.kcell.kz/reports"
+     },
+     {
+      "page_age": null,
+      "title": "Онлайн калькулятор: Расчет количества операторов в call-центре",
+      "type": "web_search_result",
+      "url": "https://planetcalc.ru/3151/"
+     },
+     {
+      "page_age": null,
+      "title": "Пропущенные входящие звонки: причины и способы обработки",
+      "type": "web_search_result",
+      "url": "https://notificore.ru/blog/missed-incoming-calls-solutions"
+     },
+     {
+      "page_age": null,
+      "title": "Статистика звонков - телефония Нью-Тел",
+      "type": "web_search_result",
+      "url": "https://new-tel.net/vats/vozmozhnosti/statistika-zvonkov/"
+     },
+     {
+      "page_age": "July 21, 2026",
+      "title": "Сколько пациентов теряет клиника на непринятых звонках — Stexa AI",
+      "type": "web_search_result",
+      "url": "https://stexa.ru/blog/skolko-pacientov-teryaet-klinika-na-neprinyatyh-zvonkah-schitaem-v/"
+     },
+     {
+      "page_age": null,
+      "title": "Показатели отчета Звонки",
+      "type": "web_search_result",
+      "url": "https://nemind.com/help/ru/pokazateli_otcheta_zvonki_1.htm"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01F1u1mzuEAStmkwL7Q9f35h",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "February 13, 2026",
+      "title": "The Real Cost of Missing Business Calls | Revenue Calculator | Ring4",
+      "type": "web_search_result",
+      "url": "https://ring4.com/blog/real-cost-of-missing-calls"
+     },
+     {
+      "page_age": null,
+      "title": "Missed Call Cost Calculator - AI Voice Agent ROI - XBert®",
+      "type": "web_search_result",
+      "url": "https://www.nextiva.com/resources/missed-calls-calculator"
+     },
+     {
+      "page_age": "July 31, 2026",
+      "title": "Answering Service Missed Calls ROI Calculator | AnswerConnect",
+      "type": "web_search_result",
+      "url": "https://www.answerconnect.com/blog/business-tips/how-much-are-missed-calls-costing-your-business/"
+     },
+     {
+      "page_age": "January 8, 2026",
+      "title": "Missed Call Revenue Calculator: How to Estimate Lost Bookings (with examples)",
+      "type": "web_search_result",
+      "url": "https://newo.ai/insights/missed-call-revenue-calculator-how-to-estimate-lost-bookings-with-examples"
+     },
+     {
+      "page_age": null,
+      "title": "Missed Call ROI Calculator (Free) | Viking Marketing",
+      "type": "web_search_result",
+      "url": "https://vikingmarketing.ai/missed-call-roi-calculator"
+     },
+     {
+      "page_age": "May 22, 2026",
+      "title": "Missed Call Revenue Calculator | Layer3Labs | AI Consultants",
+      "type": "web_search_result",
+      "url": "https://www.layer3labs.io/tools/missed-call-calculator"
+     },
+     {
+      "page_age": "April 4, 2026",
+      "title": "Missed Call ROI Calculator | See Your Lost Revenue",
+      "type": "web_search_result",
+      "url": "https://botafide.com/missed-call-roi-calculator/"
+     },
+     {
+      "page_age": "March 29, 2026",
+      "title": "What Missed Calls Really Cost Your Business (With Calculator) — ClearCall AI",
+      "type": "web_search_result",
+      "url": "https://clearcallai.com/blog/roi-missed-calls-cost-business"
+     },
+     {
+      "page_age": null,
+      "title": "FREE Business Calls Calculator | Missed-Call Text-Back",
+      "type": "web_search_result",
+      "url": "https://mctb.press4wardgroup.com/calculator"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01M5BRxx8tcyDkNjUJDGF88u",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "# Как посчитать пропущенные звонки и их стоимость\n\n## Шаг 1. Узнайте, сколько звонков вы пропускаете\n\nИсточник данных зависит от того, есть ли у вас телефония с аналитикой:\n\n- **Если есть виртуальная АТС/IP-телефония** — там обычно уже есть отчёты. Например, в системах статистики звонков есть отдельный показатель ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Пропущен (входящий) - общее количество пропущенных входящих звонков. ",
+      "title": "Показатели отчета Звонки",
+      "type": "web_search_result_location",
+      "url": "https://nemind.com/help/ru/pokazateli_otcheta_zvonki_1.htm"
+     }
+    ],
+    "text": "\"Пропущен (входящий) - общее количество пропущенных входящих звонков\"",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", а также данные о том, сколько из них перезвонили сами клиенты или перезвонил менеджер.\n- **Если телефонии с аналитикой нет** — придётся вести учёт вручную или подключить коллтрекинг/CRM с записью звонков.\n\nОриентиры по рынку, чтобы понимать, много это или мало:\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "По данным аналитической платформы CoMagic, российские компании упускают около двух звонков из каждых десяти. ",
+      "title": "Пропущенные входящие звонки: причины и способы обработки",
+      "type": "web_search_result_location",
+      "url": "https://notificore.ru/blog/missed-incoming-calls-solutions"
+     }
+    ],
+    "text": "По данным аналитической платформы CoMagic, российские компании упускают около двух звонков из каждых десяти",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", а ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "В сегменте туризма этот показатель и вовсе достигает 31%. ",
+      "title": "Пропущенные входящие звонки: причины и способы обработки",
+      "type": "web_search_result_location",
+      "url": "https://notificore.ru/blog/missed-incoming-calls-solutions"
+     }
+    ],
+    "text": "в сегменте туризма этот показатель достигает 31%",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Для медицинских клиник: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "По детализации операторов связи частные клиники пропускают от 15% до 30% входящих звонков, а в пиковые часы и в сезон ОРВИ доля доходит до 50-60%. ",
+      "title": "Сколько пациентов теряет клиника на непринятых звонках — Stexa AI",
+      "type": "web_search_result_location",
+      "url": "https://stexa.ru/blog/skolko-pacientov-teryaet-klinika-na-neprinyatyh-zvonkah-schitaem-v/"
+     }
+    ],
+    "text": "по детализации операторов связи частные клиники пропускают от 15% до 30% входящих звонков, а в пиковые часы и в сезон ОРВИ доля доходит до 50-60%",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Причины: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Основные причины — занятые линии, нерабочее время и отказ дозвона.\n\n",
+      "title": "Сколько пациентов теряет клиника на непринятых звонках — Stexa AI",
+      "type": "web_search_result_location",
+      "url": "https://stexa.ru/blog/skolko-pacientov-teryaet-klinika-na-neprinyatyh-zvonkah-schitaem-v/"
+     }
+    ],
+    "text": "занятые линии, нерабочее время и отказ дозвона",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Шаг 2. Посчитайте стоимость пропущенных звонков\n\nФормула проста и складывается из трёх переменных:\n\n**Упущенная выручка = Число пропущенных звонков × Конверсия звонка в продажу (запись/заказ) × Средний чек**\n\nПример расчёта из реальной практики: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Если за месяц пропущено 220 звонков, в запись превращается каждый второй, а средний чек 2 500 ₽ — клиника теряет около 275 000 ₽ в месяц только на про...",
+      "title": "Сколько пациентов теряет клиника на непринятых звонках — Stexa AI",
+      "type": "web_search_result_location",
+      "url": "https://stexa.ru/blog/skolko-pacientov-teryaet-klinika-na-neprinyatyh-zvonkah-schitaem-v/"
+     }
+    ],
+    "text": "если за месяц пропущено 220 звонков, в запись превращается каждый второй, а средний чек 2 500 ₽ — клиника теряет около 275 000 ₽ в месяц только на пропусках",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nЕщё один пример логики расчёта: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "A small service business receives 300 calls per month. If 20% of those calls are unanswered, that equals 60 missed calls. \n\nIf the call-to-booking con...",
+      "title": "Missed Call Revenue Calculator: How to Estimate Lost Bookings (with examples)",
+      "type": "web_search_result_location",
+      "url": "https://newo.ai/insights/missed-call-revenue-calculator-how-to-estimate-lost-bookings-with-examples"
+     }
+    ],
+    "text": "небольшой сервисный бизнес получает 300 звонков в месяц; если 20% из них остаются без ответа — это 60 пропущенных звонков; при конверсии звонка в запись 40% и средней стоимости заказа $150, ежемесячные потери составляют 60 × 0.4 × $150 = $3600, а за год — $43 200",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n### Откуда брать данные для формулы:\n1. **Число пропущенных звонков** — из отчётов телефонии/CRM за месяц.\n2. **Конверсия звонка в продажу** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Цифры подставляйте свои: конверсию звонка в запись возьмите из CRM, средний чек — из кассы. \n\n",
+      "title": "Сколько пациентов теряет клиника на непринятых звонках — Stexa AI",
+      "type": "web_search_result_location",
+      "url": "https://stexa.ru/blog/skolko-pacientov-teryaet-klinika-na-neprinyatyh-zvonkah-schitaem-v/"
+     }
+    ],
+    "text": "конверсию звонка в запись возьмите из CRM, средний чек — из кассы",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Если раньше не считали — возьмите текущую конверсию из принятых звонков как ориентир (она обычно близка).\n3. **Средний чек** — из бухгалтерии/кассы за тот же период.\n\n## Шаг 3. Учтите скрытые потери\n\nЕсть нюансы, которые усиливают эффект:\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The cost is bigger than it looks for three reasons: Around 85% of people who reach a missed call never call back. They dial the next business on the l...",
+      "title": "Missed Call ROI Calculator (Free) | Viking Marketing",
+      "type": "web_search_result_location",
+      "url": "https://vikingmarketing.ai/missed-call-roi-calculator"
+     }
+    ],
+    "text": "около 85% людей, которые не дозвонились, никогда не перезванивают повторно — они звонят следующей компании в списке",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The first business to respond usually wins the job, so a call you miss is often a sale your competitor makes within minutes. ",
+      "title": "Missed Call ROI Calculator (Free) | Viking Marketing",
+      "type": "web_search_result_location",
+      "url": "https://vikingmarketing.ai/missed-call-roi-calculator"
+     }
+    ],
+    "text": "первый ответивший бизнес обычно и получает клиента",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — то есть пропущенный звонок часто напрямую конвертируется в продажу у конкурента.\n\n## Шаг 4. Зачем это считать\n\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Понимание, сколько денег теряет компания, если отдел продаж пропускает звонки. Это может стать дополнительным аргументом для повышения дисциплины в sa...",
+      "title": "Как и зачем считать стоимость звонка от клиента — Webest Digital-agency",
+      "type": "web_search_result_location",
+      "url": "https://webest.ru/blog/kak-i-zachem-schitat-stoimost-zvonka-ot-klienta"
+     }
+    ],
+    "text": "Понимание того, сколько денег теряет компания на пропущенных звонках, может стать аргументом для повышения дисциплины в отделе продаж или введения дежурных смен — а зная стоимость звонков, можно чётко посчитать, рентабельно ли это делать",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n---\n\n### Практический план действий:\n1. Выгрузите из телефонии/CRM за последний месяц: всего звонков, пропущено, перезвонили сами.\n2. Возьмите свою реальную конверсию звонок→продажа и средний чек.\n3. Подставьте в формулу выше — получите сумму месячных потерь.\n4. Сравните эту сумму со стоимостью решения (дополнительный сотрудник, автоответчик с перезвоном, IVR, callback-виджет) — это и даст ответ, стоит ли что-то менять.\n\nЕсли скажете, в какой у вас сфере бизнеса и есть ли уже CRM/телефония с отчётами — помогу подобрать конкретную формулу и метрики под вашу ситуацию.",
+    "type": "text"
+   }
+  ]
+ }
+}

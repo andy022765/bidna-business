@@ -1,0 +1,94 @@
+{
+  "tool_config": {
+    "type": "webhook",
+    "name": "otpravit_ssylku_nightdesk_demo",
+    "description": "Sends the caller one link: the listing, the online application, the published rental criteria, or the self-guided tour. By text only if the caller said yes to texts in this call; otherwise by email if they gave one. Say it was sent ONLY if ok is true.",
+    "response_timeout_secs": 20,
+    "interruption_mode": "allow",
+    "pre_tool_speech": "auto",
+    "execution_mode": "immediate",
+    "tool_error_handling_mode": "auto",
+    "api_schema": {
+      "url": "https://linii-demo-85fof.netlify.app/.netlify/functions/nd-ssylka",
+      "method": "POST",
+      "content_type": "application/json",
+      "request_headers": {
+        "x-liniya-klyuch": {
+          "secret_id": "ZAPOLNIT_secret_id_nightdesk_demo_x_liniya_klyuch"
+        }
+      },
+      "request_body_schema": {
+        "type": "object",
+        "description": "NightDesk DEMO → nd-ssylka",
+        "required": [
+          "tip",
+          "kanal",
+          "yazyk",
+          "conversation_id"
+        ],
+        "properties": {
+          "tip": {
+            "type": "string",
+            "description": "obyavlenie (the listing), zayavka (the online application), kriterii (the published rental criteria), samostoyatelnyy_pokaz (the self-guided tour).",
+            "enum": [
+              "obyavlenie",
+              "zayavka",
+              "kriterii",
+              "samostoyatelnyy_pokaz"
+            ]
+          },
+          "obyavlenie_id": {
+            "type": "string",
+            "description": "The apartment code; leave it out only for kriterii.",
+            "enum": [
+              "tw-3c",
+              "tw-6a",
+              "sw-2b",
+              "sw-5d",
+              "kg-1r",
+              "kg-4f"
+            ]
+          },
+          "kanal": {
+            "type": "string",
+            "description": "sms if the caller agreed to texts in this call, otherwise email.",
+            "enum": [
+              "sms",
+              "email"
+            ]
+          },
+          "telefon": {
+            "type": "string",
+            "description": "The confirmed phone number in E.164 format."
+          },
+          "email": {
+            "type": "string",
+            "description": "The confirmed email, only for kanal email."
+          },
+          "sms_soglasie": {
+            "type": "boolean",
+            "description": "true ONLY if the caller clearly said yes to text messages in this call."
+          },
+          "yazyk": {
+            "type": "string",
+            "description": "Language of the conversation right now.",
+            "enum": [
+              "en",
+              "es"
+            ]
+          },
+          "conversation_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__conversation_id"
+          },
+          "agent_id": {
+            "type": "string",
+            "description": "",
+            "dynamic_variable": "system__current_agent_id"
+          }
+        }
+      }
+    }
+  }
+}

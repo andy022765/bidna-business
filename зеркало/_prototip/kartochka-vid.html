@@ -1,0 +1,117 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Карточка — как она выглядит</title><style>
+:root{--ink:#1b2557;--gold:#c69a4c;--goldd:#b0812f;--mut:#7b8194;--line:#e6e2da}
+*{box-sizing:border-box}
+body{margin:0;background:#e9e6e0;color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.page{max-width:1080px;margin:0 auto;padding:36px 20px 90px}
+h1{font-size:29px;margin:0 0 6px;letter-spacing:-.4px}
+.sub{color:var(--mut);font-size:15px;margin:0 0 34px;max-width:720px}
+.sec{margin:0 0 54px}
+.sec>h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--goldd);font-weight:700;margin:0 0 6px}
+.sec>.cap{color:var(--mut);font-size:14.5px;margin:0 0 20px;max-width:660px}
+.row{display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap}
+.col{flex:1 1 460px;min-width:330px}
+
+/* ── САМА КАРТОЧКА ── */
+.card{background:#fff;border-radius:20px;padding:38px 40px 34px;max-width:560px;
+  box-shadow:0 18px 44px rgba(27,37,87,.13),0 2px 6px rgba(27,37,87,.06);
+  border-top:5px solid var(--gold);position:relative}
+.card-top{display:flex;align-items:center;gap:11px;margin:0 0 24px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.card-top svg{flex:none;opacity:.9}
+.card-kicker{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.card-lead{font-size:23px;line-height:1.38;margin:0 0 24px;font-weight:600;letter-spacing:-.25px}
+.card-proof{font-size:17px;line-height:1.62;margin:0 0 24px;padding-left:20px;border-left:3px solid var(--gold);color:#2a3050}
+.card-check{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;line-height:1.5;color:#3a4160;margin:0 0 22px}
+.tick{color:var(--goldd);font-weight:700;flex:none;font-size:16px;line-height:1.45}
+.card-notfor{border-top:1px solid var(--line);padding-top:16px;font-size:14.5px;line-height:1.55;color:var(--mut)}
+.spoken{max-width:560px;margin:16px 0 0;background:#f4f2ee;border-radius:14px;padding:18px 22px}
+.sp-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--goldd);font-weight:700}
+.spoken p{margin:8px 0 0;font-size:16.5px;line-height:1.55;font-style:italic;color:#2a3050}
+
+/* ── КАК ЭТО ПРИХОДИТ В МЕССЕНДЖЕР ── */
+.phone{width:330px;background:#0f1430;border-radius:34px;padding:11px;box-shadow:0 20px 46px rgba(15,20,48,.3)}
+.phone-in{background:#ecdfd3;border-radius:26px;overflow:hidden;min-height:520px;display:flex;flex-direction:column}
+.ph-bar{background:#0b6f5f;color:#fff;padding:13px 16px;font-size:14.5px;font-weight:600;display:flex;gap:10px;align-items:center}
+.ph-av{width:28px;height:28px;border-radius:50%;background:#3d9c8b;flex:none}
+.ph-body{padding:14px 12px;display:flex;flex-direction:column;gap:9px}
+.msg{max-width:88%;padding:9px 12px;border-radius:13px;font-size:14.5px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.07)}
+.msg.in{background:#fff;align-self:flex-start;border-top-left-radius:4px}
+.msg.out{background:#d6f5c4;align-self:flex-end;border-top-right-radius:4px}
+.msg .tm{font-size:10.5px;color:#8d9aa0;text-align:right;margin-top:3px}
+.msg.out.card-msg{padding:11px 13px;font-size:13.8px;line-height:1.5}
+.msg.out.card-msg b{display:block;margin-bottom:5px}
+.msg.out.card-msg .q{border-left:2px solid var(--gold);padding-left:9px;margin:7px 0;color:#2f3550}
+
+/* ── СРАВНЕНИЕ ── */
+.vs{display:flex;gap:20px;flex-wrap:wrap}
+.vs .box{flex:1 1 300px;background:#fff;border-radius:14px;padding:20px 22px;border:1px solid var(--line)}
+.vs .box.bad{background:#faf4f3;border-color:#e8d4d1}
+.vs .lbl{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:11px}
+.vs .bad .lbl{color:#a5453b}
+.vs .good .lbl{color:#1d7a4d}
+.vs p{margin:0;font-size:15.5px;line-height:1.55}
+.note{background:#fff;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;margin:26px 0 0}
+.note b{color:var(--goldd)}
+@media(max-width:760px){.card{padding:30px 26px 28px}.card-lead{font-size:20px}}
+</style></head><body><div class="page">
+<h1>Карточка — сам артефакт</h1>
+<p class="sub">Это то, что человек уносит и отправляет вместо себя. Не описание, а сама вещь: три карточки на трёх реальных людях, плюс английская версия и то, как это приходит собеседнику.</p>
+
+<div class="sec"><h2>Эксперт &middot; Кристина Шадрина</h2><p class="cap">Финансовый консультант, Лос-Анджелес. Несущая строка — не опыт и не подход, а случай, который ей чего-то стоил.</p><div class="row"><div class="col">
+<div class="card">
+  <div class="card-top"><svg viewBox="0 0 100 100" width="26" height="26" aria-hidden="true"><polyline points="50,16 58.23,19.4 65,22.8 69.12,26.2 69.84,29.6 67.05,33 61.24,36.4 53.44,39.8 45.03,43.2 37.5,46.6 32.18,50 30.02,53.4 31.4,56.8 36.08,60.2 43.23,63.6 51.57,67 59.64,70.4 65.99,73.8 69.52,77.2 69.58,80.6 66.18,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><polyline points="50,16 41.77,19.4 35,22.8 30.88,26.2 30.16,29.6 32.95,33 38.76,36.4 46.56,39.8 54.97,43.2 62.5,46.6 67.82,50 69.98,53.4 68.6,56.8 63.92,60.2 56.77,63.6 48.43,67 40.36,70.4 34.01,73.8 30.48,77.2 30.42,80.6 33.82,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><g stroke="#c69a4c" stroke-width="3" stroke-linecap="round"><line x1="30.9" y1="27.5" x2="69.1" y2="27.5"/><line x1="31.5" y1="43.5" x2="68.5" y2="43.5"/><line x1="31.5" y1="56.5" x2="68.5" y2="56.5"/><line x1="30.9" y1="72.5" x2="69.1" y2="72.5"/></g></svg><span class="card-kicker">Кристина Шадрина &middot; финансы</span></div>
+  <p class="card-lead">Работаю с русскоязычными в США, у которых доход уже есть, а денег почему-то нет: всё уходит, подушки не появляется, и непонятно, где течёт.</p>
+  <div class="card-proof">Я не продаю курс тому, кому он сейчас не поможет. Одной клиентке я сказала сначала закрыть кредитные карты и вернуться через полгода. Она вернулась.</div>
+  <div class="card-check"><span class="tick">&#10003;</span><span>Отзывы клиентов лежат отдельным аккаунтом — можно почитать, не спрашивая меня</span></div>
+  <div class="card-notfor">Если нужен инвестиционный совет под конкретную сделку — это не ко мне, скажу сразу.</div>
+</div>
+<div class="spoken"><span class="sp-lbl">Если говорить вслух</span><p>«Я не продаю курс тому, кому он сейчас не поможет. Одной клиентке сказала сначала закрыть карты и вернуться через полгода — она вернулась.»</p></div></div></div></div>
+
+<div class="sec"><h2>Локальный бизнес &middot; Kids Acting Workshop</h2><p class="cap">Карточка от «мы», а не от «я»: она продаёт устройство работы студии, а не собственника. Справа — как она приходит родителю.</p><div class="row"><div class="col">
+<div class="card">
+  <div class="card-top"><svg viewBox="0 0 100 100" width="26" height="26" aria-hidden="true"><polyline points="50,16 58.23,19.4 65,22.8 69.12,26.2 69.84,29.6 67.05,33 61.24,36.4 53.44,39.8 45.03,43.2 37.5,46.6 32.18,50 30.02,53.4 31.4,56.8 36.08,60.2 43.23,63.6 51.57,67 59.64,70.4 65.99,73.8 69.52,77.2 69.58,80.6 66.18,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><polyline points="50,16 41.77,19.4 35,22.8 30.88,26.2 30.16,29.6 32.95,33 38.76,36.4 46.56,39.8 54.97,43.2 62.5,46.6 67.82,50 69.98,53.4 68.6,56.8 63.92,60.2 56.77,63.6 48.43,67 40.36,70.4 34.01,73.8 30.48,77.2 30.42,80.6 33.82,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><g stroke="#c69a4c" stroke-width="3" stroke-linecap="round"><line x1="30.9" y1="27.5" x2="69.1" y2="27.5"/><line x1="31.5" y1="43.5" x2="68.5" y2="43.5"/><line x1="31.5" y1="56.5" x2="68.5" y2="56.5"/><line x1="30.9" y1="72.5" x2="69.1" y2="72.5"/></g></svg><span class="card-kicker">Kids Acting Workshop &middot; Шерман-Оукс</span></div>
+  <p class="card-lead">Детская актёрская студия для детей от 4 до 17. Русская театральная школа плюс американская подача — ни та, ни другая по отдельности.</p>
+  <div class="card-proof">Раз в год мы ставим полноценный мюзикл: дети выходят на сцену перед сотнями зрителей. И раз в год снимаем короткометражку, написанную под наших студентов, — с показом и красной дорожкой. Не отчётный концерт, а работа, которую ребёнок потом покажет.</div>
+  <div class="card-check"><span class="tick">&#10003;</span><span>Актёрское, вокал, танец и импровизация в одном месте, семь преподавателей. Первое занятие бесплатно</span></div>
+  <div class="card-notfor">Если нужен агент и пробы на съёмки уже завтра — это не к нам, скажем сразу.</div>
+</div>
+<div class="spoken"><span class="sp-lbl">Если говорить вслух</span><p>«Мы не про поиграть. Раз в год ребёнок выходит на сцену перед сотнями людей и снимается в кино, которое написали под него.»</p></div></div><div class="col" style="flex:0 0 330px">
+<div class="phone"><div class="phone-in">
+<div class="ph-bar"><span class="ph-av"></span>Ольга &middot; мама Софии</div>
+<div class="ph-body">
+<div class="msg in">Андрей, здравствуйте! Мне вас Лена посоветовала. А расскажите, чем вы отличаетесь от студии на Вентуре? Мы туда ходили<div class="tm">14:02</div></div>
+<div class="msg out card-msg"><b>Kids Acting Workshop &middot; Шерман-Оукс</b>
+Детская актёрская студия для детей от 4 до 17. Русская театральная школа плюс американская подача &mdash; ни та, ни другая по отдельности.
+<div class="q">Раз в год мы ставим полноценный мюзикл: дети выходят на сцену перед сотнями зрителей. И раз в год снимаем короткометражку, написанную под наших студентов, &mdash; с показом и красной дорожкой.</div>
+&#10003; Актёрское, вокал, танец и импровизация в одном месте, семь преподавателей. Первое занятие бесплатно<div class="tm">14:04</div></div>
+<div class="msg in">О, вот это уже понятно. А когда ближайшее пробное?<div class="tm">14:06</div></div>
+</div></div></div></div></div></div>
+
+<div class="sec"><h2>Что изменилось у Калугина</h2><p class="cap">Одна и та же ситуация, один и тот же вопрос от мамы.</p><div class="vs">
+<div class="box bad"><div class="lbl">Что он отвечал раньше</div>
+<p>«У нас очень хорошие преподаватели, индивидуальный подход к каждому ребёнку, большой опыт. Приходите на пробное, всё сами увидите.»</p></div>
+<div class="box good"><div class="lbl">Что уходит теперь</div>
+<p>Карточка слева. Те же полторы минуты его времени — но человек на той стороне получил то, что нельзя повторить, не сделав.</p></div>
+</div></div>
+
+<div class="sec"><h2>B2B &middot; Академия чая</h2><p class="cap">Покупатель — event-менеджер отеля. Ему карточку прикладывают к внутреннему согласованию, поэтому нужна вторая версия — на языке покупателя.</p><div class="row"><div class="col">
+<div class="card">
+  <div class="card-top"><svg viewBox="0 0 100 100" width="26" height="26" aria-hidden="true"><polyline points="50,16 58.23,19.4 65,22.8 69.12,26.2 69.84,29.6 67.05,33 61.24,36.4 53.44,39.8 45.03,43.2 37.5,46.6 32.18,50 30.02,53.4 31.4,56.8 36.08,60.2 43.23,63.6 51.57,67 59.64,70.4 65.99,73.8 69.52,77.2 69.58,80.6 66.18,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><polyline points="50,16 41.77,19.4 35,22.8 30.88,26.2 30.16,29.6 32.95,33 38.76,36.4 46.56,39.8 54.97,43.2 62.5,46.6 67.82,50 69.98,53.4 68.6,56.8 63.92,60.2 56.77,63.6 48.43,67 40.36,70.4 34.01,73.8 30.48,77.2 30.42,80.6 33.82,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><g stroke="#c69a4c" stroke-width="3" stroke-linecap="round"><line x1="30.9" y1="27.5" x2="69.1" y2="27.5"/><line x1="31.5" y1="43.5" x2="68.5" y2="43.5"/><line x1="31.5" y1="56.5" x2="68.5" y2="56.5"/><line x1="30.9" y1="72.5" x2="69.1" y2="72.5"/></g></svg><span class="card-kicker">Академия чая &middot; Майами и Лас-Вегас</span></div>
+  <p class="card-lead">Проводим чайные церемонии для гостей отелей, SPA и частных мероприятий. Основатель — практикующий психолог, и это не строка биографии, а суть услуги.</p>
+  <div class="card-proof">Мы не про дегустацию и не про сервировку. Церемония на сорок минут меняет состояние человека: он замедляется и уезжает другим. Отель продаёт не напиток — он продаёт то, каким гость запомнил вечер.</div>
+  <div class="card-check"><span class="tick">&#10003;</span><span>Свой мастер, своя посуда, свой сценарий под площадку. Международная франшиза — можем поставить как постоянный формат</span></div>
+  <div class="card-notfor">Если нужен чайный бар на двести человек с очередью — это не к нам, скажем сразу.</div>
+</div>
+<div class="spoken"><span class="sp-lbl">Если говорить вслух</span><p>«Мы не про дегустацию. Сорок минут — и гость уезжает другим. Отель продаёт не чай, а то, каким гость запомнил вечер.»</p></div></div><div class="col">
+<div class="card">
+  <div class="card-top"><svg viewBox="0 0 100 100" width="26" height="26" aria-hidden="true"><polyline points="50,16 58.23,19.4 65,22.8 69.12,26.2 69.84,29.6 67.05,33 61.24,36.4 53.44,39.8 45.03,43.2 37.5,46.6 32.18,50 30.02,53.4 31.4,56.8 36.08,60.2 43.23,63.6 51.57,67 59.64,70.4 65.99,73.8 69.52,77.2 69.58,80.6 66.18,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><polyline points="50,16 41.77,19.4 35,22.8 30.88,26.2 30.16,29.6 32.95,33 38.76,36.4 46.56,39.8 54.97,43.2 62.5,46.6 67.82,50 69.98,53.4 68.6,56.8 63.92,60.2 56.77,63.6 48.43,67 40.36,70.4 34.01,73.8 30.48,77.2 30.42,80.6 33.82,84" fill="none" stroke="#1b2557" stroke-width="3.4" stroke-linecap="round"/><g stroke="#c69a4c" stroke-width="3" stroke-linecap="round"><line x1="30.9" y1="27.5" x2="69.1" y2="27.5"/><line x1="31.5" y1="43.5" x2="68.5" y2="43.5"/><line x1="31.5" y1="56.5" x2="68.5" y2="56.5"/><line x1="30.9" y1="72.5" x2="69.1" y2="72.5"/></g></svg><span class="card-kicker">Tea Academy &middot; Miami &amp; Las Vegas</span></div>
+  <p class="card-lead">We run tea ceremonies for hotel guests, spas and private events. Our founder is a practising psychologist &mdash; that is the service, not a line in a bio.</p>
+  <div class="card-proof">This is not a tasting and not table service. Forty minutes changes the guest&rsquo;s state: they slow down and leave different. A hotel is not selling a drink &mdash; it is selling how the evening is remembered.</div>
+  <div class="card-check"><span class="tick">&#10003;</span><span>Our own master, our own ware, a script built for your venue. International franchise &mdash; can be set up as a standing format</span></div>
+  <div class="card-notfor">Not for you if you need a tea bar for two hundred people with a queue. We&rsquo;ll say so upfront.</div>
+</div></div></div></div>
+
+<div class="note"><b>Что делает эту вещь работающей.</b> Четыре элемента и ни одного лишнего: <b>кому</b> — чтобы человек узнал себя или сразу понял, что мимо; <b>чем подпёрто</b> — случай, который нельзя повторить, не сделав; <b>что можно проверить</b> без вопроса к владельцу; <b>кому не подойдёт</b> — единственная строка, которая покупает доверие мгновенно, потому что её не пишет тот, кому надо продать любой ценой.<br><br>
+Ни одного восклицательного знака, ни одной цифры будущего, ни одного «мы лидеры рынка». Всё, что можно произнести, ничего не сделав, — вычеркнуто самим человеком на предыдущем экране.</div>
+</div></body></html>

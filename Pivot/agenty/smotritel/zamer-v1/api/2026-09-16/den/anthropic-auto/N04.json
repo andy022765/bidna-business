@@ -1,0 +1,529 @@
+{
+ "vopros_id": "N04",
+ "vopros": "пишут в директ, спрашивают сколько стоит, я отвечаю и тишина. есть какой-то AI, который сам дожмёт их до записи или оплаты?",
+ "versiya_spiska": "v1",
+ "otpechatok": "9208c93482be",
+ "dvizhok": "anthropic",
+ "rezhim": "auto",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-09-16",
+ "vne_okna": false,
+ "zapusk_id": "20260916-130006-55159",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-16T13:03:07-07:00",
+   "zapusk_id": "20260916-130006-55159",
+   "cena": 0.07917,
+   "ishod": "ok",
+   "sekund": 33.0,
+   "meta": {
+    "request_id": "req_011Cf7iVf6u3GMCvG5iW7Lhc"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да, такие инструменты уже есть — это не просто боты с кнопками, а «ИИ-агенты продаж» для Директа, которые ведут диалог, отрабатывают возражения и сами доводят человека до записи/оплаты, а не просто присылают один шаблонный ответ.\n\n**Как это работает у нормальных решений**\n\nКлючевое отличие ИИ-агента от обычного автоответчика Meta — он не останавливается после первого сообщения. Обычные автоответы отправляют одно готовое сообщение вроде «Спасибо, скоро ответим» и на этом всё — без уточняющих вопросов, без проверки наличия, без записи. ИИ-агент же подхватывает диалог дальше: отвечает на второй и третий вопрос, снимает возражения и доводит до продажи, как это сделал бы лучший менеджер.\n\nЛогика именно «дожима» строится так: агент считывает намерение в реальном времени — если вопрос про цену, присылает оффер; если запрос на запись, скидывает ссылку на календарь; если просто интерес — квалифицирует и ведёт дальше по воронке. При этом не все, кто пишет, готовы купить сразу — агент отфильтровывает просто интересующихся, «догревает» сомневающихся и помечает тех, кто готов платить.\n\nВажный момент именно про вашу ситуацию — молчание после цены: хороший сценарий автоматизации фиксирует лид, отправляет ссылку на запись и, если человек не записался, сам пишет повторно на следующий день — без пропущенных лидов и ручного набора текста. Это и есть автоматический «дожим».\n\n**Конкретные варианты**\n\nДля рунета (директ Instagram* / ВК):\n- **Salebot** — конструктор с ИИ-ботами: автоматизация ответов на сообщения, комментарии и сторис через чат-ботов и ИИ, с отслеживанием лидов, авто-заявками в CRM и приёмом оплаты прямо в боте.\n- **ChatPlace** — ИИ работает как ассистент, ведущий клиента через все точки контакта в Instagram — от первого комментария до оплаты заказа.\n- **papaisoft** — ИИ-бот отвечает на вопросы о товарах/услугах, квалифицирует обращения, записывает клиентов и передаёт горячие лиды в CRM без участия менеджера.\n\nЗарубежные (если работаете на английском/международную аудиторию):\n- **Inrō** — квалифицирует лидов, отвечает на вопросы и закрывает продажи в Instagram DM автоматически на базе официального API Meta.\n- **Instance** — ведёт полный диалог в директе 24/7 вашим тоном, отвечает на вопросы, прогревает, делает follow-up, собирает контакты и присылает ссылки на оплату.\n- **SetSmart** — по отзывам, один из лидеров именно по качеству ИИ-диалогов и записи на звонки/встречи.\n\n**На что обратить внимание перед подключением**\n\n1. Инструмент должен работать через официальный API Meta, а не через «серые» скрипты — иначе риск блокировки аккаунта. Автоматизация директа безопаснее всего через официальные API Meta и с соблюдением её правил — более рискованные инструменты используют скрапинг или эмуляцию кликов, поэтому стоит выбирать разрешённые способы.\n2. ИИ не заменит правильно упакованный оффер — он лишь снимает рутину. Хороший бот считывает сигналы готовности купить, квалифицирует лида и передаёт горячего клиента человеку в нужный момент, но сам текст цены/оффера и скрипт отработки возражений всё равно настраиваете вы (или совместно с сервисом).\n3. Реальная причина «тишины» часто не в отсутствии автоответа, а в том, что называние цены без контекста пугает — агент должен не просто «дожимать», а разбираться, почему человек замолчал (сомнение в цене, сравнивает с конкурентами, не готов сейчас) и предлагать релевантный следующий шаг (рассрочка, кейсы, бонус, живая консультация).\n\nЕсли скажете, в какой нише и на какой платформе (Instagram, WhatsApp, Telegram) у вас идёт переписка, могу подсказать более точечно, какой из инструментов подойдёт по бюджету и функционалу.",
+  "poiskovye_zaprosy": [
+   "AI бот для директ инстаграм дожим клиента до оплаты",
+   "AI sales chatbot follow up leads Instagram DM close booking payment 2026"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://salebot.pro/instagram_bot",
+    "domen": "salebot.pro",
+    "title": "Чат-боты для Instagram | автоответы в директ и на комментарии"
+   },
+   {
+    "url": "https://blog.chatplace.io/chat-boty-instagram-2026-rukovodstvo",
+    "domen": "blog.chatplace.io",
+    "title": "Чат-боты для Инстаграм в 2026: полное руководство"
+   },
+   {
+    "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace",
+    "domen": "blog.chatplace.io",
+    "title": "ИИ-агенты для Instagram: умная автоматизация Директа"
+   },
+   {
+    "url": "https://blog.chatplace.io/chat-bot-v-instagram-bez-programmirovaniya-sozdayte-za-10-minut",
+    "domen": "blog.chatplace.io",
+    "title": "Инстаграм-бот без кода за 10 минут: пошаговый гайд"
+   },
+   {
+    "url": "https://papaisoft.com/chatbot-dlya-instagram",
+    "domen": "papaisoft.com",
+    "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов"
+   },
+   {
+    "url": "https://www.inro.social/use-cases/let-ai-agent-handle-sales",
+    "domen": "inro.social",
+    "title": "Let an AI Agent Handle Sales in Your Instagram DMs | Inrō"
+   },
+   {
+    "url": "https://setsmart.io/blog/instagram-automation-tools",
+    "domen": "setsmart.io",
+    "title": "Instagram Automation Tools: 9 Best Tested (2026) - SetSmart"
+   },
+   {
+    "url": "https://www.pilotdm.com/blog/how-to-use-ai-for-instagram-dm-automation-in-2026",
+    "domen": "pilotdm.com",
+    "title": "How to Use AI for Instagram DM Automation in 2026 - PilotDM - Instagram Automation for Creators & Brands"
+   },
+   {
+    "url": "https://signalcore.ai/en/instagram-ai-chatbot",
+    "domen": "signalcore.ai",
+    "title": "Instagram AI Chatbot: Automate DMs, Comments & Sales"
+   },
+   {
+    "url": "https://inflowave.io/resources/creatorflow-vs-ai-first-instagram-dm",
+    "domen": "inflowave.io",
+    "title": "CreatorFlow Review 2026: Instagram AI Chatbot | Inflowave"
+   },
+   {
+    "url": "https://ot1-pro.com/blog/ai-sales-chatbot-instagram",
+    "domen": "ot1-pro.com",
+    "title": "AI Sales Chatbot for Instagram: 2026 Setup Guide — One Inbox"
+   },
+   {
+    "url": "https://www.instance.sale",
+    "domen": "instance.sale",
+    "title": "AI Sales CRM for Instagram | Instance"
+   },
+   {
+    "url": "https://boosend.ai/blog/best-instagram-ai-agents-for-business",
+    "domen": "boosend.ai",
+    "title": "Best Instagram AI Agent for Business in 2026 | BooSend | BooSend Blog"
+   },
+   {
+    "url": "https://theagency.io/services/ai-sales-agent-instagram",
+    "domen": "theagency.io",
+    "title": "AI Sales Agent for Instagram DMs"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://signalcore.ai/en/instagram-ai-chatbot",
+    "domen": "signalcore.ai",
+    "title": "Instagram AI Chatbot: Automate DMs, Comments & Sales"
+   },
+   {
+    "url": "https://www.inro.social/use-cases/let-ai-agent-handle-sales",
+    "domen": "inro.social",
+    "title": "Let an AI Agent Handle Sales in Your Instagram DMs | Inrō"
+   },
+   {
+    "url": "https://www.pilotdm.com/blog/how-to-use-ai-for-instagram-dm-automation-in-2026",
+    "domen": "pilotdm.com",
+    "title": "How to Use AI for Instagram DM Automation in 2026 - PilotDM - Instagram Automation for Creators & Brands"
+   },
+   {
+    "url": "https://salebot.pro/instagram_bot",
+    "domen": "salebot.pro",
+    "title": "Чат-боты для Instagram | автоответы в директ и на комментарии"
+   },
+   {
+    "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace",
+    "domen": "blog.chatplace.io",
+    "title": "ИИ-агенты для Instagram: умная автоматизация Директа"
+   },
+   {
+    "url": "https://papaisoft.com/chatbot-dlya-instagram",
+    "domen": "papaisoft.com",
+    "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов"
+   },
+   {
+    "url": "https://www.instance.sale",
+    "domen": "instance.sale",
+    "title": "AI Sales CRM for Instagram | Instance"
+   },
+   {
+    "url": "https://boosend.ai/blog/best-instagram-ai-agents-for-business",
+    "domen": "boosend.ai",
+    "title": "Best Instagram AI Agent for Business in 2026 | BooSend | BooSend Blog"
+   },
+   {
+    "url": "https://ot1-pro.com/blog/ai-sales-chatbot-instagram",
+    "domen": "ot1-pro.com",
+    "title": "AI Sales Chatbot for Instagram: 2026 Setup Guide — One Inbox"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 17763,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 2364
+  },
+  "cena": 0.07917,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011Cf7iVfiN5eFCvcuLAaGZm",
+    "request_id": "req_011Cf7iVf6u3GMCvG5iW7Lhc",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 17763,
+     "output_tokens": 2364,
+     "output_tokens_details": {
+      "thinking_tokens": 428
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "srvtoolu_01QhR3fVNdeJF58P37PUn1EF",
+    "caller": null,
+    "input": {
+     "query": "AI бот для директ инстаграм дожим клиента до оплаты"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01FV7UfY587sfZyca1Rwb29P",
+    "caller": null,
+    "input": {
+     "query": "AI sales chatbot follow up leads Instagram DM close booking payment 2026"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "Чат-боты для Instagram | автоответы в директ и на комментарии",
+      "type": "web_search_result",
+      "url": "https://salebot.pro/instagram_bot"
+     },
+     {
+      "page_age": "November 21, 2025",
+      "title": "Чат-боты для Инстаграм в 2026: полное руководство",
+      "type": "web_search_result",
+      "url": "https://blog.chatplace.io/chat-boty-instagram-2026-rukovodstvo/"
+     },
+     {
+      "page_age": "May 27, 2026",
+      "title": "ИИ-агенты для Instagram: умная автоматизация Директа",
+      "type": "web_search_result",
+      "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace/"
+     },
+     {
+      "page_age": "April 14, 2026",
+      "title": "Инстаграм-бот без кода за 10 минут: пошаговый гайд",
+      "type": "web_search_result",
+      "url": "https://blog.chatplace.io/chat-bot-v-instagram-bez-programmirovaniya-sozdayte-za-10-minut/"
+     },
+     {
+      "page_age": "June 12, 2026",
+      "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов",
+      "type": "web_search_result",
+      "url": "https://papaisoft.com/chatbot-dlya-instagram/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01QhR3fVNdeJF58P37PUn1EF",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "Let an AI Agent Handle Sales in Your Instagram DMs | Inrō",
+      "type": "web_search_result",
+      "url": "https://www.inro.social/use-cases/let-ai-agent-handle-sales"
+     },
+     {
+      "page_age": "3 weeks ago",
+      "title": "Instagram Automation Tools: 9 Best Tested (2026) - SetSmart",
+      "type": "web_search_result",
+      "url": "https://setsmart.io/blog/instagram-automation-tools"
+     },
+     {
+      "page_age": "June 20, 2026",
+      "title": "How to Use AI for Instagram DM Automation in 2026 - PilotDM - Instagram Automation for Creators & Brands",
+      "type": "web_search_result",
+      "url": "https://www.pilotdm.com/blog/how-to-use-ai-for-instagram-dm-automation-in-2026"
+     },
+     {
+      "page_age": "August 5, 2026",
+      "title": "Instagram AI Chatbot: Automate DMs, Comments & Sales",
+      "type": "web_search_result",
+      "url": "https://signalcore.ai/en/instagram-ai-chatbot/"
+     },
+     {
+      "page_age": "July 31, 2026",
+      "title": "CreatorFlow Review 2026: Instagram AI Chatbot | Inflowave",
+      "type": "web_search_result",
+      "url": "https://inflowave.io/resources/creatorflow-vs-ai-first-instagram-dm"
+     },
+     {
+      "page_age": "July 9, 2026",
+      "title": "AI Sales Chatbot for Instagram: 2026 Setup Guide — One Inbox",
+      "type": "web_search_result",
+      "url": "https://ot1-pro.com/blog/ai-sales-chatbot-instagram"
+     },
+     {
+      "page_age": null,
+      "title": "AI Sales CRM for Instagram | Instance",
+      "type": "web_search_result",
+      "url": "https://www.instance.sale/"
+     },
+     {
+      "page_age": "May 7, 2026",
+      "title": "Best Instagram AI Agent for Business in 2026 | BooSend | BooSend Blog",
+      "type": "web_search_result",
+      "url": "https://boosend.ai/blog/best-instagram-ai-agents-for-business"
+     },
+     {
+      "page_age": "May 3, 2026",
+      "title": "AI Sales Agent for Instagram DMs",
+      "type": "web_search_result",
+      "url": "https://theagency.io/services/ai-sales-agent-instagram"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01FV7UfY587sfZyca1Rwb29P",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Да, такие инструменты уже есть — это не просто боты с кнопками, а «ИИ-агенты продаж» для Директа, которые ведут диалог, отрабатывают возражения и сами доводят человека до записи/оплаты, а не просто присылают один шаблонный ответ.\n\n**Как это работает у нормальных решений**\n\nКлючевое отличие ИИ-агента от обычного автоответчика Meta — он не останавливается после первого сообщения. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Those fire a single canned message, something like 'Hi, thanks for reaching out, we'll get back to you soon', and that's where it ends. There's no fol...",
+      "title": "Instagram AI Chatbot: Automate DMs, Comments & Sales",
+      "type": "web_search_result_location",
+      "url": "https://signalcore.ai/en/instagram-ai-chatbot/"
+     }
+    ],
+    "text": "Обычные автоответы отправляют одно готовое сообщение вроде «Спасибо, скоро ответим» и на этом всё — без уточняющих вопросов, без проверки наличия, без записи. ИИ-агент же подхватывает диалог дальше: отвечает на второй и третий вопрос, снимает возражения и доводит до продажи, как это сделал бы лучший менеджер",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nЛогика именно «дожима» строится так: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The agent reads intent in real time. Pricing question? It sends your offer. Booking request? It drops the calendar link. Casual inquiry? It qualifies ...",
+      "title": "Let an AI Agent Handle Sales in Your Instagram DMs | Inrō",
+      "type": "web_search_result_location",
+      "url": "https://www.inro.social/use-cases/let-ai-agent-handle-sales"
+     }
+    ],
+    "text": "агент считывает намерение в реальном времени — если вопрос про цену, присылает оффер; если запрос на запись, скидывает ссылку на календарь; если просто интерес — квалифицирует и ведёт дальше по воронке",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". При этом ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "... Not everyone in your DMs is ready. Your agent filters out browsers, warms up the fence-sitters, and flags the people who are ready to pay, so your...",
+      "title": "Let an AI Agent Handle Sales in Your Instagram DMs | Inrō",
+      "type": "web_search_result_location",
+      "url": "https://www.inro.social/use-cases/let-ai-agent-handle-sales"
+     }
+    ],
+    "text": "не все, кто пишет, готовы купить сразу — агент отфильтровывает просто интересующихся, «догревает» сомневающихся и помечает тех, кто готов платить",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nВажный момент именно про вашу ситуацию — молчание после цены: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The automation captures the lead, sends the booking link, and follows up the next day if she hasn&#x27;t booked. No manual typing, no missed lead, eve...",
+      "title": "How to Use AI for Instagram DM Automation in 2026 - PilotDM - Instagram Automation for Creators & Brands",
+      "type": "web_search_result_location",
+      "url": "https://www.pilotdm.com/blog/how-to-use-ai-for-instagram-dm-automation-in-2026"
+     }
+    ],
+    "text": "хороший сценарий автоматизации фиксирует лид, отправляет ссылку на запись и, если человек не записался, сам пишет повторно на следующий день — без пропущенных лидов и ручного набора текста",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Это и есть автоматический «дожим».\n\n**Конкретные варианты**\n\nДля рунета (директ Instagram* / ВК):\n- **Salebot** — конструктор с ИИ-ботами: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Автоматизация ответов на реакции и сообщения в директ, комментарии и сторис с помощью чат-ботов и ИИ чат-ботов. Отслеживание лидов, авто-заявки в CRM,...",
+      "title": "Чат-боты для Instagram | автоответы в директ и на комментарии",
+      "type": "web_search_result_location",
+      "url": "https://salebot.pro/instagram_bot"
+     }
+    ],
+    "text": "автоматизация ответов на сообщения, комментарии и сторис через чат-ботов и ИИ, с отслеживанием лидов, авто-заявками в CRM и приёмом оплаты прямо в боте",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **ChatPlace** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "ИИ может работать как ассистент, который ведёт клиента через все точки контакта в Instagram – от первого комментария под видео до оплаты заказа...\n\nИИ...",
+      "title": "ИИ-агенты для Instagram: умная автоматизация Директа",
+      "type": "web_search_result_location",
+      "url": "https://blog.chatplace.io/claude-v-vashem-direkte-podklyuchenie-ii-agenta-chatplace/"
+     }
+    ],
+    "text": "ИИ работает как ассистент, ведущий клиента через все точки контакта в Instagram — от первого комментария до оплаты заказа",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **papaisoft** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "ИИ-бот для Instagram Direct: отвечает на вопросы о товарах и услугах, квалифицирует входящие обращения, записывает клиентов и передаёт горячие лиды в ...",
+      "title": "Чат-бот для Instagram | Автоответы в Direct и квалификация лидов",
+      "type": "web_search_result_location",
+      "url": "https://papaisoft.com/chatbot-dlya-instagram/"
+     }
+    ],
+    "text": "ИИ-бот отвечает на вопросы о товарах/услугах, квалифицирует обращения, записывает клиентов и передаёт горячие лиды в CRM без участия менеджера",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nЗарубежные (если работаете на английском/международную аудиторию):\n- **Inrō** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Qualify leads, answer questions, and close sales in Instagram DMs automatically with an AI agent trained on your business. Built on Meta&#x27;s offici...",
+      "title": "Let an AI Agent Handle Sales in Your Instagram DMs | Inrō",
+      "type": "web_search_result_location",
+      "url": "https://www.inro.social/use-cases/let-ai-agent-handle-sales"
+     }
+    ],
+    "text": "квалифицирует лидов, отвечает на вопросы и закрывает продажи в Instagram DM автоматически на базе официального API Meta",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **Instance** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "... AI handles your complete Instagram DM conversations 24/7 in your tone, your way. It talks to everyone who messages, answers questions, nurtures pr...",
+      "title": "AI Sales CRM for Instagram | Instance",
+      "type": "web_search_result_location",
+      "url": "https://www.instance.sale/"
+     }
+    ],
+    "text": "ведёт полный диалог в директе 24/7 вашим тоном, отвечает на вопросы, прогревает, делает follow-up, собирает контакты и присылает ссылки на оплату",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **SetSmart** — по отзывам, один из лидеров именно по качеству ИИ-диалогов и записи на звонки/встречи.\n\n**На что обратить внимание перед подключением**\n\n1. Инструмент должен работать через официальный API Meta, а не через «серые» скрипты — иначе риск блокировки аккаунта. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Instagram DM automation is safest when it uses official Meta APIs and follows Meta’s platform rules. Riskier tools may rely on scraping, click emulati...",
+      "title": "Best Instagram AI Agent for Business in 2026 | BooSend | BooSend Blog",
+      "type": "web_search_result_location",
+      "url": "https://boosend.ai/blog/best-instagram-ai-agents-for-business"
+     }
+    ],
+    "text": "Автоматизация директа безопаснее всего через официальные API Meta и с соблюдением её правил — более рискованные инструменты используют скрапинг или эмуляцию кликов, поэтому стоит выбирать разрешённые способы",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n2. ИИ не заменит правильно упакованный оффер — он лишь снимает рутину. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "It identifies buying signals. It qualifies leads. It hands off hot prospects to a human at the right moment. ",
+      "title": "AI Sales Chatbot for Instagram: 2026 Setup Guide — One Inbox",
+      "type": "web_search_result_location",
+      "url": "https://ot1-pro.com/blog/ai-sales-chatbot-instagram"
+     }
+    ],
+    "text": "Хороший бот считывает сигналы готовности купить, квалифицирует лида и передаёт горячего клиента человеку в нужный момент",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", но сам текст цены/оффера и скрипт отработки возражений всё равно настраиваете вы (или совместно с сервисом).\n3. Реальная причина «тишины» часто не в отсутствии автоответа, а в том, что называние цены без контекста пугает — агент должен не просто «дожимать», а разбираться, почему человек замолчал (сомнение в цене, сравнивает с конкурентами, не готов сейчас) и предлагать релевантный следующий шаг (рассрочка, кейсы, бонус, живая консультация).\n\nЕсли скажете, в какой нише и на какой платформе (Instagram, WhatsApp, Telegram) у вас идёт переписка, могу подсказать более точечно, какой из инструментов подойдёт по бюджету и функционалу.",
+    "type": "text"
+   }
+  ]
+ }
+}

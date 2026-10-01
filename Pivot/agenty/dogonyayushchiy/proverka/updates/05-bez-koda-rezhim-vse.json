@@ -1,0 +1,54 @@
+{
+  "opisanie": "SPEC 7.1 №05. Без кода, режим vse: шаблон согласия с кнопками (раскрытие: виртуальный ассистент, Claude компании Anthropic), status zhdem_soglasiya, модель не вызывается до согласия.",
+  "env": {
+    "DOGON_REZHIM": "vse"
+  },
+  "podgotovka": {
+    "svyaz/bc-test-1": {
+      "id": "bc-test-1",
+      "user_id": 7000,
+      "user_chat_id": 7000,
+      "rights": {
+        "can_reply": true
+      },
+      "is_enabled": true,
+      "t": "@now-30d"
+    }
+  },
+  "update": {
+    "update_id": 1005,
+    "business_message": {
+      "message_id": 203,
+      "from": {
+        "id": 5003,
+        "is_bot": false,
+        "first_name": "Павел",
+        "username": "pavel_kofe",
+        "language_code": "ru"
+      },
+      "chat": {
+        "id": 5003,
+        "type": "private",
+        "first_name": "Павел",
+        "username": "pavel_kofe"
+      },
+      "date": "@unix",
+      "business_connection_id": "bc-test-1",
+      "text": "Здравствуйте, сколько по деньгам Дежурный для кофейни?"
+    }
+  },
+  "ozhidaem": {
+    "tg_metody": [
+      "sendMessage"
+    ],
+    "klientu": 1,
+    "klientu_knopki": true,
+    "tekst_soderzhit": [
+      "виртуальный ассистент",
+      "Anthropic"
+    ],
+    "meta_chat": 5003,
+    "meta_status": "zhdem_soglasiya",
+    "model_vyzovov": 0
+  }
+}

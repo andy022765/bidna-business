@@ -1,0 +1,70 @@
+Overview
+New Fees implemented August 1, 2025 
+TCR increased some of their standard fees on August 1, 2025. Here’s a quick look:
+Fee Type | 
+Previous | 
+Current | 
+Brand Registration | 
+$4.00 | 
+$4.50 | 
+Standard Vetting | 
+$40.00 (per vetting) | 
+$41.50 | 
+Vetting Appeal | 
+$10.00 | 
+$11.00 | 
+Authentication Plus | 
+$0.00 | 
+$12.50 per retry (for eligible brands) | 
+Note: The Authentication Plus fee applies only to public, for-profit brands. Previously, a fee was not charged during initial verification — starting August 1, it is charged each time the step needs to be retried due to an error or incorrect submission. Authentication Plus is not available for non-profit brands at this time.
+A2P 10DLC refers to a system in the United States that allows businesses to send Application-to-Person (A2P) type messaging via standard 10-digit long code (10DLC) phone numbers. This system is specific to long code messaging toward the United States, and does not affect short codes or Toll-Free numbers sent to the US.
+For an overview of A2P 10DLC and answers to many common questions, see What is A2P 10DLC?
+Environment
+legacy Twilio Console
+What You Need To Know
+A2P 10DLC Pricing Overview 🔗
+There are two categories of fees associated with A2P 10DLC: registration fees, and per-message carrier fees. Both types of fees are charged by carriers as part of the A2P 10DLC system, and are passed through by Twilio to our customers with no added cost.
+Registration fees are applied when registering your US A2P Brand and your A2P Use Case, the moment they are registered with TCR.
+Carrier fees are charged by carriers for A2P 10DLC messages sent to users on their networks. These fees are applied in addition to Twilio’s standard US Messaging pricing. In general, the fees are applied for each outbound SMS segment or MMS message. T-Mobile (including Sprint) also applies fees to inbound SMS and MMS.
+Please see below for a full breakdown of the fees associated with A2P 10DLC. 
+Registration Fees 🔗
+Brand Registration
+US A2P Sole Proprietor Brand registration fee: $4.50 one-time registration fee (no Secondary Vetting for A2P 10DLC). 
+US A2P Low Volume Standard Brand registration fee: $4.50 one-time registration fee (no Secondary Vetting for A2P 10DLC).
+US A2P Standard Brand registration fee: $46 one-time registration fee (includes Secondary Vetting for A2P 10DLC).
+Note: Brand creation fee is charged at the time of creation with TCR and your Brand may still be in an unverified state. To avoid additional charges follow troubleshooting steps here if your Brand is in an unverified state. 
+If you’re an individual or small business without a Tax ID (EIN), please see New Changes to Sole Proprietor Brands FAQ for more details on how to register.
+ If you have a Tax ID (EIN) and low traffic requirement (less than 6,000 messages per day), Low Volume Standard Brands can be used for mixed messaging campaigns with multiple use cases, multiple numbers per campaign, and higher throughput than Sole Prop.
+If you have a Tax ID (EIN) and higher traffic requirement (more than 6,000 messages per day), Standard Brands can be used for multiple use cases, multiple numbers per campaign, and higher throughput.
+For a full overview of the different Brand registration offerings, see our Comparison between Sole Prop, Low Volume Standard, and Standard registration for A2P 10DLC. 
+Campaign Registration
+US A2P Campaign use case registration fees: $15 vetting fee
+US A2P Recurring Monthly Campaign registration fees:
+Campaign use case type | 
+Cost** | 
+Sole Prop (Starter) | 
+$2/month | 
+Standard (see Table 1 here)
+ | 
+$10/month | 
+Low-volume* mixed use case | 
+$1.50/month | 
+Special: Charity / 501(c)(3) Nonprofit | 
+$3/month | 
+Special: Emergency Services | 
+$5/month | 
+Low Volume Mixed use cases support up to 2,000 SMS segments and MMS per day toward T-Mobile (see T-Mobile daily limits), and are given a lower message throughput (MPS) than other use cases, regardless of Trust Score. 
+The Campaign use case registration fee is billed at time of approval, then as a renewal fee for the same amount each month, unless the Campaign is deactivated/deleted.
+For details about campaign use cases, see List of campaign use case types for A2P 10DLC registration.
+Brand Appeal Fees 🔗
+Fees for unverified brand and trust score appeals:
+For fees related to correcting nonprofit or government verification status on a brand, please see: Additional Fee Scenarios when Correcting Nonprofit/Government Verification
+For more information about resubmitting brands, please see our product documentation on Resubmitting Standard/LVS Brands. 
+Carrier Fees 🔗
+In addition to the Twilio fee for sending SMS traffic in the United States (US), all carriers in the US also charge a Carrier Fee.  While volume pricing can apply to the Twilio Fee, since this Carrier Fee is passed through from the carrier every message segment is charged the same fee.
+Each carrier has their own fee; for complete details, refer to the 'Long code' table under the 'Carrier fees' section in the Twilio’s pricing guide.
+Frequently Asked Questions
+Where can I review charges I’ve incurred? 
+You can review the charges incurred on your monthly invoice, the CSV supplement to the invoice, the Billing Usage Summary page in your Twilio Console, and via the Usage API.
+See Reading your Twilio Invoice for details on how to read your Twilio invoice. Your invoice will show you the aggregate usage per fee across all your subaccounts and throughout all days of the month. How to Read the Twilio Invoice CSV Supplement explains how to use the CSV supplement, which also provides a split of fees per subaccount. Review your Twilio project usage and metrics explains how to use the Usage API or view the Usage page in the Twilio Console.
+Based on the type of Brand(s) and Campaign(s) registered, the exact name of the fees may differ on your invoice.

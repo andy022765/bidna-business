@@ -1,0 +1,49 @@
+{
+  "_zachem": "Поля заявки кампании A2P 10DLC в именах API Twilio (POST /v1/Services/{MG…}/Compliance/Usa2p). Ключи с «_» при отправке выбросить. НЕ ОТПРАВЛЕНО. Подавать только после выкладки страницы /sms-consent/ и новой /sms и живой проверки proverit.py (она же проверяет, что каждый адрес из этих полей отвечает 200). Четыре текста SMS (OptIn/OptOut/Help и подтверждение) sobrat.py сверяет с tekst-soglasiya.json; кириллица в полях заявки запрещена (отказ 30910).",
+  "_brand": "Бренд в TCR — Wealthboosterpro LLC (поля DBA в профиле нет, проверено 29.09), поэтому юрлицо стоит рядом с брендом в Description, примере 1, OptIn/OptOut/Help. LVS одобрен 29.09 · TCR B98FX5S",
+
+  "BrandRegistrationSid": "BNd8e5587960b8d914a87262c338ae75e4",
+  "UsAppToPersonUsecase": "LOW_VOLUME",
+
+  "Description": "Business Intelligence DNA is the registered trade name (DBA) of Wealthboosterpro LLC, a small US consulting firm for small business owners: we set up AI phone receptionists, help businesses get named by AI assistants, and run business diagnostics. English pages: https://businessinteldna.com/en/, https://businessinteldna.com/vera/ and https://businessinteldna.com/diagnostic/. Many of our clients are Russian-speaking owners of US businesses, so some messages are sent in Russian; they carry the same brand name and STOP instructions as the English samples. We text people who contacted us about our services and then opted in on our website. Messages are: (1) confirmations and reminders of calls they booked with us, and replies to questions they asked us; (2) marketing messages, only for people who ticked a separate optional marketing box: follow-ups and offers about the service they asked us about. We never text anyone who has not opted in on our website, and we never buy, rent or import phone numbers. Expected volume is a few messages per day.",
+
+  "MessageFlow": "End users opt in only in writing, on our website, and opting in is optional. People first contact us (website form, email, phone call or Telegram); we then email them a link to our public SMS preferences page https://businessinteldna.com/sms-consent/ (Russian version with the same checkboxes and disclosures, translated: https://businessinteldna.com/sms-consent/ru/). No login is needed; the page is linked from our SMS Terms at https://businessinteldna.com/sms. On the page the user enters a US mobile number and may tick two separate checkboxes, both unchecked by default and both optional: (1) texts about their request and appointments; (2) marketing texts: follow-ups and offers about the service they asked about. The form can be saved with neither box ticked, and nothing else we provide depends on it. Next to the checkboxes the page states the brand name Business Intelligence DNA (Wealthboosterpro LLC), that the messages are recurring and automated, the kinds of messages, 'Consent is not a condition of any purchase', 'Message frequency varies, up to 8 messages per month', 'Msg & data rates may apply', 'Reply STOP to cancel at any time; reply HELP for help', the sending number, that no mobile information will be shared with third parties or affiliates for marketing or promotional purposes, and links to our SMS Terms (https://businessinteldna.com/sms), Privacy Policy (https://businessinteldna.com/privacy) and Terms of Service (https://businessinteldna.com/terms). After opt-in we send one confirmation text with the program name, frequency, rates and HELP/STOP instructions. The keyword START only re-subscribes a number that opted in on the page and later replied STOP; there is no keyword opt-in. For every opt-in we record the number, the boxes ticked, date and time, IP address, browser, page and consent text version.",
+
+  "MessageSamples": [
+    "Business Intelligence DNA (Wealthboosterpro LLC): your call with Andrii is booked for Thu, Oct 8 at 11:00 AM PT. The Zoom link is in your email. Need another time? Just reply. Reply STOP to opt out.",
+    "Business Intelligence DNA: thanks for your question about Vera, our AI receptionist and sales rep. Prices and how it works: https://businessinteldna.com/vera/ Questions? Call +1 424 781 1913. Reply STOP to opt out.",
+    "Business Intelligence DNA: hi [First name], the proposal for [Business name] that you asked for is in your inbox. Want to go ahead or have questions? Just reply. Reply STOP to opt out.",
+    "Business Intelligence DNA: hi [First name], you asked how to get your business named by ChatGPT and other AI assistants. Our visibility quarter: https://businessinteldna.com/visibility/ Want to start? Just reply. Reply STOP to opt out.",
+    "Business Intelligence DNA: reminder, your call with Andrii is tomorrow, [Date], at [Time] PT. The Zoom link is in your email. Reply STOP to opt out."
+  ],
+
+  "HasEmbeddedLinks": true,
+  "HasEmbeddedPhone": true,
+  "SubscriberOptIn": true,
+  "AgeGated": false,
+  "DirectLending": false,
+
+  "OptInKeywords": [
+    "START"
+  ],
+  "OptInMessage": "Business Intelligence DNA (Wealthboosterpro LLC): you're signed up for the texts you chose on our site. Up to 8 msgs/mo. Msg & data rates may apply. Reply HELP for help, STOP to cancel.",
+  "OptOutKeywords": [
+    "STOP",
+    "STOPALL",
+    "UNSUBSCRIBE",
+    "CANCEL",
+    "END",
+    "QUIT",
+    "REVOKE",
+    "OPTOUT"
+  ],
+  "OptOutMessage": "Business Intelligence DNA (Wealthboosterpro LLC): you're unsubscribed and will get no more texts from us. Reply START to resubscribe.",
+  "HelpKeywords": [
+    "HELP",
+    "INFO"
+  ],
+  "HelpMessage": "Business Intelligence DNA (Wealthboosterpro LLC): help at support@businessinteldna.com or +1 424 781 1913. Up to 8 msgs/mo. Msg & data rates may apply. Reply STOP to cancel.",
+
+  "PrivacyPolicyUrl": "https://businessinteldna.com/privacy",
+  "TermsAndConditionsUrl": "https://businessinteldna.com/sms"
+}

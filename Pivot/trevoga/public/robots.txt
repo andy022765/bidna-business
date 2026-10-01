@@ -1,0 +1,8 @@
+# Сайт служебный: индексировать нечего. Исключение — ящик медиа /m/: Meta забирает ролики рекламы по ссылке и уважает robots.txt
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /m/
+Allow: /.netlify/functions/media/
+Disallow: /

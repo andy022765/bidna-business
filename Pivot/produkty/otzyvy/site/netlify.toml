@@ -1,0 +1,65 @@
+# Отдельный сайт Netlify «Сборщик отзывов». Не рядом с Верой: неудачная выкладка здесь не кладёт её
+# линию, а 4 КБ переменных у каждого сайта свои (грабля 4kb-peremennyh-lambda). Кредиты Netlify при этом
+# общие на аккаунт — этот риск отдельный сайт не снимает, его держат выключатель и потолки.
+
+[build]
+  publish = "web"
+
+# Без esbuild зависимости функций не попадают в сборку (грабля 03.09 и 12.09 на двух сайтах).
+[functions]
+  directory = "netlify-functions"
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# РАСПИСАНИЯ. [не проверено] подхватывается ли расписание при выкладке готовой папкой через CLI —
+# проверяется пульсом в zdorovie через 2 часа после выкладки (PLAN-V1 п. 2). Стена такой функции — 30 с.
+[functions."planirovshchik"]
+  schedule = "7 * * * *"
+
+[functions."slezhenie"]
+  schedule = "20 */3 * * *"
+
+[functions."ezhednevno"]
+  schedule = "0 17 * * *"
+
+# Короткие адреса для ссылок из писем.
+[[redirects]]
+  from = "/otpiska"
+  to = "/.netlify/functions/otpiska"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/k"
+  to = "/.netlify/functions/k"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/vizity"
+  to = "/.netlify/functions/vizity"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/otzyv"
+  to = "/.netlify/functions/otzyv"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/reshenie"
+  to = "/.netlify/functions/reshenie"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"

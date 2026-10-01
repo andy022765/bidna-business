@@ -1,0 +1,40 @@
+# Template: sources/<src-id>/meta.yaml
+id: src-20260924-telegram-soobshchestva-ssha
+url: https://t.me/NYchatik
+canonical_url: https://t.me/
+type: dataset
+title: 'Snapshot of public Telegram previews (t.me) for Russian-speaking US communities, 2026-09-24'
+authors: [{name: "Business Intel DNA (own snapshot)"}]
+published: 2026-09-24
+fetched_at: 2026-09-24T19:00:00Z
+language: ru
+fetch_method: webfetch (curl t.me previews)
+storage:
+  original: original.md (таблица 36 страниц t.me; email-адреса скрыты)
+  bytes: 13421
+
+relevance: 5
+quality: 7
+quality_breakdown:
+  primary_source: true
+  author_credible: false
+  has_math: false
+  has_empirics: true
+  reproducible: true
+  recent: true
+  cited: false
+  substance_over_disclaimer: true
+
+bias:
+  protocol_sponsored: false
+  marketing: false
+  notes: 'Собственный срез публичных счётчиков. Участники не равны владельцам бизнеса; в больших чатах есть боты и неактивные. Выборка каналов — из поиска и перечней, не полная перепись. Tgstat недоступен (403).'
+
+extracted:
+  notes: [n-telegram-gorodskie-chaty-17-21-tysyacha, n-biznes-chat-ssha-12-tysyach-kommercheskiy, n-trak-telegram-soobshchestva-5-7-tysyach, n-kanaly-vakansiy-vladelcy-kak-rabotodateli, n-reklama-v-chatah-cherez-adminov-i-botov]
+  claims: [c-0410, c-0411]
+  contradictions: []
+  outbound_links_tracked: 4
+
+status: processed
+reject_reason: null

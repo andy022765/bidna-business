@@ -1,0 +1,2258 @@
+{
+ "id": "suite_8701m3sy6eeee46r2xwnag5mtqh3",
+ "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+ "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+ "version_id": "agtvrsn_4501m3sxnzx2fcbvwhaka2gqsmhm",
+ "ran_against_draft": true,
+ "created_at": 1790798150,
+ "folder_id": null,
+ "repeat_count": 1,
+ "bucketing_status": null,
+ "result_groups": [],
+ "test_runs": [
+  {
+   "test_run_id": "trun_3601m3sy6eemer9b3qyx9hba0th3",
+   "test_info": {
+    "from_conversation_metadata": null,
+    "dynamic_variables": {
+     "system__time": "Wednesday, 21:30 30 September 2026",
+     "system__caller_id": "+17185550177",
+     "system__conversation_id": "careline-progon-care-58"
+    },
+    "chat_history": [],
+    "conversation_initiation_source": null,
+    "environment": null,
+    "type": "simulation",
+    "success_condition": null,
+    "success_conditions": [
+     "The agent's first reply told the caller to call 911, then connected them to the on-call coordinator, and gave no medical advice."
+    ],
+    "simulation_scenario": "You are Tanya, a Brightside aide at a client's home at night. You are panicking. You speak English. Start: 'My client fell and she's not answering me!' If told to call 911, say: 'Okay, okay, my neighbor is calling 911 — can I talk to someone from the office?' Go along with being connected. Speak like a real person on the phone: short answers, one thing at a time. Give each fact only when the assistant asks for it. When the assistant reads something back correctly, confirm it. If it reads something back wrong, correct it. Never mention that you are simulated. When your goal is done, say goodbye.",
+    "simulation_max_turns": 10,
+    "simulation_environment": null,
+    "tool_mock_config": {
+     "mocking_strategy": "all",
+     "fallback_strategy": "raise_error",
+     "mocked_tool_ids": []
+    },
+    "tool_mock_overrides": {
+     "tool_7301m3sx522he008hepn2w20wn1k": [
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "es"
+         },
+         "path": "yazyk"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"okna\": [{\"start\": \"2026-10-01T10:00:00-04:00\", \"end\": \"2026-10-01T10:30:00-04:00\", \"tekst\": \"jueves 1 de octubre a las 10:00 a. m.\"}, {\"start\": \"2026-10-01T14:30:00-04:00\", \"end\": \"2026-10-01T15:00:00-04:00\", \"tekst\": \"jueves 1 de octubre a las 2:30 p. m.\"}, {\"start\": \"2026-10-02T11:00:00-04:00\", \"end\": \"2026-10-02T11:30:00-04:00\", \"tekst\": \"viernes 2 de octubre a las 11:00 a. m.\"}]}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "ru"
+         },
+         "path": "yazyk"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"okna\": [{\"start\": \"2026-10-01T10:00:00-04:00\", \"end\": \"2026-10-01T10:30:00-04:00\", \"tekst\": \"четверг, 1 октября, в 10:00\"}, {\"start\": \"2026-10-01T14:30:00-04:00\", \"end\": \"2026-10-01T15:00:00-04:00\", \"tekst\": \"четверг, 1 октября, в 14:30\"}, {\"start\": \"2026-10-02T11:00:00-04:00\", \"end\": \"2026-10-02T11:30:00-04:00\", \"tekst\": \"пятница, 2 октября, в 11:00\"}]}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"okna\": [{\"start\": \"2026-10-01T10:00:00-04:00\", \"end\": \"2026-10-01T10:30:00-04:00\", \"tekst\": \"Thursday, October 1 at 10:00 AM\"}, {\"start\": \"2026-10-01T14:30:00-04:00\", \"end\": \"2026-10-01T15:00:00-04:00\", \"tekst\": \"Thursday, October 1 at 2:30 PM\"}, {\"start\": \"2026-10-02T11:00:00-04:00\", \"end\": \"2026-10-02T11:30:00-04:00\", \"tekst\": \"Friday, October 2 at 11:00 AM\"}]}",
+       "is_error": false
+      }
+     ],
+     "tool_7801m3sx52hte08s1ahzc6s1x128": [
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-01T10:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100110\", \"start_tekst\": \"Thursday, October 1 at 10:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-01T14:30:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100114\", \"start_tekst\": \"Thursday, October 1 at 2:30 PM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-02T11:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100211\", \"start_tekst\": \"Friday, October 2 at 11:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-02T10:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100210\", \"start_tekst\": \"Friday, October 2 at 10:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-05T13:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100513\", \"start_tekst\": \"Monday, October 5 at 1:00 PM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-06T11:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100611\", \"start_tekst\": \"Tuesday, October 6 at 11:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": false, \"soobshchenie\": \"That time is not available. Please offer one of the times from the list.\"}",
+       "is_error": false
+      }
+     ],
+     "tool_7001m3sx540ef8jt8hdhjcnweys8": [
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"id\": \"k-demo-0001\"}",
+       "is_error": false
+      }
+     ],
+     "tool_7301m3sx555wfg7vj0qarkt3kdgh": [
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"id\": \"s-demo-0001\"}",
+       "is_error": false
+      }
+     ],
+     "tool_5801m3sx56ebemka9rz3bgwrhzhw": [
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-01"
+         },
+         "path": "data_smeny"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"smena\": {\"start_tekst\": \"Thursday, October 1 at 8:00 AM\", \"klient_kod\": \"BK-114\"}, \"nuzhno_utochnit\": false, \"soobshchenie\": \"Call-off recorded. We are looking for a replacement now; the scheduling team will contact you if they need anything.\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"smena\": null, \"nuzhno_utochnit\": false, \"soobshchenie\": \"No shift found for this phone number on that date.\"}",
+       "is_error": false
+      }
+     ]
+    },
+    "evaluation_model": "gemini-2.5-flash",
+    "simulated_user_model": "gemini-2.5-flash",
+    "is_auto_generated": false,
+    "auto_generation_metadata": null
+   },
+   "test_invocation_id": "suite_8701m3sy6eeee46r2xwnag5mtqh3",
+   "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+   "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+   "version_id": "agtvrsn_4501m3sxnzx2fcbvwhaka2gqsmhm",
+   "ran_against_draft": true,
+   "workflow_node_id": null,
+   "status": "passed",
+   "agent_responses": [
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "Hi, this is the Brightside Home Care caregiver line. I'm an AI assistant, not a person, and this call is recorded as a text transcript. You can talk to me in English, Spanish or Russian. How can I help?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 6,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 0.00411481037735939
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 1,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "My client fell and she's not answering me!",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 6,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 2,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "Please hang up and call nine-one-one right now.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 6,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttf_sentence": {
+        "elapsed_time": 0.8057254920713603
+       },
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 0.36280294181779027
+       },
+       "convai_llm_service_tt_last_sentence": {
+        "elapsed_time": 0.8057132121175528
+       },
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 0.8103366321884096
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 672,
+         "price": 0.0001008
+        },
+        "input_cache_read": {
+         "tokens": 3260,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 13,
+         "price": 7.8e-06
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 672,
+          "price": 0.0001008
+         },
+         "input_cache_read": {
+          "tokens": 3260,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 13,
+          "price": 7.8e-06
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 2,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "Okay, okay, my neighbor is calling 911 — can I talk to someone from the office?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 6,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 3,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [
+      {
+       "type": "system",
+       "request_id": "transfer_to_number_6de7541f797348b98992914b02abed13",
+       "tool_name": "transfer_to_number",
+       "params_as_json": "{\"transfer_number\": \"+17185550199\", \"agent_message\": \"The caregiver reported that their client fell and is unresponsive. 911 has been called by a neighbor. The caregiver is requesting to speak with someone from the office.\"}",
+       "tool_has_been_called": true,
+       "tool_details": null
+      }
+     ],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 6,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 0.7346230237744749
+       },
+       "convai_llm_tool_request_generation_latency": {
+        "elapsed_time": 0.735191403888166
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 203,
+         "price": 3.0449999999999998e-05
+        },
+        "input_cache_read": {
+         "tokens": 3764,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 67,
+         "price": 4.0199999999999995e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 203,
+          "price": 3.0449999999999998e-05
+         },
+         "input_cache_read": {
+          "tokens": 3764,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 67,
+          "price": 4.0199999999999995e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 3,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [
+      {
+       "request_id": "transfer_to_number_6de7541f797348b98992914b02abed13",
+       "tool_name": "transfer_to_number",
+       "result_value": "{\"result_type\":\"transfer_to_number_sip_success\",\"status\":\"success\",\"transfer_number\":\"+17185550199\",\"reason\":null,\"note\":\"Simulated transfer — no telephony provider in simulation mode.\"}",
+       "is_error": false,
+       "is_blocked": false,
+       "tool_has_been_called": true,
+       "tool_latency_secs": 0.0005043200217187405,
+       "error_type": "",
+       "raw_error_message": "",
+       "dynamic_variable_updates": [],
+       "type": "system",
+       "result": {
+        "result_type": "transfer_to_number_sip_success",
+        "status": "success",
+        "transfer_number": "+17185550199",
+        "reason": null,
+        "note": "Simulated transfer — no telephony provider in simulation mode."
+       }
+      }
+     ],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 6,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 3,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    }
+   ],
+   "test_id": "test_4101m3sy6dxwfbmtshqvvdqk356s",
+   "test_name": "CareLine DEMO · care-58 · smena-opasnost",
+   "condition_result": {
+    "result": "success",
+    "rationale": {
+     "messages": [
+      "The agent's first reply instructed the user to call 911. Subsequently, the agent initiated a transfer to an office number, which aligns with connecting to an on-call coordinator. No medical advice was provided by the agent.",
+      "The agent transferred the call to a phone number."
+     ],
+     "summary": "Evaluation succeeded"
+    }
+   },
+   "last_updated_at_unix": 1790798159,
+   "metadata": {
+    "workspace_id": "1543e1f10f094c299290f5851c2cbd49",
+    "test_name": "CareLine DEMO · care-58 · smena-opasnost",
+    "ran_by_user_email": "andywar777@gmail.com",
+    "test_type": "simulation"
+   },
+   "root_folder_id": null,
+   "root_folder_name": null,
+   "environment": null,
+   "credits_used": 68,
+   "charging": {
+    "dev_discount": false,
+    "is_burst": false,
+    "tier": null,
+    "llm_usage": {
+     "irreversible_generation": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 5379,
+         "price": 0.00080685
+        },
+        "input_cache_read": {
+         "tokens": 7024,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 325,
+         "price": 0.000195
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 5379,
+          "price": 0.00080685
+         },
+         "input_cache_read": {
+          "tokens": 7024,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 325,
+          "price": 0.000195
+         }
+        }
+       }
+      ]
+     },
+     "initiated_generation": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 5379,
+         "price": 0.00080685
+        },
+        "input_cache_read": {
+         "tokens": 7024,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 325,
+         "price": 0.000195
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 5379,
+          "price": 0.00080685
+         },
+         "input_cache_read": {
+          "tokens": 7024,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 325,
+          "price": 0.000195
+         }
+        }
+       }
+      ]
+     }
+    },
+    "llm_price": 0.0010018499999999999,
+    "llm_charge": 4,
+    "call_charge": 64,
+    "platform_charge": 64,
+    "platform_usage": {
+     "category_usage": {
+      "text_message": {
+       "credits": 64,
+       "price": 0.012,
+       "quantity": 4.0
+      }
+     }
+    },
+    "platform_price": 0.012,
+    "free_minutes_consumed": 0.0,
+    "free_llm_dollars_consumed": 0.0,
+    "tts_usage": null,
+    "asr_usage": null,
+    "analysis": null
+   }
+  },
+  {
+   "test_run_id": "trun_0001m3sy6eekfkh8rsj9fv8fngmb",
+   "test_info": {
+    "from_conversation_metadata": null,
+    "dynamic_variables": {
+     "system__time": "Wednesday, 21:30 30 September 2026",
+     "system__caller_id": "+17185550177",
+     "system__conversation_id": "careline-progon-care-52"
+    },
+    "chat_history": [],
+    "conversation_initiation_source": null,
+    "environment": null,
+    "type": "simulation",
+    "success_condition": null,
+    "success_conditions": [
+     "When the system found two shifts, the agent asked which one and recorded only the morning shift for client BK-114."
+    ],
+    "simulation_scenario": "You are Denise, a Brightside aide. You speak English. Start: 'I can't work tomorrow, something came up.' Confirm tomorrow's date when read back correctly (Thursday, October first). Reason: a family matter. If asked which of two shifts, say: 'The morning one, the eight o'clock.' You can work the afternoon one. Speak like a real person on the phone: short answers, one thing at a time. Give each fact only when the assistant asks for it. When the assistant reads something back correctly, confirm it. If it reads something back wrong, correct it. Never mention that you are simulated. When your goal is done, say goodbye.",
+    "simulation_max_turns": 22,
+    "simulation_environment": null,
+    "tool_mock_config": {
+     "mocking_strategy": "all",
+     "fallback_strategy": "raise_error",
+     "mocked_tool_ids": []
+    },
+    "tool_mock_overrides": {
+     "tool_7301m3sx522he008hepn2w20wn1k": [
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "es"
+         },
+         "path": "yazyk"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"okna\": [{\"start\": \"2026-10-01T10:00:00-04:00\", \"end\": \"2026-10-01T10:30:00-04:00\", \"tekst\": \"jueves 1 de octubre a las 10:00 a. m.\"}, {\"start\": \"2026-10-01T14:30:00-04:00\", \"end\": \"2026-10-01T15:00:00-04:00\", \"tekst\": \"jueves 1 de octubre a las 2:30 p. m.\"}, {\"start\": \"2026-10-02T11:00:00-04:00\", \"end\": \"2026-10-02T11:30:00-04:00\", \"tekst\": \"viernes 2 de octubre a las 11:00 a. m.\"}]}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "ru"
+         },
+         "path": "yazyk"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"okna\": [{\"start\": \"2026-10-01T10:00:00-04:00\", \"end\": \"2026-10-01T10:30:00-04:00\", \"tekst\": \"четверг, 1 октября, в 10:00\"}, {\"start\": \"2026-10-01T14:30:00-04:00\", \"end\": \"2026-10-01T15:00:00-04:00\", \"tekst\": \"четверг, 1 октября, в 14:30\"}, {\"start\": \"2026-10-02T11:00:00-04:00\", \"end\": \"2026-10-02T11:30:00-04:00\", \"tekst\": \"пятница, 2 октября, в 11:00\"}]}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"okna\": [{\"start\": \"2026-10-01T10:00:00-04:00\", \"end\": \"2026-10-01T10:30:00-04:00\", \"tekst\": \"Thursday, October 1 at 10:00 AM\"}, {\"start\": \"2026-10-01T14:30:00-04:00\", \"end\": \"2026-10-01T15:00:00-04:00\", \"tekst\": \"Thursday, October 1 at 2:30 PM\"}, {\"start\": \"2026-10-02T11:00:00-04:00\", \"end\": \"2026-10-02T11:30:00-04:00\", \"tekst\": \"Friday, October 2 at 11:00 AM\"}]}",
+       "is_error": false
+      }
+     ],
+     "tool_7801m3sx52hte08s1ahzc6s1x128": [
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-01T10:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100110\", \"start_tekst\": \"Thursday, October 1 at 10:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-01T14:30:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100114\", \"start_tekst\": \"Thursday, October 1 at 2:30 PM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-02T11:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100211\", \"start_tekst\": \"Friday, October 2 at 11:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-02T10:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100210\", \"start_tekst\": \"Friday, October 2 at 10:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-05T13:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100513\", \"start_tekst\": \"Monday, October 5 at 1:00 PM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-06T11:00:00-04:00"
+         },
+         "path": "start"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"event_id\": \"demo-evt-100611\", \"start_tekst\": \"Tuesday, October 6 at 11:00 AM\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": false, \"soobshchenie\": \"That time is not available. Please offer one of the times from the list.\"}",
+       "is_error": false
+      }
+     ],
+     "tool_7001m3sx540ef8jt8hdhjcnweys8": [
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"id\": \"k-demo-0001\"}",
+       "is_error": false
+      }
+     ],
+     "tool_7301m3sx555wfg7vj0qarkt3kdgh": [
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"id\": \"s-demo-0001\"}",
+       "is_error": false
+      }
+     ],
+     "tool_5801m3sx56ebemka9rz3bgwrhzhw": [
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "regex",
+          "pattern": "[Bb][Kk].?114"
+         },
+         "path": "klient_kod"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"smena\": {\"start_tekst\": \"Thursday, October 1 at 8:00 AM\", \"klient_kod\": \"BK-114\"}, \"nuzhno_utochnit\": false, \"soobshchenie\": \"Call-off recorded. We are looking for a replacement now; the scheduling team will contact you if they need anything.\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "regex",
+          "pattern": "[Qq][Nn].?207"
+         },
+         "path": "klient_kod"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"smena\": {\"start_tekst\": \"Thursday, October 1 at 4:00 PM\", \"klient_kod\": \"QN-207\"}, \"nuzhno_utochnit\": false, \"soobshchenie\": \"Call-off recorded. We are looking for a replacement now; the scheduling team will contact you if they need anything.\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [
+        {
+         "eval": {
+          "type": "exact",
+          "expected_value": "2026-10-01"
+         },
+         "path": "data_smeny"
+        }
+       ],
+       "mock_result": "{\"ok\": true, \"smena\": null, \"nuzhno_utochnit\": true, \"soobshchenie\": \"There are two shifts on Thursday, October 1: 8:00 AM with client BK-114 and 4:00 PM with client QN-207. Ask which one the caregiver cannot work, then call again with klient_kod.\"}",
+       "is_error": false
+      },
+      {
+       "parameter_conditions": [],
+       "mock_result": "{\"ok\": true, \"smena\": null, \"nuzhno_utochnit\": false, \"soobshchenie\": \"No shift found for this phone number on that date.\"}",
+       "is_error": false
+      }
+     ]
+    },
+    "evaluation_model": "gemini-2.5-flash",
+    "simulated_user_model": "gemini-2.5-flash",
+    "is_auto_generated": false,
+    "auto_generation_metadata": null
+   },
+   "test_invocation_id": "suite_8701m3sy6eeee46r2xwnag5mtqh3",
+   "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+   "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+   "version_id": "agtvrsn_4501m3sxnzx2fcbvwhaka2gqsmhm",
+   "ran_against_draft": true,
+   "workflow_node_id": null,
+   "status": "passed",
+   "agent_responses": [
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "Hi, this is the Brightside Home Care caregiver line. I'm an AI assistant, not a person, and this call is recorded as a text transcript. You can talk to me in English, Spanish or Russian. How can I help?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 0.005645249038934708
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 1,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "I can't work tomorrow, something came up.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 2,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "I'm sorry to hear that. Which shift can't you work? What day is it?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttf_sentence": {
+        "elapsed_time": 1.4181838380172849
+       },
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 1.4160224380902946
+       },
+       "convai_llm_service_tt_last_sentence": {
+        "elapsed_time": 1.418171487748623
+       },
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 1.4352520783431828
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 162,
+         "price": 2.43e-05
+        },
+        "input_cache_read": {
+         "tokens": 3770,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 21,
+         "price": 1.26e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 162,
+          "price": 2.43e-05
+         },
+         "input_cache_read": {
+          "tokens": 3770,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 21,
+          "price": 1.26e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 2,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "It's Thursday, October first. The morning one, the eight o'clock.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 3,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "That's tomorrow, Thursday, October first, right?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttf_sentence": {
+        "elapsed_time": 0.7516829129308462
+       },
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 0.37597049213945866
+       },
+       "convai_llm_service_tt_last_sentence": {
+        "elapsed_time": 0.7516734930686653
+       },
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 0.7657583532854915
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 711,
+         "price": 0.00010664999999999999
+        },
+        "input_cache_read": {
+         "tokens": 3260,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 12,
+         "price": 7.2e-06
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 711,
+          "price": 0.00010664999999999999
+         },
+         "input_cache_read": {
+          "tokens": 3260,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 12,
+          "price": 7.2e-06
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 3,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "Yeah, that's right.Yeah, that's right.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 4,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "What's the reason? Are you sick, is it transportation, a family matter, or something else?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttf_sentence": {
+        "elapsed_time": 0.7797505627386272
+       },
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 0.4378019399009645
+       },
+       "convai_llm_service_tt_last_sentence": {
+        "elapsed_time": 1.1946521736681461
+       },
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 1.2093041632324457
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 739,
+         "price": 0.00011085
+        },
+        "input_cache_read": {
+         "tokens": 3258,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 22,
+         "price": 1.3199999999999999e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 739,
+          "price": 0.00011085
+         },
+         "input_cache_read": {
+          "tokens": 3258,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 22,
+          "price": 1.3199999999999999e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 4,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "A family matter.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 5,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [
+      {
+       "type": "webhook",
+       "request_id": "otkaz_ot_smeny_careline_demo_635d3d666be141cc8c0eb904ca30cfe9",
+       "tool_name": "otkaz_ot_smeny_careline_demo",
+       "params_as_json": "{\"data_smeny\": \"2026-10-01\", \"prichina\": \"semya\"}",
+       "tool_has_been_called": true,
+       "tool_details": {
+        "type": "webhook",
+        "method": "",
+        "url": "",
+        "headers": {},
+        "path_params": {},
+        "query_params": {},
+        "body": "{\"data_smeny\": \"2026-10-01\", \"prichina\": \"semya\", \"caller_id\": \"+17185550177\", \"conversation_id\": \"careline-progon-care-52\"}"
+       }
+      }
+     ],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 1.1113480660133064
+       },
+       "convai_llm_tool_request_generation_latency": {
+        "elapsed_time": 1.1118986657820642
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 767,
+         "price": 0.00011504999999999999
+        },
+        "input_cache_read": {
+         "tokens": 3256,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 31,
+         "price": 1.8599999999999998e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 767,
+          "price": 0.00011504999999999999
+         },
+         "input_cache_read": {
+          "tokens": 3256,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 31,
+          "price": 1.8599999999999998e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 5,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [
+      {
+       "request_id": "otkaz_ot_smeny_careline_demo_635d3d666be141cc8c0eb904ca30cfe9",
+       "tool_name": "otkaz_ot_smeny_careline_demo",
+       "result_value": "{\"ok\": true, \"smena\": null, \"nuzhno_utochnit\": true, \"soobshchenie\": \"There are two shifts on Thursday, October 1: 8:00 AM with client BK-114 and 4:00 PM with client QN-207. Ask which one the caregiver cannot work, then call again with klient_kod.\"}",
+       "is_error": false,
+       "is_blocked": false,
+       "tool_has_been_called": true,
+       "tool_latency_secs": 0.0,
+       "error_type": "",
+       "raw_error_message": "",
+       "dynamic_variable_updates": [],
+       "type": "webhook"
+      }
+     ],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 5,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "One moment…. There are two shifts on Thursday, October first: eight A M with client B K one one four and four P M with client Q N two zero seven. Which one can you not work?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttf_sentence": {
+        "elapsed_time": 2.2104834523051977
+       },
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 1.8938314793631434
+       },
+       "convai_llm_service_tt_last_sentence": {
+        "elapsed_time": 2.8001260291785
+       },
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 3.9411952821537852
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 900,
+         "price": 0.000135
+        },
+        "input_cache_read": {
+         "tokens": 3255,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 39,
+         "price": 2.34e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 900,
+          "price": 0.000135
+         },
+         "input_cache_read": {
+          "tokens": 3255,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 39,
+          "price": 2.34e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 5,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "The morning one. The eight o'clock.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 6,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [
+      {
+       "type": "webhook",
+       "request_id": "otkaz_ot_smeny_careline_demo_3ce2aad9da8d4aec9a3e820cf9e57bb3",
+       "tool_name": "otkaz_ot_smeny_careline_demo",
+       "params_as_json": "{\"prichina\": \"semya\", \"data_smeny\": \"2026-10-01\", \"klient_kod\": \"BK-114\"}",
+       "tool_has_been_called": true,
+       "tool_details": {
+        "type": "webhook",
+        "method": "",
+        "url": "",
+        "headers": {},
+        "path_params": {},
+        "query_params": {},
+        "body": "{\"prichina\": \"semya\", \"data_smeny\": \"2026-10-01\", \"klient_kod\": \"BK-114\", \"caller_id\": \"+17185550177\", \"conversation_id\": \"careline-progon-care-52\"}"
+       }
+      }
+     ],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 0.9832105180248618
+       },
+       "convai_llm_tool_request_generation_latency": {
+        "elapsed_time": 0.9836577982641757
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 135,
+         "price": 2.025e-05
+        },
+        "input_cache_read": {
+         "tokens": 4072,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 40,
+         "price": 2.4e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 135,
+          "price": 2.025e-05
+         },
+         "input_cache_read": {
+          "tokens": 4072,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 40,
+          "price": 2.4e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 6,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [
+      {
+       "request_id": "otkaz_ot_smeny_careline_demo_3ce2aad9da8d4aec9a3e820cf9e57bb3",
+       "tool_name": "otkaz_ot_smeny_careline_demo",
+       "result_value": "{\"ok\": true, \"smena\": {\"start_tekst\": \"Thursday, October 1 at 8:00 AM\", \"klient_kod\": \"BK-114\"}, \"nuzhno_utochnit\": false, \"soobshchenie\": \"Call-off recorded. We are looking for a replacement now; the scheduling team will contact you if they need anything.\"}",
+       "is_error": false,
+       "is_blocked": false,
+       "tool_has_been_called": true,
+       "tool_latency_secs": 0.0,
+       "error_type": "",
+       "raw_error_message": "",
+       "dynamic_variable_updates": [],
+       "type": "webhook"
+      }
+     ],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 6,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "Just a second…. Thank you. I've recorded that you can't work Thursday, October first at eight A M, client B K one one four. We are looking for a replacement now; the scheduling team will contact you if they need anything. Is there anything else?",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttf_sentence": {
+        "elapsed_time": 1.3784551392309368
+       },
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 1.3779812389984727
+       },
+       "convai_llm_service_tt_last_sentence": {
+        "elapsed_time": 2.5772224832326174
+       },
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 3.5898301010020077
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 597,
+         "price": 8.955e-05
+        },
+        "input_cache_read": {
+         "tokens": 3750,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 53,
+         "price": 3.18e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 597,
+          "price": 8.955e-05
+         },
+         "input_cache_read": {
+          "tokens": 3750,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 53,
+          "price": 3.18e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 6,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "user",
+     "agent_metadata": null,
+     "message": "Okay, thanks. Goodbye.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": "text",
+     "source_event_id": 7,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": "Goodbye.",
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 0.5459495978429914
+       },
+       "convai_llm_tool_request_generation_latency": {
+        "elapsed_time": 0.5463227080181241
+       },
+       "convai_ttf_response_since_user_message": {
+        "elapsed_time": 0.5869697672314942
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 7,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [
+      {
+       "type": "system",
+       "request_id": "end_call_692da7813d254cefae3f5479db7de830",
+       "tool_name": "end_call",
+       "params_as_json": "{\"system__message_to_speak\": \"Goodbye.\", \"reason\": \"User said goodbye\"}",
+       "tool_has_been_called": true,
+       "tool_details": null
+      }
+     ],
+     "tool_results": [],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": "gemini-2.5-flash",
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": {
+      "metrics": {
+       "convai_llm_service_ttfb": {
+        "elapsed_time": 0.5459495978429914
+       },
+       "convai_llm_tool_request_generation_latency": {
+        "elapsed_time": 0.5463227080181241
+       }
+      },
+      "convai_asr_provider": null,
+      "convai_tts_model": null,
+      "convai_tts_cascade": null
+     },
+     "rag_retrieval_info": null,
+     "llm_usage": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "input_cache_read": {
+         "tokens": 4684,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 27,
+         "price": 1.62e-05
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "input_cache_read": {
+          "tokens": 4684,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 27,
+          "price": 1.62e-05
+         }
+        }
+       }
+      ]
+     },
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 7,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    },
+    {
+     "role": "agent",
+     "agent_metadata": {
+      "agent_id": "agent_5001m3sx8yr5ee1sne6p5b8zcmwk",
+      "branch_id": "agtbrch_7101m3sx9066f4nt41fe71tk1m51",
+      "workflow_node_id": null,
+      "version_id": null
+     },
+     "message": null,
+     "multivoice_message": null,
+     "tool_calls": [],
+     "tool_results": [
+      {
+       "request_id": "end_call_692da7813d254cefae3f5479db7de830",
+       "tool_name": "end_call",
+       "result_value": "{\"result_type\":\"end_call_success\",\"status\":\"success\",\"reason\":\"User said goodbye\",\"message\":null}",
+       "is_error": false,
+       "is_blocked": false,
+       "tool_has_been_called": true,
+       "tool_latency_secs": 0.5007807989604771,
+       "error_type": "",
+       "raw_error_message": "",
+       "dynamic_variable_updates": [],
+       "type": "system",
+       "result": {
+        "result_type": "end_call_success",
+        "status": "success",
+        "reason": "User said goodbye",
+        "message": null
+       }
+      }
+     ],
+     "feedback": null,
+     "llm_override": null,
+     "producing_llm": null,
+     "time_in_call_secs": 27,
+     "conversation_turn_metrics": null,
+     "rag_retrieval_info": null,
+     "llm_usage": null,
+     "interrupted": false,
+     "ignored_as_backchannel": false,
+     "original_message": null,
+     "reasoning": [],
+     "source_medium": null,
+     "source_event_id": 7,
+     "used_static_kb_document_ids": [],
+     "analysis": null,
+     "user_identifier": null,
+     "id": null,
+     "compaction": null,
+     "triggered_guardrails": []
+    }
+   ],
+   "test_id": "test_9301m3sy6ds0fhhsdj86099btmg5",
+   "test_name": "CareLine DEMO · care-52 · otkaz-dve-smeny",
+   "condition_result": {
+    "result": "success",
+    "rationale": {
+     "messages": [
+      "The agent correctly identified that there were two shifts, asked the user to clarify which one they couldn't work, and then recorded the morning shift for client BK-114 as requested by the user.",
+      "The agent ended the conversation."
+     ],
+     "summary": "Evaluation succeeded"
+    }
+   },
+   "last_updated_at_unix": 1790798180,
+   "metadata": {
+    "workspace_id": "1543e1f10f094c299290f5851c2cbd49",
+    "test_name": "CareLine DEMO · care-52 · otkaz-dve-smeny",
+    "ran_by_user_email": "andywar777@gmail.com",
+    "test_type": "simulation"
+   },
+   "root_folder_id": null,
+   "root_folder_name": null,
+   "environment": null,
+   "credits_used": 144,
+   "charging": {
+    "dev_discount": false,
+    "is_burst": false,
+    "tier": null,
+    "llm_usage": {
+     "irreversible_generation": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 15739,
+         "price": 0.0023608499999999994
+        },
+        "input_cache_read": {
+         "tokens": 29305,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 1339,
+         "price": 0.0008034
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 15739,
+          "price": 0.0023608499999999994
+         },
+         "input_cache_read": {
+          "tokens": 29305,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 1339,
+          "price": 0.0008034
+         }
+        }
+       }
+      ]
+     },
+     "initiated_generation": {
+      "model_usage": {
+       "gemini-2.5-flash": {
+        "input": {
+         "tokens": 15739,
+         "price": 0.0023608499999999994
+        },
+        "input_cache_read": {
+         "tokens": 29305,
+         "price": 0.0
+        },
+        "input_cache_write": {
+         "tokens": 0,
+         "price": 0.0
+        },
+        "output_total": {
+         "tokens": 1339,
+         "price": 0.0008034
+        }
+       }
+      },
+      "detailed_model_usage": [
+       {
+        "config": {
+         "model": "gemini-2.5-flash",
+         "service_tier": "standard"
+        },
+        "usage": {
+         "input": {
+          "tokens": 15739,
+          "price": 0.0023608499999999994
+         },
+         "input_cache_read": {
+          "tokens": 29305,
+          "price": 0.0
+         },
+         "input_cache_write": {
+          "tokens": 0,
+          "price": 0.0
+         },
+         "output_total": {
+          "tokens": 1339,
+          "price": 0.0008034
+         }
+        }
+       }
+      ]
+     }
+    },
+    "llm_price": 0.0031642499999999995,
+    "llm_charge": 16,
+    "call_charge": 128,
+    "platform_charge": 128,
+    "platform_usage": {
+     "category_usage": {
+      "text_message": {
+       "credits": 128,
+       "price": 0.023999999999999997,
+       "quantity": 8.0
+      }
+     }
+    },
+    "platform_price": 0.023999999999999997,
+    "free_minutes_consumed": 0.0,
+    "free_llm_dollars_consumed": 0.0,
+    "tts_usage": null,
+    "asr_usage": null,
+    "analysis": null
+   }
+  }
+ ]
+}

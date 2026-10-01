@@ -1,0 +1,589 @@
+{
+ "vopros_id": "V01",
+ "vopros": "Мой бизнес в США не находят в ChatGPT. Кто может это исправить?",
+ "versiya_spiska": "v4-vidimost-CHERNOVIK",
+ "otpechatok": "3a6ad18284cb",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "proba",
+ "den": "2026-09-25",
+ "vne_okna": false,
+ "zapusk_id": "20260925-120054-33259",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-09-25T12:00:54-07:00",
+   "zapusk_id": "20260925-120054-33259",
+   "cena": 0.07774,
+   "ishod": "ok",
+   "sekund": 26.3,
+   "meta": {
+    "request_id": "req_011CfQg2hvPs38DJJ7sVa2bs"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "# Кто может это исправить\n\nВажно понимать: **у OpenAI нет отдела «регистрации бизнесов»**, и никто не может «подать заявку», чтобы ChatGPT начал упоминать ваш бизнес — это не так работает, как в Google Business Profile. Ни один провайдер не может гарантировать, что ChatGPT порекомендует конкретную компанию или что бизнес появится в Google AI Overviews.\n\nТем не менее, есть реальные способы повысить шансы, и специалисты, которые этим занимаются, называются **GEO-специалисты** (Generative Engine Optimization — оптимизация под генеративные поисковые системы).\n\n## Почему так происходит\n\nAI-инструменты вроде ChatGPT, Gemini и Google AI Overviews рекомендуют бизнесы на основе того, насколько чётко написан, структурирован и достоверен ваш контент, а не только на основе позиций в Google. При этом хорошие позиции в Google помогают, но не гарантируют упоминание в ChatGPT — многие страницы, которые цитируют AI-движки, вообще не входят в топ-10 Google по тому же запросу.\n\nОсновные причины «невидимости»:\n- Бизнес может быть не виден, потому что его услуги нечётко описаны, важные страницы не проиндексированы, контент слишком общий, или нет достаточных согласованных данных на сайте, в отзывах и бизнес-профилях.\n- Большинство бизнесов остаются невидимыми для AI по нескольким исправимым причинам: контент в стиле буклета, отсутствие структуры, слабые сигналы доверия и несогласованная информация о бизнесе.\n- Стоит проверить файл robots.txt на наличие правил, блокирующих GPTBot, PerplexityBot или Google-Extended, а также настройки CDN на защиту от ботов — если эти боты заблокированы, AI-движки не могут читать или цитировать ваш контент.\n\nЕсть также проблема точности данных: в тестировании SOCi 2026 года информация о бизнесах, которую предоставляли ChatGPT и Perplexity, была точна лишь примерно на 68% — неверные часы работы, устаревшие адреса, устаревшие списки услуг — в то время как Gemini, который опирается на данные Google Maps, оказался гораздо надёжнее.\n\n## Что реально можно сделать (самостоятельно или с помощью GEO-специалиста)\n\n1. **Проверить и синхронизировать данные о бизнесе везде.** Нужно проверить все места, где упоминается ваш бизнес (Google Business Profile, Yelp, Facebook, Apple Maps, отраслевые каталоги, ваш сайт), исправить несоответствия и поддерживать их синхронизацию — AI-движки постоянно пересканируют эти источники, так что исправления распространяются в течение недель, а не дней.\n\n2. **Структурировать контент под конкретные вопросы клиентов.** Отправная точка любой GEO-стратегии — составить карту вопросов, которые ваши потенциальные клиенты задают AI-системам, и убедиться, что у вас есть контент, прямо и подробно отвечающий на каждый из них.\n\n3. **Добавить структурированные данные и укрепить сигналы доверия.** Нужно оптимизировать под GEO, выстраивая согласованное цифровое присутствие в каталогах, используя разметку Schema и создавая контент в формате FAQ. Также помогает создание полезного контента, оптимизация сайта под SEO, добавление FAQ и schema-разметки, получение качественных обратных ссылок и поддержание точных бизнес-профилей.\n\n4. **Указывать локацию текстом.** Для локальных бизнесов важно, чтобы город, округ и зона обслуживания были указаны обычным текстом на ключевых страницах, потому что AI-движки связывают бизнесы с географией через текст на странице.\n\n## Кто может помочь\n\n- **Агентства цифрового маркетинга/SEO, которые предлагают GEO-услуги** — многие SEO-компании сейчас расширили услуги на GEO (в поисковых результатах видны примеры таких агентств в США, специализирующихся именно на этом).\n- **Специалисты по локальному SEO** — так как большая часть проблемы связана с точностью данных в Google Business Profile, Yelp и подобных сервисах.\n- **Веб-разработчики** — для настройки schema-разметки, проверки robots.txt и структуры сайта.\n\nЭто процесс, а не разовое исправление — как отмечают эксперты, AI-движки re-crawl эти источники continuously, so corrections propagate over weeks, not days, то есть результат появится не сразу.\n\nЕсли хотите, могу подсказать конкретные шаги для проверки, как именно ChatGPT сейчас «видит» ваш бизнес (какие запросы стоит протестировать самому).",
+  "poiskovye_zaprosy": [
+   "почему ChatGPT не находит мой бизнес США как исправить",
+   "business not showing up in ChatGPT how to fix GEO AI search optimization"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://techno.nv.ua/innovations/esli-chatgpt-ne-rabotaet-50323358.html",
+    "domen": "techno.nv.ua",
+    "title": "Если ChatGPT не работает. Шесть простых решений, чтобы восстановить доступ к чат-боту"
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/collections/3742473-chatgpt",
+    "domen": "help.openai.com",
+    "title": "ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages",
+    "domen": "help.openai.com",
+    "title": "Устранение неполадок: сообщения об ошибках ChatGPT"
+   },
+   {
+    "url": "https://www.cometapi.com/why-is-my-chatgpt-not-working",
+    "domen": "cometapi.com",
+    "title": "Почему мой ChatGPT не работает? Вот как вы можете ..."
+   },
+   {
+    "url": "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq",
+    "domen": "help.openai.com",
+    "title": "ChatGPT Business: общие вопросы и ответы"
+   },
+   {
+    "url": "https://vc.ru/ai/2863640-pochemu-chatgpt-ne-rabotayet-i-chto-delat",
+    "domen": "vc.ru",
+    "title": "ChatGPT не работает: почему, что делать, как исправить — полная инструкция 2026 — AI на vc.ru"
+   },
+   {
+    "url": "https://shtruzel.ru/articles/chatgpt-ne-rabotaet-oshibki-reshenie-2026",
+    "domen": "shtruzel.ru",
+    "title": "ChatGPT не работает: все ошибки и решения - Shtruzel"
+   },
+   {
+    "url": "https://lab-leaders.com/guides/oshibki-chatgpt-o-kompanii",
+    "domen": "lab-leaders.com",
+    "title": "Ошибки ChatGPT о вашей компании - Lab Leaders"
+   },
+   {
+    "url": "https://hix.ai/ru/hub/chatgpt/why-is-chatgpt-not-working",
+    "domen": "hix.ai",
+    "title": "Почему ChatGPT не работает: устранение неполадок и простые исправления"
+   },
+   {
+    "url": "https://grossiweb.com/blog/geo-ai-search/why-business-invisible-chatgpt-ai-search",
+    "domen": "grossiweb.com",
+    "title": "Why Your Business Is Invisible to ChatGPT (And How to Fix It) — GrossiWeb Blog | GrossiWeb"
+   },
+   {
+    "url": "https://canlah.ai/blog/why-not-in-chatgpt",
+    "domen": "canlah.ai",
+    "title": "Why Your Business Doesn't Show Up in ChatGPT (And How to Fix It)"
+   },
+   {
+    "url": "https://eduavenir.com/why-your-business-isnt-showing-up-in-chatgpt-or-google-ai-overviews-and-how-to-fix-it",
+    "domen": "eduavenir.com",
+    "title": "Why Your Business Isn't Showing in ChatGPT & AI Search"
+   },
+   {
+    "url": "https://planwebbies.ca/blog/business-not-showing-up-in-chatgpt",
+    "domen": "planwebbies.ca",
+    "title": "Why Is My Business Not Showing Up in ChatGPT or Google AI ..."
+   },
+   {
+    "url": "https://wsismartmarketing.com/why-isnt-my-business-showing-up-in-chatgpt-or-ai-overviews",
+    "domen": "wsismartmarketing.com",
+    "title": "Why Your Business Isn’t Showing Up in AI Search"
+   },
+   {
+    "url": "https://texaswebdesign.com/why-business-isnt-showing-up-in-chatgpt",
+    "domen": "texaswebdesign.com",
+    "title": "Not Showing Up in ChatGPT? Here's Why | Texas Web Design"
+   },
+   {
+    "url": "https://adsgrip.com/why-your-business-isnt-showing-up-in-chatgpt",
+    "domen": "adsgrip.com",
+    "title": "Why Your Business Isn’t Showing Up in ChatGPT (And How to Fix It) - Adsgrip"
+   },
+   {
+    "url": "https://www.b-squared.tech/seo/ai-search-visibility",
+    "domen": "b-squared.tech",
+    "title": "Why Doesn't ChatGPT Recommend My Business? AI Search Visibility Guide | B-Squared"
+   },
+   {
+    "url": "https://dev.to/renai/why-youre-invisible-to-ai-agents-and-how-to-fix-it-e01",
+    "domen": "dev.to",
+    "title": "DEV Community"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://planwebbies.ca/blog/business-not-showing-up-in-chatgpt",
+    "domen": "planwebbies.ca",
+    "title": "Why Is My Business Not Showing Up in ChatGPT or Google AI ..."
+   },
+   {
+    "url": "https://wsismartmarketing.com/why-isnt-my-business-showing-up-in-chatgpt-or-ai-overviews",
+    "domen": "wsismartmarketing.com",
+    "title": "Why Your Business Isn’t Showing Up in AI Search"
+   },
+   {
+    "url": "https://canlah.ai/blog/why-not-in-chatgpt",
+    "domen": "canlah.ai",
+    "title": "Why Your Business Doesn't Show Up in ChatGPT (And How to Fix It)"
+   },
+   {
+    "url": "https://www.b-squared.tech/seo/ai-search-visibility",
+    "domen": "b-squared.tech",
+    "title": "Why Doesn't ChatGPT Recommend My Business? AI Search Visibility Guide | B-Squared"
+   },
+   {
+    "url": "https://grossiweb.com/blog/geo-ai-search/why-business-invisible-chatgpt-ai-search",
+    "domen": "grossiweb.com",
+    "title": "Why Your Business Is Invisible to ChatGPT (And How to Fix It) — GrossiWeb Blog | GrossiWeb"
+   },
+   {
+    "url": "https://texaswebdesign.com/why-business-isnt-showing-up-in-chatgpt",
+    "domen": "texaswebdesign.com",
+    "title": "Not Showing Up in ChatGPT? Here's Why | Texas Web Design"
+   },
+   {
+    "url": "https://adsgrip.com/why-your-business-isnt-showing-up-in-chatgpt",
+    "domen": "adsgrip.com",
+    "title": "Why Your Business Isn’t Showing Up in ChatGPT (And How to Fix It) - Adsgrip"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 18544,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 2065
+  },
+  "cena": 0.07774,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfQg2jYdreA5XvBLmnEyZ",
+    "request_id": "req_011CfQg2hvPs38DJJ7sVa2bs",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 18544,
+     "output_tokens": 2065,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01DkogX2rqyNZRNeJiukd9Gh",
+    "caller": null,
+    "input": {
+     "query": "почему ChatGPT не находит мой бизнес США как исправить"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01MCzwpn33Ug8taP7tuveP5a",
+    "caller": null,
+    "input": {
+     "query": "business not showing up in ChatGPT how to fix GEO AI search optimization"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "May 10, 2023",
+      "title": "Если ChatGPT не работает. Шесть простых решений, чтобы восстановить доступ к чат-боту",
+      "type": "web_search_result",
+      "url": "https://techno.nv.ua/innovations/esli-chatgpt-ne-rabotaet-50323358.html"
+     },
+     {
+      "page_age": null,
+      "title": "ChatGPT | OpenAI Help Center",
+      "type": "web_search_result",
+      "url": "https://help.openai.com/ru-ru/collections/3742473-chatgpt"
+     },
+     {
+      "page_age": "1 week ago",
+      "title": "Устранение неполадок: сообщения об ошибках ChatGPT",
+      "type": "web_search_result",
+      "url": "https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages"
+     },
+     {
+      "page_age": "June 21, 2025",
+      "title": "Почему мой ChatGPT не работает? Вот как вы можете ...",
+      "type": "web_search_result",
+      "url": "https://www.cometapi.com/why-is-my-chatgpt-not-working/"
+     },
+     {
+      "page_age": "1 week ago",
+      "title": "ChatGPT Business: общие вопросы и ответы",
+      "type": "web_search_result",
+      "url": "https://help.openai.com/en/articles/8542115-chatgpt-business-general-faq"
+     },
+     {
+      "page_age": "April 12, 2026",
+      "title": "ChatGPT не работает: почему, что делать, как исправить — полная инструкция 2026 — AI на vc.ru",
+      "type": "web_search_result",
+      "url": "https://vc.ru/ai/2863640-pochemu-chatgpt-ne-rabotayet-i-chto-delat"
+     },
+     {
+      "page_age": "June 7, 2026",
+      "title": "ChatGPT не работает: все ошибки и решения - Shtruzel",
+      "type": "web_search_result",
+      "url": "https://shtruzel.ru/articles/chatgpt-ne-rabotaet-oshibki-reshenie-2026"
+     },
+     {
+      "page_age": "August 25, 2026",
+      "title": "Ошибки ChatGPT о вашей компании - Lab Leaders",
+      "type": "web_search_result",
+      "url": "https://lab-leaders.com/guides/oshibki-chatgpt-o-kompanii"
+     },
+     {
+      "page_age": "December 18, 2025",
+      "title": "Почему ChatGPT не работает: устранение неполадок и простые исправления",
+      "type": "web_search_result",
+      "url": "https://hix.ai/ru/hub/chatgpt/why-is-chatgpt-not-working"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01DkogX2rqyNZRNeJiukd9Gh",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "March 15, 2026",
+      "title": "Why Your Business Is Invisible to ChatGPT (And How to Fix It) — GrossiWeb Blog | GrossiWeb",
+      "type": "web_search_result",
+      "url": "https://grossiweb.com/blog/geo-ai-search/why-business-invisible-chatgpt-ai-search"
+     },
+     {
+      "page_age": "July 22, 2026",
+      "title": "Why Your Business Doesn't Show Up in ChatGPT (And How to Fix It)",
+      "type": "web_search_result",
+      "url": "https://canlah.ai/blog/why-not-in-chatgpt/"
+     },
+     {
+      "page_age": "July 21, 2026",
+      "title": "Why Your Business Isn't Showing in ChatGPT & AI Search",
+      "type": "web_search_result",
+      "url": "https://eduavenir.com/why-your-business-isnt-showing-up-in-chatgpt-or-google-ai-overviews-and-how-to-fix-it"
+     },
+     {
+      "page_age": "July 2, 2026",
+      "title": "Why Is My Business Not Showing Up in ChatGPT or Google AI ...",
+      "type": "web_search_result",
+      "url": "https://planwebbies.ca/blog/business-not-showing-up-in-chatgpt/"
+     },
+     {
+      "page_age": "July 9, 2026",
+      "title": "Why Your Business Isn’t Showing Up in AI Search",
+      "type": "web_search_result",
+      "url": "https://wsismartmarketing.com/why-isnt-my-business-showing-up-in-chatgpt-or-ai-overviews/"
+     },
+     {
+      "page_age": "April 24, 2026",
+      "title": "Not Showing Up in ChatGPT? Here's Why | Texas Web Design",
+      "type": "web_search_result",
+      "url": "https://texaswebdesign.com/why-business-isnt-showing-up-in-chatgpt/"
+     },
+     {
+      "page_age": "August 6, 2026",
+      "title": "Why Your Business Isn’t Showing Up in ChatGPT (And How to Fix It) - Adsgrip",
+      "type": "web_search_result",
+      "url": "https://adsgrip.com/why-your-business-isnt-showing-up-in-chatgpt/"
+     },
+     {
+      "page_age": null,
+      "title": "Why Doesn't ChatGPT Recommend My Business? AI Search Visibility Guide | B-Squared",
+      "type": "web_search_result",
+      "url": "https://www.b-squared.tech/seo/ai-search-visibility"
+     },
+     {
+      "page_age": null,
+      "title": "DEV Community",
+      "type": "web_search_result",
+      "url": "https://dev.to/renai/why-youre-invisible-to-ai-agents-and-how-to-fix-it-e01"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01MCzwpn33Ug8taP7tuveP5a",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "# Кто может это исправить\n\nВажно понимать: **у OpenAI нет отдела «регистрации бизнесов»**, и никто не может «подать заявку», чтобы ChatGPT начал упоминать ваш бизнес — это не так работает, как в Google Business Profile. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "No provider can guarantee that ChatGPT will recommend a particular company or that a business will appear in Google AI Overviews.\n\n",
+      "title": "Why Is My Business Not Showing Up in ChatGPT or Google AI ...",
+      "type": "web_search_result_location",
+      "url": "https://planwebbies.ca/blog/business-not-showing-up-in-chatgpt/"
+     }
+    ],
+    "text": "Ни один провайдер не может гарантировать, что ChatGPT порекомендует конкретную компанию или что бизнес появится в Google AI Overviews.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\nТем не менее, есть реальные способы повысить шансы, и специалисты, которые этим занимаются, называются **GEO-специалисты** (Generative Engine Optimization — оптимизация под генеративные поисковые системы).\n\n## Почему так происходит\n\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "AI tools like ChatGPT, Gemini, and Google AI Overviews recommend businesses based on how clearly your content is written, structured, and trusted, not...",
+      "title": "Why Your Business Isn’t Showing Up in AI Search",
+      "type": "web_search_result_location",
+      "url": "https://wsismartmarketing.com/why-isnt-my-business-showing-up-in-chatgpt-or-ai-overviews/"
+     }
+    ],
+    "text": "AI-инструменты вроде ChatGPT, Gemini и Google AI Overviews рекомендуют бизнесы на основе того, насколько чётко написан, структурирован и достоверен ваш контент, а не только на основе позиций в Google.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " При этом ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Ranking well on Google helps but does not guarantee citation in ChatGPT. Research shows that many pages AI engines cite do not rank in Google&#x27;s t...",
+      "title": "Why Your Business Doesn't Show Up in ChatGPT (And How to Fix It)",
+      "type": "web_search_result_location",
+      "url": "https://canlah.ai/blog/why-not-in-chatgpt/"
+     }
+    ],
+    "text": "хорошие позиции в Google помогают, но не гарантируют упоминание в ChatGPT — многие страницы, которые цитируют AI-движки, вообще не входят в топ-10 Google по тому же запросу.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\nОсновные причины «невидимости»:\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Your business may be absent because its services are not clearly explained, important pages are not indexed, its content is too generic, or there is n...",
+      "title": "Why Is My Business Not Showing Up in ChatGPT or Google AI ...",
+      "type": "web_search_result_location",
+      "url": "https://planwebbies.ca/blog/business-not-showing-up-in-chatgpt/"
+     }
+    ],
+    "text": "Бизнес может быть не виден, потому что его услуги нечётко описаны, важные страницы не проиндексированы, контент слишком общий, или нет достаточных согласованных данных на сайте, в отзывах и бизнес-профилях.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Most businesses stay invisible to AI for a few fixable reasons: brochure-style content, missing structure, thin trust signals, and inconsistent busine...",
+      "title": "Why Your Business Isn’t Showing Up in AI Search",
+      "type": "web_search_result_location",
+      "url": "https://wsismartmarketing.com/why-isnt-my-business-showing-up-in-chatgpt-or-ai-overviews/"
+     }
+    ],
+    "text": "Большинство бизнесов остаются невидимыми для AI по нескольким исправимым причинам: контент в стиле буклета, отсутствие структуры, слабые сигналы доверия и несогласованная информация о бизнесе.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Check your robots.txt file for rules blocking GPTBot, PerplexityBot, or Google-Extended. Also review your CDN settings for bot protection that might b...",
+      "title": "Why Your Business Doesn't Show Up in ChatGPT (And How to Fix It)",
+      "type": "web_search_result_location",
+      "url": "https://canlah.ai/blog/why-not-in-chatgpt/"
+     }
+    ],
+    "text": "Стоит проверить файл robots.txt на наличие правил, блокирующих GPTBot, PerplexityBot или Google-Extended, а также настройки CDN на защиту от ботов — если эти боты заблокированы, AI-движки не могут читать или цитировать ваш контент.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\nЕсть также проблема точности данных: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "In SOCi's 2026 testing, business information surfaced by ChatGPT and Perplexity was only about 68% accurate—wrong hours, outdated addresses, stale ser...",
+      "title": "Why Doesn't ChatGPT Recommend My Business? AI Search Visibility Guide | B-Squared",
+      "type": "web_search_result_location",
+      "url": "https://www.b-squared.tech/seo/ai-search-visibility"
+     }
+    ],
+    "text": "в тестировании SOCi 2026 года информация о бизнесах, которую предоставляли ChatGPT и Perplexity, была точна лишь примерно на 68% — неверные часы работы, устаревшие адреса, устаревшие списки услуг — в то время как Gemini, который опирается на данные Google Maps, оказался гораздо надёжнее.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## Что реально можно сделать (самостоятельно или с помощью GEO-специалиста)\n\n1. **Проверить и синхронизировать данные о бизнесе везде.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The fix is unglamorous but effective: audit every place your business appears (Google Business Profile, Yelp, Facebook, Apple Maps, industry directori...",
+      "title": "Why Doesn't ChatGPT Recommend My Business? AI Search Visibility Guide | B-Squared",
+      "type": "web_search_result_location",
+      "url": "https://www.b-squared.tech/seo/ai-search-visibility"
+     }
+    ],
+    "text": "Нужно проверить все места, где упоминается ваш бизнес (Google Business Profile, Yelp, Facebook, Apple Maps, отраслевые каталоги, ваш сайт), исправить несоответствия и поддерживать их синхронизацию — AI-движки постоянно пересканируют эти источники, так что исправления распространяются в течение недель, а не дней.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n2. **Структурировать контент под конкретные вопросы клиентов.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The starting point for any GEO strategy is mapping the questions your ideal customers ask AI systems and confirming that you have content that directl...",
+      "title": "Why Your Business Is Invisible to ChatGPT (And How to Fix It) — GrossiWeb Blog | GrossiWeb",
+      "type": "web_search_result_location",
+      "url": "https://grossiweb.com/blog/geo-ai-search/why-business-invisible-chatgpt-ai-search"
+     }
+    ],
+    "text": "Отправная точка любой GEO-стратегии — составить карту вопросов, которые ваши потенциальные клиенты задают AI-системам, и убедиться, что у вас есть контент, прямо и подробно отвечающий на каждый из них.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n3. **Добавить структурированные данные и укрепить сигналы доверия.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "To fix the issue, you must optimize for “Generative Engine Optimization” (GEO) by building a consistent digital footprint across directories, using Sc...",
+      "title": "Not Showing Up in ChatGPT? Here's Why | Texas Web Design",
+      "type": "web_search_result_location",
+      "url": "https://texaswebdesign.com/why-business-isnt-showing-up-in-chatgpt/"
+     }
+    ],
+    "text": "Нужно оптимизировать под GEO, выстраивая согласованное цифровое присутствие в каталогах, используя разметку Schema и создавая контент в формате FAQ.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Create helpful content, optimize your website for SEO, add FAQs and schema markup, earn quality backlinks, and maintain accurate business profiles.\n\n",
+      "title": "Why Your Business Isn’t Showing Up in ChatGPT (And How to Fix It) - Adsgrip",
+      "type": "web_search_result_location",
+      "url": "https://adsgrip.com/why-your-business-isnt-showing-up-in-chatgpt/"
+     }
+    ],
+    "text": "Также помогает создание полезного контента, оптимизация сайта под SEO, добавление FAQ и schema-разметки, получение качественных обратных ссылок и поддержание точных бизнес-профилей.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n4. **Указывать локацию текстом.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "For Southern Utah businesses, that includes the local layer—your city, county, and service area need to appear in plain text on your key pages, becaus...",
+      "title": "Why Doesn't ChatGPT Recommend My Business? AI Search Visibility Guide | B-Squared",
+      "type": "web_search_result_location",
+      "url": "https://www.b-squared.tech/seo/ai-search-visibility"
+     }
+    ],
+    "text": "Для локальных бизнесов важно, чтобы город, округ и зона обслуживания были указаны обычным текстом на ключевых страницах, потому что AI-движки связывают бизнесы с географией через текст на странице.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## Кто может помочь\n\n- **Агентства цифрового маркетинга/SEO, которые предлагают GEO-услуги** — многие SEO-компании сейчас расширили услуги на GEO (в поисковых результатах видны примеры таких агентств в США, специализирующихся именно на этом).\n- **Специалисты по локальному SEO** — так как большая часть проблемы связана с точностью данных в Google Business Profile, Yelp и подобных сервисах.\n- **Веб-разработчики** — для настройки schema-разметки, проверки robots.txt и структуры сайта.\n\nЭто процесс, а не разовое исправление — как отмечают эксперты, ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "AI engines re-crawl these sources continuously, so corrections propagate over weeks, not days.",
+      "title": "Why Doesn't ChatGPT Recommend My Business? AI Search Visibility Guide | B-Squared",
+      "type": "web_search_result_location",
+      "url": "https://www.b-squared.tech/seo/ai-search-visibility"
+     }
+    ],
+    "text": "AI-движки re-crawl эти источники continuously, so corrections propagate over weeks, not days",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", то есть результат появится не сразу.\n\nЕсли хотите, могу подсказать конкретные шаги для проверки, как именно ChatGPT сейчас «видит» ваш бизнес (какие запросы стоит протестировать самому).",
+    "type": "text"
+   }
+  ]
+ }
+}

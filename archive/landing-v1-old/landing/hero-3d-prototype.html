@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero 3D — прототип</title>
+<style>
+  :root{
+    --bg:#f7f5f1; --ink:#17172b; --muted:#616175;
+    --dark:#0f1022; --dark2:#1a1b36;
+    --gold:#c69749; --gold-deep:#a3762b; --gold-hi:#f4dfa0;
+    --cube:#e5c67a; --cube-deep:#a8823a; --cube-hi:#f8ecc4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1040px;margin:0 auto;padding:38px 20px 70px}
+  h1{font-family:Georgia,serif;font-size:clamp(22px,3vw,30px);margin:0 0 8px}
+  .muted{color:var(--muted);max-width:66ch}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:800;margin-bottom:10px}
+
+  .stage{
+    position:relative;width:100%;height:470px;border-radius:20px;overflow:hidden;
+    background:radial-gradient(1100px 620px at 62% -12%, #262754 0%, var(--dark) 58%);
+    margin-top:22px;perspective:1150px;perspective-origin:22% 40%;
+  }
+  /* камера СВЕРХУ (отрицательный rotateX) — видны верхние грани колонн.
+     Разворота вбок нет, поэтому линия пола горизонтальна. */
+  .world{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(-20deg)}
+
+  /* ПОЛ — общая плоскость для монеты и кубиков */
+  .floor{
+    position:absolute;left:50%;top:352px;width:3000px;height:2600px;margin-left:-1500px;margin-top:-1300px;
+    transform-origin:50% 50%;transform:rotateX(-90deg);
+    background:
+      repeating-linear-gradient(90deg, rgba(244,223,160,.16) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(0deg,  rgba(244,223,160,.10) 0 1px, transparent 1px 64px),
+      linear-gradient(0deg, rgba(198,151,73,.24), rgba(15,16,34,0) 58%);
+    animation:floorRun 2.6s linear infinite;
+  }
+  @keyframes floorRun{to{background-position:-64px 0,-64px 0,0 0}}
+  /* линия горизонта / кромка пола */
+  .edge{position:absolute;left:0;right:0;top:352px;height:1px;background:linear-gradient(90deg,transparent,rgba(244,223,160,.5) 22%,rgba(244,223,160,.5) 78%,transparent)}
+  .glow{position:absolute;left:0;right:0;top:300px;height:120px;background:radial-gradient(60% 80% at 40% 60%, rgba(198,151,73,.18), transparent 70%);pointer-events:none}
+  .vignette{position:absolute;inset:0;background:radial-gradient(760px 440px at 34% 44%, transparent 38%, rgba(0,0,0,.42) 100%);pointer-events:none}
+  .fadeR{position:absolute;top:0;bottom:0;right:0;width:150px;background:linear-gradient(270deg,var(--dark),transparent);pointer-events:none}
+
+  /* МОНЕТА */
+  .coinHolder{position:absolute;left:196px;top:212px;width:140px;height:140px;transform-style:preserve-3d}
+  /* rotateX(-90°) ставит монету СТРОГО вертикально (не заваливается).
+     rotateY слегка доворачивает по вертикальной оси — открывается ребро.
+     rotateZ не используем: он кренит монету, будто она падает. */
+  .coinTilt{width:100%;height:100%;transform-style:preserve-3d;
+    transform:rotateY(9deg) rotateX(-90deg)}
+  .coinSpin{width:100%;height:100%;transform-style:preserve-3d;animation:coinRoll 2.6s linear infinite}
+  @keyframes coinRoll{to{transform:rotateY(-360deg)}}
+  .cface{position:absolute;left:50%;top:50%;width:140px;height:140px;margin:-70px 0 0 -70px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center}
+  .cface.front{transform:rotateX(90deg) translateZ(14px);
+    background:
+      radial-gradient(circle at 50% 50%, transparent 0 37%, rgba(0,0,0,.18) 37.5% 40.5%, transparent 41%),
+      radial-gradient(circle at 33% 28%, var(--gold-hi) 0%, var(--gold) 44%, var(--gold-deep) 78%, #6b4a18 100%);
+    box-shadow:inset 0 0 0 7px rgba(255,255,255,.15), inset 0 0 22px rgba(0,0,0,.3)}
+  .cface.back{transform:rotateX(90deg) translateZ(-14px);
+    background:
+      radial-gradient(circle at 50% 50%, transparent 0 37%, rgba(0,0,0,.18) 37.5% 40.5%, transparent 41%),
+      radial-gradient(circle at 64% 70%, var(--gold-hi) 0%, var(--gold) 42%, var(--gold-deep) 78%, #6b4a18 100%);
+    box-shadow:inset 0 0 0 7px rgba(255,255,255,.15), inset 0 0 22px rgba(0,0,0,.3)}
+  /* знак доллара — чеканка на монете */
+  .emblem{
+    font:900 66px/1 Georgia,"Times New Roman",serif;
+    color:transparent;
+    background:linear-gradient(165deg,#fff6da 0%,#e2bd72 38%,#a3762b 72%,#6b4a18 100%);
+    -webkit-background-clip:text;background-clip:text;
+    filter:drop-shadow(0 2px 1px rgba(0,0,0,.45)) drop-shadow(0 -1px 0 rgba(255,255,255,.5));
+    user-select:none;
+  }
+  .cseg{position:absolute;left:50%;top:50%}
+  .shadow{position:absolute;left:150px;top:344px;width:230px;height:26px;
+    background:radial-gradient(closest-side, rgba(0,0,0,.6), transparent 74%);filter:blur(3px)}
+
+  /* КУБИКИ — стоят на полу вплотную, растут волной */
+  .cols{position:absolute;left:0;top:0;transform-style:preserve-3d}
+  .col{position:absolute;transform-style:preserve-3d}
+  .colGrow{transform-style:preserve-3d;transform-origin:50% 100%}
+  .f{position:absolute;left:50%;top:50%}
+  /* сильный контраст граней = читаемый объём */
+  .f.top{background:linear-gradient(140deg,#fff4d2,#e8cc84);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+  .f.front{background:linear-gradient(180deg,#dcb85f,#a8823a)}
+  .f.right{background:linear-gradient(180deg,#8f6c2c,#5c451a)}
+  .f.left{background:linear-gradient(180deg,#8f6c2c,#5c451a)}
+  .f.back{background:#7d5f27}
+  .f.bottom{background:#4a3714}
+
+  .disc{max-width:66ch;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow">Прототип · Hero-анимация · v4</span>
+  <h1>Монета катится — колонны растут ей вслед</h1>
+  <p class="muted">Горизонтальная сцена: общий ровный пол, колонны стоят на нём цепочкой. Волна плавно поднимается <b>слева направо</b>, лестница собирается целиком, затем так же плавно опускается <b>справа налево</b>. Монета катится влево, разметка пола уезжает влево.</p>
+
+  <div class="stage">
+    <div class="world">
+      <div class="floor"></div>
+      <div class="edge"></div>
+      <div class="glow"></div>
+      <div class="shadow"></div>
+      <div class="cols" id="cols"></div>
+      <div class="coinHolder">
+        <div class="coinTilt"><div class="coinSpin" id="coinSpin"></div></div>
+      </div>
+    </div>
+    <div class="fadeR"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="disc">
+    <p class="muted"><b>Крутится дальше:</b> скорость волны и монеты, высота/ширина колонн, угол камеры, размер монеты, эмблема (можно поставить наш знак).</p>
+  </div>
+</div>
+
+<script>
+var GROUND = 352;         // линия пола
+var ROLL   = 2.6;         // сек на оборот монеты
+var WAVE   = 3.0;         // сек цикла роста колонны
+
+/* ===== МОНЕТА: цилиндр из сегментов ===== */
+(function(){
+  var spin=document.getElementById('coinSpin');
+  var f=document.createElement('div'); f.className='cface front'; f.innerHTML='<div class="emblem">$</div>';
+  var b=document.createElement('div'); b.className='cface back';  b.innerHTML='<div class="emblem">$</div>';
+  spin.appendChild(f); spin.appendChild(b);
+
+  var N=36, r=70, th=28, segW=2*r*Math.tan(Math.PI/N)+0.7;
+  for(var i=0;i<N;i++){
+    var s=document.createElement('div'), a=i*(360/N);
+    s.className='cseg';
+    s.style.width=segW+'px'; s.style.height=th+'px';
+    s.style.marginLeft=(-segW/2)+'px'; s.style.marginTop=(-th/2)+'px';
+    s.style.transform='rotateY('+a+'deg) translateZ('+r+'px)';
+    var lit=0.5+0.5*Math.cos((a-45)*Math.PI/180);
+    s.style.background='linear-gradient(180deg,'+mix('#f6e2ab','#5a4118',lit)+','+mix('#c9974d','#48340f',lit)+')';
+    spin.appendChild(s);
+  }
+  function mix(c1,c2,t){
+    function h(x){x=x.replace('#','');return [parseInt(x.slice(0,2),16),parseInt(x.slice(2,4),16),parseInt(x.slice(4,6),16)];}
+    var A=h(c1),B=h(c2);
+    return 'rgb('+Math.round(B[0]+(A[0]-B[0])*t)+','+Math.round(B[1]+(A[1]-B[1])*t)+','+Math.round(B[2]+(A[2]-B[2])*t)+')';
+  }
+})();
+
+/* ===== КОЛОННЫ: вплотную на полу; подъём слева→направо, спуск справа→налево ===== */
+(function(){
+  var host=document.getElementById('cols');
+  var W=62, D=62, GAP=4, START=396, N=9;
+
+  // тайминги одного полного цикла
+  var MIN=0.16, STEP=0.26, RISE=1.00, HOLD=0.76, FALL=1.00, TAIL=0.60;
+  var fallBase=(N-1)*STEP+RISE+HOLD;
+  var T=fallBase+(N-1)*STEP+FALL+TAIL;
+
+  for(var i=0;i<N;i++){
+    var H = 74 + i*24;                       // восходящая лестница вправо
+    var x = START + i*(W+GAP);
+
+    var col=document.createElement('div');
+    col.className='col';
+    col.style.left=x+'px';
+    col.style.top=GROUND+'px';               // низ колонны — ровно на полу
+    col.style.width=W+'px'; col.style.height='0px';
+    col.style.transform='translateZ(-40px)'; // чуть вглубь сцены, за монетой
+
+    var grow=document.createElement('div');
+    grow.className='colGrow';
+    grow.style.position='absolute';
+    grow.style.left='0'; grow.style.bottom='0';
+    grow.style.width=W+'px'; grow.style.height=H+'px';
+
+    var box=document.createElement('div');
+    box.style.position='absolute'; box.style.left='0'; box.style.top='0';
+    box.style.width=W+'px'; box.style.height=H+'px';
+    box.style.transformStyle='preserve-3d';
+
+    [['top',   W,D, 'rotateX(90deg) translateZ('+(H/2)+'px)'],
+     ['bottom',W,D, 'rotateX(-90deg) translateZ('+(H/2)+'px)'],
+     ['front', W,H, 'translateZ('+(D/2)+'px)'],
+     ['back',  W,H, 'rotateY(180deg) translateZ('+(D/2)+'px)'],
+     ['right', D,H, 'rotateY(90deg) translateZ('+(W/2)+'px)'],
+     ['left',  D,H, 'rotateY(-90deg) translateZ('+(W/2)+'px)']
+    ].forEach(function(F){
+      var d=document.createElement('div');
+      d.className='f '+F[0];
+      d.style.width=F[1]+'px'; d.style.height=F[2]+'px';
+      d.style.marginLeft=(-F[1]/2)+'px'; d.style.marginTop=(-F[2]/2)+'px';
+      d.style.transform=F[3];
+      box.appendChild(d);
+    });
+
+    grow.appendChild(box);
+    col.appendChild(grow);
+    host.appendChild(col);
+
+    /* волна: подъём слева→направо, затем спуск справа→налево */
+    var riseStart = i*STEP,               riseEnd  = riseStart+RISE;
+    var fallStart = fallBase+(N-1-i)*STEP, fallEnd = fallStart+FALL;
+    var EASE='cubic-bezier(.34,.85,.32,1)';
+    var kf=[
+      {offset:0,             transform:'scaleY('+MIN+')'},
+      {offset:riseStart/T,   transform:'scaleY('+MIN+')', easing:EASE},
+      {offset:riseEnd/T,     transform:'scaleY(1)'},
+      {offset:fallStart/T,   transform:'scaleY(1)',       easing:EASE},
+      {offset:fallEnd/T,     transform:'scaleY('+MIN+')'},
+      {offset:1,             transform:'scaleY('+MIN+')'}
+    ].filter(function(k,idx,arr){return idx===0||k.offset>arr[idx-1].offset;});
+    grow.animate(kf,{duration:T*1000,iterations:Infinity});
+  }
+})();
+</script>
+</body>
+</html>

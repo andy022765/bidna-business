@@ -1,0 +1,113 @@
+{
+  "brightside": {
+    "_prim": "Настройки клиента стенда. Без секретов: секреты только в переменных окружения. Часы календарей обязаны совпадать с часами в листе правды агентства (care/list-pravdy/brightside.json) — агент называет их вслух. Пустой kalendar = календарь не подключён, окна отвечают честным отказом. null в pisma/sms = решение Андрея не принято: в DRY_RUN пишется в журнал, вживую не отправляется.",
+    "nazvanie": "Brightside Home Care (DEMO)",
+    "opisanie": "Brooklyn and Queens, NY",
+    "demo": true,
+    "shtat": "NY",
+    "poyas": "America/New_York",
+    "yazyk_vladelca": "en",
+    "yazyki": [
+      "en",
+      "es",
+      "ru",
+      "zh",
+      "ht"
+    ],
+    "kalendari": {
+      "sobesedovanie": {
+        "kalendar": "83e848c9c022b151d45155c4cd98cd1f42b028b0f9a35d83ef33c68fb7c23daf@group.calendar.google.com",
+        "zanyatost": [],
+        "chas_ot": 10,
+        "chas_do": 16,
+        "dni": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "dlina_min": 30,
+        "zapas_min": 10,
+        "ne_ranshe_chasov": 2,
+        "vpered_dney": 10,
+        "okon_v_otvete": 2
+      },
+      "ocenka": {
+        "kalendar": "1d8202a2bd8dca3e4233a5302c4296a95d5810f8c57ab53b05221fed2956d38e@group.calendar.google.com",
+        "zanyatost": [],
+        "chas_ot": 10,
+        "chas_do": 16,
+        "dni": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "dlina_min": 60,
+        "zapas_min": 30,
+        "ne_ranshe_chasov": 4,
+        "vpered_dney": 7,
+        "okon_v_otvete": 2
+      }
+    },
+    "perevod": {
+      "_prim": "chasy — часы офиса из листа правды (пн–пт 9–17 NY): в них перевод идёт на cepochka координаторов. Вне часов — только линии с perevod_vne_chasov (сиделки, срочное) и на dezhurnye.cepochka. Номера — решение Андрея, в DEMO пусто.",
+      "chasy": {
+        "chas_ot": 9,
+        "chas_do": 17,
+        "dni": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "cepochka": [],
+      "imya": {
+        "en": "the coordinator",
+        "es": "el coordinador",
+        "ru": "координатором"
+      },
+      "zhdat_s": 20,
+      "zvuk": {}
+    },
+    "dezhurnye": {
+      "cepochka": [],
+      "zhdat_s": 25
+    },
+    "pisma": {
+      "ot": null,
+      "otvet": null,
+      "koordinatoru": [],
+      "svodka_komu": []
+    },
+    "sms": {
+      "ot": null
+    },
+    "limity": {
+      "_prim": "Потолки на сутки (по поясу клиента). zvonkov_v_sutki — входящих в vhod: 15 на стенде (проверка 30.09: 60 звонков × 8 мин ≈ $45 в день при бюджете $80 на месяц). ishodyashchih_v_sutki — исходящих звонков (побудка дежурного) из lib/otpravka.zvonok. Агентам ElevenLabs отдельно стоит daily_limit 20 (care/sborka_agentov.py).",
+      "pisem_v_sutki": 60,
+      "sms_v_sutki": 200,
+      "zvonkov_v_sutki": 15,
+      "ishodyashchih_v_sutki": 10
+    },
+    "hranenie": {
+      "_prim": "Сколько дней хранятся итоги звонков zvonki/ и служебные следы разговоров (zvonki-itog/, zvonki-vhod/, razgovory/). Чистит функция svodka раз в сутки (lib/chistka.js). У агентов ElevenLabs тот же срок — platform_settings.privacy.retention_days.",
+      "zvonki_dney": 30
+    },
+    "zamena": {
+      "volna": 3,
+      "ozhidanie_min": 15,
+      "eskalaciya_za_chasov": 2
+    },
+    "svodka": {
+      "vklyuchena": true,
+      "chas": 7
+    },
+    "pult_klyuch_env": "PULT_KLYUCH_BRIGHTSIDE",
+    "rezerv_nomer": null
+  }
+}

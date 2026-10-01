@@ -1,0 +1,358 @@
+<title>Thirty Calls</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0a0e18; --panel:#0e1524; --card:#121a2c; --ink:#eef1f7; --dim:#97a1b8; --faint:#6b768f;
+    --line:#1e2940; --rule:#2a364f;
+    --gold:#d87f70; --gold2:#241a1c; --red:#c4675a; --red2:#241820;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',-apple-system,sans-serif;
+    font-size:17px;line-height:1.55;margin:0;padding:0;-webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums}
+  .w{max-width:1120px;margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px;margin:0 auto}
+  section{padding-block:72px;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  h1{font-size:clamp(32px,5.6vw,58px);line-height:1.04;margin:0 0 20px;letter-spacing:-.03em;
+    font-weight:700;text-wrap:balance}
+  h2{font-size:clamp(25px,3.8vw,38px);line-height:1.12;margin:0 0 16px;letter-spacing:-.025em;
+    font-weight:700;text-wrap:balance}
+  h3{font-size:20px;font-weight:600;margin:30px 0 10px}
+  p{margin:0 0 16px;max-width:64ch}
+  .lede{font-size:20px;color:var(--dim);max-width:56ch}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+  b,strong{font-weight:600}
+  ul{margin:0 0 16px;padding-left:20px} li{margin-bottom:10px;max-width:60ch}
+  li::marker{color:var(--gold)}
+  .quote{font-size:24px;line-height:1.3;letter-spacing:-.02em;font-weight:600;
+    padding-left:20px;border-left:2px solid var(--gold);margin:28px 0;max-width:24ch}
+
+  figure{margin:28px 0}
+  img{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line)}
+  video{max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#000}
+
+  .btn{display:inline-block;background:var(--gold);color:#0a0e18;text-decoration:none;
+    font-weight:700;font-size:18px;padding:17px 32px;border-radius:7px;margin:8px 0 10px}
+  .btn:hover{background:#eed6a0}
+  .bsub{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);margin:0 0 8px;letter-spacing:.02em}
+  .cena-shapka{font-family:'JetBrains Mono',monospace;font-size:13px;margin:14px 0 0}
+  .cena-shapka a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent}
+  .cena-shapka a:hover{border-bottom-color:var(--gold)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .bs{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+  .bs .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;margin-bottom:9px}
+  .bs.was{border-color:#3a2530} .bs.was .n{color:var(--red)}
+  .bs.now{border-color:#3b3524} .bs.now .n{color:var(--gold)}
+  .bs p{margin:0;font-size:16px;max-width:none}
+  .pair{margin-bottom:22px}
+  .pair h4{font-size:19px;font-weight:600;margin:0 0 12px}
+
+  .steps{margin:22px 0}
+  .st{display:grid;grid-template-columns:130px 1fr;gap:20px;padding-block:16px;border-top:1px solid var(--line)}
+  .st:first-child{border-top:0}
+  .st .k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);padding-top:3px}
+  .st p{margin:0;font-size:16.5px}
+  @media(max-width:640px){.st{grid-template-columns:1fr;gap:4px}}
+
+  .tw{overflow-x:auto;margin:22px 0}
+  table{border-collapse:collapse;width:100%;font-size:16px;min-width:520px}
+  td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.p{text-align:right;white-space:nowrap;font-family:'JetBrains Mono',monospace;color:var(--dim)}
+  td.n small{display:block;color:var(--faint);font-size:14px;margin-top:3px;font-weight:400}
+  td.n{font-weight:600}
+  tr.h td{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);background:var(--gold2);border-bottom:0}
+  tr.sum td{border-bottom:0;padding-top:18px;font-weight:700;font-size:19px}
+  tr.sum td.p{font-family:'Space Grotesk',-apple-system,sans-serif;font-size:28px;color:var(--gold)}
+  tr.was td{border-bottom:0;color:var(--faint);padding-top:16px}
+  tr.was td.p{text-decoration:line-through}
+
+  .g{background:var(--gold2);border:1px solid #3b3524;border-radius:10px;padding:24px 26px;margin:20px 0}
+  .g .t{font-size:20px;font-weight:700;color:var(--gold);margin-bottom:10px}
+  .g p{margin:0;font-size:16.5px}
+  .g + .g{margin-top:14px}
+
+  .obj{border-top:1px solid var(--line);padding-block:22px}
+  .obj:first-of-type{border-top:0}
+  .obj .q{font-size:18px;font-weight:600;margin:0 0 9px}
+  .obj p{font-size:16px;color:var(--dim)}
+  .obj p b{color:var(--ink)}
+
+  .form{background:var(--card);border:1px solid #3b3524;border-radius:12px;padding:28px 30px;margin:26px 0}
+  .form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  @media(max-width:600px){.form .row{grid-template-columns:1fr}}
+  .form label{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .form input{width:100%;background:var(--bg);border:1px solid var(--rule);border-radius:7px;
+    color:var(--ink);font-family:'Space Grotesk',sans-serif;font-size:17px;padding:13px 15px}
+  .form input::placeholder{color:#4d566e}
+  .form input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+  .form button{width:100%;background:var(--gold);color:#0a0e18;border:0;border-radius:7px;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;padding:17px;cursor:pointer;margin-top:4px}
+  .form .note{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);
+    margin:12px 0 0;line-height:1.6}
+  .fine{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--faint);line-height:1.6}
+  .cen{text-align:center}
+  .cen p,.cen .lede{margin-left:auto;margin-right:auto}
+  .hero{background:linear-gradient(180deg,#0b1220 0%,var(--bg) 100%);padding-block:56px 76px}
+  footer{border-top:1px solid var(--line);padding-block:40px 60px;color:var(--faint);font-size:14px}
+
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .w{padding:0 18px}
+    section{padding-block:48px}
+    .bsub{font-size:15px}
+    .note,.form .note{font-size:15px}
+    .fine{font-size:14px}
+    .eyebrow,.bs .n,.st .k,tr.h td,.form label{font-size:12.5px;letter-spacing:.13em}
+    td.n small{font-size:14px}
+    .btn{display:block;text-align:center;font-size:17px;padding:16px 20px}
+    .quote{font-size:20px;max-width:none}
+    figure{margin:20px -18px}
+    figure img,figure video{border-radius:0;border-left:0;border-right:0}
+    table{min-width:0;font-size:15px}
+    td{padding:11px 6px}
+    td.p{font-size:15px}
+    tr.sum td{font-size:17px}
+    tr.sum td.p{font-size:23px}
+    input[type=checkbox]{width:20px;height:20px;min-width:20px;margin-top:2px}
+  }
+</style>
+<!-- HERO -->
+<section class="hero">
+  <div class="w"><div class="narrow">
+    <figure style="margin-top:0">
+      <video src="img/rolik.mp4" autoplay muted playsinline preload="metadata" aria-label="A call transcript types out. The caller claims a colleague promised a free first visit. The bot agrees and books them. The line turns red among thirty others."></video>
+    </figure>
+    <h1>Your bot promised a customer something you never approved.</h1>
+    <p class="lede">You didn't hear it. That call isn't in your dashboard, because nobody made it.</p>
+    <p style="margin-top:26px"><a class="btn" href="#check">Call your bot. Free</a></p>
+    <p class="bsub">One call · we send you the transcript · your public number is all we need</p>
+<p class="cena-shapka"><a href="#cena">The audit — $450. One payment. What's included →</a></p>
+  </div></div>
+</section>
+
+<!-- THE GAP -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Where the hole is</p>
+    <h2>Your dashboard holds the calls that happened. The hole is where they didn't.</h2>
+    <p>You have recordings, and that's true — most platforms include a transcript of every call, and opening them costs nothing. Open them today. That's the right first step, and we don't charge for it.</p>
+    <p>But those are conversations with people who got through to you. There is no call at 9:40 on a Friday night if nobody called you at 9:40 on a Friday night. And there's no question about a service you don't offer — <b>which is exactly where a bot breaks.</b></p>
+    <figure>
+      <picture><source media="(max-width:640px)" srcset="img/m-otchet-po-zvonku.webp">
+      <img src="img/d-otchet-po-zvonku.webp" alt="A free one-call report: Thursday 7:42 PM, three questions and three answers, with the bot agreeing to a discount that was never offered." width="1600" height="900"></picture>
+    </figure>
+    <p class="quote">You can't audit your own work. Not because you listen badly, but because you know what's supposed to happen.</p>
+    <p><a class="btn" href="#check">Check my line</a></p>
+  </div></div>
+</section>
+
+<!-- FREE CALL -->
+<section id="check">
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Free</p>
+    <h2>One call. No cost, no commitment.</h2>
+    <div class="steps">
+      <div class="st"><span class="k">You give</span><p>An email, one number — the one already printed on your website — and a tick box saying we may call it.</p></div>
+      <div class="st"><span class="k">We call</span><p>Once, a live person, as an ordinary buyer. The call opens with a recording notice.</p></div>
+      <div class="st"><span class="k">You get</span><p>One page in your inbox. What we asked, what it answered, at what time, how many seconds to pick up. Word for word.</p></div>
+    </div>
+
+    <form class="form" method="POST" name="line-check" data-netlify="true" action="/thanks-call">
+      <input type="hidden" name="form-name" value="line-check">
+      <div class="row">
+        <div><label for="biz">Business name</label>
+          <input id="biz" name="biz" type="text" placeholder="Reliable Plumbing" required autocomplete="off"></div>
+        <div><label for="phone">Your public number</label>
+          <input id="phone" name="phone" type="tel" placeholder="(813) 555-0146" required autocomplete="tel"></div>
+      </div>
+      <div style="margin-bottom:14px"><label for="mail2">Where to send the transcript</label>
+        <input id="mail2" name="email" type="email" placeholder="you@yourcompany.com" required autocomplete="email"></div>
+      <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--dim);margin-bottom:16px">
+        <input type="checkbox" name="consent" required style="width:auto;margin-top:4px">
+        <span>I own this business or am authorised to act for it, and I'm asking Business Intelligence DNA to place one call to this number.</span>
+      </label>
+      <button type="submit">Send the transcript</button>
+      <p class="note">One call, placed within one business day. No card. No sales call unless you ask for one.</p>
+    </form>
+
+    <p><b>One call is not a sample, and we say so on the report itself.</b> A bot can answer correctly once and break on the third try. The free call tells you whether there's anything worth talking about. The audit is thirty calls across a grid of hours.</p>
+  </div></div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section>
+  <div class="w">
+    <div class="narrow"><p class="eyebrow">After the audit</p><h2>Five things change.</h2></div>
+
+    <div class="pair"><h4>1. What you know about your own line</h4><div class="grid">
+      <div class="bs was"><p class="n">Now</p><p>It answers. Past that, it's a feeling. Nothing to check it against, nobody to ask.</p></div>
+      <div class="bs now"><p class="n">After</p><p>Thirty conversations with quotes and timestamps. You can see which hour and which question it breaks on.</p></div>
+    </div></div>
+
+    <div class="pair"><h4>2. What «correct» even means</h4><div class="grid">
+      <div class="bs was"><p class="n">Now</p><p>There's no ruler. Nobody wrote down in advance what the right answer is, so every argument ends in opinion.</p></div>
+      <div class="bs now"><p class="n">After</p><p>A truth sheet you signed: twenty-two questions. Prices, what you do and don't do, hours, service area, phrases that are off limits. It stays yours.</p></div>
+    </div></div>
+
+    <div class="pair"><h4>3. The conversation with your vendor</h4><div class="grid">
+      <div class="bs was"><p class="n">Now</p><p>«I think it sometimes says the wrong thing.» — «Send us an example.» You send one, and you're told it's an isolated case.</p></div>
+      <div class="bs now"><p class="n">After</p><p>A document signed by someone who didn't build that bot. Quote, the line it broke, what to change. Thirty calls, not one.</p></div>
+    </div></div>
+
+    <div class="pair"><h4>4. After the fix</h4><div class="grid">
+      <div class="bs was"><p class="n">Now</p><p>One thing gets fixed, something next to it breaks, and you find out a month later from a customer.</p></div>
+      <div class="bs now"><p class="n">After</p><p>A re-run with its own column: <b>what broke that wasn't broken before.</b> Included in the price.</p></div>
+    </div></div>
+
+    <div class="pair"><h4>5. Who stands behind the finding</h4><div class="grid">
+      <div class="bs was"><p class="n">Now</p><p>A dashboard. The metric is calculated by the company that sold you the bot.</p></div>
+      <div class="bs now"><p class="n">After</p><p>Every finding confirmed by a person and signed with a name. We didn't install this bot and we're not going to.</p></div>
+    </div></div>
+
+    <div class="narrow cen" style="margin-top:34px"><p><a class="btn" href="#check">Start with the free call</a></p></div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="cena">
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Price</p>
+    <h2>The audit — $450. One payment.</h2>
+    <p>On the right are other companies' prices for the same work, taken from their own sites. None of those figures is ours — ours is the single one on the last line.</p>
+  </div>
+  <div class="tw"><table><tbody>
+    <tr class="h"><td>The work</td><td class="p">Elsewhere</td></tr>
+    <tr><td class="n">Thirty mystery calls across a grid of hours<small>Five windows: before opening, morning, midday, evening, late evening, weekend</small></td><td class="p">$750</td></tr>
+    <tr><td class="n">Setup: truth sheet, 120–200 scenarios, call script</td><td class="p">$300</td></tr>
+    <tr><td class="n">Review of thirty conversations against 34 checks</td><td class="p">$150</td></tr>
+    <tr><td class="n">A signed written protocol</td><td class="p">$500</td></tr>
+    <tr><td class="n">A second run after you make the fixes</td><td class="p">$750</td></tr>
+    <tr class="h"><td>Included on top</td><td class="p"></td></tr>
+    <tr><td class="n">Line Passport<small>Twelve fields, yours forever. Anyone can audit you against it, including you</small></td><td class="p">$150</td></tr>
+    <tr><td class="n">Translated for your vendor<small>The fixes in his language, one page, so you don't have to argue in ours</small></td><td class="p">$100</td></tr>
+    <tr><td class="n">What broke that wasn't broken<small>Its own column on the re-run. Nobody else gives you this</small></td><td class="p">$200</td></tr>
+    <tr><td class="n">The night shift<small>Part of the calls land in the hours you never call yourself — Saturday, eleven at night, seven in the morning</small></td><td class="p">$150</td></tr>
+    <tr><td class="n">The 34-check list<small>Open before you pay. Audit us before we audit you</small></td><td class="p">$0</td></tr>
+    <tr class="was"><td>If bought separately</td><td class="p">$3,050</td></tr>
+    <tr class="sum"><td>The audit</td><td class="p">$450</td></tr>
+  </tbody></table></div>
+  <div class="narrow">
+    <p><b>What isn't on that list, and what we don't charge for.</b> Recordings and transcripts of your own calls. You most likely already have them, included in your platform's plan. We sell the thirty calls that aren't in your dashboard, because nobody made them.</p>
+    <p><a class="btn" href="#check">Start with the free call</a></p>
+  <p style="margin-top:10px"><a class="btn" href="https://buy.stripe.com/3cI4grezKgAa8Dz2nxfrW02">Pay and start — $450</a></p>
+  <p class="bsub">Card payment. We send the truth sheet straight after — you fill it in at your own pace.</p>
+  </div></div>
+</section>
+
+<!-- WE RAN IT ON OURSELVES -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Proof</p>
+    <h2>This is what the protocol looks like. We ran it on our own agent.</h2>
+    <p>You're paying for a document, and you're entitled to see what the document looks like. We can't show you someone else's — that's their business, and publishing findings about them isn't ours to do. We can show you ours.</p>
+    <p>We have a voice agent too. Her name is Vera, and we ran the audit on her. Three calls, thirteen minutes, five places where she broke the truth sheet we had written for her ourselves. We fixed those.</p>
+    <p><b>What we don't have yet, and won't pretend to.</b> The full thirty-call run on her, and the re-run after the fixes. Until both are done there is no «what broke that wasn't broken before» column to show you, and we're not going to show you half a document and call it proof. When it's finished it goes on this page whole, including the parts that don't flatter us.</p>
+    <figure>
+      <picture><source media="(max-width:640px)" srcset="img/m-protokol-vera.webp">
+      <img src="img/d-protokol-vera.webp" alt="A before-and-after protocol on our own voice agent: five violations found in three live calls, four of them shown, each with the fix applied." width="1600" height="900"></picture>
+    </figure>
+    <p><b>Why this is here.</b> It's a product sample, not a confession. And you can call her yourself and compare her to what the protocol says: <b>+1 424 781 1913</b> (up to fifteen minutes by phone, and she says goodbye herself when the time is up).</p>
+    <p class="fine">If what you need is to install an agent rather than audit one, that's a different page and a different price. We don't sell you a bot from here — the company selling the bot can't be the one auditing it.</p>
+  </div></div>
+</section>
+
+<!-- HOW IT RUNS -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Ten working days</p>
+    <h2>How the audit runs.</h2>
+    <div class="steps">
+      <div class="st"><span class="k">Day 0</span><p>One free call and a one-page report with quotes.</p></div>
+      <div class="st"><span class="k">Day 1</span><p>We send the truth sheet: twenty-two questions about what counts as the right answer here. You fill it in at your own pace, by voice or by typing.</p></div>
+      <div class="st"><span class="k">Days 2–6</span><p>Thirty calls across five windows. No more than two a day to one number. We give you the numbers we call from in advance, so you can filter them.</p></div>
+      <div class="st"><span class="k">Days 7–9</span><p>Review. Every finding is first flagged by software, then confirmed by a person.</p></div>
+      <div class="st"><span class="k">Day 10</span><p>The protocol. Quote, the line it broke, what to change. Plus a line saying what we <b>didn't</b> check — that one is always there.</p></div>
+      <div class="st"><span class="k">Then</span><p>You fix, we run it again. One re-run included, sixty days.</p></div>
+    </div>
+    <p><b>Two things most people hide, and we say before you pay.</b> The audit eats your minutes — thirty calls of two to three minutes is a noticeable share of a cheap plan's monthly allowance, and we reimburse them. And we check a sample, not every conversation that could ever happen.</p>
+  </div></div>
+</section>
+
+<!-- GUARANTEES -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Guarantees</p>
+    <h2>We promise the work, not the verdict.</h2>
+    <div class="g"><p class="t">No protocol in ten working days — you don't pay</p>
+      <p>The clock starts when your truth sheet is signed, not when you pay. We return the full $450 within five working days. No form, no explanation needed. We don't hand over a half-finished protocol: either the document or the money, not both.</p></div>
+    <div class="g"><p class="t">A clean report is the same result and the same price</p>
+      <p>If your line passes all thirty-four checks, you get a signed clean report with transcripts, dates and the numbers we called from. If it cost less, we'd have a reason to find something.</p></div>
+    <div class="g"><p class="t">If your line blocks our numbers, that's a finding</p>
+      <p>It goes into the protocol as its own line, the protocol counts as delivered, and we don't ask for more.</p></div>
+    <h3>Why we don't say «nothing found, nothing owed»</h3>
+    <p>It sounds stronger. But we'd be the ones judging the condition, and a fee that depends on finding something hands your vendor a free argument: «they get paid to find something.» We sell independence. You can't take money for the finding and call yourself independent.</p>
+  </div></div>
+</section>
+
+<!-- INTEGRATORS -->
+<section>
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Second door</p>
+    <h2>If you install bots for other people.</h2>
+    <p>Then what you need isn't a check, it's a third-party signature. Your own dashboard won't convince a client — they know who's counting.</p>
+    <div class="steps">
+      <div class="st"><span class="k">First agent</span><p>Audit, prompt fixes worked through with you, a re-run, and a before-and-after document you hand to your client. <b>$1,200</b></p></div>
+      <div class="st"><span class="k">From three agents</span><p><b>$300</b> per agent</p></div>
+      <div class="st"><span class="k">Regression</span><p>A run after every prompt change. <b>$250</b> per agent per month</p></div>
+    </div>
+    <p><b>We don't install voice agents and we're not going to.</b> Your client stays yours, the prompt stays yours, and there isn't a line of our own pitch anywhere in the report.</p>
+  </div></div>
+</section>
+
+<!-- OBJECTIONS -->
+<section><div class="w"><div class="narrow">
+  <p class="eyebrow">Who does this</p><h2>You'll be working with the two of us.</h2>
+  <figure style="max-width:420px"><img src="img/foto.webp" alt="Andrii and Masha, the two people who do this work." width="820" height="850"></figure>
+  <p class="fine">Andrii and Masha. Wealthboosterpro LLC, Casper, Wyoming.</p>
+</div></div></section>
+
+<section>
+  <div class="w"><div class="narrow">
+    <p class="eyebrow">Fair questions</p>
+    <h2>Four you've already asked yourself.</h2>
+    <div class="obj"><p class="q">«I have all the recordings in my dashboard»</p>
+      <p>You do, and that's true — most platforms include a transcript of every call. Open them today, it's free, and we don't charge for them. But those are conversations with people who got through. There's no call at 9:40 on a Friday night if nobody called you at 9:40 on a Friday night.</p></div>
+    <div class="obj"><p class="q">«Cekura and Hamming already test voice agents»</p>
+      <p>They do, and they can dial your public number — I won't pretend otherwise. Three things differ. <b>They run your agent through scenarios you wrote</b>, which tests your imagination, and the branch nobody anticipated never gets tested. <b>Connecting them needs access to a system someone else installed for you</b> — and if you had that access, you'd already be in there. And <b>their log is your own log.</b> You can't put it in front of a third party.</p></div>
+    <div class="obj"><p class="q">«You're doing this to sell me your own bot»</p>
+      <p>There isn't a line of our offer in the protocol. Easy to check: we ran the audit on our own agent and wrote down what it found — three calls, thirteen minutes, five violations of our own written truth sheet. We fixed them. The thirty-call run on her and the re-run after the fixes aren't done yet, and we say so on this page rather than rounding it up into a finished case.</p></div>
+<div class="obj"><p class="q">"I'm not sure this is actually my problem"</p>
+<p>Then don't buy this one. We have a separate step for exactly that case — when everything hurts at once or you can't tell where: the <b>deep diagnostic</b>. A study of your business from open sources and your own answers, $500 once, credited against your first implementation payment. If we don't see where it pays off for you, we'll say so. <a href="/diagnostic/">What's in it →</a></p></div>
+  </div></div>
+</section>
+
+<!-- FINAL -->
+<section>
+  <div class="w"><div class="narrow cen">
+    <h2>Listen to one call first. Then decide.</h2>
+    <p class="lede">Free, and it commits you to nothing. If your line handled it cleanly, we'll tell you that.</p>
+    <p style="margin-top:28px"><a class="btn" href="#check">Call my bot</a></p>
+    <p class="bsub">Email and public number · transcript by email</p>
+    <p style="margin-top:28px;color:var(--dim)">The protocol lands on the tenth working day. If it doesn't, you don't pay.</p>
+  </div></div>
+</section>
+
+<footer><div class="w"><div class="narrow">
+  <p class="fine">Wealthboosterpro LLC, dba Business Intelligence DNA · 5830 E 2nd St Ste 7000, Casper, WY 82609<br>
+  The protocol shown above is a real audit of our own voice agent, run 14–15 September 2026. The free-report example is written by us: no real business is named, and nobody else's failure is shown.</p>
+</div></div></footer>
