@@ -797,8 +797,8 @@ def zvonok_pod_knopkoy(s, ru):
       ("почта" if ru else "email"),
       ("имя, по желанию" if ru else "name, optional"),
       ("Выбрать время" if ru else "Pick a time"),
-      ("Почта нужна, чтобы мы могли написать, если звонок не состоится." if ru
-       else "We ask for your email so we can follow up if the call does not happen."),
+      ("Почта нужна, чтобы прислать цены и ссылку на запись и написать, если звонок не состоится." if ru
+       else "We ask for your email to send you our prices and the booking link, and to follow up if the call does not happen."),
       ("Как мы храним данные" if ru else "How we handle your data"),
     )
 
