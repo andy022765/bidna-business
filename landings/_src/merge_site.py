@@ -139,7 +139,7 @@ GLAVNAYA = {
     sub="Три вещи для владельца бизнеса. Каждую можно взять отдельно. Вслепую не ставим: не знаете, где теряете клиентов, — начните с диагностики.",
     karty=[
       dict(href="/vera/ru/", k="ИИ-администратор и продавец", h="Вера",
-           p="Берёт трубку на второй секунде, отвечает по вашему прайсу и записывает в ваш календарь. На втором этапе продаёт и дожимает письмами тех, кто не решил. Номер остаётся ваш. Без доплаты входят ответ за минуту на заявки с вашего сайта — уже работает на наших заявках — и просьба об отзыве в Google после визита.",
+           p="Администратор: берёт трубку на второй секунде, отвечает по вашему прайсу и записывает в ваш календарь. Менеджер по продажам: доводит до оплаты и дожимает письмами тех, кто не решил. Отвечает за минуту на заявки с вашего сайта и просит отзыв в Google после визита. Номер остаётся ваш.",
            cena="Запуск $1&nbsp;000 + $199 в месяц, подписка", go="Открыть →"),
       dict(href="/visibility/ru/", k="Видимость в нейросетях", h="Ваше имя в ответе",
            p="Делаем так, чтобы ChatGPT и другие нейросети называли ваш бизнес, когда спрашивают, к кому обратиться. С вашего согласия проверяем сайт и дорабатываем, а если он не годится — делаем новый. Не назвал ни один движок — возвращаем всё до доллара.",
@@ -179,7 +179,7 @@ GLAVNAYA = {
     sub="Three things for a business owner. Each one can be bought on its own. We don't install AI blindly: if you can't tell where you lose customers, start with the diagnostic.",
     karty=[
       dict(href="/vera/", k="AI receptionist and sales rep", h="Vera",
-           p="Picks up on the second ring, answers from your own price list and books into your calendar. At stage two she sells and follows up by email with anyone undecided. Your number stays yours. Included at no extra cost: a reply within a minute to inquiries from your website (already running on our own inquiries) and a Google review request after each visit.",
+           p="Receptionist: picks up on the second ring, answers from your own price list and books into your calendar. Sales rep: takes the caller to payment and follows up by email with anyone undecided. Replies within a minute to inquiries from your website and asks for a Google review after each visit. Your number stays yours.",
            cena="Setup $1,000 + $199 a month, subscription", go="Open →"),
       dict(href="/visibility/", k="Visibility in AI answers", h="Your name in the answer",
            p="We get ChatGPT and other AI assistants to name your business when people ask who to hire. With your consent we check your site and improve it, and if it can't be saved, we build a new one. If not one engine names you, you get every dollar back.",
