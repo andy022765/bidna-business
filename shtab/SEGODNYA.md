@@ -31,7 +31,7 @@
 
 **Руки, не деньги**
 - [ ] Продукт 1: три секрета в `~/.bidna-otvet.env` (OTVET_SECRET, RESEND_API_KEY, EV_BLOBS_TOKEN) + `skripty/nastroit-odin-raz.sh peremennye` из `Pivot/produkty/otvet-na-zayavki/site` (из облака я секреты писать не могу)
-- [ ] Calendly: Notetaker выключен? (из облака не проверить)
+- [x] Calendly: Notetaker выключен (скрин Андрея 02.10: переключатель «Re-enable your Notetaker» в положении выкл). В политику 1.3 про запись не вписываем
 
 **Решения да/нет**
 - [x] Карточка диагностики: решено 02.10 — диагностика остаётся отдельным продуктом ($500) и в подарок к Вере/видимости; строки в bid.json верны, менять не надо
