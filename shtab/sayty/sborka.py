@@ -516,6 +516,11 @@ PEREHODY = {
                             ("#cena", "Цена"), ("#voprosy", "Вопросы")],
     ("visibility", False): [("#check", "Check yours"), ("#chto", "What changes"),
                             ("#cena", "Price"), ("#voprosy", "Questions")],
+    # Диагностика в общем стиле (Андрей 02.10): та же верхняя строка, что у Веры и Видимости.
+    ("diagnostic", True):  [("#chto", "Что получаете"), ("#kak", "Как устроено"),
+                            ("#cena", "Цена"), ("#voprosy", "Вопросы")],
+    ("diagnostic", False): [("#chto", "What you get"), ("#kak", "How it runs"),
+                            ("#cena", "Price"), ("#voprosy", "Questions")],
 }
 CTA = {True: ("#cena", "Оплатить и начать"), False: ("#cena", "Pay and start")}
 
@@ -1182,6 +1187,7 @@ def main():
         ru = head_inject(ru, base + "/ru/", base + "/", base + "/ru/")
         en = add_switch(en, "ru/", "RU", "Русская версия", "ru")
         ru = add_switch(ru, "../", "EN", "English version", "en")
+        en, ru = verhnyaya_stroka(en, False, slug), verhnyaya_stroka(ru, True, slug)
         ru = ru.replace('src="img/', 'src="../img/').replace('srcset="img/', 'srcset="../img/')
 
         pd_en = head_inject(pd_en, base + "/paid/", base + "/paid/", base + "/ru/paid/")

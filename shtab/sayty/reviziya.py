@@ -576,7 +576,7 @@ for u, tt in stranicy.items():
 # Каждая строка — его слово, сказанное вслух. Вернётся фраза — ревизия закричит.
 golo("ЗАМЕЧАНИЯ АНДРЕЯ 26.09")
 VERA = [u for u in stranicy if u.startswith("/vera/")]
-LENDY = ["/vera/", "/vera/ru/", "/visibility/", "/visibility/ru/"]
+LENDY = ["/vera/", "/vera/ru/", "/visibility/", "/visibility/ru/", "/diagnostic/", "/diagnostic/ru/"]  # диагностика с 02.10 в общем стиле
 PRODUKT = [u for u in stranicy if stranicy.get(u)]
 ZAPRET_26 = [  # (где, выражение, почему)
     (VERA, r"пятнадцати минут|15 минут|four minutes|4 minutes", "демо — три минуты везде"),
