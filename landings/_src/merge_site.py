@@ -4,7 +4,7 @@
    /business/*  — старая воронка для владельца бизнеса (с 29.09 noindex, вне карты сайта и llms.txt)
    /expert/*    — старая воронка для эксперта (так же)
 Внутри разделов файлы переименованы в короткие имена, ссылки переписаны."""
-import datetime, os, re, shutil, sys
+import datetime, json, os, re, shutil, sys
 BRAND = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "brand")
 sys.path.insert(0, os.path.join(BRAND, "_src"))
 from inline import inline, favicon_uri
@@ -139,7 +139,7 @@ GLAVNAYA = {
     sub="Три вещи для владельца бизнеса. Каждую можно взять отдельно. Вслепую не ставим: не знаете, где теряете клиентов, — начните с диагностики.",
     karty=[
       dict(href="/vera/ru/", k="ИИ-администратор и продавец", h="Вера",
-           p="Берёт трубку на второй секунде, отвечает по вашему прайсу и записывает в ваш календарь. На втором этапе продаёт и дожимает письмами тех, кто не решил. Номер остаётся ваш.",
+           p="Берёт трубку на второй секунде, отвечает по вашему прайсу и записывает в ваш календарь. На втором этапе продаёт и дожимает письмами тех, кто не решил. Номер остаётся ваш. Доделываем и включаем в Веру без доплаты: ответ за минуту на заявки с вашего сайта и просьбу об отзыве в Google после визита.",
            cena="Запуск $1&nbsp;000 + $199 в месяц, подписка", go="Открыть →"),
       dict(href="/visibility/ru/", k="Видимость в нейросетях", h="Ваше имя в ответе",
            p="Делаем так, чтобы ChatGPT и другие нейросети называли ваш бизнес, когда спрашивают, к кому обратиться. С вашего согласия проверяем сайт и дорабатываем, а если он не годится — делаем новый. Не назвал ни один движок — возвращаем всё до доллара.",
@@ -147,6 +147,26 @@ GLAVNAYA = {
       dict(href="/diagnostic/ru/", k="Глубокая диагностика", h="Где вы теряете клиентов",
            p="Для случая, когда болит везде или непонятно где. Разбор вашего дела по открытым источникам и вашим ответам. Документ за три рабочих дня: где вы теряете клиентов и какой рычаг трогать первым.",
            cena="$500 · к Вере и к кварталу видимости — в подарок", go="Открыть →"),
+    ],
+    tel="+1 424 781 1913", tel_href="+14247811913",
+    tel_txt="Позвоните Вере прямо сейчас, это тот самый агент, а не запись",
+    tel_sub="Русская линия · до трёх минут · ничего заполнять не надо",
+    bloki=[
+      ("Кто мы",
+       "<p>Business Intelligence DNA — Андрей и Маша, Wealthboosterpro LLC, Каспер, Вайоминг. Андрей — предприниматель с тридцатилетним опытом: финансовый холдинг, налоговая оптимизация корпораций, стратегия. Маша — экс-CFO крупной корпорации: психология клиента, переговоры, доведение до конца. Работаем с владельцами бизнеса в США по-русски и по-английски.</p>"),
+      ("Как мы работаем",
+       "<ul><li><b>Вслепую не ставим.</b> Не знаете, где теряете клиентов, — начните с глубокой диагностики. Знаете — берите нужную работу.</li>"
+       "<li><b>Проверить до оплаты.</b> Вере можно позвонить прямо сейчас. По видимости — бесплатная проверка за 30 секунд: видно, кого нейросети называют вместо вас.</li>"
+       "<li><b>Деньги и доступы.</b> Работаем под NDA. Доступа к вашим деньгам, счетам и базе клиентов не просим.</li>"
+       "<li><b>Что обещаем и что нет.</b> Ни процента роста, ни количества заявок, ни срока окупаемости. По видимости: если после квартала вас устойчиво не назвала ни одна нейросеть, возвращаем все $1&nbsp;500.</li></ul>"),
+      ("Кому это нужно",
+       "<p>Владельцу небольшого бизнеса в США, который сам берёт трубку, теряет звонки на объекте, вечером и в выходные и видит, что покупатели всё чаще спрашивают ChatGPT, к кому обратиться, — а его в ответе нет.</p>"),
+      ("Почитать перед решением",
+       "<ul><li><a href=\"/zvonki/poka-rabotayu/\">Кто ответит на звонки, пока вы работаете</a></li>"
+       "<li><a href=\"/zvonki/po-russki/\">Кто ответит на звонки по-русски</a></li>"
+       "<li><a href=\"/vidimost/chatgpt-nazyval/\">Кто в США сделает так, чтобы ChatGPT называл вашу компанию</a></li>"
+       "<li><a href=\"/vidimost/cena/\">Сколько стоит продвижение в AI-поиске</a></li>"
+       "<li><a href=\"/kejs/yulia-remote-cfo/\">Кейс: Julia Dospehoff, Remote CFO, Тампа</a></li></ul>"),
     ],
     niz="Вслепую не ставим · Работаем под NDA · Андрей и Маша",
     yur=("Условия", "Конфиденциальность", "Контакты", "Сообщения"),
@@ -159,7 +179,7 @@ GLAVNAYA = {
     sub="Three things for a business owner. Each one can be bought on its own. We don't install AI blindly: if you can't tell where you lose customers, start with the diagnostic.",
     karty=[
       dict(href="/vera/", k="AI receptionist and sales rep", h="Vera",
-           p="Picks up on the second ring, answers from your own price list and books into your calendar. At stage two she sells and follows up by email with anyone undecided. Your number stays yours.",
+           p="Picks up on the second ring, answers from your own price list and books into your calendar. At stage two she sells and follows up by email with anyone undecided. Your number stays yours. Coming soon, included in Vera at no extra cost: a reply within a minute to inquiries from your website, and a Google review request after each visit.",
            cena="Setup $1,000 + $199 a month, subscription", go="Open →"),
       dict(href="/visibility/", k="Visibility in AI answers", h="Your name in the answer",
            p="We get ChatGPT and other AI assistants to name your business when people ask who to hire. With your consent we check your site and improve it, and if it can't be saved, we build a new one. If not one engine names you, you get every dollar back.",
@@ -167,6 +187,24 @@ GLAVNAYA = {
       dict(href="/diagnostic/", k="Deep diagnostic", h="Where you lose customers",
            p="For when everything hurts at once or you can't tell where. A study of your business from open sources and your own answers. A document in three working days: where you lose customers and which lever to pull first.",
            cena="$500 · free with Vera or a quarter of visibility", go="Open →"),
+    ],
+    tel="+1 424 724 4202", tel_href="+14247244202",
+    tel_txt="Call Vera right now. It is the real agent, not a recording",
+    tel_sub="English line · up to three minutes · nothing to fill in",
+    bloki=[
+      ("Who we are",
+       "<p>Business Intelligence DNA is Andrii and Masha, Wealthboosterpro LLC, Casper, Wyoming. Andrii is an entrepreneur with thirty years of experience: a financial holding, corporate tax optimization, strategy. Masha is a former CFO of a large corporation: client psychology, negotiation, getting things finished. We work with business owners in the US in English and Russian.</p>"),
+      ("How we work",
+       "<ul><li><b>We don't install AI blindly.</b> If you can't tell where you lose customers, start with the deep diagnostic. If you can, take the work you need.</li>"
+       "<li><b>Check before you pay.</b> Call Vera right now. For visibility, a free 30-second check shows who AI assistants name instead of you.</li>"
+       "<li><b>Money and access.</b> We work under NDA. We never ask for access to your money, accounts or customer base.</li>"
+       "<li><b>What we promise and what we don't.</b> No growth percentage, no lead count, no payback date. For visibility: if after the quarter not one AI engine names you consistently, you get the full $1,500 back.</li></ul>"),
+      ("Who it's for",
+       "<p>An owner of a small US business who answers the phone themselves, misses calls on the job, in the evening and on weekends, and notices that customers increasingly ask ChatGPT who to hire, and their name isn't in the answer.</p>"),
+      ("Read before you decide",
+       "<ul><li><a href=\"/vera/\">Vera: AI receptionist and sales rep</a></li>"
+       "<li><a href=\"/visibility/\">Visibility: your name in AI answers</a></li>"
+       "<li><a href=\"/diagnostic/\">Deep diagnostic: where you lose customers</a></li></ul>"),
     ],
     niz="We don't install AI blindly · Under NDA · Andrii and Masha",
     yur=("Terms", "Privacy", "Contacts", "Messaging"),
@@ -202,6 +240,21 @@ a.card .cena{color:#fff;font-weight:600;font-size:15px;margin-top:auto;padding-t
 a.card .go{color:var(--gold-soft);font-weight:600;font-size:15px;margin-top:12px}
 .foot{margin-top:36px;color:#9aa2c4;font-size:14px;text-align:center}
 .foot a{color:#c3c9e6}
+a.tel{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:30px;width:100%;max-width:1040px;
+ text-decoration:none;color:#fff;border:1px solid var(--gold);border-radius:18px;padding:20px 22px;background:rgba(198,154,76,.08)}
+a.tel span{color:#c3c9e6;font-size:15.5px;text-align:center}
+a.tel b{font-family:var(--serif);font-size:clamp(26px,3.6vw,34px);color:var(--gold-soft);letter-spacing:.02em}
+a.tel small{color:#9aa2c4;font-size:13.5px;text-align:center}
+a.tel:hover{background:rgba(198,154,76,.15)}
+.blok{width:100%;max-width:820px;margin-top:40px}
+.blok h2{font-family:var(--serif);font-weight:600;font-size:26px;margin:0 0 12px;color:#fff}
+.blok p,.blok li{color:#c3c9e6;font-size:16.5px;line-height:1.6}
+.blok p{margin:0}
+.blok ul{margin:0;padding-left:20px}
+.blok li{margin:0 0 8px}
+.blok b{color:#fff}
+.blok a{color:var(--gold-soft)}
+.blok a:hover{color:#fff}
 @media(max-width:900px){.cards{grid-template-columns:1fr;max-width:560px}}
 @media(max-width:640px){.foot a{display:inline-block;padding:14px 0}.sub{font-size:16px}a.card p{font-size:16px}}
 </style>"""
@@ -220,6 +273,14 @@ def glavnaya(yaz):
         '      <span class="go">%(go)s</span>\n'
         '    </a>\n' % k for k in d["karty"])
     yur = d["yur"]
+    bloki_html = "".join('  <section class="blok"><h2>%s</h2>%s</section>\n' % b for b in d["bloki"])
+    org = json.dumps({"@context": "https://schema.org", "@type": "Organization",
+                      "name": "Business Intelligence DNA", "legalName": "Wealthboosterpro LLC",
+                      "url": dom + "/", "telephone": d["tel"],
+                      "address": {"@type": "PostalAddress", "streetAddress": "5830 E 2nd St Ste 7000",
+                                  "addressLocality": "Casper", "addressRegion": "WY",
+                                  "postalCode": "82609", "addressCountry": "US"},
+                      "description": d["opisanie"]}, ensure_ascii=False)
     return ("""<!doctype html>
 <html lang="%(lang)s">
 <head>
@@ -231,7 +292,7 @@ def glavnaya(yaz):
 <link rel="alternate" hreflang="ru" href="%(dom)s/">
 <link rel="alternate" hreflang="en" href="%(dom)s/en/">
 <link rel="alternate" hreflang="x-default" href="%(dom)s/">
-""" % dict(d, dom=dom)) + FAV + """
+""" % dict(d, dom=dom)) + '<script type="application/ld+json">' + org + '</script>\n' + FAV + """
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -244,6 +305,8 @@ def glavnaya(yaz):
   <p class="sub">%(sub)s</p>
   <div class="cards">
 """ % d + karty + """  </div>
+  <a class="tel" href="tel:%(tel_href)s"><span>%(tel_txt)s</span><b>%(tel)s</b><small>%(tel_sub)s</small></a>
+""" % d + bloki_html + """
   <div class="foot">%(niz)s · <a href="https://t.me/business_int_dna" target="_blank" rel="noopener">Telegram</a></div>
 """ % d + """  <div class="foot" style="margin-top:6px;font-size:12px;opacity:.7;line-height:44px">© 2026 Wealthboosterpro LLC (DBA Business Intelligence DNA) · 5830 E 2nd St Ste 7000, Casper, WY 82609 · <a style="display:inline-block;min-height:44px;line-height:44px" href="mailto:support@businessinteldna.com">support@businessinteldna.com</a> · <a style="display:inline-block;min-height:44px;min-width:44px;line-height:44px;text-align:center" href="/terms">%s</a> · <a style="display:inline-block;min-height:44px;min-width:44px;line-height:44px;text-align:center" href="/privacy">%s</a> · <a style="display:inline-block;min-height:44px;min-width:44px;line-height:44px;text-align:center" href="/contacts">%s</a> · <a style="display:inline-block;min-height:44px;min-width:44px;line-height:44px;text-align:center" href="/sms">%s</a></div>
 </body>
