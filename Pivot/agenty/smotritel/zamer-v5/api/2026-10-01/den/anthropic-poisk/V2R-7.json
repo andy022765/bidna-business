@@ -1,0 +1,728 @@
+{
+ "vopros_id": "V2R",
+ "povtor": 7,
+ "vopros": "Как сделать, чтобы нейросеть советовала мою компанию клиентам в США?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:04:17-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.09262,
+   "ishod": "ok",
+   "sekund": 31.5,
+   "meta": {
+    "request_id": "req_011CfcS24cym9nh9xTM7NeDm"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Чтобы нейросети (ChatGPT, Gemini, Perplexity, Google AI Overview и др.) начали рекомендовать вашу компанию клиентам в США, нужно заниматься так называемым **GEO (Generative Engine Optimization)** — оптимизацией присутствия бренда в источниках, на которых обучаются и из которых «читают» LLM. Вот практический план.\n\n## 1. Поймите логику работы ИИ\n\nЕсть два пути попасть в ответ нейросети. Языковые модели обучаются на огромных массивах текстов из интернета, и если бренд часто упоминался в СМИ, обзорах, на форумах, модель «знает» его и может порекомендовать, не обращаясь к поиску. Второй путь — это **live retrieval**: модель делает запрос в реальном времени и цитирует найденные страницы. Ключевая мысль: AI-рекомендации — это производная от вашего присутствия в источниках, которые читает ИИ. Вы оптимизируете не ChatGPT, а веб, из которого он получает данные.\n\nИз этого следует простой вывод: нейросеть рекомендует не того, кто «накрутил ключи», а того, кто оказался понятным и подтверждённым источником. Если о компании нет структурированной информации на сайте и упоминаний на стороне — модели проще взять конкурента, про которого данных больше.\n\n## 2. Сделайте сайт «читаемым» для ИИ\n\n- **Структура контента.** Структурируйте страницы с чёткими, лаконичными ответами в начале — стиль \"перевёрнутой пирамиды\": сначала ответ, потом детали. FAQ-разделы, блоки с определениями и пошаговые инструкции хорошо работают, потому что дают ChatGPT чистый текст для извлечения.\n- **Оптимальный объём блоков.** Данные показывают, что разделы по 120–180 слов работают лучше всего, так как это соответствует типичному размеру абзаца в ответе ИИ.\n- **Плотность фактов.** Как показало исследование Принстона, «плотность фактов» — ключевой сигнал ранжирования. Каждый абзац должен вносить уникальный факт. Заменяйте расплывчатые формулировки вроде «многие клиенты» на конкретику: «74% клиентов».\n- **Техническая доступность**: создайте файл llms.txt и настройте SSR, если у вас SPA-сайт, убедитесь, что контент доступен для сканирования.\n- **Structured data/Schema markup** — помогает ИИ точно понять, чем вы занимаетесь. Использование структурированных данных, таких как schema markup, помогает ИИ-системам понять ваши услуги и бизнес.\n\n## 3. Специфика для рынка США\n\nПоскольку аудитория — клиенты в США, важно присутствовать именно в американских источниках, которые читают LLM:\n\n- **Единообразные данные NAP** (имя, адрес, телефон) на сайте, Google Business Profile и во всех директориях. Убедитесь, что название, адрес, телефон и ключевые услуги идентичны на сайте, в Google Business Profile и крупных директориях — несоответствия путают и поисковики, и LLM.\n- **Foursquare и локальные директории.** Foursquare предоставляет значительную часть данных о местоположении и бизнесе, которые ИИ использует для рекомендаций.\n- **Отраслевые площадки отзывов**: G2, Capterra, Trustpilot, Clutch, Yelp, BBB. Стимулируйте сторонние отзывы и отзывы клиентов — Google, Trustpilot, Clutch и отраслевые площадки важны; открыто отвечайте на отзывы и держите профили заполненными.\n- **Reddit и Quora** — неожиданно влиятельные источники для LLM. Reddit и Quora могут иметь непропорционально большое влияние на выдачу ИИ — участвуйте в обсуждениях искренне и по делу.\n- **Упоминания в авторитетных СМИ и индустриальных публикациях.** Если бренд позитивно упоминается на нескольких авторитетных ресурсах, ChatGPT с большей вероятностью включит его в ответ — инвестируйте в digital PR, публикуйтесь в отраслевых изданиях, участвуйте в Reddit-сообществах.\n- **Листинги и «best-of»-рейтинги.** Найдите рейтинговые статьи, которые реально цитирует ИИ по вашей категории и городу, предложите публикаторам включить вас, публикуйте честный сравнительный контент с конкурентами.\n\n## 4. Контент-стратегия\n\n- **Сравнительные материалы.** «Лучший X для Y» и «X vs Y» — одни из самых частых типов запросов к ChatGPT. Создавайте честные, подробные страницы сравнения, которые объективно позиционируют продукт против альтернатив.\n- **Оригинальные данные.** Модели не могут проводить опросы или считать свежие цифры — они опираются на уже опубликованные данные. Если вы предоставляете такие данные, это даёт модели повод сослаться на вашу страницу.\n- **Кейсы и уникальные технологии.** Демонстрация реальных примеров даёт LLM доказательства, которые можно процитировать, когда пользователи спрашивают рекомендации.\n\n## 5. Измерение и мониторинг\n\nНачните с базового аудита: спросите основные чат-боты о вашей нише и отметьте, цитируют ли они вас, какую страницу берут и как вас описывают. Регулярно повторяйте замеры: задавайте 15 типичных вопросов покупателей в ChatGPT, Perplexity и Google AI Mode, фиксируя упомянутые бренды, причины, видимые источники и фактические ошибки.\n\nЭффективность GEO оценивают по частоте и тональности упоминаний бренда, а также по переходам из ИИ-сервисов: эффективность GEO отслеживают по тому, как часто нейросети упоминают бренд в ответах и в какой тональности, какова доля упоминаний в сравнении с конкурентами, а также по переходам на сайт из ИИ-сервисов.\n\n---\n\n### Кратко — с чего начать уже сегодня\n1. Проверьте, что говорят ChatGPT/Perplexity о вашей компании сейчас (baseline).\n2. Приведите NAP-данные к единообразию на сайте и во всех американских директориях.\n3. Перепишите ключевые страницы в формате «ответ в начале + факты + цифры».\n4. Соберите отзывы на профильных площадках (G2, Trustpilot, Yelp — в зависимости от ниши).\n5. Опубликуйте 1-2 честных сравнительных материала и кейсы с конкретными цифрами.\n6. Договоритесь об упоминании в отраслевых «best of» списках и СМИ.\n7. Мониторьте результат раз в месяц, повторяя одинаковый набор запросов к разным ИИ.\n\nЭто не разовая акция, а постоянный процесс — как SEO, но с фокусом не на позиции в выдаче, а на то, чтобы ИИ видел вас как надёжный и понятный источник информации.",
+  "poiskovye_zaprosy": [
+   "как сделать чтобы AI чат-боты рекомендовали компанию GEO generative engine optimization",
+   "how to get recommended by ChatGPT AI search LLM optimization for business 2026"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://www.it-agency.ru/academy/geo-optimization-for-busines",
+    "domen": "it-agency.ru",
+    "title": "База по GEO-продвижению или как опти..."
+   },
+   {
+    "url": "https://netology.ru/blog/generative-engine-optimization",
+    "domen": "netology.ru",
+    "title": "GEO: что такое generative engine optimization и как ..."
+   },
+   {
+    "url": "https://finance.mail.ru/article/seo-transformiruetsya-v-geo-69216277",
+    "domen": "finance.mail.ru",
+    "title": "SEO трансформируется в GEO. Во сколько ..."
+   },
+   {
+    "url": "https://affix-group.ru/useful/geo-prodvizhenie-kak-sdelat-tak-chtoby-ii-rekomendoval-vashu-kompaniyu",
+    "domen": "affix-group.ru",
+    "title": "GEO-продвижение: как сделать так, чтобы ..."
+   },
+   {
+    "url": "https://kokoc.com/blog/chto-takoe-geo-aeo-i-kak-pravilno-prodvigatsya-v-neyrosetyakh",
+    "domen": "kokoc.com",
+    "title": "Продвижение сайта в нейросетях: ..."
+   },
+   {
+    "url": "https://tochkicamp.ru/guides/kak-optimizirovat-sayt-pod-ai-poisk",
+    "domen": "tochkicamp.ru",
+    "title": "Как оптимизировать сайт под AI-поиск: ..."
+   },
+   {
+    "url": "https://www.qmedia.by/blog/rukovodstvo_po_geo_i_aeo_optimizacii.html",
+    "domen": "qmedia.by",
+    "title": "Руководство по GEO и AEO оптимизации: ..."
+   },
+   {
+    "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh",
+    "domen": "vc.ru",
+    "title": "GEO-продвижение: что это простыми ..."
+   },
+   {
+    "url": "https://artrix.ru/ai",
+    "domen": "artrix.ru",
+    "title": "Продвижение в нейросетях GEO оптими..."
+   },
+   {
+    "url": "https://www.pagetraffic.in/blog/how-to-make-chatgpt-to-recommend-your-business",
+    "domen": "pagetraffic.in",
+    "title": "How to Make ChatGPT to Recommend Your Business? Guide to LLM ..."
+   },
+   {
+    "url": "https://www.udemy.com/course/llm-seo-geo-get-ai-to-recommend-you",
+    "domen": "udemy.com",
+    "title": "AI SEO 2026: LLM SEO, GEO, AEO: Get Traffic From ChatGPT"
+   },
+   {
+    "url": "https://explodingtopics.com/blog/ai-search-optimization-guide",
+    "domen": "explodingtopics.com",
+    "title": "How to Rank on AI Search Engines in 2026: Practical LLMO Guide"
+   },
+   {
+    "url": "https://www.yotpo.com/blog/chatgpt-seo-geo-tips",
+    "domen": "yotpo.com",
+    "title": "ChatGPT SEO & GEO 2026: 12 Tips To Get Cited In AI Answers"
+   },
+   {
+    "url": "https://vistasocial.com/insights/ai-search-optimization",
+    "domen": "vistasocial.com",
+    "title": "How to Get Recommended by ChatGPT and Perplexity"
+   },
+   {
+    "url": "https://llmpulse.ai/blog/optimize-for-chatgpt-search",
+    "domen": "llmpulse.ai",
+    "title": "How to Optimize for ChatGPT Search: A Practical Guide for 2026 ..."
+   },
+   {
+    "url": "https://seoprofy.com/blog/llm-seo",
+    "domen": "seoprofy.com",
+    "title": "LLM SEO in 2026: 8 Strategies to Boost AI Search Visibility"
+   },
+   {
+    "url": "https://halotechlab.com/blog/how-to-make-your-business-get-recommended-by-chatgpt-and-llms-in-2026",
+    "domen": "halotechlab.com",
+    "title": "How to Get Recommended by ChatGPT and LLMs: SME Guide 2026"
+   },
+   {
+    "url": "https://acemindtech.com/how-to-get-your-business-recommended-by-chatgpt-2026-guide",
+    "domen": "acemindtech.com",
+    "title": "How to Get Your Business Recommended by ChatGPT (2026 Guide)"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://netology.ru/blog/generative-engine-optimization",
+    "domen": "netology.ru",
+    "title": "GEO: что такое generative engine optimization и как ..."
+   },
+   {
+    "url": "https://acemindtech.com/how-to-get-your-business-recommended-by-chatgpt-2026-guide",
+    "domen": "acemindtech.com",
+    "title": "How to Get Your Business Recommended by ChatGPT (2026 Guide)"
+   },
+   {
+    "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh",
+    "domen": "vc.ru",
+    "title": "GEO-продвижение: что это простыми ..."
+   },
+   {
+    "url": "https://llmpulse.ai/blog/optimize-for-chatgpt-search",
+    "domen": "llmpulse.ai",
+    "title": "How to Optimize for ChatGPT Search: A Practical Guide for 2026 ..."
+   },
+   {
+    "url": "https://www.yotpo.com/blog/chatgpt-seo-geo-tips",
+    "domen": "yotpo.com",
+    "title": "ChatGPT SEO & GEO 2026: 12 Tips To Get Cited In AI Answers"
+   },
+   {
+    "url": "https://www.it-agency.ru/academy/geo-optimization-for-busines",
+    "domen": "it-agency.ru",
+    "title": "База по GEO-продвижению или как опти..."
+   },
+   {
+    "url": "https://www.pagetraffic.in/blog/how-to-make-chatgpt-to-recommend-your-business",
+    "domen": "pagetraffic.in",
+    "title": "How to Make ChatGPT to Recommend Your Business? Guide to LLM ..."
+   },
+   {
+    "url": "https://halotechlab.com/blog/how-to-make-your-business-get-recommended-by-chatgpt-and-llms-in-2026",
+    "domen": "halotechlab.com",
+    "title": "How to Get Recommended by ChatGPT and LLMs: SME Guide 2026"
+   },
+   {
+    "url": "https://seoprofy.com/blog/llm-seo",
+    "domen": "seoprofy.com",
+    "title": "LLM SEO in 2026: 8 Strategies to Boost AI Search Visibility"
+   },
+   {
+    "url": "https://vistasocial.com/insights/ai-search-optimization",
+    "domen": "vistasocial.com",
+    "title": "How to Get Recommended by ChatGPT and Perplexity"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19896,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 3283
+  },
+  "cena": 0.09262,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcS25rA384w5fK4EhqDR",
+    "request_id": "req_011CfcS24cym9nh9xTM7NeDm",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19896,
+     "output_tokens": 3283,
+     "output_tokens_details": {
+      "thinking_tokens": 205
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01V3Uen6EosaH7E566Kv7Rgh",
+    "caller": null,
+    "input": {
+     "query": "как сделать чтобы AI чат-боты рекомендовали компанию GEO generative engine optimization"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01Jv4ScvANMjAbC3ructT3b1",
+    "caller": null,
+    "input": {
+     "query": "how to get recommended by ChatGPT AI search LLM optimization for business 2026"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "216 days ago",
+      "title": "База по GEO-продвижению или как опти...",
+      "type": "web_search_result",
+      "url": "https://www.it-agency.ru/academy/geo-optimization-for-busines/"
+     },
+     {
+      "page_age": null,
+      "title": "GEO: что такое generative engine optimization и как ...",
+      "type": "web_search_result",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     },
+     {
+      "page_age": "89 days ago",
+      "title": "SEO трансформируется в GEO. Во сколько ...",
+      "type": "web_search_result",
+      "url": "https://finance.mail.ru/article/seo-transformiruetsya-v-geo-69216277/"
+     },
+     {
+      "page_age": "29 days ago",
+      "title": "GEO-продвижение: как сделать так, чтобы ...",
+      "type": "web_search_result",
+      "url": "https://affix-group.ru/useful/geo-prodvizhenie-kak-sdelat-tak-chtoby-ii-rekomendoval-vashu-kompaniyu/"
+     },
+     {
+      "page_age": "94 days ago",
+      "title": "Продвижение сайта в нейросетях: ...",
+      "type": "web_search_result",
+      "url": "https://kokoc.com/blog/chto-takoe-geo-aeo-i-kak-pravilno-prodvigatsya-v-neyrosetyakh/"
+     },
+     {
+      "page_age": "61 days ago",
+      "title": "Как оптимизировать сайт под AI-поиск: ...",
+      "type": "web_search_result",
+      "url": "https://tochkicamp.ru/guides/kak-optimizirovat-sayt-pod-ai-poisk/"
+     },
+     {
+      "page_age": "370 days ago",
+      "title": "Руководство по GEO и AEO оптимизации: ...",
+      "type": "web_search_result",
+      "url": "https://www.qmedia.by/blog/rukovodstvo_po_geo_i_aeo_optimizacii.html"
+     },
+     {
+      "page_age": "91 days ago",
+      "title": "GEO-продвижение: что это простыми ...",
+      "type": "web_search_result",
+      "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh"
+     },
+     {
+      "page_age": "396 days ago",
+      "title": "Продвижение в нейросетях GEO оптими...",
+      "type": "web_search_result",
+      "url": "https://artrix.ru/ai"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01V3Uen6EosaH7E566Kv7Rgh",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "125 days ago",
+      "title": "How to Make ChatGPT to Recommend Your Business? Guide to LLM ...",
+      "type": "web_search_result",
+      "url": "https://www.pagetraffic.in/blog/how-to-make-chatgpt-to-recommend-your-business/"
+     },
+     {
+      "page_age": "35 days ago",
+      "title": "AI SEO 2026: LLM SEO, GEO, AEO: Get Traffic From ChatGPT",
+      "type": "web_search_result",
+      "url": "https://www.udemy.com/course/llm-seo-geo-get-ai-to-recommend-you/"
+     },
+     {
+      "page_age": "133 days ago",
+      "title": "How to Rank on AI Search Engines in 2026: Practical LLMO Guide",
+      "type": "web_search_result",
+      "url": "https://explodingtopics.com/blog/ai-search-optimization-guide"
+     },
+     {
+      "page_age": "128 days ago",
+      "title": "ChatGPT SEO & GEO 2026: 12 Tips To Get Cited In AI Answers",
+      "type": "web_search_result",
+      "url": "https://www.yotpo.com/blog/chatgpt-seo-geo-tips/"
+     },
+     {
+      "page_age": null,
+      "title": "How to Get Recommended by ChatGPT and Perplexity",
+      "type": "web_search_result",
+      "url": "https://vistasocial.com/insights/ai-search-optimization"
+     },
+     {
+      "page_age": "14 days ago",
+      "title": "How to Optimize for ChatGPT Search: A Practical Guide for 2026 ...",
+      "type": "web_search_result",
+      "url": "https://llmpulse.ai/blog/optimize-for-chatgpt-search/"
+     },
+     {
+      "page_age": "125 days ago",
+      "title": "LLM SEO in 2026: 8 Strategies to Boost AI Search Visibility",
+      "type": "web_search_result",
+      "url": "https://seoprofy.com/blog/llm-seo/"
+     },
+     {
+      "page_age": "204 days ago",
+      "title": "How to Get Recommended by ChatGPT and LLMs: SME Guide 2026",
+      "type": "web_search_result",
+      "url": "https://halotechlab.com/blog/how-to-make-your-business-get-recommended-by-chatgpt-and-llms-in-2026"
+     },
+     {
+      "page_age": "114 days ago",
+      "title": "How to Get Your Business Recommended by ChatGPT (2026 Guide)",
+      "type": "web_search_result",
+      "url": "https://acemindtech.com/how-to-get-your-business-recommended-by-chatgpt-2026-guide/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Jv4ScvANMjAbC3ructT3b1",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Чтобы нейросети (ChatGPT, Gemini, Perplexity, Google AI Overview и др.) начали рекомендовать вашу компанию клиентам в США, нужно заниматься так называемым **GEO (Generative Engine Optimization)** — оптимизацией присутствия бренда в источниках, на которых обучаются и из которых «читают» LLM. Вот практический план.\n\n## 1. Поймите логику работы ИИ\n\nЕсть два пути попасть в ответ нейросети. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "**Первый путь — память модели.** Языковые модели обучаются на огромных массивах текстов из интернета. Если бренд часто упоминался в СМИ, обзорах, на ф...",
+      "title": "GEO: что такое generative engine optimization и как ...",
+      "type": "web_search_result_location",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     }
+    ],
+    "text": "Языковые модели обучаются на огромных массивах текстов из интернета, и если бренд часто упоминался в СМИ, обзорах, на форумах, модель «знает» его и может порекомендовать, не обращаясь к поиску.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Второй путь — это **live retrieval**: модель делает запрос в реальном времени и цитирует найденные страницы. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "# How to Get Your Business Recommended by ChatGPT in 2026\n## How ChatGPT Decides Which Businesses to Mention\n### Live Retrieval — The Fast Game\n**The ...",
+      "title": "How to Get Your Business Recommended by ChatGPT (2026 Guide)",
+      "type": "web_search_result_location",
+      "url": "https://acemindtech.com/how-to-get-your-business-recommended-by-chatgpt-2026-guide/"
+     }
+    ],
+    "text": "Ключевая мысль: AI-рекомендации — это производная от вашего присутствия в источниках, которые читает ИИ. Вы оптимизируете не ChatGPT, а веб, из которого он получает данные.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\nИз этого следует простой вывод: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Цель — не клик, а упоминание и цитирование в самом AI-ответе\n\n## Как работает генеративный поиск: почему ИИ выбирает одни бренды и игнорирует другие\n*...",
+      "title": "GEO-продвижение: что это простыми ...",
+      "type": "web_search_result_location",
+      "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh"
+     }
+    ],
+    "text": "нейросеть рекомендует не того, кто «накрутил ключи», а того, кто оказался понятным и подтверждённым источником. Если о компании нет структурированной информации на сайте и упоминаний на стороне — модели проще взять конкурента, про которого данных больше.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## 2. Сделайте сайт «читаемым» для ИИ\n\n- **Структура контента.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Create Answer-Ready Content\nStructure your pages with clear, concise answers near the top. Use the inverted pyramid style: lead with the answer, then ...",
+      "title": "How to Optimize for ChatGPT Search: A Practical Guide for 2026 ...",
+      "type": "web_search_result_location",
+      "url": "https://llmpulse.ai/blog/optimize-for-chatgpt-search/"
+     }
+    ],
+    "text": "Структурируйте страницы с чёткими, лаконичными ответами в начале — стиль \"перевёрнутой пирамиды\": сначала ответ, потом детали. FAQ-разделы, блоки с определениями и пошаговые инструкции хорошо работают, потому что дают ChatGPT чистый текст для извлечения.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Оптимальный объём блоков.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Data suggests that pages with sections of **120–180 words** perform best, as this length aligns with the typical “paragraph size” of an AI response.\n\n",
+      "title": "ChatGPT SEO & GEO 2026: 12 Tips To Get Cited In AI Answers",
+      "type": "web_search_result_location",
+      "url": "https://www.yotpo.com/blog/chatgpt-seo-geo-tips/"
+     }
+    ],
+    "text": "Данные показывают, что разделы по 120–180 слов работают лучше всего, так как это соответствует типичному размеру абзаца в ответе ИИ.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Плотность фактов.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Optimize for “Fact Density”\nAs the Princeton study highlighted, “Fact Density” is a primary ranking signal. Every paragraph in your content should aim...",
+      "title": "ChatGPT SEO & GEO 2026: 12 Tips To Get Cited In AI Answers",
+      "type": "web_search_result_location",
+      "url": "https://www.yotpo.com/blog/chatgpt-seo-geo-tips/"
+     }
+    ],
+    "text": "Как показало исследование Принстона, «плотность фактов» — ключевой сигнал ранжирования. Каждый абзац должен вносить уникальный факт. Заменяйте расплывчатые формулировки вроде «многие клиенты» на конкретику: «74% клиентов».",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Техническая доступность**: создайте файл llms.txt и настройте SSR, если у вас SPA-сайт, ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Техническая доступность\n- создайте и разместите llms.txt\n- убедитесь, что настроен SSR для SPA — это нужно, чтобы контент был доступен.\n\n",
+      "title": "База по GEO-продвижению или как опти...",
+      "type": "web_search_result_location",
+      "url": "https://www.it-agency.ru/academy/geo-optimization-for-busines/"
+     }
+    ],
+    "text": "убедитесь, что контент доступен для сканирования",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **Structured data/Schema markup** — помогает ИИ точно понять, чем вы занимаетесь. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "- Use of structured data such as schema markup can help AI systems learn about your services and your business.\n\n",
+      "title": "How to Make ChatGPT to Recommend Your Business? Guide to LLM ...",
+      "type": "web_search_result_location",
+      "url": "https://www.pagetraffic.in/blog/how-to-make-chatgpt-to-recommend-your-business/"
+     }
+    ],
+    "text": "Использование структурированных данных, таких как schema markup, помогает ИИ-системам понять ваши услуги и бизнес.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## 3. Специфика для рынка США\n\nПоскольку аудитория — клиенты в США, важно присутствовать именно в американских источниках, которые читают LLM:\n\n- **Единообразные данные NAP** (имя, адрес, телефон) на сайте, Google Business Profile и во всех директориях. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Strengthen your web fundamentals (LLM-friendly SEO)\n- **Up-to-date, consistent business information everywhere**: Make sure name, address, phone, and ...",
+      "title": "How to Get Recommended by ChatGPT and LLMs: SME Guide 2026",
+      "type": "web_search_result_location",
+      "url": "https://halotechlab.com/blog/how-to-make-your-business-get-recommended-by-chatgpt-and-llms-in-2026"
+     }
+    ],
+    "text": "Убедитесь, что название, адрес, телефон и ключевые услуги идентичны на сайте, в Google Business Profile и крупных директориях — несоответствия путают и поисковики, и LLM.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Foursquare и локальные директории.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "- Foursquare serves most of the location and business information required by AI to give suggestions.\n",
+      "title": "How to Make ChatGPT to Recommend Your Business? Guide to LLM ...",
+      "type": "web_search_result_location",
+      "url": "https://www.pagetraffic.in/blog/how-to-make-chatgpt-to-recommend-your-business/"
+     }
+    ],
+    "text": "Foursquare предоставляет значительную часть данных о местоположении и бизнесе, которые ИИ использует для рекомендаций.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Отраслевые площадки отзывов**: G2, Capterra, Trustpilot, Clutch, Yelp, BBB. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Build trust signals—across the whole web\n- **Encourage third-party reviews and testimonials**: Google, Trustpilot, Clutch, and industry-specific sites...",
+      "title": "How to Get Recommended by ChatGPT and LLMs: SME Guide 2026",
+      "type": "web_search_result_location",
+      "url": "https://halotechlab.com/blog/how-to-make-your-business-get-recommended-by-chatgpt-and-llms-in-2026"
+     }
+    ],
+    "text": "Стимулируйте сторонние отзывы и отзывы клиентов — Google, Trustpilot, Clutch и отраслевые площадки важны; открыто отвечайте на отзывы и держите профили заполненными.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Reddit и Quora** — неожиданно влиятельные источники для LLM. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "### Be Present Where AI Reads Discussions\nReddit and Quora can punch far above their weight in AI retrieval.\n\nContribute genuinely and helpfully to re...",
+      "title": "How to Get Your Business Recommended by ChatGPT (2026 Guide)",
+      "type": "web_search_result_location",
+      "url": "https://acemindtech.com/how-to-get-your-business-recommended-by-chatgpt-2026-guide/"
+     }
+    ],
+    "text": "Reddit и Quora могут иметь непропорционально большое влияние на выдачу ИИ — участвуйте в обсуждениях искренне и по делу.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Упоминания в авторитетных СМИ и индустриальных публикациях.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Get Mentioned on Authoritative Sources\nIf your brand is mentioned positively across multiple authoritative sources, ChatGPT is more likely to include ...",
+      "title": "How to Optimize for ChatGPT Search: A Practical Guide for 2026 ...",
+      "type": "web_search_result_location",
+      "url": "https://llmpulse.ai/blog/optimize-for-chatgpt-search/"
+     }
+    ],
+    "text": "Если бренд позитивно упоминается на нескольких авторитетных ресурсах, ChatGPT с большей вероятностью включит его в ответ — инвестируйте в digital PR, публикуйтесь в отраслевых изданиях, участвуйте в Reddit-сообществах.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Листинги и «best-of»-рейтинги.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## The 7-Part Playbook\n### Get Into the Listicles AI Actually Cites\n\n- Identify ranking listicles for your category and city.\n- Pitch inclusion to rel...",
+      "title": "How to Get Your Business Recommended by ChatGPT (2026 Guide)",
+      "type": "web_search_result_location",
+      "url": "https://acemindtech.com/how-to-get-your-business-recommended-by-chatgpt-2026-guide/"
+     }
+    ],
+    "text": "Найдите рейтинговые статьи, которые реально цитирует ИИ по вашей категории и городу, предложите публикаторам включить вас, публикуйте честный сравнительный контент с конкурентами.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## 4. Контент-стратегия\n\n- **Сравнительные материалы.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "### 8. Create Comparison Content\n“Best X for Y” and “X vs Y” are among the most common types of queries people ask ChatGPT. Create honest, detailed co...",
+      "title": "How to Optimize for ChatGPT Search: A Practical Guide for 2026 ...",
+      "type": "web_search_result_location",
+      "url": "https://llmpulse.ai/blog/optimize-for-chatgpt-search/"
+     }
+    ],
+    "text": "«Лучший X для Y» и «X vs Y» — одни из самых частых типов запросов к ChatGPT. Создавайте честные, подробные страницы сравнения, которые объективно позиционируют продукт против альтернатив.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Оригинальные данные.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Models can’t run surveys or crunch fresh numbers. They rely on data that’s already been collected and published. If you provide that data, it gives th...",
+      "title": "LLM SEO in 2026: 8 Strategies to Boost AI Search Visibility",
+      "type": "web_search_result_location",
+      "url": "https://seoprofy.com/blog/llm-seo/"
+     }
+    ],
+    "text": "Модели не могут проводить опросы или считать свежие цифры — они опираются на уже опубликованные данные. Если вы предоставляете такие данные, это даёт модели повод сослаться на вашу страницу.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- **Кейсы и уникальные технологии.** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "- **Showcase case studies and unique technologies**: Highlighting real examples (\"We modernised a 30-year-old B2B directory with AI search\") gives LLM...",
+      "title": "How to Get Recommended by ChatGPT and LLMs: SME Guide 2026",
+      "type": "web_search_result_location",
+      "url": "https://halotechlab.com/blog/how-to-make-your-business-get-recommended-by-chatgpt-and-llms-in-2026"
+     }
+    ],
+    "text": "Демонстрация реальных примеров даёт LLM доказательства, которые можно процитировать, когда пользователи спрашивают рекомендации.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## 5. Измерение и мониторинг\n\nНачните с базового аудита: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## How to Track Brand Mentions in LLMs\n**Start with a manual baseline**. Ask the main chatbots about your niche and note whether they cite you, which ...",
+      "title": "LLM SEO in 2026: 8 Strategies to Boost AI Search Visibility",
+      "type": "web_search_result_location",
+      "url": "https://seoprofy.com/blog/llm-seo/"
+     }
+    ],
+    "text": "спросите основные чат-боты о вашей нише и отметьте, цитируют ли они вас, какую страницу берут и как вас описывают.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Регулярно повторяйте замеры: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## The short version\n## Table of contents\n\n- **Start with a repeatable baseline.** Run 15 buyer questions in ChatGPT, Perplexity, and Google AI Mode, ...",
+      "title": "How to Get Recommended by ChatGPT and Perplexity",
+      "type": "web_search_result_location",
+      "url": "https://vistasocial.com/insights/ai-search-optimization"
+     }
+    ],
+    "text": "задавайте 15 типичных вопросов покупателей в ChatGPT, Perplexity и Google AI Mode, фиксируя упомянутые бренды, причины, видимые источники и фактические ошибки.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\nЭффективность GEO оценивают по частоте и тональности упоминаний бренда, а также по переходам из ИИ-сервисов: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "# GEO, или generative engine optimization: как оптимизировать сайт под ответы нейросетей\n\n\n- **Эффективность GEO** отслеживают по тому, как часто нейр...",
+      "title": "GEO: что такое generative engine optimization и как ...",
+      "type": "web_search_result_location",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     }
+    ],
+    "text": "эффективность GEO отслеживают по тому, как часто нейросети упоминают бренд в ответах и в какой тональности, какова доля упоминаний в сравнении с конкурентами, а также по переходам на сайт из ИИ-сервисов.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n---\n\n### Кратко — с чего начать уже сегодня\n1. Проверьте, что говорят ChatGPT/Perplexity о вашей компании сейчас (baseline).\n2. Приведите NAP-данные к единообразию на сайте и во всех американских директориях.\n3. Перепишите ключевые страницы в формате «ответ в начале + факты + цифры».\n4. Соберите отзывы на профильных площадках (G2, Trustpilot, Yelp — в зависимости от ниши).\n5. Опубликуйте 1-2 честных сравнительных материала и кейсы с конкретными цифрами.\n6. Договоритесь об упоминании в отраслевых «best of» списках и СМИ.\n7. Мониторьте результат раз в месяц, повторяя одинаковый набор запросов к разным ИИ.\n\nЭто не разовая акция, а постоянный процесс — как SEO, но с фокусом не на позиции в выдаче, а на то, чтобы ИИ видел вас как надёжный и понятный источник информации.",
+    "type": "text"
+   }
+  ]
+ }
+}

@@ -1,0 +1,565 @@
+{
+ "vopros_id": "V4R",
+ "povtor": 1,
+ "vopros": "Есть ли в США услуга исправить неверные данные о компании в ответах нейросетей?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:06:57-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.08006,
+   "ishod": "ok",
+   "sekund": 22.1,
+   "meta": {
+    "request_id": "req_011CfcSDpWjyZJ1ivMTfKz6e"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да, в США такая услуга существует, но важно понимать её особенности.\n\n## Официального «центра исправлений» у ИИ-компаний нет\n\nПрямого канала, через который можно гарантированно поправить то, что говорит ChatGPT, Gemini или Claude о вашей компании, не существует. Самый важный факт о коррекции ИИ-галлюцинаций о бренде: официального портала для исправлений от OpenAI, Google или Anthropic не существует. Нельзя связаться с материнскими компаниями ChatGPT, Gemini или Claude и запросить исправление конкретной неверной информации о бренде. Нет ни формы, ни тикета поддержки, ни дашборда для коррекции бренда.\n\n## Но есть встроенные механизмы обратной связи\n\nУ платформ есть базовые инструменты жалоб: можно сообщить о неверной информации в ChatGPT, Google AI Overviews и других платформах, используя встроенные инструменты обратной связи каждой платформы — хотя эти исправления происходят медленно и не гарантированы. В ChatGPT нужно использовать иконку «палец вниз», чтобы открыть форму отправки отчёта. После этого появляется меню, где нужно выбрать «Factually incorrect» и указать правильный URL в качестве источника.\n\n## Коммерческие услуги (платные сервисы) — да, существуют\n\nЗа последний год в США сформировался целый рынок услуг под названием **AI Brand Reputation Management** или **GEO (Generative Engine Optimization)**. Этим занимаются как специализированные стартапы (ZipTie.ai, BrandArmor.ai, AI Brand Report, Sight AI, featureon.ai), так и крупные SEO-платформы вроде Semrush, которые предлагают инструменты мониторинга и коррекции.\n\nИх подход обычно включает:\n\n1. **Аудит** — систематический опрос минимум пяти крупных ИИ-платформ: ChatGPT, Claude, Perplexity, Google Gemini и Microsoft Copilot, чтобы зафиксировать, что именно они говорят неверно.\n\n2. **Исправление источников, на которые опирается ИИ** — AI-ассистенты не исправляют нарратив о бренде просто потому, что компания говорит, что он неверен; они исправляют его, когда более широкий граф доказательств становится последовательным, доступным для сканирования и повторяется в разных доверенных источниках. Поэтому самый быстрый устойчивый способ — сделать официальные факты о бренде однозначными, доступными для сканирования ИИ и повторяющимися в нескольких доверенных местах.\n\n3. **Структурированная разметка (schema markup)** — внедрение Organization schema с датой основания, штаб-квартирой, официальным названием и ключевыми руководителями помогает ИИ-системам правильно понимать контент.\n\n4. **Файл llms.txt** — размещение структурированного markdown-резюме авторитетного контента бренда в корневой директории сайта.\n\n5. **Исправление сторонних источников** — обращение к владельцам сторонних источников — издателям устаревших сравнительных статей, сайтов отзывов или каталогов — с просьбой разместить исправленную информацию, а также обновление профилей на площадках вроде G2, Capterra, Trustpilot, которые часто содержат устаревшую информацию в отзывах и описаниях компаний — нужно заявить права на профиль и обновить данные.\n\n6. **«Заливка» свежих данных (source seeding)** — процесс «наводнения» слоя поиска/ретрива ИИ-движка свежими, точными данными с авторитетных сторонних сайтов, чтобы перекрыть устаревшую информацию.\n\n7. **Прямые обращения в компании** — для особенно вредной дезинформации — например, если ИИ утверждает, что бизнес закрыт, хотя это не так, — стоит обращаться напрямую в отдел по работе с бизнесом или в пресс-службу ИИ-компании.\n\n## Итог\n\nВ США есть целая индустрия платных сервисов (AI Brand Reputation / GEO-агентства), которые занимаются именно этим — отслеживанием и исправлением того, что нейросети говорят о компаниях. Но это не «нажал кнопку — исправили», а комплексная и постоянная работа по управлению источниками данных, на основе которых ИИ формирует ответы, плюс использование официальных (но ограниченных) каналов обратной связи самих платформ.",
+  "poiskovye_zaprosy": [
+   "услуга исправить данные о компании в ответах AI чат-ботов США",
+   "AI brand reputation management fix incorrect company information ChatGPT"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://www.sostav.ru/blogs/283220/69369",
+    "domen": "sostav.ru",
+    "title": "Этика ИИ: как избежать ошибок в ..."
+   },
+   {
+    "url": "https://www.carrotquest.io/ai-bot",
+    "domen": "carrotquest.io",
+    "title": "AI-бот для команды поддержки"
+   },
+   {
+    "url": "https://chatme.ai/blog/chat-boty-v-sluzhbe-podderzhki-klientov",
+    "domen": "chatme.ai",
+    "title": "Использование чат-ботов в службе ..."
+   },
+   {
+    "url": "https://texterra.ru/blog/kontentnaya-gigiena-dlya-ai-otvetov.html",
+    "domen": "texterra.ru",
+    "title": "Контентная гигиена для AI-ответов: как ..."
+   },
+   {
+    "url": "https://omni.korusconsulting.ru/solutions/chat-bot",
+    "domen": "omni.korusconsulting.ru",
+    "title": "Разработка чат-ботов для бизнеса под ..."
+   },
+   {
+    "url": "https://habr.com/ru/companies/beget/articles/980306",
+    "domen": "habr.com",
+    "title": "Чат-боты на базе LLM и приватность: что ..."
+   },
+   {
+    "url": "https://www.voxys.ru/cifrovye-reshenija/chat-bot.html",
+    "domen": "voxys.ru",
+    "title": "Разработка чат-ботов для бизнеса: ..."
+   },
+   {
+    "url": "https://www.carrotquest.io/blog/how-to-train-ai-bot-guide",
+    "domen": "carrotquest.io",
+    "title": "Как обучить AI-бота для поддержки ..."
+   },
+   {
+    "url": "https://www.jivo.ru/blog/tutorials-jivo/ii-chat-bot-dlja-biznesa.html",
+    "domen": "jivo.ru",
+    "title": "ИИ чат-бот для бизнеса — создание ИИ ..."
+   },
+   {
+    "url": "https://www.semrush.com/blog/fix-ai-brand-misinformation",
+    "domen": "semrush.com",
+    "title": "How to find and fix what AI gets wrong about your brand"
+   },
+   {
+    "url": "https://ziptie.dev/blog/how-to-fix-incorrect-ai-brand-information",
+    "domen": "ziptie.dev",
+    "title": "How to Fix Incorrect AI Brand Information"
+   },
+   {
+    "url": "https://featureon.ai/blog/chatgpt-gives-wrong-information-my-brand",
+    "domen": "featureon.ai",
+    "title": "ChatGPT Gives Wrong Information About My Brand: Fix It"
+   },
+   {
+    "url": "https://www.brandarmor.ai/blog/6-proven-strategies-to-fix-incorrect-brand-data-in-chatgpt-and-claude",
+    "domen": "brandarmor.ai",
+    "title": "6 Proven Strategies to Fix Incorrect Brand Data in ChatGPT and ..."
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-giving-wrong-brand-information",
+    "domen": "trysight.ai",
+    "title": "Fix AI Giving Wrong Brand Information: Complete Guide"
+   },
+   {
+    "url": "https://ziptie.ai/blog/how-to-fix-incorrect-ai-brand-information",
+    "domen": "ziptie.ai",
+    "title": "How to Fix Incorrect AI Brand Information - ZipTie.ai - AI Search ..."
+   },
+   {
+    "url": "https://aibrandreport.com/ai-reputation-management",
+    "domen": "aibrandreport.com",
+    "title": "AI Reputation Management: Audit, Monitor, Improve - AI Brand Report"
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business",
+    "domen": "trysight.ai",
+    "title": "Fix AI Chatbots Giving Wrong Info About Business Now"
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-giving-wrong-information-about-brand",
+    "domen": "trysight.ai",
+    "title": "AI Giving Wrong Information About Brand: Fix Guide - Sight AI"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://ziptie.ai/blog/how-to-fix-incorrect-ai-brand-information",
+    "domen": "ziptie.ai",
+    "title": "How to Fix Incorrect AI Brand Information - ZipTie.ai - AI Search ..."
+   },
+   {
+    "url": "https://www.semrush.com/blog/fix-ai-brand-misinformation",
+    "domen": "semrush.com",
+    "title": "How to find and fix what AI gets wrong about your brand"
+   },
+   {
+    "url": "https://www.brandarmor.ai/blog/6-proven-strategies-to-fix-incorrect-brand-data-in-chatgpt-and-claude",
+    "domen": "brandarmor.ai",
+    "title": "6 Proven Strategies to Fix Incorrect Brand Data in ChatGPT and ..."
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-giving-wrong-information-about-brand",
+    "domen": "trysight.ai",
+    "title": "AI Giving Wrong Information About Brand: Fix Guide - Sight AI"
+   },
+   {
+    "url": "https://featureon.ai/blog/chatgpt-gives-wrong-information-my-brand",
+    "domen": "featureon.ai",
+    "title": "ChatGPT Gives Wrong Information About My Brand: Fix It"
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-giving-wrong-brand-information",
+    "domen": "trysight.ai",
+    "title": "Fix AI Giving Wrong Brand Information: Complete Guide"
+   },
+   {
+    "url": "https://ziptie.dev/blog/how-to-fix-incorrect-ai-brand-information",
+    "domen": "ziptie.dev",
+    "title": "How to Fix Incorrect AI Brand Information"
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business",
+    "domen": "trysight.ai",
+    "title": "Fix AI Chatbots Giving Wrong Info About Business Now"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19322,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 2142
+  },
+  "cena": 0.08006,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSDq12MNEVsL9Zb4Sox",
+    "request_id": "req_011CfcSDpWjyZJ1ivMTfKz6e",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19322,
+     "output_tokens": 2142,
+     "output_tokens_details": {
+      "thinking_tokens": 248
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01Kbm8frHBqVZGd8haCEnUJU",
+    "caller": null,
+    "input": {
+     "query": "услуга исправить данные о компании в ответах AI чат-ботов США"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01YD1ekNfNSNXpJkw3jEoFq1",
+    "caller": null,
+    "input": {
+     "query": "AI brand reputation management fix incorrect company information ChatGPT"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "350 days ago",
+      "title": "Этика ИИ: как избежать ошибок в ...",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/blogs/283220/69369"
+     },
+     {
+      "page_age": "487 days ago",
+      "title": "AI-бот для команды поддержки",
+      "type": "web_search_result",
+      "url": "https://www.carrotquest.io/ai-bot/"
+     },
+     {
+      "page_age": "779 days ago",
+      "title": "Использование чат-ботов в службе ...",
+      "type": "web_search_result",
+      "url": "https://chatme.ai/blog/chat-boty-v-sluzhbe-podderzhki-klientov/"
+     },
+     {
+      "page_age": "100 days ago",
+      "title": "Контентная гигиена для AI-ответов: как ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kontentnaya-gigiena-dlya-ai-otvetov.html"
+     },
+     {
+      "page_age": "625 days ago",
+      "title": "Разработка чат-ботов для бизнеса под ...",
+      "type": "web_search_result",
+      "url": "https://omni.korusconsulting.ru/solutions/chat-bot/"
+     },
+     {
+      "page_age": "279 days ago",
+      "title": "Чат-боты на базе LLM и приватность: что ...",
+      "type": "web_search_result",
+      "url": "https://habr.com/ru/companies/beget/articles/980306/"
+     },
+     {
+      "page_age": null,
+      "title": "Разработка чат-ботов для бизнеса: ...",
+      "type": "web_search_result",
+      "url": "https://www.voxys.ru/cifrovye-reshenija/chat-bot.html"
+     },
+     {
+      "page_age": "622 days ago",
+      "title": "Как обучить AI-бота для поддержки ...",
+      "type": "web_search_result",
+      "url": "https://www.carrotquest.io/blog/how-to-train-ai-bot-guide/"
+     },
+     {
+      "page_age": "156 days ago",
+      "title": "ИИ чат-бот для бизнеса — создание ИИ ...",
+      "type": "web_search_result",
+      "url": "https://www.jivo.ru/blog/tutorials-jivo/ii-chat-bot-dlja-biznesa.html"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Kbm8frHBqVZGd8haCEnUJU",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "146 days ago",
+      "title": "How to find and fix what AI gets wrong about your brand",
+      "type": "web_search_result",
+      "url": "https://www.semrush.com/blog/fix-ai-brand-misinformation/"
+     },
+     {
+      "page_age": "192 days ago",
+      "title": "How to Fix Incorrect AI Brand Information",
+      "type": "web_search_result",
+      "url": "https://ziptie.dev/blog/how-to-fix-incorrect-ai-brand-information/"
+     },
+     {
+      "page_age": "142 days ago",
+      "title": "ChatGPT Gives Wrong Information About My Brand: Fix It",
+      "type": "web_search_result",
+      "url": "https://featureon.ai/blog/chatgpt-gives-wrong-information-my-brand"
+     },
+     {
+      "page_age": "92 days ago",
+      "title": "6 Proven Strategies to Fix Incorrect Brand Data in ChatGPT and ...",
+      "type": "web_search_result",
+      "url": "https://www.brandarmor.ai/blog/6-proven-strategies-to-fix-incorrect-brand-data-in-chatgpt-and-claude"
+     },
+     {
+      "page_age": "171 days ago",
+      "title": "Fix AI Giving Wrong Brand Information: Complete Guide",
+      "type": "web_search_result",
+      "url": "https://www.trysight.ai/blog/ai-giving-wrong-brand-information"
+     },
+     {
+      "page_age": "25 days ago",
+      "title": "How to Fix Incorrect AI Brand Information - ZipTie.ai - AI Search ...",
+      "type": "web_search_result",
+      "url": "https://ziptie.ai/blog/how-to-fix-incorrect-ai-brand-information/"
+     },
+     {
+      "page_age": null,
+      "title": "AI Reputation Management: Audit, Monitor, Improve - AI Brand Report",
+      "type": "web_search_result",
+      "url": "https://aibrandreport.com/ai-reputation-management"
+     },
+     {
+      "page_age": "145 days ago",
+      "title": "Fix AI Chatbots Giving Wrong Info About Business Now",
+      "type": "web_search_result",
+      "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business"
+     },
+     {
+      "page_age": "167 days ago",
+      "title": "AI Giving Wrong Information About Brand: Fix Guide - Sight AI",
+      "type": "web_search_result",
+      "url": "https://www.trysight.ai/blog/ai-giving-wrong-information-about-brand"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01YD1ekNfNSNXpJkw3jEoFq1",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Да, в США такая услуга существует, но важно понимать её особенности.\n\n## Официального «центра исправлений» у ИИ-компаний нет\n\nПрямого канала, через который можно гарантированно поправить то, что говорит ChatGPT, Gemini или Claude о вашей компании, не существует. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "**Document every hallucination**  – Screenshot, timestamp, and categorize each incorrect statement by platform and severity\n\n## No Direct Fix Exists –...",
+      "title": "How to Fix Incorrect AI Brand Information - ZipTie.ai - AI Search ...",
+      "type": "web_search_result_location",
+      "url": "https://ziptie.ai/blog/how-to-fix-incorrect-ai-brand-information/"
+     }
+    ],
+    "text": "Самый важный факт о коррекции ИИ-галлюцинаций о бренде: официального портала для исправлений от OpenAI, Google или Anthropic не существует. Нельзя связаться с материнскими компаниями ChatGPT, Gemini или Claude и запросить исправление конкретной неверной информации о бренде. Нет ни формы, ни тикета поддержки, ни дашборда для коррекции бренда.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## Но есть встроенные механизмы обратной связи\n\nУ платформ есть базовые инструменты жалоб: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "You can report incorrect information in ChatGPT, Google AI Overviews, and other AI platforms using the native feedback tools each platform provides — ...",
+      "title": "How to find and fix what AI gets wrong about your brand",
+      "type": "web_search_result_location",
+      "url": "https://www.semrush.com/blog/fix-ai-brand-misinformation/"
+     }
+    ],
+    "text": "можно сообщить о неверной информации в ChatGPT, Google AI Overviews и других платформах, используя встроенные инструменты обратной связи каждой платформы — хотя эти исправления происходят медленно и не гарантированы. В ChatGPT нужно использовать иконку «палец вниз», чтобы открыть форму отправки отчёта",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". После этого ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "When you see a wrong answer in **ChatGPT**, click the \"thumbs down\" icon. A menu will appear; select \"Factually incorrect\" and provide the correct URL...",
+      "title": "6 Proven Strategies to Fix Incorrect Brand Data in ChatGPT and ...",
+      "type": "web_search_result_location",
+      "url": "https://www.brandarmor.ai/blog/6-proven-strategies-to-fix-incorrect-brand-data-in-chatgpt-and-claude"
+     }
+    ],
+    "text": "появляется меню, где нужно выбрать «Factually incorrect» и указать правильный URL в качестве источника",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Коммерческие услуги (платные сервисы) — да, существуют\n\nЗа последний год в США сформировался целый рынок услуг под названием **AI Brand Reputation Management** или **GEO (Generative Engine Optimization)**. Этим занимаются как специализированные стартапы (ZipTie.ai, BrandArmor.ai, AI Brand Report, Sight AI, featureon.ai), так и крупные SEO-платформы вроде Semrush, которые предлагают инструменты мониторинга и коррекции.\n\nИх подход обычно включает:\n\n1. **Аудит** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Every prospect who sees your brand correctly positioned against competitors is a relationship that starts ...\n\n# How to Fix AI Giving Wrong Informatio...",
+      "title": "AI Giving Wrong Information About Brand: Fix Guide - Sight AI",
+      "type": "web_search_result_location",
+      "url": "https://www.trysight.ai/blog/ai-giving-wrong-information-about-brand"
+     }
+    ],
+    "text": "систематический опрос минимум пяти крупных ИИ-платформ: ChatGPT, Claude, Perplexity, Google Gemini и Microsoft Copilot",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", чтобы зафиксировать, что именно они говорят неверно.\n\n2. **Исправление источников, на которые опирается ИИ** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "In 2026, AI search systems summarize brands for buyers before they ever visit a website, so stale pricing, wrong ...\n\n# ChatGPT Gives Wrong Informatio...",
+      "title": "ChatGPT Gives Wrong Information About My Brand: Fix It",
+      "type": "web_search_result_location",
+      "url": "https://featureon.ai/blog/chatgpt-gives-wrong-information-my-brand"
+     }
+    ],
+    "text": "AI-ассистенты не исправляют нарратив о бренде просто потому, что компания говорит, что он неверен; они исправляют его, когда более широкий граф доказательств становится последовательным, доступным для сканирования и повторяется в разных доверенных источниках. Поэтому самый быстрый устойчивый способ — сделать официальные факты о бренде однозначными, доступными для сканирования ИИ и повторяющимися в нескольких доверенных местах",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n3. **Структурированная разметка (schema markup)** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## Step 3: Update and Strengthen Your Authoritative Sources\nImplement schema markup to help AI systems understand your content. Add Organization schem...",
+      "title": "Fix AI Giving Wrong Brand Information: Complete Guide",
+      "type": "web_search_result_location",
+      "url": "https://www.trysight.ai/blog/ai-giving-wrong-brand-information"
+     }
+    ],
+    "text": "внедрение Organization schema с датой основания, штаб-квартирой, официальным названием и ключевыми руководителями помогает ИИ-системам правильно понимать контент",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n4. **Файл llms.txt** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "**Create and deploy an llms.txt file** — Place a structured Markdown summary of your brand’s authoritative content at your website’s root directory\n7....",
+      "title": "How to Fix Incorrect AI Brand Information",
+      "type": "web_search_result_location",
+      "url": "https://ziptie.dev/blog/how-to-fix-incorrect-ai-brand-information/"
+     }
+    ],
+    "text": "размещение структурированного markdown-резюме авторитетного контента бренда в корневой директории сайта",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n5. **Исправление сторонних источников** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "**Contact third-party source owners** — Reach out to publishers of outdated comparison posts, review sites, or directories with corrected information\n...",
+      "title": "How to Fix Incorrect AI Brand Information",
+      "type": "web_search_result_location",
+      "url": "https://ziptie.dev/blog/how-to-fix-incorrect-ai-brand-information/"
+     }
+    ],
+    "text": "обращение к владельцам сторонних источников — издателям устаревших сравнительных статей, сайтов отзывов или каталогов — с просьбой разместить исправленную информацию",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", а также ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## Step 4: Correct Third-Party Sources and Directory Listings\nPlatforms like G2, Capterra, Trustpilot, or industry-specific review sites often contain...",
+      "title": "AI Giving Wrong Information About Brand: Fix Guide - Sight AI",
+      "type": "web_search_result_location",
+      "url": "https://www.trysight.ai/blog/ai-giving-wrong-information-about-brand"
+     }
+    ],
+    "text": "обновление профилей на площадках вроде G2, Capterra, Trustpilot, которые часто содержат устаревшую информацию в отзывах и описаниях компаний — нужно заявить права на профиль и обновить данные",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n6. **«Заливка» свежих данных (source seeding)** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## Strategy 2: Use \"Source Seeding\" to Overpower Outdated Data\nSource seeding is the process of flooding the \"retrieval layer\" of an AI engine with fr...",
+      "title": "6 Proven Strategies to Fix Incorrect Brand Data in ChatGPT and ...",
+      "type": "web_search_result_location",
+      "url": "https://www.brandarmor.ai/blog/6-proven-strategies-to-fix-incorrect-brand-data-in-chatgpt-and-claude"
+     }
+    ],
+    "text": "процесс «наводнения» слоя поиска/ретрива ИИ-движка свежими, точными данными с авторитетных сторонних сайтов, чтобы перекрыть устаревшую информацию",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n7. **Прямые обращения в компании** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "For particularly damaging misinformation—like AI claiming your business is closed when it's not, or attributing serious negative claims that are false...",
+      "title": "Fix AI Chatbots Giving Wrong Info About Business Now",
+      "type": "web_search_result_location",
+      "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business"
+     }
+    ],
+    "text": "для особенно вредной дезинформации — например, если ИИ утверждает, что бизнес закрыт, хотя это не так, — стоит обращаться напрямую в отдел по работе с бизнесом или в пресс-службу ИИ-компании",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Итог\n\nВ США есть целая индустрия платных сервисов (AI Brand Reputation / GEO-агентства), которые занимаются именно этим — отслеживанием и исправлением того, что нейросети говорят о компаниях. Но это не «нажал кнопку — исправили», а комплексная и постоянная работа по управлению источниками данных, на основе которых ИИ формирует ответы, плюс использование официальных (но ограниченных) каналов обратной связи самих платформ.",
+    "type": "text"
+   }
+  ]
+ }
+}

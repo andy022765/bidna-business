@@ -1,0 +1,362 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 4,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:16-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.02435,
+   "ishod": "ok",
+   "sekund": 5.8,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:11:22 GMT",
+    "x-request-id": "req_964ce5d644524a9887b249f15c746bcd",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "5489"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. Если дадите адрес сайта (домен), я могу сделать первичную проверку прямо здесь и сказать, что именно закрывает доступ нейросетям.\n\nОбычно проверяют не только `robots.txt`, но и:\n- доступ для OAI-SearchBot — именно он влияет на возможность страниц появляться в поисковых ответах ChatGPT; после изменения robots.txt OpenAI пишет, что обновление может занять около 24 часов; ([developers.openai.com](https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai))\n- GPTBot, Google-Extended и другие AI-краулеры; Google отдельно использует Google-Extended для управления использованием контента в Gemini. ([developers.google.com](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai))\n- Cloudflare/WAF, firewall, CAPTCHA и защиту от ботов — они могут блокировать AI даже при правильном robots.txt; ([help.openai.com](https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai))\n- `noindex`, HTTP-коды, sitemap.xml и доступность основных страниц;\n- затем — насколько сайт вообще понятен нейросетям: название компании, услуги, города/штаты обслуживания, контакты и структурированные данные.\n\nЕсли вопрос «кто это делает»: нужен технический SEO-специалист, который понимает AI/LLM crawling, либо веб-разработчик с доступом к Cloudflare/CDN и серверу. Обычный SEO-специалист не всегда проверяет блокировки на уровне firewall.\n\nПришлите домен, например `company.com`. Я проверю его с точки зрения ChatGPT/AI-ботов и дам конкретный список: что закрыто → где исправить → что прописать.",
+  "poiskovye_zaprosy": [
+   "OpenAI GPTBot OAI-SearchBot robots.txt official documentation",
+   "Google AI crawlers robots.txt Google-Extended official"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+    "domen": "developers.google.com",
+    "title": "Google's common crawlers | Google Crawling Infrastructure  |  Crawling infrastructure  |  Google for Developers"
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots?community_post=true",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=ru",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/about-crawling?hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=ar",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/20001243-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%BE%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9-%D0%BF%D0%BE-%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8E-%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0-%D1%81%D0%BA%D0%B0%D0%BD%D0%B5%D1%80%D0%B0%D0%BC-openai",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/verify-google-requests",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=zh-CN",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/WebGPT.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.openai.com/api/docs/bots?community_post=true",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+    "domen": "developers.google.com",
+    "title": "Google's common crawlers | Google Crawling Infrastructure  |  Crawling infrastructure  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 8617,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 358,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 8975
+  },
+  "cena": 0.02435,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0bbb4720b96bd12e006abef6a49c8487d0af3a815c6ac568e7",
+  "object": "response",
+  "created_at": 1790899876,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899881,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_0bbb4720b96bd12e006abef6a5633087d09f51d7a4c5bdc64d",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "OpenAI GPTBot OAI-SearchBot robots.txt official documentation",
+      "Google AI crawlers robots.txt Google-Extended official"
+     ],
+     "query": "OpenAI GPTBot OAI-SearchBot robots.txt official documentation",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?community_post=true"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=ru"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/about-crawling?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=ar"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/20001243-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%BE%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9-%D0%BF%D0%BE-%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8E-%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0-%D1%81%D0%BA%D0%B0%D0%BD%D0%B5%D1%80%D0%B0%D0%BC-openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/verify-google-requests"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=zh-CN"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/WebGPT.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_0bbb4720b96bd12e006abef6a71df887d0b78d3ef3b4a68875",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 484,
+        "start_index": 376,
+        "title": "Overview of OpenAI Crawlers",
+        "url": "https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 754,
+        "start_index": 625,
+        "title": "Google's common crawlers | Google Crawling Infrastructure  |  Crawling infrastructure  |  Google for Developers",
+        "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1004,
+        "start_index": 868,
+        "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да. Если дадите адрес сайта (домен), я могу сделать первичную проверку прямо здесь и сказать, что именно закрывает доступ нейросетям.\n\nОбычно проверяют не только `robots.txt`, но и:\n- доступ для OAI-SearchBot — именно он влияет на возможность страниц появляться в поисковых ответах ChatGPT; после изменения robots.txt OpenAI пишет, что обновление может занять около 24 часов; ([developers.openai.com](https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai))\n- GPTBot, Google-Extended и другие AI-краулеры; Google отдельно использует Google-Extended для управления использованием контента в Gemini. ([developers.google.com](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai))\n- Cloudflare/WAF, firewall, CAPTCHA и защиту от ботов — они могут блокировать AI даже при правильном robots.txt; ([help.openai.com](https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai))\n- `noindex`, HTTP-коды, sitemap.xml и доступность основных страниц;\n- затем — насколько сайт вообще понятен нейросетям: название компании, услуги, города/штаты обслуживания, контакты и структурированные данные.\n\nЕсли вопрос «кто это делает»: нужен технический SEO-специалист, который понимает AI/LLM crawling, либо веб-разработчик с доступом к Cloudflare/CDN и серверу. Обычный SEO-специалист не всегда проверяет блокировки на уровне firewall.\n\nПришлите домен, например `company.com`. Я проверю его с точки зрения ChatGPT/AI-ботов и дам конкретный список: что закрыто → где исправить → что прописать."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 8617,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 358,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 8975
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

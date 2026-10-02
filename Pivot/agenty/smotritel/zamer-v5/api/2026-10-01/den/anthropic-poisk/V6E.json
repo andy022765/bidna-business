@@ -1,0 +1,507 @@
+{
+ "vopros_id": "V6E",
+ "povtor": 1,
+ "vopros": "My site blocks AI crawlers. Who can check it and open it up so AI assistants can see my business?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:10:09-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.08435,
+   "ishod": "ok",
+   "sekund": 16.3,
+   "meta": {
+    "request_id": "req_011CfcSTyhnpCFWqLY775KCN"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "# Checking & Fixing AI Crawler Blocks\n\nGood news: you don't need to hire anyone — this is usually a quick fix you (or your web developer/IT person) can do yourself.\n\n## Step 1: Check what's blocked (2 minutes)\n\n**Manual check:** Open your web browser, type your website address followed by /robots.txt (e.g., https://yourwebsite.com/robots.txt), and press Enter. If you're blocking AI crawlers, you'll see something like \"User-agent: GPTBot / Disallow: /\" — this means that bot isn't allowed to visit any pages on your site.\n\n**Or use a free automated checker** (faster and catches more than robots.txt alone):\n- **365i AI Bot Checker** — tests whether your host is quietly turning away ChatGPT, Claude and Perplexity in 30 seconds, testing 14 AI bots against your robots.txt and your live server, checking for noindex/nosnippet, and even writing a fix message for your hosting company.\n- **Crawl Gate (GetFanatic)** — just enter your domain at app.getfanatic.ai/crawlgate, no signup required, and it tests your site against 25+ AI crawlers showing which are Allowed vs Blocked and why.\n- Similar free tools: MRS Digital's AI Crawler Access Checker, Vizup, LLM Pulse, and Nuxt SEO's robots.txt validator.\n\nThese tools matter because it's easy to miss things manually — AI crawlers use different user-agent strings than search engine crawlers, so a robots.txt that allows Googlebot may inadvertently block ClaudeBot, GPTBot, and PerplexityBot through broad disallow rules, default-deny configurations, or security plugins that block unrecognised bots.\n\n## Step 2: Find out *why* it's blocked\n\nIt's not always robots.txt alone:\n- **Your CMS/SEO plugin** — if a plugin is generating that file, your edit may not stick, and the next time the plugin saves its settings the block comes back.\n- **Hosting/firewall settings** — check your hosting control panel (GoDaddy, Bluehost, SiteGround, etc.) under \"Security,\" \"Bot Management,\" or \"Firewall,\" and if you use Cloudflare, log in, select your site, go to Security → Bots, and look for AI crawler names in the blocked list.\n- **Server-level blocks** — sometimes robots.txt says \"allow\" but the server still returns a 403 to the bot. A good checker tests both.\n\n## Step 3: Who can actually fix it\n\n1. **You, via your website's admin panel** — if you use WordPress/Shopify/Squarespace etc., most have an SEO plugin (like Yoast or RankMath) with a robots.txt editor you can edit directly.\n2. **Your web developer or agency** — if someone else built/manages your site, send them the specific blocked lines the checker found and ask them to remove the `Disallow` rules for GPTBot, ClaudeBot, PerplexityBot, etc.\n3. **Your hosting provider's support** — if it's a server/firewall-level block (not just robots.txt), their support team can usually whitelist AI crawler user-agents.\n4. **Cloudflare (if you use it)** — you can personally toggle AI bot settings in Security → Bots without needing a developer.\n\n## Step 4: The fix itself\n\nOnce you know what's blocked, the actual fix is just editing a text file — example of an \"open\" configuration: User-agent: GPTBot / Allow: / — User-agent: ClaudeBot / Allow: / — User-agent: PerplexityBot / Allow: /, etc. If you want AI search visibility without allowing model training, you can allow the search and user agents while disallowing the training agents — a developer or knowledgeable plugin can help you split this correctly.\n\n**Bottom line:** Run a free checker first (365i or Crawl Gate are solid, no-signup options) to see exactly what's blocked — then it's usually a 5-minute edit for you, your developer, or your host's support team.",
+  "poiskovye_zaprosy": [
+   "how to check if site blocks AI crawlers and unblock them",
+   "tool check robots.txt blocking AI bots GPTBot ClaudeBot"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://dev.to/mikhail_shadrin_dev/your-site-might-be-blocking-ai-crawlers-by-accident-heres-how-to-check-4l",
+    "domen": "dev.to",
+    "title": "Your site might be blocking AI crawlers by accident. Here's how ..."
+   },
+   {
+    "url": "https://dev.to/manja316/is-your-website-blocking-ai-crawlers-check-with-this-free-robotstxt-analyzer-3pg4",
+    "domen": "dev.to",
+    "title": "Is Your Website Blocking AI Crawlers? Check with This Free Robots.txt ..."
+   },
+   {
+    "url": "https://www.365i.co.uk/tools/ai-bot-checker",
+    "domen": "365i.co.uk",
+    "title": "AI Crawler Checker: Is Your Host Blocking AI Bots?"
+   },
+   {
+    "url": "https://mrs.digital/tools/ai-crawler-access-checker",
+    "domen": "mrs.digital",
+    "title": "AI Crawler Access Checker - MRS Digital"
+   },
+   {
+    "url": "https://llmpulse.ai/blog/website-ai-bot-access",
+    "domen": "llmpulse.ai",
+    "title": "Is Your Website Crawlable by AI? How to Test and Fix AI Bot Access ..."
+   },
+   {
+    "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers",
+    "domen": "kahunam.com",
+    "title": "How to Check if Your Website is Blocking AI Crawlers"
+   },
+   {
+    "url": "https://www.tryvizup.com/blog/how-to-check-if-ai-crawlers-are-blocked-by-robots-txt",
+    "domen": "tryvizup.com",
+    "title": "How to Check If AI Crawlers Are Blocked by robots.txt"
+   },
+   {
+    "url": "https://llmrefs.com/tools/ai-crawl-checker",
+    "domen": "llmrefs.com",
+    "title": "AI Crawlability Checker - Can AI Bots Read Your Page? - LLMrefs"
+   },
+   {
+    "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai",
+    "domen": "ai-visibility.org.uk",
+    "title": "Is Your Website Blocking AI Crawlers? How to Check and Fix It"
+   },
+   {
+    "url": "https://getfanatic.ai/blog/is-your-website-blocking-ai-how-to-check-with-crawl-gate",
+    "domen": "getfanatic.ai",
+    "title": "Is Your Website Blocking AI? How to Check with Crawl Gate"
+   },
+   {
+    "url": "https://apify.com/davidbenittah/ai-crawler-robots-audit/api/cli",
+    "domen": "apify.com",
+    "title": "Robots.txt Checker for ChatGPT, Claude, GPTBot API through CLI ..."
+   },
+   {
+    "url": "https://www.mo.agency/blog/robots-txt-ai-audit",
+    "domen": "mo.agency",
+    "title": "The robots.txt Audit: Are you Accidentally Blocking AI?"
+   },
+   {
+    "url": "https://nuxtseo.com/tools/robots-txt-validator",
+    "domen": "nuxtseo.com",
+    "title": "Robots.txt Validator · Syntax & Crawler Checker · Nuxt SEO"
+   },
+   {
+    "url": "https://dev.to/0012303/how-to-check-if-a-website-blocks-ai-bots-gptbot-claudebot-ccbot-22la",
+    "domen": "dev.to",
+    "title": "How to Check if a Website Blocks AI Bots (GPTBot, ClaudeBot, CCBot) ..."
+   },
+   {
+    "url": "https://llmpulse.ai/robots-txt-checker",
+    "domen": "llmpulse.ai",
+    "title": "Free AI Robots.txt Checker: GPTBot, ClaudeBot"
+   },
+   {
+    "url": "https://www.anagram.ai/blog/ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-how-to-let-them-in-2026",
+    "domen": "anagram.ai",
+    "title": "AI Crawlers Explained: GPTBot, ClaudeBot, PerplexityBot and How ..."
+   },
+   {
+    "url": "https://rankprompt.com/tools/free-robots-txt-ai-checker",
+    "domen": "rankprompt.com",
+    "title": "Free Robots.txt Checker for AI Crawlers"
+   },
+   {
+    "url": "https://seocrawl.ai/free-seo-tools/robots-ai-bot-checker",
+    "domen": "seocrawl.ai",
+    "title": "Robots.txt AI Bot Checker: Free GPTBot & ClaudeBot Test"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers",
+    "domen": "kahunam.com",
+    "title": "How to Check if Your Website is Blocking AI Crawlers"
+   },
+   {
+    "url": "https://www.365i.co.uk/tools/ai-bot-checker",
+    "domen": "365i.co.uk",
+    "title": "AI Crawler Checker: Is Your Host Blocking AI Bots?"
+   },
+   {
+    "url": "https://getfanatic.ai/blog/is-your-website-blocking-ai-how-to-check-with-crawl-gate",
+    "domen": "getfanatic.ai",
+    "title": "Is Your Website Blocking AI? How to Check with Crawl Gate"
+   },
+   {
+    "url": "https://www.mo.agency/blog/robots-txt-ai-audit",
+    "domen": "mo.agency",
+    "title": "The robots.txt Audit: Are you Accidentally Blocking AI?"
+   },
+   {
+    "url": "https://www.anagram.ai/blog/ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-how-to-let-them-in-2026",
+    "domen": "anagram.ai",
+    "title": "AI Crawlers Explained: GPTBot, ClaudeBot, PerplexityBot and How ..."
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 23825,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1670
+  },
+  "cena": 0.08435,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSTzD3vuYy5nmv761PH",
+    "request_id": "req_011CfcSTyhnpCFWqLY775KCN",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 23825,
+     "output_tokens": 1670,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01Euo5Y5B4mD3EZMz5T16Fff",
+    "caller": null,
+    "input": {
+     "query": "how to check if site blocks AI crawlers and unblock them"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01EphvxyDH1tATd9psZECMpg",
+    "caller": null,
+    "input": {
+     "query": "tool check robots.txt blocking AI bots GPTBot ClaudeBot"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "63 days ago",
+      "title": "Your site might be blocking AI crawlers by accident. Here's how ...",
+      "type": "web_search_result",
+      "url": "https://dev.to/mikhail_shadrin_dev/your-site-might-be-blocking-ai-crawlers-by-accident-heres-how-to-check-4l"
+     },
+     {
+      "page_age": "178 days ago",
+      "title": "Is Your Website Blocking AI Crawlers? Check with This Free Robots.txt ...",
+      "type": "web_search_result",
+      "url": "https://dev.to/manja316/is-your-website-blocking-ai-crawlers-check-with-this-free-robotstxt-analyzer-3pg4"
+     },
+     {
+      "page_age": null,
+      "title": "AI Crawler Checker: Is Your Host Blocking AI Bots?",
+      "type": "web_search_result",
+      "url": "https://www.365i.co.uk/tools/ai-bot-checker/"
+     },
+     {
+      "page_age": "227 days ago",
+      "title": "AI Crawler Access Checker - MRS Digital",
+      "type": "web_search_result",
+      "url": "https://mrs.digital/tools/ai-crawler-access-checker/"
+     },
+     {
+      "page_age": "17 days ago",
+      "title": "Is Your Website Crawlable by AI? How to Test and Fix AI Bot Access ...",
+      "type": "web_search_result",
+      "url": "https://llmpulse.ai/blog/website-ai-bot-access/"
+     },
+     {
+      "page_age": "335 days ago",
+      "title": "How to Check if Your Website is Blocking AI Crawlers",
+      "type": "web_search_result",
+      "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers/"
+     },
+     {
+      "page_age": "161 days ago",
+      "title": "How to Check If AI Crawlers Are Blocked by robots.txt",
+      "type": "web_search_result",
+      "url": "https://www.tryvizup.com/blog/how-to-check-if-ai-crawlers-are-blocked-by-robots-txt"
+     },
+     {
+      "page_age": null,
+      "title": "AI Crawlability Checker - Can AI Bots Read Your Page? - LLMrefs",
+      "type": "web_search_result",
+      "url": "https://llmrefs.com/tools/ai-crawl-checker"
+     },
+     {
+      "page_age": "20 days ago",
+      "title": "Is Your Website Blocking AI Crawlers? How to Check and Fix It",
+      "type": "web_search_result",
+      "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai/"
+     },
+     {
+      "page_age": "301 days ago",
+      "title": "Is Your Website Blocking AI? How to Check with Crawl Gate",
+      "type": "web_search_result",
+      "url": "https://getfanatic.ai/blog/is-your-website-blocking-ai-how-to-check-with-crawl-gate/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Euo5Y5B4mD3EZMz5T16Fff",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "67 days ago",
+      "title": "Robots.txt Checker for ChatGPT, Claude, GPTBot API through CLI ...",
+      "type": "web_search_result",
+      "url": "https://apify.com/davidbenittah/ai-crawler-robots-audit/api/cli"
+     },
+     {
+      "page_age": null,
+      "title": "AI Crawler Checker: Is Your Host Blocking AI Bots?",
+      "type": "web_search_result",
+      "url": "https://www.365i.co.uk/tools/ai-bot-checker/"
+     },
+     {
+      "page_age": "227 days ago",
+      "title": "AI Crawler Access Checker - MRS Digital",
+      "type": "web_search_result",
+      "url": "https://mrs.digital/tools/ai-crawler-access-checker/"
+     },
+     {
+      "page_age": "127 days ago",
+      "title": "The robots.txt Audit: Are you Accidentally Blocking AI?",
+      "type": "web_search_result",
+      "url": "https://www.mo.agency/blog/robots-txt-ai-audit"
+     },
+     {
+      "page_age": null,
+      "title": "Robots.txt Validator · Syntax & Crawler Checker · Nuxt SEO",
+      "type": "web_search_result",
+      "url": "https://nuxtseo.com/tools/robots-txt-validator"
+     },
+     {
+      "page_age": "189 days ago",
+      "title": "How to Check if a Website Blocks AI Bots (GPTBot, ClaudeBot, CCBot) ...",
+      "type": "web_search_result",
+      "url": "https://dev.to/0012303/how-to-check-if-a-website-blocks-ai-bots-gptbot-claudebot-ccbot-22la"
+     },
+     {
+      "page_age": null,
+      "title": "Free AI Robots.txt Checker: GPTBot, ClaudeBot",
+      "type": "web_search_result",
+      "url": "https://llmpulse.ai/robots-txt-checker"
+     },
+     {
+      "page_age": "119 days ago",
+      "title": "AI Crawlers Explained: GPTBot, ClaudeBot, PerplexityBot and How ...",
+      "type": "web_search_result",
+      "url": "https://www.anagram.ai/blog/ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-how-to-let-them-in-2026"
+     },
+     {
+      "page_age": null,
+      "title": "Free Robots.txt Checker for AI Crawlers",
+      "type": "web_search_result",
+      "url": "https://rankprompt.com/tools/free-robots-txt-ai-checker/"
+     },
+     {
+      "page_age": null,
+      "title": "Robots.txt AI Bot Checker: Free GPTBot & ClaudeBot Test",
+      "type": "web_search_result",
+      "url": "https://seocrawl.ai/free-seo-tools/robots-ai-bot-checker"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01EphvxyDH1tATd9psZECMpg",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "# Checking & Fixing AI Crawler Blocks\n\nGood news: you don't need to hire anyone — this is usually a quick fix you (or your web developer/IT person) can do yourself.\n\n## Step 1: Check what's blocked (2 minutes)\n\n**Manual check:** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "if (navigator.userAgent.includes('GPTBot') || navigator.userAgent.includes('anthropic-ai')) { // This blocks the crawler document.body.innerHTML = '';...",
+      "title": "How to Check if Your Website is Blocking AI Crawlers",
+      "type": "web_search_result_location",
+      "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers/"
+     }
+    ],
+    "text": "Open your web browser, type your website address followed by /robots.txt (e.g., https://yourwebsite.com/robots.txt), and press Enter. If you're blocking AI crawlers, you'll see something like \"User-agent: GPTBot / Disallow: /\"",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — this means that bot isn't allowed to visit any pages on your site.\n\n**Or use a free automated checker** (faster and catches more than robots.txt alone):\n- **365i AI Bot Checker** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "# AI Crawler Checker\nIs your host quietly turning away ChatGPT, Claude and Perplexity? Check AI crawler access to your website in 30 seconds. We test ...",
+      "title": "AI Crawler Checker: Is Your Host Blocking AI Bots?",
+      "type": "web_search_result_location",
+      "url": "https://www.365i.co.uk/tools/ai-bot-checker/"
+     }
+    ],
+    "text": "tests whether your host is quietly turning away ChatGPT, Claude and Perplexity in 30 seconds, testing 14 AI bots against your robots.txt and your live server, checking for noindex/nosnippet, and even writing a fix message for your hosting company",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **Crawl Gate (GetFanatic)** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## How to Check Your Site with Crawl Gate\n### Step 1: Enter Your Domain\n\nGo to app.getfanatic.ai/crawlgate and enter your website domain. No signup re...",
+      "title": "Is Your Website Blocking AI? How to Check with Crawl Gate",
+      "type": "web_search_result_location",
+      "url": "https://getfanatic.ai/blog/is-your-website-blocking-ai-how-to-check-with-crawl-gate/"
+     }
+    ],
+    "text": "just enter your domain at app.getfanatic.ai/crawlgate, no signup required, and it tests your site against 25+ AI crawlers showing which are Allowed vs Blocked and why",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Similar free tools: MRS Digital's AI Crawler Access Checker, Vizup, LLM Pulse, and Nuxt SEO's robots.txt validator.\n\nThese tools matter because it's easy to miss things manually — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## The problem you don't know you have\nBut AI crawlers use different user-agent strings than search engine crawlers. A robots.txt that allows Googlebo...",
+      "title": "The robots.txt Audit: Are you Accidentally Blocking AI?",
+      "type": "web_search_result_location",
+      "url": "https://www.mo.agency/blog/robots-txt-ai-audit"
+     }
+    ],
+    "text": "AI crawlers use different user-agent strings than search engine crawlers, so a robots.txt that allows Googlebot may inadvertently block ClaudeBot, GPTBot, and PerplexityBot through broad disallow rules, default-deny configurations, or security plugins that block unrecognised bots",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Step 2: Find out *why* it's blocked\n\nIt's not always robots.txt alone:\n- **Your CMS/SEO plugin** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "### An SEO or security plugin\nIf a plugin is generating that file, your edit may not stick, and the next time the plugin saves its settings the block ...",
+      "title": "AI Crawler Checker: Is Your Host Blocking AI Bots?",
+      "type": "web_search_result_location",
+      "url": "https://www.365i.co.uk/tools/ai-bot-checker/"
+     }
+    ],
+    "text": "if a plugin is generating that file, your edit may not stick, and the next time the plugin saves its settings the block comes back",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **Hosting/firewall settings** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Check if AI crawlers are listed as blocked\n\n### Method 4: Check Cloudflare Settings (If You Use Cloudflare)\n1. Log into your Cloudflare account: https...",
+      "title": "How to Check if Your Website is Blocking AI Crawlers",
+      "type": "web_search_result_location",
+      "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers/"
+     }
+    ],
+    "text": "check your hosting control panel (GoDaddy, Bluehost, SiteGround, etc.) under \"Security,\" \"Bot Management,\" or \"Firewall,\" and if you use Cloudflare, log in, select your site, go to Security → Bots, and look for AI crawler names in the blocked list",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- **Server-level blocks** — sometimes robots.txt says \"allow\" but the server still returns a 403 to the bot. A good checker tests both.\n\n## Step 3: Who can actually fix it\n\n1. **You, via your website's admin panel** — if you use WordPress/Shopify/Squarespace etc., most have an SEO plugin (like Yoast or RankMath) with a robots.txt editor you can edit directly.\n2. **Your web developer or agency** — if someone else built/manages your site, send them the specific blocked lines the checker found and ask them to remove the `Disallow` rules for GPTBot, ClaudeBot, PerplexityBot, etc.\n3. **Your hosting provider's support** — if it's a server/firewall-level block (not just robots.txt), their support team can usually whitelist AI crawler user-agents.\n4. **Cloudflare (if you use it)** — you can personally toggle AI bot settings in Security → Bots without needing a developer.\n\n## Step 4: The fix itself\n\nOnce you know what's blocked, the actual fix is just editing a text file — example of an \"open\" configuration: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "(robots.txt)\n```\n# OpenAI\nUser-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\nUser-agent: ChatGPT-User\nAllow: /\n\n# Anthropic\nUser-agent: Cl...",
+      "title": "AI Crawlers Explained: GPTBot, ClaudeBot, PerplexityBot and How ...",
+      "type": "web_search_result_location",
+      "url": "https://www.anagram.ai/blog/ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-how-to-let-them-in-2026"
+     }
+    ],
+    "text": "User-agent: GPTBot / Allow: / — User-agent: ClaudeBot / Allow: / — User-agent: PerplexityBot / Allow: /",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", etc. If you want AI search visibility without allowing model training, you can ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "(robots.txt)\n```\n# OpenAI\nUser-agent: GPTBot\nAllow: /\nUser-agent: OAI-SearchBot\nAllow: /\nUser-agent: ChatGPT-User\nAllow: /\n\n# Anthropic\nUser-agent: Cl...",
+      "title": "AI Crawlers Explained: GPTBot, ClaudeBot, PerplexityBot and How ...",
+      "type": "web_search_result_location",
+      "url": "https://www.anagram.ai/blog/ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-how-to-let-them-in-2026"
+     }
+    ],
+    "text": "allow the search and user agents while disallowing the training agents",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — a developer or knowledgeable plugin can help you split this correctly.\n\n**Bottom line:** Run a free checker first (365i or Crawl Gate are solid, no-signup options) to see exactly what's blocked — then it's usually a 5-minute edit for you, your developer, or your host's support team.",
+    "type": "text"
+   }
+  ]
+ }
+}

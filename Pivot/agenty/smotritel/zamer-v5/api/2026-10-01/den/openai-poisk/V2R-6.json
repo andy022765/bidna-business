@@ -1,0 +1,391 @@
+{
+ "vopros_id": "V2R",
+ "povtor": 6,
+ "vopros": "Как сделать, чтобы нейросеть советовала мою компанию клиентам в США?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:03:59-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.02923,
+   "ishod": "ok",
+   "sekund": 8.2,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:04:08 GMT",
+    "x-request-id": "req_9f6f4b9e0d614d29b9646f8d09dab6d8",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "7862"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. Обычно это называют GEO/AEO — оптимизацией присутствия компании для ответов ChatGPT и других AI-систем. Но нельзя просто «зарегистрировать компанию в нейросети» и гарантированно попасть в рекомендации. Нужно сделать компанию источником, который AI легко находит, понимает и считает релевантным запросу пользователя.\n\nДля рынка США я бы строил работу по четырём направлениям:\n\n- Сайт и сущность компании. Англоязычные страницы должны однозначно объяснять: что вы продаёте, кому, в каких штатах/городах работаете, цены или диапазоны цен, преимущества, контакты и юридическую информацию. Добавьте корректную schema.org-разметку `Organization`/`LocalBusiness`, а для e-commerce — `Product`. Google прямо рекомендует такую разметку для лучшего понимания компании и её предложений. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/local-business?popup=false&utm_source=openai))\n- Репутация вне вашего сайта. Нужны реальные отзывы, упоминания и карточки на площадках, которым американский покупатель доверяет в вашей категории. В зависимости от бизнеса это могут быть Google Maps, Yelp, BBB, G2, Capterra, Clutch, отраслевые каталоги, СМИ и т. п. Задача — чтобы утверждение «эта компания подходит для X» существовало не только на вашем собственном сайте.\n- Контент под вопросы клиентов. Вместо десятков SEO-статей делайте страницы, непосредственно отвечающие на коммерческие запросы вроде “best X for small businesses in California”, “X vs Y”, “how much does X cost in Los Angeles”, “best alternative to X”. AI должен иметь достаточно фактов, чтобы сравнить вас с конкурентами.\n- Если продаёте товары, отдельно оптимизируйтесь под AI-shopping. Сейчас ChatGPT использует публичную товарную информацию и данные продавцов; OpenAI также развивает передачу товарных данных через Agentic Commerce Protocol. Для Shopify данные каталога уже интегрируются в продуктовый discovery ChatGPT. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n\nКлючевой момент: оптимизироваться надо не под запрос «расскажи о компании ABC», а под запрос человека, который ещё не знает ABC: например, “What are the best commercial cleaning companies in Los Angeles for a 20,000 sq ft office?” Потом регулярно проверять ChatGPT и другие AI-поисковики такими запросами: кого они рекомендуют, на какие источники опираются и каких доказательств не хватает вашему бизнесу.\n\nЕсли дадите мне название компании + сайт + что продаёте + в каких штатах США хотите клиентов, я могу провести небольшой GEO-аудит и сказать конкретно, что нужно изменить, чтобы повысить вероятность рекомендаций ChatGPT.",
+  "poiskovye_zaprosy": [
+   "site:openai.com ChatGPT search shopping merchants product discovery recommendations",
+   "site:developers.google.com/search structured data organization local business product review guidelines AI search"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?popup=false",
+    "domen": "developers.google.com",
+    "title": "Local Business (LocalBusiness) Structured Data | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-shopping-r",
+    "domen": "help.openai.com",
+    "title": "Using shopping research in ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/11128490-shopping-with-chatgpt-search",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/organization",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/12911370-using-shopping-research-in-chatgpt",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://openai.com/index/powering-product-discovery-in-chatgpt",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/review-snippet?error=error_code",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2016/08/promote-your-local-businesses-reviews",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet?hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/product?version=published",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/business-guides-and-resources/how-small-teams-win-with-chatgpt.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/business-guides-and-resources/ai-in-the-enterprise.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/API/docs/deep_research_blog.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/business-guides-and-resources/identifying-and-scaling-ai-use-cases.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/static/business-communications/business-messages/files/content-marketing-guide.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?popup=false",
+    "domen": "developers.google.com",
+    "title": "Local Business (LocalBusiness) Structured Data | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-shopping-r",
+    "domen": "help.openai.com",
+    "title": "Using shopping research in ChatGPT | OpenAI Help Center"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10535,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 606,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11141
+  },
+  "cena": 0.02923,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0892500da484f0db006abef4f03e3087d0bc6ade527d24e635",
+  "object": "response",
+  "created_at": 1790899440,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899447,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_0892500da484f0db006abef4f0f96887d084317e649e9de065",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "site:openai.com ChatGPT search shopping merchants product discovery recommendations",
+      "site:developers.google.com/search structured data organization local business product review guidelines AI search"
+     ],
+     "query": "site:openai.com ChatGPT search shopping merchants product discovery recommendations",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?popup=false"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-shopping-r"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/11128490-shopping-with-chatgpt-search"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/organization"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/12911370-using-shopping-research-in-chatgpt"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=ru"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/index/powering-product-discovery-in-chatgpt/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/review-snippet?error=error_code"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2016/08/promote-your-local-businesses-reviews"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/product?version=published"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/business-guides-and-resources/how-small-teams-win-with-chatgpt.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/business-guides-and-resources/ai-in-the-enterprise.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/API/docs/deep_research_blog.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/business-guides-and-resources/identifying-and-scaling-ai-use-cases.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/static/business-communications/business-messages/files/content-marketing-guide.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?popup=false&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_0892500da484f0db006abef4f330ac87d08da2ccac14860f18",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 920,
+        "start_index": 780,
+        "title": "Local Business (LocalBusiness) Structured Data | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business?popup=false&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2022,
+        "start_index": 1922,
+        "title": "Using shopping research in ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да. Обычно это называют GEO/AEO — оптимизацией присутствия компании для ответов ChatGPT и других AI-систем. Но нельзя просто «зарегистрировать компанию в нейросети» и гарантированно попасть в рекомендации. Нужно сделать компанию источником, который AI легко находит, понимает и считает релевантным запросу пользователя.\n\nДля рынка США я бы строил работу по четырём направлениям:\n\n- Сайт и сущность компании. Англоязычные страницы должны однозначно объяснять: что вы продаёте, кому, в каких штатах/городах работаете, цены или диапазоны цен, преимущества, контакты и юридическую информацию. Добавьте корректную schema.org-разметку `Organization`/`LocalBusiness`, а для e-commerce — `Product`. Google прямо рекомендует такую разметку для лучшего понимания компании и её предложений. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/local-business?popup=false&utm_source=openai))\n- Репутация вне вашего сайта. Нужны реальные отзывы, упоминания и карточки на площадках, которым американский покупатель доверяет в вашей категории. В зависимости от бизнеса это могут быть Google Maps, Yelp, BBB, G2, Capterra, Clutch, отраслевые каталоги, СМИ и т. п. Задача — чтобы утверждение «эта компания подходит для X» существовало не только на вашем собственном сайте.\n- Контент под вопросы клиентов. Вместо десятков SEO-статей делайте страницы, непосредственно отвечающие на коммерческие запросы вроде “best X for small businesses in California”, “X vs Y”, “how much does X cost in Los Angeles”, “best alternative to X”. AI должен иметь достаточно фактов, чтобы сравнить вас с конкурентами.\n- Если продаёте товары, отдельно оптимизируйтесь под AI-shopping. Сейчас ChatGPT использует публичную товарную информацию и данные продавцов; OpenAI также развивает передачу товарных данных через Agentic Commerce Protocol. Для Shopify данные каталога уже интегрируются в продуктовый discovery ChatGPT. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n\nКлючевой момент: оптимизироваться надо не под запрос «расскажи о компании ABC», а под запрос человека, который ещё не знает ABC: например, “What are the best commercial cleaning companies in Los Angeles for a 20,000 sq ft office?” Потом регулярно проверять ChatGPT и другие AI-поисковики такими запросами: кого они рекомендуют, на какие источники опираются и каких доказательств не хватает вашему бизнесу.\n\nЕсли дадите мне название компании + сайт + что продаёте + в каких штатах США хотите клиентов, я могу провести небольшой GEO-аудит и сказать конкретно, что нужно изменить, чтобы повысить вероятность рекомендаций ChatGPT."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10535,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 606,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11141
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

@@ -1,0 +1,337 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 1,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:10:56-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.02676,
+   "ishod": "ok",
+   "sekund": 6.1,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:11:02 GMT",
+    "x-request-id": "req_b77bb24812e54aa7b9c3edacd2beb9d9",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "5876"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да. Это обычно делает технический SEO-специалист или веб-разработчик, который понимает AI-crawlers. Просто «открыть robots.txt» недостаточно: блокировка может стоять также в Cloudflare/WAF, firewall, CAPTCHA, настройках CDN или CMS. OpenAI прямо рекомендует проверять все эти уровни. ([developers.openai.com](https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai))\n\nЕсли цель — чтобы компанию находили ChatGPT и другие AI-сервисы, я бы проверил:\n\n- `robots.txt` — разрешены ли OAI-SearchBot и нужные другие AI-боты;\n- Cloudflare/WAF/CDN — нет ли для них 403/бот-защиты;\n- `noindex`, HTTP-заголовки и доступность основных страниц;\n- sitemap и индексацию компании в Google/Bing;\n- Google-Extended/Gemini и настройки других нужных AI-систем;\n- после исправлений — фактический заход каждого робота и то, может ли AI найти компанию по релевантным запросам.\n\nДля ChatGPT особенно важен `OAI-SearchBot`: OpenAI указывает, что его нужно разрешить, чтобы контент сайта мог появляться в результатах ChatGPT Search. Изменения в `robots.txt` могут учитываться примерно в течение 24 часов. ([developers.openai.com](https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai))\n\nЕсли дадите адрес сайта (домен), я могу прямо сейчас проверить его снаружи и сказать, что именно закрывает доступ и что передать вашему вебмастеру для исправления.",
+  "poiskovye_zaprosy": [
+   "OpenAI GPTBot OAI-SearchBot robots.txt official documentation",
+   "Google-Extended robots.txt official documentation AI"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.openai.com/api/docs/bots?community_post=true",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/12627856-%D0%B8%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B8-%D0%B8-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B8-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=ru",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/about-crawling?hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/ru-ru/articles/20001243-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%BE%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9-%D0%BF%D0%BE-%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8E-%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0-%D1%81%D0%BA%D0%B0%D0%BD%D0%B5%D1%80%D0%B0%D0%BC-openai",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features?roistat_visit=2540962",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/zh-hans-cn/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/uk-ua/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/WebGPT.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.openai.com/api/docs/bots?community_post=true",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10605,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 350,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 10955
+  },
+  "cena": 0.02676,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0d83c0751d9c60fa006abef690517487d0ba699abe5ea971f8",
+  "object": "response",
+  "created_at": 1790899856,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899861,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_0d83c0751d9c60fa006abef691161087d088b292035975da84",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "OpenAI GPTBot OAI-SearchBot robots.txt official documentation",
+      "Google-Extended robots.txt official documentation AI"
+     ],
+     "query": "OpenAI GPTBot OAI-SearchBot robots.txt official documentation",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?community_post=true"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/12627856-%D0%B8%D0%B7%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B8-%D0%B8-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B8-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=ru"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/about-crawling?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/ru-ru/articles/20001243-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%BE%D0%B4%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9-%D0%BF%D0%BE-%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8E-%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0-%D1%81%D0%BA%D0%B0%D0%BD%D0%B5%D1%80%D0%B0%D0%BC-openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/ai-features?roistat_visit=2540962"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/zh-hans-cn/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/uk-ua/articles/12627856-publishers-and-developers-faq"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/WebGPT.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_0d83c0751d9c60fa006abef692983c87d09cdedc7c95d90794",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 392,
+        "start_index": 284,
+        "title": "Overview of OpenAI Crawlers",
+        "url": "https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1213,
+        "start_index": 1105,
+        "title": "Overview of OpenAI Crawlers",
+        "url": "https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Да. Это обычно делает технический SEO-специалист или веб-разработчик, который понимает AI-crawlers. Просто «открыть robots.txt» недостаточно: блокировка может стоять также в Cloudflare/WAF, firewall, CAPTCHA, настройках CDN или CMS. OpenAI прямо рекомендует проверять все эти уровни. ([developers.openai.com](https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai))\n\nЕсли цель — чтобы компанию находили ChatGPT и другие AI-сервисы, я бы проверил:\n\n- `robots.txt` — разрешены ли OAI-SearchBot и нужные другие AI-боты;\n- Cloudflare/WAF/CDN — нет ли для них 403/бот-защиты;\n- `noindex`, HTTP-заголовки и доступность основных страниц;\n- sitemap и индексацию компании в Google/Bing;\n- Google-Extended/Gemini и настройки других нужных AI-систем;\n- после исправлений — фактический заход каждого робота и то, может ли AI найти компанию по релевантным запросам.\n\nДля ChatGPT особенно важен `OAI-SearchBot`: OpenAI указывает, что его нужно разрешить, чтобы контент сайта мог появляться в результатах ChatGPT Search. Изменения в `robots.txt` могут учитываться примерно в течение 24 часов. ([developers.openai.com](https://developers.openai.com/api/docs/bots?community_post=true&utm_source=openai))\n\nЕсли дадите адрес сайта (домен), я могу прямо сейчас проверить его снаружи и сказать, что именно закрывает доступ и что передать вашему вебмастеру для исправления."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10605,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 350,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 10955
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

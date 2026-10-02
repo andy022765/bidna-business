@@ -1,0 +1,409 @@
+{
+ "vopros_id": "V6E",
+ "povtor": 6,
+ "vopros": "My site blocks AI crawlers. Who can check it and open it up so AI assistants can see my business?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:10:43-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.02727,
+   "ishod": "ok",
+   "sekund": 6.1,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:10:49 GMT",
+    "x-request-id": "req_23d0b908e4d64fab8bc9fd86960ef47b",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "5826"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Yes. The right person is usually a technical SEO specialist or web developer who understands AI crawler access, robots.txt, CDNs/WAFs (especially Cloudflare), and server logs.\n\nThey should audit more than just robots.txt. For example, ChatGPT Search uses OAI-SearchBot; OpenAI says allowing it helps your pages appear in ChatGPT search results. GPTBot is separate and concerns potential model training, so you can allow search visibility without necessarily allowing training. ([developers.openai.com](https://developers.openai.com/api/docs/bots?app=1&utm_source=openai)) Anthropic similarly has separate bots, while Google has its own controls such as Google-Extended. ([developers.google.com](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai))\n\nA competent audit should check:\n- `robots.txt` and page-level `noindex`/robots directives\n- OAI-SearchBot, ChatGPT-User, Claude-related bots, Googlebot/Google-Extended, and other relevant AI/search crawlers\n- Cloudflare/Akamai/firewall/bot-protection rules that may return 403s even when robots.txt permits crawling ([help.openai.com](https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai))\n- Whether important business, service, location, pricing, and contact pages are actually crawlable and indexable\n- XML sitemap, canonical tags, structured data/schema, and basic technical SEO\n- Server logs or direct tests to verify bots are genuinely getting through\n\nIf you give me your website URL, I can check the publicly visible crawler configuration and identify what's blocking AI/search access and what you'd need your developer to change.",
+  "poiskovye_zaprosy": [
+   "OpenAI GPTBot OAI-SearchBot robots.txt official",
+   "Google AI crawler robots.txt Google-Extended official",
+   "Anthropic ClaudeBot robots.txt official"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+    "domen": "developers.google.com",
+    "title": "Google's common crawlers | Google Crawling Infrastructure  |  Crawling infrastructure  |  Google for Developers"
+   },
+   {
+    "url": "https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+    "domen": "support.anthropic.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots?app=1",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center"
+   },
+   {
+    "url": "https://support.anthropic.com/en/articles/10684638-blocking-and-removing-content-from-claude",
+    "domen": "support.anthropic.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2025/03/robotstxt-flexible-way-to-control?hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features?roistat_visit=2540962",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro?rd=1&visit_id=638772312889448006-2934051934",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/get-started?hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://support.anthropic.com/fr/articles/8896518-anthropic-explore-t-il-les-donnees-du-web-et-comment-les-proprietaires-de-sites-peuvent-ils-bloquer-le-robot-d-exploration",
+    "domen": "support.anthropic.com",
+    "title": null
+   },
+   {
+    "url": "https://support.anthropic.com/zh-CN/articles/8896518-anthropic%E6%98%AF%E5%90%A6%E4%BB%8E%E7%BD%91%E7%BB%9C%E4%B8%8A%E6%8A%93%E5%8F%96%E6%95%B0%E6%8D%AE-%E7%BD%91%E7%AB%99%E6%89%80%E6%9C%89%E8%80%85%E5%A6%82%E4%BD%95%E9%98%BB%E6%AD%A2%E7%88%AC%E8%99%AB",
+    "domen": "support.anthropic.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/global-affairs/b89a7434-7cb9-47a7-b4a7-b50b1a1a0afc/openai-uk-ai-and-copyright-consultation.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/policy-submissions/OpenAI%20Comments%20on%20Intellectual%20Property%20Protection%20for%20Artificial%20Intelligence%20Innovation.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/419b6906-9da6-406c-a19d-1bb078ac7637/oai_gpt-oss_model_card.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/WebGPT.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/231bf018-659a-494d-976c-2efdfc72b652/oai_gpt-oss_Model_Safety.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.openai.com/api/docs/bots?app=1",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+    "domen": "developers.google.com",
+    "title": "Google's common crawlers | Google Crawling Infrastructure  |  Crawling infrastructure  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10597,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 402,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 10999
+  },
+  "cena": 0.02727,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_04875ef53b945992006abef6834ed487d0ba868f8d4ed8acf7",
+  "object": "response",
+  "created_at": 1790899843,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899848,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_04875ef53b945992006abef6841e6487d0afbcf33af230f6f9",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "OpenAI GPTBot OAI-SearchBot robots.txt official",
+      "Google AI crawler robots.txt Google-Extended official",
+      "Anthropic ClaudeBot robots.txt official"
+     ],
+     "query": "OpenAI GPTBot OAI-SearchBot robots.txt official",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?app=1"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://support.anthropic.com/en/articles/10684638-blocking-and-removing-content-from-claude"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2025/03/robotstxt-flexible-way-to-control?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/ai-features?roistat_visit=2540962"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro?rd=1&visit_id=638772312889448006-2934051934"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/fundamentals/get-started?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://support.anthropic.com/fr/articles/8896518-anthropic-explore-t-il-les-donnees-du-web-et-comment-les-proprietaires-de-sites-peuvent-ils-bloquer-le-robot-d-exploration"
+      },
+      {
+       "type": "url",
+       "url": "https://support.anthropic.com/zh-CN/articles/8896518-anthropic%E6%98%AF%E5%90%A6%E4%BB%8E%E7%BD%91%E7%BB%9C%E4%B8%8A%E6%8A%93%E5%8F%96%E6%95%B0%E6%8D%AE-%E7%BD%91%E7%AB%99%E6%89%80%E6%9C%89%E8%80%85%E5%A6%82%E4%BD%95%E9%98%BB%E6%AD%A2%E7%88%AC%E8%99%AB"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/global-affairs/b89a7434-7cb9-47a7-b4a7-b50b1a1a0afc/openai-uk-ai-and-copyright-consultation.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/policy-submissions/OpenAI%20Comments%20on%20Intellectual%20Property%20Protection%20for%20Artificial%20Intelligence%20Innovation.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/dd8e7875-e606-42b4-80a1-f824e4e11cf4/prevent-url-data-exfil.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/419b6906-9da6-406c-a19d-1bb078ac7637/oai_gpt-oss_model_card.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/WebGPT.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/231bf018-659a-494d-976c-2efdfc72b652/oai_gpt-oss_Model_Safety.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?app=1&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_04875ef53b945992006abef6868d6c87d0916413956db1dc2a",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 571,
+        "start_index": 477,
+        "title": "Overview of OpenAI Crawlers",
+        "url": "https://developers.openai.com/api/docs/bots?app=1&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 799,
+        "start_index": 670,
+        "title": "Google's common crawlers | Google Crawling Infrastructure  |  Crawling infrastructure  |  Google for Developers",
+        "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1253,
+        "start_index": 1117,
+        "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Yes. The right person is usually a technical SEO specialist or web developer who understands AI crawler access, robots.txt, CDNs/WAFs (especially Cloudflare), and server logs.\n\nThey should audit more than just robots.txt. For example, ChatGPT Search uses OAI-SearchBot; OpenAI says allowing it helps your pages appear in ChatGPT search results. GPTBot is separate and concerns potential model training, so you can allow search visibility without necessarily allowing training. ([developers.openai.com](https://developers.openai.com/api/docs/bots?app=1&utm_source=openai)) Anthropic similarly has separate bots, while Google has its own controls such as Google-Extended. ([developers.google.com](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?utm_source=openai))\n\nA competent audit should check:\n- `robots.txt` and page-level `noindex`/robots directives\n- OAI-SearchBot, ChatGPT-User, Claude-related bots, Googlebot/Google-Extended, and other relevant AI/search crawlers\n- Cloudflare/Akamai/firewall/bot-protection rules that may return 403s even when robots.txt permits crawling ([help.openai.com](https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai))\n- Whether important business, service, location, pricing, and contact pages are actually crawlable and indexable\n- XML sitemap, canonical tags, structured data/schema, and basic technical SEO\n- Server logs or direct tests to verify bots are genuinely getting through\n\nIf you give me your website URL, I can check the publicly visible crawler configuration and identify what's blocking AI/search access and what you'd need your developer to change."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10597,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 402,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 10999
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

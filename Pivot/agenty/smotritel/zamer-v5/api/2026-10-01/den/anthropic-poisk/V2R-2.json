@@ -1,0 +1,732 @@
+{
+ "vopros_id": "V2R",
+ "povtor": 2,
+ "vopros": "Как сделать, чтобы нейросеть советовала мою компанию клиентам в США?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:03:16-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.08837,
+   "ishod": "ok",
+   "sekund": 28.5,
+   "meta": {
+    "request_id": "req_011CfcRwX9GvvgG5kBDTLSpz"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Чтобы нейросети (ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews) советовали вашу компанию клиентам в США, нужно заниматься тем, что сейчас называют **GEO (Generative Engine Optimization)** — «SEO для ИИ». Это принципиально другая механика, чем классическое SEO: GEO — это работа над тем, чтобы нейросети видели вашу компанию, доверяли ей и рекомендовали клиенту еще до того, как он откроет сайт.\n\n## Как вообще думает нейросеть\n\nПолучив вопрос «кого выбрать», нейросеть ищет свежие материалы по теме на площадках с высокой репутацией, отбирает те, где есть прямой ответ с ценами, критериями, конкретикой, и называет компании, которые в этих материалах упоминаются чаще и убедительнее остальных. При этом генеративные модели не ранжируют контент в традиционном смысле, а приоритизируют наиболее релевантные, авторитетные и понятно изложенные данные — ориентируясь на контекстную релевантность и намерение пользователя.\n\n## Пошаговый план для рынка США\n\n### 1. Контент на английском и «под промпты», а не под ключевые слова\nСтарый подход \"keyword research\" больше не покрывает всю картину — нужно таргетировать более развёрнутые, разговорные промпты, например конкретные вопросы в духе «какая компания лучше всего подходит для X в США». Соберите ядро вопросов — запросы, по которым клиент мог бы спросить нейросеть в вашей нише: «посоветуй…», «что лучше…», «какой выбрать…» — но формулируйте их уже на английском и с учётом американских реалий (цены в $, локация, законодательство).\n\n### 2. Структурируйте контент так, чтобы ИИ мог его «вытащить»\nСамодостаточные абзацы, где каждый выражает одну законченную мысль без расплывчатых отсылок к окружающему тексту; конкретные факты и статистика; чёткие описательные заголовки — всё это облегчает извлечение информации моделью. Избегайте «стен текста» — они сложны для восприятия как людьми, так и ИИ.\n\n### 3. Технически откройте доступ ИИ-краулерам\nУ каждой нейросети свой краулер: например, у ChatGPT это GPTBot и OAI-SearchBot, у Perplexity — PerplexityBot. Убедитесь, что сайт их не блокирует в robots.txt. Также нейросети берут источники из поисковых индексов, поэтому страница должна быть проиндексирована в Google и Bing (для США Bing особенно важен, так как Copilot и часть поиска на нём работают).\n\n### 4. Добавьте разметку Schema.org\nРазметка — это описание страницы в коде для роботов: по ней поисковик и нейросеть понимают, что перед ними — статья, карточка товара или страница компании, кто автор и какая цена у товара. Для бизнеса важны Organization, LocalBusiness, Review/AggregateRating.\n\n### 5. Стройте репутацию и упоминания на внешних площадках (не только сайт)\nЭто ключевой момент для США — там ИИ особенно доверяет сторонним источникам:\n- AI-движки берут данные не только с веб-страниц: Reddit, LinkedIn, YouTube, G2 и Quora часто цитируются в ответах ИИ, так как это контент с высоким сигналом доверия, создаваемый пользователями.\n- Источниками репутации для ИИ служат ваш сайт, отраслевые каталоги, а также места, откуда ИИ «учится»: Wikipedia, Reddit, отраслевые сайты отзывов (G2, Yelp), и материалы в digital PR.\n- Постарайтесь попасть в «списки лучших»: когда человек спрашивает ИИ, например, «какие лучшие отели в определённом городе», модель не начинает с нуля, а синтезирует существующие списки — поэтому попадание в подборки вроде «Топ-10» важно.\n\n### 6. Публикуйте «цитируемый» экспертный контент\nИИ-модели ищут надёжные, авторитетные материалы — формируя ответ, они подкрепляют утверждения достоверными источниками, чтобы вызвать доверие пользователя. Подкрепляйте контент цифрами, кейсами, экспертными цитатами с именами.\n\n### 7. Работайте над узнаваемостью бренда в целом\nЕсли спросить ChatGPT про «лучшие инструменты» в любой устоявшейся категории, первыми всплывают почти всегда бренды с наиболее глубоким и часто цитируемым присутствием на авторитетных сайтах. Поощряйте обсуждения вашего бренда на форумах, в сообществах и соцсетях — это расширяет GEO-стратегию за пределы сайта; чем больше онлайн-источников вас упоминает, тем легче ИИ-моделям вас находить.\n\n### 8. Следите за согласованностью данных (NAP-консистентность)\nРасхождения в названии компании, услугах или контактах на разных площадках снижают доверие к бренду — это особенно критично для локального бизнеса в США, где данные берутся из множества справочников (Google Business, Yelp, BBB и т.д.).\n\n### 9. Измеряйте результат\nОтслеживайте «долю голоса» (share of voice) — как часто и насколько благоприятно ИИ-движки упоминают ваш бренд по важным для вас промптам, прогоняя одинаковый набор вопросов через ChatGPT, Gemini, Perplexity и Google AI Overviews и фиксируя, появляетесь ли вы, на какой позиции и с каким тоном. Для этого есть специализированные GEO-инструменты (Profound, Peec AI и др.), которые автоматизируют этот мониторинг.\n\n## Частые ошибки\n- Отчитываться позициями в поисковой выдаче — в GEO позиция вторична, важны упоминания и цитаты; игнорировать репутацию — негатив на картах и отзовиках рушит рекомендацию, каким бы хорошим ни был сайт.\n\n**Короткий вывод:** чтобы нейросеть советовала вашу компанию клиентам в США — публикуйте фактурный, структурированный англоязычный контент на сайте, откройте доступ ИИ-краулерам, добавьте Schema-разметку и активно \"сейте\" упоминания бренда на Reddit, G2, Yelp, в отраслевых СМИ и \"best-of\" подборках — именно оттуда американские LLM чаще всего берут данные для рекомендаций.",
+  "poiskovye_zaprosy": [
+   "как сделать чтобы нейросеть ChatGPT рекомендовала компанию GEO generative engine optimization",
+   "generative engine optimization how to get recommended by AI chatbots"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://habr.com/ru/articles/1081126",
+    "domen": "habr.com",
+    "title": "GEO: как нейросети выбирают, кого ..."
+   },
+   {
+    "url": "https://prex.ru/blog/kak-zastavit-chatgpt-sovetovat-vash-biznes-glavnoe-o-generativnoy-optimizacii-geo",
+    "domen": "prex.ru",
+    "title": "Как заставить ChatGPT советовать ваш ..."
+   },
+   {
+    "url": "https://web-c.ru/blog/geo-prodvizhenie-dlya-biznesa",
+    "domen": "web-c.ru",
+    "title": "Как бизнесу получать трафик из ИИ: ..."
+   },
+   {
+    "url": "https://netology.ru/blog/generative-engine-optimization",
+    "domen": "netology.ru",
+    "title": "GEO: что такое generative engine optimization и как ..."
+   },
+   {
+    "url": "https://www.aisol.ru/articles/geo-optimizaciya-sayta-dlya-popadaniya-v-otvety-neyrosetey-i-ai-vydachu",
+    "domen": "aisol.ru",
+    "title": "GEO оптимизация и SEO: generative engine optimization ..."
+   },
+   {
+    "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh",
+    "domen": "vc.ru",
+    "title": "GEO-продвижение: что это простыми ..."
+   },
+   {
+    "url": "https://blog.fillikam.com/guides/geo-optimizaciya-pod-neyroseti-2026",
+    "domen": "blog.fillikam.com",
+    "title": "Как попасть в ответы нейросетей: ..."
+   },
+   {
+    "url": "https://affix-group.ru/useful/geo-prodvizhenie-kak-sdelat-tak-chtoby-ii-rekomendoval-vashu-kompaniyu",
+    "domen": "affix-group.ru",
+    "title": "GEO-продвижение: как сделать так, чтобы ..."
+   },
+   {
+    "url": "https://rekkom.agency/blog/prodvizhenie-v-neyrosetyah-geo-gayd",
+    "domen": "rekkom.agency",
+    "title": "Продвижение в нейросетях (GEO) — как ..."
+   },
+   {
+    "url": "https://exposureninja.com/blog/generative-engine-optimisation",
+    "domen": "exposureninja.com",
+    "title": "Generative Engine Optimisation: How To Rank in AI Search"
+   },
+   {
+    "url": "https://www.seopress.org/newsroom/featured-stories/generative-engine-optimization",
+    "domen": "seopress.org",
+    "title": "How to Optimize Content for AI Overviews and Generative Search ..."
+   },
+   {
+    "url": "https://www.takeflyte.com/blog/how-to-geo",
+    "domen": "takeflyte.com",
+    "title": "How to Do Generative Engine Optimization: AI Search Strategies"
+   },
+   {
+    "url": "https://surferseo.com/blog/generative-engine-optimization",
+    "domen": "surferseo.com",
+    "title": "Generative Engine Optimization Guide: 10 GEO Techniques and Examples"
+   },
+   {
+    "url": "https://aisearch.similarweb.com/blog/what-is-geo",
+    "domen": "aisearch.similarweb.com",
+    "title": "Generative Engine Optimization: The Complete 2026 Guide"
+   },
+   {
+    "url": "https://www.relato.com/blog/generative-engine-optimization",
+    "domen": "relato.com",
+    "title": "Generative Engine Optimization (GEO): How It Works & How to Track ..."
+   },
+   {
+    "url": "https://searchengineland.com/what-is-generative-engine-optimization-geo-444418",
+    "domen": "searchengineland.com",
+    "title": "Generative engine optimization (GEO): How to win AI mentions"
+   },
+   {
+    "url": "https://www.yotpo.com/blog/generative-engine-optimization-tools",
+    "domen": "yotpo.com",
+    "title": "15 Best GEO Tools For 2026: Generative Engine Optimization"
+   },
+   {
+    "url": "https://talkoot.com/blog/ai-chatbot-generative-engine-optimization",
+    "domen": "talkoot.com",
+    "title": "How to Rank in AI Chatbots: Generative Engine Optimization (GEO)"
+   },
+   {
+    "url": "https://www.tryprofound.com/blog/best-generative-engine-optimization-tools",
+    "domen": "tryprofound.com",
+    "title": "Best generative engine optimization (GEO) tools for AI search in 2026"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://web-c.ru/blog/geo-prodvizhenie-dlya-biznesa",
+    "domen": "web-c.ru",
+    "title": "Как бизнесу получать трафик из ИИ: ..."
+   },
+   {
+    "url": "https://habr.com/ru/articles/1081126",
+    "domen": "habr.com",
+    "title": "GEO: как нейросети выбирают, кого ..."
+   },
+   {
+    "url": "https://exposureninja.com/blog/generative-engine-optimisation",
+    "domen": "exposureninja.com",
+    "title": "Generative Engine Optimisation: How To Rank in AI Search"
+   },
+   {
+    "url": "https://www.seopress.org/newsroom/featured-stories/generative-engine-optimization",
+    "domen": "seopress.org",
+    "title": "How to Optimize Content for AI Overviews and Generative Search ..."
+   },
+   {
+    "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh",
+    "domen": "vc.ru",
+    "title": "GEO-продвижение: что это простыми ..."
+   },
+   {
+    "url": "https://searchengineland.com/what-is-generative-engine-optimization-geo-444418",
+    "domen": "searchengineland.com",
+    "title": "Generative engine optimization (GEO): How to win AI mentions"
+   },
+   {
+    "url": "https://talkoot.com/blog/ai-chatbot-generative-engine-optimization",
+    "domen": "talkoot.com",
+    "title": "How to Rank in AI Chatbots: Generative Engine Optimization (GEO)"
+   },
+   {
+    "url": "https://netology.ru/blog/generative-engine-optimization",
+    "domen": "netology.ru",
+    "title": "GEO: что такое generative engine optimization и как ..."
+   },
+   {
+    "url": "https://aisearch.similarweb.com/blog/what-is-geo",
+    "domen": "aisearch.similarweb.com",
+    "title": "Generative Engine Optimization: The Complete 2026 Guide"
+   },
+   {
+    "url": "https://www.takeflyte.com/blog/how-to-geo",
+    "domen": "takeflyte.com",
+    "title": "How to Do Generative Engine Optimization: AI Search Strategies"
+   },
+   {
+    "url": "https://www.relato.com/blog/generative-engine-optimization",
+    "domen": "relato.com",
+    "title": "Generative Engine Optimization (GEO): How It Works & How to Track ..."
+   },
+   {
+    "url": "https://surferseo.com/blog/generative-engine-optimization",
+    "domen": "surferseo.com",
+    "title": "Generative Engine Optimization Guide: 10 GEO Techniques and Examples"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 19487,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 2940
+  },
+  "cena": 0.08837,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcRwXoifgRHX7bToBWDq",
+    "request_id": "req_011CfcRwX9GvvgG5kBDTLSpz",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 19487,
+     "output_tokens": 2940,
+     "output_tokens_details": {
+      "thinking_tokens": 101
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_014GgRUfrWEUytg8k6hEcPqz",
+    "caller": null,
+    "input": {
+     "query": "как сделать чтобы нейросеть ChatGPT рекомендовала компанию GEO generative engine optimization"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01GXfqB5YEBn6LonZ24m8LV1",
+    "caller": null,
+    "input": {
+     "query": "generative engine optimization how to get recommended by AI chatbots"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "6 days ago",
+      "title": "GEO: как нейросети выбирают, кого ...",
+      "type": "web_search_result",
+      "url": "https://habr.com/ru/articles/1081126/"
+     },
+     {
+      "page_age": null,
+      "title": "Как заставить ChatGPT советовать ваш ...",
+      "type": "web_search_result",
+      "url": "https://prex.ru/blog/kak-zastavit-chatgpt-sovetovat-vash-biznes-glavnoe-o-generativnoy-optimizacii-geo"
+     },
+     {
+      "page_age": null,
+      "title": "Как бизнесу получать трафик из ИИ: ...",
+      "type": "web_search_result",
+      "url": "https://web-c.ru/blog/geo-prodvizhenie-dlya-biznesa/"
+     },
+     {
+      "page_age": null,
+      "title": "GEO: что такое generative engine optimization и как ...",
+      "type": "web_search_result",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     },
+     {
+      "page_age": "247 days ago",
+      "title": "GEO оптимизация и SEO: generative engine optimization ...",
+      "type": "web_search_result",
+      "url": "https://www.aisol.ru/articles/geo-optimizaciya-sayta-dlya-popadaniya-v-otvety-neyrosetey-i-ai-vydachu"
+     },
+     {
+      "page_age": "91 days ago",
+      "title": "GEO-продвижение: что это простыми ...",
+      "type": "web_search_result",
+      "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh"
+     },
+     {
+      "page_age": "76 days ago",
+      "title": "Как попасть в ответы нейросетей: ...",
+      "type": "web_search_result",
+      "url": "https://blog.fillikam.com/guides/geo-optimizaciya-pod-neyroseti-2026/"
+     },
+     {
+      "page_age": "29 days ago",
+      "title": "GEO-продвижение: как сделать так, чтобы ...",
+      "type": "web_search_result",
+      "url": "https://affix-group.ru/useful/geo-prodvizhenie-kak-sdelat-tak-chtoby-ii-rekomendoval-vashu-kompaniyu/"
+     },
+     {
+      "page_age": "79 days ago",
+      "title": "Продвижение в нейросетях (GEO) — как ...",
+      "type": "web_search_result",
+      "url": "https://rekkom.agency/blog/prodvizhenie-v-neyrosetyah-geo-gayd/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_014GgRUfrWEUytg8k6hEcPqz",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "297 days ago",
+      "title": "Generative Engine Optimisation: How To Rank in AI Search",
+      "type": "web_search_result",
+      "url": "https://exposureninja.com/blog/generative-engine-optimisation/"
+     },
+     {
+      "page_age": "92 days ago",
+      "title": "How to Optimize Content for AI Overviews and Generative Search ...",
+      "type": "web_search_result",
+      "url": "https://www.seopress.org/newsroom/featured-stories/generative-engine-optimization/"
+     },
+     {
+      "page_age": "76 days ago",
+      "title": "How to Do Generative Engine Optimization: AI Search Strategies",
+      "type": "web_search_result",
+      "url": "https://www.takeflyte.com/blog/how-to-geo"
+     },
+     {
+      "page_age": "22 days ago",
+      "title": "Generative Engine Optimization Guide: 10 GEO Techniques and Examples",
+      "type": "web_search_result",
+      "url": "https://surferseo.com/blog/generative-engine-optimization/"
+     },
+     {
+      "page_age": "9 days ago",
+      "title": "Generative Engine Optimization: The Complete 2026 Guide",
+      "type": "web_search_result",
+      "url": "https://aisearch.similarweb.com/blog/what-is-geo/"
+     },
+     {
+      "page_age": "59 days ago",
+      "title": "Generative Engine Optimization (GEO): How It Works & How to Track ...",
+      "type": "web_search_result",
+      "url": "https://www.relato.com/blog/generative-engine-optimization/"
+     },
+     {
+      "page_age": "7 days ago",
+      "title": "Generative engine optimization (GEO): How to win AI mentions",
+      "type": "web_search_result",
+      "url": "https://searchengineland.com/what-is-generative-engine-optimization-geo-444418"
+     },
+     {
+      "page_age": "119 days ago",
+      "title": "15 Best GEO Tools For 2026: Generative Engine Optimization",
+      "type": "web_search_result",
+      "url": "https://www.yotpo.com/blog/generative-engine-optimization-tools/"
+     },
+     {
+      "page_age": "563 days ago",
+      "title": "How to Rank in AI Chatbots: Generative Engine Optimization (GEO)",
+      "type": "web_search_result",
+      "url": "https://talkoot.com/blog/ai-chatbot-generative-engine-optimization"
+     },
+     {
+      "page_age": "321 days ago",
+      "title": "Best generative engine optimization (GEO) tools for AI search in 2026",
+      "type": "web_search_result",
+      "url": "https://www.tryprofound.com/blog/best-generative-engine-optimization-tools"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01GXfqB5YEBn6LonZ24m8LV1",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Чтобы нейросети (ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews) советовали вашу компанию клиентам в США, нужно заниматься тем, что сейчас называют **GEO (Generative Engine Optimization)** — «SEO для ИИ». Это принципиально другая механика, чем классическое SEO: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "GEO (Generative Engine Optimization) — это работа над тем, чтобы нейросети (Алиса AI, ChatGPT, Gemini, YandexGPT) видели вашу компанию, доверяли ей и ...",
+      "title": "Как бизнесу получать трафик из ИИ: ...",
+      "type": "web_search_result_location",
+      "url": "https://web-c.ru/blog/geo-prodvizhenie-dlya-biznesa/"
+     }
+    ],
+    "text": "GEO — это работа над тем, чтобы нейросети видели вашу компанию, доверяли ей и рекомендовали клиенту еще до того, как он откроет сайт.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## Как вообще думает нейросеть\n\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "### Механика: как нейросеть решает, кого назвать\nПолучив вопрос «кого выбрать», нейросеть делает три вещи по порядку: ищет свежие материалы по теме на...",
+      "title": "GEO: как нейросети выбирают, кого ...",
+      "type": "web_search_result_location",
+      "url": "https://habr.com/ru/articles/1081126/"
+     }
+    ],
+    "text": "Получив вопрос «кого выбрать», нейросеть ищет свежие материалы по теме на площадках с высокой репутацией, отбирает те, где есть прямой ответ с ценами, критериями, конкретикой, и называет компании, которые в этих материалах упоминаются чаще и убедительнее остальных.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " При этом ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "They don’t rank content in the traditional sense but prioritise the most relevant, credible, and fluent data.\n\n\n\nInstead of using keyword density or b...",
+      "title": "Generative Engine Optimisation: How To Rank in AI Search",
+      "type": "web_search_result_location",
+      "url": "https://exposureninja.com/blog/generative-engine-optimisation/"
+     }
+    ],
+    "text": "генеративные модели не ранжируют контент в традиционном смысле, а приоритизируют наиболее релевантные, авторитетные и понятно изложенные данные — ориентируясь на контекстную релевантность и намерение пользователя",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Пошаговый план для рынка США\n\n### 1. Контент на английском и «под промпты», а не под ключевые слова\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Conduct “prompt research”, not just keyword research\nThe old keyword-first approach no longer covers the full picture. Instead of targeting terms like...",
+      "title": "How to Optimize Content for AI Overviews and Generative Search ...",
+      "type": "web_search_result_location",
+      "url": "https://www.seopress.org/newsroom/featured-stories/generative-engine-optimization/"
+     }
+    ],
+    "text": "Старый подход \"keyword research\" больше не покрывает всю картину — нужно таргетировать более развёрнутые, разговорные промпты",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", например конкретные вопросы в духе «какая компания лучше всего подходит для X в США». ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "**Соберите ядро вопросов.** Выпишите запросы, по которым клиент мог бы спросить нейросеть в вашей нише: «посоветуй…», «что лучше…», «какой выбрать…»\n\n...",
+      "title": "GEO-продвижение: что это простыми ...",
+      "type": "web_search_result_location",
+      "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh"
+     }
+    ],
+    "text": "Соберите ядро вопросов — запросы, по которым клиент мог бы спросить нейросеть в вашей нише: «посоветуй…», «что лучше…», «какой выбрать…»",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — но формулируйте их уже на английском и с учётом американских реалий (цены в $, локация, законодательство).\n\n### 2. Структурируйте контент так, чтобы ИИ мог его «вытащить»\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "- **Self-contained paragraphs:** Each paragraph expresses one complete idea that makes sense on its own, without vague references to surrounding text\n...",
+      "title": "Generative engine optimization (GEO): How to win AI mentions",
+      "type": "web_search_result_location",
+      "url": "https://searchengineland.com/what-is-generative-engine-optimization-geo-444418"
+     }
+    ],
+    "text": "Самодостаточные абзацы, где каждый выражает одну законченную мысль без расплывчатых отсылок к окружающему тексту; конкретные факты и статистика; чёткие описательные заголовки",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — всё это облегчает извлечение информации моделью. Избегайте «стен текста» — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Avoid long walls of text – they’re hard for humans and AIs to parse.\n\n",
+      "title": "How to Rank in AI Chatbots: Generative Engine Optimization (GEO)",
+      "type": "web_search_result_location",
+      "url": "https://talkoot.com/blog/ai-chatbot-generative-engine-optimization"
+     }
+    ],
+    "text": "они сложны для восприятия как людьми, так и ИИ",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n### 3. Технически откройте доступ ИИ-краулерам\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "### Открыть доступ краулерам нейросетей\nУ каждой нейросети краулер свой: например, у ChatGPT это GPTBot и OAI-SearchBot, у Perplexity — PerplexityBot....",
+      "title": "GEO: что такое generative engine optimization и как ...",
+      "type": "web_search_result_location",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     }
+    ],
+    "text": "У каждой нейросети свой краулер: например, у ChatGPT это GPTBot и OAI-SearchBot, у Perplexity — PerplexityBot.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Убедитесь, что сайт их не блокирует в robots.txt. Также ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "### Проверить индексацию в поисковиках\nНейросети берут источники из поисковых индексов, поэтому страница должна быть проиндексирована в Google, Яндекс...",
+      "title": "GEO: что такое generative engine optimization и как ...",
+      "type": "web_search_result_location",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     }
+    ],
+    "text": "нейросети берут источники из поисковых индексов, поэтому страница должна быть проиндексирована в Google и Bing",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " (для США Bing особенно важен, так как Copilot и часть поиска на нём работают).\n\n### 4. Добавьте разметку Schema.org\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "### Добавить разметку Schema.org\nРазметка — это описание страницы в её коде для роботов: по этому описанию поисковик и нейросеть понимают, что перед н...",
+      "title": "GEO: что такое generative engine optimization и как ...",
+      "type": "web_search_result_location",
+      "url": "https://netology.ru/blog/generative-engine-optimization"
+     }
+    ],
+    "text": "Разметка — это описание страницы в коде для роботов: по ней поисковик и нейросеть понимают, что перед ними — статья, карточка товара или страница компании, кто автор и какая цена у товара.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Для бизнеса важны Organization, LocalBusiness, Review/AggregateRating.\n\n### 5. Стройте репутацию и упоминания на внешних площадках (не только сайт)\nЭто ключевой момент для США — там ИИ особенно доверяет сторонним источникам:\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Seed content across the platforms LLMs pull from\nAI engines draw from sources beyond traditional web pages. Reddit, LinkedIn, YouTube, G2, and Quora a...",
+      "title": "Generative Engine Optimization: The Complete 2026 Guide",
+      "type": "web_search_result_location",
+      "url": "https://aisearch.similarweb.com/blog/what-is-geo/"
+     }
+    ],
+    "text": "AI-движки берут данные не только с веб-страниц: Reddit, LinkedIn, YouTube, G2 и Quora часто цитируются в ответах ИИ, так как это контент с высоким сигналом доверия, создаваемый пользователями.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "· Your website, industry directories, and places AI goes to “learn”: Wikipedia, Reddit, industry review sites (like G2 or Yelp), and digital PR featur...",
+      "title": "How to Do Generative Engine Optimization: AI Search Strategies",
+      "type": "web_search_result_location",
+      "url": "https://www.takeflyte.com/blog/how-to-geo"
+     }
+    ],
+    "text": "Источниками репутации для ИИ служат ваш сайт, отраслевые каталоги, а также места, откуда ИИ «учится»: Wikipedia, Reddit, отраслевые сайты отзывов (G2, Yelp), и материалы в digital PR.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- Постарайтесь попасть в «списки лучших»: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## The Offsite Signals AI Platforms Trust\n### Get on “Best of” Lists\nWhen someone asks Claude “What are the best hotels in Bar Harbor” it doesn’t star...",
+      "title": "How to Do Generative Engine Optimization: AI Search Strategies",
+      "type": "web_search_result_location",
+      "url": "https://www.takeflyte.com/blog/how-to-geo"
+     }
+    ],
+    "text": "когда человек спрашивает ИИ, например, «какие лучшие отели в определённом городе», модель не начинает с нуля, а синтезирует существующие списки — поэтому попадание в подборки вроде «Топ-10» важно.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n### 6. Публикуйте «цитируемый» экспертный контент\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Create citation-worthy content\nAI models are built to look for reliable, authoritative material. When ChatGPT produces an answer, it needs to support ...",
+      "title": "How to Optimize Content for AI Overviews and Generative Search ...",
+      "type": "web_search_result_location",
+      "url": "https://www.seopress.org/newsroom/featured-stories/generative-engine-optimization/"
+     }
+    ],
+    "text": "ИИ-модели ищут надёжные, авторитетные материалы — формируя ответ, они подкрепляют утверждения достоверными источниками, чтобы вызвать доверие пользователя.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Подкрепляйте контент цифрами, кейсами, экспертными цитатами с именами.\n\n### 7. Работайте над узнаваемостью бренда в целом\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Focus on building brand awareness and authority\nThis tracks with what you can observe directly: ask ChatGPT for the “best tools” in any established ca...",
+      "title": "Generative Engine Optimization (GEO): How It Works & How to Track ...",
+      "type": "web_search_result_location",
+      "url": "https://www.relato.com/blog/generative-engine-optimization/"
+     }
+    ],
+    "text": "Если спросить ChatGPT про «лучшие инструменты» в любой устоявшейся категории, первыми всплывают почти всегда бренды с наиболее глубоким и часто цитируемым присутствием на авторитетных сайтах.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Engage with your audience online\n##### To accommodate this, you should encourage as many conversations around your brand as possible across relevant f...",
+      "title": "Generative Engine Optimization Guide: 10 GEO Techniques and Examples",
+      "type": "web_search_result_location",
+      "url": "https://surferseo.com/blog/generative-engine-optimization/"
+     }
+    ],
+    "text": "Поощряйте обсуждения вашего бренда на форумах, в сообществах и соцсетях — это расширяет GEO-стратегию за пределы сайта; чем больше онлайн-источников вас упоминает, тем легче ИИ-моделям вас находить.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n### 8. Следите за согласованностью данных (NAP-консистентность)\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Расхождения в названии, услугах или контактах снижают доверие к бренду.\n\n",
+      "title": "Как бизнесу получать трафик из ИИ: ...",
+      "type": "web_search_result_location",
+      "url": "https://web-c.ru/blog/geo-prodvizhenie-dlya-biznesa/"
+     }
+    ],
+    "text": "Расхождения в названии компании, услугах или контактах на разных площадках снижают доверие к бренду",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — это особенно критично для локального бизнеса в США, где данные берутся из множества справочников (Google Business, Yelp, BBB и т.д.).\n\n### 9. Измеряйте результат\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Track your AI visibility (share of voice).** This is the GEO equivalent of rank tracking: how often, and how favorably, AI engines mention your brand ...",
+      "title": "Generative Engine Optimization (GEO): How It Works & How to Track ...",
+      "type": "web_search_result_location",
+      "url": "https://www.relato.com/blog/generative-engine-optimization/"
+     }
+    ],
+    "text": "Отслеживайте «долю голоса» (share of voice) — как часто и насколько благоприятно ИИ-движки упоминают ваш бренд по важным для вас промптам, прогоняя одинаковый набор вопросов через ChatGPT, Gemini, Perplexity и Google AI Overviews и фиксируя, появляетесь ли вы, на какой позиции и с каким тоном.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Для этого есть специализированные GEO-инструменты (Profound, Peec AI и др.), которые автоматизируют этот мониторинг.\n\n## Частые ошибки\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "** Выпишите запросы, по которым клиент мог бы спросить нейросеть в вашей нише: «посоветуй…», «что лучше…», «какой выбрать…»\n\n## Частые ошибки в GEO-пр...",
+      "title": "GEO-продвижение: что это простыми ...",
+      "type": "web_search_result_location",
+      "url": "https://vc.ru/seo/2922522-top-10-agentstv-po-prodvizheniyu-v-neyrosetyakh"
+     }
+    ],
+    "text": "Отчитываться позициями в поисковой выдаче — в GEO позиция вторична, важны упоминания и цитаты; игнорировать репутацию — негатив на картах и отзовиках рушит рекомендацию, каким бы хорошим ни был сайт.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**Короткий вывод:** чтобы нейросеть советовала вашу компанию клиентам в США — публикуйте фактурный, структурированный англоязычный контент на сайте, откройте доступ ИИ-краулерам, добавьте Schema-разметку и активно \"сейте\" упоминания бренда на Reddit, G2, Yelp, в отраслевых СМИ и \"best-of\" подборках — именно оттуда американские LLM чаще всего берут данные для рекомендаций.",
+    "type": "text"
+   }
+  ]
+ }
+}

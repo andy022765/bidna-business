@@ -1,0 +1,648 @@
+{
+ "vopros_id": "V2E",
+ "povtor": 5,
+ "vopros": "How do I get AI assistants to recommend my company to customers in the US?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:02:29-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.03139,
+   "ishod": "ok",
+   "sekund": 11.6,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:02:41 GMT",
+    "x-request-id": "req_bacb4231009349e6a756806cd4e8beb9",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "11367"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Yes. The emerging discipline is usually called GEO/AEO (\"generative engine optimization\" / \"answer engine optimization\"), but the goal shouldn't be to manipulate assistants into mentioning you. It's to make your company easy for ChatGPT, Gemini, Copilot, Perplexity, and similar systems to discover, understand, verify, and confidently match to a customer's request.\n\nFor US customers, I would focus on five things:\n\n- Make your company machine-readable. Have dedicated pages describing exactly what you sell, who it's for, US availability, pricing or price ranges where appropriate, locations/service areas, specifications, policies, and differentiators. Add appropriate Schema.org structured data such as Organization/LocalBusiness, Product, Offer, FAQ, Review, etc. Google explicitly uses product structured data and Merchant Center feeds to understand merchant offerings. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai))\n- Get into the underlying data ecosystems. For e-commerce, maintain Google Merchant Center and, importantly, consider OpenAI's merchant/product-feed integration. OpenAI now lets merchants provide structured product feeds specifically so ChatGPT can index products and use their attributes, prices, availability, and seller information in shopping experiences. ([developers.openai.com](https://developers.openai.com/commerce/guides/get-started?utm_source=openai)) For Bing's ecosystem, keep Bing indexing healthy and consider IndexNow for rapid updates. ([blogs.bing.com](https://blogs.bing.com/webmaster/2025/5/IndexNow-Enables-Faster-and-More-Reliable-Updates-for-Shopping-and-Ads/?utm_source=openai))\n- Build third-party evidence. AI assistants don't necessarily take everything on your website at face value. Work on legitimate reviews, reputable industry directories, editorial coverage, expert comparisons, customer case studies, partnerships, and mentions on authoritative sites. For products in particular, OpenAI's shopping research can incorporate information from product pages, merchant data and other web sources when making recommendations. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n- Create pages around actual buying decisions rather than generic SEO articles. If you sell payroll software, for example, pages answering \"payroll software for a 20-person California company,\" \"X vs Y,\" \"payroll software for restaurants,\" and \"pricing for companies with 10–50 employees\" give retrieval systems concrete evidence about situations in which you're relevant. Don't create hundreds of thin, AI-written pages; produce useful, verifiable information.\n- Measure AI visibility. Build 50–200 prompts representing questions your US prospects actually ask, such as \"What are the best X for Y?\", \"X alternatives under $500,\" and \"Which companies offer X in Los Angeles?\" Periodically test ChatGPT, Gemini, Perplexity, Copilot and Google AI surfaces. Track whether you're mentioned, which competitors appear, what sources are cited, and what factual claims the assistants make about you.\n\nFor an e-commerce company, I'd prioritize structured product feeds unusually highly right now. OpenAI currently has a merchant program specifically for making products available for ChatGPT product discovery. ([chatgpt.com](https://chatgpt.com/merchants/?openaicom-did=ed561b0b-219f-4fcc-ae63-9a1b03063454&openaicom_referred=true&utm_source=openai))\n\nFor a B2B/service company, the strategy is somewhat different. I'd prioritize becoming an identifiable entity with strong third-party corroboration. An assistant needs enough evidence to arrive at something like: \"For a US company that needs X, Acme is a reasonable option because it specializes in Y, serves these customers, has these capabilities, and independent sources substantiate that.\"\n\nOne important distinction: there isn't an SEO-style trick that guarantees an AI recommendation. The durable advantage comes from increasing three things simultaneously: discoverability, relevance to specific customer intents, and credible evidence.\n\nIf you give me your company URL and tell me whether you're B2B, B2C/e-commerce, local services, or something else, I can research your current US visibility in ChatGPT/AI search and give you a prioritized plan for getting recommended more often.",
+  "poiskovye_zaprosy": [
+   "OpenAI ChatGPT shopping product discovery merchants structured data recommendations",
+   "Google AI search structured data merchant listings product recommendations",
+   "Bing generative search structured data IndexNow recommendations businesses"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-shopping-r",
+    "domen": "help.openai.com",
+    "title": "Using shopping research in ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.openai.com/commerce/guides/get-started",
+    "domen": "developers.openai.com",
+    "title": "Get Started – Agentic Commerce | OpenAI Developers"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en",
+    "domen": "developers.google.com",
+    "title": "How To Add Merchant Listing Structured Data | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://chatgpt.com/merchants?openaicom-did=ed561b0b-219f-4fcc-ae63-9a1b03063454&openaicom_referred=true",
+    "domen": "chatgpt.com",
+    "title": "Power product discovery in ChatGPT"
+   },
+   {
+    "url": "https://support.google.com/webmasters/answer/12660034?hl=en",
+    "domen": "support.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/commerce/specs?trk=article-ssr-frontend-pulse_little-text-block",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/commerce/specs/file-upload/products",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://blogs.bing.com/webmaster/2025/5/IndexNow-Enables-Faster-and-More-Reliable-Updates-for-Shopping-and-Ads",
+    "domen": "blogs.bing.com",
+    "title": "IndexNow Enables Faster and More Reliable Updates for Shopping and Ads"
+   },
+   {
+    "url": "https://www.indexernow.com",
+    "domen": "indexernow.com",
+    "title": null
+   },
+   {
+    "url": "https://www2.bing.com/indexnow/getstarted",
+    "domen": "www2.bing.com",
+    "title": null
+   },
+   {
+    "url": "https://learn.chatgpt.com/commerce/specs/file-upload/products",
+    "domen": "learn.chatgpt.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.cn/search/docs/appearance/structured-data/product?hl=en",
+    "domen": "developers.google.cn",
+    "title": null
+   },
+   {
+    "url": "https://www.thinkwithgoogle.com/_qs/documents/11324/Home__Garden_Checklist.pdf",
+    "domen": "thinkwithgoogle.com",
+    "title": null
+   },
+   {
+    "url": "https://websem.io/wp-content/uploads/2025/10/How-to-get-your-E-commerce-brand-prepared-for-ChatGPT-1.pdf",
+    "domen": "websem.io",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AI_In_ECommerce/comments/1vqwjtv/free_tool_i_built_to_check_if_chatgpt_can",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/ThinkingDeeplyAI/comments/1ldbj06",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/Aishoppingvisibility/comments/1temkc9/tested_what_it_takes_for_a_shopify_product_to_get",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.schemaapp.com/wp-content/uploads/2025/08/Schema-Markup-and-AI-Search_-From-Entities-to-Results-Webinar-Slides.pdf",
+    "domen": "schemaapp.com",
+    "title": null
+   },
+   {
+    "url": "https://www.plytix.com/wp-content/uploads/2025/12/ChatGPT-Best-Practices.pdf",
+    "domen": "plytix.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/ShopifySEO/comments/1vieir5/free_tool_i_built_to_check_if_chatgpt_can",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://assets.ctfassets.net/wowgx05xsdrr/OWKlBtqwHKSq0YOM5pEup/726f81132fe7ba3636cda20caa7fd127/BigCommerce-en-AU-chatgpt-product-discovery.pdf",
+    "domen": "assets.ctfassets.net",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/LibautechShopifyApps/comments/1stbvti/chatgpt_is_now_recommending_products_i_checked_50",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://greenstick.io/wp-content/uploads/2026/04/Newsletter-For-GREENstick-April-2026.pdf",
+    "domen": "greenstick.io",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2306.14921",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/shopify/comments/1lefqjf/ai_search_is_getting_real_and_bringing_leads",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2405.01738",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/PPC/comments/1tuzrho/anyone_already_testing_merchant_center",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/IndexNow",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/dtc/comments/1ttzo07/chatgpt_and_gemini_are_showing_shoppable_product",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/BrandingPRMarketing/comments/1umogef/how_to_actually_optimize_an_ecommerce_brand_for",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/GEO_FAQ/comments/1uo7tpc/how_does_chatgpt_decide_what_brands_to_mention",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SEO/comments/1kslrua",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/adtech/comments/1tbvyol/openai_pilots_a_google_shoppingstyle_setup_where",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2312.03217",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2405.10547",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/ChatGPT",
+    "domen": "en.wikipedia.org",
+    "title": null
+   },
+   {
+    "url": "https://apnews.com/article/d769dec86344cb4977c98789e8ec492f",
+    "domen": "apnews.com",
+    "title": null
+   },
+   {
+    "url": "https://apnews.com/article/3434f1b86b90b59de0baa43a8f28f380",
+    "domen": "apnews.com",
+    "title": null
+   },
+   {
+    "url": "https://www.axios.com/2025/11/24/chatgpt-shopping-research-openai-black-friday",
+    "domen": "axios.com",
+    "title": null
+   },
+   {
+    "url": "https://www.tomsguide.com/ai/i-used-chatgpt-to-shop-online-heres-what-i-learned-the-hard-way-about-spotting-fake-stores",
+    "domen": "tomsguide.com",
+    "title": null
+   },
+   {
+    "url": "https://www.techradar.com/ai-platforms-assistants/chatgpt/chatgpt-just-made-its-shopping-tools-more-visual-here-are-5-prompts-you-can-try-right-now-for-better-results",
+    "domen": "techradar.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en",
+    "domen": "developers.google.com",
+    "title": "How To Add Merchant Listing Structured Data | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://developers.openai.com/commerce/guides/get-started",
+    "domen": "developers.openai.com",
+    "title": "Get Started – Agentic Commerce | OpenAI Developers"
+   },
+   {
+    "url": "https://blogs.bing.com/webmaster/2025/5/IndexNow-Enables-Faster-and-More-Reliable-Updates-for-Shopping-and-Ads",
+    "domen": "blogs.bing.com",
+    "title": "IndexNow Enables Faster and More Reliable Updates for Shopping and Ads"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-shopping-r",
+    "domen": "help.openai.com",
+    "title": "Using shopping research in ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://chatgpt.com/merchants?openaicom-did=ed561b0b-219f-4fcc-ae63-9a1b03063454&openaicom_referred=true",
+    "domen": "chatgpt.com",
+    "title": "Power product discovery in ChatGPT"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10771,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 793,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11564
+  },
+  "cena": 0.03139,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_06c89d222aa37557006abef495fb4887d0a59fb62ae7c77d6f",
+  "object": "response",
+  "created_at": 1790899350,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899359,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_06c89d222aa37557006abef496d71487d0bc29bfca12ce4172",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "OpenAI ChatGPT shopping product discovery merchants structured data recommendations",
+      "Google AI search structured data merchant listings product recommendations",
+      "Bing generative search structured data IndexNow recommendations businesses"
+     ],
+     "query": "OpenAI ChatGPT shopping product discovery merchants structured data recommendations",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-shopping-r"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce/guides/get-started"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://chatgpt.com/merchants/?openaicom-did=ed561b0b-219f-4fcc-ae63-9a1b03063454&openaicom_referred=true"
+      },
+      {
+       "type": "url",
+       "url": "https://support.google.com/webmasters/answer/12660034?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce/specs?trk=article-ssr-frontend-pulse_little-text-block"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce/specs/file-upload/products"
+      },
+      {
+       "type": "url",
+       "url": "https://blogs.bing.com/webmaster/2025/5/IndexNow-Enables-Faster-and-More-Reliable-Updates-for-Shopping-and-Ads/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.indexernow.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://www2.bing.com/indexnow/getstarted"
+      },
+      {
+       "type": "url",
+       "url": "https://learn.chatgpt.com/commerce/specs/file-upload/products"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.cn/search/docs/appearance/structured-data/product?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://www.thinkwithgoogle.com/_qs/documents/11324/Home__Garden_Checklist.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://websem.io/wp-content/uploads/2025/10/How-to-get-your-E-commerce-brand-prepared-for-ChatGPT-1.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AI_In_ECommerce/comments/1vqwjtv/free_tool_i_built_to_check_if_chatgpt_can/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/ThinkingDeeplyAI/comments/1ldbj06"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/Aishoppingvisibility/comments/1temkc9/tested_what_it_takes_for_a_shopify_product_to_get/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.schemaapp.com/wp-content/uploads/2025/08/Schema-Markup-and-AI-Search_-From-Entities-to-Results-Webinar-Slides.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.plytix.com/wp-content/uploads/2025/12/ChatGPT-Best-Practices.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/ShopifySEO/comments/1vieir5/free_tool_i_built_to_check_if_chatgpt_can/"
+      },
+      {
+       "type": "url",
+       "url": "https://assets.ctfassets.net/wowgx05xsdrr/OWKlBtqwHKSq0YOM5pEup/726f81132fe7ba3636cda20caa7fd127/BigCommerce-en-AU-chatgpt-product-discovery.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/LibautechShopifyApps/comments/1stbvti/chatgpt_is_now_recommending_products_i_checked_50/"
+      },
+      {
+       "type": "url",
+       "url": "https://greenstick.io/wp-content/uploads/2026/04/Newsletter-For-GREENstick-April-2026.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2306.14921"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/shopify/comments/1lefqjf/ai_search_is_getting_real_and_bringing_leads/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2405.01738"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/PPC/comments/1tuzrho/anyone_already_testing_merchant_center/"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/IndexNow"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/dtc/comments/1ttzo07/chatgpt_and_gemini_are_showing_shoppable_product/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/BrandingPRMarketing/comments/1umogef/how_to_actually_optimize_an_ecommerce_brand_for/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/GEO_FAQ/comments/1uo7tpc/how_does_chatgpt_decide_what_brands_to_mention/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SEO/comments/1kslrua"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/adtech/comments/1tbvyol/openai_pilots_a_google_shoppingstyle_setup_where/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2312.03217"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2405.10547"
+      },
+      {
+       "type": "url",
+       "url": "https://en.wikipedia.org/wiki/ChatGPT"
+      },
+      {
+       "type": "url",
+       "url": "https://apnews.com/article/d769dec86344cb4977c98789e8ec492f"
+      },
+      {
+       "type": "url",
+       "url": "https://apnews.com/article/3434f1b86b90b59de0baa43a8f28f380"
+      },
+      {
+       "type": "url",
+       "url": "https://www.axios.com/2025/11/24/chatgpt-shopping-research-openai-black-friday"
+      },
+      {
+       "type": "url",
+       "url": "https://www.tomsguide.com/ai/i-used-chatgpt-to-shop-online-heres-what-i-learned-the-hard-way-about-spotting-fake-stores"
+      },
+      {
+       "type": "url",
+       "url": "https://www.techradar.com/ai-platforms-assistants/chatgpt/chatgpt-just-made-its-shopping-tools-more-visual-here-are-5-prompts-you-can-try-right-now-for-better-results"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce/guides/get-started?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://blogs.bing.com/webmaster/2025/5/IndexNow-Enables-Faster-and-More-Reliable-Updates-for-Shopping-and-Ads/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://chatgpt.com/merchants/?openaicom-did=ed561b0b-219f-4fcc-ae63-9a1b03063454&openaicom_referred=true&utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_06c89d222aa37557006abef49abe2487d0a80d804a093cd19c",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 1012,
+        "start_index": 876,
+        "title": "How To Add Merchant Listing Structured Data | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1475,
+        "start_index": 1373,
+        "title": "Get Started – Agentic Commerce | OpenAI Developers",
+        "url": "https://developers.openai.com/commerce/guides/get-started?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1715,
+        "start_index": 1566,
+        "title": "IndexNow Enables Faster and More Reliable Updates for Shopping and Ads",
+        "url": "https://blogs.bing.com/webmaster/2025/5/IndexNow-Enables-Faster-and-More-Reliable-Updates-for-Shopping-and-Ads/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2267,
+        "start_index": 2167,
+        "title": "Using shopping research in ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 3510,
+        "start_index": 3370,
+        "title": "Power product discovery in ChatGPT",
+        "url": "https://chatgpt.com/merchants/?openaicom-did=ed561b0b-219f-4fcc-ae63-9a1b03063454&openaicom_referred=true&utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Yes. The emerging discipline is usually called GEO/AEO (\"generative engine optimization\" / \"answer engine optimization\"), but the goal shouldn't be to manipulate assistants into mentioning you. It's to make your company easy for ChatGPT, Gemini, Copilot, Perplexity, and similar systems to discover, understand, verify, and confidently match to a customer's request.\n\nFor US customers, I would focus on five things:\n\n- Make your company machine-readable. Have dedicated pages describing exactly what you sell, who it's for, US availability, pricing or price ranges where appropriate, locations/service areas, specifications, policies, and differentiators. Add appropriate Schema.org structured data such as Organization/LocalBusiness, Product, Offer, FAQ, Review, etc. Google explicitly uses product structured data and Merchant Center feeds to understand merchant offerings. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai))\n- Get into the underlying data ecosystems. For e-commerce, maintain Google Merchant Center and, importantly, consider OpenAI's merchant/product-feed integration. OpenAI now lets merchants provide structured product feeds specifically so ChatGPT can index products and use their attributes, prices, availability, and seller information in shopping experiences. ([developers.openai.com](https://developers.openai.com/commerce/guides/get-started?utm_source=openai)) For Bing's ecosystem, keep Bing indexing healthy and consider IndexNow for rapid updates. ([blogs.bing.com](https://blogs.bing.com/webmaster/2025/5/IndexNow-Enables-Faster-and-More-Reliable-Updates-for-Shopping-and-Ads/?utm_source=openai))\n- Build third-party evidence. AI assistants don't necessarily take everything on your website at face value. Work on legitimate reviews, reputable industry directories, editorial coverage, expert comparisons, customer case studies, partnerships, and mentions on authoritative sites. For products in particular, OpenAI's shopping research can incorporate information from product pages, merchant data and other web sources when making recommendations. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n- Create pages around actual buying decisions rather than generic SEO articles. If you sell payroll software, for example, pages answering \"payroll software for a 20-person California company,\" \"X vs Y,\" \"payroll software for restaurants,\" and \"pricing for companies with 10–50 employees\" give retrieval systems concrete evidence about situations in which you're relevant. Don't create hundreds of thin, AI-written pages; produce useful, verifiable information.\n- Measure AI visibility. Build 50–200 prompts representing questions your US prospects actually ask, such as \"What are the best X for Y?\", \"X alternatives under $500,\" and \"Which companies offer X in Los Angeles?\" Periodically test ChatGPT, Gemini, Perplexity, Copilot and Google AI surfaces. Track whether you're mentioned, which competitors appear, what sources are cited, and what factual claims the assistants make about you.\n\nFor an e-commerce company, I'd prioritize structured product feeds unusually highly right now. OpenAI currently has a merchant program specifically for making products available for ChatGPT product discovery. ([chatgpt.com](https://chatgpt.com/merchants/?openaicom-did=ed561b0b-219f-4fcc-ae63-9a1b03063454&openaicom_referred=true&utm_source=openai))\n\nFor a B2B/service company, the strategy is somewhat different. I'd prioritize becoming an identifiable entity with strong third-party corroboration. An assistant needs enough evidence to arrive at something like: \"For a US company that needs X, Acme is a reasonable option because it specializes in Y, serves these customers, has these capabilities, and independent sources substantiate that.\"\n\nOne important distinction: there isn't an SEO-style trick that guarantees an AI recommendation. The durable advantage comes from increasing three things simultaneously: discoverability, relevance to specific customer intents, and credible evidence.\n\nIf you give me your company URL and tell me whether you're B2B, B2C/e-commerce, local services, or something else, I can research your current US visibility in ChatGPT/AI search and give you a prioritized plan for getting recommended more often."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10771,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 793,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11564
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

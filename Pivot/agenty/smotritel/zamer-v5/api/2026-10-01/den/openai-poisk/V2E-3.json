@@ -1,0 +1,448 @@
+{
+ "vopros_id": "V2E",
+ "povtor": 3,
+ "vopros": "How do I get AI assistants to recommend my company to customers in the US?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:02:08-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.03126,
+   "ishod": "ok",
+   "sekund": 9.6,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:02:17 GMT",
+    "x-request-id": "req_a5af7f0c668b46f486d11bb150dae319",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "9173"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "If by “recommend” you mean getting ChatGPT, Google’s AI experiences, Copilot/Bing, and similar assistants to mention your company when someone asks “What’s the best X in the US?”, treat this as a combination of SEO, entity reputation, and third-party validation—not as a trick for influencing the model.\n\nThe highest-impact work is:\n\n- Make your company easy to understand. Your site should state clearly what you sell, who it is for, where you operate, pricing or price ranges where appropriate, key differentiators, and evidence supporting your claims. Create strong pages around the actual questions customers ask: “best X for Y,” “X alternatives,” “X vs Y,” “X for small businesses,” etc. Google explicitly says useful, unique content and conventional SEO remain foundational for its generative-AI results. ([developers.google.com](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai))\n- Make your facts machine-readable. Use appropriate Schema.org structured data—Organization/LocalBusiness, Product, Offer, reviews where eligible, etc.—and make sure it agrees with what visitors see. For ecommerce, accurate prices, availability, shipping/returns, and Google Merchant Center data are especially useful. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai))\n- Make sure AI/search crawlers can actually access you. In particular, don't accidentally block OpenAI's OAI-SearchBot if you want pages surfaced in ChatGPT Search. OpenAI specifically recommends allowing it; this is separate from whether you permit GPTBot for model training. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Build independent evidence that you're worth recommending. Get genuine coverage/reviews/listings on the authoritative sites customers in your industry use: professional associations, reputable review platforms, industry publications, marketplaces, directories, analysts, local media, Reddit/community discussions where organic, etc. An assistant is much more likely to have confidence in “Company A is good for X” when that proposition is corroborated outside Company A's own website.\n- Keep information consistent across the web. Company name, category, locations, products, pricing, and other basic facts shouldn't conflict between your website, Google Business Profile, marketplaces, directories, and review sites. Google specifically recommends keeping Business Profile and Merchant Center information current. ([developers.google.com](https://developers.google.com/search/docs/appearance/ai-features?content_language=English&utm_source=openai))\n- Work on Bing as well as Google. Maintain Bing Webmaster Tools and consider IndexNow so additions and changes can be discovered quickly. Bing says IndexNow helps keep information fresh across search and AI experiences. ([bing.com](https://www.bing.com/indexnow/getstarted?utm_source=openai))\n- Measure AI visibility separately. Build 50–200 representative prompts your US customers might ask (“best payroll software for a 30-person California company,” for example), periodically test which brands appear and which sources are cited, and track ChatGPT/AI/search referral traffic and conversions. OpenAI says ChatGPT referrals can be measured in analytics platforms. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nOne important distinction: you generally cannot submit a message saying “recommend my company” and expect organic assistants to comply. Your objective is to make your company a well-documented, credible answer to a particular customer question.\n\nIf you give me your company name/website and tell me what you sell, I can research its current US “AI visibility” and identify the specific pages, third-party mentions, competitors, and technical changes most likely to increase recommendations.",
+  "poiskovye_zaprosy": [
+   "Google Search Central AI features website SEO guidance structured data merchant listings 2026",
+   "Bing Webmaster Guidelines AI search IndexNow structured data 2026",
+   "OpenAI OAI-SearchBot ChatGPT search publishers robots.txt"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing",
+    "domen": "developers.google.com",
+    "title": "A new resource for optimizing for generative AI in Google Search  |  Google Search Central Blog  |  Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features?content_language=English",
+    "domen": "developers.google.com",
+    "title": "AI Features and Your Website | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots?community_post=true",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en",
+    "domen": "developers.google.com",
+    "title": "How To Add Merchant Listing Structured Data | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://www.bing.com/webmasters/help/URL-Submission-62f2860b",
+    "domen": "bing.com",
+    "title": null
+   },
+   {
+    "url": "https://www.bing.com/indexnow/getstarted",
+    "domen": "bing.com",
+    "title": "How to add IndexNow to your website | Bing Webmaster Tools"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2025/05/succeeding-in-ai-search",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview?trk=article-ssr-frontend-pulse_little-text-block",
+    "domen": "blogs.bing.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/specialty/ecommerce/share-your-product-data-with-google",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/global-affairs/b89a7434-7cb9-47a7-b4a7-b50b1a1a0afc/openai-uk-ai-and-copyright-consultation.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/policy-submissions/OpenAI%20Comments%20on%20Intellectual%20Property%20Protection%20for%20Artificial%20Intelligence%20Innovation.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/trust-and-transparency/dsa-2024-qualitative.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/static/business-communications/business-messages/files/federal-bank-case-study.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/business-communications/business-messages/files/business-messages-two-pager.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/static/business-communications/business-messages/files/content-marketing-guide.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing",
+    "domen": "developers.google.com",
+    "title": "A new resource for optimizing for generative AI in Google Search  |  Google Search Central Blog  |  Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en",
+    "domen": "developers.google.com",
+    "title": "How To Add Merchant Listing Structured Data | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features?content_language=English",
+    "domen": "developers.google.com",
+    "title": "AI Features and Your Website | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://www.bing.com/indexnow/getstarted",
+    "domen": "bing.com",
+    "title": "How to add IndexNow to your website | Bing Webmaster Tools"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10570,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 805,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11375
+  },
+  "cena": 0.03126,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_0e21dd53d3ef44ec006abef480b80887d0a364041190f9314d",
+  "object": "response",
+  "created_at": 1790899328,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899337,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_0e21dd53d3ef44ec006abef4819d5887d0abda40d0c95ad90b",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "Google Search Central AI features website SEO guidance structured data merchant listings 2026",
+      "Bing Webmaster Guidelines AI search IndexNow structured data 2026",
+      "OpenAI OAI-SearchBot ChatGPT search publishers robots.txt"
+     ],
+     "query": "Google Search Central AI features website SEO guidance structured data merchant listings 2026",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/ai-features?content_language=English"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?community_post=true"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://www.bing.com/webmasters/help/URL-Submission-62f2860b"
+      },
+      {
+       "type": "url",
+       "url": "https://www.bing.com/indexnow/getstarted"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2025/05/succeeding-in-ai-search"
+      },
+      {
+       "type": "url",
+       "url": "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/?trk=article-ssr-frontend-pulse_little-text-block"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/specialty/ecommerce/share-your-product-data-with-google"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/global-affairs/b89a7434-7cb9-47a7-b4a7-b50b1a1a0afc/openai-uk-ai-and-copyright-consultation.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/policy-submissions/OpenAI%20Comments%20on%20Intellectual%20Property%20Protection%20for%20Artificial%20Intelligence%20Innovation.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/trust-and-transparency/dsa-2024-qualitative.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/static/business-communications/business-messages/files/federal-bank-case-study.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/business-communications/business-messages/files/business-messages-two-pager.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/static/business-communications/business-messages/files/content-marketing-guide.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/ai-features?content_language=English&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://www.bing.com/indexnow/getstarted?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_0e21dd53d3ef44ec006abef483be2887d0af3f6731c8a7a7c7",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 935,
+        "start_index": 811,
+        "title": "A new resource for optimizing for generative AI in Google Search  |  Google Search Central Blog  |  Google for Developers",
+        "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1391,
+        "start_index": 1255,
+        "title": "How To Add Merchant Listing Structured Data | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1752,
+        "start_index": 1669,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2704,
+        "start_index": 2570,
+        "title": "AI Features and Your Website | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/appearance/ai-features?content_language=English&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2997,
+        "start_index": 2925,
+        "title": "How to add IndexNow to your website | Bing Webmaster Tools",
+        "url": "https://www.bing.com/indexnow/getstarted?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 3455,
+        "start_index": 3372,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "If by “recommend” you mean getting ChatGPT, Google’s AI experiences, Copilot/Bing, and similar assistants to mention your company when someone asks “What’s the best X in the US?”, treat this as a combination of SEO, entity reputation, and third-party validation—not as a trick for influencing the model.\n\nThe highest-impact work is:\n\n- Make your company easy to understand. Your site should state clearly what you sell, who it is for, where you operate, pricing or price ranges where appropriate, key differentiators, and evidence supporting your claims. Create strong pages around the actual questions customers ask: “best X for Y,” “X alternatives,” “X vs Y,” “X for small businesses,” etc. Google explicitly says useful, unique content and conventional SEO remain foundational for its generative-AI results. ([developers.google.com](https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing?utm_source=openai))\n- Make your facts machine-readable. Use appropriate Schema.org structured data—Organization/LocalBusiness, Product, Offer, reviews where eligible, etc.—and make sure it agrees with what visitors see. For ecommerce, accurate prices, availability, shipping/returns, and Google Merchant Center data are especially useful. ([developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing?hl=en&utm_source=openai))\n- Make sure AI/search crawlers can actually access you. In particular, don't accidentally block OpenAI's OAI-SearchBot if you want pages surfaced in ChatGPT Search. OpenAI specifically recommends allowing it; this is separate from whether you permit GPTBot for model training. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Build independent evidence that you're worth recommending. Get genuine coverage/reviews/listings on the authoritative sites customers in your industry use: professional associations, reputable review platforms, industry publications, marketplaces, directories, analysts, local media, Reddit/community discussions where organic, etc. An assistant is much more likely to have confidence in “Company A is good for X” when that proposition is corroborated outside Company A's own website.\n- Keep information consistent across the web. Company name, category, locations, products, pricing, and other basic facts shouldn't conflict between your website, Google Business Profile, marketplaces, directories, and review sites. Google specifically recommends keeping Business Profile and Merchant Center information current. ([developers.google.com](https://developers.google.com/search/docs/appearance/ai-features?content_language=English&utm_source=openai))\n- Work on Bing as well as Google. Maintain Bing Webmaster Tools and consider IndexNow so additions and changes can be discovered quickly. Bing says IndexNow helps keep information fresh across search and AI experiences. ([bing.com](https://www.bing.com/indexnow/getstarted?utm_source=openai))\n- Measure AI visibility separately. Build 50–200 representative prompts your US customers might ask (“best payroll software for a 30-person California company,” for example), periodically test which brands appear and which sources are cited, and track ChatGPT/AI/search referral traffic and conversions. OpenAI says ChatGPT referrals can be measured in analytics platforms. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nOne important distinction: you generally cannot submit a message saying “recommend my company” and expect organic assistants to comply. Your objective is to make your company a well-documented, credible answer to a particular customer question.\n\nIf you give me your company name/website and tell me what you sell, I can research its current US “AI visibility” and identify the specific pages, third-party mentions, competitors, and technical changes most likely to increase recommendations."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10570,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 805,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11375
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

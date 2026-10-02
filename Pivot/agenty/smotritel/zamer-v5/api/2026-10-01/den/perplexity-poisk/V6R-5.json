@@ -1,0 +1,390 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 5,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:34-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.00493,
+   "ishod": "ok",
+   "sekund": 7.0,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:11:41 GMT",
+    "x-request-id": "8adc8471-e6c2-4104-89a5-f7afda51314f"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Проверить и открыть сайт может **веб-разработчик или SEO/технический специалист** с доступом к сайту, хостингу и, если используется, Cloudflare. Попросите его провести аудит не только `robots.txt`, но и настроек CDN/WAF, которые тоже могут блокировать автоматические запросы.\n\nЧто проверить:\n\n1. Открывается ли `https://вашдомен.com/robots.txt` и нет ли там запрета `Disallow: /` для нужных роботов.\n2. Не блокируют ли их правила Cloudflare, хостинга, файрвола или защиты от ботов.\n3. Разрешены ли нужные страницы и файлы сайта — обычно как минимум главная, страницы услуг и контакты.\n4. После изменений — доступны ли страницы без входа в аккаунт и не возвращают ли ошибку или CAPTCHA.\n\nВажно: «разрешить ИИ» — не одна общая настройка. Например, OpenAI использует `OAI-SearchBot` для поиска в ChatGPT и `GPTBot` для возможного сбора материалов для обучения; это разные цели и ими можно управлять отдельно. У Google токен `Google-Extended` относится к использованию контента в некоторых продуктах Gemini и не влияет на включение сайта в обычный Google Search. Разрешение в `robots.txt` — это просьба роботам, а не техническая гарантия доступа.\n\nМожно отправить специалисту такой запрос:\n\n> «Проверьте, почему сайт недоступен для AI-краулеров: robots.txt, Cloudflare/CDN, WAF, хостинг и ответы сервера. Настройте доступ к публичным страницам для нужных роботов отдельно для поиска и обучения, не открывая закрытые разделы. После изменений подтвердите проверку».\n\nЕсли пришлёте адрес сайта, я подскажу, что именно попросить проверить.",
+  "poiskovye_zaprosy": [
+   "OpenAI GPTBot robots.txt official crawler documentation",
+   "Google-Extended crawler robots.txt official documentation",
+   "Cloudflare AI bot management robots.txt AI crawlers"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt",
+    "domen": "developers.cloudflare.com",
+    "title": "robots.txt setting · Cloudflare bot solutions docs"
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+    "domen": "developers.google.com",
+    "title": "Google's common crawlers | Google Crawling Infrastructure"
+   },
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers",
+    "domen": "developers.cloudflare.com",
+    "title": "Manage AI crawlers · Cloudflare AI Crawl Control docs"
+   },
+   {
+    "url": "https://www.cloudflare.com/en-ca/application-services/products/bot-management",
+    "domen": "cloudflare.com",
+    "title": "Cloudflare Bot Management Solution"
+   },
+   {
+    "url": "https://developers.cloudflare.com/api/resources/bot_management",
+    "domen": "developers.cloudflare.com",
+    "title": "Bot Management | Cloudflare API"
+   },
+   {
+    "url": "https://blog.cloudflare.com/declaring-your-aindependence-block-ai-bots-scrapers-and-crawlers-with-a-single-click",
+    "domen": "blog.cloudflare.com",
+    "title": "Declare your AIndependence: block AI bots, scrapers and ..."
+   },
+   {
+    "url": "https://developers.cloudflare.com/api/terraform/resources/bot_management",
+    "domen": "developers.cloudflare.com",
+    "title": "Bot Management | Cloudflare API"
+   },
+   {
+    "url": "https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/control-ai-crawls",
+    "domen": "developers.cloudflare.com",
+    "title": "Control how AI crawls your docs · Cloudflare Style Guide"
+   },
+   {
+    "url": "https://developers.cloudflare.com/changelog/product/ai-crawl-control",
+    "domen": "developers.cloudflare.com",
+    "title": "AI Crawl Control Changelog"
+   },
+   {
+    "url": "https://developers.google.cn/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=zh-cn",
+    "domen": "developers.google.cn",
+    "title": "Google 的常用抓取工具 | Google 抓取基础设施 | Crawling infrastructure | Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/robots-txt/create-robots-txt",
+    "domen": "developers.google.com",
+    "title": "Create and Submit a robots.txt File"
+   },
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control/llms-full.txt",
+    "domen": "developers.cloudflare.com",
+    "title": "AI Crawl Control llms-full.txt"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+    "domen": "developers.google.com",
+    "title": "Robots.txt Introduction and Guide | Google Search Central"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.00107,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00122,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00493
+   },
+   "input_tokens": 4836,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4262,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 488,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5324
+  },
+  "cena": 0.00493,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790899894,
+  "created_at": 1790899894,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_8adc8471-e6c2-4104-89a5-f7afda51314f",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "OpenAI GPTBot robots.txt official crawler documentation",
+     "Google-Extended crawler robots.txt official documentation",
+     "Cloudflare AI bot management robots.txt AI crawlers"
+    ],
+    "results": [
+     {
+      "date": "2026-08-03",
+      "id": 1,
+      "last_updated": "2026-09-26",
+      "snippet": "AI companies use crawlers to collect website content for training language models, generating search answers, and other purposes.\nA `robots.txt` file at the root of your domain tells these crawlers which content they should or should not access.\nWhen you turn on the managed `robots.txt` setting, Cloudflare generates and maintains a `robots.txt` file that instructs known AI crawlers to stay away from your content.\n`robots.txt` compliance is voluntary.\nThe file expresses your preferences, but it does not prevent crawlers from accessing your content at a technical level.\nSome crawler operators may disregard your `robots.txt` directives (instructions like `Disallow: /`) and crawl your content regardless.\n...\nIf you want to enforce crawl blocking rather than request it, use AI Crawl Control.\nYou can also use both features together — `robots.txt` to express your preferences and AI Crawl Control to enforce them.\n...\nCloudflare detects whether your origin server already has a `robots.txt` file and adjusts accordingly — either merging with your existing file or creating one from scratch.\n...\nIf your website already has a `robots.txt` file — verified by an HTTP `200` response — Cloudflare will prepend our managed `robots.txt` before your existing `robots.txt`, combining both into a single response.\n...\nDisallow: /\n...\nDisallow: /\nUser-agent: Google-Extended\nDisallow: /\nUser-agent: GPTBot\nDisallow: /\n...\nIf your website does not have a `robots.txt` file, Cloudflare creates a new file with managed `Disallow` rules for known AI crawlers and serves it for you.\n...\nTo implement a `robots.txt` file on your domain:\n1. In the Cloudflare dashboard, go to the **Security Settings** page.\nGo to **Settings** ↗\n2. Filter by **Bot traffic**.\n3. Go to **Set your preference to block training in robots.txt**.\n4. Turn on **Set your preference to block training in robots.txt**.\n...\nContent Signals are a set of machine-readable directives in a `robots.txt` file that categorize how crawlers may use your content.\nThe three categories are `search` (building a search index), `ai-input` (feeding content into AI models for real-time answers), and `ai-train` (training or fine-tuning AI models).\n...\nManaged `robots.txt` for AI crawlers is available on all plans.",
+      "source": "web",
+      "title": "robots.txt setting · Cloudflare bot solutions docs",
+      "url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/"
+     },
+     {
+      "id": 2,
+      "last_updated": "2026-09-29",
+      "snippet": "OpenAI uses web crawlers (“robots”) and user agents to perform actions for its products, either automatically or triggered by user request.\nOpenAI uses OAI-SearchBot and GPTBot robots.txt tags to enable webmasters to manage how their sites and content work with AI.\nEach setting is independent of the others – for example, a webmaster can allow OAI-SearchBot in order to appear in search results while disallowing GPTBot to indicate that crawled content should not be used for training OpenAI’s generative AI foundation models.\nIf your site has allowed both bots, we may use the results from just one crawl for both use cases to avoid duplicative crawling.\n...\n|GPTBot|GPTBot is used to make our generative AI foundation models more useful and safe.\nIt is used to crawl content that may be used in training our generative AI foundation models.\nDisallowing GPTBot indicates a site’s content should not be used in training generative AI foundation models.\nExample user-agent string (the version number may change): `Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.4; +https://openai.com/gptbot` When fetching robots.txt files, we may add a `robots.txt` marker to the user-agent string to help site owners distinguish those requests from requests for other resources, especially when logs do not include paths.",
+      "source": "web",
+      "title": "Overview of OpenAI Crawlers",
+      "url": "https://developers.openai.com/api/docs/bots"
+     },
+     {
+      "id": 3,
+      "last_updated": "2026-09-22",
+      "snippet": "**## Google-Extended**\n|**User-Agent in HTTP requests**|Google-Extended doesn't have a separate HTTP request user agent string.\nCrawling is done with existing Google user agent strings;\nthe robots.txt user-agent token is used in a control capacity.| |--|--| |**robots.txt**|<table><tr><td>User-agent token in robots.txt</td><td> `Google-Extended`</td></tr><tr><td>Example robots.txt group</td><td>\n``` user-agent: **Google-Extended** allow: /archive/1Q84 disallow: /archive/ ``` </td></tr></table>| |**Affected products**|`Google-Extended` is a standalone product token that web publishers can use to manage whether content Google crawls from their sites may be used for training future generations of Gemini models that power Gemini Apps and Vertex AI API for Gemini and for grounding (providing content from the Google Search index to the model at prompt time to improve factuality and relevancy) in Gemini Apps and Grounding with Google Search on Vertex AI.\nGoogle-Extended does not impact a site's inclusion in Google Search nor is it used as a ranking signal in Google Search.|",
+      "source": "web",
+      "title": "Google's common crawlers | Google Crawling Infrastructure",
+      "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers"
+     },
+     {
+      "date": "2026-07-28",
+      "id": 4,
+      "last_updated": "2026-09-25",
+      "snippet": "AI Crawl Control enables you to take specific action for each AI crawler.\nTo manage AI crawlers:\n1. Log in to the Cloudflare dashboard ↗︎, and select your account and domain.\n2. Go to **AI Crawl Control**.\nGo to **AI Crawl Control** ↗\n3. Go to the **Security** tab.\n...\nThe **Crawlers** tab displays a table of AI crawlers that are requesting access to your content, and how they interact with your pages.\n...\n|Robots.txt violations|The number of times the AI crawler has violated your `robots.txt` file.|\n...\nFor each AI crawler, you can choose to allow or block access.\n...\nNote that you can still choose to Enforce `robots.txt`.\n...\nFor each AI crawler, you can take one of three actions: allow, charge, or block.",
+      "source": "web",
+      "title": "Manage AI crawlers · Cloudflare AI Crawl Control docs",
+      "url": "https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/"
+     },
+     {
+      "id": 5,
+      "last_updated": "2026-07-07",
+      "snippet": "Gain visibility into agentic traffic behavior, block unwanted AI crawlers, serve content to trusted users and agents.\n...\nThe multi-layered detection produces a Bot Score, enabling automated enforcement through standard actions—Allow, Block, Challenge with noCAPTCHA Turnstile, or Rate Limit—or custom responses such as AI Labyrinth and redirection logic using Cloudflare Workers\n...\nTrack and control how AI crawlers interact with your content (including robots.txt compliance) to ensure fair value exchange.",
+      "source": "web",
+      "title": "Cloudflare Bot Management Solution",
+      "url": "https://www.cloudflare.com/en-ca/application-services/products/bot-management/"
+     },
+     {
+      "id": 6,
+      "last_updated": "2026-10-01",
+      "snippet": "If an existing robots.txt is detected, then managed robots.txt will be prepended to the existing robots.txt.",
+      "source": "web",
+      "title": "Bot Management | Cloudflare API",
+      "url": "https://developers.cloudflare.com/api/resources/bot_management/"
+     },
+     {
+      "date": "2024-07-03",
+      "id": 7,
+      "last_updated": "2026-09-28",
+      "snippet": "Last year, Cloudflare announced the ability for customers to easily block AI bots that behave well.\nThese bots follow robots.txt, and don’t use unlicensed content to train their models or run inference for RAG applications using website data.\n...\nTo enable it, simply navigate to the Security > Bots section of the Cloudflare dashboard, and click the toggle labeled AI Scrapers and Crawlers.\n...\nWhen looking at the number of requests made to Cloudflare sites, we see that *Bytespider*, *Amazonbot*, *ClaudeBot*, and *GPTBot* are the top four AI crawlers.\n...\n*GPTBot*, managed by OpenAI, collects training data for its LLMs, which underpin AI-driven products such as ChatGPT.\n...\nIn the graph below, which looks at disallowed crawlers for these sites, we see that customers most often reference *GPTBot, CCBot*, and *Google* in robots.txt, but do not specifically disallow popular AI crawlers like *Bytespider* and *ClaudeBot*.\n...\nWe see website operators completely block access to these AI crawlers using robots.txt.\nHowever, these blocks are reliant on the bot operator respecting robots.txt and adhering to RFC9309 (ensuring variations on user against all match the product token) to honestly identify who they are when they visit an Internet property, but user agents are trivial for bot operators to change.",
+      "source": "web",
+      "title": "Declare your AIndependence: block AI bots, scrapers and ...",
+      "url": "https://blog.cloudflare.com/declaring-your-aindependence-block-ai-bots-scrapers-and-crawlers-with-a-single-click/"
+     },
+     {
+      "id": 8,
+      "last_updated": "2026-09-23",
+      "snippet": "Enable rule to block AI Scrapers and Crawlers.\n...\nConfigure robots.txt policy for AI model training bots.\n...\nConfigure robots.txt policy for AI assistant and agent bots.\n...\nConfigure robots.txt policy for AI search bots.\n...\nEnable rule to punish AI Scrapers and Crawlers via a link maze.\n...\nEnable cloudflare managed robots.txt.\nIf an existing robots.txt is detected, then managed robots.txt will be prepended to the existing robots.txt.",
+      "source": "web",
+      "title": "Bot Management | Cloudflare API",
+      "url": "https://developers.cloudflare.com/api/terraform/resources/bot_management/"
+     },
+     {
+      "date": "2026-04-24",
+      "id": 9,
+      "last_updated": "2026-09-26",
+      "snippet": "You can use the `robots.txt` file to control which pages AI crawlers can access.\nThis is a simple text file which instructs crawlers to follow certain rules.\nThe crawler is not forced to follow them, but many crawlers operated by major companies such as Google and OpenAI respect `robots.txt` files.\n...\nFor example, you can add the following to your `robots.txt` file to prevent AI crawlers from accessing a beta product called \"Product A\", located in `/docs-site/product-a/`:\n/docs-site/robots.txt/txt\n```\nUser-agent: *\nDisallow: `/product-a/`\n...\nBy specifying explicit disallow conditions in your `robots.txt` file, you allow access to most of your pages, with only a small number of exceptions.\n...\nYou cannot solely rely on `robots.txt` to block access, as crawlers are not forced to follow `robots.txt` files.\nTo ensure complete blocking, you can use security controls, such as Cloudflare's AI Crawl Control, bot solutions, or some other security tool.\n...\n- Identify pages you want AI crawlers to access.\n- If you wish to guide AI crawlers, use `robots.txt` to instruct AI crawlers.\n- If you wish to completely block access to certain pages from AI crawlers, use security controls such as Cloudflare's AI Crawl Control, bot solutions, or some other security tool to completely block access to certain pages.",
+      "source": "web",
+      "title": "Control how AI crawls your docs · Cloudflare Style Guide",
+      "url": "https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/control-ai-crawls/"
+     },
+     {
+      "date": "2026-06-16",
+      "id": 10,
+      "last_updated": "2026-10-01",
+      "snippet": "The **Robots.txt** tab has been renamed to **Directives** and now includes a link to check your site's Agent Readiness ↗︎ score.\n...\n- **Bot reference** — Detection IDs and user agents for major AI crawlers from OpenAI, Anthropic, Google, Meta, and others.\n...\nSome paths are always free to crawl.\n...\nAI Crawl Control now includes a **Robots.txt** tab that provides insights into how AI crawlers interact with your `robots.txt` files.\n...\nThe Robots.txt tab allows you to:\n- Monitor the health status of `robots.txt` files across all your hostnames, including HTTP status codes, and identify hostnames that need a `robots.txt` file.\n- Track the total number of requests to each `robots.txt` file, with breakdowns of successful versus unsuccessful requests.\n- Check whether your `robots.txt` files contain Content Signals ↗︎ directives for AI training, search, and AI input.\n- Identify crawlers that request paths explicitly disallowed by your `robots.txt` directives, including the crawler name, operator, violated path, specific directive, and violation count.\n- Filter `robots.txt` request data by crawler, operator, category, and custom time ranges.\n...\nWhen you identify non-compliant crawlers, you can:\n- Block the crawler in the Crawlers tab\n- Create custom WAF rules for path-specific security\n- Use Redirect Rules to guide crawlers to appropriate areas of your site\nTo get started, go to **AI Crawl Control** > **Robots.txt** in the Cloudflare dashboard.\n...\n- **By Crawler** — Track activity from individual AI crawlers (GPTBot, ClaudeBot, Bytespider)",
+      "source": "web",
+      "title": "AI Crawl Control Changelog",
+      "url": "https://developers.cloudflare.com/changelog/product/ai-crawl-control/"
+     },
+     {
+      "id": 11,
+      "last_updated": "2026-09-28",
+      "snippet": "**## Google-Extended**\n|**HTTP 请求中的用户代理**|Google-Extended 没有单独的 HTTP 请求用户代理字符串。抓取操作是使用现有的 Google 用户代理字符串进行的；robots.txt 用户代理令牌用于控制权限。\n| |--|--| |**robots.txt**|<table><tr><td>robots.txt 中的用户代理令牌</td><td> `Google-Extended`</td></tr><tr><td>robots.txt 组示例</td><td> ``` user-agent: **Google-\nExtended** allow: /archive/1Q84 disallow: /archive/ ``` </td></tr></table>| |**受影响的产品**|`Google-Extended` 是一个独立的产品令牌，供网站发布商用于管理 Google 从其网站抓取的内容是否可用于训练未来版本的 Gemini 模型，这些模型可为 Gemini 应用和 Vertex AI API for Gemini 提供支持，并用于在 Gemini 应用中（在提示时将 Google 搜索索引中的内容提供给模型，以提高真实性和相关性）和在 Vertex AI 上使用 Google Search 时建立依据。\nGoogle-Extended 不会影响网站列入 Google 搜索结果，也不会在 Google 搜索中用作排名信号。|",
+      "source": "web",
+      "title": "Google 的常用抓取工具 | Google 抓取基础设施 | Crawling infrastructure | Google for Developers",
+      "url": "https://developers.google.cn/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=zh-cn"
+     },
+     {
+      "id": 12,
+      "last_updated": "2026-09-23",
+      "snippet": "1. Create a file named robots.txt.\n2. Add rules to the robots.txt file.\n3. Upload the robots.txt file to the root of your site.",
+      "source": "web",
+      "title": "Create and Submit a robots.txt File",
+      "url": "https://developers.google.com/crawling/docs/robots-txt/create-robots-txt"
+     },
+     {
+      "id": 13,
+      "last_updated": "2026-09-02",
+      "snippet": "AI Crawl Control (formerly AI Audit) gives you visibility into which AI services are accessing your content, and provides tools to manage access according to your preferences.\n...\nAI Crawl Control now includes a **Robots.txt** tab that provides insights into how AI crawlers interact with your `robots.txt` files.\n...\nThe Robots.txt tab allows you to:\n* Monitor the health status of `robots.txt` files across all your hostnames, including HTTP status codes, and identify hostnames that need a `robots.txt` file.\n* Track the total number of requests to each `robots.txt` file, with breakdowns of successful versus unsuccessful requests.\n* Check whether your `robots.txt` files contain [Content Signals ↗](https://contentsignals.org/) directives for AI training, search, and AI input.\n* Identify crawlers that request paths explicitly disallowed by your `robots.txt` directives, including the crawler name, operator, violated path, specific directive, and violation count.\n* Filter `robots.txt` request data by crawler, operator, category, and custom time ranges.\n...\nWhen you identify non-compliant crawlers, you can:\n* Block the crawler in the [Crawlers tab](https://developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/)\n* Create custom [WAF rules](https://developers.cloudflare.com/waf/) for path-specific security\n* Use [Redirect Rules](https://developers.cloudflare.com/rules/url-forwarding/) to guide crawlers to appropriate areas of your site\nTo get started, go to **AI Crawl Control** \\> **Robots.txt** in the Cloudflare dashboard.\n...\nBot solutions identifies traffic matching patterns of known bots, and can challenge or block the bots as you wish.",
+      "source": "web",
+      "title": "AI Crawl Control llms-full.txt",
+      "url": "https://developers.cloudflare.com/ai-crawl-control/llms-full.txt"
+     },
+     {
+      "id": 14,
+      "last_updated": "2026-09-25",
+      "snippet": "A robots.txt file tells search engine crawlers which URLs the crawler can access on your site.",
+      "source": "web",
+      "title": "Robots.txt Introduction and Guide | Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+     },
+     {
+      "date": "2026-10-01",
+      "id": 15,
+      "last_updated": "2026-10-01",
+      "snippet": "The robots.txt file tells crawlers whether they are permitted to access certain parts of your website.\nOpenAI crawlers respect these rules.\nIf access is disallowed in robots.txt, crawling will stop immediately.\nReview your robots.txt configuration and confirm that OpenAI crawlers are explicitly allowed to access the relevant pages and paths.",
+      "source": "web",
+      "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers",
+      "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Проверить и открыть сайт может **веб-разработчик или SEO/технический специалист** с доступом к сайту, хостингу и, если используется, Cloudflare. Попросите его провести аудит не только `robots.txt`, но и настроек CDN/WAF, которые тоже могут блокировать автоматические запросы.\n\nЧто проверить:\n\n1. Открывается ли `https://вашдомен.com/robots.txt` и нет ли там запрета `Disallow: /` для нужных роботов.\n2. Не блокируют ли их правила Cloudflare, хостинга, файрвола или защиты от ботов.\n3. Разрешены ли нужные страницы и файлы сайта — обычно как минимум главная, страницы услуг и контакты.\n4. После изменений — доступны ли страницы без входа в аккаунт и не возвращают ли ошибку или CAPTCHA.\n\nВажно: «разрешить ИИ» — не одна общая настройка. Например, OpenAI использует `OAI-SearchBot` для поиска в ChatGPT и `GPTBot` для возможного сбора материалов для обучения; это разные цели и ими можно управлять отдельно. У Google токен `Google-Extended` относится к использованию контента в некоторых продуктах Gemini и не влияет на включение сайта в обычный Google Search. Разрешение в `robots.txt` — это просьба роботам, а не техническая гарантия доступа.\n\nМожно отправить специалисту такой запрос:\n\n> «Проверьте, почему сайт недоступен для AI-краулеров: robots.txt, Cloudflare/CDN, WAF, хостинг и ответы сервера. Настройте доступ к публичным страницам для нужных роботов отдельно для поиска и обучения, не открывая закрытые разделы. После изменений подтвердите проверку».\n\nЕсли пришлёте адрес сайта, я подскажу, что именно попросить проверить.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_560ebf5e-eb81-48c2-bf1e-348af2a0a259",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.00107,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00122,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00493
+   },
+   "input_tokens": 4836,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4262,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 488,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5324
+  },
+  "user": null
+ }
+}

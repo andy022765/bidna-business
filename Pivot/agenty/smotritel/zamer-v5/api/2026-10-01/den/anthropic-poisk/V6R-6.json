@@ -1,0 +1,539 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 6,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:41-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.08165,
+   "ishod": "ok",
+   "sekund": 19.8,
+   "meta": {
+    "request_id": "req_011CfcSanH8pZPsTc24XZfam"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "# Как проверить и открыть сайт для ИИ-роботов\n\nСпециальной «службы», которая сама это сделает, не существует — но проверить и исправить можно самостоятельно за 10–15 минут, либо поручить это веб-мастеру/разработчику сайта или SEO-специалисту.\n\n## 1. Проверка — кто именно блокирует сайт\n\n**Вариант А — вручную:** откройте браузер и введите адрес сайта с приставкой /robots.txt, например https://yourwebsite.com/robots.txt. Если там есть строки вида `Disallow: /` для таких ботов, как GPTBot, ClaudeBot, PerplexityBot — сайт закрыт для них.\n\n**Вариант Б — онлайн-инструменты** (бесплатные, не требуют навыков программирования):\n- MRS Digital AI Crawler Access Checker — позволяет увидеть, могут ли популярные AI-краулеры, такие как GPTBot, ClaudeBot и PerplexityBot, получить доступ к вашему сайту\n- rankability.com AI Search Indexability Checker — проверяет, доступен ли сайт поисковым и AI-краулерам, таким как Googlebot, GPTBot и PerplexityBot\n- seojuice.com AI Crawler Inspector\n\n**Вариант В — через терминал (если есть доступ к разработчику):**\nможно запустить тест через Terminal или PowerShell командой curl -A \"GPTBot\" -I https://вашсайт.com — код 200 означает, что доступ разрешён, код 403 — что заблокирован.\n\nТакже стоит проверить реальные серверные логи, так как иногда блокировка происходит не в robots.txt, а на уровне хостинга/WAF: сканер AI Crawler Checker отправляет запрос от имени каждого AI-краулера, поэтому находит блокировки сервера, WAF и CDN, которые не отражены в robots.txt.\n\n## 2. Кто реально «открывает» доступ\n\nЗдесь важно понимать: никто со стороны (ни OpenAI, ни Google) не «включает» видимость по запросу — **доступ регулируется только владельцем сайта** через файл robots.txt и настройки сервера/хостинга. Значит, открыть сайт может:\n\n- **вы сами** (если есть доступ к файлам сайта/хостинг-панели);\n- **ваш веб-мастер, разработчик или хостинг-провайдер**, обслуживающий сайт;\n- **SEO-агентство**, если оно ведёт техническую часть сайта.\n\n## 3. Как именно исправить robots.txt\n\nНужно убедиться, что файл существует по правильному адресу для каждого поддомена, отдаёт код 200 OK, не содержит случайного запрета для всех ботов, не блокирует CSS/JS, нужные для рендеринга, и не закрывает основные поисковые боты.\n\nДля именно AI-видимости (чтобы нейросети «видели» компанию в ответах и обзорах) рекомендуется: для AI-видимости обычно пускают поисковых ботов, а обучающих ботов закрывают точечно. Конкретно:\n- для ChatGPT не блокировать OAI-SearchBot; для Claude — Claude-SearchBot и Claude-User; для Perplexity — PerplexityBot; Google Search, включая AI Overviews и AI Mode, управляется Googlebot, а Google-Extended относится к обучению и grounding в Gemini; для Алисы учитывать YandexAdditional; Bingbot можно оставить как дополнительный канал.\n\nПример открывающего блока в robots.txt:\n```\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Googlebot\nAllow: /\n```\n\n## Что сделать прямо сейчас\n\n1. Зайдите на `вашсайт.com/robots.txt` и посмотрите содержимое.\n2. Если видите `Disallow: /` под именами ботов из списка выше — это и есть причина.\n3. Исправьте файл (сами или через того, кто обслуживает сайт/хостинг) и выложите обратно в корень сайта.\n4. Перепроверьте через любой из онлайн-чекеров выше, чтобы убедиться, что теперь боты получают код 200, а не 403.\n\nЕсли нужно, могу помочь составить конкретный текст robots.txt под ваш сайт — просто укажите домен и какие ИИ-сервисы для вас приоритетны (ChatGPT, Claude, Perplexity, Gemini и т.д.).",
+  "poiskovye_zaprosy": [
+   "как открыть сайт для AI роботов robots.txt разрешить ИИ",
+   "check if website blocks AI crawlers tool"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://help.reg.ru/support/hosting/prodvizheniye-sayta/kak-nastroit-robots-txt",
+    "domen": "help.reg.ru",
+    "title": "Как настроить robots.txt"
+   },
+   {
+    "url": "https://support.google.com/manufacturers/answer/7349854?hl=ru",
+    "domen": "support.google.com",
+    "title": "Как открыть доступ к сайту через файл ..."
+   },
+   {
+    "url": "https://www.calltouch.ru/blog/pravilnaya-nastrojka-robots-txt-podrobnoe-rukovodstvo",
+    "domen": "calltouch.ru",
+    "title": "Robots.txt для сайта: создание, настройка, ..."
+   },
+   {
+    "url": "https://pr-cy.ru/news/p/7309-kak-sostavit-robotstxt-samostoyatelno",
+    "domen": "pr-cy.ru",
+    "title": "Robots.txt: полное руководство по управ..."
+   },
+   {
+    "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html",
+    "domen": "texterra.ru",
+    "title": "Каких AI-краулеров пускать на сайт и ..."
+   },
+   {
+    "url": "https://beseller.by/blog/robots-txt",
+    "domen": "beseller.by",
+    "title": "Что такое robots.txt, зачем он нужен, Как ..."
+   },
+   {
+    "url": "https://www.unisender.com/ru/blog/kak-nastroit-robots-txt",
+    "domen": "unisender.com",
+    "title": "Robots.txt — как настроить и загрузить на ..."
+   },
+   {
+    "url": "https://timeweb.cloud/docs/general/nastrojka-fajla-robots-txt",
+    "domen": "timeweb.cloud",
+    "title": "Настройка файла robots.txt — База знаний ..."
+   },
+   {
+    "url": "https://intelsib.ru/article/nastroyka-robots-txt",
+    "domen": "intelsib.ru",
+    "title": "ROBOTS.txt: настройка, директивы, как ..."
+   },
+   {
+    "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty",
+    "domen": "aksanov.digital",
+    "title": "robots.txt и AI-боты: кого пускать, а кого ..."
+   },
+   {
+    "url": "https://mrs.digital/tools/ai-crawler-access-checker",
+    "domen": "mrs.digital",
+    "title": "AI Crawler Access Checker - MRS Digital"
+   },
+   {
+    "url": "https://dev.to/manja316/is-your-website-blocking-ai-crawlers-check-with-this-free-robotstxt-analyzer-3pg4",
+    "domen": "dev.to",
+    "title": "Is Your Website Blocking AI Crawlers? Check with This Free Robots.txt ..."
+   },
+   {
+    "url": "https://dev.to/mikhail_shadrin_dev/your-site-might-be-blocking-ai-crawlers-by-accident-heres-how-to-check-4l",
+    "domen": "dev.to",
+    "title": "Your site might be blocking AI crawlers by accident. Here's how ..."
+   },
+   {
+    "url": "https://llmrefs.com/tools/ai-crawl-checker",
+    "domen": "llmrefs.com",
+    "title": "AI Crawlability Checker - Can AI Bots Read Your Page? - LLMrefs"
+   },
+   {
+    "url": "https://llmpulse.ai/blog/website-ai-bot-access",
+    "domen": "llmpulse.ai",
+    "title": "Is Your Website Crawlable by AI? How to Test and Fix AI Bot Access ..."
+   },
+   {
+    "url": "https://www.rankability.com/tools/ai-search-indexability-checker",
+    "domen": "rankability.com",
+    "title": "AI Search Indexability & Crawlability Checker"
+   },
+   {
+    "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers",
+    "domen": "kahunam.com",
+    "title": "How to Check if Your Website is Blocking AI Crawlers"
+   },
+   {
+    "url": "https://seojuice.com/tools/ai-crawler-inspector",
+    "domen": "seojuice.com",
+    "title": "Free AI Crawler Inspector — Check Which AI Bots Visit Your Site"
+   },
+   {
+    "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai",
+    "domen": "ai-visibility.org.uk",
+    "title": "Is Your Website Blocking AI Crawlers? How to Check"
+   },
+   {
+    "url": "https://chunkysquirrel.com/does-your-web-host-block-ai-crawlers",
+    "domen": "chunkysquirrel.com",
+    "title": "Does your web host block AI crawlers? - Chunky Squirrel Services"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers",
+    "domen": "kahunam.com",
+    "title": "How to Check if Your Website is Blocking AI Crawlers"
+   },
+   {
+    "url": "https://mrs.digital/tools/ai-crawler-access-checker",
+    "domen": "mrs.digital",
+    "title": "AI Crawler Access Checker - MRS Digital"
+   },
+   {
+    "url": "https://www.rankability.com/tools/ai-search-indexability-checker",
+    "domen": "rankability.com",
+    "title": "AI Search Indexability & Crawlability Checker"
+   },
+   {
+    "url": "https://chunkysquirrel.com/does-your-web-host-block-ai-crawlers",
+    "domen": "chunkysquirrel.com",
+    "title": "Does your web host block AI crawlers? - Chunky Squirrel Services"
+   },
+   {
+    "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai",
+    "domen": "ai-visibility.org.uk",
+    "title": "Is Your Website Blocking AI Crawlers? How to Check"
+   },
+   {
+    "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html",
+    "domen": "texterra.ru",
+    "title": "Каких AI-краулеров пускать на сайт и ..."
+   },
+   {
+    "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty",
+    "domen": "aksanov.digital",
+    "title": "robots.txt и AI-боты: кого пускать, а кого ..."
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 21200,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1925
+  },
+  "cena": 0.08165,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSanqNy16t9W6knbcPH",
+    "request_id": "req_011CfcSanH8pZPsTc24XZfam",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 21200,
+     "output_tokens": 1925,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_013QU4GCsqpXgWeTENr6JMfT",
+    "caller": null,
+    "input": {
+     "query": "как открыть сайт для AI роботов robots.txt разрешить ИИ"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01DTVyfvGPZRUj56WmL1PnQ3",
+    "caller": null,
+    "input": {
+     "query": "check if website blocks AI crawlers tool"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "Как настроить robots.txt",
+      "type": "web_search_result",
+      "url": "https://help.reg.ru/support/hosting/prodvizheniye-sayta/kak-nastroit-robots-txt"
+     },
+     {
+      "page_age": "1796 days ago",
+      "title": "Как открыть доступ к сайту через файл ...",
+      "type": "web_search_result",
+      "url": "https://support.google.com/manufacturers/answer/7349854?hl=ru"
+     },
+     {
+      "page_age": "1221 days ago",
+      "title": "Robots.txt для сайта: создание, настройка, ...",
+      "type": "web_search_result",
+      "url": "https://www.calltouch.ru/blog/pravilnaya-nastrojka-robots-txt-podrobnoe-rukovodstvo/"
+     },
+     {
+      "page_age": "224 days ago",
+      "title": "Robots.txt: полное руководство по управ...",
+      "type": "web_search_result",
+      "url": "https://pr-cy.ru/news/p/7309-kak-sostavit-robotstxt-samostoyatelno"
+     },
+     {
+      "page_age": "114 days ago",
+      "title": "Каких AI-краулеров пускать на сайт и ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     },
+     {
+      "page_age": "913 days ago",
+      "title": "Что такое robots.txt, зачем он нужен, Как ...",
+      "type": "web_search_result",
+      "url": "https://beseller.by/blog/robots-txt/"
+     },
+     {
+      "page_age": "1455 days ago",
+      "title": "Robots.txt — как настроить и загрузить на ...",
+      "type": "web_search_result",
+      "url": "https://www.unisender.com/ru/blog/kak-nastroit-robots-txt/"
+     },
+     {
+      "page_age": "846 days ago",
+      "title": "Настройка файла robots.txt — База знаний ...",
+      "type": "web_search_result",
+      "url": "https://timeweb.cloud/docs/general/nastrojka-fajla-robots-txt"
+     },
+     {
+      "page_age": "319 days ago",
+      "title": "ROBOTS.txt: настройка, директивы, как ...",
+      "type": "web_search_result",
+      "url": "https://intelsib.ru/article/nastroyka-robots-txt/"
+     },
+     {
+      "page_age": "66 days ago",
+      "title": "robots.txt и AI-боты: кого пускать, а кого ...",
+      "type": "web_search_result",
+      "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty"
+     }
+    ],
+    "tool_use_id": "srvtoolu_013QU4GCsqpXgWeTENr6JMfT",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "227 days ago",
+      "title": "AI Crawler Access Checker - MRS Digital",
+      "type": "web_search_result",
+      "url": "https://mrs.digital/tools/ai-crawler-access-checker/"
+     },
+     {
+      "page_age": "178 days ago",
+      "title": "Is Your Website Blocking AI Crawlers? Check with This Free Robots.txt ...",
+      "type": "web_search_result",
+      "url": "https://dev.to/manja316/is-your-website-blocking-ai-crawlers-check-with-this-free-robotstxt-analyzer-3pg4"
+     },
+     {
+      "page_age": "63 days ago",
+      "title": "Your site might be blocking AI crawlers by accident. Here's how ...",
+      "type": "web_search_result",
+      "url": "https://dev.to/mikhail_shadrin_dev/your-site-might-be-blocking-ai-crawlers-by-accident-heres-how-to-check-4l"
+     },
+     {
+      "page_age": null,
+      "title": "AI Crawlability Checker - Can AI Bots Read Your Page? - LLMrefs",
+      "type": "web_search_result",
+      "url": "https://llmrefs.com/tools/ai-crawl-checker"
+     },
+     {
+      "page_age": "17 days ago",
+      "title": "Is Your Website Crawlable by AI? How to Test and Fix AI Bot Access ...",
+      "type": "web_search_result",
+      "url": "https://llmpulse.ai/blog/website-ai-bot-access/"
+     },
+     {
+      "page_age": null,
+      "title": "AI Search Indexability & Crawlability Checker",
+      "type": "web_search_result",
+      "url": "https://www.rankability.com/tools/ai-search-indexability-checker/"
+     },
+     {
+      "page_age": "335 days ago",
+      "title": "How to Check if Your Website is Blocking AI Crawlers",
+      "type": "web_search_result",
+      "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers/"
+     },
+     {
+      "page_age": null,
+      "title": "Free AI Crawler Inspector — Check Which AI Bots Visit Your Site",
+      "type": "web_search_result",
+      "url": "https://seojuice.com/tools/ai-crawler-inspector/"
+     },
+     {
+      "page_age": "20 days ago",
+      "title": "Is Your Website Blocking AI Crawlers? How to Check",
+      "type": "web_search_result",
+      "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai/"
+     },
+     {
+      "page_age": "343 days ago",
+      "title": "Does your web host block AI crawlers? - Chunky Squirrel Services",
+      "type": "web_search_result",
+      "url": "https://chunkysquirrel.com/does-your-web-host-block-ai-crawlers/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01DTVyfvGPZRUj56WmL1PnQ3",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "# Как проверить и открыть сайт для ИИ-роботов\n\nСпециальной «службы», которая сама это сделает, не существует — но проверить и исправить можно самостоятельно за 10–15 минут, либо поручить это веб-мастеру/разработчику сайта или SEO-специалисту.\n\n## 1. Проверка — кто именно блокирует сайт\n\n**Вариант А — вручную:** ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "# How to Check if Your Website is Blocking AI Crawlers\n## Methods Website Owners Can Do (No Technical Skills Needed)\n### Method 1: Check Your robots.t...",
+      "title": "How to Check if Your Website is Blocking AI Crawlers",
+      "type": "web_search_result_location",
+      "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers/"
+     },
+     {
+      "cited_text": "Type your website address followed by /robots.txt\n  - Example: https://yourwebsite.com/robots.txt\n3. Press Enter\n\n**What you’ll see:** If you’re block...",
+      "title": "How to Check if Your Website is Blocking AI Crawlers",
+      "type": "web_search_result_location",
+      "url": "https://kahunam.com/articles/seo/how-to-check-if-your-website-is-blocking-ai-crawlers/"
+     }
+    ],
+    "text": "откройте браузер и введите адрес сайта с приставкой /robots.txt, например https://yourwebsite.com/robots.txt",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Если там есть строки вида `Disallow: /` для таких ботов, как GPTBot, ClaudeBot, PerplexityBot — сайт закрыт для них.\n\n**Вариант Б — онлайн-инструменты** (бесплатные, не требуют навыков программирования):\n- MRS Digital AI Crawler Access Checker — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Our **AI Crawler Access Checker** allows you to see whether popular AI crawlers such as GPTBot, ClaudeBot and PerplexityBot can reach your website’s p...",
+      "title": "AI Crawler Access Checker - MRS Digital",
+      "type": "web_search_result_location",
+      "url": "https://mrs.digital/tools/ai-crawler-access-checker/"
+     }
+    ],
+    "text": "позволяет увидеть, могут ли популярные AI-краулеры, такие как GPTBot, ClaudeBot и PerplexityBot, получить доступ к вашему сайту",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- rankability.com AI Search Indexability Checker — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Check if your website is accessible to search and AI crawlers like Googlebot, GPTBot, and PerplexityBot. Run a free test to see if your pages are craw...",
+      "title": "AI Search Indexability & Crawlability Checker",
+      "type": "web_search_result_location",
+      "url": "https://www.rankability.com/tools/ai-search-indexability-checker/"
+     }
+    ],
+    "text": "проверяет, доступен ли сайт поисковым и AI-краулерам, таким как Googlebot, GPTBot и PerplexityBot",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- seojuice.com AI Crawler Inspector\n\n**Вариант В — через терминал (если есть доступ к разработчику):**\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## How to test if your web host blocks AI crawlers\nYou can run a simple test using the Terminal (macOS) or PowerShell (Windows).\n\n### Run a command fo...",
+      "title": "Does your web host block AI crawlers? - Chunky Squirrel Services",
+      "type": "web_search_result_location",
+      "url": "https://chunkysquirrel.com/does-your-web-host-block-ai-crawlers/"
+     },
+     {
+      "cited_text": "\"},{\"name\":\"Interpret the HTTP status code\",\"text\":\"A 200 status code means access is allowed. A 403 means it's blocked. \n\n",
+      "title": "Does your web host block AI crawlers? - Chunky Squirrel Services",
+      "type": "web_search_result_location",
+      "url": "https://chunkysquirrel.com/does-your-web-host-block-ai-crawlers/"
+     }
+    ],
+    "text": "можно запустить тест через Terminal или PowerShell командой curl -A \"GPTBot\" -I https://вашсайт.com — код 200 означает, что доступ разрешён, код 403 — что заблокирован",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nТакже стоит проверить реальные серверные логи, так как иногда блокировка происходит не в robots.txt, а на уровне хостинга/WAF: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "grep -o \"Your Headline Text\" crawler-view.html\n```\n\n## How to tell if AI is actually crawling your site\n### Read your server logs\n```bash\n# Every AI c...",
+      "title": "Is Your Website Blocking AI Crawlers? How to Check",
+      "type": "web_search_result_location",
+      "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai/"
+     }
+    ],
+    "text": "сканер AI Crawler Checker отправляет запрос от имени каждого AI-краулера, поэтому находит блокировки сервера, WAF и CDN, которые не отражены в robots.txt",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## 2. Кто реально «открывает» доступ\n\nЗдесь важно понимать: никто со стороны (ни OpenAI, ни Google) не «включает» видимость по запросу — **доступ регулируется только владельцем сайта** через файл robots.txt и настройки сервера/хостинга. Значит, открыть сайт может:\n\n- **вы сами** (если есть доступ к файлам сайта/хостинг-панели);\n- **ваш веб-мастер, разработчик или хостинг-провайдер**, обслуживающий сайт;\n- **SEO-агентство**, если оно ведёт техническую часть сайта.\n\n## 3. Как именно исправить robots.txt\n\nНужно убедиться, что ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "- Для каждого поддомена есть свой robots.txt.\n- Файл отдает 200 OK.\n- Нет случайного Disallow: / для User-agent: \\*.\n\n- Не закрыты CSS и JS, если они ...",
+      "title": "Каких AI-краулеров пускать на сайт и ...",
+      "type": "web_search_result_location",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     }
+    ],
+    "text": "файл существует по правильному адресу для каждого поддомена, отдаёт код 200 OK, не содержит случайного запрета для всех ботов, не блокирует CSS/JS, нужные для рендеринга, и не закрывает основные поисковые боты",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nДля именно AI-видимости (чтобы нейросети «видели» компанию в ответах и обзорах) рекомендуется: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Для AI-видимости обычно пускают поисковых ботов, а обучающих закрывают точечно. ",
+      "title": "Каких AI-краулеров пускать на сайт и ...",
+      "type": "web_search_result_location",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     }
+    ],
+    "text": "для AI-видимости обычно пускают поисковых ботов, а обучающих ботов закрывают точечно",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Конкретно:\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Для ChatGPT не блокируйте OAI-SearchBot; для Claude — Claude-SearchBot и Claude-User; для Perplexity — PerplexityBot. Google Search, включая AI Overvi...",
+      "title": "robots.txt и AI-боты: кого пускать, а кого ...",
+      "type": "web_search_result_location",
+      "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty"
+     }
+    ],
+    "text": "для ChatGPT не блокировать OAI-SearchBot; для Claude — Claude-SearchBot и Claude-User; для Perplexity — PerplexityBot; Google Search, включая AI Overviews и AI Mode, управляется Googlebot, а Google-Extended относится к обучению и grounding в Gemini; для Алисы учитывать YandexAdditional; Bingbot можно оставить как дополнительный канал",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nПример открывающего блока в robots.txt:\n```\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: Claude-SearchBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Googlebot\nAllow: /\n```\n\n## Что сделать прямо сейчас\n\n1. Зайдите на `вашсайт.com/robots.txt` и посмотрите содержимое.\n2. Если видите `Disallow: /` под именами ботов из списка выше — это и есть причина.\n3. Исправьте файл (сами или через того, кто обслуживает сайт/хостинг) и выложите обратно в корень сайта.\n4. Перепроверьте через любой из онлайн-чекеров выше, чтобы убедиться, что теперь боты получают код 200, а не 403.\n\nЕсли нужно, могу помочь составить конкретный текст robots.txt под ваш сайт — просто укажите домен и какие ИИ-сервисы для вас приоритетны (ChatGPT, Claude, Perplexity, Gemini и т.д.).",
+    "type": "text"
+   }
+  ]
+ }
+}

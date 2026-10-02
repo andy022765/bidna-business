@@ -1,0 +1,495 @@
+{
+ "vopros_id": "V4R",
+ "povtor": 4,
+ "vopros": "Есть ли в США услуга исправить неверные данные о компании в ответах нейросетей?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:07:25-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.07998,
+   "ishod": "ok",
+   "sekund": 17.7,
+   "meta": {
+    "request_id": "req_011CfcSFsfZhqrqux7mibdrj"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "## Да, такие услуги существуют — но важно понимать механизм\n\nВ США нет официального «департамента исправлений» в OpenAI, Google, Anthropic или Perplexity, куда можно подать жалобу и получить гарантированную правку конкретного факта о компании. Как отмечают источники: никто не нашёл документированного способа исправить фактическую ошибку, которую допускает ИИ-ассистент о компании — вместо этого существуют лишь косвенные рычаги: источники, которые эти системы читают в момент формирования ответа. Более того, ни один из проверенных провайдеров не документирует процесс исправления фактического утверждения о стороннней компании — у Anthropic есть кнопка обратной связи и общая поддержка, у OpenAI аналогичная страница недоступна.\n\n### Но коммерческие услуги есть, и работают они иначе\n\nНа рынке сформировалась целая ниша **GEO (Generative Engine Optimization)** / **AI-репутационный менеджмент**, предлагающая исправление именно через первоисточники, а не через сам чат-бот:\n\n**1. Специализированные агентства**\n- **Reputation X** предлагает платный сервис: ложные утверждения в ChatGPT, Gemini, Perplexity и AI Overviews обычно можно исправить — у источника. Reputation X проверяет, что говорит ИИ о вас, прослеживает каждое утверждение и исправляет его. Их тарифы включают аудит, «Source Correction» (правки в Wikipedia/Wikidata, работа с Knowledge Panel, структурированными данными, обращения на платформы, повторное тестирование на 30/60/90 дней) и постоянный мониторинг.\n- **Morris McLane** описывает рынок так: когда ChatGPT, Gemini, Perplexity или Google AI Overviews говорят что-то неверное о компании, привлекают четыре типа поставщиков: традиционные ORM-фирмы, GEO/AI-search специалисты, юридические фирмы, а для простых случаев — никого, потому что справится и внутренняя команда.\n- Также упоминаются традиционные ORM-бренды вроде Status Labs и ReputationDefender, которые расширили поисковые услуги в сторону ИИ-ответов.\n\n**2. Инструменты мониторинга (не исправления напрямую)**\nСервисы вроде Five Blocks (AIQ), Yoast SEO AI Brand Insights, Brand24, Semrush AI SEO toolkit — показывают, что говорит ИИ о бренде, но исправление всё равно требует работы с первоисточниками.\n\n### Как на самом деле происходит «исправление»\nНезависимо от того, нанимаете вы агентство или делаете сами, механизм один: прямого канала для подачи фактов на исправление о бизнесе не существует — надёжный путь — это исправление источников, которые читают модели: собственный сайт, структурированные данные, Wikidata и доверенные профили, а также сторонние страницы с неверным фактом. Дополнительно можно использовать кнопки обратной связи внутри самих продуктов: у Perplexity есть функция обратной связи в каждом ответе — нажмите на иконку и сообщите о конкретной неточности; поскольку Perplexity указывает источники, можно также определить, откуда берётся неверная информация.\n\n**Итог:** формальной государственной или единой платформенной «службы исправлений» нет, но на рынке США активно работают коммерческие GEO/ORM-агентства (Reputation X и аналоги), которые за деньги проводят аудит упоминаний компании в ИИ-системах и системно правят первоисточники (сайт, Wikidata, бизнес-профили, directories), после чего повторно тестируют, изменился ли ответ нейросети.",
+  "poiskovye_zaprosy": [
+   "service to correct AI chatbot misinformation about company USA",
+   "AI answer engine optimization fix incorrect business information ChatGPT"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://www.fiveblocks.com/knowledge/ai-search-chatbots/what-happens-when-an-ai-chatbot-gives-wrong-information-about-your-com",
+    "domen": "fiveblocks.com",
+    "title": "What happens when an AI chatbot gives wrong information about your ..."
+   },
+   {
+    "url": "https://www.justanswer.com/consumer-protection-law/ute44-incorrect-ai-company-review-misidentification.html",
+    "domen": "justanswer.com",
+    "title": "Fix Incorrect AI Overview of Your Business - Expert Q&A"
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business",
+    "domen": "trysight.ai",
+    "title": "Fix AI Chatbots Giving Wrong Info About Business Now"
+   },
+   {
+    "url": "https://www.remwebsolutions.com/blog/ai-wrong-information-business",
+    "domen": "remwebsolutions.com",
+    "title": "What to Do When AI Spreads Wrong Info About Your Business"
+   },
+   {
+    "url": "https://www.reputationx.com/services/improve/ai-misinformation",
+    "domen": "reputationx.com",
+    "title": "Correct False AI Information About You"
+   },
+   {
+    "url": "https://yoast.com/when-ai-gets-your-brand-wrong",
+    "domen": "yoast.com",
+    "title": "When AI gets your brand wrong: Real examples and how to fix it ..."
+   },
+   {
+    "url": "https://logicballs.com/blog/ai-misinformation-about-your-brand-how-to-find-it-and-fix-it",
+    "domen": "logicballs.com",
+    "title": "AI Misinformation About Your Brand: How to Find It and Fix I"
+   },
+   {
+    "url": "https://morrismclane.com/insights/who-fixes-wrong-ai-answers",
+    "domen": "morrismclane.com",
+    "title": "Who fixes wrong AI answers about your company? — Morris McLane"
+   },
+   {
+    "url": "https://www.techradar.com/pro/x-fixes-ai-chatbot-after-it-spread-misinformation-about-us-election",
+    "domen": "techradar.com",
+    "title": "X pledges to fix AI chatbot after it spread misinformation about US election"
+   },
+   {
+    "url": "https://www.senso.ai/prompts-content/why-does-chatgpt-get-my-business-information-wrong",
+    "domen": "senso.ai",
+    "title": "Why does ChatGPT get my business information wrong?"
+   },
+   {
+    "url": "https://lseo.com/answer-engine-optimization-services/fixing-incorrect-ai-answers-about-your-brand",
+    "domen": "lseo.com",
+    "title": "Incorrect AI Answers About Your Brand: How to Fix"
+   },
+   {
+    "url": "https://loudmink.ai/blog/how-to-fix-what-chatgpt-says-about-your-business",
+    "domen": "loudmink.ai",
+    "title": "How to Fix What ChatGPT Says About Your Business"
+   },
+   {
+    "url": "https://llms.unusual.ai/fix-wrong-info-in-ai-answers",
+    "domen": "llms.unusual.ai",
+    "title": "How to fix wrong information about your company in AI answers ..."
+   },
+   {
+    "url": "https://skyscale.com.au/blogs/ai-wrong-information-about-my-business",
+    "domen": "skyscale.com.au",
+    "title": "Why AI Gives Out Wrong Information About Your Business (And How ..."
+   },
+   {
+    "url": "https://searchscore.io/guides/fix-wrong-ai-information",
+    "domen": "searchscore.io",
+    "title": "ChatGPT Says Wrong Things About My Business: How to Fix It"
+   },
+   {
+    "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information",
+    "domen": "subscribepr.com",
+    "title": "ChatGPT says wrong things about your business: how to fix it in ..."
+   },
+   {
+    "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html",
+    "domen": "nexum-sol.com",
+    "title": "ChatGPT Is Giving Customers Wrong Information About Your Business."
+   },
+   {
+    "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business",
+    "domen": "qbizleadsai.com",
+    "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and ..."
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://logicballs.com/blog/ai-misinformation-about-your-brand-how-to-find-it-and-fix-it",
+    "domen": "logicballs.com",
+    "title": "AI Misinformation About Your Brand: How to Find It and Fix I"
+   },
+   {
+    "url": "https://www.reputationx.com/services/improve/ai-misinformation",
+    "domen": "reputationx.com",
+    "title": "Correct False AI Information About You"
+   },
+   {
+    "url": "https://morrismclane.com/insights/who-fixes-wrong-ai-answers",
+    "domen": "morrismclane.com",
+    "title": "Who fixes wrong AI answers about your company? — Morris McLane"
+   },
+   {
+    "url": "https://searchscore.io/guides/fix-wrong-ai-information",
+    "domen": "searchscore.io",
+    "title": "ChatGPT Says Wrong Things About My Business: How to Fix It"
+   },
+   {
+    "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business",
+    "domen": "trysight.ai",
+    "title": "Fix AI Chatbots Giving Wrong Info About Business Now"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 22070,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1584
+  },
+  "cena": 0.07998,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSFtJkVLXP7HmqXo4uv",
+    "request_id": "req_011CfcSFsfZhqrqux7mibdrj",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 22070,
+     "output_tokens": 1584,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_012XK8cqFZEE3GHDE79o2Nsx",
+    "caller": null,
+    "input": {
+     "query": "service to correct AI chatbot misinformation about company USA"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01HgsQff3yT5kV3ugEPV72RH",
+    "caller": null,
+    "input": {
+     "query": "AI answer engine optimization fix incorrect business information ChatGPT"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "107 days ago",
+      "title": "What happens when an AI chatbot gives wrong information about your ...",
+      "type": "web_search_result",
+      "url": "https://www.fiveblocks.com/knowledge/ai-search-chatbots/what-happens-when-an-ai-chatbot-gives-wrong-information-about-your-com/"
+     },
+     {
+      "page_age": "200 days ago",
+      "title": "Fix Incorrect AI Overview of Your Business - Expert Q&A",
+      "type": "web_search_result",
+      "url": "https://www.justanswer.com/consumer-protection-law/ute44-incorrect-ai-company-review-misidentification.html"
+     },
+     {
+      "page_age": "145 days ago",
+      "title": "Fix AI Chatbots Giving Wrong Info About Business Now",
+      "type": "web_search_result",
+      "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business"
+     },
+     {
+      "page_age": "78 days ago",
+      "title": "What to Do When AI Spreads Wrong Info About Your Business",
+      "type": "web_search_result",
+      "url": "https://www.remwebsolutions.com/blog/ai-wrong-information-business/"
+     },
+     {
+      "page_age": null,
+      "title": "Correct False AI Information About You",
+      "type": "web_search_result",
+      "url": "https://www.reputationx.com/services/improve/ai-misinformation"
+     },
+     {
+      "page_age": "126 days ago",
+      "title": "When AI gets your brand wrong: Real examples and how to fix it ...",
+      "type": "web_search_result",
+      "url": "https://yoast.com/when-ai-gets-your-brand-wrong/"
+     },
+     {
+      "page_age": "25 days ago",
+      "title": "AI Misinformation About Your Brand: How to Find It and Fix I",
+      "type": "web_search_result",
+      "url": "https://logicballs.com/blog/ai-misinformation-about-your-brand-how-to-find-it-and-fix-it"
+     },
+     {
+      "page_age": "107 days ago",
+      "title": "Who fixes wrong AI answers about your company? — Morris McLane",
+      "type": "web_search_result",
+      "url": "https://morrismclane.com/insights/who-fixes-wrong-ai-answers/"
+     },
+     {
+      "page_age": null,
+      "title": "X pledges to fix AI chatbot after it spread misinformation about US election",
+      "type": "web_search_result",
+      "url": "https://www.techradar.com/pro/x-fixes-ai-chatbot-after-it-spread-misinformation-about-us-election"
+     }
+    ],
+    "tool_use_id": "srvtoolu_012XK8cqFZEE3GHDE79o2Nsx",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "284 days ago",
+      "title": "Why does ChatGPT get my business information wrong?",
+      "type": "web_search_result",
+      "url": "https://www.senso.ai/prompts-content/why-does-chatgpt-get-my-business-information-wrong"
+     },
+     {
+      "page_age": "148 days ago",
+      "title": "Incorrect AI Answers About Your Brand: How to Fix",
+      "type": "web_search_result",
+      "url": "https://lseo.com/answer-engine-optimization-services/fixing-incorrect-ai-answers-about-your-brand/"
+     },
+     {
+      "page_age": "90 days ago",
+      "title": "How to Fix What ChatGPT Says About Your Business",
+      "type": "web_search_result",
+      "url": "https://loudmink.ai/blog/how-to-fix-what-chatgpt-says-about-your-business"
+     },
+     {
+      "page_age": "144 days ago",
+      "title": "How to fix wrong information about your company in AI answers ...",
+      "type": "web_search_result",
+      "url": "https://llms.unusual.ai/fix-wrong-info-in-ai-answers"
+     },
+     {
+      "page_age": "68 days ago",
+      "title": "Why AI Gives Out Wrong Information About Your Business (And How ...",
+      "type": "web_search_result",
+      "url": "https://skyscale.com.au/blogs/ai-wrong-information-about-my-business"
+     },
+     {
+      "page_age": "88 days ago",
+      "title": "ChatGPT Says Wrong Things About My Business: How to Fix It",
+      "type": "web_search_result",
+      "url": "https://searchscore.io/guides/fix-wrong-ai-information/"
+     },
+     {
+      "page_age": "58 days ago",
+      "title": "ChatGPT says wrong things about your business: how to fix it in ...",
+      "type": "web_search_result",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     },
+     {
+      "page_age": "50 days ago",
+      "title": "ChatGPT Is Giving Customers Wrong Information About Your Business.",
+      "type": "web_search_result",
+      "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html"
+     },
+     {
+      "page_age": "83 days ago",
+      "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and ...",
+      "type": "web_search_result",
+      "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01HgsQff3yT5kV3ugEPV72RH",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "## Да, такие услуги существуют — но важно понимать механизм\n\nВ США нет официального «департамента исправлений» в OpenAI, Google, Anthropic или Perplexity, куда можно подать жалобу и получить гарантированную правку конкретного факта о компании. Как отмечают источники: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "We went looking for a documented way to correct a factual error an AI assistant makes about a company, and no major provider publishes one. What exist...",
+      "title": "AI Misinformation About Your Brand: How to Find It and Fix I",
+      "type": "web_search_result_location",
+      "url": "https://logicballs.com/blog/ai-misinformation-about-your-brand-how-to-find-it-and-fix-it"
+     }
+    ],
+    "text": "никто не нашёл документированного способа исправить фактическую ошибку, которую допускает ИИ-ассистент о компании — вместо этого существуют лишь косвенные рычаги: источники, которые эти системы читают в момент формирования ответа",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Более того, ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "- **No provider we checked documents a process for correcting a factual claim a model makes about a third-party company.** Anthropic's support documen...",
+      "title": "AI Misinformation About Your Brand: How to Find It and Fix I",
+      "type": "web_search_result_location",
+      "url": "https://logicballs.com/blog/ai-misinformation-about-your-brand-how-to-find-it-and-fix-it"
+     }
+    ],
+    "text": "ни один из проверенных провайдеров не документирует процесс исправления фактического утверждения о стороннней компании — у Anthropic есть кнопка обратной связи и общая поддержка, у OpenAI аналогичная страница недоступна",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n### Но коммерческие услуги есть, и работают они иначе\n\nНа рынке сформировалась целая ниша **GEO (Generative Engine Optimization)** / **AI-репутационный менеджмент**, предлагающая исправление именно через первоисточники, а не через сам чат-бот:\n\n**1. Специализированные агентства**\n- **Reputation X** предлагает платный сервис: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "False claims in ChatGPT, Gemini, Perplexity, and AI Overviews can usually be corrected — at the source. Reputation X audits what AI says about you, tr...",
+      "title": "Correct False AI Information About You",
+      "type": "web_search_result_location",
+      "url": "https://www.reputationx.com/services/improve/ai-misinformation"
+     }
+    ],
+    "text": "ложные утверждения в ChatGPT, Gemini, Perplexity и AI Overviews обычно можно исправить — у источника. Reputation X проверяет, что говорит ИИ о вас, прослеживает каждое утверждение и исправляет его",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Их тарифы включают аудит, «Source Correction» (",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "- Everything in the Audit\n- Wikipedia and Wikidata correction where policy allows\n- Knowledge Panel and entity-graph work\n- Authoritative content and ...",
+      "title": "Correct False AI Information About You",
+      "type": "web_search_result_location",
+      "url": "https://www.reputationx.com/services/improve/ai-misinformation"
+     }
+    ],
+    "text": "правки в Wikipedia/Wikidata, работа с Knowledge Panel, структурированными данными, обращения на платформы, повторное тестирование на 30/60/90 дней",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ") и постоянный мониторинг.\n- **Morris McLane** описывает рынок так: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## The short answer\nWhen ChatGPT, Gemini, Perplexity or Google’s AI Overviews state something wrong about a company, four kinds of provider get called...",
+      "title": "Who fixes wrong AI answers about your company? — Morris McLane",
+      "type": "web_search_result_location",
+      "url": "https://morrismclane.com/insights/who-fixes-wrong-ai-answers/"
+     }
+    ],
+    "text": "когда ChatGPT, Gemini, Perplexity или Google AI Overviews говорят что-то неверное о компании, привлекают четыре типа поставщиков: традиционные ORM-фирмы, GEO/AI-search специалисты, юридические фирмы, а для простых случаев — никого, потому что справится и внутренняя команда",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Также упоминаются традиционные ORM-бренды вроде Status Labs и ReputationDefender, которые ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Four kinds of provider handle it: traditional online reputation management firms such as Status Labs and ReputationDefender, which have extended searc...",
+      "title": "Who fixes wrong AI answers about your company? — Morris McLane",
+      "type": "web_search_result_location",
+      "url": "https://morrismclane.com/insights/who-fixes-wrong-ai-answers/"
+     }
+    ],
+    "text": "расширили поисковые услуги в сторону ИИ-ответов",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**2. Инструменты мониторинга (не исправления напрямую)**\nСервисы вроде Five Blocks (AIQ), Yoast SEO AI Brand Insights, Brand24, Semrush AI SEO toolkit — показывают, что говорит ИИ о бренде, но исправление всё равно требует работы с первоисточниками.\n\n### Как на самом деле происходит «исправление»\nНезависимо от того, нанимаете вы агентство или делаете сами, механизм один: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "There is no fact-correction submission route for business information. The reliable path is to fix the sources the models read: your own site, your st...",
+      "title": "ChatGPT Says Wrong Things About My Business: How to Fix It",
+      "type": "web_search_result_location",
+      "url": "https://searchscore.io/guides/fix-wrong-ai-information/"
+     }
+    ],
+    "text": "прямого канала для подачи фактов на исправление о бизнесе не существует — надёжный путь — это исправление источников, которые читают модели: собственный сайт, структурированные данные, Wikidata и доверенные профили, а также сторонние страницы с неверным фактом",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Дополнительно можно использовать кнопки обратной связи внутри самих продуктов: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "# How to Fix AI Chatbots Giving Wrong Information About Your Business: A Step-by-Step Guide\n## Step 5: Submit Corrections Through Official AI Feedback...",
+      "title": "Fix AI Chatbots Giving Wrong Info About Business Now",
+      "type": "web_search_result_location",
+      "url": "https://www.trysight.ai/blog/ai-chatbots-giving-wrong-information-about-business"
+     }
+    ],
+    "text": "у Perplexity есть функция обратной связи в каждом ответе — нажмите на иконку и сообщите о конкретной неточности; поскольку Perplexity указывает источники, можно также определить, откуда берётся неверная информация",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**Итог:** формальной государственной или единой платформенной «службы исправлений» нет, но на рынке США активно работают коммерческие GEO/ORM-агентства (Reputation X и аналоги), которые за деньги проводят аудит упоминаний компании в ИИ-системах и системно правят первоисточники (сайт, Wikidata, бизнес-профили, directories), после чего повторно тестируют, изменился ли ответ нейросети.",
+    "type": "text"
+   }
+  ]
+ }
+}

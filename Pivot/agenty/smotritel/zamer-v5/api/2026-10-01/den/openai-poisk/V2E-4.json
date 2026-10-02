@@ -1,0 +1,446 @@
+{
+ "vopros_id": "V2E",
+ "povtor": 4,
+ "vopros": "How do I get AI assistants to recommend my company to customers in the US?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:02:18-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.03198,
+   "ishod": "ok",
+   "sekund": 11.3,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:02:29 GMT",
+    "x-request-id": "req_48c617d08a394642b5b185977a188f93",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "10985"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Yes. The emerging discipline is often called GEO/AEO (Generative/Answer Engine Optimization), although Google explicitly says the fundamentals are still good SEO rather than a separate set of “AI hacks.” ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n\nThe objective isn't to convince an AI to advertise you. It's to make your company a credible, retrievable candidate when someone asks things like “What are the best X companies in the US?”, “X vs Y,” or “What should I buy for Z?”\n\nI’d focus on six things:\n\n- Make your company machine-discoverable. Ensure important product/service pages are crawlable, indexable, fast, and contain the facts an assistant needs in actual page content. Use appropriate structured data and keep Google Business Profile/Merchant Center information current where relevant. Google says these existing SEO practices carry directly into AI Overviews and AI Mode. ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n- Allow AI search crawlers. In particular, don't accidentally block OpenAI's OAI-SearchBot if you want your pages discoverable and citable in ChatGPT search. OpenAI explicitly recommends allowing it for this purpose. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Create pages that answer buying questions, not just marketing pages. Publish useful comparisons, pricing, specifications, use cases, FAQs, limitations, customer stories and “best for” information. Google's current guidance emphasizes unique, expert-led, non-commodity content rather than content manufactured specifically to game AI answers. ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n- Build independent evidence. Get legitimate reviews, press coverage, industry-directory listings, expert mentions and other third-party sources discussing your company. This is especially valuable because an assistant researching a recommendation can corroborate what your own site claims. Don't buy fake mentions—Google specifically warns against inauthentic tactics. ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n- If you sell products, optimize the product-data layer. Give systems accurate names, descriptions, price, availability, images, identifiers and shipping/return information. ChatGPT can use merchant/product metadata when producing shopping results; OpenAI also supports direct merchant product feeds, while Shopify catalog data is already integrated. ([help.openai.com](https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search?utm_source=openai))\n- Measure actual AI visibility. Track referral traffic from assistants, but also repeatedly test high-value customer questions and record whether you're mentioned, recommended, cited and how you're characterized. For Google specifically, Search Console rolled out dedicated generative-AI performance reporting worldwide by August 31, 2026. ([developers.google.com](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports?hl=en&utm_source=openai))\n\nA useful way to execute this is to create a list of 50–100 prompts that represent commercially valuable US customer questions. For example, if you sell payroll software: “best payroll software for a 20-person California company,” “Gusto alternatives for restaurants,” “payroll software with good union reporting,” etc. Then identify why the companies currently recommended for each prompt are winning: their website, reviews, comparison sites, editorial coverage, product feeds, or other sources.\n\nThe important distinction is that you're optimizing for \"recommendation eligibility,\" not merely mentions. An assistant needs enough reliable information to conclude something like: “Company X is appropriate because it has features A/B/C, costs approximately Y, serves US customers, and independent sources substantiate its reputation.”\n\nIf you give me your company name/website and what you sell, I can research how ChatGPT/Google currently encounter your company and give you a concrete US AI-visibility plan.",
+  "poiskovye_zaprosy": [
+   "site:developers.google.com/search AI features website SEO Google Search AI Overviews official",
+   "site:openai.com ChatGPT search publishers OAI-SearchBot official",
+   "site:blogs.bing.com webmaster generative AI search structured data official Bing",
+   "site:help.openai.com shopping ChatGPT merchants product feeds official"
+  ],
+  "poiskovyh_zaprosov": 4,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published",
+    "domen": "developers.google.com",
+    "title": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2025/05/succeeding-in-ai-search",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features?roistat_visit=2540962",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports?hl=en",
+    "domen": "developers.google.com",
+    "title": "Introducing Search Generative AI performance reports in Search Console  |  Google Search Central Blog  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search",
+    "domen": "help.openai.com",
+    "title": "Shopping with ChatGPT Search | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content?hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/get-started-developers",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-shopping-r",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/get-on-google?orderBy=name",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/third-party-seo?authuser=002&hl=en",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://codelabs.developers.google.com/static/codelabs/chat-apps-gemini/res/knowledge-app/grounding/google-chat-overview.pdf",
+    "domen": "codelabs.developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/assistant/downloads/unlocking-the-power-of-spoken-language.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/static/business-communications/business-messages/files/business-messages-partner-social-toolkit.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/12082a3a-1a59-4bb9-b3e2-08a8c65849b0/OAI_California-Impact_Aug-2025.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/assistant/downloads/get-started.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published",
+    "domen": "developers.google.com",
+    "title": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search",
+    "domen": "help.openai.com",
+    "title": "Shopping with ChatGPT Search | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports?hl=en",
+    "domen": "developers.google.com",
+    "title": "Introducing Search Generative AI performance reports in Search Console  |  Google Search Central Blog  |  Google for Developers"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10639,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 868,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11507
+  },
+  "cena": 0.03198,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_087ded1693bdade0006abef48abef087d0855b0ff28d0a0449",
+  "object": "response",
+  "created_at": 1790899338,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899349,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "rs_087ded1693bdade0006abef48b8c7c87d0a2009c8f648c467d",
+    "type": "reasoning",
+    "content": [],
+    "encrypted_content": "gAAAAABqvvSVdAjuDlEWTeviwMI4rFm8boU7FuFCVCm3FvddS__WdEJYEHwHzl3CXwfB8_8iJU3j2ifCL0HjYM6kw6h_9Ck9bg5TT1U54ixVvad-hIIZ-0dm3Ydn9hYLQI_fv2daImuU7K8B3S9G_2RrX2dkJ_xeZEydWIF-T_mZpaRFOpPfKwhVKslCq6YZJcVhILhpKAZkdFJpqsbKrvdyTVoGvzOgO4Uvp8Z9aIDnirZ4wnYzAvNlqxsB9EGP3p0LY_svOUwel8u3ITnBuy2L_6WLR0y127PHI0T5e4S4Eb9vqk0vGlNuvXvFEaVx9MtbDdfJZe-Jc4WvxNAd2nyleiDqHPGvj5Mv7kq6E7yhUF8f3KN9sy8rAOxLmwch_CaP3cs34TvkiRNultNIiVyUtZWVuZDip-0xY6ZoqYYksgUwHNHEwSYAkH1TGLe6aGynZ_9F0R1RjRtLFbCA2dkF-3_C2aPWcYSXn1D1rrHHFkiJAN7hgTwTi_MNuznRui89UU-yPwlfTaAwAF13ER_NOSdn-jW3tHEbeQj8WDo4pooiGwvFV6hFuSOk2KtBGZkCaFjVUWE8m06Dyry8JNQRVuToj993H3eve7oxTG3YhhLeREQLcDM0aE05VB3uXmtoKJ44_CgMhs3oUz-PhpClyt7iCWw6reShE1ZC3xGQMvF7uTMG32uVXOvdbEh7WPCrweMplXf-HL2ps1ZUf6qIX78wXvrwGj8cs3Jpq2MSxXlknCqWf2jKZk6VBulZopi7h76rg_6IspXf5nzxWpc70ZI59ja3Qq8l67IHJ6Rn4gmZEoWK47hSpU2kXXNkOdwRyZCg3QIJWwe1PFyYF5YXRxOauV-dQUuixhoH6aTtBDHdE5u-gT1zXQxtxNP6MSN1MU4rq6h-GxMSBMFt1h6UaOqQcy-hnTP6Lb7ntm-Ee2jG_wgpYRtAJnqvKnsQ_5J7L7Dz9TwZ4ALZPR9ZCKoTz108OHPjrSH64W984K_j1v6Q227lUlwUkK9o3oa-6HCOxxpuVeKgjrksxb3kb3tUw8A2LGyZt-S4eVZoST4GM6dsx1CNC5rjCrVrNgf8wXu2inFWfWuT1J2K53vXLONMRretQFPFHfhY65aFCBpgBx9wW8KMPZZsMnScRmNCRzinvo5PiWir7egHu7I6lqUU8tI0JytH0DJwq6Nj95hMQ4NJlr2CjLTCcO8slswA2m8qwBMv6L4rnsvrU4TXxCJcza2bwNWisFDM_RhMIbSoPFLBU_1cw3KG_OJTwPkF8phW0PiHepVoDxzBB_pr37SRBBfLCx_VdxQEDHAXZtypQaLFzhzMpOgNwTxkz7CeT7zh_1Fq3jiot0sMaklesMTXBQc2Pt0GbA72T84NvsZrXnr6iBaWVSmAghqJ5onM09vlNVeZmO6ElnVfSVgMTDUOBTS09Vxlng==",
+    "summary": []
+   },
+   {
+    "id": "ws_087ded1693bdade0006abef48c462087d0ad19082d57732b08",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "site:developers.google.com/search AI features website SEO Google Search AI Overviews official",
+      "site:openai.com ChatGPT search publishers OAI-SearchBot official",
+      "site:blogs.bing.com webmaster generative AI search structured data official Bing",
+      "site:help.openai.com shopping ChatGPT merchants product feeds official"
+     ],
+     "query": "site:developers.google.com/search AI features website SEO Google Search AI Overviews official",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2025/05/succeeding-in-ai-search"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/ai-features?roistat_visit=2540962"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/fundamentals/get-started-developers"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-shopping-r"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/fundamentals/get-on-google?orderBy=name"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/fundamentals/third-party-seo?authuser=002&hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://codelabs.developers.google.com/static/codelabs/chat-apps-gemini/res/knowledge-app/grounding/google-chat-overview.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/assistant/downloads/unlocking-the-power-of-spoken-language.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/static/business-communications/business-messages/files/business-messages-partner-social-toolkit.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/12082a3a-1a59-4bb9-b3e2-08a8c65849b0/OAI_California-Impact_Aug-2025.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/assistant/downloads/get-started.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports?hl=en&utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_087ded1693bdade0006abef48f04bc87d099b40a830cc7a1f6",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 343,
+        "start_index": 204,
+        "title": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1123,
+        "start_index": 984,
+        "title": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1424,
+        "start_index": 1341,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1908,
+        "start_index": 1769,
+        "title": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2418,
+        "start_index": 2279,
+        "title": "Google's Guide to Optimizing for Generative AI Features on Google Search | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 2899,
+        "start_index": 2770,
+        "title": "Shopping with ChatGPT Search | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 3367,
+        "start_index": 3240,
+        "title": "Introducing Search Generative AI performance reports in Search Console  |  Google Search Central Blog  |  Google for Developers",
+        "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports?hl=en&utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Yes. The emerging discipline is often called GEO/AEO (Generative/Answer Engine Optimization), although Google explicitly says the fundamentals are still good SEO rather than a separate set of “AI hacks.” ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n\nThe objective isn't to convince an AI to advertise you. It's to make your company a credible, retrievable candidate when someone asks things like “What are the best X companies in the US?”, “X vs Y,” or “What should I buy for Z?”\n\nI’d focus on six things:\n\n- Make your company machine-discoverable. Ensure important product/service pages are crawlable, indexable, fast, and contain the facts an assistant needs in actual page content. Use appropriate structured data and keep Google Business Profile/Merchant Center information current where relevant. Google says these existing SEO practices carry directly into AI Overviews and AI Mode. ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n- Allow AI search crawlers. In particular, don't accidentally block OpenAI's OAI-SearchBot if you want your pages discoverable and citable in ChatGPT search. OpenAI explicitly recommends allowing it for this purpose. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Create pages that answer buying questions, not just marketing pages. Publish useful comparisons, pricing, specifications, use cases, FAQs, limitations, customer stories and “best for” information. Google's current guidance emphasizes unique, expert-led, non-commodity content rather than content manufactured specifically to game AI answers. ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n- Build independent evidence. Get legitimate reviews, press coverage, industry-directory listings, expert mentions and other third-party sources discussing your company. This is especially valuable because an assistant researching a recommendation can corroborate what your own site claims. Don't buy fake mentions—Google specifically warns against inauthentic tactics. ([developers.google.com](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide?version=published&utm_source=openai))\n- If you sell products, optimize the product-data layer. Give systems accurate names, descriptions, price, availability, images, identifiers and shipping/return information. ChatGPT can use merchant/product metadata when producing shopping results; OpenAI also supports direct merchant product feeds, while Shopify catalog data is already integrated. ([help.openai.com](https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search?utm_source=openai))\n- Measure actual AI visibility. Track referral traffic from assistants, but also repeatedly test high-value customer questions and record whether you're mentioned, recommended, cited and how you're characterized. For Google specifically, Search Console rolled out dedicated generative-AI performance reporting worldwide by August 31, 2026. ([developers.google.com](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports?hl=en&utm_source=openai))\n\nA useful way to execute this is to create a list of 50–100 prompts that represent commercially valuable US customer questions. For example, if you sell payroll software: “best payroll software for a 20-person California company,” “Gusto alternatives for restaurants,” “payroll software with good union reporting,” etc. Then identify why the companies currently recommended for each prompt are winning: their website, reviews, comparison sites, editorial coverage, product feeds, or other sources.\n\nThe important distinction is that you're optimizing for \"recommendation eligibility,\" not merely mentions. An assistant needs enough reliable information to conclude something like: “Company X is appropriate because it has features A/B/C, costs approximately Y, serves US customers, and independent sources substantiate its reputation.”\n\nIf you give me your company name/website and what you sell, I can research how ChatGPT/Google currently encounter your company and give you a concrete US AI-visibility plan."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10639,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 868,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11507
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

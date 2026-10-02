@@ -1,0 +1,395 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 3,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:15-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.00481,
+   "ishod": "ok",
+   "sekund": 6.4,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:11:21 GMT",
+    "x-request-id": "6644b703-c6ba-46b4-a7d7-6390f1bd2a7c"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Проверить и настроить сайт может **технический SEO-специалист или веб-разработчик, который работает с robots.txt, CDN/WAF и AI crawler access**. Ищите не просто «AI SEO», а специалиста, который проверит доступ роботов на уровне сайта и сервера.\n\nПопросите провести аудит:\n\n- `robots.txt` — нет ли запрета для нужных поисковых роботов;\n- настроек Cloudflare, CDN или WAF — не блокируют ли они роботов независимо от `robots.txt`;\n- ответов сайта: нет ли ошибок `403`, `429`, `noindex` и блокировок для важных страниц;\n- доступности основного текста страниц и корректности sitemap.\n\nВажно: **единого сервиса, который “открывает сайт для всех нейросетей”, нет**. Каждая платформа использует собственных роботов и правила. Для появления в поисковых ответах ChatGPT важен, в частности, доступ **OAI-SearchBot**. **GPTBot** — отдельный робот, связанный с использованием контента для обучения; его можно разрешить или запретить независимо. Это описано в [документации OpenAI о роботах](https://developers.openai.com/api/docs/bots).\n\nМожно отправить специалисту такой запрос:\n\n> “Please audit our website’s access for AI search crawlers. Check robots.txt, CDN/WAF and server rules, test important URLs for 403/429/noindex, and confirm whether OAI-SearchBot can crawl them. Please distinguish search visibility from training crawlers such as GPTBot.”\n\nПосле исправлений никто не может гарантировать, что нейросети обязательно покажут компанию: доступность для робота — необходимое условие, но не обещание включения в ответы.",
+  "poiskovye_zaprosy": [
+   "AI crawler access audit robots.txt GEO agency United States ChatGPT crawlers",
+   "website AI bots blocked audit fix WAF robots.txt consultant",
+   "OpenAI crawler GPTBot robots.txt official documentation"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.openai.com/api/docs/bots",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ - OpenAI Help Center"
+   },
+   {
+    "url": "https://crawlledger.net/ai-crawlers/gptbot",
+    "domen": "crawlledger.net",
+    "title": "GPTBot Robots.txt Rules & Policy Data - CrawlLedger"
+   },
+   {
+    "url": "https://mcp-analytics.com/blog/what-is-gptbot",
+    "domen": "mcp-analytics.com",
+    "title": "GPTBot Explained: OpenAI's Crawler, robots.txt, and Blocking"
+   },
+   {
+    "url": "https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d?locale=en",
+    "domen": "zenn.dev",
+    "title": "Don't Lump AI Crawlers Together: AIO Bot Governance That ... - Zenn"
+   },
+   {
+    "url": "https://seomator.com/geo-audit-tool",
+    "domen": "seomator.com",
+    "title": "Free GEO Audit Tool 2026 (Easy & No Signup Required)"
+   },
+   {
+    "url": "https://rankscale.ai/resources/modules/seo-gaps/crawlability-diagnose-and-fix",
+    "domen": "rankscale.ai",
+    "title": "Crawlability: Diagnose and Fix - Rankscale.ai"
+   },
+   {
+    "url": "https://www.honeyb.ai/blog/ai-crawler-user-agents-reference-2026",
+    "domen": "honeyb.ai",
+    "title": "AI Crawler User Agents: GPTBot, ClaudeBot, OAI-SearchBot ..."
+   },
+   {
+    "url": "https://www.scrapeless.com/en/wiki/what-is-gptbot",
+    "domen": "scrapeless.com",
+    "title": "What Is GPTBot? OpenAI Crawler Controls for Websites"
+   },
+   {
+    "url": "https://nohacks.co/blog/ai-user-agents-landscape-2026",
+    "domen": "nohacks.co",
+    "title": "The AI User-Agent Landscape in 2026: A Complete ..."
+   },
+   {
+    "url": "https://spencergoldade.ca/downloads/aeo/AEO-Ebook-Ch5-Sample.pdf",
+    "domen": "spencergoldade.ca",
+    "title": "Answer Engine Optimization — Chapter 5: Technical Access"
+   },
+   {
+    "url": "https://community.openai.com/t/gptbot-makes-over-10000-request-to-my-website/1238489",
+    "domen": "community.openai.com",
+    "title": "GPTBot makes over 10000 request to my website - Bugs"
+   },
+   {
+    "url": "https://searchatlas.com/blog/what-is-gptbot",
+    "domen": "searchatlas.com",
+    "title": "GPTBot: What Is It and How Does It Crawl Websites?"
+   },
+   {
+    "url": "https://capston.ai/robots-txt-for-ai-bots",
+    "domen": "capston.ai",
+    "title": "Robots.txt for AI Bots: GPTBot, ClaudeBot & PerplexityBot - CapstonAI"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.00099,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00118,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00481
+   },
+   "input_tokens": 4527,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 3953,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 473,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5000
+  },
+  "cena": 0.00481,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790899875,
+  "created_at": 1790899875,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_6644b703-c6ba-46b4-a7d7-6390f1bd2a7c",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "AI crawler access audit robots.txt GEO agency United States ChatGPT crawlers",
+     "website AI bots blocked audit fix WAF robots.txt consultant",
+     "OpenAI crawler GPTBot robots.txt official documentation"
+    ],
+    "results": [
+     {
+      "id": 1,
+      "last_updated": "2026-09-29",
+      "snippet": "OpenAI uses web crawlers (“robots”) and user agents to perform actions for its products, either automatically or triggered by user request.\nOpenAI uses OAI-SearchBot and GPTBot robots.txt tags to enable webmasters to manage how their sites and content work with AI.\nEach setting is independent of the others – for example, a webmaster can allow OAI-SearchBot in order to appear in search results while disallowing GPTBot to indicate that crawled content should not be used for training OpenAI’s generative AI foundation models.\n...\nOAI-SearchBot is used to surface websites in search results in ChatGPT’s search features.\n...\nTo help ensure your site appears in search results, we recommend allowing OAI-SearchBot in your site’s robots.txt file and allowing requests from our published IP ranges below.\n...\n|GPTBot|GPTBot is used to make our generative AI foundation models more useful and safe.\nIt is used to crawl content that may be used in training our generative AI foundation models.\nDisallowing GPTBot indicates a site’s content should not be used in training generative AI foundation models.",
+      "source": "web",
+      "title": "Overview of OpenAI Crawlers",
+      "url": "https://developers.openai.com/api/docs/bots"
+     },
+     {
+      "date": "2026-10-01",
+      "id": 2,
+      "last_updated": "2026-10-01",
+      "snippet": "The robots.txt file tells crawlers whether they are permitted to access certain parts of your website.\nOpenAI crawlers respect these rules.\nIf access is disallowed in robots.txt, crawling will stop immediately.\nReview your robots.txt configuration and confirm that OpenAI crawlers are explicitly allowed to access the relevant pages and paths.",
+      "source": "web",
+      "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers",
+      "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+     },
+     {
+      "date": "2026-09-28",
+      "id": 3,
+      "last_updated": "2026-09-28",
+      "snippet": "For your site content to be included in summaries and snippets in ChatGPT, make sure you aren't blocking OAI-SearchBot.\nIf necessary, you may need to update your robots.txt file, to ensure OAI-SearchBot has access.\n...\nPublishers should disallow the GPTBot user-agent from sites and pages they wish to exclude from potential training.",
+      "source": "web",
+      "title": "Publishers and Developers - FAQ - OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+     },
+     {
+      "date": "2026-08-13",
+      "id": 4,
+      "last_updated": "2026-09-24",
+      "snippet": "OpenAI's automatic crawler for content that may be used to improve and train generative AI foundation models.\n...\nhttps://developers.openai.com/api/docs/bots",
+      "source": "web",
+      "title": "GPTBot Robots.txt Rules & Policy Data - CrawlLedger",
+      "url": "https://crawlledger.net/ai-crawlers/gptbot"
+     },
+     {
+      "date": "2026-07-23",
+      "id": 5,
+      "last_updated": "2026-09-22",
+      "snippet": "GPTBot is OpenAI’s web crawler.\nPer OpenAI’s own docs, it “is used to crawl content that may be used in training our generative AI foundation models” — a training-data crawler, full stop, distinct from the two other OpenAI bots covered below.\n...\nOpenAI’s docs are explicit that “each setting is independent of the others” — you can allow one and disallow the other two in robots.txt, and OpenAI will honor each token separately.\n...\nUser-agent: GPTBot\nDisallow: /\n...\nPer OpenAI: “Disallowing GPTBot indicates a site’s content should not be used in training generative AI foundation models.”\n...\nOfficial documentation: **https://developers.openai.com/api/docs/bots**.\n...\nOn compliance: OpenAI’s own docs say GPTBot respects robots.txt.",
+      "source": "web",
+      "title": "GPTBot Explained: OpenAI's Crawler, robots.txt, and Blocking",
+      "url": "https://mcp-analytics.com/blog/what-is-gptbot"
+     },
+     {
+      "date": "2026-04-29",
+      "id": 6,
+      "last_updated": "2026-07-11",
+      "snippet": "OpenAI's official Overview of OpenAI Crawlers explains that OpenAI uses Web crawlers / user agents that operate automatically or upon user request.\nFurthermore, it explains that webmasters can control their relationship with AI through the `OAI-SearchBot` and `GPTBot` robots.txt tags.\nWhat is particularly important is that, according to the official page, **the settings for OAI-SearchBot and GPTBot are independent**.\nOpenAI explains that, for example, you can allow OAI-SearchBot to appear in search results while denying GPTBot to forbid its use for training generative AI foundation models.\n...\nOpenAI officially explains that OAI-SearchBot is the bot used to display websites in ChatGPT's search functionality.\n...\nUser-agent: OAI-SearchBot\n...\n# Disallow OpenAI model-training crawler\nUser-agent: GPTBot\nDisallow: /\n...\nHowever, in practice, you need to combine this with OpenAI's public IP ranges, access logs, response codes, and bot behavior.\n...\n|Want to appear in ChatGPT search|OAI-SearchBot|Allow in robots.txt|Separate from training permission|\n|Do not want OpenAI to use your content for training|GPTBot|Deny in robots.txt|Separate from deleting past data|\n...\n2. Design allow/deny rules per bot\n3. Observe which bots actually visit\n4. Adjust robots/WAF/sitemap/llms based on bot behavior",
+      "source": "web",
+      "title": "Don't Lump AI Crawlers Together: AIO Bot Governance That ... - Zenn",
+      "url": "https://zenn.dev/yuta_yokoi/articles/5d1d7a7438d48d?locale=en"
+     },
+     {
+      "date": "2026-07-21",
+      "id": 7,
+      "last_updated": "2026-09-23",
+      "snippet": "Each page is scored for block-level citability, your robots.txt is checked against 14 AI crawlers in 3 tiers, your JSON-LD is diffed against what is missing, and five AI platforms get their own readiness score.\n...\nTier 1 is the five that decide whether you exist in AI search at all: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot.\n...\nWe check your robots.txt against 14 AI-specific crawlers across three priority tiers.\nTier 1 includes GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, and PerplexityBot—the crawlers for the platforms handling the most AI search queries.\nTier 2 covers Google-Extended, GoogleOther, Applebot-Extended, Amazonbot, and FacebookBot.\nTier 3 includes CCBot, anthropic-ai, Bytespider, and cohere-ai.",
+      "source": "web",
+      "title": "Free GEO Audit Tool 2026 (Easy & No Signup Required)",
+      "url": "https://seomator.com/geo-audit-tool"
+     },
+     {
+      "id": 8,
+      "last_updated": "2026-05-17",
+      "snippet": "**Step 1: test bot access.** Use Rankscale's Page Audit V2 to check if all bots are allowed.\nWe check all of the bots of each AI Search Engine.\n**Step 2: Check WAF and CDN rules.** Cloudflare, Fastly, and AWS WAF ship with \"AI Scraper\" or \"AI Bot\" block rulesets that override robots.txt.\nLog into your CDN console and search for rules targeting GPTBot, CCBot, or \"AI scrapers.\"\nDisable them or add explicit allow rules for the four user agents above.\nIf your team enabled the Cloudflare \"Block AI Scrapers and Crawlers\" toggle to protect content: turn it off for the pages you want AI to cite.\n...\n**Step 3: Read robots.txt.** Open `https://yourdomain.com/robots.txt`.\nLook for any `Disallow: /` rule targeting one of the four user agents above.\n...\nThis blocks ChatGPT entirely.\nRemove the Disallow, or scope it narrowly (e.g. `Disallow: /admin/`).\n...\n## Fix patterns\n- **robots.txt too broad:** replace blanket `Disallow: /` with narrow paths (`/admin/`, `/checkout/`, `/api/`).\n- **WAF catching legitimate bots:** add explicit Allow rules for the four user agents above.\n- **Rate-limits too aggressive:** whitelist bot user agents or increase request thresholds for known crawlers.\n- **IP-based blocking:** AI crawlers come from cloud IP ranges.\nIf you block cloud IPs, you block them.\nMove to user-agent-based rules.\n...\nRun Rankscale's Page Audit V2 to check if every bot can access your website.\nIf any fails, fix robots.txt or WAF this morning.",
+      "source": "web",
+      "title": "Crawlability: Diagnose and Fix - Rankscale.ai",
+      "url": "https://rankscale.ai/resources/modules/seo-gaps/crawlability-diagnose-and-fix"
+     },
+     {
+      "date": "2026-05-28",
+      "id": 9,
+      "last_updated": "2026-09-28",
+      "snippet": "|**GPTBot**|OpenAI|Training crawl|No (training only)|Allow if comfortable with training use, block otherwise|\n|**OAI-SearchBot**|OpenAI|ChatGPT search indexing|Yes (citations in ChatGPT)|Allow|\n...\nOpenAI runs three separate crawlers and each can be controlled independently in robots.txt.\n...\n**GPTBot** is the training crawler.\nIt fetches public content that may be used to train OpenAI's future models.\nBlocking it removes your site from future training data; it does not affect ChatGPT search results or live ChatGPT fetches.\n...\n**OAI-SearchBot** is the search indexer.\nIt crawls and indexes content so ChatGPT's search feature can cite your pages when users ask questions.\n...\n1. Take the requesting IP from your access log.\n2. Reverse DNS lookup: `dig -x <ip>`.",
+      "source": "web",
+      "title": "AI Crawler User Agents: GPTBot, ClaudeBot, OAI-SearchBot ...",
+      "url": "https://www.honeyb.ai/blog/ai-crawler-user-agents-reference-2026"
+     },
+     {
+      "id": 10,
+      "last_updated": "2026-09-22",
+      "snippet": "A site publishes crawler instructions in the robots.txt file at the origin root.\nThe file can include a user-agent group for GPTBot and allow or disallow rules for paths.",
+      "source": "web",
+      "title": "What Is GPTBot? OpenAI Crawler Controls for Websites",
+      "url": "https://www.scrapeless.com/en/wiki/what-is-gptbot"
+     },
+     {
+      "date": "2026-04-13",
+      "id": 11,
+      "last_updated": "2026-09-28",
+      "snippet": "- **User-agent:** `Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.4; +https://openai.com/gptbot`\n- **Purpose:** Training data collection for future OpenAI models\n- **Respects `robots.txt`:** Yes\n- **Published IP ranges:** `https://openai.com/gptbot.json`\n- **Primary source:** `https://developers.openai.com/api/docs/bots`\nOpenAI runs three distinct bots (GPTBot, OAI-SearchBot, ChatGPT-User), each with its own IP JSON file and its own `robots.txt` token, though OpenAI now documents that `robots.txt` may not apply to ChatGPT-User because a user initiates the fetch.\n...\nRespecting robots.txt is vendor-specific, not category-specific.\nOpenAI's GPTBot and OAI-SearchBot respect robots.txt, but OpenAI documents that robots.txt may not apply to ChatGPT-User because a user initiates the fetch.",
+      "source": "web",
+      "title": "The AI User-Agent Landscape in 2026: A Complete ...",
+      "url": "https://nohacks.co/blog/ai-user-agents-landscape-2026"
+     },
+     {
+      "id": 12,
+      "last_updated": "2026-06-01",
+      "snippet": "Log into your Cloudflare dashboard\nNavigate to Security → Bots\nCheck whether Bot Fight Mode is enabled\n...\nOption A (recommended): Disable Bot Fight Mode entirely if you’re on the free plan.\nOn paid plans, use Super Bot Fight Mode with custom rules that allow known AI crawlers.\nOption B: Create WAF (Web Application Firewall) custom rules that explicitly allow AI crawler user agents.\n...\nIf you’re using Cloudflare: create a WAF rule that exempts known AI crawler user agents from rate limits.\nIf you’re managing rate limiting at the server level: add exceptions for the AI user agent strings listed earlier in this chapter.\n...\nStep 1: Check robots.txt (5 minutes)\nNavigate to yoursite.com/robots.txt\nLook for any blanket Disallow: /  rules\nCheck each AI user agent listed above: is it explicitly allowed, blocked, or not mentioned?\nIf a user agent isn’t mentioned, the default User-agent: *  rules apply\nStep 2: Check Cloudflare or CDN settings (5 minutes)\nCheck your response headers for Cloudflare indicators ( cf-ray , server:\ncloudflare )\nIf Cloudflare: log into the dashboard and check Bot Fight Mode\nIf another CDN or WAF: check bot-management settings for AI crawler blocking\nStep 3: Check JavaScript rendering (10 minutes)\nOpen your top 5 pages in a browser\nView Page Source on each\nSearch the source for your key content (headlines, product descriptions, FAQ answers)\nFlag any page where critical content is missing from the source HTML\nStep 4: Check server logs for AI bot traffic (10 minutes)\nIf you have access to server logs, search for AI crawler visits:\n...\nIf you see zero AI bot traffic after removing blocks, give it 1-2 weeks for crawlers to return and check again.\nIf you still see nothing after two weeks, check for CDN-level blocking or rate limiting.\n...\nRun your top 3 pages through Google PageSpeed Insights.\nFlag any page with LCP above 2.5 seconds.",
+      "source": "web",
+      "title": "Answer Engine Optimization — Chapter 5: Technical Access",
+      "url": "https://spencergoldade.ca/downloads/aeo/AEO-Ebook-Ch5-Sample.pdf"
+     },
+     {
+      "date": "2025-04-23",
+      "id": 13,
+      "last_updated": "2026-10-01",
+      "snippet": "GPTBot user agent information is published at https://platform.openai.com/docs/bots, which you can use to restrict crawling in your robots.txt file.\n...\nIf you’d like to disallow crawlers from visiting all or part of your site you can do so using the robots.txt file.",
+      "source": "web",
+      "title": "GPTBot makes over 10000 request to my website - Bugs",
+      "url": "https://community.openai.com/t/gptbot-makes-over-10000-request-to-my-website/1238489"
+     },
+     {
+      "date": "2026-05-28",
+      "id": 14,
+      "last_updated": "2026-09-25",
+      "snippet": "Site owners control GPTBot access through the robots.txt protocol, using the GPTBot user-agent token to allow, block, or restrict the crawler to specific directories.",
+      "source": "web",
+      "title": "GPTBot: What Is It and How Does It Crawl Websites?",
+      "url": "https://searchatlas.com/blog/what-is-gptbot/"
+     },
+     {
+      "date": "2026-08-04",
+      "id": 15,
+      "last_updated": "2026-09-22",
+      "snippet": "1. **Step 1: Audit your current robots.txt.** Open https://yourdomain.com/robots.txt in a browser.\nSearch for: GPTBot, PerplexityBot, ClaudeBot, Google-Extended, anthropic-ai, CCBot, Omgilibot, FacebookBot, Bytespider.\nAny “Disallow: /” entry under these = invisible to that engine.\nDocument baseline before changes.\n...\n3. **Step 3: Allow the search/citation bots (recommended for everyone).** Copy-paste this block at the TOP of your robots.txt — these bots fetch pages at query time to cite you:\n...\n7. **Step 7: Validate per-bot fetchability.** Test each user-agent with curl: `curl -A \"PerplexityBot\" -I https://yourdomain.com/your-page/` — expect HTTP 200 + no X-Robots-Tag: noindex.\nRepeat for GPTBot, ClaudeBot, OAI-SearchBot.\nAlso check Cloudflare/CDN bot-management settings — many CDNs block AI bots at the WAF layer regardless of robots.txt.\n8. **Step 8: Check CDN + WAF + bot-management overrides.** Cloudflare “Block AI Bots” toggle (added 2024) overrides your robots.txt.\nSame for AWS WAF managed rules and Akamai Bot Manager.\nIf you allowed bots in robots.txt but they still 403, the block is upstream.\nDisable AI-bot blocking rules in your CDN dashboard.\n...\nAdd quarterly robots.txt audit to your SEO calendar.",
+      "source": "web",
+      "title": "Robots.txt for AI Bots: GPTBot, ClaudeBot & PerplexityBot - CapstonAI",
+      "url": "https://capston.ai/robots-txt-for-ai-bots/"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Проверить и настроить сайт может **технический SEO-специалист или веб-разработчик, который работает с robots.txt, CDN/WAF и AI crawler access**. Ищите не просто «AI SEO», а специалиста, который проверит доступ роботов на уровне сайта и сервера.\n\nПопросите провести аудит:\n\n- `robots.txt` — нет ли запрета для нужных поисковых роботов;\n- настроек Cloudflare, CDN или WAF — не блокируют ли они роботов независимо от `robots.txt`;\n- ответов сайта: нет ли ошибок `403`, `429`, `noindex` и блокировок для важных страниц;\n- доступности основного текста страниц и корректности sitemap.\n\nВажно: **единого сервиса, который “открывает сайт для всех нейросетей”, нет**. Каждая платформа использует собственных роботов и правила. Для появления в поисковых ответах ChatGPT важен, в частности, доступ **OAI-SearchBot**. **GPTBot** — отдельный робот, связанный с использованием контента для обучения; его можно разрешить или запретить независимо. Это описано в [документации OpenAI о роботах](https://developers.openai.com/api/docs/bots).\n\nМожно отправить специалисту такой запрос:\n\n> “Please audit our website’s access for AI search crawlers. Check robots.txt, CDN/WAF and server rules, test important URLs for 403/429/noindex, and confirm whether OAI-SearchBot can crawl them. Please distinguish search visibility from training crawlers such as GPTBot.”\n\nПосле исправлений никто не может гарантировать, что нейросети обязательно покажут компанию: доступность для робота — необходимое условие, но не обещание включения в ответы.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_c0955de8-c5c5-4233-b201-7e1af6e8d4a8",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.00099,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00118,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00481
+   },
+   "input_tokens": 4527,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 3953,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 473,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5000
+  },
+  "user": null
+ }
+}

@@ -1,0 +1,389 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 6,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:42-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.00478,
+   "ishod": "ok",
+   "sekund": 6.7,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:11:48 GMT",
+    "x-request-id": "16b7c359-e0fe-4e4a-a157-06e82f19e449"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Проверить и открыть сайт может ваш **веб-разработчик или технический SEO-специалист**, у которого есть доступ к сайту, хостингу и CDN/WAF. Ищите услугу под названием **AI crawler access audit** или **AI visibility technical audit**. Не обязательно нанимать агентство: специалист может проверить настройки и внести изменения.\n\nНачните с простого: откройте `https://ваш-домен/robots.txt` и проверьте, нет ли правил `Disallow: /` или отдельных запретов для нужных роботов. Для первичной проверки можно воспользоваться бесплатным **AI Crawler Checker** от GEO Toolbox: https://geotoolbox.ai/tools/ai-crawler-checker — он анализирует разрешения в `robots.txt`, но сам по себе не подтверждает, что сайт будет упоминаться в ответах нейросетей.\n\nПопросите специалиста проверить не только `robots.txt`, но и блокировки со стороны хостинга/CDN/WAF, доступность страниц без входа в аккаунт и возможность прочитать их содержимое. Разрешения настраивают отдельно для разных задач: например, поиск и ответы в ChatGPT связаны с `OAI-SearchBot` и `ChatGPT-User`, а `GPTBot` используется для сбора данных на обучение. Разрешать все AI-роботы необязательно — сначала решите, что именно вы хотите разрешить.\n\nВажно: открытый доступ — лишь техническое условие. Он не гарантирует, что компания появится в ответах ChatGPT, Claude или Perplexity. Попросите специалиста согласовать изменения с вами и не удалять все ограничения без разбора: в них могут быть намеренно закрыты личные данные, служебные страницы или части сайта.",
+  "poiskovye_zaprosy": [
+   "AI crawler website audit robots.txt service AI visibility agency",
+   "LLM crawler access audit website robots.txt consultant United States",
+   "OpenAI GPTBot ClaudeBot PerplexityBot robots.txt website check service"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://www.ritnerdigital.com/geo/llm-crawlability",
+    "domen": "ritnerdigital.com",
+    "title": "LLM Crawlability — Make Your Site Readable by AI"
+   },
+   {
+    "url": "https://seocrawl.ai/free-seo-tools/robots-ai-bot-checker",
+    "domen": "seocrawl.ai",
+    "title": "Robots.txt AI Bot Checker: Free GPTBot & ClaudeBot Test"
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://hyperleap.ai/llm-bot-checker",
+    "domen": "hyperleap.ai",
+    "title": "LLM Bot Checker — Is ChatGPT/Claude/Perplexity Crawling You?"
+   },
+   {
+    "url": "https://www.rankability.com/products/auditor",
+    "domen": "rankability.com",
+    "title": "Audit"
+   },
+   {
+    "url": "https://geotoolbox.ai/tools/ai-crawler-checker",
+    "domen": "geotoolbox.ai",
+    "title": "AI Crawler Checker: Free robots.txt Test | GEO Toolbox"
+   },
+   {
+    "url": "https://eu-ai-audit.eu",
+    "domen": "eu-ai-audit.eu",
+    "title": "Audit·AI™ — Real AI Visibility Audit by 5thElement.ai"
+   },
+   {
+    "url": "https://rankprompt.com/tools/robots-txt-checker",
+    "domen": "rankprompt.com",
+    "title": "Robots.txt Checker"
+   },
+   {
+    "url": "https://www.mywebaudit.com/blog/ai-visibility-audit-walkthrough",
+    "domen": "mywebaudit.com",
+    "title": "AI Visibility Audit Example: Full Walkthrough for Agencies"
+   },
+   {
+    "url": "https://www.ai-visibility.org.uk/ai-visibility-checker",
+    "domen": "ai-visibility.org.uk",
+    "title": "AI Visibility Checker: Free AI Readiness Scan"
+   },
+   {
+    "url": "https://www.mywebaudit.com/template/ai-visibility-audit",
+    "domen": "mywebaudit.com",
+    "title": "AI Visibility Report Example | Agency AI SEO Audit Tool"
+   },
+   {
+    "url": "https://www.searchbloom.com/ai-seo/inclusion/crawler-access",
+    "domen": "searchbloom.com",
+    "title": "Crawler Access for AI SEO (GPTBot & ClaudeBot)"
+   },
+   {
+    "url": "https://aeo-platform.com/use-cases/technical-audit",
+    "domen": "aeo-platform.com",
+    "title": "Technical AEO Auditing — AEO Use Case - AEO Platform"
+   },
+   {
+    "url": "https://www.tryprofound.com/features/agent-analytics/crawlability",
+    "domen": "tryprofound.com",
+    "title": "Audit and optimize your website's AI crawlability"
+   },
+   {
+    "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai",
+    "domen": "ai-visibility.org.uk",
+    "title": "Is Your Website Blocking AI Crawlers? How to Check - AI Visibility"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.00096,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00118,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00478
+   },
+   "input_tokens": 4412,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 3838,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 472,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 4884
+  },
+  "cena": 0.00478,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790899902,
+  "created_at": 1790899902,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_16b7c359-e0fe-4e4a-a157-06e82f19e449",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "AI crawler website audit robots.txt service AI visibility agency",
+     "LLM crawler access audit website robots.txt consultant United States",
+     "OpenAI GPTBot ClaudeBot PerplexityBot robots.txt website check service"
+    ],
+    "results": [
+     {
+      "id": 1,
+      "last_updated": "2026-09-08",
+      "snippet": "We audit and rewrite your robots.txt to explicitly allow GPTBot, ClaudeBot, PerplexityBot, Google-Extended, and other AI crawlers — while maintaining your security posture.\n...\nWe test your site against every major AI crawler — checking robots.txt, WAF rules, JavaScript rendering, structured data coverage, and content accessibility.",
+      "source": "web",
+      "title": "LLM Crawlability — Make Your Site Readable by AI",
+      "url": "https://www.ritnerdigital.com/geo/llm-crawlability"
+     },
+     {
+      "id": 2,
+      "last_updated": "2026-09-22",
+      "snippet": "Paste your domain or robots.txt URL.\nWe read the file, match every major AI crawler against your Allow and Disallow rules, and tell you bot by bot which ones reach your site.\nNo sign-up needed.\n...\nFree, no sign-up.\nWe read your robots.txt and show which AI crawlers — GPTBot, ClaudeBot, Google-Extended, PerplexityBot and more — you currently allow or block.\n...\n- Per-bot verdict (Allowed, Partial, Blocked) for every major AI user-agent\n- Training crawlers: GPTBot, ClaudeBot, Google-Extended, CCBot, Bytespider, Meta-ExternalAgent\n- Search crawlers: OAI-SearchBot, Claude-SearchBot, PerplexityBot, Applebot-Extended\n- On-demand fetch bots: ChatGPT-User, Claude-User, Perplexity-User\n- Robots.txt URL location and HTTP status code\n...\nA tool that reads your robots.txt and tells you which AI crawlers you allow or block, one bot at a time.",
+      "source": "web",
+      "title": "Robots.txt AI Bot Checker: Free GPTBot & ClaudeBot Test",
+      "url": "https://seocrawl.ai/free-seo-tools/robots-ai-bot-checker"
+     },
+     {
+      "id": 3,
+      "last_updated": "2026-09-29",
+      "snippet": "It is used to crawl content that may be used in training our generative AI foundation models.",
+      "source": "web",
+      "title": "Overview of OpenAI Crawlers",
+      "url": "https://developers.openai.com/api/docs/bots"
+     },
+     {
+      "id": 4,
+      "last_updated": "2026-09-18",
+      "snippet": "Enter a URL to see which AI bots can crawl your site based on robots.txt\n...\nAn LLM Bot Checker analyzes your website's robots.txt file to determine which AI crawlers — like GPTBot (OpenAI), ClaudeBot (Anthropic), PerplexityBot (Perplexity), and Google-Extended (Google AI) — are allowed or blocked from accessing your content.\nThis directly affects whether your pages appear in AI-powered search results, chatbot responses, and AI Overviews.\n...\n- **GPTBot**— OpenAI's crawler for ChatGPT training and retrieval\n- **ChatGPT-User**— OpenAI's real-time browsing agent\n- **ClaudeBot**— Anthropic's crawler for Claude AI\n- **PerplexityBot**— Perplexity AI's search crawler\n...\nTo ensure AI crawlers can access your content, add explicit allow rules:\n> User-agent: GPTBot Allow: / User-agent: ClaudeBot Allow: / User-agent: PerplexityBot Allow: / User-agent: Google-Extended Allow: /",
+      "source": "web",
+      "title": "LLM Bot Checker — Is ChatGPT/Claude/Perplexity Crawling You?",
+      "url": "https://hyperleap.ai/llm-bot-checker"
+     },
+     {
+      "id": 5,
+      "last_updated": "2026-09-29",
+      "snippet": "Check whether crawlers can access your client’s pages and how the site is structured.\nTurn technical findings into a focused list of URLs for your agency to investigate.\n...\nReview crawler access, indexability, canonicals, internal links, and page structure across the crawl.\nOpen the relevant URLs to understand the issue in context.\nAI crawler access checks use robots.txt evidence.\nThey help identify access restrictions; they do not prove that a platform has cited the page.\n...\n### Choose the scope\nStart from the website, an XML sitemap, or a URL list.\nSet the crawl boundaries for the work you need.\n...\n### Investigate the findings\nReview affected pages and distinguish issues from intentional settings before recommending changes.\n...\nYes.\nUse a sitemap or URL list, or restrict the crawl to selected paths.\nInclude subdomains and exclude paths when appropriate.\n...\nSite Auditor examines technical evidence across a website.\nPage Content Auditor evaluates one public page against a target keyword and search intent.",
+      "source": "web",
+      "title": "Audit",
+      "url": "https://www.rankability.com/products/auditor/"
+     },
+     {
+      "id": 6,
+      "last_updated": "2026-09-23",
+      "snippet": "Paste a domain and see which of 34 AI crawlers your robots.txt allows or blocks.\nGPTBot, ClaudeBot, PerplexityBot, Google-Extended and the rest, each with the exact Disallow line doing the blocking.\nServer-side, so it works where browser checkers fail.\nFree, no sign-up.\n...\nWe fetch `/robots.txt` server-side and check it against 34 AI crawler user-agents.\nThis is a permission check, not a visibility check.\n...\n### A domain or URL\nEnter any site.\nWe fetch its /robots.txt server-side, so the check works even on sites that reject browser requests.\n2. 02Evaluate\n### 34 AI crawler rules\nWe parse the file against 34 documented AI user-agents from OpenAI, Anthropic, Google, Perplexity, Meta, Apple, Microsoft, Amazon, ByteDance and others, for the homepage path.\n...\nEvery crawler comes back allowed or blocked, grouped by purpose, with the precise Disallow line and line number to change.\n...\n34 documented user-agents, maintained against official provider docs and the ai.robots.txt project: OpenAI (GPTBot, OAI-SearchBot, ChatGPT-User), Anthropic (ClaudeBot, Claude-User), Google (Google-Extended), Perplexity, Meta, Apple, Microsoft, Amazon, ByteDance, Common Crawl, Cohere, Mistral, xAI and more.",
+      "source": "web",
+      "title": "AI Crawler Checker: Free robots.txt Test | GEO Toolbox",
+      "url": "https://geotoolbox.ai/tools/ai-crawler-checker"
+     },
+     {
+      "id": 7,
+      "last_updated": "2026-09-28",
+      "snippet": "Complete Diagnostic · 167 Signals · On-Site + On/Off Page\n...\nEnter any URL and receive a full-stack AI Signals — AEO, GEO, SEO audit with synthesis and action plan.\n...\n49 €\nOne-time · Full audit\n- ✓ 167 signals complete\n- ✓ AI executive synthesis\n- ✓ Priority action plan\n- ✓ Printable PDF report\n...\n**What it is:** AI Signals are dedicated machine-readable files and permissions that explicitly declare your brand to AI crawlers — separate from SEO or schema work.\n...\n**What it is:** AIO covers the full stack of signals that determine how AI systems understand, rank, and reproduce your content — from crawler permissions to topical authority to RAG-readiness.\n...\n**What it is:** On-Site signals span your entire domain infrastructure — file architecture, crawl configuration, AI governance files, and technical health — not limited to a single page.\n**Covers signals from:** GEO (llms.txt, ai.json, entities.json, robots.txt) · SEO (sitemap, canonicals, HTTPS, crawl budget) · AIO (AI crawl permissions, allow-lane-matrix) · AI Signals (proof.json, session.json, governance.json)\n...\nAIVENTURE S.R.L.\n· 5thElement.ai\nWhatsApp · +40 737 123 540",
+      "source": "web",
+      "title": "Audit·AI™ — Real AI Visibility Audit by 5thElement.ai",
+      "url": "https://eu-ai-audit.eu/"
+     },
+     {
+      "id": 8,
+      "last_updated": "2026-03-26",
+      "snippet": "Paste your website URL.\nWe read your live `robots.txt` and\nshow whether major AI crawlers are explicitly allowed, blocked with\n`Disallow: /`, or not named in the file.\n...\nThis tool only interprets explicit `User-agent` lines that\nmatch each bot’s token.\nIf a bot isn’t listed in your file, we show “Not specified”; you may still\ninherit rules from other blocks depending on crawler behavior.\n...\nMonitor AI visibility over time, compare to competitors, and act on clear recommendations, not just a single static file.",
+      "source": "web",
+      "title": "Robots.txt Checker",
+      "url": "https://rankprompt.com/tools/robots-txt-checker/"
+     },
+     {
+      "date": "2026-02-10",
+      "id": 9,
+      "last_updated": "2026-09-21",
+      "snippet": "AI Crawler Access checks whether robots.txt blocks AI crawlers such as GPTBot, ClaudeBot, or PerplexityBot.\n...\nIf the robots.txt blocks AI crawlers, nothing else in the optimization conversation matters until that’s fixed.",
+      "source": "web",
+      "title": "AI Visibility Audit Example: Full Walkthrough for Agencies",
+      "url": "https://www.mywebaudit.com/blog/ai-visibility-audit-walkthrough"
+     },
+     {
+      "date": "2026-02-20",
+      "id": 10,
+      "last_updated": "2026-09-30",
+      "snippet": "Check whether ChatGPT, Claude, Gemini and Perplexity can discover, interpret and safely cite your website.\nThe reference implementation of the AI Discovery Files specification validates all ten files in under a minute, against the published processing model and validator-output.schema.json.\n...\nThe **AI Visibility Checker** is a free technical tool built by 365i, the publisher of the AI Discovery Files specification.\nIt validates your website against the exact standard, not an approximation of it.\n...\n- ✓ Checks GPTBot, ClaudeBot, and PerplexityBot crawler access\n...\nValidates whether AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.) are allowed, blocked, or contradicted by your `robots.txt` and AI-specific directives.\n...\n1. **Enter your domain** Type your domain name (e.g. example.com) and click Check.\n2. **Automated AI visibility analysis** The AI Visibility Checker scans your publicly accessible AI-facing infrastructure in real time.\n3. **AI visibility score and recommendations** You get a detailed AI visibility score, a file-by-file breakdown, and actionable recommendations to improve it.\n...\nThe 365i AI Crawler Checker is the focused companion: it tests 14 named AI crawlers against your robots.txt and live server responses in seconds, then drafts the exact message to send your host if any are blocked.\n...\nThe AI Visibility Checker validates your `robots.txt` against known AI crawler identifiers, including GPTBot (ChatGPT), ClaudeBot (Claude), PerplexityBot (Perplexity), and others.",
+      "source": "web",
+      "title": "AI Visibility Checker: Free AI Readiness Scan",
+      "url": "https://www.ai-visibility.org.uk/ai-visibility-checker/"
+     },
+     {
+      "id": 11,
+      "last_updated": "2026-09-22",
+      "snippet": "We test visibility across 4 AI platforms simultaneously: ChatGPT, Claude, Perplexity, and Gemini.\n...\nWe score 9 technical elements from schema markup, semantic HTML, E-E-A-T signals, llms.txt, and more.\n...\nOur 9-point technical assessment covers schema markup, llms.txt implementation, semantic HTML structure, E-E-A-T signals, and Core Web Vitals.\n...\nAdd your client's website, and our system handles the rest.\nCompetitors are automatically detected based on who AI platforms actually cite for relevant queries, giving you competitive intelligence that matches real-world AI recommendations.\n...\nNine elements directly impact whether AI platforms can discover and cite your client's content:\n- **Schema Markup:** Structured data that helps AI platforms understand business information\n- **llms.txt File:** Instructions for AI crawlers about your content and priorities\n- **AI Crawler Access:** Whether GPTBot, ClaudeBot, and PerplexityBot are allowed\n- **Core Web Vitals:** Page speed affects crawl efficiency and content availability\n...\nThink robots.txt, but for AI crawlers.\nAn llms.txt file tells ChatGPT, Claude, Perplexity, and other AI platforms what your business does, what services you offer, and which content to prioritize when answering user questions.",
+      "source": "web",
+      "title": "AI Visibility Report Example | Agency AI SEO Audit Tool",
+      "url": "https://www.mywebaudit.com/template/ai-visibility-audit"
+     },
+     {
+      "date": "2026-05-16",
+      "id": 12,
+      "last_updated": "2026-09-25",
+      "snippet": "The audit: fetch robots.txt from your production domain (https://yourdomain.com/robots.txt).\n...\nFetch the robots.txt directly.\nUse curl or your browser at https://yourdomain.com/robots.txt.\nRead the content.\nNote every User-agent block.\nNote the Allow and Disallow rules.\nMap each bot you care about against the rules.\nThe retrieval bots above plus any training bots that matter.\nConfirm each bot has the access you want.\n...\n**Step 2: robots.txt verification.** Fetch the current production robots.txt from your primary domain and any public subdomains.\nCompare the content against your intended posture document.\n...\nVerify the bot management rules at the edge.",
+      "source": "web",
+      "title": "Crawler Access for AI SEO (GPTBot & ClaudeBot)",
+      "url": "https://www.searchbloom.com/ai-seo/inclusion/crawler-access/"
+     },
+     {
+      "date": "2026-03-22",
+      "id": 13,
+      "last_updated": "2026-05-15",
+      "snippet": "The platform scans your website for AI crawler accessibility, structured data quality, llms.txt configuration, and content architecture issues.\n...\nThe platform provides code-level recommendations for robots.txt changes, schema markup additions, and llms.txt implementation.\n...\nAEO Platform runs a comprehensive technical audit that evaluates your website through the lens of AI engine accessibility.\nThe audit checks robots.txt configuration for AI crawler access, llms.txt implementation, structured data completeness, JavaScript rendering requirements, crawl paths, and content architecture.\nThe Detection-Diagnosis-Resolution framework identifies each technical issue, explains its impact on AI visibility, and provides specific steps to fix it.",
+      "source": "web",
+      "title": "Technical AEO Auditing — AEO Use Case - AEO Platform",
+      "url": "https://aeo-platform.com/use-cases/technical-audit"
+     },
+     {
+      "id": 14,
+      "last_updated": "2026-09-30",
+      "snippet": "Measure how AI answer engines crawl your site, diagnose fetchability issues, and fix what's blocking your content from being cited.\n...\nTrack which AI crawlers visit your site, when, and how frequently.\n...\nIdentify legitimate AI crawlers and filter out spoofed bots for accurate data.\n...\nFind and fix the technical issues preventing AI from accessing your pages.\n...\nGet live visibility into AI bot activity, including which crawlers are active and what they're requesting.\n...\nProfound's Agent Analytics monitors AI crawler activity directly from your server logs and CDN data.\nYou can see which bots visited your site, when they crawled, which pages they accessed, and whether they returned errors or slow responses.\n...\nThe most common issues include pages blocked in robots.txt, slow server response times that cause bots to abandon requests, JavaScript-heavy rendering that AI bots cannot parse, missing or misconfigured llms.txt files, and CDN rules that block non-browser user agents.",
+      "source": "web",
+      "title": "Audit and optimize your website's AI crawlability",
+      "url": "https://www.tryprofound.com/features/agent-analytics/crawlability"
+     },
+     {
+      "date": "2026-03-28",
+      "id": 15,
+      "last_updated": "2026-09-30",
+      "snippet": "Open `https://yourdomain.com/robots.txt` in your browser.\nLook for rules targeting these user agents:\n- `GPTBot`, `OAI-SearchBot`, `ChatGPT-User` (OpenAI)\n- `ClaudeBot`, `Claude-SearchBot`, `Claude-User` (Anthropic)\n- `PerplexityBot`, `Perplexity-User` (Perplexity)\n- `Google-Extended` (Gemini training and grounding switch)\n...\nThe free 365i AI Crawler Checker sends a live request as each of 14 AI crawlers and reports the response.\n...\nThe 365i AI Crawler Checker tests 14 of the top AI crawlers against your live site and shows you, bot by bot, which ones can actually reach it.\n...\nAt minimum allow the retrieval crawlers that feed live AI answers: `OAI-SearchBot` and `ChatGPT-User` (ChatGPT), `Claude-SearchBot` and `Claude-User` (Claude), and `PerplexityBot` (Perplexity).",
+      "source": "web",
+      "title": "Is Your Website Blocking AI Crawlers? How to Check - AI Visibility",
+      "url": "https://www.ai-visibility.org.uk/blog/is-your-website-blocking-ai/"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Проверить и открыть сайт может ваш **веб-разработчик или технический SEO-специалист**, у которого есть доступ к сайту, хостингу и CDN/WAF. Ищите услугу под названием **AI crawler access audit** или **AI visibility technical audit**. Не обязательно нанимать агентство: специалист может проверить настройки и внести изменения.\n\nНачните с простого: откройте `https://ваш-домен/robots.txt` и проверьте, нет ли правил `Disallow: /` или отдельных запретов для нужных роботов. Для первичной проверки можно воспользоваться бесплатным **AI Crawler Checker** от GEO Toolbox: https://geotoolbox.ai/tools/ai-crawler-checker — он анализирует разрешения в `robots.txt`, но сам по себе не подтверждает, что сайт будет упоминаться в ответах нейросетей.\n\nПопросите специалиста проверить не только `robots.txt`, но и блокировки со стороны хостинга/CDN/WAF, доступность страниц без входа в аккаунт и возможность прочитать их содержимое. Разрешения настраивают отдельно для разных задач: например, поиск и ответы в ChatGPT связаны с `OAI-SearchBot` и `ChatGPT-User`, а `GPTBot` используется для сбора данных на обучение. Разрешать все AI-роботы необязательно — сначала решите, что именно вы хотите разрешить.\n\nВажно: открытый доступ — лишь техническое условие. Он не гарантирует, что компания появится в ответах ChatGPT, Claude или Perplexity. Попросите специалиста согласовать изменения с вами и не удалять все ограничения без разбора: в них могут быть намеренно закрыты личные данные, служебные страницы или части сайта.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_d20f64ea-4d89-4a44-89d0-9922a8193802",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.00096,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00118,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.00478
+   },
+   "input_tokens": 4412,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 3838,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 472,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 4884
+  },
+  "user": null
+ }
+}

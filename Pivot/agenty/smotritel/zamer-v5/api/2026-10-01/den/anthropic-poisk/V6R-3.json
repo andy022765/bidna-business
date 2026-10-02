@@ -1,0 +1,472 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 3,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:14-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.08046,
+   "ishod": "ok",
+   "sekund": 19.8,
+   "meta": {
+    "request_id": "req_011CfcSYotKk2PhKe2JK794g"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "# Кто это делает — и это не отдельная «служба», а настройка, которую может сделать любой администратор сайта или подрядчик\n\nВажно понять: нет какого-то единого «регулятора», который централизованно открывает или закрывает сайты для ИИ. robots.txt — это вежливая просьба, а не технический барьер. Файл не блокирует доступ физически. Добросовестные роботы (GPTBot, ClaudeBot, Googlebot) его читают и подчиняются. То есть вопрос решается на уровне настроек вашего сайта.\n\n## Кто конкретно может это сделать\n\n1. **Вы сами** — если есть доступ к файлам сайта (или к панели хостинга/CMS), достаточно отредактировать один текстовый файл `robots.txt` в корне сайта.\n2. **Ваш веб-мастер/разработчик/хостинг-провайдер** — если сайт делала студия или фрилансер, это 5-минутная правка для любого, кто умеет работать с сайтом.\n3. **SEO/GEO-специалист (по продвижению в ИИ)** — если хотите не просто «открыть», а грамотно настроить, кого пускать для обучения, а кого только для цитирования в ответах ИИ.\n4. **Cloudflare / WAF / CDN**, если сайт использует такую защиту — там тоже могут быть отдельные блокировки ботов, независимо от robots.txt.\n\n## Как проверить, закрыт ли сайт\n\n- Откройте файл напрямую — https://вашдомен/robots.txt — и посмотрите, нет ли там строк вида `Disallow: /` для ботов типа GPTBot, ClaudeBot, PerplexityBot и т.д.\n- Можно использовать готовые онлайн-чекеры доступности сайта для нейросетей — например, инструменты, которые проверяют доступность сайта для ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, Qwen и других нейросетей, анализируя AI-ботов, robots.txt, HTTP-коды и ограничения.\n- Учтите нюанс: robots.txt содержит Allow: / для GPTBot и ClaudeBot, технический SEO-специалист уверен, что доступ настроен, а AI-бот при обращении к коммерческой странице получает SmartCaptcha — потому что WAF классифицировал запрос как подозрительный. То есть мало проверить только robots.txt — нужно убедиться, что CDN/защита от ботов не блокирует их отдельно.\n\n## Как именно открыть (пример конфигурации)\n\nЕсли нужно, чтобы нейросети видели компанию (цитировали вас в ответах), но необязательно использовали контент для обучения моделей, подойдёт такая логика:\n\n```\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n```\n\nТакой подход означает: сайт хочет быть видимым в AI-поиске, но не хочет, чтобы контент шел в обучение будущих моделей (если где-то добавить Disallow для чисто обучающих ботов).\n\nОтдельно стоит учитывать: ChatGPT-User не используется для автоматического обхода сайта в принципе — он активируется по запросу пользователя, поэтому правила robots.txt могут не применяться к нему, и он не определяет попадание в поиск — для этого нужно использовать OAI-SearchBot.\n\n## Что делать на практике\n\n1. Найдите, кто обслуживает ваш сайт технически (хостинг, разработчик, агентство).\n2. Попросите показать содержимое файла `robots.txt` на сайте.\n3. Если там есть блокировки для AI-ботов — попросите заменить `Disallow` на `Allow` для нужных ботов (GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended и т.д.).\n4. Проверьте, нет ли отдельной блокировки через Cloudflare/WAF — там тоже бывают переключатели «блокировать AI-ботов».\n5. При необходимости обратитесь к SEO/GEO-специалисту, который сделает полный аудит и настроит доступ правильно (чтобы одновременно не открыть лишнего — например, приватные разделы).\n\nЕсли скажете, на какой платформе сделан сайт (WordPress, Shopify, самописный и т.п.) или дадите URL — могу подсказать точнее, где искать файл и что именно менять.",
+  "poiskovye_zaprosy": [
+   "проверить robots.txt блокирует AI боты открыть сайт для нейросетей",
+   "how to allow AI crawlers GPTBot ChatGPT-User robots.txt website"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html",
+    "domen": "texterra.ru",
+    "title": "Каких AI-ботов пускать на сайт: robots.txt ..."
+   },
+   {
+    "url": "https://firstvds.ru/blog/kak-blokirovat-botam-dostup-k-saytu",
+    "domen": "firstvds.ru",
+    "title": "Как блокировать ботам доступ к сайту ..."
+   },
+   {
+    "url": "https://www.seonews.ru/analytics/schema-org-llms-txt-robots-txt-i-ai-kraulery-chto-realno-vliyaet-na-dostupnost-sayta-dlya-ai-poiska",
+    "domen": "seonews.ru",
+    "title": "Schema.org, llms.txt, robots.txt и AI-краулеры: что ..."
+   },
+   {
+    "url": "http://forum.old-dos.ru/viewtopic.php?f=23&t=2057",
+    "domen": "forum.old-dos.ru",
+    "title": "Старый DOS • Просмотр темы - Как ..."
+   },
+   {
+    "url": "https://lpmotor.ru/articles/kak-proverit-vidyat-li-vash-sayt-neyroseti-2607",
+    "domen": "lpmotor.ru",
+    "title": "Видят ли ваш сайт нейросети: полное ..."
+   },
+   {
+    "url": "https://tools.pixelplus.ru/tools/ai-access-checker",
+    "domen": "tools.pixelplus.ru",
+    "title": "Проверка доступности сайта для ..."
+   },
+   {
+    "url": "https://vc.ru/marketing/3102156-kak-proverit-dostupnost-sayta-dlya-ai-botov",
+    "domen": "vc.ru",
+    "title": "200 OK — и 17% реального доступа: как ..."
+   },
+   {
+    "url": "https://shipmint.kz/blog/robots-txt-dlya-ai-kraulerov-gptbot-claudebot",
+    "domen": "shipmint.kz",
+    "title": "robots.txt для AI-кроулеров: как управлять ..."
+   },
+   {
+    "url": "https://enterno.io/robots-checker",
+    "domen": "enterno.io",
+    "title": "Проверка robots.txt онлайн — валидатор, ..."
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://www.seerinteractive.com/insights/allow-gptbot-to-crawl-your-site",
+    "domen": "seerinteractive.com",
+    "title": "Allow GPTBot to Crawl Your Site"
+   },
+   {
+    "url": "https://medium.com/@franciscokemeny/best-practices-for-ai-oriented-robots-txt-and-llms-txt-configuration-be564ba5a6bd",
+    "domen": "medium.com",
+    "title": "Best Practices for AI-Oriented robots.txt and llms.txt Configuration ..."
+   },
+   {
+    "url": "https://www.quattr.com/improve-discoverability/gptbot-robots-txt-access",
+    "domen": "quattr.com",
+    "title": "Understanding OpenAI's GPTBot & Robots.txt Setup"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers"
+   },
+   {
+    "url": "https://higoodie.com/blog/llms-txt-robots-txt-ai-optimization",
+    "domen": "higoodie.com",
+    "title": "LLMs.txt & Robots.txt: Optimizing for AI Bots"
+   },
+   {
+    "url": "https://www.getpassionfruit.com/blog/what-is-gptbot-and-should-you-block-it",
+    "domen": "getpassionfruit.com",
+    "title": "What Is GPTBot? Should You Block OpenAI's Web Crawler?"
+   },
+   {
+    "url": "https://seoscore.tools/blog/robots-txt-ai",
+    "domen": "seoscore.tools",
+    "title": "Robots.txt for AI Crawlers: Block ChatGPT & Claude (2026)"
+   },
+   {
+    "url": "https://www.xseek.io/docs/ai-robots-txt-guide",
+    "domen": "xseek.io",
+    "title": "AI Robots.txt Guide: Managing All AI & LLM Crawlers — xSeek"
+   },
+   {
+    "url": "https://genrank.io/blog/optimizing-your-robots-txt-for-generative-ai-crawlers",
+    "domen": "genrank.io",
+    "title": "Optimizing Your Robots.txt for Generative AI Crawlers - Genrank"
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://shipmint.kz/blog/robots-txt-dlya-ai-kraulerov-gptbot-claudebot",
+    "domen": "shipmint.kz",
+    "title": "robots.txt для AI-кроулеров: как управлять ..."
+   },
+   {
+    "url": "https://tools.pixelplus.ru/tools/ai-access-checker",
+    "domen": "tools.pixelplus.ru",
+    "title": "Проверка доступности сайта для ..."
+   },
+   {
+    "url": "https://vc.ru/marketing/3102156-kak-proverit-dostupnost-sayta-dlya-ai-botov",
+    "domen": "vc.ru",
+    "title": "200 OK — и 17% реального доступа: как ..."
+   },
+   {
+    "url": "https://lpmotor.ru/articles/kak-proverit-vidyat-li-vash-sayt-neyroseti-2607",
+    "domen": "lpmotor.ru",
+    "title": "Видят ли ваш сайт нейросети: полное ..."
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 20872,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1872
+  },
+  "cena": 0.08046,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSYpT4WuBZ2abQsvktg",
+    "request_id": "req_011CfcSYotKk2PhKe2JK794g",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 20872,
+     "output_tokens": 1872,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01StwcUXnWWSS9KrVhXCwF2c",
+    "caller": null,
+    "input": {
+     "query": "проверить robots.txt блокирует AI боты открыть сайт для нейросетей"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01RGyqu1XDZsbBNtMmStWjfG",
+    "caller": null,
+    "input": {
+     "query": "how to allow AI crawlers GPTBot ChatGPT-User robots.txt website"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "114 days ago",
+      "title": "Каких AI-ботов пускать на сайт: robots.txt ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     },
+     {
+      "page_age": "855 days ago",
+      "title": "Как блокировать ботам доступ к сайту ...",
+      "type": "web_search_result",
+      "url": "https://firstvds.ru/blog/kak-blokirovat-botam-dostup-k-saytu"
+     },
+     {
+      "page_age": "8 days ago",
+      "title": "Schema.org, llms.txt, robots.txt и AI-краулеры: что ...",
+      "type": "web_search_result",
+      "url": "https://www.seonews.ru/analytics/schema-org-llms-txt-robots-txt-i-ai-kraulery-chto-realno-vliyaet-na-dostupnost-sayta-dlya-ai-poiska/"
+     },
+     {
+      "page_age": null,
+      "title": "Старый DOS • Просмотр темы - Как ...",
+      "type": "web_search_result",
+      "url": "http://forum.old-dos.ru/viewtopic.php?f=23&t=2057"
+     },
+     {
+      "page_age": "82 days ago",
+      "title": "Видят ли ваш сайт нейросети: полное ...",
+      "type": "web_search_result",
+      "url": "https://lpmotor.ru/articles/kak-proverit-vidyat-li-vash-sayt-neyroseti-2607"
+     },
+     {
+      "page_age": null,
+      "title": "Проверка доступности сайта для ...",
+      "type": "web_search_result",
+      "url": "https://tools.pixelplus.ru/tools/ai-access-checker"
+     },
+     {
+      "page_age": "34 days ago",
+      "title": "200 OK — и 17% реального доступа: как ...",
+      "type": "web_search_result",
+      "url": "https://vc.ru/marketing/3102156-kak-proverit-dostupnost-sayta-dlya-ai-botov"
+     },
+     {
+      "page_age": "109 days ago",
+      "title": "robots.txt для AI-кроулеров: как управлять ...",
+      "type": "web_search_result",
+      "url": "https://shipmint.kz/blog/robots-txt-dlya-ai-kraulerov-gptbot-claudebot"
+     },
+     {
+      "page_age": null,
+      "title": "Проверка robots.txt онлайн — валидатор, ...",
+      "type": "web_search_result",
+      "url": "https://enterno.io/robots-checker"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01StwcUXnWWSS9KrVhXCwF2c",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "1 days ago",
+      "title": "Overview of OpenAI Crawlers",
+      "type": "web_search_result",
+      "url": "https://developers.openai.com/api/docs/bots"
+     },
+     {
+      "page_age": "108 days ago",
+      "title": "Allow GPTBot to Crawl Your Site",
+      "type": "web_search_result",
+      "url": "https://www.seerinteractive.com/insights/allow-gptbot-to-crawl-your-site"
+     },
+     {
+      "page_age": "428 days ago",
+      "title": "Best Practices for AI-Oriented robots.txt and llms.txt Configuration ...",
+      "type": "web_search_result",
+      "url": "https://medium.com/@franciscokemeny/best-practices-for-ai-oriented-robots-txt-and-llms-txt-configuration-be564ba5a6bd"
+     },
+     {
+      "page_age": null,
+      "title": "Understanding OpenAI's GPTBot & Robots.txt Setup",
+      "type": "web_search_result",
+      "url": "https://www.quattr.com/improve-discoverability/gptbot-robots-txt-access"
+     },
+     {
+      "page_age": "9 days ago",
+      "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers",
+      "type": "web_search_result",
+      "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+     },
+     {
+      "page_age": "21 days ago",
+      "title": "LLMs.txt & Robots.txt: Optimizing for AI Bots",
+      "type": "web_search_result",
+      "url": "https://higoodie.com/blog/llms-txt-robots-txt-ai-optimization/"
+     },
+     {
+      "page_age": "331 days ago",
+      "title": "What Is GPTBot? Should You Block OpenAI's Web Crawler?",
+      "type": "web_search_result",
+      "url": "https://www.getpassionfruit.com/blog/what-is-gptbot-and-should-you-block-it"
+     },
+     {
+      "page_age": "147 days ago",
+      "title": "Robots.txt for AI Crawlers: Block ChatGPT & Claude (2026)",
+      "type": "web_search_result",
+      "url": "https://seoscore.tools/blog/robots-txt-ai/"
+     },
+     {
+      "page_age": null,
+      "title": "AI Robots.txt Guide: Managing All AI & LLM Crawlers — xSeek",
+      "type": "web_search_result",
+      "url": "https://www.xseek.io/docs/ai-robots-txt-guide"
+     },
+     {
+      "page_age": "394 days ago",
+      "title": "Optimizing Your Robots.txt for Generative AI Crawlers - Genrank",
+      "type": "web_search_result",
+      "url": "https://genrank.io/blog/optimizing-your-robots-txt-for-generative-ai-crawlers"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01RGyqu1XDZsbBNtMmStWjfG",
+    "type": "web_search_tool_result"
+   },
+   {
+    "citations": null,
+    "text": "# Кто это делает — и это не отдельная «служба», а настройка, которую может сделать любой администратор сайта или подрядчик\n\nВажно понять: нет какого-то единого «регулятора», который централизованно открывает или закрывает сайты для ИИ. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "# robots.txt для AI-кроулеров: как управлять GPTBot, ClaudeBot и PerplexityBot\n## Что вообще такое robots.txt и чего он не может\nВо-первых, robots.txt...",
+      "title": "robots.txt для AI-кроулеров: как управлять ...",
+      "type": "web_search_result_location",
+      "url": "https://shipmint.kz/blog/robots-txt-dlya-ai-kraulerov-gptbot-claudebot"
+     }
+    ],
+    "text": "robots.txt — это вежливая просьба, а не технический барьер. Файл не блокирует доступ физически. Добросовестные роботы (GPTBot, ClaudeBot, Googlebot) его читают и подчиняются",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". То есть вопрос решается на уровне настроек вашего сайта.\n\n## Кто конкретно может это сделать\n\n1. **Вы сами** — если есть доступ к файлам сайта (или к панели хостинга/CMS), достаточно отредактировать один текстовый файл `robots.txt` в корне сайта.\n2. **Ваш веб-мастер/разработчик/хостинг-провайдер** — если сайт делала студия или фрилансер, это 5-минутная правка для любого, кто умеет работать с сайтом.\n3. **SEO/GEO-специалист (по продвижению в ИИ)** — если хотите не просто «открыть», а грамотно настроить, кого пускать для обучения, а кого только для цитирования в ответах ИИ.\n4. **Cloudflare / WAF / CDN**, если сайт использует такую защиту — там тоже могут быть отдельные блокировки ботов, независимо от robots.txt.\n\n## Как проверить, закрыт ли сайт\n\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "**Откройте файл напрямую** — https://вашдомен/robots.txt. ",
+      "title": "robots.txt для AI-кроулеров: как управлять ...",
+      "type": "web_search_result_location",
+      "url": "https://shipmint.kz/blog/robots-txt-dlya-ai-kraulerov-gptbot-claudebot"
+     }
+    ],
+    "text": "Откройте файл напрямую — https://вашдомен/robots.txt",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " — и посмотрите, нет ли там строк вида `Disallow: /` для ботов типа GPTBot, ClaudeBot, PerplexityBot и т.д.\n- Можно использовать готовые онлайн-чекеры доступности сайта для нейросетей — например, инструменты, которые ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Если доступ для таких ботов ограничен через robots.txt, настройки сервера или системы защиты от ботов, контент сайта может оказаться ...\n\nПроверьте до...",
+      "title": "Проверка доступности сайта для ...",
+      "type": "web_search_result_location",
+      "url": "https://tools.pixelplus.ru/tools/ai-access-checker"
+     }
+    ],
+    "text": "проверяют доступность сайта для ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, Qwen и других нейросетей, анализируя AI-ботов, robots.txt, HTTP-коды и ограничения",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Учтите нюанс: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "В результате возникает типичная ситуация из наших аудитов: robots.txt содержит Allow: / для GPTBot и ClaudeBot, технический SEO-специалист уверен, что...",
+      "title": "200 OK — и 17% реального доступа: как ...",
+      "type": "web_search_result_location",
+      "url": "https://vc.ru/marketing/3102156-kak-proverit-dostupnost-sayta-dlya-ai-botov"
+     }
+    ],
+    "text": "robots.txt содержит Allow: / для GPTBot и ClaudeBot, технический SEO-специалист уверен, что доступ настроен, а AI-бот при обращении к коммерческой странице получает SmartCaptcha — потому что WAF классифицировал запрос как подозрительный",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". То есть мало проверить только robots.txt — нужно убедиться, что CDN/защита от ботов не блокирует их отдельно.\n\n## Как именно открыть (пример конфигурации)\n\nЕсли нужно, чтобы нейросети видели компанию (цитировали вас в ответах), но необязательно использовали контент для обучения моделей, подойдёт такая логика:\n\n```\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n```\n\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Проверьте robots.txt: вы могли сами закрыть сайт от нейросетей\n### Пример логики robots.txt\nUser-agent: OAI-SearchBot Allow: / User-agent: GPTBot Disa...",
+      "title": "Видят ли ваш сайт нейросети: полное ...",
+      "type": "web_search_result_location",
+      "url": "https://lpmotor.ru/articles/kak-proverit-vidyat-li-vash-sayt-neyroseti-2607"
+     }
+    ],
+    "text": "Такой подход означает: сайт хочет быть видимым в AI-поиске, но не хочет, чтобы контент шел в обучение будущих моделей",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " (если где-то добавить Disallow для чисто обучающих ботов).\n\nОтдельно стоит учитывать: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "ChatGPT-User is not used for crawling the web in an automatic fashion. Because these actions are initiated by a user, robots.txt rules may not apply. ...",
+      "title": "Overview of OpenAI Crawlers",
+      "type": "web_search_result_location",
+      "url": "https://developers.openai.com/api/docs/bots"
+     }
+    ],
+    "text": "ChatGPT-User не используется для автоматического обхода сайта в принципе — он активируется по запросу пользователя, поэтому правила robots.txt могут не применяться к нему, и он не определяет попадание в поиск — для этого нужно использовать OAI-SearchBot",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Что делать на практике\n\n1. Найдите, кто обслуживает ваш сайт технически (хостинг, разработчик, агентство).\n2. Попросите показать содержимое файла `robots.txt` на сайте.\n3. Если там есть блокировки для AI-ботов — попросите заменить `Disallow` на `Allow` для нужных ботов (GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended и т.д.).\n4. Проверьте, нет ли отдельной блокировки через Cloudflare/WAF — там тоже бывают переключатели «блокировать AI-ботов».\n5. При необходимости обратитесь к SEO/GEO-специалисту, который сделает полный аудит и настроит доступ правильно (чтобы одновременно не открыть лишнего — например, приватные разделы).\n\nЕсли скажете, на какой платформе сделан сайт (WordPress, Shopify, самописный и т.п.) или дадите URL — могу подсказать точнее, где искать файл и что именно менять.",
+    "type": "text"
+   }
+  ]
+ }
+}

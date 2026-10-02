@@ -1,0 +1,395 @@
+{
+ "vopros_id": "V2R",
+ "povtor": 2,
+ "vopros": "Как сделать, чтобы нейросеть советовала мою компанию клиентам в США?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:03:18-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.0058,
+   "ishod": "ok",
+   "sekund": 9.0,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:03:28 GMT",
+    "x-request-id": "70c869b0-b253-411a-8fff-5cc81702933b"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Нельзя «включить» рекомендацию компании в нейросети или гарантировать, что она будет советовать именно вас. Можно повысить шансы, чтобы ИИ находил достоверную информацию о компании и считал её подходящей для конкретного запроса.\n\n### Что сделать\n\n1. **Приведите в порядок сайт**\n   - Чётко напишите, чем занимается компания, где работаете в США, кому помогаете и как с вами связаться.\n   - Сделайте отдельные страницы для ключевых услуг и регионов, если вы действительно их обслуживаете.\n   - Укажите цены или диапазоны, условия, часы работы, лицензии и сертификаты — где это уместно.\n   - Публикуйте полезные ответы на реальные вопросы клиентов, а не общие SEO-тексты.\n\n2. **Проверьте доступ для поисковых роботов**\n   - Убедитесь, что сайт не закрыт от индексации и основные страницы доступны без входа в аккаунт.\n   - Для ChatGPT Search проверьте, что в `robots.txt` не заблокирован `OAI-SearchBot`, а сервер или CDN не отклоняет его запросы. Это делает сайт доступным для поиска, но не гарантирует упоминание. [OpenAI: рекомендации для сайтов](https://developers.openai.com/api/docs/bots)\n   - Для Google и Bing проверьте индексацию сайта через их инструменты для веб-мастеров.\n\n3. **Если вы работаете локально — оформите профили**\n   - Заполните и регулярно обновляйте Google Business Profile: категория, услуги, адрес или зона обслуживания, часы, фотографии.\n   - Поддерживайте одинаковые название, адрес, телефон и URL на сайте и в каталогах.\n   - Просите реальных клиентов оставить отзывы и отвечайте на них. Не покупайте отзывы.\n\n4. **Сделайте сведения понятными и проверяемыми**\n   - Используйте одинаковое название бренда и точные формулировки услуг во всех источниках.\n   - Добавьте на сайт структурированные данные `LocalBusiness`, если они соответствуют содержимому страницы. Они помогают поисковикам интерпретировать информацию, но сами по себе не обеспечивают показ. Google подчёркивает, что для его ИИ-функций важны обычные основы SEO, полезный контент и корректная индексация. [Google: AI-функции и сайт](https://developers.google.com/search/docs/appearance/ai-features) · [Google: LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business)\n   - Добивайтесь упоминаний в надёжных отраслевых каталогах, ассоциациях и независимых публикациях — только там, где они действительно уместны.\n\n5. **Измеряйте результат**\n   - Отслеживайте переходы с `chatgpt.com` в аналитике и смотрите, какие страницы приводят посетителей.\n   - Периодически проверяйте типичные запросы клиентов в разных ИИ-сервисах; учитывайте, что ответы могут меняться и зависеть от формулировки, местоположения и доступных источников.\n\nИзбегайте обещаний «гарантированного попадания в ответы ИИ», массовых искусственных страниц и накрутки отзывов. Начните с трёх вещей: **доступный для индексации сайт, полный бизнес-профиль и ясные страницы услуг с подтверждаемыми фактами**.",
+  "poiskovye_zaprosy": [
+   "Google Search Central AI features website guidance structured data local business",
+   "Bing Webmaster Guidelines AI search Copilot indexing recommendations",
+   "OpenAI ChatGPT search publisher website inclusion crawl OAI-SearchBot"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://help.openai.com/articles/12627856-publishers-and-developers-faq",
+    "domen": "help.openai.com",
+    "title": "help.openai.com › articles › 12627856-publishers-andPublishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/9237897-chatgpt-search-publisher-and-website-faq",
+    "domen": "help.openai.com",
+    "title": "Searching the web with ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features",
+    "domen": "developers.google.com",
+    "title": "AI Features and Your Website | Google Search Central"
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots",
+    "domen": "developers.openai.com",
+    "title": "Overview of OpenAI Crawlers"
+   },
+   {
+    "url": "https://openai.com/chatgpt/search-product-discovery",
+    "domen": "openai.com",
+    "title": "Help ChatGPT discover your products"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+    "domen": "developers.google.com",
+    "title": "Google's Guide to Optimizing for Generative AI Features on ..."
+   },
+   {
+    "url": "https://chatai.guide/features/chatgpt-search",
+    "domen": "chatai.guide",
+    "title": "ChatGPT Search: Real-Time Web Answers - chatai.guide"
+   },
+   {
+    "url": "https://coywolf.com/news/seo/how-to-be-in-chatgpt-search-results-without-training-their-ai-models",
+    "domen": "coywolf.com",
+    "title": "How to appear in ChatGPT search results without training their AI"
+   },
+   {
+    "url": "https://www.searchenginejournal.com/bing-adds-geo-to-official-guidelines-expands-ai-abuse-definitions/568442",
+    "domen": "searchenginejournal.com",
+    "title": "Bing Adds GEO To Official Guidelines, Expands AI Abuse Definitions"
+   },
+   {
+    "url": "https://www.searchengineprojects.com/faq-items/how-can-my-business-appear-in-chatgpt-and-ai-search-results",
+    "domen": "searchengineprojects.com",
+    "title": "How Can My Business Appear in ChatGPT and AI Search Results?"
+   },
+   {
+    "url": "https://www.linkedin.com/pulse/oai-searchbot-vs-googlebot-what-seo-teams-need-understand-banik-pgtbf",
+    "domen": "linkedin.com",
+    "title": "OAI-SearchBot vs Googlebot: What SEO Teams Need to Understand"
+   },
+   {
+    "url": "https://www.zarla.com/guides/how-to-show-up-in-google-ai-overviews",
+    "domen": "zarla.com",
+    "title": "How to Show Up in Google AI Overviews (Local Business Guide)"
+   },
+   {
+    "url": "https://promptwatch.com/bots/oai-searchbot",
+    "domen": "promptwatch.com",
+    "title": "OAI-SearchBot - What It Is & How to Handle It | Promptwatch"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+    "domen": "developers.google.com",
+    "title": "Local Business (LocalBusiness) Structured Data | Google Search Central | Documentation | Google for Developers"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.00105,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00211,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.0058
+   },
+   "input_tokens": 4778,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4217,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 843,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5621
+  },
+  "cena": 0.0058,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790899399,
+  "created_at": 1790899399,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_70c869b0-b253-411a-8fff-5cc81702933b",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "Google Search Central AI features website guidance structured data local business",
+     "Bing Webmaster Guidelines AI search Copilot indexing recommendations",
+     "OpenAI ChatGPT search publisher website inclusion crawl OAI-SearchBot"
+    ],
+    "results": [
+     {
+      "date": "2026-09-30",
+      "id": 1,
+      "last_updated": "2026-09-30",
+      "snippet": "Any public website can appear in ChatGPT search.\n...\nFor your site content to be included in summaries and snippets in ChatGPT, make sure you aren't blocking OAI-SearchBot.\nIf necessary, you may need to update your robots.txt file, to ensure OAI-SearchBot has access.\n...\nIf you do not want this to happen, use the noindex meta tag.\nNote, in order for our crawler to read a meta tag, it must be allowed to crawl the relevant page(s).",
+      "source": "web",
+      "title": "help.openai.com › articles › 12627856-publishers-andPublishers and Developers - FAQ | OpenAI Help Center",
+      "url": "https://help.openai.com/articles/12627856-publishers-and-developers-faq"
+     },
+     {
+      "date": "2026-09-22",
+      "id": 2,
+      "last_updated": "2026-09-22",
+      "snippet": "To make a website eligible for inclusion, allow OAI-Searchbot to crawl the site and confirm that the website host or content delivery network allows traffic from OpenAI’s published searchbot IP addresses.",
+      "source": "web",
+      "title": "Searching the web with ChatGPT | OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/9237897-chatgpt-search-publisher-and-website-faq"
+     },
+     {
+      "date": "2026-09-30",
+      "id": 3,
+      "last_updated": "2026-09-30",
+      "snippet": "Any public website can appear in ChatGPT search.\n...\nFor your site content to be included in summaries and snippets in ChatGPT, make sure you aren't blocking OAI-SearchBot.\nIf necessary, you may need to update your robots.txt file, to ensure OAI-SearchBot has access.\n...\nIf you do not want this to happen, use the noindex meta tag.\nNote, in order for our crawler to read a meta tag, it must be allowed to crawl the relevant page(s).\nPublishers who allow OAI-SearchBot to access their content can track referral traffic from ChatGPT using analytics platforms such as Google Analytics.",
+      "source": "web",
+      "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/12627856"
+     },
+     {
+      "id": 4,
+      "last_updated": "2026-09-21",
+      "snippet": "The best practices for SEO remain relevant for AI features in Google Search (such as AI Overviews\n...\n**There are no additional requirements to appear in AI Overviews or AI Mode,\n...\nYou can apply the same foundational SEO best practices for AI features as you do for Google Search overall: making sure the page meets the technical requirements for Google Search, following Search policies, and focusing on the key best practices, such as creating helpful, reliable, people-first content.\n...\nTo be eligible to be shown as a supporting link in AI Overviews or AI Mode, a page must be indexed\nand eligible to be shown in Google Search with a snippet, fulfilling the\nSearch technical requirements.\n...\n- Making sure your structured data matches the visible text on the page\n- Checking that your Merchant Center and Business Profile information is up-to-date\nYou don't need to create new machine readable files, AI text files, or markup to\nappear in these features.\nThere's also no special schema.org structured data that you need to add.",
+      "source": "web",
+      "title": "AI Features and Your Website | Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features"
+     },
+     {
+      "id": 5,
+      "last_updated": "2026-09-29",
+      "snippet": "OpenAI uses OAI-SearchBot and GPTBot robots.txt tags to enable webmasters to manage how their sites and content work with AI.\n...\n|OAI-SearchBot|OAI-SearchBot is for search.\nOAI-SearchBot is used to surface websites in search results in ChatGPT’s search features.\nSites that are opted out of OAI-SearchBot will not be shown in ChatGPT search answers, though can still appear as navigational links.\nTo help ensure your site appears in search results, we recommend allowing OAI-SearchBot in your site’s robots.txt file and allowing requests from our published IP ranges below.\nExample user-agent string (the version number may change): `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; compatible; OAI-SearchBot/1.4; +https://openai.com/searchbot` When fetching robots.txt files, we may use a user-agent string with an additional `robots.txt` marker.",
+      "source": "web",
+      "title": "Overview of OpenAI Crawlers",
+      "url": "https://developers.openai.com/api/docs/bots"
+     },
+     {
+      "date": "2025-04-28",
+      "id": 6,
+      "last_updated": "2025-05-22",
+      "snippet": "Any website or merchant can appear in ChatGPT search.\n...\nLike search engines, ChatGPT uses a web crawler called\n`OAI-SearchBot` to find, access, and surface information in ChatGPT search.\nFor your site to be discoverable in ChatGPT, make sure you aren't blocking OAI-SearchBot.\nIf necessary, you may need to update your\n`robots.txt` file, to ensure OAI-SearchBot has access.\nPublishers who allow OAI-SearchBot to access their content can track referral traffic from ChatGPT using analytics platforms such as Google Analytics.\n...\n*OAI-SearchBot is for search.\nOAI-SearchBot is used to link to and surface websites in search results in ChatGPT's search features.\nIt is not used to crawl content to train OpenAI’s generative AI foundation models.",
+      "source": "web",
+      "title": "Help ChatGPT discover your products",
+      "url": "https://openai.com/chatgpt/search-product-discovery"
+     },
+     {
+      "id": 7,
+      "last_updated": "2026-09-24",
+      "snippet": "This guide is for website owners looking for official best practices from Google\nSearch on how to succeed in generative AI features in Google Search (such as AI Overviews and AI\n...\nWhere appropriate, generative AI responses can include product listings, product information, and\ninformation about local businesses.\nUsing products like Merchant Center (such as Merchant Center feeds) and Google Business Profiles can help your products and services to be visible in both AI responses and other Google Search results.\n...\n- **Overfocusing on structured data**: Structured data isn't required for generative AI search, and there's no special schema.org markup you need to add.\nHowever, it's a good idea to continue using it as part of your overall SEO strategy, as it helps with being eligible for rich results on Google Search.",
+      "source": "web",
+      "title": "Google's Guide to Optimizing for Generative AI Features on ...",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+     },
+     {
+      "date": "2026-04-03",
+      "id": 8,
+      "last_updated": "2026-09-25",
+      "snippet": "OpenAI says OAI-SearchBot is the crawler used to surface websites in ChatGPT search features.^[4]^ OpenAI also says webmasters can allow OAI-SearchBot for search visibility while disallowing GPTBot if they do not want their content used for training OpenAI’s generative AI foundation models.^[4]^\n...\nSearch inclusion and model training are not the same control.\nOpenAI says sites opted out of OAI-SearchBot will not be shown in ChatGPT search answers, though they can still appear as navigational links.^[4]^ OpenAI also says it can take about 24 hours after a robots.txt update for its systems to adjust for search results.^[4]^\nOpenAI’s publisher FAQ says any public website can appear in ChatGPT Search and recommends not blocking OAI-SearchBot if you want content discovered, surfaced, cited, and linked.^[5]^ The same FAQ says publishers who allow OAI-SearchBot can track referral traffic from ChatGPT because referral URLs include the `utm_source=chatgpt.com` parameter.^[5]^\nFor site owners, the practical checklist is simple.\nKeep pages crawlable.\nUse clear titles and structured pages.\nAvoid hiding critical information behind scripts that crawlers cannot access.\nUse `noindex` when you do not want a page surfaced.\nMonitor analytics for ChatGPT referral traffic.",
+      "source": "web",
+      "title": "ChatGPT Search: Real-Time Web Answers - chatai.guide",
+      "url": "https://chatai.guide/features/chatgpt-search/"
+     },
+     {
+      "date": "2024-10-31",
+      "id": 9,
+      "last_updated": "2026-09-22",
+      "snippet": "**The good news for publishers is they don’t have to do anything to appear in ChatGPT’s search results.** OpenAI uses data from Bing and its crawler, `**OAI-SearchBot**`, to find and link to sites in ChatGPT search results, and they explicitly state that their bot is not used to crawl content to train OpenAI’s generative AI foundation models.\nSo, **as long as sites do not include `OAI-SearchBot` and `Bingbot` in their robots exclusion file, their site content will be eligible to appear in ChatGPT search results**.\nThey must also ensure they aren’t blocking the IPs used by `**OAI-Searchbot**` or `**Bingbot**`.",
+      "source": "web",
+      "title": "How to appear in ChatGPT search results without training their AI",
+      "url": "https://coywolf.com/news/seo/how-to-be-in-chatgpt-search-results-without-training-their-ai-models/"
+     },
+     {
+      "date": "2026-02-27",
+      "id": 10,
+      "last_updated": "2026-10-01",
+      "snippet": "Microsoft has rewritten the Bing Webmaster Guidelines to cover how content appears in both traditional search results and Copilot’s AI-generated answers.\nThe previous version focused on how Bing indexes and ranks websites.\nThe rewrite extends that to Copilot and grounding API results, treating “grounding results and citations” as additional eligibility outcomes.\n...\nNOARCHIVE prevents content from being used in Copilot responses and grounding results.\nNOCACHE limits Copilot to using only the URL, title, and snippet.\nDATA-NOSNIPPET and NOSNIPPET may limit citation quality.\nA data-snippet attribute lets you specify what text Bing can display or cite.\nBing recommends against using NOCACHE on content intended for Copilot if you want richer citations.\n...\nThe guidelines now mention “Generative Engine Optimization (GEO)” by name, defining it as focused on content eligibility for grounding and reference in AI responses.\nGEO doesn’t guarantee citations, the guidelines note, just as SEO doesn’t guarantee rankings.\n...\n> “Large-scale content generated without oversight, quality control, or editorial review often lacks usefulness, accuracy, and originality, and may be excluded from indexing.”\n...\nFacts should be stated directly rather than implied, since AI systems need content that can be verified independently.\nEntity names should be clear and consistent, with no ambiguous references.\nBing recommends focusing each URL on a single topic and placing essential information near the top of the page.\nSingle-topic pages are more likely to be selected for grounding results, according to the guidelines.\n...\nBing also notes that a decline in clicks doesn’t always mean visibility has dropped, since content may now surface as citations or grounding references in Copilot.\nThe guidelines recommend tracking impressions and citation eligibility rather than relying solely on click data.",
+      "source": "web",
+      "title": "Bing Adds GEO To Official Guidelines, Expands AI Abuse Definitions",
+      "url": "https://www.searchenginejournal.com/bing-adds-geo-to-official-guidelines-expands-ai-abuse-definitions/568442/"
+     },
+     {
+      "date": "2026-08-02",
+      "id": 11,
+      "last_updated": "2026-09-21",
+      "snippet": "A business can improve its chances of appearing in ChatGPT and AI search results by making its website crawlable, publishing original and trustworthy information, clearly identifying the business and its services, maintaining consistent online profiles, and allowing the appropriate search crawlers to access its content.\n...\nFor ChatGPT search specifically, OpenAI recommends allowing OAI-SearchBot in the website’s robots.txt file and allowing requests from OpenAI’s published IP ranges.\n...\nFor website publishers, the most important documented technical step is allowing OAI-SearchBot to access the website.\nOpenAI identifies OAI-SearchBot as the crawler used to surface websites in ChatGPT’s search features.\n...\nOAI-SearchBot is OpenAI’s crawler for search.\nIt is used to help surface websites in ChatGPT search results.\nOpenAI states that websites opting out of OAI-SearchBot will not be shown in ChatGPT search answers, although they may still appear as navigational links in some situations.\nOpenAI recommends allowing OAI-SearchBot in the website’s robots.txt file and permitting requests from its published IP ranges.",
+      "source": "web",
+      "title": "How Can My Business Appear in ChatGPT and AI Search Results?",
+      "url": "https://www.searchengineprojects.com/faq-items/how-can-my-business-appear-in-chatgpt-and-ai-search-results/"
+     },
+     {
+      "date": "2026-08-19",
+      "id": 12,
+      "last_updated": "2026-09-20",
+      "snippet": "OpenAI's publisher guidance takes a different route.\nOpenAI states that public websites can appear in ChatGPT Search and recommends allowing OAI-SearchBot access if publishers want their content to be discovered, surfaced and clearly cited and linked in ChatGPT.\n...\nOAI-SearchBot is an OpenAI crawler associated with ChatGPT Search.\nOpenAI's current publisher documentation says that websites can appear in ChatGPT Search and recommends ensuring that OAI-SearchBot is not blocked if a publisher wants its content to be discovered, surfaced and clearly cited and linked.",
+      "source": "web",
+      "title": "OAI-SearchBot vs Googlebot: What SEO Teams Need to Understand",
+      "url": "https://www.linkedin.com/pulse/oai-searchbot-vs-googlebot-what-seo-teams-need-understand-banik-pgtbf"
+     },
+     {
+      "date": "2026-08-25",
+      "id": 13,
+      "last_updated": "2026-09-30",
+      "snippet": "The AI features are described as rooted in Google's core search ranking and quality systems — if your pages can rank, they can be cited.\n**The special tricks are explicitly not needed.** Google's guidance says you don't need llms.txt, AI-specific rewriting, content chunking, or special schema for its AI features.\n...\n**The fundamentals are the strategy.** What Google points to instead is what it has always pointed to: helpful, people-first content, solid technical health, and structured data used honestly.\nFor a local business there's one more piece the documentation's generality hides — **your Google Business Profile** — because in our own checks, AI Mode's local answers render as business cards carrying each business's rating, website, and address.\n...\nClaim your Google Business Profile and fill every field — categories, services, areas served, hours, photos — then keep reviews arriving steadily and reply to them.\n...\nCrawlable pages, a current sitemap, honest structured data, fast mobile rendering.\n...\nThere are no additional requirements — AI Overviews cite pages through the same ranking and quality systems as normal search, so the path in is helpful people-first content, clean technical health, and honest structured data.",
+      "source": "web",
+      "title": "How to Show Up in Google AI Overviews (Local Business Guide)",
+      "url": "https://www.zarla.com/guides/how-to-show-up-in-google-ai-overviews"
+     },
+     {
+      "date": "2026-09-06",
+      "id": 14,
+      "last_updated": "2026-09-15",
+      "snippet": "OAI-SearchBot is OpenAI's crawler for finding pages that can be linked and surfaced in ChatGPT search results.\nIt runs automatically for search discovery and indexing.\n...\nA successful crawl gives OpenAI's search system access to the returned page, while redirects, authentication barriers, or denied responses limit what the crawler can retrieve.\n...\nFor publishers, OAI-SearchBot is the relevant OpenAI control for search inclusion.\nAllowing it keeps a page eligible to surface in ChatGPT Search.\nDisallowing it tells OpenAI not to crawl that content for Search, though neither choice guarantees how any particular answer will be assembled.\nThis bot is not OpenAI's training crawler.\nOpenAI assigns that purpose to GPTBot and lets site owners set the two agents independently.\nA site can therefore permit OAI-SearchBot for search while disallowing GPTBot for training.\nOAI-SearchBot follows robots.txt.\nOpenAI notes that a change can take about 24 hours to reach its systems, so a newly added rule may not alter requests immediately.\nPath-specific rules are useful when public documentation should remain searchable but private or low-value areas should not be crawled.",
+      "source": "web",
+      "title": "OAI-SearchBot - What It Is & How to Handle It | Promptwatch",
+      "url": "https://promptwatch.com/bots/oai-searchbot"
+     },
+     {
+      "id": 15,
+      "last_updated": "2026-09-25",
+      "snippet": "With Local Business structured data, you\ncan tell Google about business hours, different departments within a business, reviews (if your site captures reviews about other businesses), and more.\n...\nStructured data is a standardized format for providing information about a page and classifying the page\ncontent.\n...\n1. Add the required properties.\nBased on the format you're using, learn where to insert structured data on the page.\n**Using a CMS?** It may be easier to use a plugin that's integrated into your CMS.\n**Using JavaScript?** Learn how to generate structured data with JavaScript.\n2. Follow the guidelines.\n3. Validate your code using the\nRich Results Test and fix any critical errors.\nConsider also fixing any non-critical issues that may be flagged in the tool, as they can help improve the quality of your structured data (however, this isn't necessary to be eligible for rich results).\n4. Deploy a few pages that include your structured data and use the URL Inspection tool to test how Google sees the page.\nBe sure that your page is accessible to Google and not blocked by a robots.txt file, the `noindex` tag, or\nlogin requirements.\nIf the page looks okay, you can\nask Google to recrawl your URLs.\n**Note**: Allow time for re-crawling and re-indexing.\nRemember that it may take several days after publishing a page for Google to find and crawl it.\n5. To keep Google informed of future changes, we recommend that you\nsubmit a sitemap.\nYou can automate this with the Search Console Sitemap API.\n...\nDefine each local business location as a `LocalBusiness` type.",
+      "source": "web",
+      "title": "Local Business (LocalBusiness) Structured Data | Google Search Central | Documentation | Google for Developers",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Нельзя «включить» рекомендацию компании в нейросети или гарантировать, что она будет советовать именно вас. Можно повысить шансы, чтобы ИИ находил достоверную информацию о компании и считал её подходящей для конкретного запроса.\n\n### Что сделать\n\n1. **Приведите в порядок сайт**\n   - Чётко напишите, чем занимается компания, где работаете в США, кому помогаете и как с вами связаться.\n   - Сделайте отдельные страницы для ключевых услуг и регионов, если вы действительно их обслуживаете.\n   - Укажите цены или диапазоны, условия, часы работы, лицензии и сертификаты — где это уместно.\n   - Публикуйте полезные ответы на реальные вопросы клиентов, а не общие SEO-тексты.\n\n2. **Проверьте доступ для поисковых роботов**\n   - Убедитесь, что сайт не закрыт от индексации и основные страницы доступны без входа в аккаунт.\n   - Для ChatGPT Search проверьте, что в `robots.txt` не заблокирован `OAI-SearchBot`, а сервер или CDN не отклоняет его запросы. Это делает сайт доступным для поиска, но не гарантирует упоминание. [OpenAI: рекомендации для сайтов](https://developers.openai.com/api/docs/bots)\n   - Для Google и Bing проверьте индексацию сайта через их инструменты для веб-мастеров.\n\n3. **Если вы работаете локально — оформите профили**\n   - Заполните и регулярно обновляйте Google Business Profile: категория, услуги, адрес или зона обслуживания, часы, фотографии.\n   - Поддерживайте одинаковые название, адрес, телефон и URL на сайте и в каталогах.\n   - Просите реальных клиентов оставить отзывы и отвечайте на них. Не покупайте отзывы.\n\n4. **Сделайте сведения понятными и проверяемыми**\n   - Используйте одинаковое название бренда и точные формулировки услуг во всех источниках.\n   - Добавьте на сайт структурированные данные `LocalBusiness`, если они соответствуют содержимому страницы. Они помогают поисковикам интерпретировать информацию, но сами по себе не обеспечивают показ. Google подчёркивает, что для его ИИ-функций важны обычные основы SEO, полезный контент и корректная индексация. [Google: AI-функции и сайт](https://developers.google.com/search/docs/appearance/ai-features) · [Google: LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business)\n   - Добивайтесь упоминаний в надёжных отраслевых каталогах, ассоциациях и независимых публикациях — только там, где они действительно уместны.\n\n5. **Измеряйте результат**\n   - Отслеживайте переходы с `chatgpt.com` в аналитике и смотрите, какие страницы приводят посетителей.\n   - Периодически проверяйте типичные запросы клиентов в разных ИИ-сервисах; учитывайте, что ответы могут меняться и зависеть от формулировки, местоположения и доступных источников.\n\nИзбегайте обещаний «гарантированного попадания в ответы ИИ», массовых искусственных страниц и накрутки отзывов. Начните с трёх вещей: **доступный для индексации сайт, полный бизнес-профиль и ясные страницы услуг с подтверждаемыми фактами**.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_598b2ed7-5f45-4357-8775-b6cd4b948c36",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.00105,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00211,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.0058
+   },
+   "input_tokens": 4778,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 4217,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 843,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5621
+  },
+  "user": null
+ }
+}

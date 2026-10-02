@@ -1,0 +1,549 @@
+{
+ "vopros_id": "V6E",
+ "povtor": 7,
+ "vopros": "My site blocks AI crawlers. Who can check it and open it up so AI assistants can see my business?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:10:49-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.02692,
+   "ishod": "ok",
+   "sekund": 6.9,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:10:56 GMT",
+    "x-request-id": "req_5ff3ec7fbc644da5a314d730d500f362",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "6665"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Yes. What you want is usually called an “AI crawler accessibility audit,” “AI visibility audit,” or sometimes a technical GEO/AEO audit.\n\nThere are two good routes:\n\n- If your site uses Cloudflare, start with Cloudflare’s AI Crawl Control. It shows which AI crawlers are reaching the site and lets you control access. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n- If you want someone to handle it, hire a technical SEO/GEO consultant or web developer who specifically works with AI crawler access. There are also dedicated services offering audits and fixes; for example, Sprout Sage currently advertises a $300 one-time AI accessibility audit, while CiteFuel advertises a $399 site audit. ([sproutsagesolutions.com](https://sproutsagesolutions.com/ai-accessibility-audit/?utm_source=openai))\n- For a quick self-check, tools such as Better Robots and Layzr can inspect robots.txt and other AI-access signals. ([better-robots.com](https://better-robots.com/check?utm_source=openai))\n\nImportantly, opening the site isn't just a matter of removing `Disallow` from robots.txt. A firewall/CDN/WAF can still reject AI crawlers even when robots.txt permits them. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n\nAlso, you may want different policies for different purposes—for example, allowing crawlers used to surface your business in AI search while restricting crawlers used for model training.\n\nIf you give me your website URL, I can check its publicly visible crawler settings and tell you what's blocking ChatGPT/OpenAI and other major AI systems and what your web person needs to change.",
+  "poiskovye_zaprosy": [
+   "AI crawler audit service allow GPTBot OAI-SearchBot robots.txt Cloudflare AI crawlers consultant",
+   "site audit AI crawler accessibility service robots.txt llms.txt agency"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control",
+    "domen": "developers.cloudflare.com",
+    "title": "Overview · Cloudflare AI Crawl Control docs"
+   },
+   {
+    "url": "https://better-robots.com/check",
+    "domen": "better-robots.com",
+    "title": "robots.txt and AI crawler audit — Better Robots.txt"
+   },
+   {
+    "url": "https://blog.cloudflare.com/cloudflare-ai-audit-control-ai-content-crawlers",
+    "domen": "blog.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://www.layzr.ai/agentic-audit",
+    "domen": "layzr.ai",
+    "title": null
+   },
+   {
+    "url": "https://www.aivisibilityfixer.com/ai-visibility-audit",
+    "domen": "aivisibilityfixer.com",
+    "title": null
+   },
+   {
+    "url": "https://crawlpact.com",
+    "domen": "crawlpact.com",
+    "title": null
+   },
+   {
+    "url": "https://cuescout.com/tools/ai-crawler-checker",
+    "domen": "cuescout.com",
+    "title": null
+   },
+   {
+    "url": "https://webauditsuite.com/tools/ai-visibility-checker",
+    "domen": "webauditsuite.com",
+    "title": null
+   },
+   {
+    "url": "https://answerfootprint.com/audit",
+    "domen": "answerfootprint.com",
+    "title": null
+   },
+   {
+    "url": "https://blog.cloudflare.com/ai-audit-enforcing-robots-txt",
+    "domen": "blog.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://sproutsagesolutions.com/ai-accessibility-audit",
+    "domen": "sproutsagesolutions.com",
+    "title": "AI Accessibility Audit — $300 One-Time | Sprout Sage"
+   },
+   {
+    "url": "https://citefuel.com",
+    "domen": "citefuel.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SEO/comments/1srlq0o/cloudflare_has_been_quietly_blocking_gptbot_and",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1srltxx/cloudflare_has_been_quietly_blocking_gptbot_and",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1tkjv1x/heads_up_the_block_ai_scrapers_toggle_is",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/2E3fkoJwkDyXXb4H3cijxB/31aa7e9e680111175ab792c62eb482fc/Cloudflare_AI_Audit_product_brief.pdf",
+    "domen": "cf-assets.www.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/founder/comments/1tiv5d5/i_fixed_my_site_to_be_more_ai_friendly_and_my_ai",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SaaS/comments/1thvdjx/spent_an_afternoon_making_my_site_more_ai",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1vi78ao/ai_bots_allowed_in_robotstxt_full_prerendered",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://aibotaccess.com/aibotaccess-user-guide.pdf",
+    "domen": "aibotaccess.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/content_marketing/comments/1wrk1ru/has_anyone_checked_whether_their_site_is_blocking",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/DigitalMarketing/comments/1uqtkoa/i_checked_34_websites_from_a_thread_here_to_see",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_oyoy-inc-real-estate/comments/1uddlon/we_audited_ai_crawler_access_on_real_estate",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1t2zlrf/cloudflares_managed_robotstxt_silently_blocks",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_NaturailyLLC/comments/1v8y9fu/you_ask_we_answer_how_can_i_check_whether_ai",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2607.14447",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://irp.cdn-website.com/548ed645/files/uploaded/AIO_Doc_Final_v4.pdf",
+    "domen": "irp.cdn-website.com",
+    "title": null
+   },
+   {
+    "url": "https://georaiser.com/downloads/geo-playbook.pdf",
+    "domen": "georaiser.com",
+    "title": null
+   },
+   {
+    "url": "https://www.milespartnership.com/sites/default/files/2025-05/Final-Harnessing-AI-Webinar-2025-Combined-v2.pdf",
+    "domen": "milespartnership.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2411.15091",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2609.11152",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2510.10315",
+    "domen": "arxiv.org",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control",
+    "domen": "developers.cloudflare.com",
+    "title": "Overview · Cloudflare AI Crawl Control docs"
+   },
+   {
+    "url": "https://sproutsagesolutions.com/ai-accessibility-audit",
+    "domen": "sproutsagesolutions.com",
+    "title": "AI Accessibility Audit — $300 One-Time | Sprout Sage"
+   },
+   {
+    "url": "https://better-robots.com/check",
+    "domen": "better-robots.com",
+    "title": "robots.txt and AI crawler audit — Better Robots.txt"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10638,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 362,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11000
+  },
+  "cena": 0.02692,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_09d9ba70976daab3006abef689629c87d0b8d8a6f7938a386d",
+  "object": "response",
+  "created_at": 1790899849,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899854,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_09d9ba70976daab3006abef68a210087d08228c2fe97695904",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "AI crawler audit service allow GPTBot OAI-SearchBot robots.txt Cloudflare AI crawlers consultant",
+      "site audit AI crawler accessibility service robots.txt llms.txt agency"
+     ],
+     "query": "AI crawler audit service allow GPTBot OAI-SearchBot robots.txt Cloudflare AI crawlers consultant",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/"
+      },
+      {
+       "type": "url",
+       "url": "https://better-robots.com/check"
+      },
+      {
+       "type": "url",
+       "url": "https://blog.cloudflare.com/cloudflare-ai-audit-control-ai-content-crawlers/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.layzr.ai/agentic-audit"
+      },
+      {
+       "type": "url",
+       "url": "https://www.aivisibilityfixer.com/ai-visibility-audit"
+      },
+      {
+       "type": "url",
+       "url": "https://crawlpact.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://cuescout.com/tools/ai-crawler-checker"
+      },
+      {
+       "type": "url",
+       "url": "https://webauditsuite.com/tools/ai-visibility-checker"
+      },
+      {
+       "type": "url",
+       "url": "https://answerfootprint.com/audit/"
+      },
+      {
+       "type": "url",
+       "url": "https://blog.cloudflare.com/ai-audit-enforcing-robots-txt/"
+      },
+      {
+       "type": "url",
+       "url": "https://sproutsagesolutions.com/ai-accessibility-audit/"
+      },
+      {
+       "type": "url",
+       "url": "https://citefuel.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SEO/comments/1srlq0o/cloudflare_has_been_quietly_blocking_gptbot_and/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1srltxx/cloudflare_has_been_quietly_blocking_gptbot_and/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1tkjv1x/heads_up_the_block_ai_scrapers_toggle_is/"
+      },
+      {
+       "type": "url",
+       "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/2E3fkoJwkDyXXb4H3cijxB/31aa7e9e680111175ab792c62eb482fc/Cloudflare_AI_Audit_product_brief.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/founder/comments/1tiv5d5/i_fixed_my_site_to_be_more_ai_friendly_and_my_ai/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SaaS/comments/1thvdjx/spent_an_afternoon_making_my_site_more_ai/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1vi78ao/ai_bots_allowed_in_robotstxt_full_prerendered/"
+      },
+      {
+       "type": "url",
+       "url": "https://aibotaccess.com/aibotaccess-user-guide.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/content_marketing/comments/1wrk1ru/has_anyone_checked_whether_their_site_is_blocking/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/DigitalMarketing/comments/1uqtkoa/i_checked_34_websites_from_a_thread_here_to_see/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_oyoy-inc-real-estate/comments/1uddlon/we_audited_ai_crawler_access_on_real_estate/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1t2zlrf/cloudflares_managed_robotstxt_silently_blocks/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_NaturailyLLC/comments/1v8y9fu/you_ask_we_answer_how_can_i_check_whether_ai/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2607.14447"
+      },
+      {
+       "type": "url",
+       "url": "https://irp.cdn-website.com/548ed645/files/uploaded/AIO_Doc_Final_v4.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://georaiser.com/downloads/geo-playbook.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.milespartnership.com/sites/default/files/2025-05/Final-Harnessing-AI-Webinar-2025-Combined-v2.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2411.15091"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2609.11152"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2510.10315"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://sproutsagesolutions.com/ai-accessibility-audit/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://better-robots.com/check?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_09d9ba70976daab3006abef68d5c2887d0a82e921f59152472",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 418,
+        "start_index": 318,
+        "title": "Overview · Cloudflare AI Crawl Control docs",
+        "url": "https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 849,
+        "start_index": 747,
+        "title": "AI Accessibility Audit — $300 One-Time | Sprout Sage",
+        "url": "https://sproutsagesolutions.com/ai-accessibility-audit/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1038,
+        "start_index": 966,
+        "title": "robots.txt and AI crawler audit — Better Robots.txt",
+        "url": "https://better-robots.com/check?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1313,
+        "start_index": 1213,
+        "title": "Overview · Cloudflare AI Crawl Control docs",
+        "url": "https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Yes. What you want is usually called an “AI crawler accessibility audit,” “AI visibility audit,” or sometimes a technical GEO/AEO audit.\n\nThere are two good routes:\n\n- If your site uses Cloudflare, start with Cloudflare’s AI Crawl Control. It shows which AI crawlers are reaching the site and lets you control access. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n- If you want someone to handle it, hire a technical SEO/GEO consultant or web developer who specifically works with AI crawler access. There are also dedicated services offering audits and fixes; for example, Sprout Sage currently advertises a $300 one-time AI accessibility audit, while CiteFuel advertises a $399 site audit. ([sproutsagesolutions.com](https://sproutsagesolutions.com/ai-accessibility-audit/?utm_source=openai))\n- For a quick self-check, tools such as Better Robots and Layzr can inspect robots.txt and other AI-access signals. ([better-robots.com](https://better-robots.com/check?utm_source=openai))\n\nImportantly, opening the site isn't just a matter of removing `Disallow` from robots.txt. A firewall/CDN/WAF can still reject AI crawlers even when robots.txt permits them. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n\nAlso, you may want different policies for different purposes—for example, allowing crawlers used to surface your business in AI search while restricting crawlers used for model training.\n\nIf you give me your website URL, I can check its publicly visible crawler settings and tell you what's blocking ChatGPT/OpenAI and other major AI systems and what your web person needs to change."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10638,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 362,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11000
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

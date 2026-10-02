@@ -1,0 +1,493 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 1,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:10:59-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.0724,
+   "ishod": "ok",
+   "sekund": 17.1,
+   "meta": {
+    "request_id": "req_011CfcSXfH7tCcRTvYUh3SxG"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Короткий ответ: **никто со стороны это не «проверит и откроет» автоматически** — это не централизованная блокировка (как у государственных органов), а технические настройки именно вашего сайта. Исправить может только тот, у кого есть доступ к хостингу/серверу: вы сами, ваш веб-мастер, SEO-специалист или техподдержка хостинг-провайдера.\n\n## Что именно нужно проверить\n\n**1. Файл robots.txt**\nОбычно именно он запрещает ИИ-ботам (GPTBot, ClaudeBot, PerplexityBot, Google-Extended и др.) сканировать сайт. директивы вида \"User-agent: GPTBot Disallow: / User-agent: CCBot Disallow: / User-agent: PerplexityBot Disallow: /\" полностью блокируют доступ этим роботам.\n\nПроверить его можно, просто открыв в браузере `вашсайт.com/robots.txt`.\n\n**2. Антибот-защита / WAF / CDN**\nЧасто дело не в robots.txt, а в защите от ботов, которая блокирует запросы на уровне сервера. Антибот-защита там нередко включена по умолчанию — провайдером или хостинг-панелью, а не осознанным решением владельца сайта. Нужно проверять коды ответа сервера: смотрите коды ответа. Постоянные 403 для OAI-SearchBot, Claude-SearchBot или PerplexityBot — явная проблема доступа. Серия 429 означает, что робот упирается в ограничение частоты.\n\n**3. JS-рендеринг**\nЕсли контент сайта подгружается через JavaScript, ИИ-краулеры его могут не увидеть: модели забирают документ в момент вопроса пользователя, а не заранее, и скрипты при этом не выполняют. Сайт, который собирает текст в браузере, отдает ChatGPT пустую оболочку: заголовки, цены и отзывы в ответ не попадут.\n\n## Как быстро проверить самому\n\nЕсть бесплатные онлайн-инструменты, которые делают это за вас по URL:\n- tools.pixelplus.ru/tools/ai-access-checker — проверяет доступность сайта для ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, Qwen и других нейросетей, анализ AI-ботов, robots.txt, HTTP-кодов и ограничений для GEO и AI SEO\n- agentready.md/ru/tools/robots-txt-checker — анализирует robots.txt для ИИ-ботов и показывает, какие ИИ-боты разрешены или заблокированы, директивы Content-Signal, даёт рекомендации по улучшению\n\nИли вручную через терминал (если есть доступ к сайту/серверу):\n```\ncurl -A \"GPTBot\" https://вашсайт.com/\n```\nЧерез консоль вызывается загрузка адреса с подстановкой имени краулера: curl -A GPTBot https://example.com/. В ответ приходит документ, с которым работает модель. Если ответ пустой или в нем нет текста со страницы - вопрос закрыт.\n\n## Что делать дальше\n\n1. Если нашли запрещающие строки в robots.txt для нужных ботов (GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, PerplexityBot и т.д.) — удалите их или замените на `Allow: /`.\n2. Если дело в WAF/антиботе хостинга — попросите техподдержку хостинг-провайдера снять блокировку для списка известных AI user-agent'ов.\n3. Если контент рендерится через JS — нужна помощь разработчика (SSR/prerendering), чтобы текст был виден в исходном HTML.\n\nЕсли скажете название сайта/домена, я могу прямо сейчас проверить его robots.txt и доступность для конкретных ИИ-ботов.",
+  "poiskovye_zaprosy": [
+   "блокировка сайта от AI роботов robots.txt как открыть для нейросетей",
+   "как проверить заблокирован ли сайт для GPTBot ChatGPT Claude robots.txt"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://help.reg.ru/support/hosting/prodvizheniye-sayta/kak-nastroit-robots-txt",
+    "domen": "help.reg.ru",
+    "title": "Как настроить robots.txt"
+   },
+   {
+    "url": "https://firstvds.ru/blog/kak-blokirovat-botam-dostup-k-saytu",
+    "domen": "firstvds.ru",
+    "title": "Роботы или боты: какие бывают, как их ..."
+   },
+   {
+    "url": "https://blog.qrator.net/ru/kak-zashitit-vash-sajt-ot-parsinga-ai_193",
+    "domen": "blog.qrator.net",
+    "title": "Блог — Как защитить ваш сайт от ..."
+   },
+   {
+    "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html",
+    "domen": "texterra.ru",
+    "title": "Каких AI-краулеров пускать на сайт и ..."
+   },
+   {
+    "url": "https://hostkey.ru/blog/249-malenkij-fajl-robotstxt-i-bolshie-posledstviya-odnoj-stroki",
+    "domen": "hostkey.ru",
+    "title": "robots.txt для сайта: настройка, ошибки и ..."
+   },
+   {
+    "url": "https://timeweb.cloud/docs/general/nastrojka-fajla-robots-txt",
+    "domen": "timeweb.cloud",
+    "title": "Настройка файла robots.txt — База знаний ..."
+   },
+   {
+    "url": "https://kokoc.com/blog/oshibki-v-fajle-robots-txt",
+    "domen": "kokoc.com",
+    "title": "15 главных ошибок в файле robots.txt"
+   },
+   {
+    "url": "https://www.rush-analytics.ru/blog/kak-zakrit-sayt-ot-indeksacii",
+    "domen": "rush-analytics.ru",
+    "title": "Как закрыть сайт от индексации: ..."
+   },
+   {
+    "url": "https://texterra.ru/blog/pochemu-onlayn-otvety-neyroseti-opasny-dlya-seo.html",
+    "domen": "texterra.ru",
+    "title": "СМИ стали прятаться от поисковых ..."
+   },
+   {
+    "url": "https://eurobyte.ru/articles/kak-zakryt-sajt-ot-indeksacii",
+    "domen": "eurobyte.ru",
+    "title": "Закрыть сайт от индексации: через ..."
+   },
+   {
+    "url": "https://habr.com/ru/articles/1074550",
+    "domen": "habr.com",
+    "title": "Проверить доступность сайта для ИИ ..."
+   },
+   {
+    "url": "https://www.securitylab.ru/analytics/576383.php",
+    "domen": "securitylab.ru",
+    "title": "ChatGPT знает вашу компанию, а Google — нет: ..."
+   },
+   {
+    "url": "https://tools.pixelplus.ru/tools/ai-access-checker",
+    "domen": "tools.pixelplus.ru",
+    "title": "Проверка доступности сайта для ..."
+   },
+   {
+    "url": "https://enterno.io/articles/robots-txt-ai-crawlers",
+    "domen": "enterno.io",
+    "title": "robots.txt и AI-боты: GPTBot, ClaudeBot, Google-Extended — ..."
+   },
+   {
+    "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty",
+    "domen": "aksanov.digital",
+    "title": "robots.txt и AI-боты: кого пускать, а кого ..."
+   },
+   {
+    "url": "https://aksanov.digital/blog/seo-i-geo/pochemu-ai-ne-vidit-sayt",
+    "domen": "aksanov.digital",
+    "title": "Почему ChatGPT не видит ваш сайт: разбор ..."
+   },
+   {
+    "url": "https://agentready.md/ru/tools/robots-txt-checker",
+    "domen": "agentready.md",
+    "title": "Проверка robots.txt для ИИ — AgentReady.md"
+   },
+   {
+    "url": "https://grizzly.by/about/blog/seo/nastroyka-robotstxt-dlya-ai-botov-upravlyaem-gptbot-claudebot-i-drugimi-ai-kraulerami",
+    "domen": "grizzly.by",
+    "title": "Robots.txt для AI-ботов: настройка GPTBot, ClaudeBot ..."
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://hostkey.ru/blog/249-malenkij-fajl-robotstxt-i-bolshie-posledstviya-odnoj-stroki",
+    "domen": "hostkey.ru",
+    "title": "robots.txt для сайта: настройка, ошибки и ..."
+   },
+   {
+    "url": "https://habr.com/ru/articles/1074550",
+    "domen": "habr.com",
+    "title": "Проверить доступность сайта для ИИ ..."
+   },
+   {
+    "url": "https://www.securitylab.ru/analytics/576383.php",
+    "domen": "securitylab.ru",
+    "title": "ChatGPT знает вашу компанию, а Google — нет: ..."
+   },
+   {
+    "url": "https://aksanov.digital/blog/seo-i-geo/pochemu-ai-ne-vidit-sayt",
+    "domen": "aksanov.digital",
+    "title": "Почему ChatGPT не видит ваш сайт: разбор ..."
+   },
+   {
+    "url": "https://tools.pixelplus.ru/tools/ai-access-checker",
+    "domen": "tools.pixelplus.ru",
+    "title": "Проверка доступности сайта для ..."
+   },
+   {
+    "url": "https://agentready.md/ru/tools/robots-txt-checker",
+    "domen": "agentready.md",
+    "title": "Проверка robots.txt для ИИ — AgentReady.md"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 17664,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1707
+  },
+  "cena": 0.0724,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSXfiQrg8hrLB7j9xoB",
+    "request_id": "req_011CfcSXfH7tCcRTvYUh3SxG",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 17664,
+     "output_tokens": 1707,
+     "output_tokens_details": {
+      "thinking_tokens": 71
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_015hyZesBZnnibhKLqgu837d",
+    "caller": null,
+    "input": {
+     "query": "блокировка сайта от AI роботов robots.txt как открыть для нейросетей"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01RdTN3x7Xa8m3oYt2i1ossn",
+    "caller": null,
+    "input": {
+     "query": "как проверить заблокирован ли сайт для GPTBot ChatGPT Claude robots.txt"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": null,
+      "title": "Как настроить robots.txt",
+      "type": "web_search_result",
+      "url": "https://help.reg.ru/support/hosting/prodvizheniye-sayta/kak-nastroit-robots-txt"
+     },
+     {
+      "page_age": "855 days ago",
+      "title": "Роботы или боты: какие бывают, как их ...",
+      "type": "web_search_result",
+      "url": "https://firstvds.ru/blog/kak-blokirovat-botam-dostup-k-saytu"
+     },
+     {
+      "page_age": "906 days ago",
+      "title": "Блог — Как защитить ваш сайт от ...",
+      "type": "web_search_result",
+      "url": "https://blog.qrator.net/ru/kak-zashitit-vash-sajt-ot-parsinga-ai_193/"
+     },
+     {
+      "page_age": "114 days ago",
+      "title": "Каких AI-краулеров пускать на сайт и ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     },
+     {
+      "page_age": "91 days ago",
+      "title": "robots.txt для сайта: настройка, ошибки и ...",
+      "type": "web_search_result",
+      "url": "https://hostkey.ru/blog/249-malenkij-fajl-robotstxt-i-bolshie-posledstviya-odnoj-stroki/"
+     },
+     {
+      "page_age": "846 days ago",
+      "title": "Настройка файла robots.txt — База знаний ...",
+      "type": "web_search_result",
+      "url": "https://timeweb.cloud/docs/general/nastrojka-fajla-robots-txt"
+     },
+     {
+      "page_age": "120 days ago",
+      "title": "15 главных ошибок в файле robots.txt",
+      "type": "web_search_result",
+      "url": "https://kokoc.com/blog/oshibki-v-fajle-robots-txt/"
+     },
+     {
+      "page_age": "552 days ago",
+      "title": "Как закрыть сайт от индексации: ...",
+      "type": "web_search_result",
+      "url": "https://www.rush-analytics.ru/blog/kak-zakrit-sayt-ot-indeksacii"
+     },
+     {
+      "page_age": "897 days ago",
+      "title": "СМИ стали прятаться от поисковых ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/pochemu-onlayn-otvety-neyroseti-opasny-dlya-seo.html"
+     },
+     {
+      "page_age": "1299 days ago",
+      "title": "Закрыть сайт от индексации: через ...",
+      "type": "web_search_result",
+      "url": "https://eurobyte.ru/articles/kak-zakryt-sajt-ot-indeksacii/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_015hyZesBZnnibhKLqgu837d",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "36 days ago",
+      "title": "Проверить доступность сайта для ИИ ...",
+      "type": "web_search_result",
+      "url": "https://habr.com/ru/articles/1074550/"
+     },
+     {
+      "page_age": "114 days ago",
+      "title": "Каких AI-ботов пускать на сайт: robots.txt ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     },
+     {
+      "page_age": "34 days ago",
+      "title": "ChatGPT знает вашу компанию, а Google — нет: ...",
+      "type": "web_search_result",
+      "url": "https://www.securitylab.ru/analytics/576383.php"
+     },
+     {
+      "page_age": null,
+      "title": "Проверка доступности сайта для ...",
+      "type": "web_search_result",
+      "url": "https://tools.pixelplus.ru/tools/ai-access-checker"
+     },
+     {
+      "page_age": "78 days ago",
+      "title": "robots.txt и AI-боты: GPTBot, ClaudeBot, Google-Extended — ...",
+      "type": "web_search_result",
+      "url": "https://enterno.io/articles/robots-txt-ai-crawlers"
+     },
+     {
+      "page_age": "66 days ago",
+      "title": "robots.txt и AI-боты: кого пускать, а кого ...",
+      "type": "web_search_result",
+      "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty"
+     },
+     {
+      "page_age": "66 days ago",
+      "title": "Почему ChatGPT не видит ваш сайт: разбор ...",
+      "type": "web_search_result",
+      "url": "https://aksanov.digital/blog/seo-i-geo/pochemu-ai-ne-vidit-sayt"
+     },
+     {
+      "page_age": null,
+      "title": "Проверка robots.txt для ИИ — AgentReady.md",
+      "type": "web_search_result",
+      "url": "https://agentready.md/ru/tools/robots-txt-checker"
+     },
+     {
+      "page_age": "278 days ago",
+      "title": "Robots.txt для AI-ботов: настройка GPTBot, ClaudeBot ...",
+      "type": "web_search_result",
+      "url": "https://grizzly.by/about/blog/seo/nastroyka-robotstxt-dlya-ai-botov-upravlyaem-gptbot-claudebot-i-drugimi-ai-kraulerami"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01RdTN3x7Xa8m3oYt2i1ossn",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Короткий ответ: **никто со стороны это не «проверит и откроет» автоматически** — это не централизованная блокировка (как у государственных органов), а технические настройки именно вашего сайта. Исправить может только тот, у кого есть доступ к хостингу/серверу: вы сами, ваш веб-мастер, SEO-специалист или техподдержка хостинг-провайдера.\n\n## Что именно нужно проверить\n\n**1. Файл robots.txt**\nОбычно именно он запрещает ИИ-ботам (GPTBot, ClaudeBot, PerplexityBot, Google-Extended и др.) сканировать сайт. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "```\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: CCBot\nDisallow: /\n\nUser-agent: PerplexityBot \nDisallow: / \n```",
+      "title": "robots.txt для сайта: настройка, ошибки и ...",
+      "type": "web_search_result_location",
+      "url": "https://hostkey.ru/blog/249-malenkij-fajl-robotstxt-i-bolshie-posledstviya-odnoj-stroki/"
+     }
+    ],
+    "text": "директивы вида \"User-agent: GPTBot Disallow: / User-agent: CCBot Disallow: / User-agent: PerplexityBot Disallow: /\"",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " полностью блокируют доступ этим роботам.\n\nПроверить его можно, просто открыв в браузере `вашсайт.com/robots.txt`.\n\n**2. Антибот-защита / WAF / CDN**\nЧасто дело не в robots.txt, а в защите от ботов, которая блокирует запросы на уровне сервера. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Антибот‐защита там нередко включена по умолчанию — провайдером или хостинг‐панелью, а не осознанным решением владельца сайта.\n\n",
+      "title": "Проверить доступность сайта для ИИ ...",
+      "type": "web_search_result_location",
+      "url": "https://habr.com/ru/articles/1074550/"
+     }
+    ],
+    "text": "Антибот-защита там нередко включена по умолчанию — провайдером или хостинг-панелью, а не осознанным решением владельца сайта.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Нужно проверять коды ответа сервера: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Проверьте по журналам, кто доходит до сервера\nЗатем смотрите коды ответа. Постоянные 403 для OAI-SearchBot, Claude-SearchBot или PerplexityBot — явная...",
+      "title": "ChatGPT знает вашу компанию, а Google — нет: ...",
+      "type": "web_search_result_location",
+      "url": "https://www.securitylab.ru/analytics/576383.php"
+     }
+    ],
+    "text": "смотрите коды ответа. Постоянные 403 для OAI-SearchBot, Claude-SearchBot или PerplexityBot — явная проблема доступа. Серия 429 означает, что робот упирается в ограничение частоты.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n**3. JS-рендеринг**\nЕсли контент сайта подгружается через JavaScript, ИИ-краулеры его могут не увидеть: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Модели забирают документ в момент вопроса пользователя, а не заранее, и скрипты при этом не выполняют.\n\n# Почему ChatGPT не видит ваш сайт: разбор при...",
+      "title": "Почему ChatGPT не видит ваш сайт: разбор ...",
+      "type": "web_search_result_location",
+      "url": "https://aksanov.digital/blog/seo-i-geo/pochemu-ai-ne-vidit-sayt"
+     }
+    ],
+    "text": "модели забирают документ в момент вопроса пользователя, а не заранее, и скрипты при этом не выполняют. Сайт, который собирает текст в браузере, отдает ChatGPT пустую оболочку: заголовки, цены и отзывы в ответ не попадут.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## Как быстро проверить самому\n\nЕсть бесплатные онлайн-инструменты, которые делают это за вас по URL:\n- tools.pixelplus.ru/tools/ai-access-checker — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "После обновления системы безопасности ...\n\nПроверьте доступность сайта для ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, Qwen и других нейросет...",
+      "title": "Проверка доступности сайта для ...",
+      "type": "web_search_result_location",
+      "url": "https://tools.pixelplus.ru/tools/ai-access-checker"
+     }
+    ],
+    "text": "проверяет доступность сайта для ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, Qwen и других нейросетей, анализ AI-ботов, robots.txt, HTTP-кодов и ограничений для GEO и AI SEO",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n- agentready.md/ru/tools/robots-txt-checker — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Проанализируйте файл robots.txt для ИИ-ботов. Проверьте, какие ИИ-боты разрешены или заблокированы, директивы Content-Signal и получите рекомендации п...",
+      "title": "Проверка robots.txt для ИИ — AgentReady.md",
+      "type": "web_search_result_location",
+      "url": "https://agentready.md/ru/tools/robots-txt-checker"
+     }
+    ],
+    "text": "анализирует robots.txt для ИИ-ботов и показывает, какие ИИ-боты разрешены или заблокированы, директивы Content-Signal, даёт рекомендации по улучшению",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\nИли вручную через терминал (если есть доступ к сайту/серверу):\n```\ncurl -A \"GPTBot\" https://вашсайт.com/\n```\n",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "** Через консоль вызывается загрузка адреса с подстановкой имени краулера: `curl -A GPTBot https://example.com/`. В ответ приходит документ, с которым...",
+      "title": "Почему ChatGPT не видит ваш сайт: разбор ...",
+      "type": "web_search_result_location",
+      "url": "https://aksanov.digital/blog/seo-i-geo/pochemu-ai-ne-vidit-sayt"
+     }
+    ],
+    "text": "Через консоль вызывается загрузка адреса с подстановкой имени краулера: curl -A GPTBot https://example.com/. В ответ приходит документ, с которым работает модель. Если ответ пустой или в нем нет текста со страницы - вопрос закрыт.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n## Что делать дальше\n\n1. Если нашли запрещающие строки в robots.txt для нужных ботов (GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, PerplexityBot и т.д.) — удалите их или замените на `Allow: /`.\n2. Если дело в WAF/антиботе хостинга — попросите техподдержку хостинг-провайдера снять блокировку для списка известных AI user-agent'ов.\n3. Если контент рендерится через JS — нужна помощь разработчика (SSR/prerendering), чтобы текст был виден в исходном HTML.\n\nЕсли скажете название сайта/домена, я могу прямо сейчас проверить его robots.txt и доступность для конкретных ИИ-ботов.",
+    "type": "text"
+   }
+  ]
+ }
+}

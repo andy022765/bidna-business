@@ -1,0 +1,416 @@
+{
+ "vopros_id": "V2E",
+ "povtor": 6,
+ "vopros": "How do I get AI assistants to recommend my company to customers in the US?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:02:41-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.03172,
+   "ishod": "ok",
+   "sekund": 13.1,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:02:54 GMT",
+    "x-request-id": "req_cdb3639bf82a4afca1ab2bf06575fe00",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "12880"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "You can improve the odds substantially, but you generally can’t “SEO-hack” an assistant into recommending you. AI systems increasingly select companies/products based on relevance to the specific request, accessible structured information, freshness, and evidence from first- and third-party sources. For ChatGPT shopping specifically, OpenAI says product results are organic rather than sponsored and are ranked for relevance. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n\nI’d approach this as “AI recommendation optimization” rather than traditional SEO alone:\n\n- Make your company easy to understand. Create strong pages for each product/service, customer type, use case, geography, price range, and major differentiator. A page saying “enterprise accounting software” is less useful than pages that clearly establish who the product is for, what it does, pricing, limitations, integrations, and alternatives.\n- Build evidence outside your own website. Earn legitimate reviews, customer stories, industry coverage, expert reviews, marketplace listings, comparison-site presence, and relevant community discussion. An assistant researching “best X for Y” can consult public web sources rather than relying exclusively on what your website says. ChatGPT’s shopping research explicitly uses public product information and other retail sources. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n- Make facts machine-readable. For ecommerce, implement Product/ProductGroup, Organization, offers, reviews, availability, shipping and return information using appropriate structured data. Google explicitly supports these structured-data types for ecommerce discovery. ([developers.google.com](https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en&utm_source=openai))\n- Keep commercial information current. Price, inventory, US availability, shipping, warranties, specifications, return policies and variants should agree across your website, feeds and third-party listings.\n- Write for recommendation queries. Identify prompts such as “best [category] for small businesses,” “[competitor] alternatives,” “best [product] under $500,” “best option for [specific problem],” and “X vs Y.” Build genuinely useful pages answering those questions rather than creating hundreds of thin AI-generated pages.\n- Measure AI visibility. Every month, run a fixed set of 50–200 representative buying prompts through major assistants and record whether you appear, competitors mentioned, cited sources, positioning, and factual errors. That gives you an “AI share of recommendation” metric.\n\nIf you sell physical products, there is now an especially direct ChatGPT route. OpenAI's Agentic Commerce Protocol (ACP) lets merchants provide structured product feeds containing things such as descriptions, prices, inventory and media so ChatGPT can understand and surface products accurately. Product-feed onboarding is currently available to approved partners. Shopify merchants already have their product data integrated through Shopify Catalog, according to OpenAI. ([openai.com](https://openai.com/index/powering-product-discovery-in-chatgpt/?utm_source=openai))\n\nThe US part matters too. Make US availability explicit: USD pricing, shipping areas/times, US return policies, store/service locations, appropriate contact details, and “available in the United States” information where relevant. You want an assistant to have enough evidence to confidently answer not just “What is this company?” but “Is this a good option for this particular American customer?”\n\nOne thing I would not spend much effort on is trying to stuff pages with phrases aimed directly at LLMs or creating an `llms.txt` file and assuming that will generate recommendations. The durable advantage is being a strong candidate and making the evidence supporting that conclusion exceptionally easy for machines to retrieve and understand.\n\nIf you give me your company name/website and tell me whether you're B2B, SaaS, ecommerce, local services, etc., I can research your actual visibility in ChatGPT-style recommendation queries and give you a prioritized US-focused plan.",
+  "poiskovye_zaprosy": [
+   "site:openai.com ChatGPT search product recommendations merchants structured data",
+   "site:developers.google.com search structured data organization product reviews ecommerce AI search",
+   "site:blogs.bing.com webmaster generative search AI visibility schema IndexNow"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-shopping-r",
+    "domen": "help.openai.com",
+    "title": "Using shopping research in ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://openai.com/index/powering-product-discovery-in-chatgpt",
+    "domen": "openai.com",
+    "title": "Powering Product Discovery in ChatGPT | OpenAI"
+   },
+   {
+    "url": "https://openai.com/policies/commerce-policies",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://openai.com/index/chatgpt-shopping-research",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://openai.com/index/buy-it-in-chatgpt",
+    "domen": "openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/commerce/guides/get-started",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/commerce",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/commerce/guides/key-concepts?device=c",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en",
+    "domen": "developers.google.com",
+    "title": "Structured Data for Ecommerce Sites | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525253F.mkv",
+    "domen": "help.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.openai.com/commerce/specs?trk=article-ssr-frontend-pulse_little-text-block",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/business-guides-and-resources/how-small-teams-win-with-chatgpt.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/business-guides-and-resources/ai-in-the-enterprise.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/3c7f7e1b-36c4-446b-916c-11183e4266b7/chatgpt-usage-and-adoption-patterns-at-work.pdf",
+    "domen": "cdn.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.google.com/static/business-communications/business-messages/files/us-business-messages-infographic.pdf",
+    "domen": "developers.google.com",
+    "title": null
+   },
+   {
+    "url": "https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf?stream=top",
+    "domen": "cdn.openai.com",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://help.openai.com/en/articles/12911370-using-shopping-r",
+    "domen": "help.openai.com",
+    "title": "Using shopping research in ChatGPT | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en",
+    "domen": "developers.google.com",
+    "title": "Structured Data for Ecommerce Sites | Google Search Central  |  Documentation  |  Google for Developers"
+   },
+   {
+    "url": "https://openai.com/index/powering-product-discovery-in-chatgpt",
+    "domen": "openai.com",
+    "title": "Powering Product Discovery in ChatGPT | OpenAI"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10651,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 841,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11492
+  },
+  "cena": 0.03172,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_03cd2bebb1aea11c006abef4a19b2c87d08b5f47e0c94e8c69",
+  "object": "response",
+  "created_at": 1790899361,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899371,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_03cd2bebb1aea11c006abef4a2780087d0816198a6e488b295",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "site:openai.com ChatGPT search product recommendations merchants structured data",
+      "site:developers.google.com search structured data organization product reviews ecommerce AI search",
+      "site:blogs.bing.com webmaster generative search AI visibility schema IndexNow"
+     ],
+     "query": "site:openai.com ChatGPT search product recommendations merchants structured data",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-shopping-r"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/index/powering-product-discovery-in-chatgpt/"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/policies/commerce-policies/"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/index/chatgpt-shopping-research/"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/index/buy-it-in-chatgpt/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce/guides/get-started"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce/guides/key-concepts?device=c"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/11128490-improved-shopping-results-from-chatgpt-search%25252525252525252525252525252525253F.mkv"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/commerce/specs?trk=article-ssr-frontend-pulse_little-text-block"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/b96a6047-53b2-43bd-85b9-44885cf4007a%20/chatgpt-enterprise-prompt-pack-for-financial-services.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/business-guides-and-resources/how-small-teams-win-with-chatgpt.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/business-guides-and-resources/ai-in-the-enterprise.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/3c7f7e1b-36c4-446b-916c-11183e4266b7/chatgpt-usage-and-adoption-patterns-at-work.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/static/business-communications/business-messages/files/us-business-messages-infographic.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf?stream=top"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en&utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://openai.com/index/powering-product-discovery-in-chatgpt/?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_03cd2bebb1aea11c006abef4a4e1e087d098b061ba5df8910a",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 528,
+        "start_index": 428,
+        "title": "Using shopping research in ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1500,
+        "start_index": 1400,
+        "title": "Using shopping research in ChatGPT | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1929,
+        "start_index": 1771,
+        "title": "Structured Data for Ecommerce Sites | Google Search Central  |  Documentation  |  Google for Developers",
+        "url": "https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en&utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 3307,
+        "start_index": 3210,
+        "title": "Powering Product Discovery in ChatGPT | OpenAI",
+        "url": "https://openai.com/index/powering-product-discovery-in-chatgpt/?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "You can improve the odds substantially, but you generally can’t “SEO-hack” an assistant into recommending you. AI systems increasingly select companies/products based on relevance to the specific request, accessible structured information, freshness, and evidence from first- and third-party sources. For ChatGPT shopping specifically, OpenAI says product results are organic rather than sponsored and are ranked for relevance. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n\nI’d approach this as “AI recommendation optimization” rather than traditional SEO alone:\n\n- Make your company easy to understand. Create strong pages for each product/service, customer type, use case, geography, price range, and major differentiator. A page saying “enterprise accounting software” is less useful than pages that clearly establish who the product is for, what it does, pricing, limitations, integrations, and alternatives.\n- Build evidence outside your own website. Earn legitimate reviews, customer stories, industry coverage, expert reviews, marketplace listings, comparison-site presence, and relevant community discussion. An assistant researching “best X for Y” can consult public web sources rather than relying exclusively on what your website says. ChatGPT’s shopping research explicitly uses public product information and other retail sources. ([help.openai.com](https://help.openai.com/en/articles/12911370-using-shopping-r?utm_source=openai))\n- Make facts machine-readable. For ecommerce, implement Product/ProductGroup, Organization, offers, reviews, availability, shipping and return information using appropriate structured data. Google explicitly supports these structured-data types for ecommerce discovery. ([developers.google.com](https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce?hl=en&utm_source=openai))\n- Keep commercial information current. Price, inventory, US availability, shipping, warranties, specifications, return policies and variants should agree across your website, feeds and third-party listings.\n- Write for recommendation queries. Identify prompts such as “best [category] for small businesses,” “[competitor] alternatives,” “best [product] under $500,” “best option for [specific problem],” and “X vs Y.” Build genuinely useful pages answering those questions rather than creating hundreds of thin AI-generated pages.\n- Measure AI visibility. Every month, run a fixed set of 50–200 representative buying prompts through major assistants and record whether you appear, competitors mentioned, cited sources, positioning, and factual errors. That gives you an “AI share of recommendation” metric.\n\nIf you sell physical products, there is now an especially direct ChatGPT route. OpenAI's Agentic Commerce Protocol (ACP) lets merchants provide structured product feeds containing things such as descriptions, prices, inventory and media so ChatGPT can understand and surface products accurately. Product-feed onboarding is currently available to approved partners. Shopify merchants already have their product data integrated through Shopify Catalog, according to OpenAI. ([openai.com](https://openai.com/index/powering-product-discovery-in-chatgpt/?utm_source=openai))\n\nThe US part matters too. Make US availability explicit: USD pricing, shipping areas/times, US return policies, store/service locations, appropriate contact details, and “available in the United States” information where relevant. You want an assistant to have enough evidence to confidently answer not just “What is this company?” but “Is this a good option for this particular American customer?”\n\nOne thing I would not spend much effort on is trying to stuff pages with phrases aimed directly at LLMs or creating an `llms.txt` file and assuming that will generate recommendations. The durable advantage is being a strong candidate and making the evidence supporting that conclusion exceptionally easy for machines to retrieve and understand.\n\nIf you give me your company name/website and tell me whether you're B2B, SaaS, ecommerce, local services, etc., I can research your actual visibility in ChatGPT-style recommendation queries and give you a prioritized US-focused plan."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10651,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 841,
+   "output_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "total_tokens": 11492
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

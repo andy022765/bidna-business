@@ -1,0 +1,388 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 1,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "perplexity",
+ "rezhim": "poisk",
+ "model_zaproshena": "perplexity/sonar",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:00-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.0048,
+   "ishod": "ok",
+   "sekund": 7.6,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:11:07 GMT",
+    "x-request-id": "f43840d2-610f-4bd4-8eb6-96a869eafe80"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Проверить и исправить доступ может **технический SEO-специалист** или **веб-разработчик**, знакомый с индексацией и ботами. Если сайт на платформе или за CDN/WAF (например, Cloudflare), может понадобиться также администратор хостинга: блокировка бывает не только в `robots.txt`, но и в настройках сервера, файрвола или защиты от ботов.\n\nПопросите специалиста провести **аудит доступности для поисковых и AI-краулеров** и проверить:\n\n- `вашдомен.com/robots.txt` — нет ли запрета для нужных ботов;\n- ответы сайта для роботов: нет ли CAPTCHA, блокировки по IP, ошибок `403` или `429`;\n- метатеги и HTTP-заголовки `noindex` / `X-Robots-Tag`;\n- доступны ли важные страницы и sitemap, корректно ли настроены Search Console и CDN/WAF.\n\nМожно отправить подрядчику такой запрос:\n\n> «Проверьте, почему Google и AI-краулеры не могут получать публичные страницы сайта. Найдите блокировки в robots.txt, CDN/WAF, сервере и метатегах; согласуйте со мной, каких ботов разрешить, внесите изменения и подтвердите проверку доступности».\n\nВажно: разрешение краулеру **не гарантирует**, что ChatGPT, Google или другие нейросети покажут компанию в ответах. Оно лишь позволяет им получать контент; дальнейшее обнаружение и использование зависит от конкретной системы. Не просите «открыть всех ботов» без разбора: закрытые разделы, личные данные и служебные URL должны остаться защищёнными.",
+  "poiskovye_zaprosy": [
+   "US agency AI crawler audit robots.txt GPTBot ClaudeBot PerplexityBot website",
+   "AI search optimization agency technical audit crawler access robots.txt USA",
+   "Google Search Central robots.txt AI crawlers website access documentation"
+  ],
+  "poiskovyh_zaprosov": 3,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt?hl=en",
+    "domen": "developers.google.com",
+    "title": "How Google Interprets the robots.txt Specification | Google Search Central | Documentation | Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+    "domen": "developers.google.com",
+    "title": "Robots.txt Introduction and Guide | Google Search Central"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers?hl=hi",
+    "domen": "developers.google.com",
+    "title": "Google के सामान्य क्रॉलर | Google Search Central | Documentation | Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/googlebot",
+    "domen": "developers.google.com",
+    "title": "What Is Googlebot | Google Search Central | Documentation"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2025/03/robotstxt-flexible-way-to-control",
+    "domen": "developers.google.com",
+    "title": "Robots Refresher: robots.txt — a flexible way to control ..."
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag",
+    "domen": "developers.google.com",
+    "title": "Robots Meta Tags Specifications | Google Search Central | Documentation | Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
+    "domen": "developers.google.com",
+    "title": "How Google Interprets the robots.txt Specification"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2025/02/intro-robots-refresher",
+    "domen": "developers.google.com",
+    "title": "Robots Refresher: introducing a new series - Google for Developers"
+   },
+   {
+    "url": "https://developers.google.com/crawling",
+    "domen": "developers.google.com",
+    "title": "Crawling infrastructure"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/appearance/ai-features",
+    "domen": "developers.google.com",
+    "title": "AI Features and Your Website | Google Search Central"
+   },
+   {
+    "url": "https://developers.google.com/search/docs/crawling-indexing",
+    "domen": "developers.google.com",
+    "title": "Google Crawling and Indexing | Documentation"
+   },
+   {
+    "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/prepare-data",
+    "domen": "docs.cloud.google.com",
+    "title": "Prepare data for ingesting | Agent Search | Google Cloud Documentation"
+   },
+   {
+    "url": "https://developers.google.com/search/blog/2024/12/crawling-december-resources",
+    "domen": "developers.google.com",
+    "title": "Crawling December: The how and why of Googlebot crawling"
+   },
+   {
+    "url": "https://searchengineland.com/google-extended-crawler-432636",
+    "domen": "searchengineland.com",
+    "title": "Google introduces Google-Extended to let you block Bard ..."
+   },
+   {
+    "url": "https://support.google.com/webmasters/answer/6062598?hl=en",
+    "domen": "support.google.com",
+    "title": "​robots.txt report - Search Console Help"
+   }
+  ],
+  "citaty_v_tekste": null,
+  "citaty_dostupny": false,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "perplexity/sonar",
+  "tokeny": {
+   "cost": {
+    "cache_creation_cost": 0.00099,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00117,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.0048
+   },
+   "input_tokens": 4545,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 3971,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 467,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5012
+  },
+  "cena": 0.0048,
+  "cena_istochnik": "сумма из ответа Perplexity"
+ },
+ "syroy_otvet": {
+  "background": false,
+  "completed_at": 1790899860,
+  "created_at": 1790899860,
+  "error": null,
+  "frequency_penalty": 0,
+  "id": "resp_f43840d2-610f-4bd4-8eb6-96a869eafe80",
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "metadata": {},
+  "model": "perplexity/sonar",
+  "object": "response",
+  "output": [
+   {
+    "queries": [
+     "US agency AI crawler audit robots.txt GPTBot ClaudeBot PerplexityBot website",
+     "AI search optimization agency technical audit crawler access robots.txt USA",
+     "Google Search Central robots.txt AI crawlers website access documentation"
+    ],
+    "results": [
+     {
+      "id": 1,
+      "last_updated": "2026-03-24",
+      "snippet": "Google's automated crawlers support the Robots Exclusion Protocol (REP).\nThis means that before crawling a site, Google's crawlers download and parse the site's robots.txt file to extract information about which parts of the site may be crawled.\nThe REP isn't applicable to Google's crawlers that are controlled by users (for example, feed subscriptions), or crawlers that are used to increase user safety (for example, malware analysis).\n...\nIf you don't want crawlers to access sections of your site, you can create a robots.txt file with appropriate rules.\nA robots.txt file is a simple text file containing rules about which crawlers may access which parts of a site.\n...\nYou must place the robots.txt file in the top-level directory of a site, on a supported\nprotocol.\n...\nThe robots.txt file must be a\nUTF-8 encoded plain text\nfile and the lines must be separated by\n...\nWhen matching robots.txt rules to URLs, crawlers use the most specific rule based on the length of the rule path.\nIn case of conflicting rules, including those with wildcards, Google uses the least restrictive rule.",
+      "source": "web",
+      "title": "How Google Interprets the robots.txt Specification | Google Search Central | Documentation | Google for Developers",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt?hl=en"
+     },
+     {
+      "id": 2,
+      "last_updated": "2026-09-25",
+      "snippet": "A robots.txt file tells search engine crawlers which URLs the crawler can access on your site.\nThis is used mainly to avoid overloading your site with requests; **it is not a\nmechanism for keeping a web page out of Google**.\n...\nThe instructions in robots.txt files cannot enforce crawler behavior to your site; it's up to the crawler to obey them.\nWhile Googlebot and other respectable web crawlers obey the instructions in a robots.txt file, other crawlers might not.\n...\nIf you decided that you need one, learn how to\ncreate a robots.txt file.\nOr if you already have one, learn how to update it.",
+      "source": "web",
+      "title": "Robots.txt Introduction and Guide | Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+     },
+     {
+      "id": 3,
+      "last_updated": "2026-05-18",
+      "snippet": "Common crawlers operate from published IP ranges with specific hostname patterns.\nThese crawlers have unique user-agent strings and tokens.\nKey crawlers include Googlebot (for general search), Googlebot-Image (for images), Googlebot-Video (for videos), Googlebot-News (for news), Storebot-Google (for shopping), and Google-InspectionTool (for search testing).",
+      "source": "web",
+      "title": "Google के सामान्य क्रॉलर | Google Search Central | Documentation | Google for Developers",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers?hl=hi"
+     },
+     {
+      "id": 4,
+      "last_updated": "2026-09-21",
+      "snippet": "Googlebot is the generic name for two types of\nweb crawlers used by Google Search:\n- **Googlebot Smartphone**: a mobile crawler that simulates a user on a mobile device.\n- **Googlebot Desktop**: a desktop crawler that simulates a user on desktop.\nYou can identify the subtype of Googlebot by looking at the\nHTTP `user-agent` request header in the request.\nHowever, both crawler types obey the same product token (user agent token) in robots.txt, and so you cannot selectively target either Googlebot Smartphone or Googlebot Desktop using robots.txt.\n...\nIf you want to prevent Googlebot from crawling content on your site, you have a\nnumber of options.\nRemember there's a difference between *crawling* and *indexing*; blocking Googlebot from crawling a page doesn't prevent the URL of the page from appearing in search results:\n- **Prevent Googlebot from crawling a page?** Use a robots.txt file.\n- **Don't want Google to index a page?** Use `noindex`.\n- **Prevent a page from being accessible at all by both crawlers or users?** Use another method, such as password protection.\n...\nThe best way to verify that a request actually\ncomes from Googlebot is to\nuse a reverse DNS lookup on the source IP of the request, or to match the source IP against the Googlebot IP ranges.",
+      "source": "web",
+      "title": "What Is Googlebot | Google Search Central | Documentation",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/googlebot"
+     },
+     {
+      "date": "2025-03-07",
+      "id": 5,
+      "last_updated": "2026-09-29",
+      "snippet": "In this edition of the robots refresher series, we'll take a closer look at robots.txt as a flexible way to tell robots what you want them to do (or not do) on your website.\n...\nThe way these files work is simple: you make a text file called \"robots.txt\" and then upload it to\nyour website—and if you're using a content management system (CMS), it's likely even easier.\nYou\ncan leave your robots.txt file empty (or not have one at all) if your whole\nsite may be crawled, or you can add rules to manage crawling.\nFor example, to tell all bots (also\nknown as crawlers, robots, spiders) to stay out of your \"add to cart\" page, you could write this\nin your robots.txt file:\n...\nuser-agent: *\ndisallow: /cart\n...\nrobots.txt is the Swiss Army knife of expressing what you want different robots to do or\nnot do on your website: it can be just a few lines, or it can be complex with more elaborate\nrules targeting very specific URL patterns.\n...\n|**Inform multiple bots (but not all) about the same rule** This group tells both `examplebot` and `otherbot` to stay away from the `/search` path.|``` user-agent: examplebot user-agent: otherbot disallow: /search ```|\n...\n|**Tell one bot to avoid paths that contain a specific piece of text** For example, you could tell `documentsbot` not to crawl any file that contains \".pdf\" in its name.|``` user-agent: documentsbot disallow: *.pdf ```|\n|**Tell a bot it may crawl your blog, but not the drafts**|``` user-agent: documentsbot allow: /blog/ disallow: /blog/drafts/ ```|\n|**Block a crawler from part of your website, while allowing other crawlers to access your site** This robots.txt file disallows the mentioned `aicorp-trainer-bot` from accessing anything other than the home page, while allowing other crawlers (such as search engines) to access the site.|``` user-agent: * allow: / user-agent: aicorp-trainer-bot disallow: / allow: /$ ```|\n...\nThe Robots Exclusion Protocol (REP) works by putting together rules (\"allow\" or \"disallow\") and specifying which robots these rules apply to.\nYou don't need to learn programming or fiddle with tools; you can just put these rules in a text file and upload it to your website.\n...\nOnce you've got things set up, you can also test to make sure your file is set up how you\nintended.\nThere are many testing tools built by the web community to help with this, such as\nTametheBot's robots.txt testing tool and this robots.txt parser that are using the open-source robots.txt parser library.",
+      "source": "web",
+      "title": "Robots Refresher: robots.txt — a flexible way to control ...",
+      "url": "https://developers.google.com/search/blog/2025/03/robotstxt-flexible-way-to-control"
+     },
+     {
+      "id": 6,
+      "last_updated": "2026-09-21",
+      "snippet": "This document details how the page- and text-level settings can be used to adjust how Google\npresents your content in search results.\nYou can specify page-level settings by including a\n`meta` tag on HTML pages or in an HTTP header.\n...\nKeep in mind that these settings can be read and followed only if crawlers are allowed to access\nthe pages that include these settings.\nThe `<meta name=\"robots\" content=\"noindex\">` rule applies to search engine\ncrawlers.\nTo block non-search crawlers, such as `AdsBot-Google`, you might need to add\nrules targeted to the specific crawler (for example,\n`<meta name=\"AdsBot-Google\" content=\"noindex\">`).\n...\nPlace the robots `meta` tag\nin the `<head>` section of a given page, like this:\n...\nTo address a specific crawler,\nreplace the `robots` value of the `name` attribute with the user agent token\nof the crawler that you are addressing.\nGoogle supports two user agent tokens in the\nrobots `meta` tag; other values are ignored:\n1. `googlebot`: for all text results.\n2. `googlebot-news`: for news results.\n...\nTo block indexing of non-HTML resources, such as PDF files, video files, or image files, use the\n`X-Robots-Tag` response header instead.\n...\na URL is crawled.\nIf a page is disallowed from crawling through the robots.txt file, then any\ninformation about indexing or serving rules will not be found and will therefore be\nignored.\nIf indexing or serving rules must be followed, the URLs containing those\nrules cannot be disallowed from crawling.",
+      "source": "web",
+      "title": "Robots Meta Tags Specifications | Google Search Central | Documentation | Google for Developers",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag"
+     },
+     {
+      "id": 7,
+      "last_updated": "2026-09-22",
+      "snippet": "Google's automated\ncrawlers support the Robots Exclusion Protocol (REP).\nThis means that before crawling a site, Google's crawlers download and parse the site's robots.txt file to extract information about which parts of the site may be crawled.\nThe REP isn't applicable to Google's crawlers that are controlled by users (for example, feed subscriptions), or crawlers that are used to increase user safety (for example, malware analysis).\n...\nIf you don't want crawlers to access sections of your site, you can create a robots.txt file\nwith appropriate rules.\nA robots.txt file is a text file containing rules about which\ncrawlers may access which parts of a site.\n...\nYou must place the robots.txt file in the top-level directory of a site, on a supported\nprotocol.\nThe URL for the robots.txt file is (like other URLs) case-sensitive.\n...\nThe rules listed in the robots.txt file apply only to the host, protocol, and port number\nwhere the robots.txt file is hosted.\n...\nThe robots.txt file must be a\nUTF-8 encoded plain text file and the lines must be separated by `CR`, `CR/LF`, or",
+      "source": "web",
+      "title": "How Google Interprets the robots.txt Specification",
+      "url": "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+     },
+     {
+      "date": "2025-02-24",
+      "id": 8,
+      "last_updated": "2026-09-23",
+      "snippet": "A \"robots.txt\" is a file that any website can provide.\nIn its simplest form, it's a text file that's stored on the server.\n...\nTo look at one, take the domain name and add `/robots.txt` to the end, then browse to that\naddress.\n...\nrobots.txt files tell website crawlers which parts of a website are available for automated access\n(we call that crawling), and which parts aren't.\nIt allows sites to address everything from their\nwhole site, parts of their site, or even specific files within their site.\nIn addition to being\nmachine-readable, the files are also human-readable.\nThis means that there's always a\nstraightforward yes or no answer regarding whether or not a page is allowed to be accessed in an\nautomated fashion by a specific crawler.\n...\nThe file gives instructions to crawlers for optimal crawling of a website.",
+      "source": "web",
+      "title": "Robots Refresher: introducing a new series - Google for Developers",
+      "url": "https://developers.google.com/search/blog/2025/02/intro-robots-refresher"
+     },
+     {
+      "id": 9,
+      "last_updated": "2026-09-21",
+      "snippet": "Learning how Google's user agents interact with your website can help get your most important pages appearing in more places in the Google ecosystem, without overloading your servers.\nWhether you're a site owner or developer, this documentation gives you better control over how your site is crawled.\n...\nYou can verify if a web crawler or fetcher accessing your server really is from Google, such\nas Googlebot.\n...\nYou can use a robots.txt file to allow or disallow crawling of individual pages, or your whole website.",
+      "source": "web",
+      "title": "Crawling infrastructure",
+      "url": "https://developers.google.com/crawling"
+     },
+     {
+      "id": 10,
+      "last_updated": "2026-09-21",
+      "snippet": "- Ensuring that crawling is allowed in robots.txt, and by any CDN or hosting infrastructure\n...\nAI is built into Search and integral to how Search functions, which is why robots.txt directives\nfor Googlebot is the control for site owners to manage access to how their sites are crawled for Search.\nTo limit the information shown from your pages in Search, use `nosnippet`,\n`data-nosnippet`, `max-snippet`, or `noindex` controls.",
+      "source": "web",
+      "title": "AI Features and Your Website | Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features"
+     },
+     {
+      "id": 11,
+      "last_updated": "2026-09-22",
+      "snippet": "The topics in this section describe how you can control Google's ability to find and parse\nyour content in order to show it in Search and other Google properties, as well as how to\nprevent Google from crawling specific content on your site.\n...\n|robots.txt|A robots.txt file tells search engine crawlers which pages or files the crawler can or can't request from your site.|\n...\nKey actions include: using sitemaps to inform Google of new/updated pages, structuring URLs logically, and utilizing `robots.txt` to specify crawlable content.",
+      "source": "web",
+      "title": "Google Crawling and Indexing | Documentation",
+      "url": "https://developers.google.com/search/docs/crawling-indexing"
+     },
+     {
+      "id": 12,
+      "last_updated": "2026-09-26",
+      "snippet": "- If you use the `robots.txt` file in your website, do\nthe following:\n- Verify Google's crawlers and fetchers.\n- Make sure that\nGoogle-CloudVertexBot can access your content.\n`Google-CloudVertexBot` needs to crawl\nand index your information, including any paywalled content.\n...\n- If you submit a sitemap to index and refresh your web pages, make sure that your `robots.txt` file also permits the\nGooglebot user agent to fetch the sitemap file.\n...\n- In addition to allowing the crawler in your `robots.txt` file, your organization\nmust allow the search requests through all the upstream proxy servers that\nyour users might encounter.",
+      "source": "web",
+      "title": "Prepare data for ingesting | Agent Search | Google Cloud Documentation",
+      "url": "https://docs.cloud.google.com/generative-ai-app-builder/docs/prepare-data"
+     },
+     {
+      "date": "2024-12-03",
+      "id": 13,
+      "last_updated": "2026-10-01",
+      "snippet": "It is tempting to add robots.txt to the list also, however from a rendering perspective disallowing crawling of resources usually causes issues.\n...\nhas an entry for every URL that was requested by browsers and crawlers alike.\nTo identify Google's\ncrawlers in the access log, we publish our",
+      "source": "web",
+      "title": "Crawling December: The how and why of Googlebot crawling",
+      "url": "https://developers.google.com/search/blog/2024/12/crawling-december-resources"
+     },
+     {
+      "date": "2023-09-28",
+      "id": 14,
+      "last_updated": "2026-09-11",
+      "snippet": "Google today announced a new “standalone product token,” Google-Extended, that lets you control whether Bard and Vertex AI can access the content on your site.\n...\n**What is Google-Extended.** Google calls it “A standalone product token that web publishers can use to manage whether their sites help improve Bard and Vertex AI generative APIs, including future generations of models that power those products.”\nThe new crawler has been added to the Google Search Central documentation on web crawlers.\n...\n** You can use robots.txt to block Google-Extended from accessing your content, or parts of it.\nTo fully block Google-Extended, add the following to your site’s robots.txt:\n`User-agent: Google-Extended `\n`Disallow: /`",
+      "source": "web",
+      "title": "Google introduces Google-Extended to let you block Bard ...",
+      "url": "https://searchengineland.com/google-extended-crawler-432636"
+     },
+     {
+      "id": 15,
+      "last_updated": "2026-08-19",
+      "snippet": "A robots.txt file is used to prevent search engines from crawling your site.\nUse noindex if you want to prevent content from appearing in search results.\n...\nA robots.txt file is located at the root of a protocol and domain.\nTo determine the URL, cut off everything after the host (and optional port) in the URL of a file and add \"/robots.txt\".",
+      "source": "web",
+      "title": "​robots.txt report - Search Console Help",
+      "url": "https://support.google.com/webmasters/answer/6062598?hl=en"
+     }
+    ],
+    "type": "search_results"
+   },
+   {
+    "content": [
+     {
+      "annotations": [],
+      "text": "Проверить и исправить доступ может **технический SEO-специалист** или **веб-разработчик**, знакомый с индексацией и ботами. Если сайт на платформе или за CDN/WAF (например, Cloudflare), может понадобиться также администратор хостинга: блокировка бывает не только в `robots.txt`, но и в настройках сервера, файрвола или защиты от ботов.\n\nПопросите специалиста провести **аудит доступности для поисковых и AI-краулеров** и проверить:\n\n- `вашдомен.com/robots.txt` — нет ли запрета для нужных ботов;\n- ответы сайта для роботов: нет ли CAPTCHA, блокировки по IP, ошибок `403` или `429`;\n- метатеги и HTTP-заголовки `noindex` / `X-Robots-Tag`;\n- доступны ли важные страницы и sitemap, корректно ли настроены Search Console и CDN/WAF.\n\nМожно отправить подрядчику такой запрос:\n\n> «Проверьте, почему Google и AI-краулеры не могут получать публичные страницы сайта. Найдите блокировки в robots.txt, CDN/WAF, сервере и метатегах; согласуйте со мной, каких ботов разрешить, внесите изменения и подтвердите проверку доступности».\n\nВажно: разрешение краулеру **не гарантирует**, что ChatGPT, Google или другие нейросети покажут компанию в ответах. Оно лишь позволяет им получать контент; дальнейшее обнаружение и использование зависит от конкретной системы. Не просите «открыть всех ботов» без разбора: закрытые разделы, личные данные и служебные URL должны остаться защищёнными.",
+      "type": "output_text"
+     }
+    ],
+    "id": "msg_7bcb9826-0ef2-4893-8dce-a8d819dbe886",
+    "role": "assistant",
+    "status": "completed",
+    "type": "message"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "reasoning": null,
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "store": true,
+  "temperature": 1,
+  "text": {
+   "format": {
+    "type": "text"
+   }
+  },
+  "tool_choice": "auto",
+  "tools": [
+   {
+    "type": "web_search",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "region": "California",
+     "country": "US",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 1,
+  "truncation": "",
+  "usage": {
+   "cost": {
+    "cache_creation_cost": 0.00099,
+    "currency": "USD",
+    "input_cost": 0.00014,
+    "output_cost": 0.00117,
+    "tool_calls_cost": 0.0025,
+    "tool_calls_cost_details": {
+     "search_web": 0.0025
+    },
+    "total_cost": 0.0048
+   },
+   "input_tokens": 4545,
+   "input_tokens_details": {
+    "cache_creation_input_tokens": 3971,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0
+   },
+   "output_tokens": 467,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "tool_calls_details": {
+    "search_web": {
+     "cost_usd": 0.0025,
+     "invocation": 1
+    }
+   },
+   "total_tokens": 5012
+  },
+  "user": null
+ }
+}

@@ -1,0 +1,556 @@
+{
+ "vopros_id": "V6R",
+ "povtor": 5,
+ "vopros": "Мой сайт в США закрыт для роботов ИИ. Кто проверит и откроет его, чтобы нейросети видели компанию?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:11:30-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.07085,
+   "ishod": "ok",
+   "sekund": 19.5,
+   "meta": {
+    "request_id": "req_011CfcSZwJLKMUg16N7fZDSN"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Короткий ответ: единого «регулятора», который автоматически проверит и откроет ваш сайт для ИИ‑ботов, не существует. Это делается вручную — либо вы сами (или ваш веб‑мастер/хостинг-провайдер/SEO-подрядчик) редактируете настройки сайта, либо используете специализированные онлайн-инструменты для диагностики. Вот как это работает на практике.\n\n**1. Кто физически вносит изменения**\nОткрыть сайт для нейросетей может только тот, у кого есть доступ к файлам/настройкам хостинга — вы, ваш разработчик, веб-мастер, агентство или хостинг-провайдер. robots.txt — текстовый файл в корне сайта (/robots.txt), которым вы сообщаете поисковым и AI-краулерам, какие разделы можно обходить. Никакая внешняя служба не может отредактировать его за вас без доступа к серверу.\n\n**2. Что именно нужно открыть**\nПроблема обычно в нескольких местах:\n- нужно проверить, что robots.txt не содержит запрещающих правил для ключевых ИИ-краулеров: GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended, а также YandexBot и YandexGPT.\n- Минимальный рабочий пример файла выглядит так: общее правило User-agent: * Allow: /, а затем отдельно явные Allow: / для GPTBot, ClaudeBot, PerplexityBot, Google-Extended, плюс ссылка на Sitemap.\n- Если у сайта американский хостинг с защитой от ботов, проблема может быть не только в robots.txt: Cloudflare и другие сервисы защиты часто включают запрет обучения по умолчанию, и брандмауэр приложения может блокировать краулера как подозрительную активность — достаточно одного из нескольких «закрытых ворот», чтобы бот не дошёл до сайта.\n- Важно также помнить: robots.txt не предназначен для исключения страницы из индекса — для этого нужен noindex или защита страницы авторизацией, как прямо пишет Google.\n\n**3. Чем проверить (бесплатные инструменты, без привязки к конкретному специалисту)**\n- Есть бесплатные валидаторы robots.txt, которые проверяют синтаксис, доступ ботов (Googlebot, Yandex, GPTBot) и ссылки на sitemap, а также позволяют проверить, закрыт ли конкретный URL для конкретного бота — на любом сайте, без подтверждения прав (например, enterno.io/robots-checker).\n- Есть инструмент TameTheBots, который использует библиотеку Google Robots.txt Parser and Matcher для проверки правил в вашем файле robots.txt.\n- Для Яндекса: Яндекс.Вебмастер — для YandexBot и YandexAI показывает, что конкретно видит краулер, включая генеративный контур Алисы, а для остальных ботов встроенного инструмента у площадок нет — только логи и curl.\n- Google Search Console — для проверки видимости Googlebot/Google-Extended.\n\n**4. Если хотите делегировать это специалисту**\nТакую задачу обычно решает:\n- ваш текущий разработчик/веб-мастер сайта (правка одного файла — задача на 10–15 минут);\n- хостинг-провайдер (если сайт на их платформе типа Wix, Shopify, Squarespace — там часто есть настройки в панели);\n- SEO/GEO-агентство — на клиентских проектах работа часто начинается именно с проверки доступности сайта для ботов, поскольку улучшать видимость бессмысленно, пока краулер физически не доходит до сайта.\n\nЕсли скажете, на какой платформе сделан сайт (WordPress, Wix, Shopify, самописный и т.д.) и используете ли Cloudflare/другой WAF — могу подсказать точные шаги или текст, который нужно вставить в robots.txt именно для вашего случая.",
+  "poiskovye_zaprosy": [
+   "как открыть сайт для роботов ИИ robots.txt разрешить GPTBot",
+   "сервис проверки robots.txt для AI краулеров открыть доступ"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://support.google.com/manufacturers/answer/7349854?hl=ru",
+    "domen": "support.google.com",
+    "title": "Как открыть доступ к сайту через файл ..."
+   },
+   {
+    "url": "https://pr-cy.ru/news/p/7309-kak-sostavit-robotstxt-samostoyatelno",
+    "domen": "pr-cy.ru",
+    "title": "Robots.txt: полное руководство по управ..."
+   },
+   {
+    "url": "https://www.sostav.ru/blogs/280641/64894",
+    "domen": "sostav.ru",
+    "title": "Руководство по генеративной оптим..."
+   },
+   {
+    "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html",
+    "domen": "texterra.ru",
+    "title": "Каких AI-краулеров пускать на сайт и ..."
+   },
+   {
+    "url": "https://texterra.ru/blog/indeksatsiya-poiska-v-chatgpt-osnovnye-shagi-dlya-veb-saytov.html",
+    "domen": "texterra.ru",
+    "title": "Новая функция поиска «Search ChatGPT» ..."
+   },
+   {
+    "url": "https://vc.ru/ai/2887058-kak-sdelat-sajt-vidimym-dlja-ii",
+    "domen": "vc.ru",
+    "title": "Невидимый для ИИ сайт: как сделать, ..."
+   },
+   {
+    "url": "https://intelsib.ru/article/nastroyka-robots-txt",
+    "domen": "intelsib.ru",
+    "title": "ROBOTS.txt: настройка, директивы, как ..."
+   },
+   {
+    "url": "https://shipmint.kz/blog/robots-txt-dlya-ai-kraulerov-gptbot-claudebot",
+    "domen": "shipmint.kz",
+    "title": "robots.txt для AI-кроулеров: как управлять ..."
+   },
+   {
+    "url": "https://agentsready.io/guides/robots-txt-for-ai",
+    "domen": "agentsready.io",
+    "title": "Как настроить robots.txt для AI-ботов — ..."
+   },
+   {
+    "url": "https://habr.com/ru/articles/1063216",
+    "domen": "habr.com",
+    "title": "AI-краулеры в 2026: кого пускать в robots.txt, ..."
+   },
+   {
+    "url": "https://www.seonews.ru/analytics/schema-org-llms-txt-robots-txt-i-ai-kraulery-chto-realno-vliyaet-na-dostupnost-sayta-dlya-ai-poiska",
+    "domen": "seonews.ru",
+    "title": "Schema.org, llms.txt, robots.txt и AI-краулеры: что ..."
+   },
+   {
+    "url": "https://sitechecker.pro/robots-tester",
+    "domen": "sitechecker.pro",
+    "title": "Robots.txt Tester: используйте бесплатный онлайн- ..."
+   },
+   {
+    "url": "https://vc.ru/marketing/2744275-obnovlenie-instrumenta-proverki-robots-txt-ot-google",
+    "domen": "vc.ru",
+    "title": "Обновление инструмента проверки ..."
+   },
+   {
+    "url": "https://sales-generator.ru/blog/proverka-fajla-robotstxt",
+    "domen": "sales-generator.ru",
+    "title": "Проверка robots.txt: алгоритм и сервисы"
+   },
+   {
+    "url": "https://enterno.io/robots-checker",
+    "domen": "enterno.io",
+    "title": "Проверка robots.txt онлайн — валидатор, ..."
+   },
+   {
+    "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty",
+    "domen": "aksanov.digital",
+    "title": "robots.txt и AI-боты: кого пускать, а кого ..."
+   },
+   {
+    "url": "https://vc.ru/marketing/3102156-kak-proverit-dostupnost-sayta-dlya-ai-botov",
+    "domen": "vc.ru",
+    "title": "200 OK — и 17% реального доступа: как ..."
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://agentsready.io/guides/robots-txt-for-ai",
+    "domen": "agentsready.io",
+    "title": "Как настроить robots.txt для AI-ботов — ..."
+   },
+   {
+    "url": "https://www.sostav.ru/blogs/280641/64894",
+    "domen": "sostav.ru",
+    "title": "Руководство по генеративной оптим..."
+   },
+   {
+    "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty",
+    "domen": "aksanov.digital",
+    "title": "robots.txt и AI-боты: кого пускать, а кого ..."
+   },
+   {
+    "url": "https://vc.ru/ai/2887058-kak-sdelat-sajt-vidimym-dlja-ii",
+    "domen": "vc.ru",
+    "title": "Невидимый для ИИ сайт: как сделать, ..."
+   },
+   {
+    "url": "https://enterno.io/robots-checker",
+    "domen": "enterno.io",
+    "title": "Проверка robots.txt онлайн — валидатор, ..."
+   },
+   {
+    "url": "https://vc.ru/marketing/2744275-obnovlenie-instrumenta-proverki-robots-txt-ot-google",
+    "domen": "vc.ru",
+    "title": "Обновление инструмента проверки ..."
+   },
+   {
+    "url": "https://habr.com/ru/articles/1063216",
+    "domen": "habr.com",
+    "title": "AI-краулеры в 2026: кого пускать в robots.txt, ..."
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 15913,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1902
+  },
+  "cena": 0.07085,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSZwnMnB46CUs2LYJuF",
+    "request_id": "req_011CfcSZwJLKMUg16N7fZDSN",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 15913,
+     "output_tokens": 1902,
+     "output_tokens_details": {
+      "thinking_tokens": 185
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_01C9F2AhTJbe5UE5XzRjsyp7",
+    "caller": null,
+    "input": {
+     "query": "как открыть сайт для роботов ИИ robots.txt разрешить GPTBot"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_019PjM28EJnqQRT4x369KZX5",
+    "caller": null,
+    "input": {
+     "query": "сервис проверки robots.txt для AI краулеров открыть доступ"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "1796 days ago",
+      "title": "Как открыть доступ к сайту через файл ...",
+      "type": "web_search_result",
+      "url": "https://support.google.com/manufacturers/answer/7349854?hl=ru"
+     },
+     {
+      "page_age": "224 days ago",
+      "title": "Robots.txt: полное руководство по управ...",
+      "type": "web_search_result",
+      "url": "https://pr-cy.ru/news/p/7309-kak-sostavit-robotstxt-samostoyatelno"
+     },
+     {
+      "page_age": "434 days ago",
+      "title": "Руководство по генеративной оптим...",
+      "type": "web_search_result",
+      "url": "https://www.sostav.ru/blogs/280641/64894"
+     },
+     {
+      "page_age": "114 days ago",
+      "title": "Каких AI-краулеров пускать на сайт и ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     },
+     {
+      "page_age": "693 days ago",
+      "title": "Новая функция поиска «Search ChatGPT» ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/indeksatsiya-poiska-v-chatgpt-osnovnye-shagi-dlya-veb-saytov.html"
+     },
+     {
+      "page_age": "158 days ago",
+      "title": "Невидимый для ИИ сайт: как сделать, ...",
+      "type": "web_search_result",
+      "url": "https://vc.ru/ai/2887058-kak-sdelat-sajt-vidimym-dlja-ii"
+     },
+     {
+      "page_age": "319 days ago",
+      "title": "ROBOTS.txt: настройка, директивы, как ...",
+      "type": "web_search_result",
+      "url": "https://intelsib.ru/article/nastroyka-robots-txt/"
+     },
+     {
+      "page_age": "109 days ago",
+      "title": "robots.txt для AI-кроулеров: как управлять ...",
+      "type": "web_search_result",
+      "url": "https://shipmint.kz/blog/robots-txt-dlya-ai-kraulerov-gptbot-claudebot"
+     },
+     {
+      "page_age": "118 days ago",
+      "title": "Как настроить robots.txt для AI-ботов — ...",
+      "type": "web_search_result",
+      "url": "https://agentsready.io/guides/robots-txt-for-ai/"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01C9F2AhTJbe5UE5XzRjsyp7",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "66 days ago",
+      "title": "AI-краулеры в 2026: кого пускать в robots.txt, ...",
+      "type": "web_search_result",
+      "url": "https://habr.com/ru/articles/1063216/"
+     },
+     {
+      "page_age": "114 days ago",
+      "title": "Каких AI-краулеров пускать на сайт и ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kakikh-ai-kraulerov-puskat-na-sayt.html"
+     },
+     {
+      "page_age": "8 days ago",
+      "title": "Schema.org, llms.txt, robots.txt и AI-краулеры: что ...",
+      "type": "web_search_result",
+      "url": "https://www.seonews.ru/analytics/schema-org-llms-txt-robots-txt-i-ai-kraulery-chto-realno-vliyaet-na-dostupnost-sayta-dlya-ai-poiska/"
+     },
+     {
+      "page_age": "1703 days ago",
+      "title": "Robots.txt Tester: используйте бесплатный онлайн- ...",
+      "type": "web_search_result",
+      "url": "https://sitechecker.pro/robots-tester/"
+     },
+     {
+      "page_age": "225 days ago",
+      "title": "Обновление инструмента проверки ...",
+      "type": "web_search_result",
+      "url": "https://vc.ru/marketing/2744275-obnovlenie-instrumenta-proverki-robots-txt-ot-google"
+     },
+     {
+      "page_age": "11 days ago",
+      "title": "Проверка robots.txt: алгоритм и сервисы",
+      "type": "web_search_result",
+      "url": "https://sales-generator.ru/blog/proverka-fajla-robotstxt/"
+     },
+     {
+      "page_age": null,
+      "title": "Проверка robots.txt онлайн — валидатор, ...",
+      "type": "web_search_result",
+      "url": "https://enterno.io/robots-checker"
+     },
+     {
+      "page_age": "66 days ago",
+      "title": "robots.txt и AI-боты: кого пускать, а кого ...",
+      "type": "web_search_result",
+      "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty"
+     },
+     {
+      "page_age": "34 days ago",
+      "title": "200 OK — и 17% реального доступа: как ...",
+      "type": "web_search_result",
+      "url": "https://vc.ru/marketing/3102156-kak-proverit-dostupnost-sayta-dlya-ai-botov"
+     }
+    ],
+    "tool_use_id": "srvtoolu_019PjM28EJnqQRT4x369KZX5",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Короткий ответ: единого «регулятора», который автоматически проверит и откроет ваш сайт для ИИ‑ботов, не существует. Это делается вручную — либо вы сами (или ваш веб‑мастер/хостинг-провайдер/SEO-подрядчик) редактируете настройки сайта, либо используете специализированные онлайн-инструменты для диагностики. Вот как это работает на практике.\n\n**1. Кто физически вносит изменения**\nОткрыть сайт для нейросетей может только тот, у кого есть доступ к файлам/настройкам хостинга — вы, ваш разработчик, веб-мастер, агентство или хостинг-провайдер. ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Зачем robots.txt нужен AI-агентам, минимальный рабочий пример, правильно vs неправильно, типичные ошибки и ...\n\n# Как настроить robots.txt для AI-бото...",
+      "title": "Как настроить robots.txt для AI-ботов — ...",
+      "type": "web_search_result_location",
+      "url": "https://agentsready.io/guides/robots-txt-for-ai/"
+     }
+    ],
+    "text": "robots.txt — текстовый файл в корне сайта (/robots.txt), которым вы сообщаете поисковым и AI-краулерам, какие разделы можно обходить.",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " Никакая внешняя служба не может отредактировать его за вас без доступа к серверу.\n\n**2. Что именно нужно открыть**\nПроблема обычно в нескольких местах:\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Поэтому необходимо проверить, что ваш robots.txt не содержит запрещающих правил для ключевых ИИ-краулеров.\n\n",
+      "title": "Руководство по генеративной оптим...",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/280641/64894"
+     },
+     {
+      "cited_text": "Западные: Google-Extended, ChatGPT-User, GPTBot, PerplexityBot, ClaudeBot.\n",
+      "title": "Руководство по генеративной оптим...",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/280641/64894"
+     },
+     {
+      "cited_text": "Российские: YandexBot (он собирает данные для всех сервисов Яндекса, включая нейросети), Yandex-GPT.",
+      "title": "Руководство по генеративной оптим...",
+      "type": "web_search_result_location",
+      "url": "https://www.sostav.ru/blogs/280641/64894"
+     }
+    ],
+    "text": "нужно проверить, что robots.txt не содержит запрещающих правил для ключевых ИИ-краулеров: GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Google-Extended, а также YandexBot и YandexGPT",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## Минимальный рабочий пример\n```\n# Общее правило\nUser-agent: *\nAllow: /\n\n# Явно пускаем основные AI-краулеры\nUser-agent: GPTBot\nAllow: /\n\nUser-agent:...",
+      "title": "Как настроить robots.txt для AI-ботов — ...",
+      "type": "web_search_result_location",
+      "url": "https://agentsready.io/guides/robots-txt-for-ai/"
+     }
+    ],
+    "text": "Минимальный рабочий пример файла выглядит так: общее правило User-agent: * Allow: /, а затем отдельно явные Allow: / для GPTBot, ClaudeBot, PerplexityBot, Google-Extended, плюс ссылка на Sitemap",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Если у сайта американский хостинг с защитой от ботов, проблема может быть не только в robots.txt: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## Cloudflare и другие запреты по умолчанию\n\n\nЗапрос краулера Сервис защиты запрет обучения включен по умолчанию Брандмауэр приложения быстрый обход п...",
+      "title": "robots.txt и AI-боты: кого пускать, а кого ...",
+      "type": "web_search_result_location",
+      "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty"
+     }
+    ],
+    "text": "Cloudflare и другие сервисы защиты часто включают запрет обучения по умолчанию, и брандмауэр приложения может блокировать краулера как подозрительную активность — достаточно одного из нескольких «закрытых ворот», чтобы бот не дошёл до сайта",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Важно также помнить: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Google прямо пишет, что robots.txt не предназначен для исключения страницы из индекса: для этого нужен noindex или защита страницы авторизацией.",
+      "title": "Невидимый для ИИ сайт: как сделать, ...",
+      "type": "web_search_result_location",
+      "url": "https://vc.ru/ai/2887058-kak-sdelat-sajt-vidimym-dlja-ii"
+     }
+    ],
+    "text": "robots.txt не предназначен для исключения страницы из индекса — для этого нужен noindex или защита страницы авторизацией, как прямо пишет Google",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n**3. Чем проверить (бесплатные инструменты, без привязки к конкретному специалисту)**\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Бесплатный валидатор robots.txt: синтаксис, доступ ботов (Googlebot, Yandex, GPTBot), sitemap-ссылки.\n\n",
+      "title": "Проверка robots.txt онлайн — валидатор, ...",
+      "type": "web_search_result_location",
+      "url": "https://enterno.io/robots-checker"
+     },
+     {
+      "cited_text": "# Проверка robots.txt: валидатор и тестер URL\nСинтаксис, правила обхода, карты сайта — и проверка, закрыт ли конкретный URL для конкретного бота. ",
+      "title": "Проверка robots.txt онлайн — валидатор, ...",
+      "type": "web_search_result_location",
+      "url": "https://enterno.io/robots-checker"
+     }
+    ],
+    "text": "Есть бесплатные валидаторы robots.txt, которые проверяют синтаксис, доступ ботов (Googlebot, Yandex, GPTBot) и ссылки на sitemap, а также позволяют проверить, закрыт ли конкретный URL для конкретного бота — на любом сайте, без подтверждения прав",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": " (например, enterno.io/robots-checker).\n- ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "TameTheBots использует библиотеку Google Robots.txt Parser and Matcher для проверки правил в вашем файле robots.txt.",
+      "title": "Обновление инструмента проверки ...",
+      "type": "web_search_result_location",
+      "url": "https://vc.ru/marketing/2744275-obnovlenie-instrumenta-proverki-robots-txt-ot-google"
+     }
+    ],
+    "text": "Есть инструмент TameTheBots, который использует библиотеку Google Robots.txt Parser and Matcher для проверки правил в вашем файле robots.txt",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Для Яндекса: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "# AI-краулеры в 2026: кого пускать в robots.txt, чтобы попадать в ответы ИИ\n### Как проверить свой сайт\n**Яндекс.Вебмастер** — для YandexBot и YandexA...",
+      "title": "AI-краулеры в 2026: кого пускать в robots.txt, ...",
+      "type": "web_search_result_location",
+      "url": "https://habr.com/ru/articles/1063216/"
+     }
+    ],
+    "text": "Яндекс.Вебмастер — для YandexBot и YandexAI показывает, что конкретно видит краулер, включая генеративный контур Алисы",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ", а ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Для остальных ботов встроенного инструмента у площадок нет — только логи и curl.",
+      "title": "AI-краулеры в 2026: кого пускать в robots.txt, ...",
+      "type": "web_search_result_location",
+      "url": "https://habr.com/ru/articles/1063216/"
+     }
+    ],
+    "text": "для остальных ботов встроенного инструмента у площадок нет — только логи и curl",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n- Google Search Console — для проверки видимости Googlebot/Google-Extended.\n\n**4. Если хотите делегировать это специалисту**\nТакую задачу обычно решает:\n- ваш текущий разработчик/веб-мастер сайта (правка одного файла — задача на 10–15 минут);\n- хостинг-провайдер (если сайт на их платформе типа Wix, Shopify, Squarespace — там часто есть настройки в панели);\n- SEO/GEO-агентство — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "На клиентских проектах с проверки доступности начинается работа в HITZ Agency - до нее остальные работы по видимости смысла не имеют, потому что улучш...",
+      "title": "robots.txt и AI-боты: кого пускать, а кого ...",
+      "type": "web_search_result_location",
+      "url": "https://aksanov.digital/blog/seo-i-geo/robots-txt-i-ai-boty"
+     }
+    ],
+    "text": "на клиентских проектах работа часто начинается именно с проверки доступности сайта для ботов, поскольку улучшать видимость бессмысленно, пока краулер физически не доходит до сайта",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\nЕсли скажете, на какой платформе сделан сайт (WordPress, Wix, Shopify, самописный и т.д.) и используете ли Cloudflare/другой WAF — могу подсказать точные шаги или текст, который нужно вставить в robots.txt именно для вашего случая.",
+    "type": "text"
+   }
+  ]
+ }
+}

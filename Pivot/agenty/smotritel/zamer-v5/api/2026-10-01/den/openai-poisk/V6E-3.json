@@ -1,0 +1,558 @@
+{
+ "vopros_id": "V6E",
+ "povtor": 3,
+ "vopros": "My site blocks AI crawlers. Who can check it and open it up so AI assistants can see my business?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:10:22-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.02721,
+   "ishod": "ok",
+   "sekund": 6.8,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:10:29 GMT",
+    "x-request-id": "req_6f925145de7e48cabc2a738b1410d6fc",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "6436"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Yes. The type of person/service you want is usually called a technical SEO consultant, GEO/AEO consultant, or AI-search optimization specialist. A competent web developer can also handle it, especially if the problem is Cloudflare, your CDN/WAF, or `robots.txt`.\n\nFor visibility in AI assistants, they should check more than ordinary SEO. In particular:\n\n- `robots.txt` permissions for AI/search crawlers, including OpenAI's OAI-SearchBot and other services you want to permit. OpenAI specifically says OAI-SearchBot access can affect inclusion in ChatGPT search results. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Cloudflare/CDN/WAF settings. A site can appear open in `robots.txt` while security infrastructure still blocks automated requests. Cloudflare provides AI Crawl Control specifically for monitoring and controlling this traffic. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n- HTTP responses, bot challenges, CAPTCHAs, JavaScript requirements, authentication and geo restrictions. These can prevent a crawler from actually reaching a page even when `robots.txt` permits it. ([help.openai.com](https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai))\n- Your sitemap, canonical/indexing settings, structured data, and whether your important business information is available as crawlable HTML.\n- Separate permissions for search/discovery versus model training. For example, OpenAI distinguishes OAI-SearchBot from GPTBot, so you can permit search discovery without necessarily making the same choice about training. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nYou don't necessarily need to hire someone yet. If you give me your website domain, I can check the publicly visible crawler configuration and tell you what's blocking AI access and what your web person needs to change.",
+  "poiskovye_zaprosy": [
+   "AI crawler access audit robots.txt llms.txt Cloudflare AI bot SEO agency service",
+   "OpenAI GPTBot OAI-SearchBot robots.txt documentation"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control",
+    "domen": "developers.cloudflare.com",
+    "title": "Overview · Cloudflare AI Crawl Control docs"
+   },
+   {
+    "url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt",
+    "domen": "developers.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control/features/track-robots-txt",
+    "domen": "developers.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/bots?app=1",
+    "domen": "developers.openai.com",
+    "title": null
+   },
+   {
+    "url": "https://blog.cloudflare.com/cloudflare-ai-audit-control-ai-content-crawlers",
+    "domen": "blog.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://www.soar.sh/blog/audit-site-ai-crawlability",
+    "domen": "soar.sh",
+    "title": null
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center"
+   },
+   {
+    "url": "https://www.layzr.ai/agentic-audit",
+    "domen": "layzr.ai",
+    "title": null
+   },
+   {
+    "url": "https://apify.com/conserving_mastodon/ai-access-audit",
+    "domen": "apify.com",
+    "title": null
+   },
+   {
+    "url": "https://aibotaccess.com",
+    "domen": "aibotaccess.com",
+    "title": null
+   },
+   {
+    "url": "https://www.aergos.ai/tools/ai-visibility-audit",
+    "domen": "aergos.ai",
+    "title": null
+   },
+   {
+    "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/2E3fkoJwkDyXXb4H3cijxB/31aa7e9e680111175ab792c62eb482fc/Cloudflare_AI_Audit_product_brief.pdf",
+    "domen": "cf-assets.www.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_arananet/comments/1th1vkn/i_built_a_free_opensource_geo_auditor_that_tells",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1t2zlrf/cloudflares_managed_robotstxt_silently_blocks",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1tkjv1x/heads_up_the_block_ai_scrapers_toggle_is",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_oyoy-inc-real-estate/comments/1uddlon/we_audited_ai_crawler_access_on_real_estate",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2609.11152",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2607.14447",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1t9gwuo/til_cloudflare_blocks_claudes_web_fetch_tool_by",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://aibotaccess.com/aibotaccess-user-guide.pdf",
+    "domen": "aibotaccess.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/TechSEO/comments/1wo5kqt/does_anyone_actually_check_what_ai_crawlers_get",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/content_marketing/comments/1wrk1ru/has_anyone_checked_whether_their_site_is_blocking",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/aeo/comments/1vhx9rh/our_robotstxt_allowed_every_ai_crawler_our_cdn",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/GrowthHacking/comments/1uyzkbo/everyones_adding_llmstxt_for_ai_visibility_the",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/Agentic_SEO/comments/1u2lf07/each_ai_agent_crawls_website_completely",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://bizinabox.one/dl/seo-geo-playbook.pdf",
+    "domen": "bizinabox.one",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SEO/comments/1tabkgw/built_a_cli_that_tells_me_if",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/17ElZhO6OA4yeIQeCVKW1K/2db145af445375cdc835b81ac47389b3/Cloudflare_Cyber_Briefing_Issue_2_October_3_2025.pdf",
+    "domen": "cf-assets.www.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2411.15091",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://aiventure.ro/wp-content/uploads/2026/02/AI_READY_FULL_STACK_L1-L6.pdf",
+    "domen": "aiventure.ro",
+    "title": null
+   },
+   {
+    "url": "https://cseweb.ucsd.edu/~savage/papers/IMC25Crawlers.pdf",
+    "domen": "cseweb.ucsd.edu",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2505.07834",
+    "domen": "arxiv.org",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://help.openai.com/en/articles/12627856",
+    "domen": "help.openai.com",
+    "title": "Publishers and Developers - FAQ | OpenAI Help Center"
+   },
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control",
+    "domen": "developers.cloudflare.com",
+    "title": "Overview · Cloudflare AI Crawl Control docs"
+   },
+   {
+    "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers",
+    "domen": "help.openai.com",
+    "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10624,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 393,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11017
+  },
+  "cena": 0.02721,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_05c1bc8bf128a74f006abef66f1d1487d08089cf5b2c29c82e",
+  "object": "response",
+  "created_at": 1790899823,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899829,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_05c1bc8bf128a74f006abef66fd73487d08fb023a0d5f06a78",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "AI crawler access audit robots.txt llms.txt Cloudflare AI bot SEO agency service",
+      "OpenAI GPTBot OAI-SearchBot robots.txt documentation"
+     ],
+     "query": "AI crawler access audit robots.txt llms.txt Cloudflare AI bot SEO agency service",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/features/track-robots-txt/"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.openai.com/api/docs/bots?app=1"
+      },
+      {
+       "type": "url",
+       "url": "https://blog.cloudflare.com/cloudflare-ai-audit-control-ai-content-crawlers/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.soar.sh/blog/audit-site-ai-crawlability"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers"
+      },
+      {
+       "type": "url",
+       "url": "https://www.layzr.ai/agentic-audit"
+      },
+      {
+       "type": "url",
+       "url": "https://apify.com/conserving_mastodon/ai-access-audit"
+      },
+      {
+       "type": "url",
+       "url": "https://aibotaccess.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.aergos.ai/tools/ai-visibility-audit"
+      },
+      {
+       "type": "url",
+       "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/2E3fkoJwkDyXXb4H3cijxB/31aa7e9e680111175ab792c62eb482fc/Cloudflare_AI_Audit_product_brief.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_arananet/comments/1th1vkn/i_built_a_free_opensource_geo_auditor_that_tells/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1t2zlrf/cloudflares_managed_robotstxt_silently_blocks/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1tkjv1x/heads_up_the_block_ai_scrapers_toggle_is/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_oyoy-inc-real-estate/comments/1uddlon/we_audited_ai_crawler_access_on_real_estate/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2609.11152"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2607.14447"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1t9gwuo/til_cloudflare_blocks_claudes_web_fetch_tool_by/"
+      },
+      {
+       "type": "url",
+       "url": "https://aibotaccess.com/aibotaccess-user-guide.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/TechSEO/comments/1wo5kqt/does_anyone_actually_check_what_ai_crawlers_get/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/content_marketing/comments/1wrk1ru/has_anyone_checked_whether_their_site_is_blocking/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/aeo/comments/1vhx9rh/our_robotstxt_allowed_every_ai_crawler_our_cdn/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/GrowthHacking/comments/1uyzkbo/everyones_adding_llmstxt_for_ai_visibility_the/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/Agentic_SEO/comments/1u2lf07/each_ai_agent_crawls_website_completely/"
+      },
+      {
+       "type": "url",
+       "url": "https://bizinabox.one/dl/seo-geo-playbook.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SEO/comments/1tabkgw/built_a_cli_that_tells_me_if/"
+      },
+      {
+       "type": "url",
+       "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/17ElZhO6OA4yeIQeCVKW1K/2db145af445375cdc835b81ac47389b3/Cloudflare_Cyber_Briefing_Issue_2_October_3_2025.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2411.15091"
+      },
+      {
+       "type": "url",
+       "url": "https://aiventure.ro/wp-content/uploads/2026/02/AI_READY_FULL_STACK_L1-L6.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://cseweb.ucsd.edu/~savage/papers/IMC25Crawlers.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2505.07834"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai"
+      },
+      {
+       "type": "url",
+       "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_05c1bc8bf128a74f006abef673fffc87d0a3ef49dd97b13215",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 655,
+        "start_index": 572,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 984,
+        "start_index": 884,
+        "title": "Overview · Cloudflare AI Crawl Control docs",
+        "url": "https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1320,
+        "start_index": 1184,
+        "title": "Advertiser Guidance for Allowing OpenAI Web Crawlers | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai"
+       },
+       {
+        "type": "url_citation",
+        "end_index": 1768,
+        "start_index": 1685,
+        "title": "Publishers and Developers - FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/12627856?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Yes. The type of person/service you want is usually called a technical SEO consultant, GEO/AEO consultant, or AI-search optimization specialist. A competent web developer can also handle it, especially if the problem is Cloudflare, your CDN/WAF, or `robots.txt`.\n\nFor visibility in AI assistants, they should check more than ordinary SEO. In particular:\n\n- `robots.txt` permissions for AI/search crawlers, including OpenAI's OAI-SearchBot and other services you want to permit. OpenAI specifically says OAI-SearchBot access can affect inclusion in ChatGPT search results. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n- Cloudflare/CDN/WAF settings. A site can appear open in `robots.txt` while security infrastructure still blocks automated requests. Cloudflare provides AI Crawl Control specifically for monitoring and controlling this traffic. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n- HTTP responses, bot challenges, CAPTCHAs, JavaScript requirements, authentication and geo restrictions. These can prevent a crawler from actually reaching a page even when `robots.txt` permits it. ([help.openai.com](https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers?utm_source=openai))\n- Your sitemap, canonical/indexing settings, structured data, and whether your important business information is available as crawlable HTML.\n- Separate permissions for search/discovery versus model training. For example, OpenAI distinguishes OAI-SearchBot from GPTBot, so you can permit search discovery without necessarily making the same choice about training. ([help.openai.com](https://help.openai.com/en/articles/12627856?utm_source=openai))\n\nYou don't necessarily need to hire someone yet. If you give me your website domain, I can check the publicly visible crawler configuration and tell you what's blocking AI access and what your web person needs to change."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10624,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 393,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11017
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

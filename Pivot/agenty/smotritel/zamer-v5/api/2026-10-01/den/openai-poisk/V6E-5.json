@@ -1,0 +1,510 @@
+{
+ "vopros_id": "V6E",
+ "povtor": 5,
+ "vopros": "My site blocks AI crawlers. Who can check it and open it up so AI assistants can see my business?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "openai",
+ "rezhim": "poisk",
+ "model_zaproshena": "chat-latest",
+ "instrument": "web_search",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:10:36-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.02644,
+   "ishod": "ok",
+   "sekund": 6.9,
+   "meta": {
+    "date": "Fri, 02 Oct 2026 00:10:43 GMT",
+    "x-request-id": "req_d93094e89e6d48e3a2b1e141659f9ddc",
+    "openai-version": "2020-10-01",
+    "openai-processing-ms": "6620"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Yes. The right person is usually a technical SEO/GEO consultant or a web developer who specifically understands AI crawler access.\n\nThey should check more than just `robots.txt`. A proper audit should cover:\n\n- `robots.txt` rules for AI/search crawlers\n- CDN/WAF blocking, especially Cloudflare bot settings\n- HTTP 403/401/challenge responses when crawlers request important pages\n- WordPress/security-plugin or hosting-level bot blocks\n- Search-engine crawlability and indexing\n- Your sitemap and business/schema markup\n- Whether important business information is available as normal server-rendered HTML\n- Ideally, actual crawler/log activity after the changes\n\nCloudflare is particularly worth checking. Its current AI Crawl Control can monitor and control AI crawler access, and Cloudflare can impose bot rules separately from what your `robots.txt` says. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n\nOne important distinction: allowing AI crawlers does not guarantee that ChatGPT, Gemini, Perplexity, Claude, or other assistants will mention your business. Crawlability removes a technical obstacle; visibility also depends on search indexing, third-party information about the business, structured data, content quality, and each assistant's retrieval system.\n\nIf you give me your website URL, I can check the publicly visible side of it and tell you what's currently blocking AI/search crawlers and what you'd want your developer to change.",
+  "poiskovye_zaprosy": [
+   "AI crawler access audit robots.txt llms.txt Cloudflare AI Crawl Control consultant service",
+   "technical SEO consultant AI crawler optimization ChatGPT Perplexity Google AI business website audit"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 1,
+  "istochniki": [
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control",
+    "domen": "developers.cloudflare.com",
+    "title": "Overview · Cloudflare AI Crawl Control docs"
+   },
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control/features/track-robots-txt",
+    "domen": "developers.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt",
+    "domen": "developers.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://blog.cloudflare.com/cloudflare-ai-audit-control-ai-content-crawlers",
+    "domen": "blog.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://9a798b9b.previews.developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers",
+    "domen": "9a798b9b.previews.developers.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://aivisibilitychecks.com/blog/llms-txt-robots-txt-ai-crawler-guide",
+    "domen": "aivisibilitychecks.com",
+    "title": null
+   },
+   {
+    "url": "https://crawl.cloudflare-integrity.com",
+    "domen": "crawl.cloudflare-integrity.com",
+    "title": null
+   },
+   {
+    "url": "https://developers.cloudflare.com/ai-audit/reference/faq",
+    "domen": "developers.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://apify.com/lwsdjfls/crawlability-ai-access-auditor",
+    "domen": "apify.com",
+    "title": null
+   },
+   {
+    "url": "https://crawlpact.com",
+    "domen": "crawlpact.com",
+    "title": null
+   },
+   {
+    "url": "https://webdesy.com/fix-ai-crawlers-cloudflare-llms-txt",
+    "domen": "webdesy.com",
+    "title": null
+   },
+   {
+    "url": "https://blog.cloudflare.com/control-content-use-for-ai-training",
+    "domen": "blog.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/2E3fkoJwkDyXXb4H3cijxB/31aa7e9e680111175ab792c62eb482fc/Cloudflare_AI_Audit_product_brief.pdf",
+    "domen": "cf-assets.www.cloudflare.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1srltxx/cloudflare_has_been_quietly_blocking_gptbot_and",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1tkjv1x/heads_up_the_block_ai_scrapers_toggle_is",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2609.11152",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/CloudFlare/comments/1t2zlrf/cloudflares_managed_robotstxt_silently_blocks",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/AISearchLab/comments/1ubry03/spent_an_afternoon_checking_whether",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://visibility.mesquared.ai/sample-audit.pdf",
+    "domen": "visibility.mesquared.ai",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_jaspreet_2787/comments/1t79tz0/your_site_is_probably_invisible_to_chatgpt_and",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2607.14447",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/aeo/comments/1vhx9rh/our_robotstxt_allowed_every_ai_crawler_our_cdn",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/TechSEO/comments/1wo5kqt/does_anyone_actually_check_what_ai_crawlers_get",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/GrowthHacking/comments/1uyzkbo/everyones_adding_llmstxt_for_ai_visibility_the",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.ietf.org/ietf-ftp/slides/slides-aicontrolws-control-starts-with-transparency-cloudflares-position-on-ai-crawlers-and-bots-00.pdf",
+    "domen": "ietf.org",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/SEO_for_AI/comments/1tk9sdm/perplexity_amazing_for_ai_seo_evals",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/u_adityavanjre/comments/1woap9s/we_rebuilt_our_web_architecture_to_rank_on",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://www.reddit.com/r/seogrowth/comments/1usx0ua/looking_for_one_established_website_for_a",
+    "domen": "reddit.com",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2505.07834",
+    "domen": "arxiv.org",
+    "title": null
+   },
+   {
+    "url": "https://www.govinfo.gov/content/pkg/CHRG-119shrg61891/pdf/CHRG-119shrg61891-add1.pdf",
+    "domen": "govinfo.gov",
+    "title": null
+   },
+   {
+    "url": "https://www.airfleet.co/wp-content/uploads/2025/07/The-Future-of-GenAI-Search-and-Discoverability-compressed.pdf",
+    "domen": "airfleet.co",
+    "title": null
+   },
+   {
+    "url": "https://arxiv.org/abs/2510.10315",
+    "domen": "arxiv.org",
+    "title": null
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://developers.cloudflare.com/ai-crawl-control",
+    "domen": "developers.cloudflare.com",
+    "title": "Overview · Cloudflare AI Crawl Control docs"
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "chat-latest",
+  "tokeny": {
+   "input_tokens": 10726,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 303,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11029
+  },
+  "cena": 0.02644,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "id": "resp_078aa9a9272e99ed006abef67c733487d0b2bde043774c2505",
+  "object": "response",
+  "created_at": 1790899836,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+   "payer": "developer"
+  },
+  "completed_at": 1790899842,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "chat-latest",
+  "moderation": null,
+  "output": [
+   {
+    "id": "ws_078aa9a9272e99ed006abef67d2b0487d0a2ac2387a6a4b994",
+    "type": "web_search_call",
+    "status": "completed",
+    "action": {
+     "type": "search",
+     "queries": [
+      "AI crawler access audit robots.txt llms.txt Cloudflare AI Crawl Control consultant service",
+      "technical SEO consultant AI crawler optimization ChatGPT Perplexity Google AI business website audit"
+     ],
+     "query": "AI crawler access audit robots.txt llms.txt Cloudflare AI Crawl Control consultant service",
+     "sources": [
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/features/track-robots-txt/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/"
+      },
+      {
+       "type": "url",
+       "url": "https://blog.cloudflare.com/cloudflare-ai-audit-control-ai-content-crawlers/"
+      },
+      {
+       "type": "url",
+       "url": "https://9a798b9b.previews.developers.cloudflare.com/ai-crawl-control/features/manage-ai-crawlers/"
+      },
+      {
+       "type": "url",
+       "url": "https://aivisibilitychecks.com/blog/llms-txt-robots-txt-ai-crawler-guide"
+      },
+      {
+       "type": "url",
+       "url": "https://crawl.cloudflare-integrity.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-audit/reference/faq/"
+      },
+      {
+       "type": "url",
+       "url": "https://apify.com/lwsdjfls/crawlability-ai-access-auditor"
+      },
+      {
+       "type": "url",
+       "url": "https://crawlpact.com/"
+      },
+      {
+       "type": "url",
+       "url": "https://webdesy.com/fix-ai-crawlers-cloudflare-llms-txt/"
+      },
+      {
+       "type": "url",
+       "url": "https://blog.cloudflare.com/control-content-use-for-ai-training/"
+      },
+      {
+       "type": "url",
+       "url": "https://cf-assets.www.cloudflare.com/slt3lc6tev37/2E3fkoJwkDyXXb4H3cijxB/31aa7e9e680111175ab792c62eb482fc/Cloudflare_AI_Audit_product_brief.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1srltxx/cloudflare_has_been_quietly_blocking_gptbot_and/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1tkjv1x/heads_up_the_block_ai_scrapers_toggle_is/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2609.11152"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/CloudFlare/comments/1t2zlrf/cloudflares_managed_robotstxt_silently_blocks/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SideProject/comments/1tnydit/free_tool_to_check_if_ai_crawlers_can_access_your/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/AISearchLab/comments/1ubry03/spent_an_afternoon_checking_whether/"
+      },
+      {
+       "type": "url",
+       "url": "https://visibility.mesquared.ai/sample-audit.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_jaspreet_2787/comments/1t79tz0/your_site_is_probably_invisible_to_chatgpt_and/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2607.14447"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/aeo/comments/1vhx9rh/our_robotstxt_allowed_every_ai_crawler_our_cdn/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/TechSEO/comments/1wo5kqt/does_anyone_actually_check_what_ai_crawlers_get/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/GrowthHacking/comments/1uyzkbo/everyones_adding_llmstxt_for_ai_visibility_the/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.ietf.org/ietf-ftp/slides/slides-aicontrolws-control-starts-with-transparency-cloudflares-position-on-ai-crawlers-and-bots-00.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/SEO_for_AI/comments/1tk9sdm/perplexity_amazing_for_ai_seo_evals/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/u_adityavanjre/comments/1woap9s/we_rebuilt_our_web_architecture_to_rank_on/"
+      },
+      {
+       "type": "url",
+       "url": "https://www.reddit.com/r/seogrowth/comments/1usx0ua/looking_for_one_established_website_for_a/"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2505.07834"
+      },
+      {
+       "type": "url",
+       "url": "https://www.govinfo.gov/content/pkg/CHRG-119shrg61891/pdf/CHRG-119shrg61891-add1.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://www.airfleet.co/wp-content/uploads/2025/07/The-Future-of-GenAI-Search-and-Discoverability-compressed.pdf"
+      },
+      {
+       "type": "url",
+       "url": "https://arxiv.org/abs/2510.10315"
+      },
+      {
+       "type": "url",
+       "url": "https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai"
+      }
+     ]
+    }
+   },
+   {
+    "id": "msg_078aa9a9272e99ed006abef680fed087d0a64c396f185b4602",
+    "type": "message",
+    "status": "completed",
+    "content": [
+     {
+      "type": "output_text",
+      "annotations": [
+       {
+        "type": "url_citation",
+        "end_index": 960,
+        "start_index": 860,
+        "title": "Overview · Cloudflare AI Crawl Control docs",
+        "url": "https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai"
+       }
+      ],
+      "logprobs": [],
+      "text": "Yes. The right person is usually a technical SEO/GEO consultant or a web developer who specifically understands AI crawler access.\n\nThey should check more than just `robots.txt`. A proper audit should cover:\n\n- `robots.txt` rules for AI/search crawlers\n- CDN/WAF blocking, especially Cloudflare bot settings\n- HTTP 403/401/challenge responses when crawlers request important pages\n- WordPress/security-plugin or hosting-level bot blocks\n- Search-engine crawlability and indexing\n- Your sitemap and business/schema markup\n- Whether important business information is available as normal server-rendered HTML\n- Ideally, actual crawler/log activity after the changes\n\nCloudflare is particularly worth checking. Its current AI Crawl Control can monitor and control AI crawler access, and Cloudflare can impose bot rules separately from what your `robots.txt` says. ([developers.cloudflare.com](https://developers.cloudflare.com/ai-crawl-control/?utm_source=openai))\n\nOne important distinction: allowing AI crawlers does not guarantee that ChatGPT, Gemini, Perplexity, Claude, or other assistants will mention your business. Crawlability removes a technical obstacle; visibility also depends on search indexing, third-party information about the business, structured data, content quality, and each assistant's retrieval system.\n\nIf you give me your website URL, I can check the publicly visible side of it and tell you what's currently blocking AI/search crawlers and what you'd want your developer to change."
+     }
+    ],
+    "role": "assistant"
+   }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+   "context": "current_turn",
+   "effort": "medium",
+   "mode": "standard",
+   "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+   "format": {
+    "type": "text"
+   },
+   "verbosity": "medium"
+  },
+  "tool_choice": "required",
+  "tool_usage": {
+   "image_gen": {
+    "input_tokens": 0,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "output_tokens": 0,
+    "output_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 0
+    },
+    "total_tokens": 0
+   },
+   "web_search": {
+    "num_requests": 1
+   }
+  },
+  "tools": [
+   {
+    "type": "web_search",
+    "return_token_budget": "default",
+    "search_content_types": [
+     "text"
+    ],
+    "search_context_size": "medium",
+    "user_location": {
+     "type": "approximate",
+     "city": "Los Angeles",
+     "country": "US",
+     "region": "California",
+     "timezone": "America/Los_Angeles"
+    }
+   }
+  ],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+   "input_tokens": 10726,
+   "input_tokens_details": {
+    "cache_write_tokens": 0,
+    "cached_tokens": 4224
+   },
+   "output_tokens": 303,
+   "output_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "total_tokens": 11029
+  },
+  "user": null,
+  "metadata": {}
+ }
+}

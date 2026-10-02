@@ -1,0 +1,565 @@
+{
+ "vopros_id": "V4R",
+ "povtor": 3,
+ "vopros": "Есть ли в США услуга исправить неверные данные о компании в ответах нейросетей?",
+ "versiya_spiska": "v5-vidimost-dva-yazyka",
+ "otpechatok": "767ce812e9ef",
+ "dvizhok": "anthropic",
+ "rezhim": "poisk",
+ "model_zaproshena": "claude-sonnet-5",
+ "instrument": "web_search_20250305",
+ "mesto": {
+  "type": "approximate",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "timezone": "America/Los_Angeles"
+ },
+ "slot": "den",
+ "den": "2026-10-01",
+ "vne_okna": true,
+ "zapusk_id": "20261001-170010-36200",
+ "status": "ok",
+ "prichina": null,
+ "popytki": [
+  {
+   "n": 1,
+   "nachalo": "2026-10-01T17:07:14-07:00",
+   "zapusk_id": "20261001-170010-36200",
+   "cena": 0.07958,
+   "ishod": "ok",
+   "sekund": 20.7,
+   "meta": {
+    "request_id": "req_011CfcSF7aCLYB6jkQtPV8f7"
+   }
+  }
+ ],
+ "vyzhimka": {
+  "tekst": "Да, в США активно развивается целая индустрия услуг по исправлению неверной информации о компаниях в ответах ИИ-систем (ChatGPT, Perplexity, Google AI Overviews и т.д.). Это направление называется **GEO (Generative Engine Optimization)** или **AEO (Answer Engine Optimization)** — по аналогии с SEO, но для нейросетей.\n\n## Важный нюанс: прямого «редактирования» ответов ИИ не существует\n\nКлючевой момент, который подчёркивают практически все специализированные сервисы: вы не можете напрямую отредактировать ответ ИИ, и для этого нет службы поддержки — вы исправляете ответ, исправляя то, что читает ИИ. Аналогично отмечается, что не существует формы, которую можно подать в ChatGPT или Perplexity, чтобы исправить информацию о вашей компании.\n\n## Как работают такие услуги (методология)\n\nКомпании, предлагающие подобные услуги, обычно выстраивают процесс так:\n\n1. **Диагностика** — запускается структурированный аудит: одни и те же 15-20 вопросов задаются ChatGPT, Perplexity, Gemini, Copilot и Google AI Overviews несколько раз, с логированием ответов и источников.\n\n2. **Поиск первоисточника ошибки** — если ошибка возникла из-за «живого» поиска в интернете (а не из обучающих данных модели), это «хороший» тип ошибки: достаточно исправить или вытеснить исходную страницу, и ответ может измениться в течение дней или недель.\n\n3. **Исправление источников-первоисточников**, в таком порядке приоритета:\n   - собственный сайт компании, затем профиль Google Business, затем сторонние страницы, которые цитирует ИИ\n   - правка структурированных данных (schema markup) — машиночитаемой версии идентичности компании, чтобы движки отличали её от похожих названий\n   - обновление данных в агрегаторах вроде Localeze, Data Axle и Foursquare ещё до правки отдельных справочников\n\n4. **Использование встроенных механизмов обратной связи** — отмечать каждый некорректный ответ через кнопку обратной связи, указывая верную информацию со ссылками на источники, причём делать это для каждой ИИ-системы, предлагающей такую функцию. Однако этот канал не основной: кнопки обратной связи есть почти во всех ассистентах, и для серьёзных ошибок их стоит использовать, но это не надёжный канал исправления для бизнес-информации — скорее дополнение.\n\n5. **Постоянный мониторинг** — проверки нужно повторять регулярно, так как ответы ИИ меняются в зависимости от запроса и появления новой информации в сети.\n\n## Кто предоставляет такие услуги\n\nНа рынке уже есть специализированные агентства и платформы (например, упомянутые в поиске **The Answer Engine**, **Catchy Clouds**, **SubscribePR**, **QBiz Leads AI**, **Loudmink**, **Searchscore**, **Senso.ai** и другие), которые позиционируют себя как эксперты по **AEO/GEO** — они проводят аудит упоминаний бренда в ИИ-системах, правят контент на сайте и в директориях, работают с Wikidata и графами знаний, а также отслеживают динамику изменений ответов.\n\n## Важное предостережение\n\nОдин из источников прямо указывает: владельцы бизнеса, которые просили Google удалить неверное ИИ-описание их компании, получали ответ с рекомендацией исправить саму бизнес-информацию — устойчивое решение заключается именно в изменении того, что «читают» движки. То есть «быстрой кнопки удаления» не существует — только системная работа с источниками.\n\n**Итог:** формальной «службы поддержки» при ChatGPT или подобных системах, куда можно подать официальную жалобу и получить гарантированное исправление, не существует. Но есть целая экосистема коммерческих услуг (GEO/AEO-агентства), которые помогают бизнесу системно скорректировать первоисточники данных, чтобы нейросети со временем выдавали верную информацию.",
+  "poiskovye_zaprosy": [
+   "услуга исправить данные о компании в ответах ИИ chatbots США",
+   "AI answer engine optimization fix inaccurate business information ChatGPT service US"
+  ],
+  "poiskovyh_zaprosov": 2,
+  "poiskovyh_vyzovov": 2,
+  "istochniki": [
+   {
+    "url": "https://livetex.ru/blog/2024/10/chat-bot",
+    "domen": "livetex.ru",
+    "title": "ИИ-чат-боты для автоматизации клие..."
+   },
+   {
+    "url": "https://secrets.tbank.ru/blogi-kompanij/kak-popast-v-otvety-neyrosetey",
+    "domen": "secrets.tbank.ru",
+    "title": "7 шагов, чтобы бизнес попадал в ответы ..."
+   },
+   {
+    "url": "https://www.carrotquest.io/blog/best-ai-customer-service-software",
+    "domen": "carrotquest.io",
+    "title": "Сравнение AI-сервисов для обслужива..."
+   },
+   {
+    "url": "https://teamly.ru/blog/bezopasnost-korporativnyx-chatbotov",
+    "domen": "teamly.ru",
+    "title": "Безопасность корпоративных чат-ботов ..."
+   },
+   {
+    "url": "https://texterra.ru/blog/kontentnaya-gigiena-dlya-ai-otvetov.html",
+    "domen": "texterra.ru",
+    "title": "Контентная гигиена для AI-ответов: как ..."
+   },
+   {
+    "url": "https://www.jivo.ru/blog/tutorials-jivo/ii-chat-bot-dlja-biznesa.html",
+    "domen": "jivo.ru",
+    "title": "ИИ чат-бот для бизнеса — создание ИИ ..."
+   },
+   {
+    "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii",
+    "domen": "1ps.ru",
+    "title": "Как ошибки AI-ответов портят репутацию ..."
+   },
+   {
+    "url": "https://smartmerch.it/ru/blog/tochnye-otvety-ai-chatbot",
+    "domen": "smartmerch.it",
+    "title": "Точные ответы AI-чатбота без галлюц..."
+   },
+   {
+    "url": "https://www.smartbotpro.ru/chat-boty-s-ii-dlya-konsultaciy",
+    "domen": "smartbotpro.ru",
+    "title": "ИИ для консультаций: все ответы — в ..."
+   },
+   {
+    "url": "https://www.senso.ai/prompts-content/why-does-chatgpt-get-my-business-information-wrong",
+    "domen": "senso.ai",
+    "title": "Why does ChatGPT get my business information wrong?"
+   },
+   {
+    "url": "https://searchscore.io/guides/fix-wrong-ai-information",
+    "domen": "searchscore.io",
+    "title": "ChatGPT Says Wrong Things About My Business: How to Fix It"
+   },
+   {
+    "url": "https://www.theanswerengine.ai/blog/why-does-chatgpt-give-wrong-info-about-your-business",
+    "domen": "theanswerengine.ai",
+    "title": "Why Does ChatGPT Give Wrong Info About Your Business?"
+   },
+   {
+    "url": "https://www.justanswer.com/consumer-protection-law/ute44-incorrect-ai-company-review-misidentification.html",
+    "domen": "justanswer.com",
+    "title": "Fix Incorrect AI Overview of Your Business - Expert Q&A"
+   },
+   {
+    "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business",
+    "domen": "catchyclouds.co",
+    "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is ..."
+   },
+   {
+    "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information",
+    "domen": "subscribepr.com",
+    "title": "ChatGPT says wrong things about your business: how to fix it in ..."
+   },
+   {
+    "url": "https://loudmink.ai/blog/how-to-fix-what-chatgpt-says-about-your-business",
+    "domen": "loudmink.ai",
+    "title": "How to Fix What ChatGPT Says About Your Business"
+   },
+   {
+    "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business",
+    "domen": "qbizleadsai.com",
+    "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and ..."
+   },
+   {
+    "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html",
+    "domen": "nexum-sol.com",
+    "title": "ChatGPT Is Giving Customers Wrong Information About Your Business."
+   }
+  ],
+  "citaty_v_tekste": [
+   {
+    "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html",
+    "domen": "nexum-sol.com",
+    "title": "ChatGPT Is Giving Customers Wrong Information About Your Business."
+   },
+   {
+    "url": "https://www.theanswerengine.ai/blog/why-does-chatgpt-give-wrong-info-about-your-business",
+    "domen": "theanswerengine.ai",
+    "title": "Why Does ChatGPT Give Wrong Info About Your Business?"
+   },
+   {
+    "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information",
+    "domen": "subscribepr.com",
+    "title": "ChatGPT says wrong things about your business: how to fix it in ..."
+   },
+   {
+    "url": "https://searchscore.io/guides/fix-wrong-ai-information",
+    "domen": "searchscore.io",
+    "title": "ChatGPT Says Wrong Things About My Business: How to Fix It"
+   },
+   {
+    "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business",
+    "domen": "qbizleadsai.com",
+    "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and ..."
+   },
+   {
+    "url": "https://loudmink.ai/blog/how-to-fix-what-chatgpt-says-about-your-business",
+    "domen": "loudmink.ai",
+    "title": "How to Fix What ChatGPT Says About Your Business"
+   },
+   {
+    "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business",
+    "domen": "catchyclouds.co",
+    "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is ..."
+   },
+   {
+    "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii",
+    "domen": "1ps.ru",
+    "title": "Как ошибки AI-ответов портят репутацию ..."
+   }
+  ],
+  "citaty_dostupny": true,
+  "otkrytye_stranicy": [],
+  "oshibki_poiska": [],
+  "model_v_otvete": "claude-sonnet-5",
+  "stop_reason": "end_turn",
+  "tokeny": {
+   "input": 20649,
+   "cache_read": 0,
+   "cache_write": 0,
+   "output": 1828
+  },
+  "cena": 0.07958,
+  "cena_istochnik": "оценка по таблице"
+ },
+ "syroy_otvet": {
+  "raundy": [
+   {
+    "id": "msg_011CfcSF83URN84cNgxhgqd6",
+    "request_id": "req_011CfcSF7aCLYB6jkQtPV8f7",
+    "stop_reason": "end_turn",
+    "usage": {
+     "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+     },
+     "cache_creation_input_tokens": 0,
+     "cache_read_input_tokens": 0,
+     "inference_geo": "global",
+     "input_tokens": 20649,
+     "output_tokens": 1828,
+     "output_tokens_details": {
+      "thinking_tokens": 27
+     },
+     "server_tool_use": {
+      "web_fetch_requests": 0,
+      "web_search_requests": 2
+     },
+     "service_tier": "standard"
+    }
+   }
+  ],
+  "stop_reason": "end_turn",
+  "model": "claude-sonnet-5",
+  "content": [
+   {
+    "id": "srvtoolu_012AUQCQ8kjCqMZjrbpenycy",
+    "caller": null,
+    "input": {
+     "query": "услуга исправить данные о компании в ответах ИИ chatbots США"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "id": "srvtoolu_01Js4jfTfBaXAaMrV3fe8k3p",
+    "caller": null,
+    "input": {
+     "query": "AI answer engine optimization fix inaccurate business information ChatGPT service US"
+    },
+    "name": "web_search",
+    "type": "server_tool_use"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "728 days ago",
+      "title": "ИИ-чат-боты для автоматизации клие...",
+      "type": "web_search_result",
+      "url": "https://livetex.ru/blog/2024/10/chat-bot"
+     },
+     {
+      "page_age": "94 days ago",
+      "title": "7 шагов, чтобы бизнес попадал в ответы ...",
+      "type": "web_search_result",
+      "url": "https://secrets.tbank.ru/blogi-kompanij/kak-popast-v-otvety-neyrosetey/"
+     },
+     {
+      "page_age": "601 days ago",
+      "title": "Сравнение AI-сервисов для обслужива...",
+      "type": "web_search_result",
+      "url": "https://www.carrotquest.io/blog/best-ai-customer-service-software/"
+     },
+     {
+      "page_age": "798 days ago",
+      "title": "Безопасность корпоративных чат-ботов ...",
+      "type": "web_search_result",
+      "url": "https://teamly.ru/blog/bezopasnost-korporativnyx-chatbotov/"
+     },
+     {
+      "page_age": "100 days ago",
+      "title": "Контентная гигиена для AI-ответов: как ...",
+      "type": "web_search_result",
+      "url": "https://texterra.ru/blog/kontentnaya-gigiena-dlya-ai-otvetov.html"
+     },
+     {
+      "page_age": "156 days ago",
+      "title": "ИИ чат-бот для бизнеса — создание ИИ ...",
+      "type": "web_search_result",
+      "url": "https://www.jivo.ru/blog/tutorials-jivo/ii-chat-bot-dlja-biznesa.html"
+     },
+     {
+      "page_age": "76 days ago",
+      "title": "Как ошибки AI-ответов портят репутацию ...",
+      "type": "web_search_result",
+      "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii/"
+     },
+     {
+      "page_age": "374 days ago",
+      "title": "Точные ответы AI-чатбота без галлюц...",
+      "type": "web_search_result",
+      "url": "https://smartmerch.it/ru/blog/tochnye-otvety-ai-chatbot/"
+     },
+     {
+      "page_age": null,
+      "title": "ИИ для консультаций: все ответы — в ...",
+      "type": "web_search_result",
+      "url": "https://www.smartbotpro.ru/chat-boty-s-ii-dlya-konsultaciy"
+     }
+    ],
+    "tool_use_id": "srvtoolu_012AUQCQ8kjCqMZjrbpenycy",
+    "type": "web_search_tool_result"
+   },
+   {
+    "caller": {
+     "type": "direct"
+    },
+    "content": [
+     {
+      "page_age": "284 days ago",
+      "title": "Why does ChatGPT get my business information wrong?",
+      "type": "web_search_result",
+      "url": "https://www.senso.ai/prompts-content/why-does-chatgpt-get-my-business-information-wrong"
+     },
+     {
+      "page_age": "88 days ago",
+      "title": "ChatGPT Says Wrong Things About My Business: How to Fix It",
+      "type": "web_search_result",
+      "url": "https://searchscore.io/guides/fix-wrong-ai-information/"
+     },
+     {
+      "page_age": "56 days ago",
+      "title": "Why Does ChatGPT Give Wrong Info About Your Business?",
+      "type": "web_search_result",
+      "url": "https://www.theanswerengine.ai/blog/why-does-chatgpt-give-wrong-info-about-your-business"
+     },
+     {
+      "page_age": "200 days ago",
+      "title": "Fix Incorrect AI Overview of Your Business - Expert Q&A",
+      "type": "web_search_result",
+      "url": "https://www.justanswer.com/consumer-protection-law/ute44-incorrect-ai-company-review-misidentification.html"
+     },
+     {
+      "page_age": "24 days ago",
+      "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is ...",
+      "type": "web_search_result",
+      "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business"
+     },
+     {
+      "page_age": "58 days ago",
+      "title": "ChatGPT says wrong things about your business: how to fix it in ...",
+      "type": "web_search_result",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     },
+     {
+      "page_age": "90 days ago",
+      "title": "How to Fix What ChatGPT Says About Your Business",
+      "type": "web_search_result",
+      "url": "https://loudmink.ai/blog/how-to-fix-what-chatgpt-says-about-your-business"
+     },
+     {
+      "page_age": "83 days ago",
+      "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and ...",
+      "type": "web_search_result",
+      "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business/"
+     },
+     {
+      "page_age": "50 days ago",
+      "title": "ChatGPT Is Giving Customers Wrong Information About Your Business.",
+      "type": "web_search_result",
+      "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html"
+     }
+    ],
+    "tool_use_id": "srvtoolu_01Js4jfTfBaXAaMrV3fe8k3p",
+    "type": "web_search_tool_result"
+   },
+   {
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "citations": null,
+    "text": "Да, в США активно развивается целая индустрия услуг по исправлению неверной информации о компаниях в ответах ИИ-систем (ChatGPT, Perplexity, Google AI Overviews и т.д.). Это направление называется **GEO (Generative Engine Optimization)** или **AEO (Answer Engine Optimization)** — по аналогии с SEO, но для нейросетей.\n\n## Важный нюанс: прямого «редактирования» ответов ИИ не существует\n\nКлючевой момент, который подчёркивают практически все специализированные сервисы: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "**You cannot edit an AI answer directly, and there is no support line for it.** You fix the answer by fixing what the AI reads. ",
+      "title": "ChatGPT Is Giving Customers Wrong Information About Your Business.",
+      "type": "web_search_result_location",
+      "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html"
+     }
+    ],
+    "text": "вы не можете напрямую отредактировать ответ ИИ, и для этого нет службы поддержки — вы исправляете ответ, исправляя то, что читает ИИ",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Аналогично отмечается, что ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## Why ChatGPT and Perplexity Give Different Wrong Answers About the Same Business\n| Factor | How ChatGPT Sources Business Info | How Perplexity Sourc...",
+      "title": "Why Does ChatGPT Give Wrong Info About Your Business?",
+      "type": "web_search_result_location",
+      "url": "https://www.theanswerengine.ai/blog/why-does-chatgpt-give-wrong-info-about-your-business"
+     }
+    ],
+    "text": "не существует формы, которую можно подать в ChatGPT или Perplexity, чтобы исправить информацию о вашей компании",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Как работают такие услуги (методология)\n\nКомпании, предлагающие подобные услуги, обычно выстраивают процесс так:\n\n1. **Диагностика** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Run a structured audit: ask ChatGPT, Perplexity, Gemini, Copilot, and Google AI Overviews the same 15 to 20 questions a real prospect would ask, repea...",
+      "title": "ChatGPT says wrong things about your business: how to fix it in ...",
+      "type": "web_search_result_location",
+      "url": "https://subscribepr.com/blog/how-to-fix-wrong-ai-information/"
+     }
+    ],
+    "text": "запускается структурированный аудит: одни и те же 15-20 вопросов задаются ChatGPT, Perplexity, Gemini, Copilot и Google AI Overviews несколько раз, с логированием ответов и источников",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n2. **Поиск первоисточника ошибки** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "An AI engine confidently telling prospects the wrong price, a discontinued product line, or facts that belong to a similarly named company is a real c...",
+      "title": "ChatGPT Says Wrong Things About My Business: How to Fix It",
+      "type": "web_search_result_location",
+      "url": "https://searchscore.io/guides/fix-wrong-ai-information/"
+     }
+    ],
+    "text": "если ошибка возникла из-за «живого» поиска в интернете (а не из обучающих данных модели), это «хороший» тип ошибки: достаточно исправить или вытеснить исходную страницу, и ответ может измениться в течение дней или недель",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n3. **Исправление источников-первоисточников**, в таком порядке приоритета:\n   - ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "The fix is to find exactly what ChatGPT, Perplexity and Google AI say about you, then correct the sources in order of trust: your own website, your Go...",
+      "title": "ChatGPT Is Describing Your Business Wrong: How to Find Out and ...",
+      "type": "web_search_result_location",
+      "url": "https://www.qbizleadsai.com/blog/fix-what-ai-says-about-your-business/"
+     }
+    ],
+    "text": "собственный сайт компании, затем профиль Google Business, затем сторонние страницы, которые цитирует ИИ",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n   - ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Fix your structured data\nSchema markup is the machine-readable version of your identity, and it is what engines use to tell you apart from similarly n...",
+      "title": "ChatGPT Says Wrong Things About My Business: How to Fix It",
+      "type": "web_search_result_location",
+      "url": "https://searchscore.io/guides/fix-wrong-ai-information/"
+     }
+    ],
+    "text": "правка структурированных данных (schema markup) — машиночитаемой версии идентичности компании, чтобы движки отличали её от похожих названий",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n   - ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Fix the aggregator layer first\n\nSubmit updates to Localeze, Data Axle, and Foursquare before touching individual directories.\n\n",
+      "title": "Why Does ChatGPT Give Wrong Info About Your Business?",
+      "type": "web_search_result_location",
+      "url": "https://www.theanswerengine.ai/blog/why-does-chatgpt-give-wrong-info-about-your-business"
+     }
+    ],
+    "text": "обновление данных в агрегаторах вроде Localeze, Data Axle и Foursquare ещё до правки отдельных справочников",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": "\n\n4. **Использование встроенных механизмов обратной связи** — ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "## Step 5: Use OpenAI's Feedback Mechanism\n**What to do:** Flag every incorrect response you find using the feedback button. Include the correct infor...",
+      "title": "How to Fix What ChatGPT Says About Your Business",
+      "type": "web_search_result_location",
+      "url": "https://loudmink.ai/blog/how-to-fix-what-chatgpt-says-about-your-business"
+     }
+    ],
+    "text": "отмечать каждый некорректный ответ через кнопку обратной связи, указывая верную информацию со ссылками на источники, причём делать это для каждой ИИ-системы, предлагающей такую функцию",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". Однако этот канал не основной: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "There are feedback mechanisms in most assistants, typically a thumbs-down or report option on an answer, and they are worth using for serious errors. ...",
+      "title": "ChatGPT Is Saying Something Wrong About Your Business. Here Is ...",
+      "type": "web_search_result_location",
+      "url": "https://catchyclouds.co/journal/fix-wrong-ai-information-about-your-business"
+     }
+    ],
+    "text": "кнопки обратной связи есть почти во всех ассистентах, и для серьёзных ошибок их стоит использовать, но это не надёжный канал исправления для бизнес-информации — скорее дополнение",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n5. **Постоянный мониторинг** — проверки нужно повторять регулярно, так как ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "И мониторить ответы нужно будет постоянно, потому что в зависимости от запроса, новой информации в сети, ИИ выдает разные ответы.\n\n",
+      "title": "Как ошибки AI-ответов портят репутацию ...",
+      "type": "web_search_result_location",
+      "url": "https://1ps.ru/blog/serm/2026/skeletyi-v-shkafu-bolshe-ne-spryatat-kak-oshibki-v-ai-otvetax-portyat-reputacziyu-kompanii/"
+     }
+    ],
+    "text": "ответы ИИ меняются в зависимости от запроса и появления новой информации в сети",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ".\n\n## Кто предоставляет такие услуги\n\nНа рынке уже есть специализированные агентства и платформы (например, упомянутые в поиске **The Answer Engine**, **Catchy Clouds**, **SubscribePR**, **QBiz Leads AI**, **Loudmink**, **Searchscore**, **Senso.ai** и другие), которые позиционируют себя как эксперты по **AEO/GEO** — они проводят аудит упоминаний бренда в ИИ-системах, правят контент на сайте и в директориях, работают с Wikidata и графами знаний, а также отслеживают динамику изменений ответов.\n\n## Важное предостережение\n\nОдин из источников прямо указывает: ",
+    "type": "text"
+   },
+   {
+    "citations": [
+     {
+      "cited_text": "Owners who asked Google to delete a wrong AI description of their business were directed back to fixing their business information. The durable fix is...",
+      "title": "ChatGPT Is Giving Customers Wrong Information About Your Business.",
+      "type": "web_search_result_location",
+      "url": "https://nexum-sol.com/blog/chatgpt-wrong-information-about-my-business.html"
+     }
+    ],
+    "text": "владельцы бизнеса, которые просили Google удалить неверное ИИ-описание их компании, получали ответ с рекомендацией исправить саму бизнес-информацию — устойчивое решение заключается именно в изменении того, что «читают» движки",
+    "type": "text"
+   },
+   {
+    "citations": null,
+    "text": ". То есть «быстрой кнопки удаления» не существует — только системная работа с источниками.\n\n**Итог:** формальной «службы поддержки» при ChatGPT или подобных системах, куда можно подать официальную жалобу и получить гарантированное исправление, не существует. Но есть целая экосистема коммерческих услуг (GEO/AEO-агентства), которые помогают бизнесу системно скорректировать первоисточники данных, чтобы нейросети со временем выдавали верную информацию.",
+    "type": "text"
+   }
+  ]
+ }
+}
