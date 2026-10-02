@@ -18,6 +18,9 @@ STRANICY = ["/", "/vera/", "/vera/ru/", "/vera/paid/", "/vera/ru/paid/", "/vera/
             "/diagnostic/paid/", "/diagnostic/ru/paid/",
             "/zvonki/poka-rabotayu/", "/zvonki/ne-teryat/", "/zvonki/vecher-i-vyhodnye/",
             "/zvonki/skolko-teryayu/", "/zvonki/po-russki/", "/zvonki/chelovek-ili-robot/",
+            "/vidimost/chatgpt-nazyval/", "/vidimost/neyroset-sovetuet/", "/vidimost/proverka-otvetov/",
+            "/vidimost/neverye-dannye/", "/vidimost/cena/", "/vidimost/sayt-zakryt-ot-robotov/",
+            "/kejs/yulia-remote-cfo/",
             "/terms", "/privacy", "/nda", "/sms", "/contacts",
             # 29.09: /en/ (английская главная), старые /business/ /expert/ и страницы SMS-согласия —
             # раньше их гоняли копией скрипта из временной папки.

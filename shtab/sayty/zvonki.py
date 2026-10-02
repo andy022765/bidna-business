@@ -68,6 +68,10 @@ def stroka(s):
     # Ссылки. Все внешние: rel="noopener" обязателен, этого прямо требовал ШТАБ.
     s = re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)',
                r'<a href="\2" target="_blank" rel="noopener">\1</a>', s)
+    # Внутренние ссылки «[текст](/путь/)» — свои страницы сайта, без target и rel (01.10: на новых
+    # страницах /vidimost/ они остались сырым markdown, потому что ловились только https://).
+    s = re.sub(r'\[([^\]]+)\]\((/[^)\s]*)\)', r'<a href="\2">\1</a>', s)
+    s = re.sub(r'`([^`\n]+)`', r'<code>\1</code>', s)
     s = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', s)
     s = re.sub(r'(?<![\w*])\*([^*\n]+)\*(?![\w*])', r'<em>\1</em>', s)
     return s
@@ -139,6 +143,15 @@ def v_html(md):
                 out.append(tablica(blok))
             continue
 
+        if goly.startswith("> "):
+            # Цитата (кейс /kejs/): подряд идущие «> …» — один блок, текст как есть.
+            kusok = []
+            while i < len(lines) and lines[i].strip().startswith("> "):
+                kusok.append(lines[i].strip()[2:].strip())
+                i += 1
+            out.append("<blockquote><p>%s</p></blockquote>" % stroka(" ".join(kusok)))
+            continue
+
         if re.match(r"^[-*] ", goly):
             punkty = []
             while i < len(lines) and re.match(r"^[-*] ", lines[i].strip()):
@@ -167,7 +180,7 @@ def v_html(md):
         # абзац: слепляем подряд идущие строки
         kusok = []
         while i < len(lines) and lines[i].strip() and not re.match(
-                r"^(#{1,6} |\||[-*] |\d+\. |-{3,}$)", lines[i].strip()):
+                r"^(#{1,6} |\||> |[-*] |\d+\. |-{3,}$)", lines[i].strip()):
             kusok.append(lines[i].strip())
             i += 1
         tekst = " ".join(kusok)

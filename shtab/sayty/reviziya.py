@@ -406,6 +406,78 @@ for u in ZVONKI:
         beda(u, "64% — наша арифметика вместо «36% просят»")
 print("  страниц /zvonki/ проверено: %d" % len(ZVONKI))
 
+# ─────────────────────────────────────────────── шесть страниц /vidimost/ и кейс /kejs/ (с 01.10)
+# Страницы для нейросетей: проверяем не только «открывается», но и что их можно найти,
+# что цены не разъехались с источником правды и что цитаты Юли дословные.
+golo("СТРАНИЦЫ /vidimost/ И /kejs/")
+VIDIMOST = ["/vidimost/chatgpt-nazyval/", "/vidimost/neyroset-sovetuet/", "/vidimost/proverka-otvetov/",
+            "/vidimost/neverye-dannye/", "/vidimost/cena/", "/vidimost/sayt-zakryt-ot-robotov/"]
+KEJS = "/kejs/yulia-remote-cfo/"
+CITATY_YULI = [
+    "Честно говоря, сначала я думала, что это будет очередной красивый документ, который в итоге просто останется лежать в столе.",
+    "Вместо общего предложения бухгалтерских и CFO-услуг у меня появилось чёткое направление — финансовая реконструкция, контролёрская дисциплина, CFO-поддержка принятия решений и практический опыт владельца бизнеса.",
+    "Я рекомендую эту команду экспертам и владельцам бизнеса, у которых есть сильный опыт и реальная ценность, но которые пока не могут превратить их в ясное, убедительное и отличающееся от конкурентов позиционирование.",
+]
+# Суммы, которые вправе стоять на этих страницах: квартал, диагностика, чужие цены со страницы видимости.
+DOLLARY_OK = {"$29", "$99", "$190", "$400", "$450", "$500", "$600", "$1 500", "$3 500", "$4 540", "$29–99"}
+_, sitemap_v = vzyat("/sitemap.xml")
+_, llms_v = vzyat("/llms.txt")
+_, vis_ru = vzyat("/visibility/ru/")
+for u in VIDIMOST + [KEJS]:
+    k, tt = vzyat(u)
+    if k != 200:
+        beda(u, "отдаёт %s" % k); continue
+    if "noindex" in tt.lower():
+        beda(u, "стоит noindex — нейросети её не найдут")
+    if DOM == "https://businessinteldna.com" and u not in sitemap_v:
+        beda(u, "нет в sitemap.xml")
+    if u not in llms_v:
+        beda(u, "нет в llms.txt")
+    if u not in vis_ru:
+        beda(u, "нет ссылки с /visibility/ru/")
+    if '<link rel="canonical" href="https://businessinteldna.com%s">' % u not in tt:
+        beda(u, "canonical не на себя")
+    if "<!--" in tt or "ЧЕРНОВИК" in tt or "СТРАНИЦЫ (02.10" in tt:
+        beda(u, "в коде остались служебные пометки черновика")
+    ld = re.findall(r'<script type="application/ld\+json">(.*?)</script>', tt, re.S)
+    try:
+        tipy = {n.get("@type") for n in json.loads(ld[0])["@graph"]} if ld else set()
+    except Exception:
+        tipy = set()
+    tx = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", tt, flags=re.S)))
+    tx = tx.replace("\xa0", " ").replace("&nbsp;", " ")
+    if not {"Organization", "WebPage"} <= tipy:
+        beda(u, "в разметке нет Organization/WebPage")
+    if re.search(r"\]\(|`", tx):
+        beda(u, "в видимом тексте остался сырой markdown ([текст](адрес) или `код`)")
+    if re.search(r"\$\d{1,2} \d{3}(?!\d)", re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", tt, flags=re.S).replace("&nbsp;", "")) and \
+       re.search(r"\$\d{1,2} \d{3}(?!\d)", re.sub(r"<[^>]+>", "", re.sub(r"<(script|style)[^>]*>.*?</\1>|<meta[^>]*>", " ", tt, flags=re.S))):
+        beda(u, "цена с обычным пробелом («$1 500») — может разорваться по строкам")
+    if "FAQPage" in tipy and not re.search(r"Вопросы", tx):
+        beda(u, "FAQPage без видимого раздела вопросов")
+    if u in VIDIMOST:
+        if "Service" not in tipy:
+            beda(u, "в разметке нет Service")
+        if "/visibility/ru/" not in tt:
+            beda(u, "нет ссылки на /visibility/ru/")
+        for d in set(re.findall(r"\$\d[\d ]*(?:–\d+)?", tx)):
+            d = d.strip()
+            if d not in DOLLARY_OK:
+                beda(u, "сумма «%s» вне списка из источника правды" % d)
+        for pr in re.split(r"(?<=[.!?]) ", tx):
+            if re.search(r"возвращаем|вернём", pr) and "устойчиво" not in pr and "Ноль упоминаний" not in pr \
+                    and "не называли" not in pr:
+                beda(u, "условие возврата без слова «устойчиво»: «%s…»" % pr[:70])
+    else:
+        if not {"Article", "Review"} <= tipy:
+            beda(u, "в разметке нет Article/Review")
+        for c in CITATY_YULI:
+            if c not in tx:
+                beda(u, "цитата Юли не дословная или пропала: «%s…»" % c[:40])
+        if re.search(r"174\s?000|\$174", tx):
+            beda(u, "число из закрытых цифр Юли")
+print("  страниц /vidimost/ и /kejs/ проверено: %d" % (len(VIDIMOST) + 1))
+
 
 # ─────────────────────────────────────────────── формы принимаются
 # 25.09 Андрей нажал «Открыть звонок» в предпросмотре и получил 404. Причина: на сайте, где приём форм

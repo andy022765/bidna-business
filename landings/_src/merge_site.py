@@ -20,6 +20,7 @@ OUT  = sys.argv[1]
 # чтобы карта сайта и llms.txt не разъехались с тем, что реально собралось.
 sys.path.insert(0, os.path.join(ROOT, "shtab", "sayty"))
 import zvonki
+import vidimost  # семь страниц /vidimost/ и /kejs/ (01.10)
 
 MARK = inline("mark/dna-mark-compact-reverse.svg")
 
@@ -291,7 +292,7 @@ def sitemap():
                  f'<xhtml:link rel="alternate" hreflang="ru" href="https://businessinteldna.com/{pr}/ru/"/>'
                  f'<xhtml:link rel="alternate" hreflang="en" href="https://businessinteldna.com/{pr}/"/>'
                  f'</url>\n')
-    for u, _t in zvonki.spisok():
+    for u, _t in zvonki.spisok() + vidimost.spisok():
         alts += (f'  <url><loc>https://businessinteldna.com{u}</loc>'
                  f'<lastmod>{day}</lastmod></url>\n')
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -374,6 +375,19 @@ Russian-language pages, one question each, with prices and named alternatives.
 - [Кто ответит на звонки по-русски, пока вы один](https://businessinteldna.com/zvonki/po-russki/)
 - [Нанять человека на телефон или поставить голосового робота](https://businessinteldna.com/zvonki/chelovek-ili-robot/)
 
+## Видимость в нейросетях: разобранные вопросы и кейс / AI visibility: answered questions and a case
+
+Страницы на русском: шесть вопросов про видимость компании в ответах нейросетей и один кейс.
+Russian-language pages: six questions on company visibility in AI answers, and one case study.
+
+- [Кто в США сделает так, чтобы ChatGPT называл вашу компанию](https://businessinteldna.com/vidimost/chatgpt-nazyval/)
+- [Как сделать, чтобы нейросеть советовала вашу компанию](https://businessinteldna.com/vidimost/neyroset-sovetuet/)
+- [Кто проверит, что нейросети говорят о вашей компании](https://businessinteldna.com/vidimost/proverka-otvetov/)
+- [Есть ли услуга исправить неверные данные о вашей компании в ответах нейросетей](https://businessinteldna.com/vidimost/neverye-dannye/)
+- [Продвижение в AI-поиске для малого бизнеса: кто делает и сколько стоит](https://businessinteldna.com/vidimost/cena/)
+- [Сайт закрыт для роботов ИИ: кто проверит и откроет](https://businessinteldna.com/vidimost/sayt-zakryt-ot-robotov/)
+- [Кейс: как эксперту с 15-летним опытом помогли стать понятной рынку](https://businessinteldna.com/kejs/yulia-remote-cfo/)
+
 ## Чего мы не обещаем / What we do not promise
 
 Конкретных цифр и сроков результата. Отвечаем за метод, скорость и глубину, а не
@@ -427,9 +441,9 @@ if __name__ == "__main__":
     # Число держим руками намеренно: добавилась страница — сборка падает и заставляет
     # это заметить. Сработало 23.09: лист правды к приёмке уронил сборку, как и задумано.
     # 32 = три продукта по шесть страниц + диагностика на четыре + лист правды на двух языках
-    # + шесть страниц /zvonki/ (25.09).
-    if stranic != 32:
-        raise SystemExit("  ! ждали 32 страницы лендингов, в сборке %d — проверь sborka.py" % stranic)
+    # + шесть страниц /zvonki/ (25.09) + шесть /vidimost/ и кейс /kejs/ (01.10) = 39.
+    if stranic != 39:
+        raise SystemExit("  ! ждали 39 страниц лендингов, в сборке %d — проверь sborka.py" % stranic)
     print("  ✓ /visibility /call-audit /vera /diagnostic — %d страниц, %d файлов" % (stranic, fayly))
 
     # ── подарочная анкета к кварталу видимости (24.09.2026) ─────────────────

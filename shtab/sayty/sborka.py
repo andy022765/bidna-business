@@ -22,6 +22,7 @@ import io, os, re, shutil, sys
 
 import vid   # общий вид лендингов, правки Андрея 24.09 — см. shtab/sayty/vid.py
 import zvonki  # шесть страниц-ответов /zvonki/ — см. shtab/sayty/zvonki.py
+import vidimost  # шесть страниц «Видимости» и кейс — см. shtab/sayty/vidimost.py
 
 DOMAIN = "https://businessinteldna.com"
 KORENJ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -369,6 +370,30 @@ def ssylki_na_zvonki(s):
             "\n  .zvonki li{margin-bottom:11px;max-width:none}"
             "\n  .zvonki a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--rule)}"
             "\n  .zvonki a:hover{border-bottom-color:var(--gold)}\n")
+    s = s.replace("</style>", stil + "</style>", 1)
+    return s.replace(yakor, blok + yakor, 1)
+
+
+def ssylki_na_vidimost(s):
+    """Блок ссылок на шесть страниц /vidimost/ и кейс /kejs/ — только на РУССКОЙ странице видимости.
+
+    Ставится ПЕРЕД секцией «Честные вопросы» (id="voprosy"): светлые секции общего вида
+    выбраны номерами (vid.SVETLYE = 3, 6, 9, 11), а вставка после них номера не сдвигает.
+    Английской пары у этих страниц нет, поэтому на английской версии блока нет."""
+    yakor = '<section id="voprosy">'
+    if s.count(yakor) != 1:
+        raise SystemExit("  ! страница видимости изменилась — некуда ставить ссылки на /vidimost/")
+    punkty = "".join('<li><a href="%s">%s</a></li>' % (u, t) for u, t in vidimost.spisok())
+    blok = ('<section><div class="w"><div class="narrow">\n'
+            '  <p class="eyebrow">Разобрано отдельно</p>\n'
+            '  <h2>Шесть вопросов про видимость в нейросетях и один кейс.</h2>\n'
+            '  <p>Каждый вопрос разобран целиком: что делается, кому подходит и кому нет.</p>\n'
+            '  <ul class="razobrano">%s</ul>\n'
+            '</div></div></section>\n\n' % punkty)
+    stil = ("\n  .razobrano{list-style:none;padding:0;margin:18px 0 0}"
+            "\n  .razobrano li{margin-bottom:11px;max-width:none}"
+            "\n  .razobrano a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--rule)}"
+            "\n  .razobrano a:hover{border-bottom-color:var(--gold)}\n")
     s = s.replace("</style>", stil + "</style>", 1)
     return s.replace(yakor, blok + yakor, 1)
 
@@ -1034,6 +1059,9 @@ def main():
         if slug == "vera":
             ru = ssylki_na_zvonki(ru)
             pre_ru = ssylki_na_zvonki(pre_ru)
+        if slug == "visibility":
+            ru = ssylki_na_vidimost(ru)
+            pre_ru = ssylki_na_vidimost(pre_ru)
 
         if slug == "visibility":
             en, ru = stroka_soprovozhdeniya(en, False), stroka_soprovozhdeniya(ru, True)
@@ -1207,6 +1235,16 @@ def main():
     gotovo = zvonki.sobrat(stil_very, out_dir,
                            os.path.join(KORENJ, "Pivot", "agenty", "smotritel", "stranicy"))
     print("  ок zvonki      → %s" % " · ".join(u for u, _t in gotovo))
+
+    # Шесть страниц /vidimost/ и кейс /kejs/. Стиль — у русской страницы видимости.
+    stil_vid = re.search(r"<style>(.*?)</style>",
+                         io.open(os.path.join(ISTOCHNIKI, "visibility-ru.html"), encoding="utf-8").read(),
+                         re.S).group(1)
+    if "visibility" in vid.PRIMENYAT:
+        stil_vid += vid.VID
+    gotovo = vidimost.sobrat(stil_vid, out_dir,
+                             os.path.join(KORENJ, "Pivot", "agenty", "smotritel", "stranicy"))
+    print("  ок vidimost    → %s" % " · ".join(u for u, _t in gotovo))
 
     print("\n" + ("СОБРАНО: %s" % out_dir if ok else "ЕСТЬ РАСХОЖДЕНИЯ — НЕ ВЫКЛАДЫВАТЬ"))
     return 0 if ok else 1

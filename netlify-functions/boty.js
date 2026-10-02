@@ -48,7 +48,7 @@ const JSONH = { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Contro
 // Путь приводим к известному виду. Чужое — в «другое», чтобы одна кривая ссылка
 // не наплодила тысячу ключей.
 const NASHI = ['/', '/en', '/en/', '/llms.txt', '/sitemap.xml'];   // /en/ — английская главная с 29.09
-const PAPKI = ['/visibility/', '/call-audit/', '/vera/', '/diagnostic/', '/business/', '/expert/', '/zvonki/'];
+const PAPKI = ['/visibility/', '/call-audit/', '/vera/', '/diagnostic/', '/business/', '/expert/', '/zvonki/', '/vidimost/', '/kejs/'];
 function put_normalno(p) {
   const s = String(p || '/').split('?')[0].slice(0, 120);
   if (NASHI.includes(s)) return s;
